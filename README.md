@@ -12,9 +12,9 @@ Add the following to your `composer.json` file:
 
 ```json
 {
-  "require": [
+  "require": {
     "facebook/facebook-php-ads-sdk": "*"
-  ]
+  }
 }
 ```
 then install through composer:
