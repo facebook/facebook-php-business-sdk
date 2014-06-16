@@ -1,0 +1,16 @@
+<phpunit bootstrap="Bootstrap.php" colors="true">
+    <testsuites>
+        <testsuite name="Facebook AdsAPI PHP SDK">
+            <directory>./FacebookAdsTest</directory>
+        </testsuite>
+    </testsuites>
+    <logging>
+        <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
+        <log type="coverage-html" target="report/" charset="UTF-8" highlight="false" lowUpperBound="60" highLowerBound="99"/>
+    </logging>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">../src</directory>
+        </whitelist>
+    </filter>
+</phpunit>

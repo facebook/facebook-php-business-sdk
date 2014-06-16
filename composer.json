@@ -1,0 +1,14 @@
+{
+    "require" : {
+        "facebook/php-sdk-v4" : "*",
+        "psr/log": "1.*"
+    },
+    "require-dev" : {
+        "phpunit/phpunit": ">=4.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "FacebookAds\\": "src/FacebookAds/"
+        }
+    }
+}
