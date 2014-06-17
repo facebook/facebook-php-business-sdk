@@ -13,7 +13,7 @@ Add the following to your `composer.json` file:
 ```json
 {
   "require": {
-    "facebook/facebook-php-ads-sdk": "*"
+    "facebook/php-ads-sdk": "*"
   }
 }
 ```

@@ -1,6 +1,16 @@
 {
+    "name": "facebook/php-ads-sdk",
+    "description": "PHP SDK for Facebook ads",
+    "type": "library",
+    "license": "Facebook Platform",
+    "keywords": [
+      "facebook",
+      "ads",
+      "sdk"
+    ],
+    "homepage": "https://developers.facebook.com/",
     "require" : {
-        "facebook/php-sdk-v4" : "*",
+        "facebook/php-sdk-v4" : "4.0.*",
         "psr/log": "1.*"
     },
     "require-dev" : {
