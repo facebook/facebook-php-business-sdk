@@ -84,7 +84,7 @@ $account = new AdAccount($account_id);
 $account->read();
 ```
 
-For some objects, the Ads API doesn't return all available fields by default. The first argument of objects read method accept an array of field names to be requested.
+For some objects, the Ads API doesn't return all available fields by default. The first argument of the object's read method is an array of field names to be requested.
 
 ```php
 use FacebookAds\Object\AdAccount;
@@ -125,7 +125,6 @@ echo $set->id;
 
 #### Update Objects
 
-
 ```php
 use FacebookAds\Object\AdSet;
 use FacebookAds\Object\Fields\AdSetFields;
@@ -138,7 +137,6 @@ $set->update();
 ```
 
 #### Delete Objects
-
 
 ```php
 use FacebookAds\Object\AdSet;
@@ -169,7 +167,7 @@ php composer.phar install
 cp test/config.php.dist test/config.php
 ```
 
-2 - Edit `test/config.php` with your informations.
+2 - Edit `test/config.php` with your information.
 
 
 ### Run tests
