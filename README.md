@@ -12,12 +12,12 @@ Add the following to your `composer.json` file:
 
 ```json
 {
-  "require": {
-    "facebook/php-ads-sdk": "*"
-  }
+    "require": {
+        "facebook/php-ads-sdk": "*"
+    }
 }
 ```
-then install through composer:
+then install it through composer:
 
 ```shell
 php composer.phar install --no-dev
@@ -27,7 +27,7 @@ This SDK and its dependencies will be installed under `./vendor`.
 
 ### Alternatives
 
-This repository is written following the [psr-0 autoloading standard](http://www.php-fig.org/psr/psr-0/). Any psr-0 compatible autoloader can be used.
+This repository is written following the [psr-4 autoloading standard](http://www.php-fig.org/psr/psr-4/). Any psr-4 compatible autoloader can be used.
 
 ## Usage
 
@@ -44,13 +44,13 @@ $session = new FacebookSession($access_token);
 $api = new Api($session);
 ```
 
-Once instanciated, the Api object will allow you to start making requests to the Ads API.
+Once instantiated, the Api object will allow you to start making requests to the Ads API.
 
 ### Fields names
 
-Due to the high number of fields name in the Ads API existing objects, in order to facilitate your code maintainability, enum-like classes are provided.
+Due to the high number of field names in the Ads API existing objects, in order to facilitate your code maintainability, enum-like classes are provided.
 These files are stored under the `FacebookAds/Object/Fields` directory.
-You can access object properties how you will usually do in php:
+You can access object properties in the same manner you would usually do in php:
 
 ```php
 use FacebookAds\Object\AdAccount;
@@ -84,7 +84,7 @@ $account = new AdAccount($account_id);
 $account->read();
 ```
 
-For some objects, the Ads API doesn't return all available fields by default. The first argument of objects read method accept an array of field names to be requested.
+For some objects, the Ads API doesn't return all available fields by default. The first argument of the object's read method is an array of field names to be requested.
 
 ```php
 use FacebookAds\Object\AdAccount;
@@ -125,7 +125,6 @@ echo $set->id;
 
 #### Update Objects
 
-
 ```php
 use FacebookAds\Object\AdSet;
 use FacebookAds\Object\Fields\AdSetFields;
@@ -138,7 +137,6 @@ $set->update();
 ```
 
 #### Delete Objects
-
 
 ```php
 use FacebookAds\Object\AdSet;
@@ -169,7 +167,7 @@ php composer.phar install
 cp test/config.php.dist test/config.php
 ```
 
-2 - Edit `test/config.php` with your informations.
+2 - Edit `test/config.php` with your information.
 
 
 ### Run tests
