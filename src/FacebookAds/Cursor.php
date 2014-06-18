@@ -27,7 +27,7 @@ namespace FacebookAds;
 use Facebook\FacebookResponse;
 use FacebookAds\Object\AbstractObject;
 
-class Cursor implements \Iterator, \Countable {
+class Cursor implements \Iterator, \Countable, \arrayaccess {
 
   /**
    * @var AbstractObject[]
@@ -145,4 +145,38 @@ class Cursor implements \Iterator, \Countable {
   public function count() {
     return count($this->objects);
   }
+
+  /**
+   * @var mixed $offset
+   * @var mixed $value
+   */
+  public function offsetSet($offset, $value) {
+    if (is_null($offset)) {
+      $this->objects[] = $value;
+    } else {
+      $this->objects[$offset] = $value;
+    }
+  }
+
+  /**
+   * @var mixed $offset
+   */
+  public function offsetExists($offset) {
+    return isset($this->objects[$offset]);
+  }
+
+  /**
+   * @var mixed $offset
+   */
+  public function offsetUnset($offset) {
+    unset($this->objects[$offset]);
+  }
+
+  /**
+   * @var mixed $offset
+   */
+  public function offsetGet($offset) {
+    return isset($this->objects[$offset]) ? $this->objects[$offset] : null;
+  }
+
 }

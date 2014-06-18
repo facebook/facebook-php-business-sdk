@@ -121,4 +121,30 @@ class CursorTest extends AbstractTestCase {
     $this->assertTrue($cursor instanceof \Countable);
     $this->assertEquals($cursor->count(), $count);
   }
+
+  public function testArrayAccess() {
+    $objects = array();
+    $account = new AdAccount();
+    $count = rand(0, 100);
+    for ($i = 0; $i < $count; $i++) {
+      $objects[] = clone $account;
+    }
+
+    $cursor = new Cursor($objects, $this->response);
+
+    $this->assertTrue($cursor instanceof \arrayaccess);
+    $account = $cursor[0];
+
+    // Checking offsetGet
+    $this->assertEquals($cursor[0], $objects[0]);
+    // Checking offsetExists
+    $this->assertFalse(isset($cursor[count($cursor)]));
+    // Checking offsetUnset
+    unset($cursor[0]);
+    $this->assertNotEquals($cursor[0], $objects[0]);
+    // Checking offsetSet
+    $cursor[0] = $objects[0];
+    $this->assertEquals($cursor[0], $objects[0]);
+
+  }
 }
