@@ -6,7 +6,7 @@ This guide assumes you have an app that has been whitelisted for the Facebook Ad
 
 We also assume you are somewhat familiar with namespaces in PHP. If not, we recommend you take some time to read the [namespace basics](http://www.php.net/manual/en/language.namespaces.basics.php) in the PHP Manual. 
 
-You should also have the documentation for the [Facebook Marketing APIs](https://developers.facebook.com/docs/ads-api) available as you will need to refer to this to understand which combination of parameters are required for the different object types. 
+You should also have the documentation for the [Facebook Marketing APIs](https://developers.facebook.com/docs/ads-api) available as you will need to refer to this to understand which combination of parameters are required for the different object types.
 
 ## Bootstrapping <a name="bootstrapping"></a>
 The classes within the Facebook Ads SDK are designed to be included using a an autoloader compliant with the [PSR-4](http://www.php-fig.org/psr/psr-4/). If you are using [Composer](https://getcomposer.org/) to include dependencies, you will find an implementation available within the vendor folder. This guide assumes you are using this autoloader.
@@ -151,7 +151,8 @@ $required_fields = array(
 $account_ids = array('act_x', 'act_y'...)
 $adaccounts = AdAccount::readIds($account_ids, $required_fields);
 foreach($adaccounts as $account) {
-	echo $account->id."\n";}
+	echo $account->id."\n";
+}
 ```
 
 ##Creating Objects
@@ -233,7 +234,8 @@ use FacebookAds\Object\AdAccount;
 $account = new AdAccount($id);
 $adgroups = $account->getAdgroup($fields = array('name')));
 foreach($adgroups as $adgroup) {
-  echo $adgroup->name."\n";}
+  echo $adgroup->name."\n";
+}
 ```
 
 You only need the `id` of the object on which you want to call a connection method, therefore you do not need to have read the object from the Graph API first. 
@@ -467,7 +469,8 @@ class AdAccount extends FacebookAds\Object\AdAccount {
     AdAccountFields::NAME,
     AdAccountFields::DAILY_SPEND_LIMIT,
     AdAccountFields::CURRENCY,
-  );}
+  );
+}
 ```
 
 Within your application, whenever you use an `AdAccount`, you should use the one within your namespace instead of the `FacebookAds` one.
