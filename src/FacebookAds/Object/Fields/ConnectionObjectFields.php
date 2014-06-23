@@ -32,6 +32,7 @@ abstract class ConnectionObjectFields {
   const NAME = 'name';
   const NATIVE_APP_STORE_IDS = 'native_app_store_ids';
   const NATIVE_APP_TARGETING_IDS = 'native_app_targeting_ids';
+  const OBJECT_STORE_URLS = 'object_store_urls';
   const OG_NAMESPACE = 'og_namespace';
   const OG_ACTIONS = 'og_actions';
   const OG_OBJECT = 'og_object';

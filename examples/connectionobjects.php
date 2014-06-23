@@ -51,8 +51,9 @@ $account = $accounts[0];
 $connection_objects = $account->getConnectionObjects([
   ConnectionObjectFields::ID,
   ConnectionObjectFields::NAME,
-  ConnectionObjectFields::URL,
+  ConnectionObjectFields::OBJECT_STORE_URLS,
   ConnectionObjectFields::TYPE,
+  ConnectionObjectFields::URL,
 ]);
 
 // Group the connection objects based on type
@@ -71,7 +72,7 @@ foreach ($groups as $type => $type_objects) {
   echo str_repeat('=', strlen($type_name)), "\n";
 
   foreach ($type_objects as $object) {
-    echo ' - ', $object->id, ' - ', $object->name, ' - ', $object->url, "\n";
+    render_object($object);
   }
 }
 
@@ -90,4 +91,20 @@ function get_type_name($type) {
     default:
       return $type;
   }
+}
+
+function render_object($object) {
+  switch ($object->type) {
+    case ConnectionObjectTypes::APPLICATION:
+      echo ' - ', $object->id, ' - ', $object->name, "\n";
+      foreach ($object->object_store_urls as $store_name => $store_url) {
+        echo '   ', $store_name, ': ', $store_url, "\n";
+      }
+      return;
+
+    default:
+      echo ' - ', $object->id, ' - ', $object->name, ' - ', $object->url, "\n";
+      return;
+  }
+
 }
