@@ -73,12 +73,12 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
     /* @var $resp \StdClass */
     $resp = $response->getResponse();
 
-    $this->before = isset($resp->paging->cursor->before)
-      ? $resp->paging->cursor->before
+    $this->before = isset($resp->paging->cursors->before)
+      ? $resp->paging->cursors->before
       : null;
 
-    $this->after = isset($resp->paging->cursor->after)
-      ? $resp->paging->cursor->after
+    $this->after = isset($resp->paging->cursors->after)
+      ? $resp->paging->cursors->after
       : null;
   }
 
