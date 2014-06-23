@@ -119,7 +119,7 @@ When requesting multiple objects from the Graph, responses may be returned in pa
 ##Reading Objects
 
 ###Reading a single object 
-To read an object from the Graph you will need it's `id`. By default, only the `id` field of an object is queried and you should specify when reading an object the fields you need. It is not recommended that you request all fields unless you require them all. 
+To read an object from the Graph you will need its `id`. By default, only the `id` field of an object is queried and you should specify when reading an object the fields you need. It is not recommended that you request all fields unless you require them all. 
 
 ```php
 use FacebookAds\Object\AdAccount;
@@ -227,7 +227,7 @@ On object that extends `AbstractCrudObject` you can call the `save` method which
 
 Objects on the Graph API may also have connections. A connection provides a way to retrieve objects which relate to the current object, for example, you can retrieve all of the AdGroups relative to an AdAccount using the URL `https://graph.facebook.com/act_123123/adgroups`.
 
-For each connection an object has, we provide a helper method to retrieve it's related objects. In the case of `ObjectObject\AdAccount` we provide several of these methods including `getAdgroups($required_fields)` which will return a `Cursor` containing a page of `Object\AdGroup` objects.
+For each connection an object has, we provide a helper method to retrieve its related objects. In the case of `ObjectObject\AdAccount` we provide several of these methods including `getAdgroups($required_fields)` which will return a `Cursor` containing a page of `Object\AdGroup` objects.
 
 ```php
 use FacebookAds\Object\AdAccount;
@@ -370,7 +370,7 @@ echo 'Image Hash: '.$image->hash . "\n";
 
 ### 5. Creating an AdCreative
 
-You can create an `AdCreative` in two ways. The first is by including a JSON object when creating an `AdGroup` and the second, which we will demonstrate here, is by explicitly creation an `AdCreative` and using it's `id` when creating an `AdGroup`.
+You can create an `AdCreative` in two ways. The first is by including a JSON object when creating an `AdGroup` and the second, which we will demonstrate here, is by explicitly creation an `AdCreative` and using its `id` when creating an `AdGroup`.
 
 ```php
 use FacebookAds\Object\AdCreative;
