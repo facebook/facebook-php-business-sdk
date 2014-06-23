@@ -22,23 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
-abstract class ConnectionObjectFields {
+abstract class ConnectionObjectTypes {
 
-  const APP_INSTALLS_TRACKED = 'app_installs_tracked';
-  const ID = 'id';
-  const IS_GAME = 'is_game';
-  const NAME = 'name';
-  const NATIVE_APP_STORE_IDS = 'native_app_store_ids';
-  const NATIVE_APP_TARGETING_IDS = 'native_app_targeting_ids';
-  const OBJECT_STORE_URLS = 'object_store_urls';
-  const OG_NAMESPACE = 'og_namespace';
-  const OG_ACTIONS = 'og_actions';
-  const OG_OBJECT = 'og_object';
-  const PICTURE = 'picture';
-  const SUPPORTED_PLATFORMS = 'supported_platforms';
-  const TABS = 'tabs';
-  const TYPE = 'type';
-  const URL = 'url';
+  const PAGE = 1;
+  const APPLICATION = 2;
+  const EVENT = 3;
+  const PLACE = 6;
+  const DOMAIN = 7;
 }
