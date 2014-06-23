@@ -29,7 +29,7 @@ if(is_null($access_token)) {
   throw new \Exception('You must set your access token before executing');
 }
 
-define('SDK_DIR', '..'); // Path to the SDK directory
+define('SDK_DIR', __DIR__ . '/..'); // Path to the SDK directory
 $loader = include SDK_DIR.'/vendor/autoload.php';
 
 use FacebookAds\Api;
