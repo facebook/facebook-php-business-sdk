@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Targeting;
+namespace FacebookAds\Object\Search;
 
 abstract class DemographicSearchClasses {
 
