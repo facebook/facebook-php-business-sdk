@@ -28,6 +28,7 @@ use Facebook\FacebookRequest;
 use FacebookAds\Api;
 use FacebookAds\Object\CustomAudience;
 use FacebookAds\Object\Fields\CustomAudienceFields;
+use FacebookAds\Object\Values\CustomAudienceTypes;
 
 class CustomAudienceTest extends AbstractCrudObjectTestCase {
 
@@ -36,6 +37,7 @@ class CustomAudienceTest extends AbstractCrudObjectTestCase {
     $ca->{CustomAudienceFields::NAME} = $this->getTestRunId();
 
     $this->assertCanCreate($ca);
+
     $this->assertCanRead($ca);
     $this->assertCanUpdate(
       $ca,
@@ -49,14 +51,11 @@ class CustomAudienceTest extends AbstractCrudObjectTestCase {
     $uid = $me->{'id'};
 
     $has_throw_exception = false;
-    $users = array(
-      array(
-        'id' => $uid,
-      ),
-    );
+    $users = array('id' => $uid,);
     try {
-      $this->assertTrue($ca->addUsers($users));
-      $this->assertTrue($ca->removeUsers($users));
+      $this->assertTrue($ca->addUsers($users, CustomAudienceTypes::ID));
+      $this->assertTrue($ca->removeUsers($users, CustomAudienceTypes::ID));
+      $this->assertTrue($ca->optOutUsers($users, CustomAudienceTypes::ID));
     } catch (\Exception $e) {
       $has_throw_exception = true;
     }

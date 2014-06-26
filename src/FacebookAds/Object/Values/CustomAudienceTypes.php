@@ -22,28 +22,33 @@
  *
  */
 
-namespace FacebookAds;
+namespace FacebookAds\Object\Values;
 
-use Facebook\FacebookCurl;
-use Facebook\HttpClients\FacebookCurlHttpClient;
-
-class HttpClient extends FacebookCurlHttpClient {
+abstract class CustomAudienceTypes {
 
   /**
-   * @param FacebookCurl $curl
+   * @var string
    */
-  public function __construct(FacebookCurl $curl = null) {
-    parent::__construct($curl);
-    $this->requestHeaders['User-Agent'] = 'fb-php-ads-'.Api::VERSION;
-  }
+  const ID = 'id';
 
   /**
-   * @param string $key
-   * @param string $value
+   * @var string
    */
-  public function addRequestHeader($key, $value) {
-    if ($key !== 'User-Agent') {
-      parent::addRequestHeader($key, $value);
-    }
-  }
+  const EMAIL = 'email_hash';
+
+  /**
+   * @var string
+   */
+  const PHONE = 'phone_hash';
+
+  /**
+   * @var string
+   */
+  const CUSTOM_AUDIENCE_THIRD_PARTY_ID  = 'custom_audience_third_party_id';
+
+  /**
+   * @var string
+   */
+  const MOBILE_ADVERTISER_ID = 'mobile_advertiser_id';
+
 }

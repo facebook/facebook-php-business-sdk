@@ -132,6 +132,8 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
 
   public static function setupBeforeClass() {
     parent::setupBeforeClass();
+    FacebookSession::setDefaultApplication(
+      static::$appId, static::$appSecret);
     static::$session = new FacebookSession(static::$accessToken);
     static::$logger = new NullLogger();
   }

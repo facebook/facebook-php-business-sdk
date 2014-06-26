@@ -58,9 +58,9 @@ class CursorTest extends AbstractTestCase {
     $resp = new \StdClass();
     $resp->data = array();
     $resp->paging = new \StdClass();
-    $resp->paging->cursor = new \StdClass();
-    $resp->paging->cursor->after = $this->after;
-    $resp->paging->cursor->before = $this->before;
+    $resp->paging->cursors = new \StdClass();
+    $resp->paging->cursors->after = $this->after;
+    $resp->paging->cursors->before = $this->before;
 
     $this->response = new FacebookResponse(
       $request,

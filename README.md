@@ -40,6 +40,8 @@ To instantiate an Api object you will need a valid access token:
 use FacebookAds\Api;
 use Facebook\FacebookSession;
 
+// Set the default application information to be used with this session
+FacebookSession::setDefaultApplication($app_id, $app_secret);
 $session = new FacebookSession($access_token);
 $api = new Api($session);
 ```

@@ -31,14 +31,19 @@ use FacebookAds\Object\Values\ConnectionObjectTypes;
 
 // Set your access token here:
 $access_token = null;
+$app_id = null;
+$app_secret = null;
 
-if(is_null($access_token)) {
-  throw new \Exception('You must set your access token before executing');
+if(is_null($access_token) || is_null($app_id) || is_null($app_secret)) {
+  throw new \Exception(
+    'You must set your access token, app id and app secret before executing'
+  );
 }
 
 define('SDK_DIR', __DIR__ . '/..'); // Path to the SDK directory
 $loader = include SDK_DIR.'/vendor/autoload.php';
 
+FacebookSession::setDefaultApplication($app_id, $app_secret);
 $session = new FacebookSession($access_token);
 $api = new Api($session);
 

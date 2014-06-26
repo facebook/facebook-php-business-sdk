@@ -10,7 +10,7 @@
     ],
     "homepage": "https://developers.facebook.com/",
     "require" : {
-        "facebook/php-sdk-v4" : "4.0.7",
+        "facebook/php-sdk-v4" : "4.0.8",
         "psr/log": "1.*"
     },
     "require-dev" : {

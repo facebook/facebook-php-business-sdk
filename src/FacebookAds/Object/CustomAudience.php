@@ -26,6 +26,7 @@ namespace FacebookAds\Object;
 
 use FacebookAds\Api;
 use FacebookAds\Object\Fields\CustomAudienceFields;
+use FacebookAds\Object\Values\CustomAudienceTypes;
 
 class CustomAudience extends AbstractCrudObject {
 
@@ -84,28 +85,77 @@ class CustomAudience extends AbstractCrudObject {
    * Add users to the AdCustomAudiences. There is no max on the total number of
    * users that can be added to an audience, but up to 10000 users can be added
    * at a given time.
+   * Hash type should only be used on email and phone
    *
-   * @param array $users Array of user info
+   * @param array $users
+   * @param string $type
+   * @param string $hash_type  the algorithm to use when hasing
    * @return boolean Returns true on success
    */
-  public function addUsers($users) {
+  public function addUsers(array $users, $type, $hash_type = null) {
+    $params = $this->formatParams($users, $type, $hash_type);
     return $this->getApi()->call(
       '/'.$this->assureId().'/users',
       Api::HTTP_METHOD_POST,
-      array('users' => $users))->getResponse();
+      $params)->getResponse();
   }
 
   /**
    * Delete users from AdCustomAudiences
+   * Hash type should only be used on email and phone
    *
-   * @param array $users Array of user info
+   * @param array $users
+   * @param string $type
+   * @param string $hash_type  the algorithm to use when hasing
    * @return boolean Returns true on success
    */
-  public function removeUsers($users) {
+  public function removeUsers(array $users, $type, $hash_type = null) {
+    $params = $this->formatParams($users, $type, $hash_type);
     return $this->getApi()->call(
       '/'.$this->assureId().'/users',
       Api::HTTP_METHOD_DELETE,
-      array('users' => $users))->getResponse();
+      $params)->getResponse();
+  }
+
+  /**
+   * Remove list of users decided to opt-out from all custom audiences
+   * Hash type should only be used on email and phone
+   *
+   * @param array $users
+   * @param string $type
+   * @param string $hash_type  the algorithm to use when hasing
+   * @return boolean Returns true on success
+   */
+  public function optOutUsers(array $users, $type, $hash_type = null) {
+    $params = $this->formatParams($users, $type, $hash_type);
+    return $this->getApi()->call(
+      '/'.$this->assureParentId().'/usersofanyaudience',
+      Api::HTTP_METHOD_DELETE,
+      $params)->getResponse();
+  }
+
+  /**
+   * Take users and format them correctly for the request
+   *
+   * @param array $users
+   * @param string $type
+   * @param string $hash_type  the algorithm to use when hasing
+   */
+  protected function formatParams(array $users, $type, $hash_type = null) {
+    $request = array();
+    if ($type == CustomAudienceTypes::EMAIL
+        || $type == CustomAudienceTypes::PHONE || $hash_type !== null) {
+      $hash_type = is_null($hash_type) ?: self::HASH_TYPE_SHA256;
+      $request['hash_type'] = $hash_type;
+    }
+
+    foreach ($users as $u) {
+      if (!is_null($hash_type)) {
+        $u = hash(self::HASH_TYPE_SHA256, $u);
+      }
+      $request['users'][] = array($type => $u);
+    }
+    return $request;
   }
 
   /**
@@ -134,16 +184,4 @@ class CustomAudience extends AbstractCrudObject {
       array('adaccounts' => $act_ids))->getResponse();
   }
 
-  /**
-   * Remove list of users decided to opt-out from all custom audiences
-   *
-   * @param array $users Array of user info
-   * @return boolean Returns true on success
-   */
-  public function optOutUsers($users) {
-    return $this->getApi()->call(
-      '/'.$this->assureParentId().'/usersofanyaudience',
-      Api::HTTP_METHOD_DELETE,
-      array('users' => $users))->getResponse();
-  }
 }

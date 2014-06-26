@@ -27,6 +27,7 @@ namespace FacebookAds;
 use \Facebook\FacebookSession;
 use \Facebook\FacebookRequest;
 use \Facebook\FacebookResponse;
+use \Facebook\FacebookSDKException;
 use \Psr\Log\LoggerInterface;
 use \Psr\Log\NullLogger;
 
@@ -85,6 +86,16 @@ class Api {
 
     if (static::instance() === null) {
       static::setInstance($this);
+    }
+    try {
+      FacebookSession::_getTargetAppSecret();
+    } catch(FacebookSDKException $f) {
+      // Disable sending app secret proof and warn
+      FacebookSession::enableAppSecretProof(false);
+      trigger_error(
+        'You should set a default app id and secret, see the README.md file '.
+        'for more information.',
+        E_USER_DEPRECATED);
     }
   }
 
