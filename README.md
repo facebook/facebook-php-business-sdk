@@ -4,6 +4,8 @@ This Ads API SDK is built to facilitate application development for [Facebook Ad
 
 ## Installation
 
+The Facebook Ads API SDK requires PHP 5.4 or greater.
+
 ### Composer
 
 Facebook Ads API SDK uses composer to manage dependencies. You can follow this [document](https://getcomposer.org/download/) to install composer.
