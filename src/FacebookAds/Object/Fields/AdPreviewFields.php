@@ -22,19 +22,12 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Fields;
 
-use FacebookAds\Object\Fields\AdPreviewFields;
+abstract class AdPreviewFields {
 
-class AdPreview extends AbstractObject {
-
-  /**
-   * @var string[]
-   **/
-  protected static $fields = array(
-    AdPreviewFields::CREATIVE,
-    AdPreviewFields::POST,
-    AdPreviewFields::AD_FORMAT,
-    AdPreviewFields::BODY,
-  );
+  const CREATIVE = 'creative';
+  const POST = 'post';
+  const AD_FORMAT = 'ad_format';
+  const BODY = 'body';
 }

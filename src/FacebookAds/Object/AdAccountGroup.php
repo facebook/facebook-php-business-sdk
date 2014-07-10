@@ -101,6 +101,6 @@ class AdAccountGroup extends AbstractCrudObject {
   public function getAdAccounts(
     array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(
-      AdAccountGroupUser::className(), $fields, $params, 'adaccounts');
+      AdAccount::className(), $fields, $params);
   }
 }

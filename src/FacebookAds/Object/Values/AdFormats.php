@@ -22,19 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Values;
 
-use FacebookAds\Object\Fields\AdPreviewFields;
+abstract class AdFormats {
 
-class AdPreview extends AbstractObject {
-
-  /**
-   * @var string[]
-   **/
-  protected static $fields = array(
-    AdPreviewFields::CREATIVE,
-    AdPreviewFields::POST,
-    AdPreviewFields::AD_FORMAT,
-    AdPreviewFields::BODY,
-  );
+  const RIGHT_COLUMN_STANDARD = 'RIGHT_COLUMN_STANDARD';
+  const DESKTOP_FEED_STANDARD = 'DESKTOP_FEED_STANDARD';
+  const MOBILE_FEED_STANDARD = 'MOBILE_FEED_STANDARD';
+  const MOBILE_BANNER = 'MOBILE_BANNER';
+  const MOBILE_INTERSTITIAL = 'MOBILE_INTERSTITIAL';
 }

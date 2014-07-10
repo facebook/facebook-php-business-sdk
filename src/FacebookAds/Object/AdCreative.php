@@ -65,4 +65,15 @@ class AdCreative extends AbstractCrudObject {
   protected function getEndpoint() {
     return 'adcreatives';
   }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getAdPreviews(
+    array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(
+      AdPreview::className(), $fields, $params, 'previews');
+  }
 }
