@@ -34,7 +34,7 @@ class AdCreativeTest extends AbstractCrudObjectTestCase {
     $creative->{AdCreativeFields::TITLE} = 'My Test Ad';
     $creative->{AdCreativeFields::NAME} = 'My Test Ad';
     $creative->{AdCreativeFields::BODY} = 'My Test Ad Body';
-    $creative->{AdCreativeFields::OBJECT_ID} = 259481254206516;
+    $creative->{AdCreativeFields::OBJECT_ID} = $this->getPageId();
     $this->assertCanCreate($creative);
     $this->assertCanRead($creative);
     $this->assertCanUpdate(

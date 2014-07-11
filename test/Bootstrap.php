@@ -75,6 +75,7 @@ abstract class Bootstrap {
     AbstractTestCase::$appSecret = self::$config['app_secret'];
     AbstractTestCase::$accessToken = self::$config['access_token'];
     AbstractTestCase::$actId = self::$config['act_id'];
+    AbstractTestCase::$pageId = self::$config['page_id'];
     AbstractTestCase::$testRunId = md5(
       (isset($_SERVER['LOGNAME']) ? $_SERVER['LOGNAME'] : uniqid(true))
       .microtime(true));

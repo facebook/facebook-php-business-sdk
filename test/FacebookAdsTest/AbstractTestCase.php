@@ -57,6 +57,11 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
   /**
    * @var string
    */
+  public static $pageId;
+
+  /**
+   * @var string
+   */
   public static $testRunId;
 
   /**
@@ -100,6 +105,13 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
    */
   public function getActId() {
     return static::$actId;
+  }
+
+  /**
+   * @return string
+   */
+  public function getPageId() {
+    return static::$pageId;
   }
 
   /**

@@ -74,7 +74,7 @@ class AdGroupTest extends AbstractCrudObjectTestCase {
     $this->adCreative = new AdCreative(null, $this->getActId());
     $this->adCreative->{AdCreativeFields::TITLE} = 'My Test Ad';
     $this->adCreative->{AdCreativeFields::BODY} = 'My Test Ad Body';
-    $this->adCreative->{AdCreativeFields::OBJECT_ID} = 20531316728;
+    $this->adCreative->{AdCreativeFields::OBJECT_ID} = $this->getPageId();
     $this->adCreative->create();
   }
 
@@ -84,7 +84,7 @@ class AdGroupTest extends AbstractCrudObjectTestCase {
     $this->adCampaign->delete();
     $this->adCampaign = null;
     $this->adCreative->delete();
-    $this->adCreative = null;    
+    $this->adCreative = null;
     parent::tearDown();
   }
 
