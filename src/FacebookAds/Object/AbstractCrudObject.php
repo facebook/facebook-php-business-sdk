@@ -491,7 +491,7 @@ abstract class AbstractCrudObject extends AbstractObject {
       $fields = static::getDefaultReadFields();
     }
 
-    if (!$fields) {
+    if ($fields) {
       $params['fields'] = implode(',', $fields);
     }
 

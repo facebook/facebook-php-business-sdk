@@ -26,11 +26,17 @@
 $access_token = null;
 $app_id = null;
 $app_secret = null;
+$account_id = null;
 
 if(is_null($access_token) || is_null($app_id) || is_null($app_secret)) {
   throw new \Exception(
     'You must set your access token, app id and app secret before executing'
   );
+}
+
+if (is_null($account_id)) {
+  throw new \Exception(
+    'You must set your account id before executing');
 }
 
 define('SDK_DIR', __DIR__ . '/..'); // Path to the SDK directory
@@ -45,31 +51,26 @@ $api = new Api($session);
 
 
 /**
- * Step 1 Read user and their AdAccounts
+ * Step 1 Read the AdAccount (optional)
  */
-use FacebookAds\Object\AdUser;
-use FacebookAds\Object\Fields\AdUserFields;
 use FacebookAds\Object\AdAccount;
 use FacebookAds\Object\Fields\AdAccountFields;
 
-$user = new AdUser('me');
-$user->read(array(AdUserFields::ID));
 
-$accounts = $user->getAdAccounts(array(
+$account = (new AdAccount($account_id))->read(array(
   AdAccountFields::ID,
   AdAccountFields::NAME,
+  AdAccountFields::ACCOUNT_STATUS
 ));
 
-// Print out the accounts
-echo "Accounts:\n";
-foreach($accounts as $account) {
-  echo $account->id . ' - ' .$account->name."\n";
-}
-
-// Grab the first account for next steps (you should probably choose one)
-$account = (count($accounts)) ? $accounts->getObjects()[0] : null;
 echo "\nUsing this account: ";
 echo $account->id."\n";
+
+// Check the account is active
+if($account->{AdAccountFields::ACCOUNT_STATUS} !== 1) {
+  throw new \Exception(
+    'This account is not active');
+}
 
 /**
  * Step 2 Create the AdCampaign
@@ -151,11 +152,12 @@ use FacebookAds\Object\Search\TargetingSearchTypes;
 $results = TargetingSearch::search(
   $type = TargetingSearchTypes::INTEREST,
   $class = null,
-  $query = 'facebook london'
+  $query = 'facebook'
 );
 
 // we'll take the top result for now
 $target = (count($results)) ? $results->getObjects()[0] : null;
+
 echo "Using target: ".$target->name."\n";
 
 $targeting = array(

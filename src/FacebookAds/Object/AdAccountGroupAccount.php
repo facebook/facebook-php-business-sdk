@@ -114,7 +114,7 @@ class AdAccountGroupAccount extends AbstractObject {
     $accountData = array('account_ids' => $this->assureId());
 
     $this->getApi()->call(
-      '/'.$this->adAccountGroupId.'/accounts',
+      '/'.$this->adAccountGroupId.'/adaccounts',
       Api::HTTP_METHOD_POST,
       array_merge($accountData, $params));
 
@@ -127,10 +127,18 @@ class AdAccountGroupAccount extends AbstractObject {
    */
   public function delete(array $params = array()) {
     $this->getApi()->call(
-      '/'.$this->adAccountGroupId.'/accounts/'.$this->assureId(),
+      '/'.$this->adAccountGroupId.'/adaccounts/'.$this->assureId(),
       Api::HTTP_METHOD_DELETE,
       $params);
 
     $this->data = array();
+  }
+
+  /**
+   * @return AdAccount
+   */
+  public function getAdAccount() {
+    return new AdAccount(
+      'act_'.$this->{AdAccountGroupAccountFields::ACCOUNT_ID});;
   }
 }

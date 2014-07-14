@@ -29,6 +29,6 @@ abstract class AdGroupBidInfoFields {
   const REACH = 'REACH';
   const SOCIAL = 'SOCIAL';
   const CLICKS = 'CLICKS';
-  const ACTIONS = 'ACTION';
+  const ACTIONS = 'ACTIONS';
   const IMPRESSIONS = 'IMPRESSIONS';
 }

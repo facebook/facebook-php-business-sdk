@@ -73,11 +73,14 @@ class AdAccountGroup extends AbstractCrudObject {
     $prototype_class) {
 
     $result = array();
-    foreach ($response->getResponse() as $data) {
-      /** @var AbstractObject $object */
-      $object = new $prototype_class(null, null, $this->getApi());
-      $object->setData((array) $data);
-      $result[] = $object;
+    $response_data = (array)$response->getResponse();
+    if(!empty($response_data)) {
+      foreach (array_shift($response_data) as $data) {
+        /** @var AbstractObject $object */
+        $object = new $prototype_class(null, null, $this->getApi());
+        $object->setData((array) $data);
+        $result[] = $object;
+      }
     }
 
     return new Cursor($result, $response);
@@ -101,6 +104,6 @@ class AdAccountGroup extends AbstractCrudObject {
   public function getAdAccounts(
     array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(
-      AdAccount::className(), $fields, $params);
+      AdAccountGroupAccount::className(), $fields, $params, 'adaccounts');
   }
 }
