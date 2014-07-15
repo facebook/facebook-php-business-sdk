@@ -308,7 +308,7 @@ class AdAccount extends AbstractCrudObject {
   public function getAdgroupConversions(
     array $fields = array(), array $params = array()) {
     return $this->getOneByConnection(
-      AdStats::className(), $fields, $params, 'adgroup conversions');
+      AdStats::className(), $fields, $params, 'adgroupconversions');
   }
 
   /**
