@@ -42,6 +42,8 @@ class AdImage extends AbstractCrudObject {
     AdImageFields::URL,
     AdImageFields::CREATIVES,
     AdImageFields::FILENAME,
+    AdImageFields::WIDTH,
+    AdImageFields::HEIGHT,
   );
 
   /**
