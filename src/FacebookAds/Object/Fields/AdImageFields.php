@@ -33,4 +33,6 @@ abstract class AdImageFields {
   const FILENAME = 'filename';
   const WIDTH = 'width';
   const HEIGHT = 'height';
+  const ORIGINAL_WIDTH = 'original_width';
+  const ORIGINAL_HEIGHT = 'original_height';
 }
