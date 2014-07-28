@@ -70,21 +70,21 @@ abstract class AbstractCrudObject extends AbstractObject {
   /**
    * @param string $id
    */
-  public function setId($id){
+  public function setId($id) {
     $this->data[static::FIELD_ID] = $id;
   }
 
   /**
    * @param string $parent_id
    */
-  public function setParentId($parent_id){
+  public function setParentId($parent_id) {
     $this->parentId = $parent_id;
   }
 
   /**
    * @param Api $api The Api instance this object should use to make calls
    */
-  public function setApi(Api $api){
+  public function setApi(Api $api) {
     $this->api = static::assureApi($api);
   }
 
