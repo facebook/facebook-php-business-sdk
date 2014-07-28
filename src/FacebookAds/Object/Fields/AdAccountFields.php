@@ -40,6 +40,7 @@ abstract class AdAccountFields {
   const BUSINESS_STREET2 = 'business_street2';
   const BUSINESS_STREET = 'business_street';
   const BUSINESS_ZIP = 'business_zip';
+  const CREATED_TIME = 'created_time';
   const END_ADVERTISER = 'end_advertiser';
   const MEDIA_AGENCY = 'media_agency';
   const PARTNER = 'partner';
@@ -59,5 +60,7 @@ abstract class AdAccountFields {
   const TIMEZONE_OFFSET_HOURS_UTC = 'timezone_offset_hours_utc';
   const TOS_ACCEPTED = 'tos_accepted';
   const USERS = 'users';
-  const VAT_STATUS = 'vat_status';
+  // Deprecated field
+  const VAT_STATUS = 'tax_id_status';
+  const TAX_ID_STATUS = 'tax_id_status';
 }

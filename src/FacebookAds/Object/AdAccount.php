@@ -54,6 +54,7 @@ class AdAccount extends AbstractCrudObject {
     AdAccountFields::BUSINESS_STREET2,
     AdAccountFields::BUSINESS_STREET,
     AdAccountFields::BUSINESS_ZIP,
+    AdAccountFields::CREATED_TIME,
     AdAccountFields::END_ADVERTISER,
     AdAccountFields::MEDIA_AGENCY,
     AdAccountFields::PARTNER,
@@ -72,7 +73,7 @@ class AdAccount extends AbstractCrudObject {
     AdAccountFields::TIMEZONE_OFFSET_HOURS_UTC,
     AdAccountFields::TOS_ACCEPTED,
     AdAccountFields::USERS,
-    AdAccountFields::VAT_STATUS,
+    AdAccountFields::TAX_ID_STATUS,
   );
 
   /**
@@ -218,6 +219,17 @@ class AdAccount extends AbstractCrudObject {
    * @param array $params
    * @return Cursor
    */
+  public function getConversionPixels(
+    array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(
+      AdConversionPixel::className(), $fields, $params);
+  }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
   public function getPartnerCategories(
     array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(
@@ -308,7 +320,7 @@ class AdAccount extends AbstractCrudObject {
   public function getAdgroupConversions(
     array $fields = array(), array $params = array()) {
     return $this->getOneByConnection(
-      AdStats::className(), $fields, $params, 'adgroup conversions');
+      AdStats::className(), $fields, $params, 'adgroupconversions');
   }
 
   /**

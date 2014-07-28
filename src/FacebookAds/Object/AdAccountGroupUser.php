@@ -146,4 +146,12 @@ class AdAccountGroupUser extends AbstractObject {
 
     $this->data = array();
   }
+
+  /**
+   * @return AdUser
+   */
+  public function getAdUser() {
+    return new AdUser($this->{AdAccountGroupUserFields::UID});
+  }
+
 }
