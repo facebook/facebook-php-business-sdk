@@ -28,4 +28,5 @@ return array(
   'access_token' => '',
   'act_id' => '',
   'act_timezone' => '',
+  'page_id' => '',
 );

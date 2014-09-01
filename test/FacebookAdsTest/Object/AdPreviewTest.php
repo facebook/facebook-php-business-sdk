@@ -83,7 +83,7 @@ class AdPreviewTest extends AbstractCrudObjectTestCase {
     $this->adCreative = new AdCreative(null, $this->getActId());
     $this->adCreative->{AdCreativeFields::TITLE} = 'My Test Ad';
     $this->adCreative->{AdCreativeFields::BODY} = 'My Test Ad Body';
-    $this->adCreative->{AdCreativeFields::OBJECT_ID} = 20531316728;
+    $this->adCreative->{AdCreativeFields::OBJECT_ID} = $this->getPageId();
     $this->adCreative->create();
 
     $targeting = new TargetingSpecs();
@@ -152,7 +152,7 @@ class AdPreviewTest extends AbstractCrudObjectTestCase {
       array(
         AdPreviewFields::CREATIVE => array(
           AdCreativeFields::BODY => 'Testing the creative preview',
-          AdCreativeFields::OBJECT_ID => 259481254206516,
+          AdCreativeFields::OBJECT_ID => $this->getPageId(),
         ),
         AdPreviewFields::AD_FORMAT => AdFormats::RIGHT_COLUMN_STANDARD,
       )
