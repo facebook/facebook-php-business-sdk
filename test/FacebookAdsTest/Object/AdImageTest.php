@@ -31,8 +31,7 @@ class AdImageTest extends AbstractCrudObjectTestCase {
 
   public function testCrud() {
     $image = new AdImage(null, $this->getActId());
-    $image->{AdImageFields::FILENAME}
-      = __DIR__.'/../../misc/FB-f-Logo__blue_512.png';
+    $image->{AdImageFields::FILENAME} = $this->getTestImagePath();
     $this->assertCanCreate($image);
     $this->assertCanRead($image);
     $this->assertCannotUpdate($image);

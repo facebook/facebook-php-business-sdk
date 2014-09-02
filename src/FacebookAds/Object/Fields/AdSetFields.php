@@ -26,16 +26,18 @@ namespace FacebookAds\Object\Fields;
 
 abstract class AdSetFields {
 
-  const ID = 'id';
-  const NAME = 'name';
   const ACCOUNT_ID = 'account_id';
+  const BUDGET_REMAINING = 'budget_remaining';
   const CAMPAIGN_GROUP_ID = 'campaign_group_id';
+  const CAMPAIGN_SCHEDULE = 'campaign_schedule';
   const CAMPAIGN_STATUS = 'campaign_status';
-  const START_TIME = 'start_time';
-  const END_TIME = 'end_time';
-  const UPDATED_TIME = 'updated_time';
   const CREATED_TIME = 'created_time';
   const DAILY_BUDGET = 'daily_budget';
+  const END_TIME = 'end_time';
+  const ID = 'id';
   const LIFETIME_BUDGET = 'lifetime_budget';
-  const BUDGET_REMAINING = 'budget_remaining';
+  const NAME = 'name';
+  const PACING_TYPE = 'pacing_type';
+  const START_TIME = 'start_time';
+  const UPDATED_TIME = 'updated_time';
 }

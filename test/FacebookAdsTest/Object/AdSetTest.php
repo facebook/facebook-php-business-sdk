@@ -37,7 +37,6 @@ class AdSetTest extends AbstractCrudObjectTestCase {
   protected $adCampaign;
 
   public function setup() {
-    date_default_timezone_set('UTC');
     parent::setup();
     $this->adCampaign = new AdCampaign(null, $this->getActId());
     $this->adCampaign->{AdCampaignFields::NAME}
@@ -70,7 +69,10 @@ class AdSetTest extends AbstractCrudObjectTestCase {
     ));
     $this->assertCanFetchConnection($set, 'getAdGroups');
     $this->assertCanFetchConnection($set, 'getAdCreatives');
-    $this->assertCanFetchConnection($set, 'getStats');        
+    $this->assertCanFetchConnection($set, 'getStats');
+
+    $this->assertCanArchive($set);
+
     $this->assertCanDelete($set);
   }
 }

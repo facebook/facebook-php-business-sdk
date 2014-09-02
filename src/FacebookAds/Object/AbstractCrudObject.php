@@ -88,7 +88,6 @@ abstract class AbstractCrudObject extends AbstractObject {
     $this->api = static::assureApi($api);
   }
 
-
   /**
    * @return string
    */
@@ -304,10 +303,7 @@ abstract class AbstractCrudObject extends AbstractObject {
       $this->getNodePath(),
       Api::HTTP_METHOD_DELETE,
       $params);
-
-    $this->data[static::FIELD_ID] = null;
   }
-
 
   /**
    * Perform object upsert

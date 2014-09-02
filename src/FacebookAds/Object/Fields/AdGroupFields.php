@@ -47,5 +47,4 @@ abstract class AdGroupFields {
   const FAILED_DELIVERY_CHECKS = 'failed_delivery_checks';
   const REDOWNLOAD = 'redownload';
   const OBJECTIVE = 'objective';
-
 }

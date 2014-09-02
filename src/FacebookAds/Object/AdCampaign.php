@@ -28,7 +28,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Object\Fields\AdCampaignFields;
 use FacebookAds\Traits\FieldValidation;
 
-class AdCampaign extends AbstractCrudObject {
+class AdCampaign extends AbstractArchivableCrudObject {
   use FieldValidation;
 
   /**
@@ -58,6 +58,13 @@ class AdCampaign extends AbstractCrudObject {
    */
   protected function getEndpoint() {
     return 'adcampaign_groups';
+  }
+
+  /**
+   * @return string
+   */
+  public function getStatusFieldName() {
+    return AdCampaignFields::STATUS;
   }
 
   /**

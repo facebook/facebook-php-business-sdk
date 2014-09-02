@@ -90,8 +90,14 @@ abstract class AbstractObject {
         $data[$key] = $value;
       }
     }
-
     return $data;
+  }
+
+  /**
+   * @return array
+   */
+  public static function getFields() {
+    return static::$fields;
   }
 
   /**

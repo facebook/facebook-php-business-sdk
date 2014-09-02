@@ -35,6 +35,7 @@ abstract class CustomAudienceFields {
   const LOOKALIKE_AUDIENCE_IDS = 'lookalike_audience_ids';
   const LOOKALIKE_SPEC = 'lookalike_spec';
   const NAME = 'name';
+  const OPERATION_STATUS = 'operation_status';
   const OPT_OUT_LINK = 'opt_out_link';
   const ORIGIN_AUDIENCE_ID = 'origin_audience_id';
   const PERMISSION_FOR_ACTIONS = 'permission_for_actions';

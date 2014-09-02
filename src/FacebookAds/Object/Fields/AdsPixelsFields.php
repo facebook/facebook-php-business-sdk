@@ -22,27 +22,15 @@
  *
  */
 
-namespace FacebookAdsTest\Object;
+namespace FacebookAds\Object\Fields;
 
-use FacebookAds\Object\AdCampaign;
-use FacebookAds\Object\Fields\AdCampaignFields;
+abstract class AdsPixelsFields {
 
-class AdCampaignTest extends AbstractCrudObjectTestCase {
-
-  public function testCrud() {
-    $campaign = new AdCampaign(null, $this->getActId());
-    $campaign->{AdCampaignFields::NAME} = $this->getTestRunId();
-    
-    $this->assertCanCreate($campaign);
-    $this->assertCanRead($campaign);
-    $this->assertCanUpdate(
-      $campaign,
-      array(AdCampaignFields::NAME => $this->getTestRunId().' updated'));
-    $this->assertCanFetchConnection($campaign, 'getAdSets');
-    $this->assertCanFetchConnection($campaign, 'getStats');
-
-    $this->assertCanArchive($campaign);
-
-    $this->assertCanDelete($campaign);
-  }
+  const CODE = 'code';
+  const CREATION_TIME = 'creation_time';
+  const ID = 'id';
+  const LAST_FIRED_TIME = 'last_fired_time';
+  const NAME = 'name';
+  const RULE_VALIDATION = 'rulevalidation';
+  const RULES = 'rules';
 }

@@ -33,6 +33,7 @@ abstract class AdCreativeFields {
   const NAME = 'name';
   const OBJECT_ID = 'object_id';
   const OBJECT_STORY_ID = 'object_story_id';
+  const OBJECT_STORY_SPEC = 'object_story_spec';
   const BODY = 'body';
   const IMAGE_HASH = 'image_hash';
   const IMAGE_FILE = 'image_file';

@@ -142,6 +142,13 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
     return $this->api;
   }
 
+  /**
+   * @return string
+   */
+  public function getTestImagePath() {
+    return __DIR__.'/../misc/FB-f-Logo__blue_512.png';
+  }
+
   public static function setupBeforeClass() {
     parent::setupBeforeClass();
     FacebookSession::setDefaultApplication(

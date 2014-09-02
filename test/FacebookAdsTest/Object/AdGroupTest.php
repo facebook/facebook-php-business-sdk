@@ -27,10 +27,12 @@ namespace FacebookAdsTest\Object;
 use FacebookAds\Object\AdCampaign;
 use FacebookAds\Object\AdCreative;
 use FacebookAds\Object\AdGroup;
+use FacebookAds\Object\AdImage;
 use FacebookAds\Object\AdSet;
 use FacebookAds\Object\Fields\AdCampaignFields;
 use FacebookAds\Object\Fields\AdCreativeFields;
 use FacebookAds\Object\Fields\AdGroupFields;
+use FacebookAds\Object\Fields\AdImageFields;
 use FacebookAds\Object\Fields\AdSetFields;
 use FacebookAds\Object\TargetingSpecs;
 use FacebookAds\Object\Fields\TargetingSpecsFields;
@@ -53,6 +55,11 @@ class AdGroupTest extends AbstractCrudObjectTestCase {
    */
   protected $adCreative;
 
+  /**
+   * @var AdImage
+   */
+  protected $adImage;
+
   public function setup() {
     parent::setup();
     $this->adCampaign = new AdCampaign(null, $this->getActId());
@@ -71,6 +78,10 @@ class AdGroupTest extends AbstractCrudObjectTestCase {
       = (new \DateTime("+2 week"))->format(\DateTime::ISO8601);
     $this->adSet->save();
 
+    $this->adImage = new AdImage(null, $this->getActId());
+    $this->adImage->{AdImageFields::FILENAME} = $this->getTestImagePath();
+    $this->adImage->save();
+
     $this->adCreative = new AdCreative(null, $this->getActId());
     $this->adCreative->{AdCreativeFields::TITLE} = 'My Test Ad';
     $this->adCreative->{AdCreativeFields::BODY} = 'My Test Ad Body';
@@ -79,12 +90,26 @@ class AdGroupTest extends AbstractCrudObjectTestCase {
   }
 
   public function tearDown() {
-    $this->adSet->delete();
-    $this->adSet = null;
-    $this->adCampaign->delete();
-    $this->adCampaign = null;
-    $this->adCreative->delete();
-    $this->adCreative = null;
+    if ($this->adSet) {
+      $this->adSet->delete();
+      $this->adSet = null;
+    }
+
+    if ($this->adCampaign) {
+      $this->adCampaign->delete();
+      $this->adCampaign = null;
+    }
+
+    if ($this->adCreative) {
+      $this->adCreative->delete();
+      $this->adCreative = null;
+    }
+
+    if ($this->adImage) {
+      $this->adImage->delete();
+      $this->adImage = null;
+    }
+
     parent::tearDown();
   }
 
@@ -121,6 +146,9 @@ class AdGroupTest extends AbstractCrudObjectTestCase {
     $this->assertCanFetchConnection($group, 'getStats');
     $this->assertCanFetchConnection($group, 'getClickTrackingTag');
     $this->assertCanFetchConnection($group, 'getConversions');
+
+    $this->assertCanArchive($group);
+
     $this->assertCanDelete($group);
   }
 }

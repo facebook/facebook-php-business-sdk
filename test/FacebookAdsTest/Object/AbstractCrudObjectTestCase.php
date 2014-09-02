@@ -27,6 +27,7 @@ namespace FacebookAdsTest\Object;
 use FacebookAds\Cursor;
 use FacebookAds\Object\AbstractCrudObject;
 use FacebookAds\Object\AbstractObject;
+use FacebookAds\Object\AbstractArchivableCrudObject;
 use FacebookAdsTest\AbstractTestCase;
 
 abstract class AbstractCrudObjectTestCase extends AbstractTestCase {
@@ -137,6 +138,8 @@ abstract class AbstractCrudObjectTestCase extends AbstractTestCase {
     $this->assertEquals(
       $this->extractDiffFromObject($mirror, $diff),
       $this->extractDiffFromObject($mirror2, $diff));
+
+    $subject->read(array_keys($diff));
   }
 
   /**
@@ -158,7 +161,16 @@ abstract class AbstractCrudObjectTestCase extends AbstractTestCase {
   public function assertCanDelete(AbstractCrudObject $subject) {
     $this->assertNotEmpty($subject->{AbstractCrudObject::FIELD_ID});
     $subject->delete();
-    $this->assertEmpty($subject->{AbstractCrudObject::FIELD_ID});
+    if ($subject instanceof AbstractArchivableCrudObject) {
+      /** @var AbstractArchivableCrudObject $mirror */
+      $mirror = $this->getEmptyClone($subject);
+      $mirror->read(array($mirror->getStatusFieldName()));
+      $this->assertEquals(
+        $mirror->{$mirror->getStatusFieldName()},
+        AbstractArchivableCrudObject::STATUS_DELETED);
+
+      $subject->read(array($subject->getStatusFieldName()));
+    }
   }
 
   /**
@@ -172,5 +184,21 @@ abstract class AbstractCrudObjectTestCase extends AbstractTestCase {
       $has_throw_exception = true;
     }
     $this->assertTrue($has_throw_exception);
+  }
+
+  /**
+   * @param AbstractArchivableCrudObject $subject
+   */
+  public function assertCanArchive(AbstractArchivableCrudObject $subject) {
+    $this->assertNotEmpty($subject->{AbstractCrudObject::FIELD_ID});
+    $subject->archive();
+    /** @var AbstractArchivableCrudObject $mirror */
+    $mirror = $this->getEmptyClone($subject);
+    $mirror->read(array($mirror->getStatusFieldName()));
+    $this->assertEquals(
+      AbstractArchivableCrudObject::STATUS_ARCHIVED,
+      $mirror->{$mirror->getStatusFieldName()});
+
+    $subject->read(array($subject->getStatusFieldName()));
   }
 }

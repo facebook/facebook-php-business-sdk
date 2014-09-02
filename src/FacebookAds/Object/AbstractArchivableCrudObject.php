@@ -22,27 +22,52 @@
  *
  */
 
-namespace FacebookAdsTest\Object;
+namespace FacebookAds\Object;
 
-use FacebookAds\Object\AdCampaign;
-use FacebookAds\Object\Fields\AdCampaignFields;
+use FacebookAds\Api;
 
-class AdCampaignTest extends AbstractCrudObjectTestCase {
+abstract class AbstractArchivableCrudObject extends AbstractCrudObject {
 
-  public function testCrud() {
-    $campaign = new AdCampaign(null, $this->getActId());
-    $campaign->{AdCampaignFields::NAME} = $this->getTestRunId();
-    
-    $this->assertCanCreate($campaign);
-    $this->assertCanRead($campaign);
-    $this->assertCanUpdate(
-      $campaign,
-      array(AdCampaignFields::NAME => $this->getTestRunId().' updated'));
-    $this->assertCanFetchConnection($campaign, 'getAdSets');
-    $this->assertCanFetchConnection($campaign, 'getStats');
+  /**
+   * @var string
+   */
+  const STATUS_DELETED = 'DELETED';
 
-    $this->assertCanArchive($campaign);
+  /**
+   * @var string
+   */
+  const STATUS_ARCHIVED = 'ARCHIVED';
 
-    $this->assertCanDelete($campaign);
+  /**
+   * @return string
+   */
+  public abstract function getStatusFieldName();
+
+  /**
+   * Archive this object
+   *
+   * @param array $params
+   * @return void
+   */
+  public function archive(array $params = array()) {
+    $this->getApi()->call(
+      $this->getNodePath(),
+      Api::HTTP_METHOD_POST,
+      array_merge($params, array(
+        $this->getStatusFieldName() => static::STATUS_ARCHIVED)));
+  }
+
+  /**
+   * Delete this object
+   *
+   * @param array $params
+   * @return void
+   */
+  public function delete(array $params = array()) {
+    $this->getApi()->call(
+      $this->getNodePath(),
+      Api::HTTP_METHOD_POST,
+      array_merge($params, array(
+        $this->getStatusFieldName() => static::STATUS_DELETED)));
   }
 }

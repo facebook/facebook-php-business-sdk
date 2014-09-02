@@ -22,27 +22,35 @@
  *
  */
 
-namespace FacebookAdsTest\Object;
+namespace FacebookAds\Object;
 
-use FacebookAds\Object\AdCampaign;
-use FacebookAds\Object\Fields\AdCampaignFields;
+use FacebookAds\Object\Fields\AdsPixelsFields;
+use FacebookAds\Traits\CannotDelete;
+use FacebookAds\Traits\CannotUpdate;
+use FacebookAds\Traits\FieldValidation;
 
-class AdCampaignTest extends AbstractCrudObjectTestCase {
+class AdsPixel extends AbstractCrudObject {
+  use CannotDelete;
+  use CannotUpdate;
+  use FieldValidation;
 
-  public function testCrud() {
-    $campaign = new AdCampaign(null, $this->getActId());
-    $campaign->{AdCampaignFields::NAME} = $this->getTestRunId();
-    
-    $this->assertCanCreate($campaign);
-    $this->assertCanRead($campaign);
-    $this->assertCanUpdate(
-      $campaign,
-      array(AdCampaignFields::NAME => $this->getTestRunId().' updated'));
-    $this->assertCanFetchConnection($campaign, 'getAdSets');
-    $this->assertCanFetchConnection($campaign, 'getStats');
+  /**
+   * @var string[]
+   **/
+  protected static $fields = array(
+    AdsPixelsFields::CODE,
+    AdsPixelsFields::CREATION_TIME,
+    AdsPixelsFields::ID,
+    AdsPixelsFields::LAST_FIRED_TIME,
+    AdsPixelsFields::NAME,
+    AdsPixelsFields::RULE_VALIDATION,
+    AdsPixelsFields::RULES,
+  );
 
-    $this->assertCanArchive($campaign);
-
-    $this->assertCanDelete($campaign);
+  /**
+   * @return string
+   */
+  protected function getEndpoint() {
+    return 'adspixels';
   }
 }

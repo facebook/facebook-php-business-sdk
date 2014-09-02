@@ -24,12 +24,13 @@
 
 namespace FacebookAdsTest\Object;
 
-use FacebookAds\Object\AdPreview;
+use FacebookAds\Object\AdImage;
 use FacebookAds\Object\AdCreative;
 use FacebookAds\Object\AdGroup;
 use FacebookAds\Object\AdSet;
 use FacebookAds\Object\AdCampaign;
 use FacebookAds\Object\AdAccount;
+use FacebookAds\Object\Fields\AdImageFields;
 use FacebookAds\Object\TargetingSpecs;
 use FacebookAds\Object\Fields\AdPreviewFields;
 use FacebookAds\Object\Fields\AdCreativeFields;
@@ -58,6 +59,11 @@ class AdPreviewTest extends AbstractCrudObjectTestCase {
   protected $adGroup;
 
   /**
+   * @var AdImage
+   */
+  protected $adImage;
+
+  /**
    * @var AdCreative
    */
   protected $adCreative;
@@ -80,10 +86,16 @@ class AdPreviewTest extends AbstractCrudObjectTestCase {
       = (new \DateTime("+2 week"))->format(\DateTime::ISO8601);
     $this->adSet->create();
 
+    $this->adImage = new AdImage(null, $this->getActId());
+    $this->adImage->{AdImageFields::FILENAME} = $this->getTestImagePath();
+    $this->adImage->save();
+
     $this->adCreative = new AdCreative(null, $this->getActId());
     $this->adCreative->{AdCreativeFields::TITLE} = 'My Test Ad';
     $this->adCreative->{AdCreativeFields::BODY} = 'My Test Ad Body';
     $this->adCreative->{AdCreativeFields::OBJECT_ID} = $this->getPageId();
+    $this->adCreative->{AdCreativeFields::IMAGE_HASH}
+      = $this->adImage->{AdImageFields::HASH};
     $this->adCreative->create();
 
     $targeting = new TargetingSpecs();
@@ -105,14 +117,32 @@ class AdPreviewTest extends AbstractCrudObjectTestCase {
   }
 
   public function tearDown() {
-    $this->adGroup->delete();
-    $this->adGroup = null;
-    $this->adCreative->delete();
-    $this->adCreative = null;
-    $this->adSet->delete();
-    $this->adSet = null;
-    $this->adCampaign->delete();
-    $this->adCampaign = null;
+
+    if ($this->adGroup) {
+      $this->adGroup->delete();
+      $this->adGroup = null;
+    }
+
+    if ($this->adSet) {
+      $this->adSet->delete();
+      $this->adSet = null;
+    }
+
+    if ($this->adCampaign) {
+      $this->adCampaign->delete();
+      $this->adCampaign = null;
+    }
+
+    if ($this->adCreative) {
+      $this->adCreative->delete();
+      $this->adCreative = null;
+    }
+
+    if ($this->adImage) {
+      $this->adImage->delete();
+      $this->adImage = null;
+    }
+
     parent::tearDown();
   }
 

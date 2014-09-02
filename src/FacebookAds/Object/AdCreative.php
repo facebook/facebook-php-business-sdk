@@ -24,6 +24,7 @@
 
 namespace FacebookAds\Object;
 
+use FacebookAds\Cursor;
 use FacebookAds\Object\Fields\AdCreativeFields;
 use FacebookAds\Traits\FieldValidation;
 
@@ -41,6 +42,7 @@ class AdCreative extends AbstractCrudObject {
     AdCreativeFields::NAME,
     AdCreativeFields::OBJECT_ID,
     AdCreativeFields::OBJECT_STORY_ID,
+    AdCreativeFields::OBJECT_STORY_SPEC,
     AdCreativeFields::BODY,
     AdCreativeFields::IMAGE_HASH,
     AdCreativeFields::IMAGE_FILE,

@@ -32,6 +32,20 @@ use FacebookAds\Object\Values\CustomAudienceTypes;
 
 class CustomAudienceTest extends AbstractCrudObjectTestCase {
 
+  protected function assertClusterChangesResponse(
+    CustomAudience $ca, array $users, $response) {
+
+    $this->assertTrue($response instanceof \StdClass);
+    $response = (array) $response;
+    $this->assertArrayHasKey('audience_id', $response);
+    $this->assertEquals(
+      $response['audience_id'], $ca->{CustomAudienceFields::ID});
+    $this->assertArrayHasKey('num_received', $response);
+    $this->assertEquals($response['num_received'], count($users));
+    $this->assertArrayHasKey('num_invalid_entries', $response);
+    $this->assertEquals($response['num_invalid_entries'], 0);
+  }
+
   public function testCustomAudiences() {
     $ca = new CustomAudience(null, $this->getActId());
     $ca->{CustomAudienceFields::NAME} = $this->getTestRunId();
@@ -50,16 +64,15 @@ class CustomAudienceTest extends AbstractCrudObjectTestCase {
 
     $uid = $me->{'id'};
 
-    $has_throw_exception = false;
-    $users = array('id' => $uid,);
-    try {
-      $this->assertTrue($ca->addUsers($users, CustomAudienceTypes::ID));
-      $this->assertTrue($ca->removeUsers($users, CustomAudienceTypes::ID));
-      $this->assertTrue($ca->optOutUsers($users, CustomAudienceTypes::ID));
-    } catch (\Exception $e) {
-      $has_throw_exception = true;
-    }
-    $this->assertFalse($has_throw_exception);
+    $users = array($uid);
+
+    $add = $ca->addUsers($users, CustomAudienceTypes::ID);
+    $this->assertClusterChangesResponse($ca, $users, $add);
+
+    $remove = $ca->removeUsers($users, CustomAudienceTypes::ID);
+    $this->assertClusterChangesResponse($ca, $users, $remove);
+
+    $this->assertTrue($ca->optOutUsers($users, CustomAudienceTypes::ID));
 
     $this->assertCanDelete($ca);
   }

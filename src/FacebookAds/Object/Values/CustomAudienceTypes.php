@@ -29,26 +29,21 @@ abstract class CustomAudienceTypes {
   /**
    * @var string
    */
-  const ID = 'id';
+  const ID = 'UID';
 
   /**
    * @var string
    */
-  const EMAIL = 'email_hash';
+  const EMAIL = 'EMAIL_SHA256';
 
   /**
    * @var string
    */
-  const PHONE = 'phone_hash';
+  const PHONE = 'PHONE_SHA256';
 
   /**
    * @var string
    */
-  const CUSTOM_AUDIENCE_THIRD_PARTY_ID  = 'custom_audience_third_party_id';
-
-  /**
-   * @var string
-   */
-  const MOBILE_ADVERTISER_ID = 'mobile_advertiser_id';
+  const MOBILE_ADVERTISER_ID = 'MOBILE_ADVERTISER_ID';
 
 }
