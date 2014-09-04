@@ -1,3 +1,4 @@
 /vendor
 /composer.lock
 /composer.local.*
+/composer.phar

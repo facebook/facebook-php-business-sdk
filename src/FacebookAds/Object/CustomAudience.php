@@ -127,12 +127,13 @@ class CustomAudience extends AbstractCrudObject {
 
     if ($type == CustomAudienceTypes::EMAIL
       || $type == CustomAudienceTypes::PHONE) {
-
-      array_walk($payload['data'], function(&$user) {
+      foreach ($users as &$user) {
+        if ($type == CustomAudienceTypes::EMAIL) {
+          $user = trim(strtolower($user), " \t\r\n\0\x0B.");
+        }
         $user = hash(self::HASH_TYPE_SHA256, $user);
-      });
+      }
     }
-
     return array('payload' => $payload);
   }
 
