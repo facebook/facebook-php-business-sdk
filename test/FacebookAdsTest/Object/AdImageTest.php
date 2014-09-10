@@ -24,6 +24,7 @@
 
 namespace FacebookAdsTest\Object;
 
+use FacebookAds\Cursor;
 use FacebookAds\Object\AdImage;
 use FacebookAds\Object\Fields\AdImageFields;
 
@@ -36,5 +37,25 @@ class AdImageTest extends AbstractCrudObjectTestCase {
     $this->assertCanRead($image);
     $this->assertCannotUpdate($image);
     $this->assertCanDelete($image);
+  }
+
+  /**
+   * @expectedException Exception
+   */
+  public function testZipFileInNormalCreate() {
+    $image = new AdImage(null, $this->getActId());
+    $image->{AdImageFields::FILENAME}  = $this->getTestZippedImagesPath();
+    $image->create();
+  }
+
+  public function testBulkZipUpload() {
+    $cursor = AdImage::createFromZip(
+       $this->getTestZippedImagesPath(),
+       $this->getActId());
+    $this->assertTrue($cursor instanceof Cursor);
+
+    foreach ($cursor->getObjects() as $image) {
+      $this->assertCanDelete($image);
+    }
   }
 }

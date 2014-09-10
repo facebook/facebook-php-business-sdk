@@ -25,6 +25,7 @@
 namespace FacebookAds\Object;
 
 use FacebookAds\Api;
+use FacebookAds\Cursor;
 use FacebookAds\Object\Fields\AdImageFields;
 use FacebookAds\Traits\CannotUpdate;
 use FacebookAds\Traits\FieldValidation;
@@ -47,6 +48,23 @@ class AdImage extends AbstractCrudObject {
     AdImageFields::ORIGINAL_WIDTH,
     AdImageFields::ORIGINAL_HEIGHT,
   );
+
+  /**
+   * Uploads images from a zip file and returns a cursor of results
+   *
+   * @param string $file_path
+   * @param string $account_id
+   * @param array $params
+   * @param Api $api
+   * @return Cursor
+   */
+  public static function createFromZip(
+    $file_path, $account_id, array $params = array(), Api $api = null) {
+
+    $image = new AdImage(null, $account_id, $api);
+    $image->{AdImageFields::FILENAME} = $file_path;
+    return $image->cursorFromZip($params);
+  }
 
   /**
    * @return string
@@ -89,6 +107,11 @@ class AdImage extends AbstractCrudObject {
   public function create(array $params = array()) {
     if ($this->data[static::FIELD_ID]) {
       throw new \Exception("Object has already an ID");
+    }
+
+    if ($this->isZipFile($this->data[AdImageFields::FILENAME])) {
+      throw new \Exception(
+        "use AdImage::bulkCreateFromZip to create zip files");
     }
 
     $response = $this->getApi()->call(
@@ -153,5 +176,49 @@ class AdImage extends AbstractCrudObject {
       = array_merge($params, array('hash' => $this->data[AdImageFields::HASH]));
 
     parent::delete($params);
+  }
+
+  /**
+   * Uploads images from a zip file and returns a cursor of results
+   *
+   * @param array $params
+   * @return Cursor
+   */
+  protected function cursorFromZip($params = array()) {
+    if (!$this->isZipFile($this->data[AdImageFields::FILENAME])) {
+      throw new \Exception("Please use a zip file containing images.");
+    }
+
+    $response = $this->getApi()->call(
+      '/'.$this->assureParentId().'/'.$this->getEndpoint(),
+      Api::HTTP_METHOD_POST,
+      array_merge($this->exportData(), $params));
+
+    $result = array();
+    foreach ($response->getResponse()->{'images'} as $image) {
+      $adimage = new AdImage(
+        substr($this->getParentId(), 4).':'.$image->{AdImageFields::HASH},
+        $this->getParentId(),
+        $this->getApi());
+
+      $adimage->{AdImageFields::HASH} = $image->{AdImageFields::HASH};
+
+      $result[] = $adimage;
+    }
+
+    return new Cursor($result, $response);
+  }
+
+  /**
+   * Checks if a given path is a zip file
+   *
+   * @param string $file_path
+   * @return bool
+   */
+  protected function isZipFile($file_path) {
+    $finfo = finfo_open(FILEINFO_MIME_TYPE);
+    $file_mime_type = finfo_file($finfo, $file_path);
+    return $file_mime_type == 'application/zip' ||
+      $file_mime_type == 'multipart/x-zip';
   }
 }
