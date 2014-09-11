@@ -40,4 +40,7 @@ abstract class AdSetFields {
   const PACING_TYPE = 'pacing_type';
   const START_TIME = 'start_time';
   const UPDATED_TIME = 'updated_time';
+  const TARGETING = 'targeting';
+  const BID_TYPE = 'bid_type';
+  const BID_INFO = 'bid_info';
 }

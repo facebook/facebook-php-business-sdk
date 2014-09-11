@@ -58,6 +58,9 @@ class AdSet extends AbstractArchivableCrudObject {
     AdSetFields::BUDGET_REMAINING,
     AdSetFields::PACING_TYPE,
     AdSetFields::CAMPAIGN_SCHEDULE,
+    AdSetFields::TARGETING,
+    AdSetFields::BID_TYPE,
+    AdSetFields::BID_INFO,
   );
 
   /**
