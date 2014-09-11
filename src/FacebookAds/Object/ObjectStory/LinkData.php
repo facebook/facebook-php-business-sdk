@@ -25,9 +25,8 @@
 namespace FacebookAds\Object\ObjectStory;
 
 use FacebookAds\Object\AbstractObject;
-use FacebookAds\Object\ObjectStory\AttachmentData;
 use FacebookAds\Object\Fields\ObjectStory\LinkDataFields;
-use FacebookAds\Traits\FieldValidation;
+use FacebookAds\Object\Traits\FieldValidation;
 
 
 class LinkData extends AbstractObject{

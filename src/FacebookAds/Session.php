@@ -24,26 +24,69 @@
 
 namespace FacebookAds;
 
-use Facebook\HttpClients\FacebookCurl;
-use Facebook\HttpClients\FacebookCurlHttpClient;
-
-class HttpClient extends FacebookCurlHttpClient {
+class Session {
 
   /**
-   * @param FacebookCurl $curl
+   * @var string
    */
-  public function __construct(FacebookCurl $curl = null) {
-    parent::__construct($curl);
-    $this->requestHeaders['User-Agent'] = 'fb-php-ads-'.Api::VERSION;
+  protected $appId;
+
+  /**
+   * @var string
+   */
+  protected $appSecret;
+
+  /**
+   * @var string
+   */
+  protected $accessToken;
+
+  /**
+   * @var string
+   */
+  protected $appSecretProof;
+
+  /**
+   * @param string $app_id
+   * @param string $app_secret
+   * @param string $access_token
+   */
+  public function __construct($app_id, $app_secret, $access_token) {
+    $this->appId = $app_id;
+    $this->appSecret = $app_secret;
+    $this->accessToken = $access_token;
   }
 
   /**
-   * @param string $key
-   * @param string $value
+   * @return string
    */
-  public function addRequestHeader($key, $value) {
-    if ($key !== 'User-Agent') {
-      parent::addRequestHeader($key, $value);
+  public function getAppId() {
+    return $this->appId;
+  }
+
+  /**
+   * @return string
+   */
+  public function getAppSecret() {
+    return $this->appSecret;
+  }
+
+  /**
+   * @return string
+   */
+  public function getAccessToken() {
+    return $this->accessToken;
+  }
+
+  /**
+   * @return string
+   */
+  public function getAppSecretProof() {
+    if ($this->appSecretProof === null) {
+      $this->appSecretProof
+        = hash_hmac('sha256', $this->getAccessToken(), $this->getAppSecret());
     }
+
+    return $this->appSecretProof;
   }
 }

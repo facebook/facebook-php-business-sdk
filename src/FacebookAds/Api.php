@@ -24,34 +24,18 @@
 
 namespace FacebookAds;
 
-use \Facebook\FacebookSession;
-use \Facebook\FacebookRequest;
-use \Facebook\FacebookResponse;
-use \Facebook\FacebookSDKException;
-use \Psr\Log\LoggerInterface;
-use \Psr\Log\NullLogger;
+use FacebookAds\Http\Client;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\Http\ResponseInterface;
+use FacebookAds\Logger\LoggerInterface;
+use FacebookAds\Logger\NullLogger;
 
 class Api {
 
   /**
    * @var string
    */
-  const VERSION = '0.9.6';
-
-  /**
-   * @var string
-   */
-  const HTTP_METHOD_POST = 'POST';
-
-  /**
-   * @var string
-   */
-  const HTTP_METHOD_GET = 'GET';
-
-  /**
-   * @var string
-   */
-  const HTTP_METHOD_DELETE = 'DELETE';
+  const VERSION = '2.2.0';
 
   /**
    * @var Api
@@ -59,44 +43,49 @@ class Api {
   private static $instance;
 
   /**
-   * @var FacebookSession
+   * @var Session
    */
   private $session;
 
   /**
    * @var LoggerInterface
    */
-  private $logger;
+  protected $logger;
 
   /**
-   * @var HttpClient
+   * @var Client
    */
   protected $httpClient;
 
   /**
-   * @param FacebookSession $session A Facebook API session
-   * @param LoggerInterface $logger A PSR-3 compatible logger
+   * @var string
+   */
+  protected $defaultGraphVersion;
+
+  /**
+   * @param Client $http_client
+   * @param Session $session A Facebook API session
    */
   public function __construct(
-    FacebookSession $session,
-    LoggerInterface $logger = null) {
+    Client $http_client,
+    Session $session) {
 
+    $this->httpClient = $http_client;
     $this->session = $session;
-    $this->logger = $logger ?: new NullLogger();
+  }
 
-    if (static::instance() === null) {
-      static::setInstance($this);
-    }
-    try {
-      FacebookSession::_getTargetAppSecret();
-    } catch(FacebookSDKException $f) {
-      // Disable sending app secret proof and warn
-      FacebookSession::enableAppSecretProof(false);
-      trigger_error(
-        'You should set a default app id and secret, see the README.md file '.
-        'for more information.',
-        E_USER_DEPRECATED);
-    }
+  /**
+   * @param string $app_id
+   * @param string $app_secret
+   * @param string $access_token
+   * @return static
+   */
+  public static function init($app_id, $app_secret, $access_token) {
+    $session = new Session($app_id, $app_secret, $access_token);
+    $api = new static(new Client(), $session);
+    static::setInstance($api);
+
+    return $api;
   }
 
   /**
@@ -114,60 +103,116 @@ class Api {
   }
 
   /**
-   * Make graph api calls
-   *
-   * @param string $path Ads API endpoint
-   * @param string $method Ads API request type
-   * @param array $params Assoc of request parameters
-   * @return FacebookResponse Graph API responses
+   * @param string $path
+   * @param string $method
+   * @param array $params
+   * @return RequestInterface
    */
-  public function call(
+  public function prepareRequest(
     $path,
-    $method = self::HTTP_METHOD_GET,
-    array $params = null) {
-    // json_encode all params values that are not primitives
-    if ($params !== null) {
-      foreach ($params as $key => $value) {
-        if (!is_scalar($value) && !is_a($value, '\CURLFile', true)) {
-          $params[$key] = json_encode($value);
-        }
-      }
+    $method = RequestInterface::METHOD_GET,
+    array $params = array()) {
+
+    $request = $this->getHttpClient()->createRequest();
+    $request->setMethod($method);
+    $request->setGraphVersion($this->getDefaultGraphVersion());
+    $request->setPath($path);
+
+    if ($method === RequestInterface::METHOD_GET) {
+      $params_ref = $request->getQueryParams();
+    } else {
+      $params_ref = $request->getBodyParams();
     }
 
-    $this->logger->debug(
-      "HTTP/1.1 {$method} {$path} ".($params ? json_encode($params) : null));
+    $params_ref->enhance($params);
+    $params_ref['access_token'] = $this->getSession()->getAccessToken();
+    $params_ref['appsecret_proof'] = $this->getSession()->getAppSecretProof();
 
-    $client = FacebookRequest::getHttpClientHandler();
-    FacebookRequest::setHttpClientHandler($this->getHttpClient());
+    return $request;
+  }
 
-    $request = new FacebookRequest($this->session, $method, $path, $params);
+  /**
+   * @param RequestInterface $request
+   * @return ResponseInterface
+   */
+  public function executeRequest(RequestInterface $request) {
+    $this->getLogger()->logRequest('debug', $request);
     $response = $request->execute();
-
-    FacebookRequest::setHttpClientHandler($client);
+    $this->getLogger()->logResponse('debug', $response);
 
     return $response;
   }
 
   /**
-   * @return FacebookSession
+   * @return string
+   */
+  public function getDefaultGraphVersion() {
+    if ($this->defaultGraphVersion === null) {
+      $match = array();
+      if (preg_match("/^\d+\.\d+/", static::VERSION, $match)) {
+        $this->defaultGraphVersion = $match[0];
+      }
+    }
+
+    return $this->defaultGraphVersion;
+  }
+
+  /**
+   * @param string $version
+   */
+  public function setDefaultGraphVersion($version) {
+    $this->defaultGraphVersion = $version;
+  }
+
+  /**
+   * Make graph api calls
+   *
+   * @param string $path Ads API endpoint
+   * @param string $method Ads API request type
+   * @param array $params Assoc of request parameters
+   * @return ResponseInterface Graph API responses
+   */
+  public function call(
+    $path,
+    $method = RequestInterface::METHOD_GET,
+    array $params = array()) {
+
+    $request = $this->prepareRequest($path, $method, $params);
+
+    return $this->executeRequest($request);
+  }
+
+  /**
+   * @return Session
    */
   public function getSession() {
     return $this->session;
   }
 
   /**
+   * @param LoggerInterface $logger
+   */
+  public function setLogger(LoggerInterface $logger) {
+    $this->logger = $logger;
+  }
+
+  /**
    * @return LoggerInterface
    */
   public function getLogger() {
+    if ($this->logger === null) {
+      $this->logger = new NullLogger();
+    }
+
     return $this->logger;
   }
 
   /**
-   * @return HttpClient
+   * @return Client
    */
   public function getHttpClient() {
     if ($this->httpClient === null) {
-      $this->httpClient = new HttpClient();
+      $this->httpClient = new Client();
     }
 
     return $this->httpClient;

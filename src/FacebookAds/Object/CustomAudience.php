@@ -24,7 +24,7 @@
 
 namespace FacebookAds\Object;
 
-use FacebookAds\Api;
+use FacebookAds\Http\RequestInterface;
 use FacebookAds\Object\Fields\CustomAudienceFields;
 use FacebookAds\Object\Values\CustomAudienceTypes;
 
@@ -78,8 +78,8 @@ class CustomAudience extends AbstractCrudObject {
     $params = $this->formatParams($users, $type);
     return $this->getApi()->call(
       '/'.$this->assureId().'/users',
-      Api::HTTP_METHOD_POST,
-      $params)->getResponse();
+      RequestInterface::METHOD_POST,
+      $params)->getContent();
   }
 
   /**
@@ -93,8 +93,8 @@ class CustomAudience extends AbstractCrudObject {
     $params = $this->formatParams($users, $type);
     return $this->getApi()->call(
       '/'.$this->assureId().'/users',
-      Api::HTTP_METHOD_DELETE,
-      $params)->getResponse();
+      RequestInterface::METHOD_DELETE,
+      $params)->getContent();
   }
 
   /**
@@ -108,8 +108,8 @@ class CustomAudience extends AbstractCrudObject {
     $params = $this->formatParams($users, $type);
     return $this->getApi()->call(
       '/'.$this->assureParentId().'/usersofanyaudience',
-      Api::HTTP_METHOD_DELETE,
-      $params)->getResponse();
+      RequestInterface::METHOD_DELETE,
+      $params)->getContent();
   }
 
   /**
@@ -146,8 +146,8 @@ class CustomAudience extends AbstractCrudObject {
   public function addSharedAccounts($act_ids) {
     return $this->getApi()->call(
       '/'.$this->assureId().'/adaccounts',
-      Api::HTTP_METHOD_POST,
-      array('adaccounts' => $act_ids))->getResponse();
+      RequestInterface::METHOD_POST,
+      array('adaccounts' => $act_ids))->getContent();
   }
 
   /**
@@ -159,8 +159,8 @@ class CustomAudience extends AbstractCrudObject {
   public function removeSharedAccounts($act_ids) {
     return $this->getApi()->call(
       '/'.$this->assureId().'/adaccounts',
-      Api::HTTP_METHOD_DELETE,
-      array('adaccounts' => $act_ids))->getResponse();
+      RequestInterface::METHOD_DELETE,
+      array('adaccounts' => $act_ids))->getContent();
   }
 
 }

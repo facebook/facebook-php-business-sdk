@@ -22,13 +22,8 @@
  *
  */
 
-namespace FacebookAds\Traits;
+namespace FacebookAds\Http\Exception;
 
-trait CannotDelete {
+class ThrottleException extends RequestException {
 
-  public function delete(array $params = array()) {
-    throw new \Exception(
-      __CLASS__.' does not have '.__FUNCTION__.' function.'
-    );
-  }
 }

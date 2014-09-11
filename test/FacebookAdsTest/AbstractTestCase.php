@@ -24,10 +24,13 @@
 
 namespace FacebookAdsTest;
 
-use Facebook\FacebookSession;
 use FacebookAds\Api;
-use FacebookAds\CurlLogger;
-use Psr\Log\NullLogger;
+use FacebookAds\Http\Adapter\CurlAdapter;
+use FacebookAds\Http\Client;
+use FacebookAds\Logger\CurlLogger;
+use FacebookAds\Logger\LoggerInterface;
+use FacebookAds\Logger\NullLogger;
+use FacebookAds\Session;
 
 /**
  * Base class for the unit test cases, providing the functions for AdsAPI
@@ -66,6 +69,16 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
   public static $appUrl;
 
   /**
+   * @var string|null
+   */
+  public static $graphBaseDomain;
+
+  /**
+   * @var bool
+   */
+  public static $skipSslVerification = false;
+
+  /**
    * @var resource|null
    */
   public static $curlLoggerResource;
@@ -81,12 +94,17 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
   public static $testRunId;
 
   /**
-   * @var FacebookSession
+   * @var Client
    */
-  protected static $session;
+  protected $httpClient;
 
   /**
-   * @var NullLogger
+   * @var Session
+   */
+  protected $session;
+
+  /**
+   * @var LoggerInterface
    */
   protected static $logger;
 
@@ -145,17 +163,38 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @return FacebookSession
+   * @return Session
    */
   public function getSession() {
-    return static::$session;
+    return $this->session;
   }
 
   /**
-   * @return NullLogger
+   * @return LoggerInterface
    */
   public function getLogger() {
     return static::$logger;
+  }
+
+  /**
+   * @return null|string
+   */
+  public static function getGraphBaseDomain() {
+    return self::$graphBaseDomain;
+  }
+
+  /**
+   * @return boolean
+   */
+  public static function getSkipSslVerification() {
+    return self::$skipSslVerification;
+  }
+
+  /**
+   * @return Client
+   */
+  public function getHttpClient() {
+    return $this->httpClient;
   }
 
   /**
@@ -197,17 +236,40 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
 
   public static function setupBeforeClass() {
     parent::setupBeforeClass();
-    FacebookSession::setDefaultApplication(
-      static::$appId, static::$appSecret);
-    static::$session = new FacebookSession(static::$accessToken);
+
     static::$logger = static::$curlLoggerResource
       ? new CurlLogger(static::$curlLoggerResource)
       : new NullLogger();
   }
 
-  public static function tearDownAfterClass() {
-    parent::tearDownAfterClass();
-    static::$session = null;
+  protected function setupSession() {
+    $this->session = new Session(
+      static::$appId,
+      static::$appSecret,
+      static::$accessToken);
+  }
+
+  protected function setupHttpClient() {
+    $this->httpClient = new Client();
+    if ($this->getGraphBaseDomain()) {
+      $this->httpClient->setDefaultGraphBaseDomain($this->getGraphBaseDomain());
+    }
+    if ($this->getSkipSslVerification()) {
+      /** @var CurlAdapter $adapter */
+      $adapter = $this->httpClient->getAdapter();
+      $adapter->getOpts()->offsetSet(CURLOPT_SSL_VERIFYHOST, false);
+      $adapter->getOpts()->offsetSet(CURLOPT_SSL_VERIFYPEER, false);
+    }
+  }
+
+  protected function setupApi() {
+    $this->api = new Api(
+      $this->getHttpClient(),
+      $this->getSession());
+
+    $this->api->setLogger($this->getLogger());
+
+    Api::setInstance($this->api);
   }
 
   public function setup() {
@@ -215,17 +277,22 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
       foreach ($this->skipIfAny() as $config_key) {
         /** @var AbstractTestCase $this */
         if ($this->shouldSkipTest($config_key)) {
-          $this->markTestSkipped("Reason: skipped by config '{$config_key}''");
+          $this->markTestSkipped("Reason: skipped by config '{$config_key}'");
         }
       }
     }
 
     parent::setup();
-    $this->api = new Api($this->getSession(), $this->getLogger());
+
+    $this->setupSession();
+    $this->setupHttpClient();
+    $this->setupApi();
   }
 
   public function tearDown() {
     parent::tearDown();
     $this->api = null;
+    $this->httpClient = null;
+    $this->session = null;
   }
 }

@@ -24,7 +24,7 @@
 
 namespace FacebookAds\Object;
 
-use FacebookAds\Api;
+use FacebookAds\Http\RequestInterface;
 
 abstract class AbstractArchivableCrudObject extends AbstractCrudObject {
 
@@ -52,7 +52,7 @@ abstract class AbstractArchivableCrudObject extends AbstractCrudObject {
   public function archive(array $params = array()) {
     $this->getApi()->call(
       $this->getNodePath(),
-      Api::HTTP_METHOD_POST,
+      RequestInterface::METHOD_POST,
       array_merge($params, array(
         $this->getStatusFieldName() => static::STATUS_ARCHIVED)));
   }
@@ -66,7 +66,7 @@ abstract class AbstractArchivableCrudObject extends AbstractCrudObject {
   public function delete(array $params = array()) {
     $this->getApi()->call(
       $this->getNodePath(),
-      Api::HTTP_METHOD_POST,
+      RequestInterface::METHOD_POST,
       array_merge($params, array(
         $this->getStatusFieldName() => static::STATUS_DELETED)));
   }

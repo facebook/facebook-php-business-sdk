@@ -25,7 +25,7 @@
 namespace FacebookAds\Object\ObjectStory;
 
 use FacebookAds\Object\AbstractObject;
-use FacebookAds\Traits\FieldValidation;
+use FacebookAds\Object\Traits\FieldValidation;
 use FacebookAds\Object\Fields\ObjectStory\OfferDataFields;
 
 class OfferData extends AbstractObject{

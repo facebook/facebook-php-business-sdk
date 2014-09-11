@@ -24,10 +24,11 @@
 
 namespace FacebookAds\Object;
 
+use FacebookAds\Http\RequestInterface;
 use FacebookAds\Object\Fields\AdVideoFields;
-use FacebookAds\Traits\CannotDelete;
-use FacebookAds\Traits\CannotUpdate;
-use FacebookAds\Traits\FieldValidation;
+use FacebookAds\Object\Traits\CannotDelete;
+use FacebookAds\Object\Traits\CannotUpdate;
+use FacebookAds\Object\Traits\FieldValidation;
 
 class AdVideo extends AbstractCrudObject {
   use FieldValidation;
@@ -58,22 +59,19 @@ class AdVideo extends AbstractCrudObject {
     return 'advideos';
   }
 
-  /**
-   * @return array
-   */
-  public function exportData() {
-    $data = parent::exportData();
-    if (isset($data[AdVideoFields::SOURCE])
-      && strncmp($data[AdVideoFields::SOURCE], 'http', 4) !== 0) {
+  public function create(array $params = array()) {
+    $data = $this->exportData();
+    $source = $data[AdVideoFields::SOURCE];
+    unset($data[AdVideoFields::SOURCE]);
+    $params = array_merge($data, $params);
 
-      if (version_compare(PHP_VERSION, '5.5.0') >= 0) {
-        $data[AdVideoFields::SOURCE]
-          = curl_file_create($data[AdVideoFields::SOURCE]);
-      } else {
-        $data[AdVideoFields::SOURCE] = '@'.$data[AdVideoFields::SOURCE];
-      }
-    }
+    $request = $this->getApi()->prepareRequest(
+      '/'.$this->assureParentId().'/'.$this->getEndpoint(),
+      RequestInterface::METHOD_POST,
+      $params
+    );
 
-    return $data;
+    $request->getFileParams()->offsetSet(AdVideoFields::SOURCE, $source);
+    $response = $this->getApi()->executeRequest($request);
   }
 }

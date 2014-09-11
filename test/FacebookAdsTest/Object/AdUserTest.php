@@ -24,8 +24,6 @@
 
 namespace FacebookAdsTest\Object;
 
-use Facebook\FacebookRequest;
-use FacebookAds\Api;
 use FacebookAds\Object\AdAccount;
 
 class AdUserTest extends AbstractCrudObjectTestCase {
@@ -37,14 +35,11 @@ class AdUserTest extends AbstractCrudObjectTestCase {
 
     $this->assertGreaterThan(0, $ad_users->count());
 
-    $me = (new FacebookRequest(
-      $this->getSession(),
-      Api::HTTP_METHOD_GET,
-      '/me'))->execute()->getResponse();
+    $me = $this->getApi()->call('/me')->getContent();
 
     $this->assertNotNull($me);
 
-    $uid = $me->{'id'};
+    $uid = $me['id'];
 
     $found = false;
     foreach ($ad_users as $ad_user) {

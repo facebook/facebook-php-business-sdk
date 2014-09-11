@@ -25,7 +25,7 @@
 namespace FacebookAds\Object;
 
 use FacebookAds\Object\Fields\ReachEstimateFields;
-use FacebookAds\Traits\FieldValidation;
+use FacebookAds\Object\Traits\FieldValidation;
 
 class ReachEstimate extends AbstractObject {
   use FieldValidation;

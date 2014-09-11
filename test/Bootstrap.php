@@ -127,6 +127,9 @@ abstract class Bootstrap {
     AbstractTestCase::$actId = self::confxt('act_id');
     AbstractTestCase::$pageId = self::confxt('page_id');
     AbstractTestCase::$appUrl = self::confxt('app_url');
+    AbstractTestCase::$graphBaseDomain = self::confx('graph_base_domain');
+    AbstractTestCase::$skipSslVerification
+      = self::confx('skip_ssl_verification');
     AbstractTestCase::$skipIf = self::confx('skip_if', array());
     AbstractTestCase::$testRunId = md5(
       (isset($_SERVER['LOGNAME']) ? $_SERVER['LOGNAME'] : uniqid(true))

@@ -40,7 +40,7 @@ class AdImageTest extends AbstractCrudObjectTestCase {
   }
 
   /**
-   * @expectedException Exception
+   * @expectedException \Exception
    */
   public function testZipFileInNormalCreate() {
     $image = new AdImage(null, $this->getActId());

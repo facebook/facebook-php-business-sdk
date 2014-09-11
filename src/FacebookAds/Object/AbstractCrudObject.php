@@ -24,9 +24,10 @@
 
 namespace FacebookAds\Object;
 
-use Facebook\FacebookResponse;
 use FacebookAds\Api;
 use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\Http\ResponseInterface;
 
 abstract class AbstractCrudObject extends AbstractObject {
 
@@ -197,12 +198,15 @@ abstract class AbstractCrudObject extends AbstractObject {
   }
 
   /**
-   * @param array
+   * @param array $data
+   * @return $this
    */
   public function setData(array $data) {
     foreach ($data as $key => $value) {
       $this->{$key} = $value;
     }
+
+    return $this;
   }
 
   /**
@@ -240,13 +244,13 @@ abstract class AbstractCrudObject extends AbstractObject {
 
     $response = $this->getApi()->call(
       '/'.$this->assureParentId().'/'.$this->getEndpoint(),
-      Api::HTTP_METHOD_POST,
+      RequestInterface::METHOD_POST,
       array_merge($this->exportData(), $params));
 
     $this->clearHistory();
-    $data = $response->getResponse();
+    $data = $response->getContent();
     $this->data[static::FIELD_ID]
-     = is_string($data) ? $data : (string) $data->{static::FIELD_ID};
+     = is_string($data) ? $data : (string) $data[static::FIELD_ID];
 
     return $this;
   }
@@ -266,10 +270,10 @@ abstract class AbstractCrudObject extends AbstractObject {
 
     $response = $this->getApi()->call(
       $this->getNodePath(),
-      Api::HTTP_METHOD_GET,
+      RequestInterface::METHOD_GET,
       $params);
 
-    $this->setData((array) $response->getResponse());
+    $this->setData((array) $response->getContent());
     $this->clearHistory();
 
     return $this;
@@ -284,7 +288,7 @@ abstract class AbstractCrudObject extends AbstractObject {
   public function update(array $params = array()) {
     $this->getApi()->call(
       $this->getNodePath(),
-      Api::HTTP_METHOD_POST,
+      RequestInterface::METHOD_POST,
       array_merge($this->exportData(), $params));
 
     $this->clearHistory();
@@ -301,7 +305,7 @@ abstract class AbstractCrudObject extends AbstractObject {
   public function delete(array $params = array()) {
     $this->getApi()->call(
       $this->getNodePath(),
-      Api::HTTP_METHOD_DELETE,
+      RequestInterface::METHOD_DELETE,
       $params);
   }
 
@@ -363,7 +367,7 @@ abstract class AbstractCrudObject extends AbstractObject {
     $endpoint = $this->assureEndpoint($prototype_class, $endpoint);
     $response = $this->getApi()->call(
       '/'.$this->assureId().'/'.$endpoint,
-      Api::HTTP_METHOD_GET,
+      RequestInterface::METHOD_GET,
       $params);
 
     return call_user_func($response_parser, $response, $prototype_class);
@@ -372,17 +376,17 @@ abstract class AbstractCrudObject extends AbstractObject {
   /**
    * Default response parser for self::getOneByConnection
    *
-   * @param FacebookResponse $response
+   * @param ResponseInterface $response
    * @param string $prototype_class
    * @return AbstractObject
    */
   protected function getObjectByConnection(
-    FacebookResponse $response,
+    ResponseInterface $response,
     $prototype_class) {
 
     /** @var AbstractObject $object */
     $object = new $prototype_class();
-    $object->setData((array) $response->getResponse());
+    $object->setData((array) $response->getContent());
 
     return $object;
   }
@@ -390,16 +394,16 @@ abstract class AbstractCrudObject extends AbstractObject {
   /**
    * Default response parser for self::getManyByConnection
    *
-   * @param FacebookResponse $response
+   * @param ResponseInterface $response
    * @param $prototype_class
    * @return Cursor
    */
   protected function getCursorByConnection(
-    FacebookResponse $response,
+    ResponseInterface $response,
     $prototype_class) {
 
     $result = array();
-    foreach ($response->getResponse()->{'data'} as $data) {
+    foreach ($response->getContent()['data'] as $data) {
       /** @var AbstractObject $object */
       $object = new $prototype_class(null, null, $this->getApi());
       $object->setData((array) $data);
@@ -470,7 +474,7 @@ abstract class AbstractCrudObject extends AbstractObject {
     foreach ($ids as $id) {
       $request = array(
         'relative_url' => '/'.$id,
-        'method' => Api::HTTP_METHOD_DELETE,
+        'method' => RequestInterface::METHOD_DELETE,
       );
       $batch[] = $request;
     }
@@ -478,10 +482,10 @@ abstract class AbstractCrudObject extends AbstractObject {
     $api = static::assureApi($api);
     $response = $api->call(
       '/',
-      Api::HTTP_METHOD_POST,
+      RequestInterface::METHOD_POST,
       array('batch' => json_encode($batch)));
 
-    foreach ($response->getResponse() as $result) {
+    foreach ($response->getContent() as $result) {
       if (200 != $result['code']) {
         return false;
       }
@@ -516,10 +520,10 @@ abstract class AbstractCrudObject extends AbstractObject {
     $params['ids'] = implode(',', $ids);
 
     $api = static::assureApi($api);
-    $response = $api->call('/', Api::HTTP_METHOD_GET, $params);
+    $response = $api->call('/', RequestInterface::METHOD_GET, $params);
 
     $result = array();
-    foreach ($response->getResponse() as $data) {
+    foreach ($response->getContent() as $data) {
       /** @var AbstractObject $object */
       $object = new static(null, null, $api);
       $object->setData((array) $data);

@@ -26,14 +26,30 @@ namespace FacebookAdsTest;
 
 use Facebook\FacebookResponse;
 use FacebookAds\Api;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\Http\ResponseInterface;
 use Psr\Log\NullLogger;
 
 class ApiTest extends AbstractTestCase {
 
+  protected function setupApi() {
+    $this->api = new Api(
+      $this->getHttpClient(),
+      $this->getSession(),
+      $this->getLogger());
+  }
+
   public function testInstance() {
+    $this->assertNull(Api::instance());
+
+    Api::setInstance($this->getApi());
     $this->assertTrue($this->getApi() === Api::instance());
 
-    $newApi = new Api($this->getSession());
+    $newApi = new Api(
+      $this->getHttpClient(),
+      $this->getSession(),
+      $this->getLogger());
+
     Api::setInstance($newApi);
 
     $this->assertTrue($newApi === Api::instance());
@@ -48,18 +64,13 @@ class ApiTest extends AbstractTestCase {
     $this->assertTrue($this->getApi()->getLogger() === $this->getLogger());
   }
 
-  public function testNullableLogger() {
-    $api = new Api($this->getSession(), null);
-    $this->assertTrue($api->getLogger() instanceof NullLogger);
-  }
-
   public function testCall() {
     $response = $this->getApi()->call(
       '/'.$this->getActId(),
-      Api::HTTP_METHOD_GET,
+      RequestInterface::METHOD_GET,
       array('fields' => 'name'));
 
-    $this->assertTrue($response instanceof FacebookResponse);
-    $this->assertArrayHasKey('name', (array) $response->getResponse());
+    $this->assertTrue($response instanceof ResponseInterface);
+    $this->assertArrayHasKey('name', $response->getContent());
   }
 }

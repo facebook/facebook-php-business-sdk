@@ -24,7 +24,7 @@
 
 namespace FacebookAds;
 
-use Facebook\FacebookResponse;
+use FacebookAds\Http\ResponseInterface;
 use FacebookAds\Object\AbstractObject;
 
 class Cursor implements \Iterator, \Countable, \arrayaccess {
@@ -35,7 +35,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   protected $objects = array();
 
   /**
-   * @var FacebookResponse
+   * @var ResponseInterface
    */
   protected $response;
 
@@ -61,24 +61,23 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
 
   /**
    * @param array $objects
-   * @param FacebookResponse $response
+   * @param ResponseInterface $response
    */
   public function __construct(
     array $objects,
-    FacebookResponse $response) {
+    ResponseInterface $response) {
 
     $this->objects = $objects;
     $this->response = $response;
 
-    /* @var $resp \StdClass */
-    $resp = $response->getResponse();
+    $resp = $response->getContent();
 
-    $this->before = isset($resp->paging->cursors->before)
-      ? $resp->paging->cursors->before
+    $this->before = isset($resp['paging']['cursors']['before'])
+      ? $resp['paging']['cursors']['before']
       : null;
 
-    $this->after = isset($resp->paging->cursors->after)
-      ? $resp->paging->cursors->after
+    $this->after = isset($resp['paging']['cursors']['after'])
+      ? $resp['paging']['cursors']['after']
       : null;
   }
 
@@ -90,7 +89,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   }
 
   /**
-   * @return FacebookResponse
+   * @return ResponseInterface
    */
   public function getResponse() {
     return $this->response;
@@ -160,6 +159,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
 
   /**
    * @var mixed $offset
+   * @return bool
    */
   public function offsetExists($offset) {
     return isset($this->objects[$offset]);
@@ -174,6 +174,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
 
   /**
    * @var mixed $offset
+   * @return mixed
    */
   public function offsetGet($offset) {
     return isset($this->objects[$offset]) ? $this->objects[$offset] : null;

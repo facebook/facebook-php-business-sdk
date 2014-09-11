@@ -25,7 +25,7 @@
 namespace FacebookAds\Object;
 
 use FacebookAds\Object\Fields\TargetingSpecsFields;
-use FacebookAds\Traits\FieldValidation;
+use FacebookAds\Object\Traits\FieldValidation;
 
 class TargetingSpecs extends AbstractObject {
   use FieldValidation;

@@ -26,7 +26,7 @@ namespace FacebookAds\Object;
 
 use FacebookAds\Cursor;
 use FacebookAds\Object\Fields\AdCreativeFields;
-use FacebookAds\Traits\FieldValidation;
+use FacebookAds\Object\Traits\FieldValidation;
 
 class AdCreative extends AbstractCrudObject {
   use FieldValidation;

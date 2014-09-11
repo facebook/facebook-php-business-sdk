@@ -26,7 +26,7 @@ namespace FacebookAds\Object;
 
 use FacebookAds\Cursor;
 use FacebookAds\Object\Fields\AdGroupFields;
-use FacebookAds\Traits\FieldValidation;
+use FacebookAds\Object\Traits\FieldValidation;
 
 class AdGroup extends AbstractArchivableCrudObject {
   use FieldValidation;

@@ -24,13 +24,11 @@
 
 namespace FacebookAds\Object;
 
-use FacebookAds\Api;
+use FacebookAds\Http\RequestInterface;
 use FacebookAds\Object\Fields\ReachFrequencyPredictionFields
   as PredictionFields;
 use FacebookAds\Object\Values\ReachFrequencyPredictionActions;
-use FacebookAds\Traits\FieldValidation;
-
-
+use FacebookAds\Object\Traits\FieldValidation;
 
 class ReachFrequencyPrediction extends AbstractCrudObject {
   use FieldValidation;
@@ -44,7 +42,6 @@ class ReachFrequencyPrediction extends AbstractCrudObject {
    * @var int
    */
   const PREDICTION_MODE_REACH = 1;
-
 
   /**
    * @var string[]
@@ -97,10 +94,10 @@ class ReachFrequencyPrediction extends AbstractCrudObject {
    * @return ReachFrequencyPrediction
    */
   public function reserve(
-    $preciction_to_release=null,
-    $reach=null,
-    $budget=null,
-    $impression=null) {
+    $preciction_to_release = null,
+    $reach = null,
+    $budget = null,
+    $impression = null) {
     $params = array_filter(array(
       PredictionFields::PREDICTION_ID => $this->assureId(),
       PredictionFields::PREDICTION_ID_TO_RELEASE => $preciction_to_release,
@@ -112,10 +109,10 @@ class ReachFrequencyPrediction extends AbstractCrudObject {
 
     $response = $this->getApi()->call(
       '/'.$this->assureParentId().'/'.$this->getEndpoint(),
-      Api::HTTP_METHOD_POST,
+      RequestInterface::METHOD_POST,
       $params);
 
-    return new self($response->getResponse(), $this->assureParentId());
+    return new self($response->getContent(), $this->assureParentId());
   }
 
   /**
@@ -127,9 +124,9 @@ class ReachFrequencyPrediction extends AbstractCrudObject {
       PredictionFields::ACTION => ReachFrequencyPredictionActions::CANCEL,
     );
 
-    $response = $this->getApi()->call(
+    $this->getApi()->call(
       '/'.$this->assureParentId().'/'.$this->getEndpoint(),
-      Api::HTTP_METHOD_POST,
+      RequestInterface::METHOD_POST,
       $params);
 
     return $this;

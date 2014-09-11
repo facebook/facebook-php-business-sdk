@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Traits;
+namespace FacebookAds\Object\Traits;
 
 trait CannotUpdate {
 

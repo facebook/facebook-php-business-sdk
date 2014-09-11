@@ -25,7 +25,7 @@
 namespace FacebookAds\Object;
 
 use FacebookAds\Object\Fields\ObjectStorySpecFields;
-use FacebookAds\Traits\FieldValidation;
+use FacebookAds\Object\Traits\FieldValidation;
 
 class ObjectStorySpec extends AbstractObject {
   use FieldValidation;

@@ -25,37 +25,37 @@
 return array(
 
   /**
-   * @string Numeric Facebook app id, espressed as string
+   * @var string Numeric Facebook app id, espressed as string
    */
   'app_id' => '',
 
   /**
-   * @string App Secret
+   * @var string App Secret
    * @see https://developers.facebook.com/apps/<APP_ID>/dashboard/
    */
   'app_secret' => '',
 
   /**
-   * @string User Access Token
+   * @var string User Access Token
    * @see https://developers.facebook.com/docs/facebook-login/access-tokens/
    */
   'access_token' => '',
 
   /**
-   * @string Numeric Facebook id, preceded by 'act_', espressed as string
+   * @var string Numeric Facebook id, preceded by 'act_', espressed as string
    * @see https://www.facebook.com/ads/manage/home/
    */
   'act_id' => '',
 
   /**
-   * @string Numeric Facebook id, preceded by 'act_', espressed as string
+   * @var string Numeric Facebook id, preceded by 'act_', espressed as string
    * @see https://www.facebook.com/ads/manage/home/
    */
   'page_id' => '',
 
   /**
-   * @string Url of your app [Stream post URL security]
-   *         Example: 'http://my.domain.com/'
+   * @var string Url of your app [Stream post URL security]
+   *             Example: 'http://my.domain.com/'
    * @see https://developers.facebook.com/docs/facebook-login/security/#surfacearea
    */
   'app_url' => '',
@@ -86,14 +86,26 @@ return array(
   // OPTIONAL CONFIGURATIONS
 
   /**
-   * @string PHP timezone, override php.ini config
+   * @var string PHP timezone, override php.ini config
    * @see http://php.net/manual/en/timezones.php
    */
   'act_timezone' => '',
 
   /**
-   * @string Filepath to which cUrl shell equivalents will be dumped
-   *         Tip: access std streams with 'php://stdout' or 'php://stderr'
+   * @var string Override Facebook graph domain
+   *             Example: try hitting beta.facebook.com
+   */
+  'graph_base_domain' => '',
+
+  /**
+   * @var string Disable SSL verification between CA and host
+   *             [Security] Do not change this unless you trust your network
+   */
+  'skip_ssl_verification' => false,
+
+  /**
+   * @var string Filepath to which cUrl shell equivalents will be dumped
+   *             Tip: access std streams with 'php://stdout' or 'php://stderr'
    */
   'curl_logger' => '',
 );

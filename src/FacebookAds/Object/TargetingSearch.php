@@ -26,6 +26,7 @@ namespace FacebookAds\Object;
 
 use FacebookAds\Api;
 use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
 
 class TargetingSearch extends AbstractObject {
 
@@ -58,10 +59,10 @@ class TargetingSearch extends AbstractObject {
       'q' => $query,
     ));
 
-    $response = $api->call('/search', Api::HTTP_METHOD_GET, $params);
+    $response = $api->call('/search', RequestInterface::METHOD_GET, $params);
 
     $result = array();
-    foreach ($response->getResponse()->{'data'} as $data) {
+    foreach ($response->getContent()['data'] as $data) {
       /** @var $object AbstractObject */
       $object = new static();
       if (is_object($data)) {

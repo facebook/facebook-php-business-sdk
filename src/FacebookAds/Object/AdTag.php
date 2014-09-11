@@ -24,12 +24,13 @@
 
 namespace FacebookAds\Object;
 
-use FacebookAds\Api;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
 use FacebookAds\Object\Fields\AdCampaignFields;
 use FacebookAds\Object\Fields\AdGroupFields;
 use FacebookAds\Object\Fields\AdSetFields;
 use FacebookAds\Object\Fields\AdTagFields;
-use FacebookAds\Traits\FieldValidation;
+use FacebookAds\Object\Traits\FieldValidation;
 
 class AdTag extends AbstractCrudObject {
   use FieldValidation;
@@ -82,6 +83,10 @@ class AdTag extends AbstractCrudObject {
     return $this->getManyByConnection(AdGroup::className(), $fields, $params);
   }
 
+  /**
+   * @param array $adcampaigns
+   * @return array
+   */
   public function tagAdCampaigns(array $adcampaigns) {
     $adcampaign_ids = array_map(
       function($adcampaign) {
@@ -94,6 +99,10 @@ class AdTag extends AbstractCrudObject {
       $adcampaign_ids);
   }
 
+  /**
+   * @param array $adsets
+   * @return array
+   */
   public function tagAdSets(array $adsets) {
     $adset_ids = array_map(
       function($adset) {
@@ -106,6 +115,10 @@ class AdTag extends AbstractCrudObject {
       $adset_ids);
   }
 
+  /**
+   * @param array $adgroups
+   * @return array
+   */
   public function tagAdGroups(array $adgroups) {
     $adgroup_ids = array_map(
       function($adgroup) {
@@ -118,13 +131,19 @@ class AdTag extends AbstractCrudObject {
       $adgroup_ids);
   }
 
+  /**
+   * @param string $endpoint
+   * @param string $tag_type
+   * @param array $ids
+   * @return array
+   */
   protected function addTagToObjects($endpoint, $tag_type, array $ids) {
     $params = array();
     $params[$tag_type] = $ids;
 
     return $this->getApi()->call(
       '/'.$this->{AdTagFields::ID}.'/'.$endpoint,
-      Api::HTTP_METHOD_POST,
-      $params)->getResponse();
+      RequestInterface::METHOD_POST,
+      $params)->getContent();
   }
 }

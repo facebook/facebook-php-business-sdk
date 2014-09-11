@@ -26,9 +26,10 @@ namespace FacebookAds\Object;
 
 use FacebookAds\Api;
 use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
 use FacebookAds\Object\Fields\AdImageFields;
-use FacebookAds\Traits\CannotUpdate;
-use FacebookAds\Traits\FieldValidation;
+use FacebookAds\Object\Traits\CannotUpdate;
+use FacebookAds\Object\Traits\FieldValidation;
 
 class AdImage extends AbstractCrudObject {
   use FieldValidation;
@@ -74,23 +75,6 @@ class AdImage extends AbstractCrudObject {
   }
 
   /**
-   * @return array
-   */
-  public function exportData() {
-    $data = parent::exportData();
-    if (isset($data[AdImageFields::FILENAME])) {
-      if (version_compare(PHP_VERSION, '5.5.0') >= 0) {
-        $data[AdImageFields::FILENAME]
-          = curl_file_create($data[AdImageFields::FILENAME]);
-      } else {
-        $data[AdImageFields::FILENAME] = '@'.$data[AdImageFields::FILENAME];
-      }
-    }
-
-    return $data;
-  }
-
-  /**
    * @return string
    */
   protected function getNodePath() {
@@ -115,16 +99,25 @@ class AdImage extends AbstractCrudObject {
         "use AdImage::createFromZip to create zip files");
     }
 
-    $response = $this->getApi()->call(
+    $data = $this->exportData();
+    $filename = $data[AdImageFields::FILENAME];
+    unset($data[AdImageFields::FILENAME]);
+    $params = array_merge($data, $params);
+
+    $request = $this->getApi()->prepareRequest(
       '/'.$this->assureParentId().'/'.$this->getEndpoint(),
-      Api::HTTP_METHOD_POST,
-      array_merge($this->exportData(), $params));
+      RequestInterface::METHOD_POST,
+      $params
+    );
+
+    $request->getFileParams()->offsetSet(AdImageFields::FILENAME, $filename);
+    $response = $this->getApi()->executeRequest($request);
 
     $this->clearHistory();
-    $data = $response->getResponse()->{'images'}
-      ->{basename($this->{AdImageFields::FILENAME})};
+    $data = $response->getContent()['images']
+      [basename($this->{AdImageFields::FILENAME})];
 
-    $this->data[AdImageFields::HASH] = $data->{AdImageFields::HASH};
+    $this->data[AdImageFields::HASH] = $data[AdImageFields::HASH];
 
     $this->data[static::FIELD_ID]
       = substr($this->getParentId(), 4).':'.$this->data[AdImageFields::HASH];
@@ -148,10 +141,10 @@ class AdImage extends AbstractCrudObject {
 
     $response = $this->getApi()->call(
       $this->getNodePath(),
-      Api::HTTP_METHOD_GET,
+      RequestInterface::METHOD_GET,
       $params);
 
-    $data = $response->getResponse()->{'data'};
+    $data = $response->getContent()['data'];
     if ($data) {
       $this->setData((array) $data[0]);
     }
@@ -192,19 +185,28 @@ class AdImage extends AbstractCrudObject {
         $this->data[AdImageFields::FILENAME]." doesn't resolve to a zip file");
     }
 
-    $response = $this->getApi()->call(
+    $data = $this->exportData();
+    $filename = $data[AdImageFields::FILENAME];
+    unset($data[AdImageFields::FILENAME]);
+    $params = array_merge($data, $params);
+
+    $request = $this->getApi()->prepareRequest(
       '/'.$this->assureParentId().'/'.$this->getEndpoint(),
-      Api::HTTP_METHOD_POST,
-      array_merge($this->exportData(), $params));
+      RequestInterface::METHOD_POST,
+      $params
+    );
+
+    $request->getFileParams()->offsetSet(AdImageFields::FILENAME, $filename);
+    $response = $this->getApi()->executeRequest($request);
 
     $result = array();
-    foreach ($response->getResponse()->{'images'} as $image) {
+    foreach ($response->getContent()['images'] as $image) {
       $adimage = new AdImage(
-        substr($this->getParentId(), 4).':'.$image->{AdImageFields::HASH},
+        substr($this->getParentId(), 4).':'.$image[AdImageFields::HASH],
         $this->getParentId(),
         $this->getApi());
 
-      $adimage->{AdImageFields::HASH} = $image->{AdImageFields::HASH};
+      $adimage->{AdImageFields::HASH} = $image[AdImageFields::HASH];
 
       $result[] = $adimage;
     }

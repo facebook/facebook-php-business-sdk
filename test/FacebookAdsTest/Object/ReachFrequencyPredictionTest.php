@@ -24,10 +24,7 @@
 
 namespace FacebookAdsTest\Object;
 
-use Facebook\FacebookRequest;
-use FacebookAds\Api;
 use FacebookAds\Object\ReachFrequencyPrediction;
-use FacebookAds\Object\TargetingSpecs;
 use FacebookAds\Object\Fields\ReachFrequencyPredictionFields as RF;
 use FacebookAds\Object\Values\AdObjectives;
 

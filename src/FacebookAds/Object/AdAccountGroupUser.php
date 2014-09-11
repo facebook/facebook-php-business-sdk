@@ -25,8 +25,9 @@
 namespace FacebookAds\Object;
 
 use FacebookAds\Api;
+use FacebookAds\Http\RequestInterface;
 use FacebookAds\Object\Fields\AdAccountGroupUserFields;
-use FacebookAds\Traits\FieldValidation;
+use FacebookAds\Object\Traits\FieldValidation;
 
 class AdAccountGroupUser extends AbstractObject {
   use FieldValidation;
@@ -124,7 +125,7 @@ class AdAccountGroupUser extends AbstractObject {
 
     $this->getApi()->call(
       '/'.$this->adAccountGroupId.'/users',
-      Api::HTTP_METHOD_POST,
+      RequestInterface::METHOD_POST,
       array_merge(array('account_group_roles' => $this->data), $params));
 
     return $this;
@@ -141,7 +142,7 @@ class AdAccountGroupUser extends AbstractObject {
 
     $this->getApi()->call(
       '/'.$this->adAccountGroupId.'/users/'.$this->assureId(),
-      Api::HTTP_METHOD_DELETE,
+      RequestInterface::METHOD_DELETE,
       $params);
 
     $this->data = array();

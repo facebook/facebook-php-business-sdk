@@ -22,13 +22,39 @@
  *
  */
 
-namespace FacebookAds\Traits;
+namespace FacebookAds\Logger;
 
-trait CannotCreate {
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\Http\ResponseInterface;
 
-  public function create(array $params = array()) {
-    throw new \Exception(
-      __CLASS__.' does not have '.__FUNCTION__.' function.'
-    );
+class NullLogger implements LoggerInterface {
+
+  /**
+   * @param string $level
+   * @param string $message
+   * @param array $context
+   */
+  public function log($level, $message, array $context = array()) {
+
+  }
+
+  /**
+   * @param string $level
+   * @param RequestInterface $request
+   * @param array $context
+   */
+  public function logRequest(
+    $level, RequestInterface $request, array $context = array()) {
+
+  }
+
+  /**
+   * @param string $level
+   * @param ResponseInterface $response
+   * @param array $context
+   */
+  public function logResponse(
+    $level, ResponseInterface $response, array $context = array()) {
+
   }
 }

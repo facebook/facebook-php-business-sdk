@@ -25,7 +25,7 @@
 namespace FacebookAds\Object;
 
 use FacebookAds\Object\Fields\ConnectionObjectFields;
-use FacebookAds\Traits\FieldValidation;
+use FacebookAds\Object\Traits\FieldValidation;
 
 class ConnectionObject extends AbstractObject {
   use FieldValidation;

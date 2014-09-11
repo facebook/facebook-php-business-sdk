@@ -24,11 +24,11 @@
 
 namespace FacebookAds\Object;
 
-use Facebook\FacebookResponse;
 use FacebookAds\Api;
 use FacebookAds\Cursor;
+use FacebookAds\Http\ResponseInterface;
 use FacebookAds\Object\Fields\AdAccountGroupFields;
-use FacebookAds\Traits\FieldValidation;
+use FacebookAds\Object\Traits\FieldValidation;
 
 class AdAccountGroup extends AbstractCrudObject {
   use FieldValidation;
@@ -64,16 +64,16 @@ class AdAccountGroup extends AbstractCrudObject {
   /**
    * AdAccountGroup connections
    *
-   * @param FacebookResponse $response
+   * @param ResponseInterface $response
    * @param $prototype_class
    * @return Cursor
    */
   protected function getCursorByConnection(
-    FacebookResponse $response,
+    ResponseInterface $response,
     $prototype_class) {
 
     $result = array();
-    $response_data = (array)$response->getResponse();
+    $response_data = $response->getContent();
     if(!empty($response_data)) {
       foreach (array_shift($response_data) as $data) {
         /** @var AbstractObject $object */

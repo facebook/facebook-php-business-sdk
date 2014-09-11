@@ -24,16 +24,15 @@
 
 namespace FacebookAdsTest;
 
-use Facebook\FacebookRequest;
-use Facebook\FacebookResponse;
-use FacebookAds\Api;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\Http\ResponseInterface;
 use FacebookAds\Object\AdAccount;
 use FacebookAds\Cursor;
 
 class CursorTest extends AbstractTestCase {
 
   /**
-   * @var FacebookResponse
+   * @var ResponseInterface
    */
   protected $response;
 
@@ -50,10 +49,9 @@ class CursorTest extends AbstractTestCase {
   public function setup() {
     parent::setup();
 
-    $request = new FacebookRequest(
-      $this->getSession(),
-      Api::HTTP_METHOD_GET,
-      '/');
+    $request = $this->getHttpClient()->createRequest();
+    $request->setMethod(RequestInterface::METHOD_GET);
+    $request->setPath('/');
 
     $resp = new \StdClass();
     $resp->data = array();
@@ -62,10 +60,9 @@ class CursorTest extends AbstractTestCase {
     $resp->paging->cursors->after = $this->after;
     $resp->paging->cursors->before = $this->before;
 
-    $this->response = new FacebookResponse(
-      $request,
-      $resp,
-      json_encode($resp));
+    $this->response = $this->getHttpClient()->createResponse();
+    $this->response->setRequest($request);
+    $this->response->setBody(json_encode($resp));
   }
 
   public function tearDown() {

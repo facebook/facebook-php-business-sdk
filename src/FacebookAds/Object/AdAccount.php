@@ -25,9 +25,9 @@
 namespace FacebookAds\Object;
 
 use FacebookAds\Object\Fields\AdAccountFields;
-use FacebookAds\Traits\CannotCreate;
-use FacebookAds\Traits\CannotDelete;
-use FacebookAds\Traits\FieldValidation;
+use FacebookAds\Object\Traits\CannotCreate;
+use FacebookAds\Object\Traits\CannotDelete;
+use FacebookAds\Object\Traits\FieldValidation;
 use FacebookAds\Cursor;
 
 class AdAccount extends AbstractCrudObject {

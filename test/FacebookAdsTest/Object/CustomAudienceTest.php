@@ -24,8 +24,6 @@
 
 namespace FacebookAdsTest\Object;
 
-use Facebook\FacebookRequest;
-use FacebookAds\Api;
 use FacebookAds\Object\CustomAudience;
 use FacebookAds\Object\Fields\CustomAudienceFields;
 use FacebookAds\Object\Values\CustomAudienceTypes;
@@ -35,8 +33,8 @@ class CustomAudienceTest extends AbstractCrudObjectTestCase {
   protected function assertClusterChangesResponse(
     CustomAudience $ca, array $users, $response) {
 
-    $this->assertTrue($response instanceof \StdClass);
-    $response = (array) $response;
+    $this->assertTrue(is_array($response));
+
     $this->assertArrayHasKey('audience_id', $response);
     $this->assertEquals(
       $response['audience_id'], $ca->{CustomAudienceFields::ID});
@@ -57,12 +55,9 @@ class CustomAudienceTest extends AbstractCrudObjectTestCase {
       $ca,
       array(CustomAudienceFields::NAME => $this->getTestRunId().' updated'));
 
-    $me = (new FacebookRequest(
-      $this->getSession(),
-      Api::HTTP_METHOD_GET,
-      '/me'))->execute()->getResponse();
+    $me = $this->getApi()->call('/me')->getContent();
 
-    $uid = $me->{'id'};
+    $uid = $me['id'];
 
     $users = array($uid);
 

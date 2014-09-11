@@ -22,21 +22,27 @@
  *
  */
 
-namespace FacebookAds\Traits;
+namespace FacebookAds\Http\Adapter;
 
-trait FieldValidation {
+use FacebookAds\Http\Client;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\Http\ResponseInterface;
+
+interface AdapterInterface {
 
   /**
-   * @param string $name
-   * @param mixed $value
-   * @throws \InvalidArgumentException
+   * @param Client $client
    */
-  public function __set($name, $value) {
-    if (in_array($name, static::$fields)) {
-      parent::__set($name, $value);
-    } else {
-      throw new \InvalidArgumentException(
-        $name.' is not a field of '.get_class($this));
-    }
-  }
+  public function __construct(Client $client);
+
+  /**
+   * @return Client
+   */
+  public function getClient();
+
+  /**
+   * @param RequestInterface $request
+   * @return ResponseInterface
+   */
+  public function sendRequest(RequestInterface $request);
 }
