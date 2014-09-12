@@ -273,6 +273,17 @@ class AdAccount extends AbstractCrudObject {
    * @param array $params
    * @return Cursor
    */
+  public function getReachFrequencyPredictions(
+    array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(
+      ReachFrequencyPrediction::className(), $fields, $params);
+  }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
   public function getReportsStats(
     array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(

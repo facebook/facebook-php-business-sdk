@@ -22,27 +22,26 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
-abstract class AdSetFields {
+abstract class ReachFrequencyPredictionStatuses {
 
-  const ACCOUNT_ID = 'account_id';
-  const BID_TYPE = 'bid_type';
-  const BID_INFO = 'bid_info';
-  const BUDGET_REMAINING = 'budget_remaining';
-  const CAMPAIGN_GROUP_ID = 'campaign_group_id';
-  const CAMPAIGN_SCHEDULE = 'campaign_schedule';
-  const CAMPAIGN_STATUS = 'campaign_status';
-  const CREATED_TIME = 'created_time';
-  const DAILY_BUDGET = 'daily_budget';
-  const END_TIME = 'end_time';
-  const ID = 'id';
-  const LIFETIME_BUDGET = 'lifetime_budget';
-  const NAME = 'name';
-  const PACING_TYPE = 'pacing_type';
-  const START_TIME = 'start_time';
-  const RF_PREDICTION_ID = 'rf_prediction_id';
-  const UPDATED_TIME = 'updated_time';
-  const TARGETING = 'targeting';
-
+  const SUCCESS = 1;
+  const PENDING = 2;
+  const UNREACHABLE_AUDIENCE = 3;
+  const CONFIG_INVALID = 4;
+  const TARGET_SPEC_INVALID = 5;
+  const BUDGET_TOO_LOW = 6;
+  const TOO_SHORT_AD_SET_LENGTH = 7;
+  const TOO_LONG_AD_SET_LENGTH = 8;
+  const END_DATE_TOO_FAR = 9;
+  const FREQUENCY_CAP_NOT_SPECIFIED = 10;
+  const UNSUPPORTED_PLACEMENT = 11;
+  const DATE_ERROR = 12;
+  const COUNTRY_NOT_SUPPORTED = 13;
+  const BLACKOUT_DAYS = 14;
+  const INSUFFICIENT_INVENTORY = 15;
+  const REACH_BELOW_1_MILLION = 16;
+  const MINIMUM_REACH_NOT_AVAILABLE = 17;
+  const INVENTORY_CHANGED = 21;
 }
