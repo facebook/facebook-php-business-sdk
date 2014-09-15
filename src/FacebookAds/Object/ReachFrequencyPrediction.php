@@ -52,7 +52,7 @@ class ReachFrequencyPrediction extends AbstractCrudObject {
   protected static $fields = array(
     PredictionFields::ID,
     PredictionFields::ACCOUNT_ID,
-    PredictionFields::BURGET,
+    PredictionFields::BUDGET,
     PredictionFields::BUYING_TYPE,
     PredictionFields::CAMPAIGN_ID,
     PredictionFields::CAMPAIGN_TIME_START,
@@ -104,7 +104,8 @@ class ReachFrequencyPrediction extends AbstractCrudObject {
     $params = array_filter(array(
       PredictionFields::PREDICTION_ID => $this->assureId(),
       PredictionFields::PREDICTION_ID_TO_RELEASE => $preciction_to_release,
-      PredictionFields::BURGET => $budget,
+      PredictionFields::BUDGET => $budget,
+      PredictionFields::REACH => $reach,
       PredictionFields::IMPRESSION => $impression,
       PredictionFields::ACTION => ReachFrequencyPredictionActions::RESERVE,
     ));

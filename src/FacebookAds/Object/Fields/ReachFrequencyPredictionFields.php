@@ -29,7 +29,7 @@ abstract class ReachFrequencyPredictionFields {
   const ID = 'id';
   const ACCOUNT_ID = 'account_id';
   const ACTION = 'action';
-  const BURGET = 'budget';
+  const BUDGET = 'budget';
   const BUYING_TYPE = 'buying_type';
   const CAMPAIGN_ID = 'campaign_id';
   const CAMPAIGN_TIME_START= 'campaign_time_start';
