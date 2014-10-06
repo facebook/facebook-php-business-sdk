@@ -44,6 +44,26 @@ class AdGroup extends AbstractArchivableCrudObject {
   /**
    * @var string
    */
+  const STATUS_CAMPAIGN_PAUSED = 'CAMPAIGN_PAUSED';
+
+  /**
+   * @var string
+   */
+  const STATUS_CAMPAIGN_GROUP_PAUSED = 'CAMPAIGN_GROUP_PAUSED';
+
+  /**
+   * @var string
+   */
+  const STATUS_PENDING_REVIEW = 'PENDING_REVIEW';
+
+  /**
+   * @var string
+   */
+  const STATUS_PREAPPROVED = 'PREAPPROVED';
+
+  /**
+   * @var string
+   */
   const BID_TYPE_CPC = 'CPC';
 
   /**
