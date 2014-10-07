@@ -146,7 +146,7 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
    * @return string
    */
   public function getTestImagePath() {
-    return __DIR__.'/../misc/FB-f-Logo__blue_512.png';
+    return __DIR__.'/../misc/image.png';
   }
 
   /**
@@ -154,6 +154,13 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
    */
   public function getTestZippedImagesPath() {
     return __DIR__.'/../misc/images.zip';
+  }
+
+  /**
+   * @return string
+   */
+  public function getTestVideoPath() {
+    return __DIR__.'/../misc/video.mp4';
   }
 
   public static function setupBeforeClass() {
