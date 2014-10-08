@@ -26,19 +26,20 @@ namespace FacebookAds\Object\Search;
 
 abstract class TargetingSearchTypes {
 
-  const COUNTRY = 'adcountry';
-  const REGION = 'adregion';
   const CITY = 'adcity';
+  const COUNTRY = 'adcountry';
   const EDUCATION = 'adeducationschool';
-  const MAJOR = 'adeducationmajor';
-  const LOCALE = 'adlocale';
   const EMPLOYER = 'adworkemployer';
-  const POSITION = 'adworkposition';
-  const KEYWORD = 'adkeyword';
-  const ZIPCODE = 'adzipcode';
   const GEOLOCATION = 'adgeolocation';
-  const TARGETING_CATEGORY = 'adTargetingCategory';
   const INTEREST = 'adinterest';
   const INTEREST_SUGGESTION = 'adinterestsuggestion';
   const INTEREST_VALIDATE = 'adinterestvalid';
+  const KEYWORD = 'adkeyword';
+  const LOCALE = 'adlocale';
+  const MAJOR = 'adeducationmajor';
+  const POSITION = 'adworkposition';
+  const RADIUS_SUGGESTION = 'adradiussuggestion';
+  const REGION = 'adregion';
+  const TARGETING_CATEGORY = 'adTargetingCategory';
+  const ZIPCODE = 'adzipcode';
 }
