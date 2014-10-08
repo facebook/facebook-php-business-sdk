@@ -46,7 +46,7 @@ class ReachFrequencyPredictionTest extends AbstractCrudObjectTestCase {
     );
 
     $prediction->setData(array(
-      RF::BURGET => 3000000,
+      RF::BUDGET => 3000000,
       RF::TARGET_SPECS => array($targeting),
       RF::START_TIME => strtotime('midnight + 2 weeks'),
       RF::END_TIME => strtotime('midnight + 3 weeks'),
