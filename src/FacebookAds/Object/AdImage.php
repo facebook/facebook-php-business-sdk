@@ -103,6 +103,7 @@ class AdImage extends AbstractCrudObject {
    * @param array $params Additional parameters to include in the request
    * @return $this
    * @throws \Exception
+   * @throws \RuntimeException
    */
   public function create(array $params = array()) {
     if ($this->data[static::FIELD_ID]) {
@@ -110,8 +111,8 @@ class AdImage extends AbstractCrudObject {
     }
 
     if ($this->isZipFile($this->data[AdImageFields::FILENAME])) {
-      throw new \Exception(
-        "use AdImage::bulkCreateFromZip to create zip files");
+      throw new \RuntimeException(
+        "use AdImage::createFromZip to create zip files");
     }
 
     $response = $this->getApi()->call(
@@ -183,10 +184,12 @@ class AdImage extends AbstractCrudObject {
    *
    * @param array $params
    * @return Cursor
+   * @throws \RuntimeException
    */
   protected function cursorFromZip($params = array()) {
     if (!$this->isZipFile($this->data[AdImageFields::FILENAME])) {
-      throw new \Exception("Please use a zip file containing images.");
+      throw new \RuntimeException(
+        $this->data[AdImageFields::FILENAME]." doesn't resolve to a zip file");
     }
 
     $response = $this->getApi()->call(
