@@ -81,16 +81,35 @@ abstract class AbstractObject {
   }
 
   /**
+   * @param mixed $value
+   * @return mixed
+   */
+  protected function exportValue($value) {
+    switch (true) {
+      case $value === null :
+        break;
+      case $value instanceof AbstractObject :
+        $value = $value->exportData();
+        break;
+      case is_array($value) :
+        foreach ($value as $key => $sub_value) {
+          if ($sub_value === null) {
+            unset($value[$key]);
+          } else {
+            $value[$key] = $this->exportValue($sub_value);
+          }
+        }
+        break;
+    }
+
+    return $value;
+  }
+
+  /**
    * @return array
    */
-  protected function exportData() {
-    $data = array();
-    foreach ($this->data as $key => $value) {
-      if ($value !== null) {
-        $data[$key] = $value;
-      }
-    }
-    return $data;
+  public function exportData() {
+    return $this->exportValue($this->data);
   }
 
   /**
