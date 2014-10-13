@@ -105,11 +105,13 @@ class CurlLogger extends \Psr\Log\AbstractLogger {
     // Extract Parameters
     $params = json_decode($parts[3]);
     $data = '';
-    foreach ($params as $k=>$param) {
-      if (is_scalar($param)) {
-        $data .= '  '.$param_name." '{$k}=$param' \\\n";
-      } else {
-        $data .= '  '.$param_name." '{$k}=".json_encode($param)."' \\\n";
+    if (!empty($params)) {
+      foreach ($params as $k=>$param) {
+        if (is_scalar($param)) {
+          $data .= '  '.$param_name." '{$k}=$param' \\\n";
+        } else {
+          $data .= '  '.$param_name." '{$k}=".json_encode($param)."' \\\n";
+        }
       }
     }
 

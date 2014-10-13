@@ -68,9 +68,11 @@ abstract class AbstractObject {
 
   /**
    * @param array
+   * @return $this
    */
   public function setData(array $data) {
     $this->data = $data;
+    return $this;
   }
 
   /**
@@ -101,7 +103,6 @@ abstract class AbstractObject {
         }
         break;
     }
-
     return $value;
   }
 

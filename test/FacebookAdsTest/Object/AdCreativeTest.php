@@ -25,7 +25,15 @@
 namespace FacebookAdsTest\Object;
 
 use FacebookAds\Object\AdCreative;
+use FacebookAds\Object\AdImage;
+use FacebookAds\Object\ObjectStorySpec;
+use FacebookAds\Object\ObjectStory\LinkData;
+use FacebookAds\Object\ObjectStory\AttachmentData;
 use FacebookAds\Object\Fields\AdCreativeFields;
+use FacebookAds\Object\Fields\AdImageFields;
+use FacebookAds\Object\Fields\ObjectStorySpecFields;
+use FacebookAds\Object\Fields\ObjectStory\LinkDataFields;
+use FacebookAds\Object\Fields\ObjectStory\AttachmentDataFields;
 
 class AdCreativeTest extends AbstractCrudObjectTestCase {
 
@@ -40,6 +48,61 @@ class AdCreativeTest extends AbstractCrudObjectTestCase {
     $this->assertCanUpdate(
       $creative,
       array(AdCreativeFields::NAME => 'My Test Ad '. $this->getTestRunId()));
+    $this->assertCanDelete($creative);
+  }
+
+  public function testMultiProductObjectSpec() {
+    // Create a new AdCreative
+    $creative = new AdCreative(null, $this->getActId());
+    $creative->{AdCreativeFields::NAME} = 'Multi Product Ad Creative';
+
+    // Create a new ObjectStorySpec to create an unpublished post
+    $story = new ObjectStorySpec();
+    $story->{ObjectStorySpecFields::PAGE_ID} = $this->getPageId();
+
+    // Create LinkData object representing data for a link page post
+    $link = new LinkData();
+    $link->{LinkDataFields::LINK} = 'http://www.example.com/';
+    $link->{LinkDataFields::CAPTION} = 'My Caption';
+
+    // Upload a test image to use in Attachments
+    $adImage = new AdImage(null, $this->getActId());
+    $adImage->{AdImageFields::FILENAME} = $this->getTestImagePath();
+    $adImage->save();
+
+    // Create 3 products as this will be a multi-product ad
+    $product1 = (new AttachmentData())->setData(array(
+      AttachmentDataFields::LINK => 'http://www.example.com/p1',
+      AttachmentDataFields::IMAGE_HASH => $adImage->hash,
+      AttachmentDataFields::NAME => 'Product 1',
+      AttachmentDataFields::DESCRIPTION => '$100',
+    ));
+
+    $product2 = (new AttachmentData())->setData(array(
+      AttachmentDataFields::LINK => 'http://www.example.com/p2',
+      AttachmentDataFields::IMAGE_HASH => $adImage->hash,
+      AttachmentDataFields::NAME => 'Product 2',
+      AttachmentDataFields::DESCRIPTION => '$200',
+    ));
+
+    $product3 = (new AttachmentData())->setData(array(
+      AttachmentDataFields::LINK => 'http://www.example.com/p3',
+      AttachmentDataFields::IMAGE_HASH => $adImage->hash,
+      AttachmentDataFields::NAME => 'Product 3',
+      AttachmentDataFields::DESCRIPTION => '$300',
+    ));
+
+    // Add the products into the child attachments
+    $link->{LinkDataFields::CHILD_ATTACHMENTS} = array(
+      $product1,
+      $product2,
+      $product3,
+    );
+
+    $story->{ObjectStorySpecFields::LINK_DATA} = $link;
+    $creative->{AdCreativeFields::OBJECT_STORY_SPEC} = $story;
+
+    $this->assertCanCreate($creative);
     $this->assertCanDelete($creative);
   }
 }
