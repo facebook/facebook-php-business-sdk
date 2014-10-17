@@ -41,7 +41,7 @@ class CurlLogger extends \Psr\Log\AbstractLogger {
   /**
    * @param resource $handle
    */
-  public function __construct($handle=null) {
+  public function __construct($handle = null) {
     $this->handle = $handle ?: STDOUT;
   }
 
@@ -72,6 +72,7 @@ class CurlLogger extends \Psr\Log\AbstractLogger {
    * Takes a request and converts it into it's curl equivelent
    * @param string $request
    * @return string
+   * @throws \Exception
    */
   public function parseRequest($request) {
     $param_name = '';
@@ -106,8 +107,13 @@ class CurlLogger extends \Psr\Log\AbstractLogger {
     $params = json_decode($parts[3]);
     $data = '';
     if (!empty($params)) {
-      foreach ($params as $k=>$param) {
-        if (is_scalar($param)) {
+      foreach ($params as $k => $param) {
+        if ($param instanceof \StdClass
+          && property_exists($param, 'mime')
+          && property_exists($param, 'name')
+        ) {
+          $data .= '  '.$param_name." '{$k}=@{$param->name}' \\\n";
+        } elseif (is_scalar($param)) {
           $data .= '  '.$param_name." '{$k}=$param' \\\n";
         } else {
           $data .= '  '.$param_name." '{$k}=".json_encode($param)."' \\\n";

@@ -62,7 +62,7 @@ class AdCreativeTest extends AbstractCrudObjectTestCase {
 
     // Create LinkData object representing data for a link page post
     $link = new LinkData();
-    $link->{LinkDataFields::LINK} = 'http://www.example.com/';
+    $link->{LinkDataFields::LINK} = $this->getAppUrl();
     $link->{LinkDataFields::CAPTION} = 'My Caption';
 
     // Upload a test image to use in Attachments
@@ -72,21 +72,21 @@ class AdCreativeTest extends AbstractCrudObjectTestCase {
 
     // Create 3 products as this will be a multi-product ad
     $product1 = (new AttachmentData())->setData(array(
-      AttachmentDataFields::LINK => 'http://www.example.com/p1',
+      AttachmentDataFields::LINK => $this->getAppUrl().'p1',
       AttachmentDataFields::IMAGE_HASH => $adImage->hash,
       AttachmentDataFields::NAME => 'Product 1',
       AttachmentDataFields::DESCRIPTION => '$100',
     ));
 
     $product2 = (new AttachmentData())->setData(array(
-      AttachmentDataFields::LINK => 'http://www.example.com/p2',
+      AttachmentDataFields::LINK => $this->getAppUrl().'p2',
       AttachmentDataFields::IMAGE_HASH => $adImage->hash,
       AttachmentDataFields::NAME => 'Product 2',
       AttachmentDataFields::DESCRIPTION => '$200',
     ));
 
     $product3 = (new AttachmentData())->setData(array(
-      AttachmentDataFields::LINK => 'http://www.example.com/p3',
+      AttachmentDataFields::LINK => $this->getAppUrl().'p3',
       AttachmentDataFields::IMAGE_HASH => $adImage->hash,
       AttachmentDataFields::NAME => 'Product 3',
       AttachmentDataFields::DESCRIPTION => '$300',

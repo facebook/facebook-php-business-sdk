@@ -27,8 +27,17 @@ namespace FacebookAdsTest\Object;
 use FacebookAds\Object\AbstractCrudObject;
 use FacebookAds\Object\AdAccount;
 use FacebookAds\Object\PartnerCategory;
+use FacebookAdsTest\SkippableFeatureTestInterface;
 
-class PartnerCategoryTest extends AbstractCrudObjectTestCase {
+class PartnerCategoryTest extends AbstractCrudObjectTestCase
+  implements SkippableFeatureTestInterface {
+
+  /**
+   * @return array
+   */
+  public function skipIfAny() {
+    return array('no_partner_categories');
+  }
 
   public function testCrudAccess() {
     $account = new AdAccount($this->getActId());

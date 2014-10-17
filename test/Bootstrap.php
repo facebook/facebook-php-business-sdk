@@ -49,6 +49,56 @@ abstract class Bootstrap {
   }
 
   /**
+   * Simplifies the common pattern of checking for an index in an array
+   * and selecting a default value if it does not exist
+   *
+   * @param array $array
+   * @param string|int $key
+   * @param mixed $default
+   * @return mixed
+   */
+  private static function idx(array $array, $key, $default = null) {
+    return array_key_exists($key, $array) && $array[$key] !== ''
+      ? $array[$key]
+      : $default;
+  }
+
+  /**
+   * Simplifies the common pattern of checking for an index in an array
+   * and throw an exception if not
+   *
+   * @param array $array
+   * @param $key
+   * @return mixed
+   * @throws \Exception
+   */
+  private static function idxt(array $array, $key) {
+    if (!array_key_exists($key, $array) || !$array[$key]) {
+      throw new \Exception("Missing mandatory config '{$key}'");
+    }
+
+    return $array[$key];
+  }
+
+  /**
+   * @param string|int $key
+   * @param mixed $default
+   * @return mixed
+   */
+  private static function confx($key, $default = null) {
+    return self::idx(self::$config, $key, $default);
+  }
+
+  /**
+   * @param $key
+   * @return mixed
+   * @throws \Exception
+   */
+  private static function confxt($key) {
+    return self::idxt(self::$config, $key);
+  }
+
+  /**
    * @throws \RuntimeException
    */
   private static function initAutoloader() {
@@ -65,30 +115,34 @@ abstract class Bootstrap {
    * @throws \RuntimeException
    */
   private static function initConfig() {
-    $config_path = __DIR__.'/config.php';
+    $config_path = __DIR__ . '/config.php';
     if (!is_readable($config_path)) {
       throw new \RuntimeException("Could not read config.php");
     }
 
     self::$config = include $config_path;
-    AbstractTestCase::$appId = self::$config['app_id'];
-    AbstractTestCase::$appSecret = self::$config['app_secret'];
-    AbstractTestCase::$accessToken = self::$config['access_token'];
-    AbstractTestCase::$actId = self::$config['act_id'];
-    AbstractTestCase::$pageId = self::$config['page_id'];
+    AbstractTestCase::$appId = self::confxt('app_id');
+    AbstractTestCase::$appSecret = self::confxt('app_secret');
+    AbstractTestCase::$accessToken = self::confxt('access_token');
+    AbstractTestCase::$actId = self::confxt('act_id');
+    AbstractTestCase::$pageId = self::confxt('page_id');
+    AbstractTestCase::$appUrl = self::confxt('app_url');
+    AbstractTestCase::$skipIf = self::confx('skip_if', array());
     AbstractTestCase::$testRunId = md5(
       (isset($_SERVER['LOGNAME']) ? $_SERVER['LOGNAME'] : uniqid(true))
-      .microtime(true));
+      . microtime(true));
 
-    $timezone = self::DEFAULT_TIMEZONE;
-    if (isset(self::$config['act_timezone'])
-      && !empty(self::$config['act_timezone'])) {
+    if (!date_default_timezone_set(
+      self::confx(
+        'act_timezone',
+        date_default_timezone_get() ?: self::DEFAULT_TIMEZONE))
+    ) {
 
-      $timezone = self::$config['act_timezone'];
+      throw new \Exception("Invalid timezone");
     }
 
-    if (!date_default_timezone_set($timezone)) {
-      exit();
+    if ($curl_logger = self::confx('curl_logger')) {
+      AbstractTestCase::$curlLoggerResource = fopen($curl_logger, "w+");
     }
   }
 

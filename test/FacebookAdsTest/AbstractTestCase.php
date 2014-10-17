@@ -26,6 +26,7 @@ namespace FacebookAdsTest;
 
 use Facebook\FacebookSession;
 use FacebookAds\Api;
+use FacebookAds\CurlLogger;
 use Psr\Log\NullLogger;
 
 /**
@@ -58,6 +59,21 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
    * @var string
    */
   public static $pageId;
+
+  /**
+   * @var string
+   */
+  public static $appUrl;
+
+  /**
+   * @var resource|null
+   */
+  public static $curlLoggerResource;
+
+  /**
+   * @var array
+   */
+  public static $skipIf = array();
 
   /**
    * @var string
@@ -117,6 +133,13 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
   /**
    * @return string
    */
+  public function getAppUrl() {
+    return static::$appUrl;
+  }
+
+  /**
+   * @return string
+   */
   public function getTestRunId() {
     return static::$testRunId;
   }
@@ -163,12 +186,23 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
     return __DIR__.'/../misc/video.mp4';
   }
 
+  /**
+   * @param $config_key
+   * @return bool
+   */
+  public function shouldSkipTest($config_key) {
+    return array_key_exists($config_key, static::$skipIf)
+      && static::$skipIf[$config_key];
+  }
+
   public static function setupBeforeClass() {
     parent::setupBeforeClass();
     FacebookSession::setDefaultApplication(
       static::$appId, static::$appSecret);
     static::$session = new FacebookSession(static::$accessToken);
-    static::$logger = new NullLogger();
+    static::$logger = static::$curlLoggerResource
+      ? new CurlLogger(static::$curlLoggerResource)
+      : new NullLogger();
   }
 
   public static function tearDownAfterClass() {
@@ -177,6 +211,15 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
   }
 
   public function setup() {
+    if ($this instanceof SkippableFeatureTestInterface) {
+      foreach ($this->skipIfAny() as $config_key) {
+        /** @var AbstractTestCase $this */
+        if ($this->shouldSkipTest($config_key)) {
+          $this->markTestSkipped("Reason: skipped by config '{$config_key}''");
+        }
+      }
+    }
+
     parent::setup();
     $this->api = new Api($this->getSession(), $this->getLogger());
   }

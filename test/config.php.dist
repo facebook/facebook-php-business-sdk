@@ -23,12 +23,77 @@
  */
 
 return array(
+
+  /**
+   * @string Numeric Facebook app id, espressed as string
+   */
   'app_id' => '',
+
+  /**
+   * @string App Secret
+   * @see https://developers.facebook.com/apps/<APP_ID>/dashboard/
+   */
   'app_secret' => '',
+
+  /**
+   * @string User Access Token
+   * @see https://developers.facebook.com/docs/facebook-login/access-tokens/
+   */
   'access_token' => '',
-// start with act_, eg act_1234567
+
+  /**
+   * @string Numeric Facebook id, preceded by 'act_', espressed as string
+   * @see https://www.facebook.com/ads/manage/home/
+   */
   'act_id' => '',
-// [Optional] override php timezone: http://php.net/manual/en/timezones.php
-  'act_timezone' => '',
+
+  /**
+   * @string Numeric Facebook id, preceded by 'act_', espressed as string
+   * @see https://www.facebook.com/ads/manage/home/
+   */
   'page_id' => '',
+
+  /**
+   * @string Url of your app [Stream post URL security]
+   *         Example: 'http://my.domain.com/'
+   * @see https://developers.facebook.com/docs/facebook-login/security/#surfacearea
+   */
+  'app_url' => '',
+
+  // OPTIONAL INTEGRATION TESTS
+
+  'skip_if' => array(
+
+    /**
+     * @bool Skip tests that require an account with a valid payment method
+     * @see https://secure.facebook.com/ads/manage/funding.php
+     */
+    'no_payment_method' => true,
+
+    /**
+     * @bool Skip tests that require parnet categories whitelisting
+     * @see https://developers.facebook.com/docs/reference/ads-api/partnercategories
+     */
+    'no_partner_categories' => true,
+
+    /**
+     * @bool Skip tests that require video upload
+     */
+    'no_video_upload' => true,
+
+  ),
+
+  // OPTIONAL CONFIGURATIONS
+
+  /**
+   * @string PHP timezone, override php.ini config
+   * @see http://php.net/manual/en/timezones.php
+   */
+  'act_timezone' => '',
+
+  /**
+   * @string Filepath to which cUrl shell equivalents will be dumped
+   *         Tip: access std streams with 'php://stdout' or 'php://stderr'
+   */
+  'curl_logger' => '',
 );

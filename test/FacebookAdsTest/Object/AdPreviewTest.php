@@ -40,8 +40,10 @@ use FacebookAds\Object\Fields\AdCampaignFields;
 use FacebookAds\Object\Fields\TargetingSpecsFields;
 use FacebookAds\Object\Values\AdFormats;
 use FacebookAds\Object\Fields\AdGroupBidInfoFields;
+use FacebookAdsTest\SkippableFeatureTestInterface;
 
-class AdPreviewTest extends AbstractCrudObjectTestCase {
+class AdPreviewTest extends AbstractCrudObjectTestCase
+  implements SkippableFeatureTestInterface {
 
   /**
    * @var AdCampaign
@@ -67,6 +69,13 @@ class AdPreviewTest extends AbstractCrudObjectTestCase {
    * @var AdCreative
    */
   protected $adCreative;
+
+  /**
+   * @return array
+   */
+  public function skipIfAny() {
+    return array('no_payment_method');
+  }
 
   public function setup() {
     parent::setup();
