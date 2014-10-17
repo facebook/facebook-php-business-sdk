@@ -24,7 +24,7 @@
 
 namespace FacebookAds;
 
-use Facebook\FacebookCurl;
+use Facebook\HttpClients\FacebookCurl;
 use Facebook\HttpClients\FacebookCurlHttpClient;
 
 class HttpClient extends FacebookCurlHttpClient {
