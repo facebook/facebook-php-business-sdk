@@ -22,30 +22,12 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Fields;
 
-use FacebookAds\Object\Fields\ReachEstimateFields;
-use FacebookAds\Traits\FieldValidation;
+abstract class ReachEstimateFields {
 
-class ReachEstimate extends AbstractObject {
-  use FieldValidation;
+  const USERS = 'users';
+  const BID_ESTIMATIONS = 'bid_estimations';
+  const ESTIMATE_READY = 'estimate_ready';
 
-  /**
-   * @var string[]
-   */
-  protected static $fields = array(
-    ReachEstimateFields::USERS,
-    ReachEstimateFields::BID_ESTIMATIONS,
-    ReachEstimateFields::ESTIMATE_READY,
-  );
-
-  /**
-   * @param array
-   * @return $this
-   */
-  public function setData(array $data) {
-    return parent::setData(array_key_exists('data', $data)
-      ? get_object_vars($data['data'])
-      : $data);
-  }
 }

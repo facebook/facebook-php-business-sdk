@@ -173,11 +173,11 @@ class AdGroup extends AbstractArchivableCrudObject {
   /**
    * @param array $fields
    * @param array $params
-   * @return Cursor
+   * @return ReachEstimate
    */
   public function getReachEstimate(
     array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
+    return $this->getOneByConnection(
       ReachEstimate::className(), $fields, $params, 'reachestimate');
   }
 
