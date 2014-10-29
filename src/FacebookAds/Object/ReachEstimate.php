@@ -45,7 +45,7 @@ class ReachEstimate extends AbstractObject {
    */
   public function setData(array $data) {
     return parent::setData(array_key_exists('data', $data)
-      ? get_object_vars($data['data'])
+      ? $data['data']
       : $data);
   }
 }

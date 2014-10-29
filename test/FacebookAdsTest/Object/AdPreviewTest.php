@@ -79,6 +79,11 @@ class AdPreviewTest extends AbstractCrudObjectTestCase
 
   public function setup() {
     parent::setup();
+
+    $targeting = new TargetingSpecs();
+    $targeting->{TargetingSpecsFields::GEO_LOCATIONS}
+      = array('countries' => array('US'));
+
     $this->adCampaign = new AdCampaign(null, $this->getActId());
     $this->adCampaign->{AdCampaignFields::NAME} = $this->getTestRunId();
     $this->adCampaign->create();
@@ -93,6 +98,8 @@ class AdPreviewTest extends AbstractCrudObjectTestCase
       = (new \DateTime("+1 week"))->format(\DateTime::ISO8601);
     $this->adSet->{AdSetFields::END_TIME}
       = (new \DateTime("+2 week"))->format(\DateTime::ISO8601);
+    $this->adSet->{AdGroupFields::TARGETING} = $targeting;
+    $this->adSet->{AdGroupFields::BID_TYPE} = AdGroup::BID_TYPE_CPM;
     $this->adSet->create();
 
     $this->adImage = new AdImage(null, $this->getActId());
@@ -107,19 +114,13 @@ class AdPreviewTest extends AbstractCrudObjectTestCase
       = $this->adImage->{AdImageFields::HASH};
     $this->adCreative->create();
 
-    $targeting = new TargetingSpecs();
-    $targeting->{TargetingSpecsFields::GEO_LOCATIONS}
-      = array('countries' => array('US'));
-
     $this->adGroup = new AdGroup(null, $this->getActId());
     $this->adGroup->{AdGroupFields::ADGROUP_STATUS} = AdGroup::STATUS_PAUSED;
     $this->adGroup->{AdGroupFields::NAME} = $this->getTestRunId();
-    $this->adGroup->{AdGroupFields::BID_TYPE} = AdGroup::BID_TYPE_CPM;
     $this->adGroup->{AdGroupFields::BID_INFO}
       = array(AdGroupBidInfoFields::IMPRESSIONS => '2');
     $this->adGroup->{AdGroupFields::CAMPAIGN_ID}
       = (int) $this->adSet->{AdSetFields::ID};
-    $this->adGroup->{AdGroupFields::TARGETING} = $targeting;
     $this->adGroup->{AdGroupFields::CREATIVE}
       = array('creative_id' => $this->adCreative->{AdCreativeFields::ID});
     $this->adGroup->create();

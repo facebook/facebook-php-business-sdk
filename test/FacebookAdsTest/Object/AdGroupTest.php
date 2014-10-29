@@ -71,6 +71,11 @@ class AdGroupTest extends AbstractCrudObjectTestCase
 
   public function setup() {
     parent::setup();
+
+    $targeting = new TargetingSpecs();
+    $targeting->{TargetingSpecsFields::GEO_LOCATIONS}
+      = array('countries' => array('US'));
+
     $this->adCampaign = new AdCampaign(null, $this->getActId());
     $this->adCampaign->{AdCampaignFields::NAME} = $this->getTestRunId();
     $this->adCampaign->create();
@@ -85,6 +90,8 @@ class AdGroupTest extends AbstractCrudObjectTestCase
       = (new \DateTime("+1 week"))->format(\DateTime::ISO8601);
     $this->adSet->{AdSetFields::END_TIME}
       = (new \DateTime("+2 week"))->format(\DateTime::ISO8601);
+    $this->adSet->{AdGroupFields::TARGETING} = $targeting;
+    $this->adSet->{AdGroupFields::BID_TYPE} = AdGroup::BID_TYPE_CPM;
     $this->adSet->save();
 
     $this->adImage = new AdImage(null, $this->getActId());
@@ -123,19 +130,14 @@ class AdGroupTest extends AbstractCrudObjectTestCase
   }
 
   public function testCrudAccess() {
-    $targeting = new TargetingSpecs();
-    $targeting->{TargetingSpecsFields::GEO_LOCATIONS}
-      = array('countries' => array('US'));
 
     $group = new AdGroup(null, $this->getActId());
     $group->{AdGroupFields::ADGROUP_STATUS} = AdGroup::STATUS_PAUSED;
     $group->{AdGroupFields::NAME} = $this->getTestRunId();
-    $group->{AdGroupFields::BID_TYPE} = AdGroup::BID_TYPE_CPM;
     $group->{AdGroupFields::BID_INFO}
       = array(AdGroupBidInfoFields::IMPRESSIONS => '2');
     $group->{AdGroupFields::CAMPAIGN_ID}
       = (int) $this->adSet->{AdSetFields::ID};
-    $group->{AdGroupFields::TARGETING} = $targeting;
     $group->{AdGroupFields::CREATIVE}
       = array('creative_id' => $this->adCreative->{AdCreativeFields::ID});
 
@@ -151,7 +153,10 @@ class AdGroupTest extends AbstractCrudObjectTestCase
     $this->assertCanFetchConnection($group, 'getAdPreviews',
       array(),
       array('ad_format' => 'RIGHT_COLUMN_STANDARD'));
-    $this->assertCanFetchConnection($group, 'getReachEstimate');
+
+    if (!$this->shouldSkipTest('no_reach_and_frequency')) {
+      $this->assertCanFetchConnection($group, 'getReachEstimate');
+    }
     $this->assertCanFetchConnection($group, 'getStats');
     $this->assertCanFetchConnection($group, 'getClickTrackingTag');
     $this->assertCanFetchConnection($group, 'getConversions');

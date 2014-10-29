@@ -59,11 +59,14 @@ class AdAccountTest extends AbstractCrudObjectTestCase {
     $this->assertCanFetchConnection($account, 'getCustomAudiences');
     $this->assertCanFetchConnection($account, 'getConversionPixels');
     $this->assertCanFetchConnection($account, 'getRateCards');
-    $this->assertCanFetchConnection($account, 'getReachEstimate',
-      array(),
-      array('targeting_spec' =>
-        array('geo_locations' =>
-          array('countries' => array('US')))));
+
+    if (!$this->shouldSkipTest('no_reach_and_frequency')) {
+      $this->assertCanFetchConnection($account, 'getReachEstimate',
+        array(),
+        array('targeting_spec' =>
+          array('geo_locations' =>
+            array('countries' => array('US')))));
+    }
 
     $this->assertCanFetchConnection($account, 'getReportsStats',
       array(),

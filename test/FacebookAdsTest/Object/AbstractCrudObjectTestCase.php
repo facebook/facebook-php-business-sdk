@@ -201,4 +201,13 @@ abstract class AbstractCrudObjectTestCase extends AbstractTestCase {
 
     $subject->read(array($subject->getStatusFieldName()));
   }
+
+  /**
+   * @param array $response_content
+   */
+  public function assertSuccessResponse(array $response_content) {
+    $this->assertTrue(is_array($response_content));
+    $this->assertArrayHasKey('success', $response_content);
+    $this->assertTrue($response_content['success']);
+  }
 }

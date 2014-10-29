@@ -32,11 +32,15 @@ use Psr\Log\NullLogger;
 
 class ApiTest extends AbstractTestCase {
 
+  /**
+   * Override parent method to avoid singleton initialization
+   */
   protected function setupApi() {
     $this->api = new Api(
       $this->getHttpClient(),
-      $this->getSession(),
-      $this->getLogger());
+      $this->getSession());
+
+    $this->api->setLogger($this->getLogger());
   }
 
   public function testInstance() {

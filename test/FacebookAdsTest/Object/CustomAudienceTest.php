@@ -55,20 +55,42 @@ class CustomAudienceTest extends AbstractCrudObjectTestCase {
       $ca,
       array(CustomAudienceFields::NAME => $this->getTestRunId().' updated'));
 
-    $me = $this->getApi()->call('/me')->getContent();
+    $users = array('someone@example.com');
 
-    $uid = $me['id'];
-
-    $users = array($uid);
-
-    $add = $ca->addUsers($users, CustomAudienceTypes::ID);
+    $add = $ca->addUsers($users, CustomAudienceTypes::EMAIL);
     $this->assertClusterChangesResponse($ca, $users, $add);
 
-    $remove = $ca->removeUsers($users, CustomAudienceTypes::ID);
+    $remove = $ca->removeUsers($users, CustomAudienceTypes::EMAIL);
     $this->assertClusterChangesResponse($ca, $users, $remove);
 
-    $this->assertTrue($ca->optOutUsers($users, CustomAudienceTypes::ID));
+    $optout = $ca->optOutUsers($users, CustomAudienceTypes::EMAIL);
+    $this->assertSuccessResponse($optout);
 
     $this->assertCanDelete($ca);
+  }
+
+  /**
+   * @depends testCustomAudiences
+   */
+  public function testAppIdsPayload() {
+    $ca = new CustomAudience(null, $this->getActId());
+    $ca->{CustomAudienceFields::NAME} = $this->getTestRunId();
+    $ca->create();
+
+    $users = array($this->getApi()->call('/me')->getContent()['id']);
+
+    $add = $ca->addUsers(
+      $users, CustomAudienceTypes::ID, array($this->getAppId()));
+    $this->assertClusterChangesResponse($ca, $users, $add);
+
+    $remove = $ca->removeUsers(
+      $users, CustomAudienceTypes::ID, array($this->getAppId()));
+    $this->assertClusterChangesResponse($ca, $users, $remove);
+
+    $optout = $ca->optOutUsers(
+      $users, CustomAudienceTypes::ID, array($this->getAppId()));
+    $this->assertSuccessResponse($optout);
+
+    $ca->delete();
   }
 }

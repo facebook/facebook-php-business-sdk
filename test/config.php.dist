@@ -65,21 +65,26 @@ return array(
   'skip_if' => array(
 
     /**
-     * @bool Skip tests that require an account with a valid payment method
+     * @var bool Skip tests that require an account with a valid payment method
      * @see https://secure.facebook.com/ads/manage/funding.php
      */
     'no_payment_method' => true,
 
     /**
-     * @bool Skip tests that require parnet categories whitelisting
+     * @var bool Skip tests that require parnet categories whitelisting
      * @see https://developers.facebook.com/docs/reference/ads-api/partnercategories
      */
     'no_partner_categories' => true,
 
     /**
-     * @bool Skip tests that require video upload
+     * @var bool Skip tests that require video upload
      */
     'no_video_upload' => true,
+
+    /**
+     * @var bool Skip tests that require reach and frequency whitelisting
+     */
+    'no_reach_and_frequency_whitelist' => true,
 
   ),
 

@@ -72,10 +72,12 @@ class CustomAudience extends AbstractCrudObject {
    *
    * @param array $users
    * @param string $type
+   * @param array $app_ids List of app ids from which the user ids has been
+   *   gathered. Required when $type = 'UID'.
    * @return array
    */
-  public function addUsers(array $users, $type) {
-    $params = $this->formatParams($users, $type);
+  public function addUsers(array $users, $type, array $app_ids = array()) {
+    $params = $this->formatParams($users, $type, $app_ids);
     return $this->getApi()->call(
       '/'.$this->assureId().'/users',
       RequestInterface::METHOD_POST,
@@ -87,10 +89,12 @@ class CustomAudience extends AbstractCrudObject {
    *
    * @param array $users
    * @param string $type
+   * @param array $app_ids List of app ids from which the user ids has been
+   *   gathered. Required when $type = 'UID'.
    * @return array
    */
-  public function removeUsers(array $users, $type) {
-    $params = $this->formatParams($users, $type);
+  public function removeUsers(array $users, $type, array $app_ids = array()) {
+    $params = $this->formatParams($users, $type, $app_ids);
     return $this->getApi()->call(
       '/'.$this->assureId().'/users',
       RequestInterface::METHOD_DELETE,
@@ -102,10 +106,12 @@ class CustomAudience extends AbstractCrudObject {
    *
    * @param array $users
    * @param string $type
-   * @return boolean Returns true on success
+   * @param array $app_ids List of app ids from which the user ids has been
+   *   gathered. Required when $type = 'UID'.
+   * @return array
    */
-  public function optOutUsers(array $users, $type) {
-    $params = $this->formatParams($users, $type);
+  public function optOutUsers(array $users, $type, array $app_ids = array()) {
+    $params = $this->formatParams($users, $type, $app_ids);
     return $this->getApi()->call(
       '/'.$this->assureParentId().'/usersofanyaudience',
       RequestInterface::METHOD_DELETE,
@@ -117,13 +123,11 @@ class CustomAudience extends AbstractCrudObject {
    *
    * @param array $users
    * @param string $type
+   * @param array $app_ids
    * @return array
    */
-  protected function formatParams(array $users, $type) {
-    $payload = array(
-      'schema' => $type,
-      'data' => $users,
-    );
+  protected function formatParams(
+    array $users, $type, array $app_ids = array()) {
 
     if ($type == CustomAudienceTypes::EMAIL
       || $type == CustomAudienceTypes::PHONE) {
@@ -134,6 +138,22 @@ class CustomAudience extends AbstractCrudObject {
         $user = hash(self::HASH_TYPE_SHA256, $user);
       }
     }
+
+    $payload = array(
+      'schema' => $type,
+      'data' => $users,
+    );
+
+    if ($type === CustomAudienceTypes::ID) {
+      if (!$app_ids) {
+        throw new \InvalidArgumentException(
+          "Custom audiences with type ".CustomAudienceTypes::ID." require"
+          ."at least one app_id");
+      }
+
+      $payload['app_ids'] = $app_ids;
+    }
+
     return array('payload' => $payload);
   }
 

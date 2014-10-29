@@ -54,10 +54,11 @@ abstract class ReachFrequencyPredictionFields {
   const PREDICTION_MODE = 'prediction_mode';
   const PREDICTION_PROGRESS = 'prediction_progress';
   const TARGET_AUDIENCE_SIZE = 'target_audience_size';
-  const TARGET_SPECS = 'target_specs';
+  const TARGET_SPEC = 'target_spec';
   const TIME_CREATED = 'time_created';
   const OBJECTIVE = 'objective';
   const REACH = 'reach';
   const START_TIME = 'start_time';
   const STATUS = 'status';
+  const STORY_EVENT_TYPE = 'story_event_type';
 }

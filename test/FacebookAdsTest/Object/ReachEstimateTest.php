@@ -24,9 +24,7 @@
 
 namespace FacebookAdsTest\Object;
 
-use Facebook\FacebookRequest;
 use FacebookAdsTest\AbstractTestCase;
-use FacebookAds\Api;
 use FacebookAds\Object\ReachEstimate;
 use FacebookAds\Object\Fields\ReachEstimateFields;
 
@@ -35,7 +33,7 @@ class ReachEstimateTest extends AbstractTestCase {
   public function testOnlyInnerData() {
     $reach_estimate = new ReachEstimate();
     $reach_estimate->setData(array(
-      'data' => (object)array(
+      'data' => array(
         ReachEstimateFields::ESTIMATE_READY => true,
       ),
     ));
@@ -54,7 +52,7 @@ class ReachEstimateTest extends AbstractTestCase {
     $reach_estimate = new ReachEstimate();
     $reach_estimate->setData(array(
       ReachEstimateFields::ESTIMATE_READY => false,
-      'data' => (object)array(
+      'data' => array(
         ReachEstimateFields::ESTIMATE_READY => true,
       ),
      ));

@@ -27,8 +27,17 @@ namespace FacebookAdsTest\Object;
 use FacebookAds\Object\ReachFrequencyPrediction;
 use FacebookAds\Object\Fields\ReachFrequencyPredictionFields as RF;
 use FacebookAds\Object\Values\AdObjectives;
+use FacebookAdsTest\SkippableFeatureTestInterface;
 
-class ReachFrequencyPredictionTest extends AbstractCrudObjectTestCase {
+class ReachFrequencyPredictionTest extends AbstractCrudObjectTestCase
+  implements SkippableFeatureTestInterface {
+
+  /**
+   * @return array
+   */
+  public function skipIfAny() {
+    return array('no_reach_and_frequency');
+  }
 
   public function testCrudAccess() {
 
@@ -44,13 +53,14 @@ class ReachFrequencyPredictionTest extends AbstractCrudObjectTestCase {
 
     $prediction->setData(array(
       RF::BUDGET => 3000000,
-      RF::TARGET_SPECS => array($targeting),
+      RF::TARGET_SPEC => $targeting,
       RF::START_TIME => strtotime('midnight + 2 weeks'),
       RF::END_TIME => strtotime('midnight + 3 weeks'),
       RF::FREQUENCY_CAP => 4,
       RF::DESTINATION_ID => $this->getPageId(),
       RF::PREDICTION_MODE => ReachFrequencyPrediction::PREDICTION_MODE_REACH,
       RF::OBJECTIVE => AdObjectives::POST_ENGAGEMENT,
+      RF::STORY_EVENT_TYPE => 128,
     ));
 
     $this->assertCanCreate($prediction);

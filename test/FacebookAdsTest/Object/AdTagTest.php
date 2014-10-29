@@ -97,6 +97,8 @@ class AdTagTest extends AbstractCrudObjectTestCase
       = (new \DateTime("+1 week"))->format(\DateTime::ISO8601);
     $this->adSet->{AdSetFields::END_TIME}
       = (new \DateTime("+2 week"))->format(\DateTime::ISO8601);
+    $this->adSet->{AdGroupFields::TARGETING} = $targeting;
+    $this->adSet->{AdGroupFields::BID_TYPE} = AdGroup::BID_TYPE_CPM;
     $this->adSet->save();
 
     $this->adImage = new AdImage(null, $this->getActId());
@@ -112,12 +114,10 @@ class AdTagTest extends AbstractCrudObjectTestCase
     $this->adGroup = new AdGroup(null, $this->getActId());
     $this->adGroup->{AdGroupFields::ADGROUP_STATUS} = AdGroup::STATUS_PAUSED;
     $this->adGroup->{AdGroupFields::NAME} = $this->getTestRunId();
-    $this->adGroup->{AdGroupFields::BID_TYPE} = AdGroup::BID_TYPE_CPM;
     $this->adGroup->{AdGroupFields::BID_INFO}
       = array(AdGroupBidInfoFields::IMPRESSIONS => '2');
     $this->adGroup->{AdGroupFields::CAMPAIGN_ID}
       = (int) $this->adSet->{AdSetFields::ID};
-    $this->adGroup->{AdGroupFields::TARGETING} = $targeting;
     $this->adGroup->{AdGroupFields::CREATIVE}
       = array('creative_id' => $this->adCreative->{AdCreativeFields::ID});
     $this->adGroup->create();
@@ -139,14 +139,14 @@ class AdTagTest extends AbstractCrudObjectTestCase
       $this->adCampaign = null;
     }
 
-    if ($this->adImage) {
-      $this->adImage->delete();
-      $this->adImage = null;
-    }
-
     if ($this->adCreative) {
       $this->adCreative->delete();
       $this->adCreative = null;
+    }
+
+    if ($this->adImage) {
+      $this->adImage->delete();
+      $this->adImage = null;
     }
 
     parent::tearDown();
@@ -179,6 +179,6 @@ class AdTagTest extends AbstractCrudObjectTestCase
 
   private function assertCanTagObjects(AdTag $ad_tag, $objects, $method) {
     $response = call_user_func([$ad_tag, $method], $objects);
-    $this->assertTrue($response);
+    $this->assertSuccessResponse($response);
   }
 }

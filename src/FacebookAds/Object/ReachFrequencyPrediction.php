@@ -71,12 +71,13 @@ class ReachFrequencyPrediction extends AbstractCrudObject {
     PredictionFields::PREDICTION_MODE,
     PredictionFields::PREDICTION_PROGRESS,
     PredictionFields::TARGET_AUDIENCE_SIZE,
-    PredictionFields::TARGET_SPECS,
+    PredictionFields::TARGET_SPEC,
     PredictionFields::TIME_CREATED,
     PredictionFields::OBJECTIVE,
     PredictionFields::REACH,
     PredictionFields::START_TIME,
     PredictionFields::STATUS,
+    PredictionFields::STORY_EVENT_TYPE,
   );
 
   /**
