@@ -136,6 +136,16 @@ class Request implements RequestInterface {
   }
 
   /**
+   * @param string $last_level_domain
+   */
+  public function setLastLevelDomain($last_level_domain) {
+    $this->domain = sprintf(
+      "%s.%s",
+      $last_level_domain,
+      $this->client->getDefaultGraphBaseDomain());
+  }
+
+  /**
    * @return Headers
    */
   public function getHeaders() {

@@ -87,6 +87,11 @@ interface RequestInterface {
   public function setDomain($domain);
 
   /**
+   * @param string $last_level_domain
+   */
+  public function setLastLevelDomain($last_level_domain);
+
+  /**
    * @return string
    */
   public function getMethod();

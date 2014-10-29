@@ -71,7 +71,14 @@ class AdVideo extends AbstractCrudObject {
       $params
     );
 
+    $request->setLastLevelDomain('graph-video');
     $request->getFileParams()->offsetSet(AdVideoFields::SOURCE, $source);
     $response = $this->getApi()->executeRequest($request);
+
+    $data = $response->getContent();
+    $this->data[static::FIELD_ID]
+      = is_string($data) ? $data : (string) $data[static::FIELD_ID];
+
+    return $this;
   }
 }
