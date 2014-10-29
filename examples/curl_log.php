@@ -43,11 +43,9 @@ define('SDK_DIR', __DIR__ . '/..'); // Path to the SDK directory
 $loader = include SDK_DIR.'/vendor/autoload.php';
 
 use FacebookAds\Api;
-use Facebook\FacebookSession;
-use FacebookAds\CurlLogger;
+use FacebookAds\Logger\CurlLogger;
 
-FacebookSession::setDefaultApplication($app_id, $app_secret);
-$session = new FacebookSession($access_token);
+Api::init($app_id, $app_secret, $access_token);
 
 // Create the CurlLogger
 $logger = new CurlLogger();
@@ -58,9 +56,8 @@ $logger = new CurlLogger();
 // If you need to escape double quotes, use the following - useful for docs
 $logger->setEscapeQuotes(true);
 
-// Create the Api instance
-$api = new Api($session, $logger);
-
+// Hide target ids and tokens
+$logger->setShowSensitiveData(false);
 
 use FacebookAds\Object\AdAccount;
 use FacebookAds\Object\Fields\AdAccountFields;

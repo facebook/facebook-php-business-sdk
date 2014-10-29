@@ -23,7 +23,6 @@
  */
 
 use FacebookAds\Api;
-use Facebook\FacebookSession;
 use FacebookAds\Object\AdUser;
 use FacebookAds\Object\Fields\AdAccountFields;
 use FacebookAds\Object\Fields\ConnectionObjectFields;
@@ -43,9 +42,7 @@ if(is_null($access_token) || is_null($app_id) || is_null($app_secret)) {
 define('SDK_DIR', __DIR__ . '/..'); // Path to the SDK directory
 $loader = include SDK_DIR.'/vendor/autoload.php';
 
-FacebookSession::setDefaultApplication($app_id, $app_secret);
-$session = new FacebookSession($access_token);
-$api = new Api($session);
+Api::init($app_id, $app_secret, $access_token);
 
 // Use the first account - Connection objects are not actually account-specific
 // so the account ID doesn't matter

@@ -43,11 +43,8 @@ define('SDK_DIR', __DIR__ . '/..'); // Path to the SDK directory
 $loader = include SDK_DIR.'/vendor/autoload.php';
 
 use FacebookAds\Api;
-use Facebook\FacebookSession;
 
-FacebookSession::setDefaultApplication($app_id, $app_secret);
-$session = new FacebookSession($access_token);
-$api = new Api($session);
+Api::init($app_id, $app_secret, $access_token);
 
 
 /**

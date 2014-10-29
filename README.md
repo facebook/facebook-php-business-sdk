@@ -15,7 +15,7 @@ Add the following to your `composer.json` file:
 ```json
 {
     "require": {
-        "facebook/php-ads-sdk": "*"
+        "facebook/php-ads-sdk": "2.2.*"
     }
 }
 ```
@@ -35,17 +35,18 @@ This repository is written following the [psr-4 autoloading standard](http://www
 
 ### Api main class
 
-The `FacebookAds\Api` object is the foundation of the Ads SDK which encapsulates a `Facebook\FacebookSession` and is used to execute requests against the Graph API.
+The `FacebookAds\Api` object is the foundation of the Ads SDK which encapsulates a `FacebookAds\Session` and is used to execute requests against the Graph API.
 
 To instantiate an Api object you will need a valid access token:
 ```php
 use FacebookAds\Api;
-use Facebook\FacebookSession;
 
-// Set the default application information to be used with this session
-FacebookSession::setDefaultApplication($app_id, $app_secret);
-$session = new FacebookSession($access_token);
-$api = new Api($session);
+// Initialize a new Session and instanciate an Api object
+Api::init($app_id, $app_secret, $access_token);
+
+// The Api object is now available trough singleton
+$api = Api::instance();
+
 ```
 
 Once instantiated, the Api object will allow you to start making requests to the Ads API.
