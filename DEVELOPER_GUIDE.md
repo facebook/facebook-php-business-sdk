@@ -18,34 +18,27 @@ $loader = include VENDOR_DIR.'/vendor/autoload.php';
 ```
 
 ### Authentication <a name="authentication"></a>
-To make any request to the Ads API, you will need to have a valid access token and the user has accepted the `ads_management` permission. The Facebook SDK for PHP provides some helper classes such as the [`Facebook\FacebookRedirectLoginHelper`](https://developers.facebook.com/docs/php/FacebookRedirectLoginHelper/4.0.0) which handles much of the process for you. 
-
-You may also want to exchange your short lived session for the long lived equivalent and record the access token for use in subsequent requests:
-
-```php
-// Exchange the session for a long lived session and output the access token
-$long_lived_session = $session->getLongLivedSession();
-echo $long_lived_session->getToken();
-```
+To make any request to the Ads API, you will need to have a valid access token and the user has accepted the `ads_management` permission.
 
 ## The Api Object
 
-The `FacebookAds\Api` object is the basis of the Ads SDK which encapsulates a `Facebook\FacebookSession` and is used to execute requests against the Graph API.
+The `FacebookAds\Api` object is the basis of the Ads SDK which encapsulates a `FacebookAds\Session` and is used to execute requests against the Graph API.
 
-To instantiate an Api object you will need a valid access token:
+An easy to use init method is provided:
 
 ```php
 use FacebookAds\Api;
-use Facebook\FacebookSession;
 
-// Set the default application information to be used with this session
-FacebookSession::setDefaultApplication($app_id, $app_secret);
-$session = new FacebookSession($access_token);
-$api = new Api($session);
+// Set the default application to be used with this session and register an instance of the Api object
+Api::init('<APP_ID>', '<APP_SECRET>', '<ACCESS_TOKEN>');
+
+// The instace is now retrivable
+$api = Api::instance();
 ```
+
 ### Making requests to the Graph <a name="making_requests"></a>
 
-Generally you should not need to make requests to the Graph API directly as these calls are handled by the implementation of objects within the SDK. However, there may be some case where you do want to query the Graph directly. In this case, you can use the `call` method of the `Api` class which returns a `Facebook\FacebookRequest`:
+Generally you should not need to make requests to the Graph API directly as these calls are handled by the implementation of objects within the SDK. However, there may be some case where you do want to query the Graph directly. In this case, you can use the `call` method of the `Api` class which returns a `FacebookAds\Http\RequestInterface`, by default the registered class is `FacebookAds\Http\Request`:
 
 ```php
 $response = $api->call(
@@ -53,7 +46,7 @@ $response = $api->call(
   Api::HTTP_METHOD_GET, 
   array('fields'=>'name',)
 );
-print_r($response->getResponse());
+var_dump($response->getContent());
 ```
 
 ### Handling Multiple Access Tokens <a name="multiple_tokens"></a>
@@ -65,7 +58,7 @@ To enable this, we provide two ways to manage sessions.
 
 The first is by mutating the default instance used by the application. The default instance can be accessed using the method `Api::instance()`. You can also change the default instance using the static method `Api::setInstance($api)`.
 
-The second is to explicitly define the `Api` instance you want to use when querying the Graph. This is achieved by passing an instance to the constructor of any class that implements `Object\AbstractCrudObject`. 
+The second is to explicitly define the `Api` instance you want to use when querying the Graph. This is achieved by passing an instance to the constructor of any class that extends from `Object\AbstractCrudObject`.
 
 ```php
 use FacebookAds\Object\AdGroup;
@@ -256,10 +249,10 @@ This set of examples will walk you through:
 
 1. Reading AdAccounts for a user
 * Creating an AdCampaign
+* Searching targeting criteria
 * Creating an AdSet
 * Creating an AdImage
 * Creating an AdCreative
-* Searching targeting criteria
 * Creating an AdGroup
 
 Examples can be found within the `examples/` folder of the SDK. This assumes you have bootstrap code with an access token:
@@ -271,10 +264,8 @@ define('SDK_DIR', '/path/to/sdk/'); // Path to the SDK directory
 $loader = include SDK_DIR.'/vendor/autoload.php';
 
 use FacebookAds\Api;
-use Facebook\FacebookSession;
 
-$session = new FacebookSession($access_token);
-$api = new Api($session);
+Api::init($app_id, $app_secret, $access_token);
 
 ```
 
@@ -330,7 +321,45 @@ $campaign->setData(array(
 $campaign->create();
 echo "Campaign ID:" . $campaign->id . "\n";
 ```
-### 3. Creating an AdSet
+
+
+### 6. Searching Targeting
+
+The final thing we need before creating an `AdGroup` is some targeting. Many attributes of targeting can be found defined in the developer documentation, however some categories need you to search, such as interests. For this, we provide the `TargetingSearch` class.
+
+```php
+use FacebookAds\Object\TargetingSearch;
+use FacebookAds\Object\Search\TargetingSearchTypes;
+
+$results = TargetingSearch::search(
+  $type = TargetingSearchTypes::INTEREST,
+  $class = null,
+  $query = 'facebook london'
+);
+
+// we'll take the top result for now
+$target = (count($results)) ? $results->getObjects()[0] : null;
+echo "Using target: ".$target->name."\n";
+```
+
+Targeting for the moment is expressed in the form of a multidimensional array:
+
+```php
+$targeting = array(
+  'geo_locations' => array(
+    'countries' => array('GB'),
+  ),
+  'interests' => array(
+    array(
+      'id' => $target->id,
+      'name'=>$target->name
+    )
+  )
+);
+```
+
+
+### 4. Creating an AdSet
 
 An [`AdSet`](https://developers.facebook.com/docs/reference/ads-api/adset) is a set of [`AdGroup`](https://developers.facebook.com/docs/reference/ads-api/adgroup) objects and it is best practice to ensure all `AdGroup` objects within an `AdSet` have the same targeting.
 
@@ -339,6 +368,7 @@ The `AdSet` holds the attributes about the duration of a campaign and the budget
 ```php
 use FacebookAds\Object\AdSet;
 use FacebookAds\Object\Fields\AdSetFields;
+use FacebookAds\Object\Values\BidTypes;
 
 $adset = new AdSet(null, $account->id);
 $adset->setData(array(
@@ -346,6 +376,8 @@ $adset->setData(array(
   AdSetFields::CAMPAIGN_GROUP_ID => $campaign->id,
   AdSetFields::CAMPAIGN_STATUS => AdSet::STATUS_ACTIVE,
   AdSetFields::DAILY_BUDGET => '150',
+  AdSetFields::BID_TYPE => BidTypes::BID_TYPE_CPM;
+  AdSetFields::TARGETING => $targeting,
   AdSetFields::START_TIME => 
     (new \DateTime("+1 week"))->format(\DateTime::ISO8601),
   AdSetFields::END_TIME => 
@@ -355,7 +387,7 @@ $adset->setData(array(
 $adset->create();
 echo 'AdSet  ID: '. $adset->id . "\n";
 ```
-### 4. Create an AdImage
+### 5. Create an AdImage
 
 Now you have a `AdSet`, you will be able to create an `AdGroup`, however, first you will need to upload the image you want to use as part of the `AdCreative`. 
 
@@ -370,7 +402,7 @@ $image->create();
 echo 'Image Hash: '.$image->hash . "\n";
 ```
 
-### 5. Creating an AdCreative
+### 6. Creating an AdCreative
 
 You can create an `AdCreative` in two ways. The first is by including a JSON object when creating an `AdGroup` and the second, which we will demonstrate here, is by explicitly creation an `AdCreative` and using its `id` when creating an `AdGroup`.
 
@@ -391,41 +423,6 @@ $creative->create();
 echo 'Creative ID: '.$creative->id . "\n";
 ```
 
-### 6. Searching Targeting 
-
-The final thing we need before creating an `AdGroup` is some targeting. Many attributes of targeting can be found defined in the developer documentation, however some categories need you to search, such as interests. For this, we provide the `TargetingSearch` class.
-
-```php
-use FacebookAds\Object\TargetingSearch;
-use FacebookAds\Object\Search\TargetingSearchTypes;
-
-$results = TargetingSearch::search(
-  $type = TargetingSearchTypes::INTEREST, 
-  $class = null, 
-  $query = 'facebook london'
-);
-
-// we'll take the top result for now
-$target = (count($results)) ? $results->getObjects()[0] : null;
-echo "Using target: ".$target->name."\n";
-```
-
-Targeting for the moment is expressed in the form of a multidimensional array:
-
-```php
-$targeting = array(
-  'geo_locations' => array(
-    'countries' => array('GB'),
-  ),
-  'interests' => array(
-    array(
-      'id' => $target->id, 
-      'name'=>$target->name
-    )
-  )
-);
-```
-
 ### 7. Creating an AdGroup
 
 The final step is to create the [`AdGroup`](https://developers.facebook.com/docs/reference/ads-api/adgroup/). The `AdGroup` contains all of the information about bid, creative and targeting. It should also have the asme objective as the `AdCampaign` we created.
@@ -440,11 +437,9 @@ $adgroup->setData(array(
   AdGroupFields::CREATIVE => 
     array('creative_id' => $creative->id),
   AdGroupFields::NAME => 'My First AdGroup',
-  AdGroupFields::BID_TYPE => AdGroup::BID_TYPE_CPM,
   AdGroupFields::BID_INFO => 
     array(AdGroupBidInfoFields::IMPRESSIONS => '2'),
   AdGroupFields::CAMPAIGN_ID => $adset->id,
-  AdGroupFields::TARGETING => $targeting,
 ));
 
 $adgroup->create();

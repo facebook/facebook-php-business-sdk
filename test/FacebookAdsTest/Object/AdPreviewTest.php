@@ -40,6 +40,7 @@ use FacebookAds\Object\Fields\AdCampaignFields;
 use FacebookAds\Object\Fields\TargetingSpecsFields;
 use FacebookAds\Object\Values\AdFormats;
 use FacebookAds\Object\Fields\AdGroupBidInfoFields;
+use FacebookAds\Object\Values\BidTypes;
 use FacebookAdsTest\SkippableFeatureTestInterface;
 
 class AdPreviewTest extends AbstractCrudObjectTestCase
@@ -99,7 +100,7 @@ class AdPreviewTest extends AbstractCrudObjectTestCase
     $this->adSet->{AdSetFields::END_TIME}
       = (new \DateTime("+2 week"))->format(\DateTime::ISO8601);
     $this->adSet->{AdGroupFields::TARGETING} = $targeting;
-    $this->adSet->{AdGroupFields::BID_TYPE} = AdGroup::BID_TYPE_CPM;
+    $this->adSet->{AdGroupFields::BID_TYPE} = BidTypes::BID_TYPE_CPM;
     $this->adSet->create();
 
     $this->adImage = new AdImage(null, $this->getActId());

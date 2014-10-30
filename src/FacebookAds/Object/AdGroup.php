@@ -62,26 +62,6 @@ class AdGroup extends AbstractArchivableCrudObject {
   const STATUS_PREAPPROVED = 'PREAPPROVED';
 
   /**
-   * @var string
-   */
-  const BID_TYPE_CPC = 'CPC';
-
-  /**
-   * @var string
-   */
-  const BID_TYPE_CPM = 'CPM';
-
-  /**
-   * @var string
-   */
-  const BID_TYPE_MULTI_PREMIUM = 'MULTI_PREMIUM';
-
-  /**
-   * @var string
-   */
-  const BID_TYPE_ABSOLUTE_OCPM = 'ABSOLUTE_OCPM';
-
-  /**
    * @var string[]
    */
   protected static $fields = array(

@@ -175,13 +175,14 @@ $targeting = array(
 use FacebookAds\Object\AdGroup;
 use FacebookAds\Object\Fields\AdGroupFields;
 use FacebookAds\Object\Fields\AdGroupBidInfoFields;
+use FacebookAds\Object\Values\BidTypes;
 
 $adgroup = new AdGroup(null, $account->id);
 $adgroup->setData(array(
   AdGroupFields::CREATIVE =>
     array('creative_id' => $creative->id),
   AdGroupFields::NAME => 'My First AdGroup',
-  AdGroupFields::BID_TYPE => AdGroup::BID_TYPE_CPM,
+  AdGroupFields::BID_TYPE => BidTypes::BID_TYPE_CPM,
   AdGroupFields::BID_INFO =>
     array(AdGroupBidInfoFields::IMPRESSIONS => '2'),
   AdGroupFields::CAMPAIGN_ID => $adset->id,
