@@ -234,7 +234,7 @@ For each connection an object has, we provide a helper method to retrieve its re
 ```php
 use FacebookAds\Object\AdAccount;
 $account = new AdAccount($id);
-$adgroups = $account->getAdgroup($fields = array('name')));
+$adgroups = $account->getAdgroups($fields = array('name')));
 foreach($adgroups as $adgroup) {
   echo $adgroup->name."\n";
 }
