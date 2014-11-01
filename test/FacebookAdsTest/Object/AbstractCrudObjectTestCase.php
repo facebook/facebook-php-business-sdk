@@ -28,6 +28,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Object\AbstractCrudObject;
 use FacebookAds\Object\AbstractObject;
 use FacebookAds\Object\AbstractArchivableCrudObject;
+use FacebookAds\Object\CanRedownloadInterface;
 use FacebookAdsTest\AbstractTestCase;
 
 abstract class AbstractCrudObjectTestCase extends AbstractTestCase {
@@ -36,9 +37,27 @@ abstract class AbstractCrudObjectTestCase extends AbstractTestCase {
    * @param AbstractCrudObject $subject
    */
   public function assertCanCreate(AbstractCrudObject $subject) {
+    $params = $subject instanceof CanRedownloadInterface
+      ? array(CanRedownloadInterface::PARAM_REDOWNLOAD => true)
+      : array();
+
     $this->assertEmpty($subject->{AbstractCrudObject::FIELD_ID});
-    $subject->create();
+    $subject->create($params);
     $this->assertNotEmpty($subject->{AbstractCrudObject::FIELD_ID});
+
+    /** @var AbstractCrudObject $subject */
+    if ($subject instanceof CanRedownloadInterface) {
+      $non_null_count = 0;
+      foreach ($subject->getData() as $key => $value) {
+        if ($key !== AbstractCrudObject::FIELD_ID && $value !== null) {
+          ++$non_null_count;
+          // Normalize assert function behaviour with non-redownloadable objects
+          $subject->{$key} = null;
+        }
+      }
+
+      $this->assertGreaterThan(0, $non_null_count);
+    }
   }
 
   /**

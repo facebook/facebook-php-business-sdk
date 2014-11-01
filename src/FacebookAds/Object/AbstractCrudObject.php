@@ -249,8 +249,20 @@ abstract class AbstractCrudObject extends AbstractObject {
 
     $this->clearHistory();
     $data = $response->getContent();
-    $this->data[static::FIELD_ID]
-     = is_string($data) ? $data : (string) $data[static::FIELD_ID];
+    $id = is_string($data) ? $data : $data[static::FIELD_ID];
+
+    /** @var AbstractCrudObject $this */
+    if ($this instanceof CanRedownloadInterface
+      && isset($params[CanRedownloadInterface::PARAM_REDOWNLOAD])
+      && $params[CanRedownloadInterface::PARAM_REDOWNLOAD] === true
+      && isset($data['data'][$id])
+      && is_array($data['data'][$id])
+    ) {
+      $this->setData($data['data'][$id]);
+    }
+
+    $this->data[static::FIELD_ID] = (string) $id;
+
 
     return $this;
   }
@@ -273,7 +285,7 @@ abstract class AbstractCrudObject extends AbstractObject {
       RequestInterface::METHOD_GET,
       $params);
 
-    $this->setData((array) $response->getContent());
+    $this->setData($response->getContent());
     $this->clearHistory();
 
     return $this;

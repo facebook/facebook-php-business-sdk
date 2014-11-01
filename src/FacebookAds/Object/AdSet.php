@@ -28,7 +28,8 @@ use FacebookAds\Object\Fields\AdSetFields;
 use FacebookAds\Object\Traits\FieldValidation;
 use FacebookAds\Cursor;
 
-class AdSet extends AbstractArchivableCrudObject {
+class AdSet extends AbstractArchivableCrudObject
+  implements CanRedownloadInterface {
   use FieldValidation;
 
   /**
