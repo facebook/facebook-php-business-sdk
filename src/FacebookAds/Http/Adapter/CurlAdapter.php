@@ -152,7 +152,7 @@ class CurlAdapter extends AbstractAdapter {
       if (version_compare(PHP_VERSION, '5.5.0') >= 0) {
         $postfields[$key] = curl_file_create($value);
       } else {
-        $file_params[$key] = '@'.$key;
+        $postfields[$key] = '@'.$value;
       }
     }
 
