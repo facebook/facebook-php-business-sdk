@@ -152,6 +152,70 @@ $set = new AdSet($ad_set_id);
 $set->delete();
 ```
 
+### Cursors
+
+Since the release of the Facebook Graph API 2.0, pagination is handled throuh [cursors](https://developers.facebook.com/docs/graph-api/using-graph-api/v2.2#paging).
+Here cursors are defined as in `\FacebookAds\Cursor`. Cursors are generally returned from connection methods:
+
+```php
+use FacebookAds\Object\AdAccount;
+use FacebookAds\Object\AdCampaignFields;
+
+$account = new AdAccount('<ACT_ID>');
+$cursor = $account->getCampaigns();
+
+// Loop over objects
+foreach ($cursor as $campaign) {
+  echo $campaign->{AdCampaignFields::NAME}.PHP_EOL;
+}
+
+// Access objects by index
+if ($cursor->count() > 0) {
+  echo "The first campaign in the cursor is: ".$cursor[0]->{AdCampaignFields::NAME}.PHP_EOL;
+}
+
+// Fetch the next page
+$cursor->fetchAfter();
+// New Objects will be appended to the cursor
+```
+
+#### Implicit Fetching
+
+Whenever all object connected to a parent are required (carelessly from the number of HTTP requests) implicit fetching can help reducing the amout of code required.
+If cursor has Implicit Fetching enabled, while iterating (foreach, Cursor::next(), Cursor::prev()) the page end is reached, the SDK will automatically fetch and append a new page, untill cursor end.
+Implicit Fetching will make you lose controll of the number of HTTP request that will be sent and, for this reason, is disabled by default.
+Implicit Fetching can be enabled for a specific cursor:
+
+```php
+$cursor->setUseImplicitFetching(true);
+```
+
+Or globally:
+
+```php
+use FacebookAds\Cursor;
+
+Cursor::setDefaultUseImplicitFetch(true);
+```
+
+#### Reverse Iterations
+
+Cursors are bi-directional, and can be iterated in reverse order:
+
+```php
+use FacebookAds\Object\AbstractCrudObject;
+
+/** @var \FacebookAds\Cursor $cursor */
+$cursor->setUseImplicitFetch(true);
+
+$cursor->end();
+while ($cursor->valid()) {
+  echo $cursor->current()->{AbstractCrudObject::FIELD_ID}.PHP_EOL;
+  $cursor->prev();
+}
+
+```
+
 ## Tests
 
 The 'test' folder contains the test cases.

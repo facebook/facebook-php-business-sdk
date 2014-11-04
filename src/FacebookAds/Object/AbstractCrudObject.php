@@ -357,18 +357,16 @@ abstract class AbstractCrudObject extends AbstractObject {
   }
 
   /**
-   * @param string $prototype_class
-   * @param callable $response_parser
    * @param array $fields
    * @param array $params
+   * @param string $prototype_class
    * @param null $endpoint
-   * @return mixed
+   * @return ResponseInterface
    */
-  protected function getConnections(
-    $prototype_class,
-    callable $response_parser,
+  protected function fetchConnection(
     array $fields = array(),
     array $params = array(),
+    $prototype_class,
     $endpoint = null) {
 
     $fields = implode(',', $fields ?: static::getDefaultReadFields());
@@ -377,52 +375,11 @@ abstract class AbstractCrudObject extends AbstractObject {
     }
 
     $endpoint = $this->assureEndpoint($prototype_class, $endpoint);
-    $response = $this->getApi()->call(
+
+    return $this->getApi()->call(
       '/'.$this->assureId().'/'.$endpoint,
       RequestInterface::METHOD_GET,
       $params);
-
-    return call_user_func($response_parser, $response, $prototype_class);
-  }
-
-  /**
-   * Default response parser for self::getOneByConnection
-   *
-   * @param ResponseInterface $response
-   * @param string $prototype_class
-   * @return AbstractObject
-   */
-  protected function getObjectByConnection(
-    ResponseInterface $response,
-    $prototype_class) {
-
-    /** @var AbstractObject $object */
-    $object = new $prototype_class(null, null, $this->getApi());
-    $object->setData((array) $response->getContent());
-
-    return $object;
-  }
-
-  /**
-   * Default response parser for self::getManyByConnection
-   *
-   * @param ResponseInterface $response
-   * @param $prototype_class
-   * @return Cursor
-   */
-  protected function getCursorByConnection(
-    ResponseInterface $response,
-    $prototype_class) {
-
-    $result = array();
-    foreach ($response->getContent()['data'] as $data) {
-      /** @var AbstractObject $object */
-      $object = new $prototype_class(null, null, $this->getApi());
-      $object->setData((array) $data);
-      $result[] = $object;
-    }
-
-    return new Cursor($result, $response);
   }
 
   /**
@@ -440,12 +397,19 @@ abstract class AbstractCrudObject extends AbstractObject {
     array $params = array(),
     $endpoint = null) {
 
-    return $this->getConnections(
-      $prototype_class,
-      array($this, 'getObjectByConnection'),
-      $fields,
-      $params,
-      $endpoint);
+    $response = $this->fetchConnection(
+      $fields, $params, $prototype_class, $endpoint);
+
+    if (!$response->getContent()) {
+      return null;
+    }
+
+    $object = new $prototype_class(
+      null, $this->{static::FIELD_ID}, $this->getApi());
+    /** @var AbstractCrudObject $object */
+    $object->setData($response->getContent());
+
+    return $object;
   }
 
   /**
@@ -463,12 +427,12 @@ abstract class AbstractCrudObject extends AbstractObject {
     array $params = array(),
     $endpoint = null) {
 
-    return $this->getConnections(
-      $prototype_class,
-      array($this, 'getCursorByConnection'),
-      $fields,
-      $params,
-      $endpoint);
+    $response = $this->fetchConnection(
+      $fields, $params, $prototype_class, $endpoint);
+
+    return new Cursor(
+      $response,
+      new $prototype_class(null, $this->{static::FIELD_ID}, $this->getApi()));
   }
 
   /**

@@ -26,8 +26,11 @@ namespace FacebookAdsTest;
 
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\Http\ResponseInterface;
+use FacebookAds\Object\AbstractCrudObject;
+use FacebookAds\Object\AbstractObject;
 use FacebookAds\Object\AdAccount;
 use FacebookAds\Cursor;
+use FacebookAdsTest\Object\EmptyObject;
 
 class CursorTest extends AbstractTestCase {
 
@@ -46,39 +49,145 @@ class CursorTest extends AbstractTestCase {
    */
   protected $after = 'MTAxNTExOTQ1MjAwNzI5NDE';
 
+  /**
+   * @var array
+   */
+  protected $responseContent;
+
+  /**
+   * @var array
+   */
+  protected $emptyResponseContent;
+
+  /**
+   * @var EmptyObject
+   */
+  protected $objectPrototype;
+
+  /**
+   * @var bool
+   */
+  protected $haltProcession = false;
+
+  /**
+   * @param int $max
+   * @return ResponseInterface
+   */
+  protected function getRandomSizeResponse($max = 100) {
+    $max = abs($max);
+    $response = clone $this->response;
+    $response_content = $this->responseContent;
+    $response_content['data'] = array();
+
+    $count = rand(0, $max);
+    for ($i = 0; $i < $count; $i++) {
+      $response_content['data'][] = array(
+        AbstractCrudObject::FIELD_ID => $i,
+      );
+    }
+
+    $response->setBody(json_encode($response_content));
+
+    return $response;
+  }
+
   public function setup() {
     parent::setup();
 
-    $request = $this->getHttpClient()->createRequest();
-    $request->setMethod(RequestInterface::METHOD_GET);
-    $request->setPath('/');
+    $this->objectPrototype = new EmptyObject();
 
-    $resp = new \StdClass();
-    $resp->data = array();
-    $resp->paging = new \StdClass();
-    $resp->paging->cursors = new \StdClass();
-    $resp->paging->cursors->after = $this->after;
-    $resp->paging->cursors->before = $this->before;
+    $this->responseContent = array(
+      'data' => array(
+        array(
+          AbstractCrudObject::FIELD_ID => 1,
+        ),
+        array(
+          AbstractCrudObject::FIELD_ID => 2,
+        ),
+        array(
+          AbstractCrudObject::FIELD_ID => 3,
+        ),
+      ),
+      'paging' => array(
+        'cursors' => array(
+          'after' => $this->after,
+          'before' => $this->before,
+        ),
+      ),
+    );
+
+    $this->emptyResponseContent = array(
+      'data' => array(),
+    );
+
+    $request = $this->getMock(
+      get_class($this->getHttpClient()->createRequest()),
+      array('execute'),
+      array($this->getHttpClient()));
+
+    $test = $this;
+
+    $request->expects($this->any())
+      ->method('execute')
+      ->will($this->returnCallback(
+        function() use ($test, $request) {
+          /** @var RequestInterface $request */
+          $mock_response = $test->getHttpClient()->createResponse();
+          $mock_response->setRequest($request);
+
+          $response_body = $test->haltProcession
+            ? $test->emptyResponseContent
+            : $test->responseContent;
+
+          $mock_response->setBody(json_encode($response_body));
+
+          return $mock_response;
+        }));
+
+    /** @var RequestInterface $request */
+    $request->setMethod(RequestInterface::METHOD_GET);
 
     $this->response = $this->getHttpClient()->createResponse();
     $this->response->setRequest($request);
-    $this->response->setBody(json_encode($resp));
+    $response_content = $this->responseContent;
+    $response_content['_unique'] = uniqid();
+    $this->response->setBody(json_encode($response_content));
   }
 
   public function tearDown() {
     $this->response = null;
+    $this->objectPrototype = null;
+    $this->responseContent = null;
     parent::tearDown();
   }
 
   public function testGetters() {
-    $objects = array(new AdAccount());
-
-    $cursor = new Cursor($objects, $this->response);
+    $cursor = new Cursor($this->response, $this->objectPrototype);
 
     $this->assertTrue($this->response === $cursor->getResponse());
-    $this->assertTrue($objects === $cursor->getObjects());
+    $this->assertTrue($this->response === $cursor->getLastResponse());
     $this->assertEquals($this->after, $cursor->getAfter());
     $this->assertEquals($this->before, $cursor->getBefore());
+  }
+
+  public function responseDataStructureProvider() {
+    return array(
+      array(array()),
+      array(array('data' => null)),
+      array(array('data' => 1)),
+    );
+  }
+
+  /**
+   * @dataProvider responseDataStructureProvider
+   * @expectedException \InvalidArgumentException
+   * @param mixed $content
+   */
+  public function testResponseDataStructure($content) {
+    $response = clone $this->response;
+    $response->setBody(json_encode($content));
+
+    new Cursor($response, $this->objectPrototype);
   }
 
   public function testIterator() {
@@ -89,7 +198,7 @@ class CursorTest extends AbstractTestCase {
       $objects[] = clone $account;
     }
 
-    $cursor = new Cursor($objects, $this->response);
+    $cursor = new Cursor($this->response, $this->objectPrototype);
 
     $this->assertTrue($cursor instanceof \Iterator);
 
@@ -103,45 +212,218 @@ class CursorTest extends AbstractTestCase {
     }
 
     $this->assertEquals($k, count($cursor));
+
+    $cursor->rewind();
+
+    $this->assertEquals(0, $cursor->key());
+    $cursor->next();
+    $this->assertEquals(1, $cursor->key());
+    $cursor->prev();
+    $this->assertEquals(0, $cursor->key());
+
+    $this->assertEquals($cursor->getIndexLeft(), 0);
+    $this->assertEquals($cursor->getIndexRight(), count($cursor) - 1);
   }
 
   public function testCountable() {
-    $objects = array();
-    $account = new AdAccount();
-    $count = rand(0, 100);
-    for ($i = 0; $i < $count; $i++) {
-      $objects[] = clone $account;
-    }
+    $response = $this->getRandomSizeResponse();
 
-    $cursor = new Cursor($objects, $this->response);
+    $cursor = new Cursor($response, $this->objectPrototype);
 
     $this->assertTrue($cursor instanceof \Countable);
-    $this->assertEquals($cursor->count(), $count);
+    $this->assertEquals($cursor->count(), count($cursor));
+    $this->assertEquals(
+      $cursor->count(), count($response->getContent()['data']));
   }
 
   public function testArrayAccess() {
-    $objects = array();
-    $account = new AdAccount();
-    $count = rand(0, 100);
-    for ($i = 0; $i < $count; $i++) {
-      $objects[] = clone $account;
-    }
+    $response = $this->getRandomSizeResponse();
+    $test_index = rand(1, count($response->getContent()) - 1);
 
-    $cursor = new Cursor($objects, $this->response);
+    $cursor = new Cursor($response, $this->objectPrototype);
 
     $this->assertTrue($cursor instanceof \arrayaccess);
-    $account = $cursor[0];
+
+    $subject = new EmptyObject();
+    $subject->setData($response->getContent()['data'][$test_index]);
 
     // Checking offsetGet
-    $this->assertEquals($cursor[0], $objects[0]);
+    $this->assertEquals($cursor[$test_index]->getData(), $subject->getData());
     // Checking offsetExists
     $this->assertFalse(isset($cursor[count($cursor)]));
     // Checking offsetUnset
-    unset($cursor[0]);
-    $this->assertNotEquals($cursor[0], $objects[0]);
+    unset($cursor[$test_index]);
+    $this->assertNull($cursor[$test_index]);
     // Checking offsetSet
-    $cursor[0] = $objects[0];
-    $this->assertEquals($cursor[0], $objects[0]);
+    $cursor->offsetSet($test_index, $subject);
+    $this->assertEquals($cursor[$test_index]->getData(), $subject->getData());
+    // Checking offsetSet - append
+    $count = count($cursor);
+    $cursor->offsetSet(null, new EmptyObject());
+    $this->assertEquals(count($cursor), $count + 1);
+  }
 
+  public function testIterability() {
+    $cursor_prototype = new Cursor($this->response, $this->objectPrototype);
+
+    $cursor = clone $cursor_prototype;
+    $cursor->next();
+    $cursor->rewind();
+    $this->assertEquals($cursor->getIndexLeft(), $cursor->key());
+
+    $cursor->end();
+    $this->assertEquals($cursor->getIndexRight(), $cursor->key());
+
+    $index = rand($cursor->getIndexLeft(), $cursor->getIndexRight());
+    $cursor->seekTo($index);
+    $this->assertEquals($index, $cursor->key());
+
+    $cursor = clone $cursor_prototype;
+    $cursor->fetchAfter();
+    $this->assertFalse($this->response === $cursor->getLastResponse());
+
+    $cursor = clone $cursor_prototype;
+    // Test request cursor param reset
+    $params = $cursor->getLastResponse()->getRequest()->getQueryParams();
+    $params->offsetSet('after', uniqid());
+    $params->offsetSet('before', uniqid());
+    $expect_exit = false;
+    $count = $cursor->count();
+    $iterations = 0;
+
+    // Fetch After
+    while (true) {
+      $cursor->fetchAfter();
+
+      $length = count($cursor->getLastResponse()->getContent()['data']);
+      if ($expect_exit) {
+        $this->assertEquals($length, 0);
+        $this->assertNull($cursor->createAfterRequest());
+
+        break;
+      }
+      $this->assertEquals($count + $length, $cursor->count());
+
+      $count += $length;
+
+      if (!$cursor->getLastResponse()->getContent()['data']) {
+        $expect_exit = true;
+
+        continue;
+      }
+
+      ++$iterations;
+      if ($iterations >= 2) {
+        $this->haltProcession = true;
+      }
+    }
+
+    $this->haltProcession = false;
+    $expect_exit = false;
+
+    // Fetch Before
+    while (true) {
+      $cursor->fetchBefore();
+      $length = count($cursor->getLastResponse()->getContent()['data']);
+
+      if ($expect_exit) {
+        $this->assertEquals($length, 0);
+        $this->assertNull($cursor->createBeforeRequest());
+
+        break;
+      }
+
+      $this->assertEquals($count + $length, $cursor->count());
+
+      $count += $length;
+
+      if (!$cursor->getLastResponse()->getContent()['data']) {
+        $expect_exit = true;
+
+        continue;
+      }
+
+      ++$iterations;
+      if ($iterations >= 2) {
+        $this->haltProcession = true;
+      }
+    }
+  }
+
+  public function testImplicitFetch() {
+    $cursor = new Cursor($this->response, $this->objectPrototype);
+
+    $this->assertFalse(Cursor::getDefaultUseImplicitFetch());
+    $this->assertFalse($cursor->getUseImplicitFetch());
+    $cursor->setUseImplicitFetch(true);
+    $this->assertTrue($cursor->getUseImplicitFetch());
+
+    Cursor::setDefaultUseImplicitFetch(true);
+
+    $cursor = new Cursor($this->response, $this->objectPrototype);
+    $this->assertTrue(Cursor::getDefaultUseImplicitFetch());
+    $this->assertTrue($cursor->getUseImplicitFetch());
+
+    $cursor = new Cursor($this->response, $this->objectPrototype);
+    $count = 0;
+    while ($cursor->valid()) {
+      $cursor->next();
+      if ($count >= 10) {
+        $this->haltProcession = true;
+      }
+      ++$count;
+    }
+
+    $this->assertGreaterThanOrEqual(10, $cursor->count());
+    $this->haltProcession = false;
+
+    $cursor = new Cursor($this->response, $this->objectPrototype);
+
+    $count = 0;
+    while ($cursor->valid()) {
+      $cursor->prev();
+      if ($count >= 10) {
+        $this->haltProcession = true;
+      }
+      ++$count;
+    }
+
+    $this->assertGreaterThanOrEqual(10, $cursor->count());
+    $this->haltProcession = false;
+
+    // Force the array out of boundaries
+    $cursor = new Cursor($this->response, $this->objectPrototype);
+    $cursor->setUseImplicitFetch(false);
+    $cursor->prev();
+
+    // Restore static behaviour
+    Cursor::setDefaultUseImplicitFetch(false);
+  }
+
+  public function testExportability() {
+    $cursor = new Cursor($this->response, $this->objectPrototype);
+    $array_copy = $cursor->getArrayCopy();
+    $this->assertEquals($cursor->getArrayCopy(), $cursor->getObjects());
+
+    $this->assertTrue(is_array($array_copy));
+    $this->assertEquals(
+      count($array_copy), count($this->responseContent['data']));
+
+    foreach ($array_copy as $object) {
+      if (!$object instanceof AbstractObject) {
+        $this->fail("Wrong instance in array copy");
+      }
+    }
+
+    $cursor->fetchAfter();
+    $cursor->fetchBefore();
+
+    $index = $cursor->getIndexLeft();
+    // Test in-memory order while exporting
+    foreach ($cursor->getArrayCopy(true) as $key => $object) {
+      if ($key < $index) {
+        $this->fail("Wrong order in sorted array copy");
+      }
+    }
   }
 }
