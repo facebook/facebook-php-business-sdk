@@ -333,7 +333,7 @@ abstract class AbstractCrudObject extends AbstractObject {
    */
   protected function assureEndpoint($prototype_class, $endpoint) {
     if (!$endpoint) {
-      $prototype = new $prototype_class();
+      $prototype = new $prototype_class(null, null, $this->getApi());
       if (!$prototype instanceof AbstractCrudObject) {
         throw new \InvalidArgumentException('Either prototype must be instance
           of AbstractCrudObject or $endpoint must be given');
@@ -385,7 +385,7 @@ abstract class AbstractCrudObject extends AbstractObject {
     $prototype_class) {
 
     /** @var AbstractObject $object */
-    $object = new $prototype_class();
+    $object = new $prototype_class(null, null, $this->getApi());
     $object->setData((array) $response->getContent());
 
     return $object;
