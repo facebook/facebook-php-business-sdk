@@ -1,5 +1,5 @@
 {
-    "name": "neovdr/facebook-php-ads-sdk",
+    "name": "facebook/php-ads-sdk",
     "description": "PHP SDK for Facebook ads",
     "type": "library",
     "license": "Facebook Platform",
