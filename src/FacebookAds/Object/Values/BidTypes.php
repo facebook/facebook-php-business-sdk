@@ -26,6 +26,7 @@ namespace FacebookAds\Object\Values;
 
 abstract class BidTypes {
 
+  const BID_TYPE_CPA = 'CPA';
   const BID_TYPE_CPC = 'CPC';
   const BID_TYPE_CPM = 'CPM';
   const BID_TYPE_MULTI_PREMIUM = 'MULTI_PREMIUM';
