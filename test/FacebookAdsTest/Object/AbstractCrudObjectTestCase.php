@@ -101,8 +101,9 @@ abstract class AbstractCrudObjectTestCase extends AbstractTestCase {
    * @param string $connection_name
    * @param array $fields
    * @param array $params
+   * @return mixed
    */
-  public function assertCanFetchConnection(
+  protected function fetchConnection(
     AbstractCrudObject $subject,
     $connection_name,
     array $fields = array(),
@@ -110,12 +111,52 @@ abstract class AbstractCrudObjectTestCase extends AbstractTestCase {
 
     $this->assertNotEmpty($subject->{AbstractCrudObject::FIELD_ID});
     $mirror = $this->getEmptyClone($subject);
-    $result = call_user_func(
-      array($mirror, $connection_name), $fields, $params);
+    return call_user_func(array($mirror, $connection_name), $fields, $params);
+  }
+
+  /**
+   * @param AbstractCrudObject $subject
+   * @param string $connection_name
+   * @param array $fields
+   * @param array $params
+   */
+  public function assertCanFetchConnection(
+    AbstractCrudObject $subject,
+    $connection_name,
+    array $fields = array(),
+    array $params = array()) {
+
+    $result = $this->fetchConnection(
+      $subject, $connection_name, $fields, $params);
+
     $this->assertTrue(
       $result instanceof Cursor
       || $result instanceof AbstractObject);
-  }  
+  }
+
+  /**
+   * @param AbstractCrudObject $subject
+   * @param string $connection_name
+   * @param array $fields
+   * @param array $params
+   */
+  public function assertCanFetchConnectionAsArray(
+    AbstractCrudObject $subject,
+    $connection_name,
+    array $fields = array(),
+    array $params = array()) {
+
+    $result = $this->fetchConnection(
+      $subject, $connection_name, $fields, $params);
+
+    $this->assertTrue(is_array($result));
+
+    foreach ($result as $object) {
+      if (!$object instanceof AbstractObject) {
+        $this->fail("Not an instance of AbstractObject");
+      }
+    }
+  }
 
   /**
    * @param AbstractCrudObject $object

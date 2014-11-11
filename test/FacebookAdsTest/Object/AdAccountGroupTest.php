@@ -37,8 +37,8 @@ class AdAccountGroupTest extends AbstractCrudObjectTestCase {
     $this->assertCanUpdate($group, array(
       AdAccountGroupFields::NAME => $this->getTestRunId().' updated'));
 
-    $this->assertCanFetchConnection($group, 'getUsers');
-    $this->assertCanFetchConnection($group, 'getAdAccounts');
+    $this->assertCanFetchConnectionAsArray($group, 'getUsers');
+    $this->assertCanFetchConnectionAsArray($group, 'getAdAccounts');
 
     $this->assertCanDelete($group);
   }
