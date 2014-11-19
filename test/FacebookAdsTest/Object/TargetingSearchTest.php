@@ -22,44 +22,19 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAdsTest\Object;
 
-use FacebookAds\Api;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
+use FacebookAds\Object\TargetingSearch;
+use FacebookAds\Object\Search\TargetingSearchTypes;
 
-class TargetingSearch extends AbstractObject {
+class TargetingSearchTest extends AbstractCrudObjectTestCase {
 
-  /**
-   * @param string $query
-   * @param string $type
-   * @param string $class
-   * @param array $params
-   * @param Api $api
-   * @return Cursor
-   * @throws \InvalidArgumentException
-   */
-  public static function search(
-    $type,
-    $class=null,
-    $query=null,
-    array $params = array(),
-    Api $api = null) {
+  public function testCrudAccess() {
+    $cursor = TargetingSearch::search(TargetingSearchTypes::CITY, null, 'Lon');
 
-    $api = $api ?: Api::instance();
-    if (!$api) {
-      throw new \InvalidArgumentException(
-        'An Api instance must be provided as argument or '.
-        'set as instance in the \FacebookAds\Api');
-    }
-
-    $params = array_merge($params, array(
-      'type' => $type,
-      'class' => $class,
-      'q' => $query,
-    ));
-
-    $response = $api->call('/search', RequestInterface::METHOD_GET, $params);
-    return new Cursor($response, new TargetingSearch());
+    /* @var $category AbstractCrudObject */
+    $result = $cursor->current();
+    $this->assertTrue($result instanceof TargetingSearch);
+    $this->assertNotEmpty($result->key);
   }
 }
