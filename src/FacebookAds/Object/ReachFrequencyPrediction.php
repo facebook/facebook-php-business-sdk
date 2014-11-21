@@ -25,8 +25,7 @@
 namespace FacebookAds\Object;
 
 use FacebookAds\Http\RequestInterface;
-use FacebookAds\Object\Fields\ReachFrequencyPredictionFields
-  as PredictionFields;
+use FacebookAds\Object\Fields\ReachFrequencyPredictionFields;
 use FacebookAds\Object\Values\ReachFrequencyPredictionActions;
 use FacebookAds\Object\Traits\FieldValidation;
 
@@ -44,47 +43,17 @@ class ReachFrequencyPrediction extends AbstractCrudObject {
   const PREDICTION_MODE_REACH = 1;
 
   /**
-   * @var string[]
-   */
-  protected static $fields = array(
-    PredictionFields::ID,
-    PredictionFields::ACCOUNT_ID,
-    PredictionFields::BUDGET,
-    PredictionFields::BUYING_TYPE,
-    PredictionFields::CAMPAIGN_ID,
-    PredictionFields::CAMPAIGN_TIME_START,
-    PredictionFields::CAMPAIGN_TIME_STOP,
-    PredictionFields::CURVE_BUDGET_REACH,
-    PredictionFields::DESTINATION_ID,
-    PredictionFields::EXTERNAL_REACH,
-    PredictionFields::EXTERNAL_BUDGET,
-    PredictionFields::EXTERNAL_IMPRESSION,
-    PredictionFields::EXTERNAL_MAXIMUM_REACH,
-    PredictionFields::EXTERNAL_MAXIMUM_IMPRESSION,
-    PredictionFields::EXTERNAL_MAXIMUM_BUDGET,
-    PredictionFields::EXTERNAL_MINIMUM_REACH,
-    PredictionFields::EXTERNAL_MINIMUM_IMPRESSION,
-    PredictionFields::EXTERNAL_MINIMUM_BUDGET,
-    PredictionFields::END_TIME,
-    PredictionFields::FREQUENCY_CAP,
-    PredictionFields::IMPRESSION,
-    PredictionFields::PREDICTION_MODE,
-    PredictionFields::PREDICTION_PROGRESS,
-    PredictionFields::TARGET_AUDIENCE_SIZE,
-    PredictionFields::TARGET_SPEC,
-    PredictionFields::TIME_CREATED,
-    PredictionFields::OBJECTIVE,
-    PredictionFields::REACH,
-    PredictionFields::START_TIME,
-    PredictionFields::STATUS,
-    PredictionFields::STORY_EVENT_TYPE,
-  );
-
-  /**
    * @return string
    */
   protected function getEndpoint() {
     return 'reachfrequencypredictions';
+  }
+
+  /**
+   * @return ReachFrequencyPredictionFields
+   */
+  public static function getFieldsEnum() {
+    return ReachFrequencyPredictionFields::getInstance();
   }
 
   /**
@@ -100,12 +69,14 @@ class ReachFrequencyPrediction extends AbstractCrudObject {
     $budget = null,
     $impression = null) {
     $params = array_filter(array(
-      PredictionFields::PREDICTION_ID => $this->assureId(),
-      PredictionFields::PREDICTION_ID_TO_RELEASE => $preciction_to_release,
-      PredictionFields::BUDGET => $budget,
-      PredictionFields::REACH => $reach,
-      PredictionFields::IMPRESSION => $impression,
-      PredictionFields::ACTION => ReachFrequencyPredictionActions::RESERVE,
+      ReachFrequencyPredictionFields::PREDICTION_ID => $this->assureId(),
+      ReachFrequencyPredictionFields::PREDICTION_ID_TO_RELEASE
+        => $preciction_to_release,
+      ReachFrequencyPredictionFields::BUDGET => $budget,
+      ReachFrequencyPredictionFields::REACH => $reach,
+      ReachFrequencyPredictionFields::IMPRESSION => $impression,
+      ReachFrequencyPredictionFields::ACTION
+        => ReachFrequencyPredictionActions::RESERVE,
     ));
 
     $response = $this->getApi()->call(
@@ -121,8 +92,9 @@ class ReachFrequencyPrediction extends AbstractCrudObject {
    */
   public function cancel() {
     $params = array(
-      PredictionFields::PREDICTION_ID => $this->assureId(),
-      PredictionFields::ACTION => ReachFrequencyPredictionActions::CANCEL,
+      ReachFrequencyPredictionFields::PREDICTION_ID => $this->assureId(),
+      ReachFrequencyPredictionFields::ACTION
+        => ReachFrequencyPredictionActions::CANCEL,
     );
 
     $this->getApi()->call(

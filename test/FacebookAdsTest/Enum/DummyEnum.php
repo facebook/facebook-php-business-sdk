@@ -22,18 +22,12 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAdsTest\Enum;
 
 use FacebookAds\Enum\AbstractEnum;
 
-/**
- * @method static BusinessRoles getInstance()
- */
-class BusinessRoles extends AbstractEnum {
+class DummyEnum extends AbstractEnum {
 
-  const ADMIN  = 'ADMIN';
-  const EMPLOYEE = 'EMPLOYEE';
-  const OWNER = 'OWNER';
-  const AGENCY = 'AGENCY';
-
+  const NAME_1 = 'VALUE_1';
+  const NAME_2 = 'VALUE_2';
 }

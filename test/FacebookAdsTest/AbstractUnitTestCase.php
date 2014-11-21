@@ -37,7 +37,7 @@ use PHPUnit_Framework_MockObject_Builder_InvocationMocker as Mocker;
 use PHPUnit_Framework_MockObject_MockObject as Mock;
 
 /**
- * @method Mocker|Mock getMock()
+ * @method Mocker|Mock getMock($fqn, $methods = array(), $arguments = array())
  */
 abstract class AbstractUnitTestCase extends AbstractTestCase {
 

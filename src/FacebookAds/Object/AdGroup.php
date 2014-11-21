@@ -93,35 +93,17 @@ class AdGroup extends AbstractArchivableCrudObject
   const STATUS_ARCHIVED = 'ARCHIVED';
 
   /**
-   * @var string[]
-   */
-  protected static $fields = array(
-    AdGroupFields::ID,
-    AdGroupFields::ACCOUNT_ID,
-    AdGroupFields::ADGROUP_STATUS,
-    AdGroupFields::ADGROUP_REVIEW_FEEDBACK,
-    AdGroupFields::BID_AMOUNT,
-    AdGroupFields::CAMPAIGN_ID,
-    AdGroupFields::CAMPAIGN_GROUP_ID,
-    AdGroupFields::CONVERSION_SPECS,
-    AdGroupFields::CREATED_TIME,
-    AdGroupFields::FAILED_DELIVERY_CHECKS,
-    AdGroupFields::NAME,
-    AdGroupFields::RTB_FLAG,
-    AdGroupFields::TARGETING,
-    AdGroupFields::TRACKING_SPECS,
-    AdGroupFields::UPDATED_TIME,
-    AdGroupFields::VIEW_TAGS,
-    AdGroupFields::CREATIVE,
-    AdGroupFields::REDOWNLOAD,
-    AdGroupFields::SOCIAL_PREFS,
-  );
-
-  /**
    * @return string
    */
   protected function getEndpoint() {
     return 'adgroups';
+  }
+
+  /**
+   * @return AdGroupFields
+   */
+  public static function getFieldsEnum() {
+    return AdGroupFields::getInstance();
   }
 
   /**

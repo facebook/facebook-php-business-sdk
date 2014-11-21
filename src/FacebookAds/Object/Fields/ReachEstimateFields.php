@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields;
 
-abstract class ReachEstimateFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static ReachEstimateFields getInstance()
+ */
+class ReachEstimateFields extends AbstractEnum {
 
   const USERS = 'users';
   const BID_ESTIMATIONS = 'bid_estimations';

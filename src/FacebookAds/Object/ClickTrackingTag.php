@@ -29,19 +29,16 @@ use FacebookAds\Object\Fields\ClickTrackingTagFields;
 class ClickTrackingTag extends AbstractCrudObject {
 
   /**
-   * @var string[]
-   */
-  protected static $fields = array(
-    ClickTrackingTagFields::ID,
-    ClickTrackingTagFields::ADD_TEMPLATE_PARAM,
-    ClickTrackingTagFields::URL,
-    ClickTrackingTagFields::ADGROUP_ID,
-  );
-
-  /**
    * @return string
    */
   protected function getEndpoint() {
     return 'trackingtag';
+  }
+
+  /**
+   * @return ClickTrackingTagFields
+   */
+  public static function getFieldsEnum() {
+    return ClickTrackingTagFields::getInstance();
   }
 }

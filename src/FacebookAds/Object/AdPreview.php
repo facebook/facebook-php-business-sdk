@@ -29,12 +29,9 @@ use FacebookAds\Object\Fields\AdPreviewFields;
 class AdPreview extends AbstractObject {
 
   /**
-   * @var string[]
-   **/
-  protected static $fields = array(
-    AdPreviewFields::CREATIVE,
-    AdPreviewFields::POST,
-    AdPreviewFields::AD_FORMAT,
-    AdPreviewFields::BODY,
-  );
+   * @return AdPreviewFields
+   */
+  public static function getFieldsEnum() {
+    return AdPreviewFields::getInstance();
+  }
 }

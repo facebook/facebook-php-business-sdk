@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Values;
 
-abstract class InsightsActionAttributionWindows {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static InsightsActionAttributionWindows getInstance()
+ */
+class InsightsActionAttributionWindows extends AbstractEnum {
 
   const CLICK_1D = '1d_click';
   const VIEW_1D = '1d_view';

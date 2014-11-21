@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields;
 
-abstract class SystemUserFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static SystemUserFields getInstance()
+ */
+class SystemUserFields extends AbstractEnum {
 
   const ID = 'id';
   const NAME = 'name';

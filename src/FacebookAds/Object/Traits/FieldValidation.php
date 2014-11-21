@@ -24,6 +24,11 @@
 
 namespace FacebookAds\Object\Traits;
 
+use FacebookAds\Enum\EnumInstanceInterface;
+
+/**
+ * @method static EnumInstanceInterface getFieldsEnum()
+ */
 trait FieldValidation {
 
   /**
@@ -33,7 +38,7 @@ trait FieldValidation {
    * @staticvar array $fields
    */
   public function __set($name, $value) {
-    if (in_array($name, static::$fields)) {
+    if (static::getFieldsEnum()->isValidValue($name)) {
       parent::__set($name, $value);
     } else {
       throw new \InvalidArgumentException(

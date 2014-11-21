@@ -32,19 +32,9 @@ class OfferData extends AbstractObject{
   use FieldValidation;
 
   /**
-   * @var string[]
+   * @return OfferDataFields
    */
-  protected static $fields = array(
-    OfferDataFields::BARCODE_TYPE,
-    OfferDataFields::BARCODE,
-    OfferDataFields::COUPON_TYPE,
-    OfferDataFields::CLAIM_LIMIT,
-    OfferDataFields::EXPIRATION_TIME,
-    OfferDataFields::IMAGE_URL,
-    OfferDataFields::MESSAGE,
-    OfferDataFields::REMINDER_TIME,
-    OfferDataFields::REDEMPTION_LINK,
-    OfferDataFields::REDEMPTION_CODE,
-    OfferDataFields::TITLE,
-  );
+  public static function getFieldsEnum() {
+    return OfferDataFields::getInstance();
+  }
 }

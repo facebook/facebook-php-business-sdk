@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields;
 
-abstract class LookalikeAudienceFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static LookalikeAudienceFields getInstance()
+ */
+class LookalikeAudienceFields extends AbstractEnum {
 
   const NAME = 'name';
   const ORIGIN_AUDIENCE_ID = 'origin_audience_id';

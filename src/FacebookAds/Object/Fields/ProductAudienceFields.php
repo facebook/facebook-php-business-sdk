@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields;
 
-abstract class ProductAudienceFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static ProductAudienceFields getInstance()
+ */
+class ProductAudienceFields extends AbstractEnum {
 
   const ID = 'id';
   const NAME = 'name';

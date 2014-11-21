@@ -24,7 +24,13 @@
 
 namespace FacebookAds\Object\Values;
 
-abstract class ReachFrequencyPredictionActions {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static ReachFrequencyPredictionActions getInstance()
+ */
+class ReachFrequencyPredictionActions extends AbstractEnum {
+
   const RESERVE = 'reserve';
   const CANCEL = 'cancel';
 }

@@ -32,13 +32,9 @@ class VideoData extends AbstractObject{
   use FieldValidation;
 
   /**
-   * @var string[]
+   * @return VideoDataFields
    */
-  protected static $fields = array(
-    VideoDataFields::CALL_TO_ACTION,
-    VideoDataFields::DESCRIPTION,
-    VideoDataFields::IMAGE_URL,
-    VideoDataFields::TITLE,
-    VideoDataFields::VIDEO_ID,
-  );
+  public static function getFieldsEnum() {
+    return VideoDataFields::getInstance();
+  }
 }

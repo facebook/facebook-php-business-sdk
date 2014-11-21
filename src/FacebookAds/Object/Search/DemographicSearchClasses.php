@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Search;
 
-abstract class DemographicSearchClasses {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static DemographicSearchClasses getInstance()
+ */
+class DemographicSearchClasses extends AbstractEnum {
 
   const LIFE_EVENTS = 'life_events';
   const POLITICS = 'politics';

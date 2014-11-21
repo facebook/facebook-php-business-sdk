@@ -32,14 +32,9 @@ class TemplateData extends AbstractObject {
   use FieldValidation;
 
   /**
-   * @var string[]
+   * @return TemplateDataFields
    */
-  protected static $fields = array(
-    TemplateDataFields::CALL_TO_ACTION,
-    TemplateDataFields::DESCRIPTION,
-    TemplateDataFields::LINK,
-    TemplateDataFields::MESSAGE,
-    TemplateDataFields::NAME,
-    TemplateDataFields::MAX_PRODUCT_COUNT,
-  );
+  public static function getFieldsEnum() {
+    return TemplateDataFields::getInstance();
+  }
 }

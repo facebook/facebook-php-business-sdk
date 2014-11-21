@@ -44,39 +44,17 @@ class AdSet extends AbstractArchivableCrudObject
   const STATUS_PAUSED = 'PAUSED';
 
   /**
-   * @var string[]
-   */
-  protected static $fields = array(
-    AdSetFields::ID,
-    AdSetFields::NAME,
-    AdSetFields::ACCOUNT_ID,
-    AdSetFields::CAMPAIGN_GROUP_ID,
-    AdSetFields::CAMPAIGN_STATUS,
-    AdSetFields::CREATED_TIME,
-    AdSetFields::CREATIVE_SEQUENCE,
-    AdSetFields::START_TIME,
-    AdSetFields::END_TIME,
-    AdSetFields::DAILY_BUDGET,
-    AdSetFields::LIFETIME_BUDGET,
-    AdSetFields::LIFETIME_IMPS,
-    AdSetFields::BUDGET_REMAINING,
-    AdSetFields::PACING_TYPE,
-    AdSetFields::RF_PREDICTION_ID,
-    AdSetFields::CAMPAIGN_SCHEDULE,
-    AdSetFields::TARGETING,
-    AdSetFields::PROMOTED_OBJECT,
-    AdSetFields::UPDATED_TIME,
-    AdSetFields::IS_AUTOBID,
-    AdSetFields::BILLING_EVENT,
-    AdSetFields::BID_AMOUNT,
-    AdSetFields::OPTIMIZATION_GOAL,
-  );
-
-  /**
    * @return string
    */
   protected function getEndpoint() {
     return 'adcampaigns';
+  }
+
+  /**
+   * @return AdSetFields
+   */
+  public static function getFieldsEnum() {
+    return AdSetFields::getInstance();
   }
 
   /**

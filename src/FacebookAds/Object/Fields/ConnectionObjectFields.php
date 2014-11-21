@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields;
 
-abstract class ConnectionObjectFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static ConnectionObjectFields getInstance()
+ */
+class ConnectionObjectFields extends AbstractEnum {
 
   const APP_INSTALLS_TRACKED = 'app_installs_tracked';
   const ID = 'id';

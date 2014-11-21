@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Values;
 
-abstract class AdBuyingTypes {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static AdBuyingTypes getInstance()
+ */
+class AdBuyingTypes extends AbstractEnum {
 
   const AUCTION  = 'AUCTION';
   const FIXED_CPM = 'FIXED_CPM';

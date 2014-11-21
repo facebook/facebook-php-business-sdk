@@ -32,25 +32,17 @@ class ProductFeed extends AbstractCrudObject {
   use FieldValidation;
 
   /**
-   * @var string[]
-   */
-  protected static $fields = array(
-    ProductFeedFields::ID,
-    ProductFeedFields::FILE_NAME,
-    ProductFeedFields::FORMAT,
-    ProductFeedFields::COUNTRY,
-    ProductFeedFields::ENCODING,
-    ProductFeedFields::DELIMITER,
-    ProductFeedFields::NAME,
-    ProductFeedFields::QUOTES,
-    ProductFeedFields::SCHEDULE,
-  );
-
-  /**
    * @return string
    */
   protected function getEndpoint() {
     return 'product_feeds';
+  }
+
+  /**
+   * @return ProductFeedFields
+   */
+  public static function getFieldsEnum() {
+    return ProductFeedFields::getInstance();
   }
 
   /**

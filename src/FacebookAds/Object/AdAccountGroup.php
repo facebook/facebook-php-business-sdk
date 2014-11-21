@@ -34,18 +34,6 @@ class AdAccountGroup extends AbstractCrudObject {
   use FieldValidation;
 
   /**
-   * @var string[]
-   */
-  protected static $fields = array(
-    AdAccountGroupFields::ID,
-    AdAccountGroupFields::ACCOUNT_GROUP_ID,
-    AdAccountGroupFields::NAME,
-    AdAccountGroupFields::STATUS,
-    AdAccountGroupFields::USERS,
-    AdAccountGroupFields::ACCOUNTS,
-  );
-
-  /**
    * @param string $id Optional (do not set for new objects)
    * @param string $parent_id Parent ID for AdAccountGroup is always "me"
    * @param Api $api The Api instance this object should use to make calls
@@ -59,6 +47,13 @@ class AdAccountGroup extends AbstractCrudObject {
    */
   protected function getEndpoint() {
     return 'adaccountgroups';
+  }
+
+  /**
+   * @return AdAccountGroupFields
+   */
+  public static function getFieldsEnum() {
+    return AdAccountGroupFields::getInstance();
   }
 
   /**

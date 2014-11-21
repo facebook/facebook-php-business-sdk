@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Values;
 
-abstract class AdObjectives {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static AdObjectives getInstance()
+ */
+class AdObjectives extends AbstractEnum {
 
   const CANVAS_APP_ENGAGEMENT = 'CANVAS_APP_ENGAGEMENT';
   const CANVAS_APP_INSTALLS  = 'CANVAS_APP_INSTALLS';

@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields;
 
-abstract class ProductFeedFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static ProductFeedFields getInstance()
+ */
+class ProductFeedFields extends AbstractEnum {
 
   const ID = 'id';
   const FILE_NAME = 'file_name';

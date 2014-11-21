@@ -35,20 +35,17 @@ class ProductFeedUpload extends AbstractCrudObject {
   use CannotUpdate;
 
   /**
-   * @var string[]
-   */
-  protected static $fields = array(
-    ProductFeedUploadFields::ID,
-    ProductFeedUploadFields::START_TIME,
-    ProductFeedUploadFields::END_TIME,
-    ProductFeedUploadFields::INPUT_METHOD,
-  );
-
-  /**
    * @return string
    */
   protected function getEndpoint() {
     return 'uploads';
+  }
+
+  /**
+   * @return ProductFeedUploadFields
+   */
+  public static function getFieldsEnum() {
+    return ProductFeedUploadFields::getInstance();
   }
 
   /**

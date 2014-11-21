@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Values;
 
-abstract class AdFormats {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static AdFormats getInstance()
+ */
+class AdFormats extends AbstractEnum {
 
   const RIGHT_COLUMN_STANDARD = 'RIGHT_COLUMN_STANDARD';
   const DESKTOP_FEED_STANDARD = 'DESKTOP_FEED_STANDARD';

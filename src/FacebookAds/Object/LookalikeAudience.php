@@ -29,18 +29,16 @@ use FacebookAds\Object\Fields\LookalikeAudienceFields;
 class LookalikeAudience extends AbstractCrudObject {
 
   /**
-   * @var string[]
-   **/
-  protected static $fields = array(
-    LookalikeAudienceFields::NAME,
-    LookalikeAudienceFields::ORIGIN_AUDIENCE_ID,
-    LookalikeAudienceFields::LOOKALIKE_SPEC,
-  );
-
-  /**
    * @return string
    */
   protected function getEndpoint() {
     return 'customaudiences';
+  }
+
+  /**
+   * @return LookalikeAudienceFields
+   */
+  public static function getFieldsEnum() {
+    return LookalikeAudienceFields::getInstance();
   }
 }

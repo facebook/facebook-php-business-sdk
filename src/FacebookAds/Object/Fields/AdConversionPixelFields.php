@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields;
 
-abstract class AdConversionPixelFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static AdConversionPixelFields getInstance()
+ */
+class AdConversionPixelFields extends AbstractEnum {
 
   const ID = 'id';
   const LAST_FIRING_TIME = 'last_firing_time';

@@ -34,20 +34,17 @@ class SystemUser extends AbstractCrudObject {
   use CannotDelete;
 
   /**
-   * @var string[]
-   */
-  protected static $fields = array(
-    SystemUserFields::ID,
-    SystemUserFields::NAME,
-    SystemUserFields::PERMISSIONS,
-    SystemUserFields::ROLE,
-  );
-
-  /**
    * @return string
    */
   protected function getEndpoint() {
     return 'system_users';
+  }
+
+  /**
+   * @return SystemUserFields
+   */
+  public static function getFieldsEnum() {
+    return SystemUserFields::getInstance();
   }
 
   public function invalidateAccessTokens() {

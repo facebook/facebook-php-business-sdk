@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Values;
 
-abstract class InsightsActionBreakdowns {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static InsightsActionBreakdowns getInstance()
+ */
+class InsightsActionBreakdowns extends AbstractEnum {
 
   const ACTION_DESTINATION = 'action_destination';
   const ACTION_DEVICE = 'action_device';

@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Values;
 
-abstract class InsightsBreakdowns {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static InsightsBreakdowns getInstance()
+ */
+class InsightsBreakdowns extends AbstractEnum {
 
   const AGE = 'age';
   const COUNTRY = 'country';

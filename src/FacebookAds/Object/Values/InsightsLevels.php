@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Values;
 
-abstract class InsightsLevels {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static InsightsLevels getInstance()
+ */
+class InsightsLevels extends AbstractEnum {
 
   const ACCOUNT = 'account';
   const ADGROUP = 'adgroup';

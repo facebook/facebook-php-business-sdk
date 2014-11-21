@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Values;
 
-abstract class PageRoles {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static PageRoles getInstance()
+ */
+class PageRoles extends AbstractEnum {
 
   const ADVERTISER  = 'ADVERTISER';
   const CONTENT_CREATOR = 'CONTENT_CREATOR';

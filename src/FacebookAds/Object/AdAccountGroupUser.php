@@ -48,14 +48,6 @@ class AdAccountGroupUser extends AbstractObject {
   const ROLE_REPORTS_ONLY = 1003;
 
   /**
-   * @var string[]
-   */
-  protected static $fields = array(
-    AdAccountGroupUserFields::UID,
-    AdAccountGroupUserFields::ROLE,
-  );
-
-  /**
    * @var Api
    */
   protected $api;
@@ -72,6 +64,13 @@ class AdAccountGroupUser extends AbstractObject {
   public function __construct($ad_account_group_id, Api $api = null) {
     $this->adAccountGroupId = $ad_account_group_id;
     $this->api = $api;
+  }
+
+  /**
+   * @return AdAccountGroupUserFields
+   */
+  public static function getFieldsEnum() {
+    return AdAccountGroupUserFields::getInstance();
   }
 
   /**

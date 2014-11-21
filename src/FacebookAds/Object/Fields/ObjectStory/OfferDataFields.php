@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields\ObjectStory;
 
-abstract class OfferDataFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static OfferDataFields getInstance()
+ */
+class OfferDataFields extends AbstractEnum {
 
   const BARCODE_TYPE = 'barcode_type';
   const BARCODE = 'barcode';

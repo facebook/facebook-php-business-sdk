@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields;
 
-abstract class InsightsFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static InsightsFields getInstance()
+ */
+class InsightsFields extends AbstractEnum {
 
   const ACCOUNT_ID = 'account_id';
   const ACCOUNT_NAME = 'account_name';

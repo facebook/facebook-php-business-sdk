@@ -38,20 +38,17 @@ class AdUser extends AbstractCrudObject {
   use CannotUpdate;
 
   /**
-   * @var string[]
-   */
-  protected static $fields = array(
-    AdUserFields::ID,
-    AdUserFields::NAME,
-    AdUserFields::PERMISSIONS,
-    AdUserFields::ROLE,
-  );
-
-  /**
    * @return string
    */
   protected function getEndpoint() {
     return 'users';
+  }
+
+  /**
+   * @return AdUserFields
+   */
+  public static function getFieldsEnum() {
+    return AdUserFields::getInstance();
   }
 
   /**

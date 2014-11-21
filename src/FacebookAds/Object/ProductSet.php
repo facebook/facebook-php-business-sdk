@@ -32,19 +32,17 @@ class ProductSet extends AbstractCrudObject {
   use FieldValidation;
 
   /**
-   * @var string[]
-   */
-  protected static $fields = array(
-    ProductSetFields::ID,
-    ProductSetFields::NAME,
-    ProductSetFields::FILTER,
-  );
-
-  /**
    * @return string
    */
   protected function getEndpoint() {
     return 'product_sets';
+  }
+
+  /**
+   * @return ProductSetFields
+   */
+  public static function getFieldsEnum() {
+    return ProductSetFields::getInstance();
   }
 
   /**

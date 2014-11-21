@@ -36,30 +36,17 @@ class AdVideo extends AbstractCrudObject {
   use CannotUpdate;
 
   /**
-   * @var string[]
-   **/
-  protected static $fields = array(
-    AdVideoFields::CREATED_TIME,
-    AdVideoFields::DESCRIPTION,
-    AdVideoFields::EMBED_HTML,
-    AdVideoFields::EMBEDDABLE,
-    AdVideoFields::FORMAT,
-    AdVideoFields::FROM,
-    AdVideoFields::ICON,
-    AdVideoFields::ID,
-    AdVideoFields::NAME,
-    AdVideoFields::PICTURE,
-    AdVideoFields::PUBLISHED,
-    AdVideoFields::SOURCE,
-    AdVideoFields::UPDATED_TIME,
-    AdVideoFields::THUMBNAILS
-  );
-
-  /**
    * @return string
    */
   protected function getEndpoint() {
     return 'advideos';
+  }
+
+  /**
+   * @return AdVideoFields
+   */
+  public static function getFieldsEnum() {
+    return AdVideoFields::getInstance();
   }
 
   public function create(array $params = array()) {

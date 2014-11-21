@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Values;
 
-abstract class TermsOfService {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static TermsOfService getInstance()
+ */
+class TermsOfService extends AbstractEnum {
 
   const CUSTOM_AUDIENCE  = 'custom_audience';
   const WEBSITE_CUSTOM_AUDIENCE = 'website_custom_audience';

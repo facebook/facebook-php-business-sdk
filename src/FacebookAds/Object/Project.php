@@ -33,23 +33,17 @@ class Project extends AbstractCrudObject {
   use FieldValidation;
 
   /**
-   * @var string[]
-   */
-  protected static $fields = array(
-    ProjectFields::ID,
-    ProjectFields::NAME,
-    ProjectFields::BUSINESS,
-    ProjectFields::UPDATE_TIME,
-    ProjectFields::UPDATED_BY,
-    ProjectFields::CREATED_TIME,
-    ProjectFields::CREATED_BY,
-  );
-
-  /**
    * @return string
    */
   protected function getEndpoint() {
     return 'businessprojects';
+  }
+
+  /**
+   * @return ProjectFields
+   */
+  public static function getFieldsEnum() {
+    return ProjectFields::getInstance();
   }
 
   /**

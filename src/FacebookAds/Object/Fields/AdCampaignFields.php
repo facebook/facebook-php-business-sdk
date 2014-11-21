@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields;
 
-abstract class AdCampaignFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static AdCampaignFields getInstance()
+ */
+class AdCampaignFields extends AbstractEnum {
 
   const ID = 'id';
   const ACCOUNT_ID = 'account_id';

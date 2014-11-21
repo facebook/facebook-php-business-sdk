@@ -24,7 +24,9 @@
 
 namespace FacebookAds\Object\Fields;
 
-abstract class AdUserFields {
+use FacebookAds\Enum\AbstractEnum;
+
+class AdUserFields extends AbstractEnum {
 
   const ID = 'id';
   const NAME = 'name';

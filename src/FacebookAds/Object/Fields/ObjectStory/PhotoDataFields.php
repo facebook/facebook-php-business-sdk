@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields\ObjectStory;
 
-abstract class PhotoDataFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static TemplateDataFields getInstance()
+ */
+class PhotoDataFields extends AbstractEnum {
 
   const CAPTION = 'caption';
   const URL = 'url';

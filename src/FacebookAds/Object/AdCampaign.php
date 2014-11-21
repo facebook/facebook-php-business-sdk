@@ -43,24 +43,17 @@ class AdCampaign extends AbstractArchivableCrudObject {
   const STATUS_PAUSED = 'PAUSED';
 
   /**
-   * @var string[]
-   */
-  protected static $fields = array(
-    AdCampaignFields::ID,
-    AdCampaignFields::ACCOUNT_ID,
-    AdCampaignFields::OBJECTIVE,
-    AdCampaignFields::NAME,
-    AdCampaignFields::STATUS,
-    AdCampaignFields::BUYING_TYPE,
-    AdCampaignFields::PROMOTED_OBJECT,
-    AdCampaignFields::SPEND_CAP
-  );
-
-  /**
    * @return string
    */
   protected function getEndpoint() {
     return 'adcampaign_groups';
+  }
+
+  /**
+   * @return AdCampaignFields
+   */
+  public static function getFieldsEnum() {
+    return AdCampaignFields::getInstance();
   }
 
   /**

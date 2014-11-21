@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields\ObjectStory;
 
-abstract class VideoDataFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static VideoDataFields getInstance()
+ */
+class VideoDataFields extends AbstractEnum {
 
   const CALL_TO_ACTION = 'call_to_action';
   const DESCRIPTION = 'description';

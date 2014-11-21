@@ -28,23 +28,13 @@ use FacebookAds\Object\AbstractObject;
 use FacebookAds\Object\Fields\ObjectStory\LinkDataFields;
 use FacebookAds\Object\Traits\FieldValidation;
 
-class LinkData extends AbstractObject{
+class LinkData extends AbstractObject {
   use FieldValidation;
 
   /**
-   * @var string[]
+   * @return LinkDataFields
    */
-  protected static $fields = array(
-    LinkDataFields::CALL_TO_ACTION,
-    LinkDataFields::CAPTION,
-    LinkDataFields::CHILD_ATTACHMENTS,
-    LinkDataFields::DESCRIPTION,
-    LinkDataFields::IMAGE_HASH,
-    LinkDataFields::IMAGE_CROPS,
-    LinkDataFields::LINK,
-    LinkDataFields::MESSAGE,
-    LinkDataFields::NAME,
-    LinkDataFields::PICTURE,
-    LinkDataFields::MULTI_SHARE_OPTIMIZED,
-  );
+  public static function getFieldsEnum() {
+    return LinkDataFields::getInstance();
+  }
 }

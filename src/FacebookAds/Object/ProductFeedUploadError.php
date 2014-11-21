@@ -36,23 +36,17 @@ class ProductFeedUploadError extends AbstractCrudObject {
   use CannotUpdate;
 
   /**
-   * @var string[]
-   */
-  protected static $fields = array(
-    ProductFeedUploadErrorFields::ID,
-    ProductFeedUploadErrorFields::SUMMARY,
-    ProductFeedUploadErrorFields::DESCRIPTION,
-    ProductFeedUploadErrorFields::SEVERITY,
-    ProductFeedUploadErrorFields::ROW_NUMBER,
-    ProductFeedUploadErrorFields::COLUMN_NUMBER,
-    ProductFeedUploadErrorFields::TOTAL_COUNT,
-  );
-
-  /**
    * @return string
    */
   protected function getEndpoint() {
     return 'errors';
+  }
+
+  /**
+   * @return ProductFeedUploadErrorFields
+   */
+  public static function getFieldsEnum() {
+    return ProductFeedUploadErrorFields::getInstance();
   }
 
   /**

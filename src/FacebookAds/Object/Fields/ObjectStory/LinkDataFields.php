@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields\ObjectStory;
 
-abstract class LinkDataFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static LinkDataFields getInstance()
+ */
+class LinkDataFields extends AbstractEnum {
 
   const CALL_TO_ACTION = 'call_to_action';
   const CAPTION = 'caption';

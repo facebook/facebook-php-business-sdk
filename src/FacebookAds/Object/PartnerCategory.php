@@ -34,24 +34,19 @@ class PartnerCategory extends AbstractCrudObject {
   use CannotCreate;
   use CannotDelete;
   use CannotUpdate;
-
-  /**
-   * @var string[]
-   */
-  protected static $fields = array(
-    PartnerCategoryFields::DESCRIPTION,
-    PartnerCategoryFields::DETAILS,
-    PartnerCategoryFields::ID,
-    PartnerCategoryFields::NAME,
-    PartnerCategoryFields::PARENT_CATEGORY,
-    PartnerCategoryFields::SOURCE,
-    PartnerCategoryFields::STATUS,
-  );
+  use FieldValidation;
 
   /**
    * @return string
    */
   protected function getEndpoint() {
     return 'partnercategories';
+  }
+
+  /**
+   * @return PartnerCategoryFields
+   */
+  public static function getFieldsEnum() {
+    return PartnerCategoryFields::getInstance();
   }
 }

@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Search;
 
-abstract class TargetingSearchTypes {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static TargetingSearchTypes getInstance()
+ */
+class TargetingSearchTypes extends AbstractEnum {
 
   const CITY = 'adcity';
   const COUNTRY = 'adcountry';

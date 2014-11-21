@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields;
 
-abstract class ProductFeedUploadFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static ProductFeedUploadFields getInstance()
+ */
+class ProductFeedUploadFields extends AbstractEnum {
 
   const ID = 'id';
   const START_TIME = 'start_time';

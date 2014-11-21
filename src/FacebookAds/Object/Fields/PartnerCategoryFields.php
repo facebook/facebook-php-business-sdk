@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields;
 
-abstract class PartnerCategoryFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static PartnerCategoryFields getInstance()
+ */
+class PartnerCategoryFields extends AbstractEnum {
 
   const ID = 'id';
   const NAME = 'name';
@@ -33,4 +38,7 @@ abstract class PartnerCategoryFields {
   const SOURCE = 'source';
   const PARENT_CATEGORY = 'parent_category';
   const STATUS = 'status';
+  const TARGETING_TYPE = 'targeting_type';
+  const IS_PRIVATE = 'is_private';
+  const APPROXIMATE_COUNT = 'approximate_count';
 }

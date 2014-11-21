@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Values;
 
-abstract class InsightsPresets {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static InsightsPresets getInstance()
+ */
+class InsightsPresets extends AbstractEnum {
 
   const LAST_14_DAYS = 'last_14_days';
   const LAST_28_DAYS = 'last_28_days';

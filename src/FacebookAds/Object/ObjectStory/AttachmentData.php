@@ -32,14 +32,9 @@ class AttachmentData extends AbstractObject{
   use FieldValidation;
 
   /**
-   * @var string[]
+   * @return AttachmentDataFields
    */
-  protected static $fields = array(
-    AttachmentDataFields::CALL_TO_ACTION,
-    AttachmentDataFields::DESCRIPTION,
-    AttachmentDataFields::IMAGE_HASH,
-    AttachmentDataFields::LINK,
-    AttachmentDataFields::NAME,
-    AttachmentDataFields::PICTURE,
-  );
+  public static function getFieldsEnum() {
+    return AttachmentDataFields::getInstance();
+  }
 }

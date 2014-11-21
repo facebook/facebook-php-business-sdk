@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Values;
 
-abstract class AppRoles {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static AppRoles getInstance()
+ */
+class AppRoles extends AbstractEnum {
 
   const ADMINISTRATOR  = 'ADMINISTRATOR';
   const DEVELOPER = 'DEVELOPER';

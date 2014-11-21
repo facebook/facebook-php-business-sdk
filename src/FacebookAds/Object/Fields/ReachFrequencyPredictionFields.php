@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields;
 
-abstract class ReachFrequencyPredictionFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static ReachFrequencyPredictionFields getInstance()
+ */
+class ReachFrequencyPredictionFields extends AbstractEnum {
 
   const ID = 'id';
   const ACCOUNT_ID = 'account_id';

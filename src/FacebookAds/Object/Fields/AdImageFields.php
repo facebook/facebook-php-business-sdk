@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields;
 
-abstract class AdImageFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static AdImageFields getInstance()
+ */
+class AdImageFields extends AbstractEnum {
 
   const ID = 'id';
   const HASH = 'hash';

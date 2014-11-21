@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields;
 
-abstract class ObjectStorySpecFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static ObjectStorySpecFields getInstance()
+ */
+class ObjectStorySpecFields extends AbstractEnum {
 
   const LINK_DATA = 'link_data';
   const OFFER_DATA = 'offer_data';

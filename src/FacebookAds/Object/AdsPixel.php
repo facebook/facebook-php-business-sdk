@@ -26,7 +26,6 @@ namespace FacebookAds\Object;
 
 use FacebookAds\Object\Fields\AdsPixelsFields;
 use FacebookAds\Object\Traits\CannotDelete;
-use FacebookAds\Object\Traits\CannotUpdate;
 use FacebookAds\Object\Traits\FieldValidation;
 
 class AdsPixel extends AbstractCrudObject {
@@ -34,22 +33,16 @@ class AdsPixel extends AbstractCrudObject {
   use FieldValidation;
 
   /**
-   * @var string[]
-   **/
-  protected static $fields = array(
-    AdsPixelsFields::CODE,
-    AdsPixelsFields::CREATION_TIME,
-    AdsPixelsFields::ID,
-    AdsPixelsFields::LAST_FIRED_TIME,
-    AdsPixelsFields::NAME,
-    AdsPixelsFields::RULE_VALIDATION,
-    AdsPixelsFields::RULES,
-  );
-
-  /**
    * @return string
    */
   protected function getEndpoint() {
     return 'adspixels';
+  }
+
+  /**
+   * @return AdsPixelsFields
+   */
+  public static function getFieldsEnum() {
+    return AdsPixelsFields::getInstance();
   }
 }

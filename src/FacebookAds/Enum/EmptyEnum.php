@@ -22,18 +22,35 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Enum;
 
-use FacebookAds\Enum\AbstractEnum;
+class EmptyEnum extends AbstractEnum {
 
-/**
- * @method static BusinessRoles getInstance()
- */
-class BusinessRoles extends AbstractEnum {
+  /**
+   * @return array
+   */
+  public function getArrayCopy() {
+    return array();
+  }
 
-  const ADMIN  = 'ADMIN';
-  const EMPLOYEE = 'EMPLOYEE';
-  const OWNER = 'OWNER';
-  const AGENCY = 'AGENCY';
+  /**
+   * @return array
+   */
+  public function getNames() {
+    return array();
+  }
 
+  /**
+   * @return array
+   */
+  public function getValues() {
+    return array();
+  }
+
+  /**
+   * @return array
+   */
+  public function getValuesMap() {
+    return array();
+  }
 }

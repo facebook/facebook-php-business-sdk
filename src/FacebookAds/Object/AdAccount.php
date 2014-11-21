@@ -37,53 +37,18 @@ class AdAccount extends AbstractCrudObject {
   use CannotDelete;
 
   /**
-   * @var string[]
-   */
-  protected static $fields = array(
-    AdAccountFields::ID,
-    AdAccountFields::ACCOUNT_GROUPS,
-    AdAccountFields::ACCOUNT_ID,
-    AdAccountFields::ACCOUNT_STATUS,
-    AdAccountFields::AGE,
-    AdAccountFields::AGENCY_CLIENT_DECLARATION,
-    AdAccountFields::AMOUNT_SPENT,
-    AdAccountFields::BALANCE,
-    AdAccountFields::BUSINESS_CITY,
-    AdAccountFields::BUSINESS_COUNTRY_CODE,
-    AdAccountFields::BUSINESS_ID,
-    AdAccountFields::BUSINESS_NAME,
-    AdAccountFields::BUSINESS_STATE,
-    AdAccountFields::BUSINESS_STREET2,
-    AdAccountFields::BUSINESS_STREET,
-    AdAccountFields::BUSINESS_ZIP,
-    AdAccountFields::CREATED_TIME,
-    AdAccountFields::END_ADVERTISER,
-    AdAccountFields::MEDIA_AGENCY,
-    AdAccountFields::PARTNER,
-    AdAccountFields::CAPABILITIES,
-    AdAccountFields::CURRENCY,
-    AdAccountFields::IS_PERSONAL,
-    AdAccountFields::NAME,
-    AdAccountFields::OFFSITE_PIXELS_TOS_ACCEPTED,
-    AdAccountFields::SPEND_CAP,
-    AdAccountFields::SPEND_CAP_ACTION,
-    AdAccountFields::FUNDING_SOURCE,
-    AdAccountFields::FUNDING_SOURCE_DETAILS,
-    AdAccountFields::TIMEZONE_ID,
-    AdAccountFields::TIMEZONE_NAME,
-    AdAccountFields::TIMEZONE_OFFSET_HOURS_UTC,
-    AdAccountFields::TOS_ACCEPTED,
-    AdAccountFields::USERS,
-    AdAccountFields::TAX_ID_STATUS,
-  );
-
-  /**
    * @return string
    */
   protected function getEndpoint() {
     return 'adaccounts';
   }
 
+  /**
+   * @return AdAccountFields
+   */
+  public static function getFieldsEnum() {
+    return AdAccountFields::getInstance();
+  }
 
   /**
    * @param array $fields

@@ -25,17 +25,16 @@
 namespace FacebookAds\Object\ObjectStory;
 
 use FacebookAds\Object\AbstractObject;
-use FacebookAds\Object\Traits\FieldValidation;
 use FacebookAds\Object\Fields\ObjectStory\PhotoDataFields;
+use FacebookAds\Object\Traits\FieldValidation;
 
 class PhotoData extends AbstractObject{
   use FieldValidation;
 
   /**
-   * @var string[]
+   * @return PhotoDataFields
    */
-  protected static $fields = array(
-    PhotoDataFields::CAPTION,
-    PhotoDataFields::URL,
-  );
+  public static function getFieldsEnum() {
+    return PhotoDataFields::getInstance();
+  }
 }

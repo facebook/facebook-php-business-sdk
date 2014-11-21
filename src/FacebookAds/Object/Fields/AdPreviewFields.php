@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields;
 
-abstract class AdPreviewFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static AdPreviewFields getInstance()
+ */
+class AdPreviewFields extends AbstractEnum {
 
   const CREATIVE = 'creative';
   const POST = 'post';

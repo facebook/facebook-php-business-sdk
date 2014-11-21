@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields;
 
-abstract class ProductFeedUploadErrorFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static ProductFeedUploadErrorFields getInstance()
+ */
+class ProductFeedUploadErrorFields extends AbstractEnum {
 
   const ID = 'id';
   const SUMMARY = 'summary';

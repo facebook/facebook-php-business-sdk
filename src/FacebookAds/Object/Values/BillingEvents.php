@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Values;
 
-abstract class BillingEvents {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static BillingEvents getInstance()
+ */
+class BillingEvents extends AbstractEnum {
 
   const APP_INSTALLS = 'APP_INSTALLS';
   const CLICKS = 'CLICKS';

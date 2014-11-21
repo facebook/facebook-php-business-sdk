@@ -32,42 +32,17 @@ class AdCreative extends AbstractCrudObject {
   use FieldValidation;
 
   /**
-   * @var string[]
-   **/
-  protected static $fields = array(
-    AdCreativeFields::ID,
-    AdCreativeFields::TITLE,
-    AdCreativeFields::ACTOR_ID,
-    AdCreativeFields::ACTOR_NAME,
-    AdCreativeFields::NAME,
-    AdCreativeFields::OBJECT_ID,
-    AdCreativeFields::OBJECT_STORY_ID,
-    AdCreativeFields::OBJECT_STORY_SPEC,
-    AdCreativeFields::PRODUCT_SET_ID,
-    AdCreativeFields::BODY,
-    AdCreativeFields::IMAGE_HASH,
-    AdCreativeFields::IMAGE_FILE,
-    AdCreativeFields::IMAGE_URL,
-    AdCreativeFields::IMAGE_CROPS,
-    AdCreativeFields::VIDEO_ID,
-    AdCreativeFields::ACTOR_IMAGE_HASH,
-    AdCreativeFields::LINK_URL,
-    AdCreativeFields::OBJECT_URL,
-    AdCreativeFields::URL_TAGS,
-    AdCreativeFields::PREVIEW_URL,
-    AdCreativeFields::THUMBNAIL_URL,
-    AdCreativeFields::FOLLOW_REDIRECT,
-    AdCreativeFields::OBJECT_STORE_URL,
-    AdCreativeFields::LINK_DEEP_LINK_URL,
-    AdCreativeFields::CALL_TO_ACTION_TYPE,
-    AdCreativeFields::OBJECT_TYPE,
-  );
-
-  /**
    * @return string
    */
   protected function getEndpoint() {
     return 'adcreatives';
+  }
+
+  /**
+   * @return AdCreativeFields
+   */
+  public static function getFieldsEnum() {
+    return AdCreativeFields::getInstance();
   }
 
   /**

@@ -24,12 +24,9 @@
 
 namespace FacebookAds\Object;
 
-abstract class AbstractObject {
+use FacebookAds\Enum\EmptyEnum;
 
-  /**
-   * @var array
-   */
-  protected static $fields = array();
+abstract class AbstractObject {
 
   /**
    * @var mixed[] set of key value pairs representing data
@@ -37,11 +34,7 @@ abstract class AbstractObject {
   protected $data = array();
 
   public function __construct() {
-    if (!empty(static::$fields)) {
-      $this->data = array_combine(
-        static::$fields,
-        array_fill(0, count(static::$fields), null));
-    }
+    $this->data = static::getFieldsEnum()->getValuesMap();
   }
 
   /**
@@ -114,10 +107,17 @@ abstract class AbstractObject {
   }
 
   /**
+   * @return EmptyEnum
+   */
+  public static function getFieldsEnum() {
+    return EmptyEnum::getInstance();
+  }
+
+  /**
    * @return array
    */
   public static function getFields() {
-    return static::$fields;
+    return static::getFieldsEnum()->getValues();
   }
 
   /**

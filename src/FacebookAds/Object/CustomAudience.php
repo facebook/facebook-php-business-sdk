@@ -36,35 +36,17 @@ class CustomAudience extends AbstractCrudObject {
   const HASH_TYPE_SHA256 = 'sha256';
 
   /**
-   * @var string[]
-   **/
-  protected static $fields = array(
-    CustomAudienceFields::ID,
-    CustomAudienceFields::ACCOUNT_ID,
-    CustomAudienceFields::APPROXIMATE_COUNT,
-    CustomAudienceFields::DATA_SOURCE,
-    CustomAudienceFields::DELIVERY_STATUS,
-    CustomAudienceFields::DESCRIPTION,
-    CustomAudienceFields::LOOKALIKE_AUDIENCE_IDS,
-    CustomAudienceFields::NAME,
-    CustomAudienceFields::PERMISSION_FOR_ACTIONS,
-    CustomAudienceFields::PIXEL_ID,
-    CustomAudienceFields::PREFILL,
-    CustomAudienceFields::RULE,
-    CustomAudienceFields::RETENTION_DAYS,
-    CustomAudienceFields::SUBTYPE,
-    CustomAudienceFields::TIME_UPDATED,
-    CustomAudienceFields::OPERATION_STATUS,
-    CustomAudienceFields::OPT_OUT_LINK,
-    CustomAudienceFields::ORIGIN_AUDIENCE_ID,
-    CustomAudienceFields::LOOKALIKE_SPEC,
-  );
-
-  /**
    * @return string
    */
   protected function getEndpoint() {
     return 'customaudiences';
+  }
+
+  /**
+   * @return CustomAudienceFields
+   */
+  public static function getFieldsEnum() {
+    return CustomAudienceFields::getInstance();
   }
 
   /**

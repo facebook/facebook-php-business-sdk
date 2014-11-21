@@ -24,7 +24,13 @@
 
 namespace FacebookAds\Object\Fields;
 
-abstract class BusinessFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static BusinessFields getInstance()
+ */
+class BusinessFields extends AbstractEnum {
+
   const ID = 'id';
   const CREATION_TIME = 'creation_time';
   const CREATED_BY = 'created_by';

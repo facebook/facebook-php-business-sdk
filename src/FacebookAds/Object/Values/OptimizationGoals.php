@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Values;
 
-abstract class OptimizationGoals {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static OptimizationGoals getInstance()
+ */
+class OptimizationGoals extends AbstractEnum {
 
   const APP_INSTALLS = 'APP_INSTALLS';
   const ENGAGED_USERS = 'ENGAGED_USERS';

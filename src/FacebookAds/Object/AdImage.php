@@ -36,21 +36,6 @@ class AdImage extends AbstractCrudObject {
   use CannotUpdate;
 
   /**
-   * @var string[]
-   **/
-  protected static $fields = array(
-    AdImageFields::ID,
-    AdImageFields::HASH,
-    AdImageFields::URL,
-    AdImageFields::CREATIVES,
-    AdImageFields::FILENAME,
-    AdImageFields::WIDTH,
-    AdImageFields::HEIGHT,
-    AdImageFields::ORIGINAL_WIDTH,
-    AdImageFields::ORIGINAL_HEIGHT,
-  );
-
-  /**
    * Uploads images from a zip file and returns a cursor of results
    *
    * @param string $file_path
@@ -72,6 +57,13 @@ class AdImage extends AbstractCrudObject {
    */
   protected function getEndpoint() {
     return 'adimages';
+  }
+
+  /**
+   * @return AdImageFields
+   */
+  public static function getFieldsEnum() {
+    return AdImageFields::getInstance();
   }
 
   /**

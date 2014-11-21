@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Values;
 
-abstract class ConnectionObjectTypes {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static ConnectionObjectTypes getInstance()
+ */
+class ConnectionObjectTypes extends AbstractEnum {
 
   const PAGE = 1;
   const APPLICATION = 2;

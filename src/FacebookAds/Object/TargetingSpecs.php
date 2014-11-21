@@ -31,50 +31,9 @@ class TargetingSpecs extends AbstractObject {
   use FieldValidation;
 
   /**
-   * @var string[]
+   * @return TargetingSpecsFields
    */
-  protected static $fields = array(
-    TargetingSpecsFields::GENDERS,
-    TargetingSpecsFields::AGE_MIN,
-    TargetingSpecsFields::AGE_MAX,
-    TargetingSpecsFields::GEO_LOCATIONS,
-    TargetingSpecsFields::EXCLUDED_GEO_LOCATIONS,
-    TargetingSpecsFields::USER_ADCLUSTERS,
-    TargetingSpecsFields::INTERESTS,
-    TargetingSpecsFields::USER_OS,
-    TargetingSpecsFields::USER_DEVICE,
-    TargetingSpecsFields::WIRELESS_CARRIER,
-    TargetingSpecsFields::PAGE_TYPES,
-    TargetingSpecsFields::CONNECTIONS,
-    TargetingSpecsFields::EXCLUDED_CONNECTIONS,
-    TargetingSpecsFields::FRIENDS_OF_CONNECTIONS,
-    TargetingSpecsFields::BEHAVIORS,
-    TargetingSpecsFields::RELATIONSHIP_STATUSES,
-    TargetingSpecsFields::INTERESTED_IN,
-    TargetingSpecsFields::LIFE_EVENTS,
-    TargetingSpecsFields::POLITICS,
-    TargetingSpecsFields::MARKETS,
-    TargetingSpecsFields::INDUSTRIES,
-    TargetingSpecsFields::INCOME,
-    TargetingSpecsFields::NET_WORTH,
-    TargetingSpecsFields::HOME_TYPE,
-    TargetingSpecsFields::HOME_OWNERSHIP,
-    TargetingSpecsFields::HOME_VALUE,
-    TargetingSpecsFields::ETHNIC_AFFINITY,
-    TargetingSpecsFields::GENERATION,
-    TargetingSpecsFields::HOUSEHOLD_COMPOSITION,
-    TargetingSpecsFields::MOMS,
-    TargetingSpecsFields::OFFICE_TYPE,
-    TargetingSpecsFields::EDUCATION_SCHOOLS,
-    TargetingSpecsFields::EDUCATION_STATUSES,
-    TargetingSpecsFields::COLLEGE_YEARS,
-    TargetingSpecsFields::EDUCATION_MAJORS,
-    TargetingSpecsFields::WORK_EMPLOYERS,
-    TargetingSpecsFields::WORK_POSITIONS,
-    TargetingSpecsFields::LOCALES,
-    TargetingSpecsFields::ZIPS,
-    TargetingSpecsFields::CUSTOM_AUDIENCES,
-    TargetingSpecsFields::EXCLUDED_CUSTOM_AUDIENCES,
-    TargetingSpecsFields::DYNAMIC_AUDIENCE_IDS,
-  );
+  public static function getFieldsEnum() {
+    return TargetingSpecsFields::getInstance();
+  }
 }

@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields;
 
-abstract class CustomAudienceFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static CustomAudienceFields getInstance()
+ */
+class CustomAudienceFields extends AbstractEnum {
 
   const ACCOUNT_ID = 'account_id';
   const APPROXIMATE_COUNT = 'approximate_count';

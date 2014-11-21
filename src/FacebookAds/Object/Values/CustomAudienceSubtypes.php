@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Values;
 
-abstract class CustomAudienceSubtypes {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static CustomAudienceSubtypes getInstance()
+ */
+class CustomAudienceSubtypes extends AbstractEnum {
 
   const APP = 'APP';
   const APP_COMBINATION = 'APP_COMBINATION';

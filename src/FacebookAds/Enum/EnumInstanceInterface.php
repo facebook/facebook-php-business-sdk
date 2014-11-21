@@ -22,37 +22,70 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Enum;
 
-use FacebookAds\Enum\AbstractEnum;
-
-/**
- * @method static CustomAudienceTypes getInstance()
- */
-class CustomAudienceTypes extends AbstractEnum {
+interface EnumInstanceInterface {
 
   /**
-   * @var string
+   * @return EnumInstanceInterface
    */
-  const ID = 'UID';
+  public static function getInstance();
 
   /**
-   * @var string
+   * @return array
    */
-  const CLAIM = 'CLAIM';
+  public function getArrayCopy();
 
   /**
-   * @var string
+   * @return array
    */
-  const EMAIL = 'EMAIL_SHA256';
+  public function getNames();
 
   /**
-   * @var string
+   * @return array
    */
-  const PHONE = 'PHONE_SHA256';
+  public function getValues();
 
   /**
-   * @var string
+   * @return array
    */
-  const MOBILE_ADVERTISER_ID = 'MOBILE_ADVERTISER_ID';
+  public function getValuesMap();
+
+  /**
+   * @param string|int|float $name
+   * @return mixed
+   */
+  public function getValueForName($name);
+
+  /**
+   * @param string|int|float $name
+   * @return mixed
+   * @throws \InvalidArgumentException
+   */
+  public function assureValueForName($name);
+
+  /**
+   * @param string|int|float $name
+   * @return bool
+   */
+  public function isValid($name);
+
+  /**
+   * @param string|int|float $name
+   * @return void
+   * @throws \InvalidArgumentException
+   */
+  public function assureIsValid($name);
+
+  /**
+   * @param mixed $value
+   * @return bool
+   */
+  public function isValidValue($value);
+
+  /**
+   * @param mixed $value
+   * @throws \InvalidArgumentException
+   */
+  public function assureIsValidValue($value);
 }

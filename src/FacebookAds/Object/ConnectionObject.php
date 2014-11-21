@@ -31,22 +31,9 @@ class ConnectionObject extends AbstractObject {
   use FieldValidation;
 
   /**
-   * @var string[]
+   * @return ConnectionObjectFields
    */
-  protected static $fields = array(
-    ConnectionObjectFields::ID,
-    ConnectionObjectFields::NAME,
-    ConnectionObjectFields::NATIVE_APP_STORE_IDS,
-    ConnectionObjectFields::NATIVE_APP_TARGETING_IDS,
-    ConnectionObjectFields::OG_NAMESPACE,
-    ConnectionObjectFields::OG_ACTIONS,
-    ConnectionObjectFields::OG_OBJECT,
-    ConnectionObjectFields::PICTURE,
-    ConnectionObjectFields::SUPPORTED_PLATFORMS,
-    ConnectionObjectFields::TABS,
-    ConnectionObjectFields::TYPE,
-    ConnectionObjectFields::URL,
-    ConnectionObjectFields::IS_GAME,
-    ConnectionObjectFields::APP_INSTALLS_TRACKED,
-  );
+  public static function getFieldsEnum() {
+    return ConnectionObjectFields::getInstance();
+  }
 }

@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields;
 
-abstract class ClickTrackingTagFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static ClickTrackingTagFields getInstance()
+ */
+class ClickTrackingTagFields extends AbstractEnum {
 
   const ID = 'id';
   const ADD_TEMPLATE_PARAM = 'add_template_param';

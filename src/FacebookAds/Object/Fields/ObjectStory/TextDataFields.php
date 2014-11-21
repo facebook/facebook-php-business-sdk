@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields\ObjectStory;
 
-abstract class TextDataFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static TextDataFields getInstance()
+ */
+class TextDataFields extends AbstractEnum {
 
   const MESSAGE = 'message';
 }

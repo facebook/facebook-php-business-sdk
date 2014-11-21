@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Values;
 
-abstract class InsightsOperators {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static InsightsOperators getInstance()
+ */
+class InsightsOperators extends AbstractEnum {
 
   const ALL = 'all';
   const ANY = 'any';

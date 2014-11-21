@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields;
 
-abstract class TargetingSpecsFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static TargetingSpecsFields getInstance()
+ */
+class TargetingSpecsFields extends AbstractEnum {
 
   const GENDERS = 'genders';
   const AGE_MIN = 'age_min';

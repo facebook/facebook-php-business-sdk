@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields\ObjectStory;
 
-abstract class TemplateDataFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static TemplateDataFields getInstance()
+ */
+class TemplateDataFields extends AbstractEnum {
 
   const CALL_TO_ACTION = 'call_to_action';
   const DESCRIPTION = 'description';

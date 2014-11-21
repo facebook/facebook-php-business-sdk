@@ -25,6 +25,7 @@
 namespace FacebookAds\Object;
 
 use FacebookAds\Api;
+use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\Object\Fields\ProductFields;
 use FacebookAds\Object\Traits\CannotCreate;
@@ -35,38 +36,18 @@ class Product extends AbstractCrudObject {
   use FieldValidation;
 
   /**
-   * @var string[]
+   * @return string
    */
-  protected static $fields = array(
-    ProductFields::ID,
-    ProductFields::AGE_GROUP,
-    ProductFields::AVAILABILITY,
-    ProductFields::BRAND,
-    ProductFields::CATEGORY,
-    ProductFields::COLOR,
-    ProductFields::CONDITION,
-    ProductFields::DESCRIPTION,
-    ProductFields::EXPIRATION_DATE,
-    ProductFields::GENDER,
-    ProductFields::GTIN,
-    ProductFields::IMAGE_URL,
-    ProductFields::MATERIAL,
-    ProductFields::MANUFACTURER_PART_NUMBER,
-    ProductFields::NAME,
-    ProductFields::PATTERN,
-    ProductFields::PRICE,
-    ProductFields::PRODUCT_TYPE,
-    ProductFields::RETAILER_ID,
-    ProductFields::RETAILER_PRODUCT_GROUP_ID,
-    ProductFields::SALE_PRICE,
-    ProductFields::SALE_PRICE_START_DATE,
-    ProductFields::SALE_PRICE_END_DATE,
-    ProductFields::SHIPPING_WEIGHT_VALUE,
-    ProductFields::SHIPPING_WEIGHT_UNIT,
-    ProductFields::SIZE,
-    ProductFields::URL,
-    ProductFields::PRODUCT_FEED,
-  );
+  protected function getEndpoint() {
+    return 'products';
+  }
+
+  /**
+   * @return ProductFields
+   */
+  public static function getFieldsEnum() {
+    return ProductFields::getInstance();
+  }
 
   /**
    * @param string $retailer_id
@@ -107,13 +88,6 @@ class Product extends AbstractCrudObject {
       RequestInterface::METHOD_POST,
       array_merge($product->exportData(), $params))->getContent();
     return (isset($data['success'])) ? $data['success'] : false;
-  }
-
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'products';
   }
 
   /**

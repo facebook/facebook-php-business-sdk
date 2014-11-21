@@ -32,9 +32,9 @@ class TextData extends AbstractObject{
   use FieldValidation;
 
   /**
-   * @var string[]
+   * @return TextDataFields
    */
-  protected static $fields = array(
-    TextDataFields::MESSAGE,
-  );
+  public static function getFieldsEnum() {
+    return TextDataFields::getInstance();
+  }
 }

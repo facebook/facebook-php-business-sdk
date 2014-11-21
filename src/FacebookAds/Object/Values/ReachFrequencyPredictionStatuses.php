@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Values;
 
-abstract class ReachFrequencyPredictionStatuses {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static ReachFrequencyPredictionStatuses getInstance()
+ */
+class ReachFrequencyPredictionStatuses extends AbstractEnum {
 
   const SUCCESS = 1;
   const PENDING = 2;

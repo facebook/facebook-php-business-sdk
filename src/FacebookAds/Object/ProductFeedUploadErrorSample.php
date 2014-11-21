@@ -35,18 +35,16 @@ class ProductFeedUploadErrorSample extends AbstractObject {
   use CannotUpdate;
 
   /**
-   * @var string[]
-   */
-  protected static $fields = array(
-    ProductFeedUploadErrorSampleFields::ID,
-    ProductFeedUploadErrorSampleFields:: RETAILER_ID,
-    ProductFeedUploadErrorSampleFields::ROW_NUMBER,
-  );
-
-  /**
    * @return string
    */
   protected function getEndpoint() {
     return 'samples';
+  }
+
+  /**
+   * @return ProductFeedUploadErrorSampleFields
+   */
+  public static function getFieldsEnum() {
+    return ProductFeedUploadErrorSampleFields::getInstance();
   }
 }

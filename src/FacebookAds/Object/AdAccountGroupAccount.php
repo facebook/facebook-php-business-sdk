@@ -33,14 +33,6 @@ class AdAccountGroupAccount extends AbstractObject {
   use FieldValidation;
 
   /**
-   * @var string[]
-   */
-  protected static $fields = array(
-    AdAccountGroupAccountFields::ACCOUNT_ID,
-    AdAccountGroupAccountFields::STATUS,
-  );
-
-  /**
    * @var Api
    */
   protected $api;
@@ -57,6 +49,13 @@ class AdAccountGroupAccount extends AbstractObject {
   public function __construct($ad_account_group_id, Api $api = null) {
     $this->adAccountGroupId = $ad_account_group_id;
     $this->api = $api;
+  }
+
+  /**
+   * @return AdAccountGroupAccountFields
+   */
+  public static function getFieldsEnum() {
+    return AdAccountGroupAccountFields::getInstance();
   }
 
   /**

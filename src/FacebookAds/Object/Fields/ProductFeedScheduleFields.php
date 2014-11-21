@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Fields;
 
-abstract class ProductFeedScheduleFields {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static ProductFeedScheduleFields getInstance()
+ */
+class ProductFeedScheduleFields extends AbstractEnum {
 
   const INTERVAL = 'interval';
   const DAY_OF_WEEK = 'day_of_week';

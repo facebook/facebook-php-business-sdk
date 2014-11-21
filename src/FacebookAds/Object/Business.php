@@ -37,25 +37,17 @@ class Business extends AbstractCrudObject {
   use CannotDelete;
 
   /**
-   * @var string[]
-   */
-  protected static $fields = array(
-    BusinessFields::ID,
-    BusinessFields::CREATION_TIME,
-    BusinessFields::CREATED_BY,
-    BusinessFields::NAME,
-    BusinessFields::PRIMARY_PAGE,
-    BusinessFields::TIMEZONE_ID,
-    BusinessFields::UPDATE_TIME,
-    BusinessFields::UPDATED_BY,
-    BusinessFields::VERTICAL_ID,
-  );
-
-  /**
    * @return string
    */
   protected function getEndpoint() {
     return 'businesses';
+  }
+
+  /**
+   * @return BusinessFields
+   */
+  public static function getFieldsEnum() {
+    return BusinessFields::getInstance();
   }
 
   /**

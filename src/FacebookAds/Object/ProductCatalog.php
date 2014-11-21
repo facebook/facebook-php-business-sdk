@@ -34,18 +34,17 @@ class ProductCatalog extends AbstractCrudObject {
   use FieldValidation;
 
   /**
-   * @var string[]
-   */
-  protected static $fields = array(
-    ProductCatalogFields::ID,
-    ProductCatalogFields::NAME,
-  );
-
-  /**
    * @return string
    */
   protected function getEndpoint() {
     return 'product_catalogs';
+  }
+
+  /**
+   * @return ProductCatalogFields
+   */
+  public static function getFieldsEnum() {
+    return ProductCatalogFields::getInstance();
   }
 
   /**
@@ -93,7 +92,7 @@ class ProductCatalog extends AbstractCrudObject {
   }
 
   /**
-   * @param int $pixel_ids
+   * @param array $pixel_ids
    * @return bool
    */
   public function setExternalEventSources(array $pixel_ids) {
@@ -113,12 +112,11 @@ class ProductCatalog extends AbstractCrudObject {
   }
 
   /**
+   * @param string $method
    * @param array $pixel_ids
    * @return bool
    */
-  protected function modifyExternalEventSources(
-    string $method,
-    array $pixel_ids) {
+  protected function modifyExternalEventSources($method, array $pixel_ids) {
     $params = array(
       ProductCatalogFields::EXTERNAL_EVENT_SOURCES => $pixel_ids,
     );

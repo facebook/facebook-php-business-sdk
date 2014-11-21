@@ -31,15 +31,9 @@ class ObjectStorySpec extends AbstractObject {
   use FieldValidation;
 
   /**
-   * @var string[]
+   * @return ObjectStorySpecFields
    */
-  protected static $fields = array(
-    ObjectStorySpecFields::LINK_DATA,
-    ObjectStorySpecFields::OFFER_DATA,
-    ObjectStorySpecFields::PAGE_ID,
-    ObjectStorySpecFields::PHOTO_DATA,
-    ObjectStorySpecFields::TEXT_DATA,
-    ObjectStorySpecFields::TEMPLATE_DATA,
-    ObjectStorySpecFields::VIDEO_DATA,
-  );
+  public static function getFieldsEnum() {
+    return ObjectStorySpecFields::getInstance();
+  }
 }

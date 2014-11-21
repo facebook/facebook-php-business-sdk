@@ -24,11 +24,12 @@
 
 namespace FacebookAds\Object\Fields;
 
+use FacebookAds\Enum\AbstractEnum;
+
 /**
- * LOOKALIKE_SPEC is required for creating LAL CA. Required fields are different
- * for creation based on existing CA or conversion data respecitvely.
+ * @method static LookalikeAudienceSpecFields getInstance()
  */
-abstract class LookalikeAudienceSpecFields {
+class LookalikeAudienceSpecFields extends AbstractEnum {
 
   const TYPE = 'type';
   const RATIO = 'ratio';

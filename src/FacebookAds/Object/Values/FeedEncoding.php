@@ -24,7 +24,12 @@
 
 namespace FacebookAds\Object\Values;
 
-abstract class FeedEncoding {
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * @method static FeedEncoding getInstance()
+ */
+class FeedEncoding extends AbstractEnum {
 
   const AUTODETECT  = 'AUTODETECT';
   const ASCII = 'ASCII';
