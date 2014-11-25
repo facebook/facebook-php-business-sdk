@@ -100,6 +100,7 @@ $adset->setData(array(
   AdSetFields::CAMPAIGN_GROUP_ID => $campaign->id,
   AdSetFields::CAMPAIGN_STATUS => AdSet::STATUS_ACTIVE,
   AdSetFields::DAILY_BUDGET => '150',
+  AdSetFields::BID_TYPE => 'CPC',
   AdSetFields::START_TIME =>
     (new \DateTime("+1 week"))->format(\DateTime::ISO8601),
   AdSetFields::END_TIME =>
