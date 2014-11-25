@@ -26,7 +26,7 @@
 $access_token = null;
 $app_id = null;
 $app_secret = null;
-$account_id = null;
+$account_id = null; // should begin with "act_" (without the quotes)
 
 if(is_null($access_token) || is_null($app_id) || is_null($app_secret)) {
   throw new \Exception(
