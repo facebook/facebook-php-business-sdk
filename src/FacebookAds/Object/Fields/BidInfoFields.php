@@ -24,7 +24,7 @@
 
 namespace FacebookAds\Object\Fields;
 
-abstract class AdGroupBidInfoFields {
+abstract class BidInfoFields {
 
   const REACH = 'REACH';
   const SOCIAL = 'SOCIAL';

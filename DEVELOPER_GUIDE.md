@@ -430,7 +430,7 @@ The final step is to create the [`AdGroup`](https://developers.facebook.com/docs
 ```php
 use FacebookAds\Object\AdGroup;
 use FacebookAds\Object\Fields\AdGroupFields;
-use FacebookAds\Object\Fields\AdGroupBidInfoFields;
+use FacebookAds\Object\Fields\BidInfoFields;
 
 $adgroup = new AdGroup(null, $account->id);
 $adgroup->setData(array(
@@ -438,7 +438,7 @@ $adgroup->setData(array(
     array('creative_id' => $creative->id),
   AdGroupFields::NAME => 'My First AdGroup',
   AdGroupFields::BID_INFO => 
-    array(AdGroupBidInfoFields::IMPRESSIONS => '2'),
+    array(BidInfoFields::IMPRESSIONS => '2'),
   AdGroupFields::CAMPAIGN_ID => $adset->id,
 ));
 

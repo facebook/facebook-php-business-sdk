@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdSetFields;
 use FacebookAds\Object\Fields\AdCampaignFields;
 use FacebookAds\Object\Fields\TargetingSpecsFields;
 use FacebookAds\Object\Values\AdFormats;
-use FacebookAds\Object\Fields\AdGroupBidInfoFields;
+use FacebookAds\Object\Fields\BidInfoFields;
 use FacebookAds\Object\Values\BidTypes;
 use FacebookAdsTest\Config\SkippableFeatureTestInterface;
 
@@ -102,7 +102,7 @@ class AdPreviewTest extends AbstractCrudObjectTestCase
     $this->adSet->{AdGroupFields::TARGETING} = $targeting;
     $this->adSet->{AdGroupFields::BID_TYPE} = BidTypes::BID_TYPE_CPM;
     $this->adSet->{AdSetFields::BID_INFO}
-      = array(AdGroupBidInfoFields::IMPRESSIONS => 2);
+      = array(BidInfoFields::IMPRESSIONS => 2);
     $this->adSet->create();
 
     $this->adImage = new AdImage(null, $this->getActId());

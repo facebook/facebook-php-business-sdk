@@ -123,7 +123,7 @@ $targeting->{TargetingSpecsFields::INTERESTS} = array(
  */
 use FacebookAds\Object\AdSet;
 use FacebookAds\Object\Fields\AdSetFields;
-use FacebookAds\Object\Fields\AdGroupBidInfoFields;
+use FacebookAds\Object\Fields\BidInfoFields;
 use FacebookAds\Object\Values\BidTypes;
 
 $adset = new AdSet(null, $account->id);
@@ -135,7 +135,7 @@ $adset->setData(array(
   AdSetFields::TARGETING => $targeting,
   AdSetFields::BID_TYPE => BidTypes::BID_TYPE_CPM,
   AdSetFields::BID_INFO =>
-    array(AdGroupBidInfoFields::IMPRESSIONS => 2),
+    array(BidInfoFields::IMPRESSIONS => 2),
   AdSetFields::START_TIME =>
     (new \DateTime("+1 week"))->format(\DateTime::ISO8601),
   AdSetFields::END_TIME =>
@@ -160,7 +160,7 @@ $image->create();
 echo 'Image Hash: '.$image->hash . "\n";
 
 /**
- * Step 5 Create an AdCreative
+ * Step 6 Create an AdCreative
  */
 use FacebookAds\Object\AdCreative;
 use FacebookAds\Object\Fields\AdCreativeFields;

@@ -27,7 +27,7 @@ namespace FacebookAdsTest\Object;
 use FacebookAds\Object\AdCampaign;
 use FacebookAds\Object\AdSet;
 use FacebookAds\Object\Fields\AdCampaignFields;
-use FacebookAds\Object\Fields\AdGroupBidInfoFields;
+use FacebookAds\Object\Fields\BidInfoFields;
 use FacebookAds\Object\Fields\AdSetFields;
 use FacebookAds\Object\Fields\TargetingSpecsFields;
 use FacebookAds\Object\TargetingSpecs;
@@ -66,7 +66,7 @@ class AdSetTest extends AbstractCrudObjectTestCase {
     $set->{AdSetFields::CAMPAIGN_STATUS} = AdSet::STATUS_PAUSED;
     $set->{AdSetFields::BID_TYPE} = BidTypes::BID_TYPE_CPM;
     $set->{AdSetFields::BID_INFO}
-      = array(AdGroupBidInfoFields::IMPRESSIONS => 2);
+      = array(BidInfoFields::IMPRESSIONS => 2);
     $set->{AdSetFields::DAILY_BUDGET} = '150';
     $set->{AdSetFields::TARGETING} = $targeting;
     $set->{AdSetFields::START_TIME}
