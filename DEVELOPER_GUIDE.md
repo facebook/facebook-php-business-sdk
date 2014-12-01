@@ -9,7 +9,7 @@ We also assume you are somewhat familiar with namespaces in PHP. If not, we reco
 You should also have the documentation for the [Facebook Marketing APIs](https://developers.facebook.com/docs/ads-api) available as you will need to refer to this to understand which combination of parameters are required for the different object types.
 
 ## Bootstrapping <a name="bootstrapping"></a>
-The classes within the Facebook Ads SDK are designed to be included using a an autoloader compliant with the [PSR-4](http://www.php-fig.org/psr/psr-4/). If you are using [Composer](https://getcomposer.org/) to include dependencies, you will find an implementation available within the vendor folder. This guide assumes you are using this autoloader.
+The classes within the Facebook Ads SDK are designed to be included using an autoloader compliant with the [PSR-4](http://www.php-fig.org/psr/psr-4/). If you are using [Composer](https://getcomposer.org/) to include dependencies, you will find an implementation available within the vendor folder. This guide assumes you are using this autoloader.
 
 ```php
 <?php
@@ -323,7 +323,7 @@ echo "Campaign ID:" . $campaign->id . "\n";
 ```
 
 
-### 6. Searching Targeting
+### 3. Searching Targeting
 
 The final thing we need before creating an `AdGroup` is some targeting. Many attributes of targeting can be found defined in the developer documentation, however some categories need you to search, such as interests. For this, we provide the `TargetingSearch` class.
 
