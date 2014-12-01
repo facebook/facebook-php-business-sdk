@@ -135,6 +135,8 @@ abstract class Bootstrap {
       (isset($_SERVER['LOGNAME']) ? $_SERVER['LOGNAME'] : uniqid(true))
       . microtime(true));
 
+    AbstractTestCase::$httpAdapter = self::confx('http_adapter');
+
     if (!date_default_timezone_set(
       self::confx(
         'act_timezone',

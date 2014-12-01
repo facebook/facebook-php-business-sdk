@@ -94,6 +94,11 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
   public static $testRunId;
 
   /**
+   * @var string
+   */
+  public static $httpAdapter;  
+
+  /**
    * @var Client
    */
   protected $httpClient;
@@ -251,6 +256,13 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
 
   protected function setupHttpClient() {
     $this->httpClient = new Client();
+
+    if(self::$httpAdapter) {
+      $alternative_adapter_class = 'FacebookAds\\Http\\Adapter\\' . self::$httpAdapter;
+      $stream_http_adapter = new $alternative_adapter_class($this->httpClient);
+      $this->httpClient->setAdapter($stream_http_adapter);
+    }
+
     if ($this->getGraphBaseDomain()) {
       $this->httpClient->setDefaultGraphBaseDomain($this->getGraphBaseDomain());
     }
