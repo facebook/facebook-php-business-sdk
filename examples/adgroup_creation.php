@@ -75,7 +75,6 @@ if($account->{AdAccountFields::ACCOUNT_STATUS} !== 1) {
 use FacebookAds\Object\AdCampaign;
 use FacebookAds\Object\Fields\AdCampaignFields;
 use FacebookAds\Object\Values\AdObjectives;
-use FacebookAds\Object\Values\AdBuyingTypes;
 
 $campaign  = new AdCampaign(null, $account->id);
 $campaign->setData(array(
@@ -89,10 +88,38 @@ echo "Campaign ID:" . $campaign->id . "\n";
 
 
 /**
- * Step 3 Create the AdSet
+ * Step 3 Search Targeting
+ */
+use FacebookAds\Object\TargetingSearch;
+use FacebookAds\Object\Search\TargetingSearchTypes;
+
+$results = TargetingSearch::search(
+  $type = TargetingSearchTypes::INTEREST,
+  $class = null,
+  $query = 'facebook');
+
+// we'll take the top result for now
+$target = (count($results)) ? $results->current() : null;
+
+echo "Using target: ".$target->name."\n";
+
+$targeting = new TargetingSpecs();
+$targeting->{TargetingSpecsFields::GEO_LOCATIONS}
+  = array('countries' => array('GB'));
+$targeting->{TargetingSpecsFields::INTERESTS} = array(
+  'id' => $target->id,
+  'name' => $target->name
+);
+
+/**
+ * Step 4 Create the AdSet
  */
 use FacebookAds\Object\AdSet;
+use FacebookAds\Object\TargetingSpecs;
+use FacebookAds\Object\Fields\TargetingSpecsFields;
 use FacebookAds\Object\Fields\AdSetFields;
+use FacebookAds\Object\Fields\AdGroupBidInfoFields;
+use FacebookAds\Object\Values\BidTypes;
 
 $adset = new AdSet(null, $account->id);
 $adset->setData(array(
@@ -100,6 +127,10 @@ $adset->setData(array(
   AdSetFields::CAMPAIGN_GROUP_ID => $campaign->id,
   AdSetFields::CAMPAIGN_STATUS => AdSet::STATUS_ACTIVE,
   AdSetFields::DAILY_BUDGET => '150',
+  AdSetFields::TARGETING => $targeting,
+  AdSetFields::BID_TYPE => BidTypes::BID_TYPE_CPM,
+  $this->adSet->{AdSetFields::BID_INFO} =>
+    array(AdGroupBidInfoFields::IMPRESSIONS => 2),
   AdSetFields::START_TIME =>
     (new \DateTime("+1 week"))->format(\DateTime::ISO8601),
   AdSetFields::END_TIME =>
@@ -110,13 +141,14 @@ $adset->create();
 echo 'AdSet  ID: '. $adset->id . "\n";
 
 /**
- * Step 4 Create an AdImage
+ * Step 5 Create an AdImage
  */
 use FacebookAds\Object\AdImage;
 use FacebookAds\Object\Fields\AdImageFields;
 
 $image = new AdImage(null, $account->id);
-$image->filename = SDK_DIR.'/test/misc/FB-f-Logo__blue_512.png';
+$image->{AdImageFields::FILENAME}
+  = SDK_DIR.'/test/misc/FB-f-Logo__blue_512.png';
 
 $image->create();
 echo 'Image Hash: '.$image->hash . "\n";
@@ -139,54 +171,18 @@ $creative->setData(array(
 $creative->create();
 echo 'Creative ID: '.$creative->id . "\n";
 
-
-/**
- * Step 6 Search Targeting
- */
-use FacebookAds\Object\TargetingSearch;
-use FacebookAds\Object\Search\TargetingSearchTypes;
-
-$results = TargetingSearch::search(
-  $type = TargetingSearchTypes::INTEREST,
-  $class = null,
-  $query = 'facebook'
-);
-
-// we'll take the top result for now
-$target = (count($results)) ? $results->getObjects()[0] : null;
-
-echo "Using target: ".$target->name."\n";
-
-$targeting = array(
-  'geo_locations' => array(
-    'countries' => array('GB'),
-  ),
-  'interests' => array(
-    array(
-      'id' => $target->id,
-      'name'=>$target->name
-    )
-  )
-);
-
 /**
  * Step 7 Create an AdGroup
  */
 use FacebookAds\Object\AdGroup;
 use FacebookAds\Object\Fields\AdGroupFields;
-use FacebookAds\Object\Fields\AdGroupBidInfoFields;
-use FacebookAds\Object\Values\BidTypes;
 
 $adgroup = new AdGroup(null, $account->id);
 $adgroup->setData(array(
   AdGroupFields::CREATIVE =>
     array('creative_id' => $creative->id),
   AdGroupFields::NAME => 'My First AdGroup',
-  AdGroupFields::BID_TYPE => BidTypes::BID_TYPE_CPM,
-  AdGroupFields::BID_INFO =>
-    array(AdGroupBidInfoFields::IMPRESSIONS => '2'),
   AdGroupFields::CAMPAIGN_ID => $adset->id,
-  AdGroupFields::TARGETING => $targeting,
 ));
 
 $adgroup->create();
