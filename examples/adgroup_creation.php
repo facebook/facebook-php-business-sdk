@@ -89,59 +89,7 @@ echo "Campaign ID:" . $campaign->id . "\n";
 
 
 /**
- * Step 3 Create the AdSet
- */
-use FacebookAds\Object\AdSet;
-use FacebookAds\Object\Fields\AdSetFields;
-
-$adset = new AdSet(null, $account->id);
-$adset->setData(array(
-  AdSetFields::NAME => 'My First AdSet',
-  AdSetFields::CAMPAIGN_GROUP_ID => $campaign->id,
-  AdSetFields::CAMPAIGN_STATUS => AdSet::STATUS_ACTIVE,
-  AdSetFields::DAILY_BUDGET => '150',
-  AdSetFields::START_TIME =>
-    (new \DateTime("+1 week"))->format(\DateTime::ISO8601),
-  AdSetFields::END_TIME =>
-    (new \DateTime("+2 week"))->format(\DateTime::ISO8601),
-));
-
-$adset->create();
-echo 'AdSet  ID: '. $adset->id . "\n";
-
-/**
- * Step 4 Create an AdImage
- */
-use FacebookAds\Object\AdImage;
-use FacebookAds\Object\Fields\AdImageFields;
-
-$image = new AdImage(null, $account->id);
-$image->filename = SDK_DIR.'/test/misc/FB-f-Logo__blue_512.png';
-
-$image->create();
-echo 'Image Hash: '.$image->hash . "\n";
-
-/**
- * Step 5 Create an AdCreative
- */
-use FacebookAds\Object\AdCreative;
-use FacebookAds\Object\Fields\AdCreativeFields;
-
-$creative = new AdCreative(null, $account->id);
-$creative->setData(array(
-  AdCreativeFields::NAME => 'Sample Creative',
-  AdCreativeFields::TITLE => 'Welcome to the Jungle',
-  AdCreativeFields::BODY => 'We\'ve got fun \'n\' games',
-  AdCreativeFields::IMAGE_HASH => $image->hash,
-  AdCreativeFields::OBJECT_URL => 'http://www.example.com/',
-));
-
-$creative->create();
-echo 'Creative ID: '.$creative->id . "\n";
-
-
-/**
- * Step 6 Search Targeting
+ * Step 3 Search Targeting
  */
 use FacebookAds\Object\TargetingSearch;
 use FacebookAds\Object\Search\TargetingSearchTypes;
@@ -170,6 +118,62 @@ $targeting = array(
 );
 
 /**
+ * Step 4 Create the AdSet
+ */
+use FacebookAds\Object\AdSet;
+use FacebookAds\Object\Fields\AdSetFields;
+
+$adset = new AdSet(null, $account->id);
+$adset->setData(array(
+  AdSetFields::NAME => 'My First AdSet',
+  AdSetFields::CAMPAIGN_GROUP_ID => $campaign->id,
+  AdSetFields::CAMPAIGN_STATUS => AdSet::STATUS_ACTIVE,
+  AdSetFields::DAILY_BUDGET => '150',
+  AdSetFields::BID_TYPE => BidTypes::BID_TYPE_CPM,
+  AdSetFields::BID_INFO =>
+    array(AdGroupBidInfoFields::IMPRESSIONS => '2'),
+  AdSetFields::TARGETING => $targeting,
+  AdSetFields::START_TIME =>
+    (new \DateTime("+1 week"))->format(\DateTime::ISO8601),
+  AdSetFields::END_TIME =>
+    (new \DateTime("+2 week"))->format(\DateTime::ISO8601),
+));
+
+$adset->create();
+echo 'AdSet  ID: '. $adset->id . "\n";
+
+/**
+ * Step 5 Create an AdImage
+ */
+use FacebookAds\Object\AdImage;
+use FacebookAds\Object\Fields\AdImageFields;
+
+$image = new AdImage(null, $account->id);
+$image->filename = SDK_DIR.'/test/misc/FB-f-Logo__blue_512.png';
+
+$image->create();
+echo 'Image Hash: '.$image->hash . "\n";
+
+/**
+ * Step 6 Create an AdCreative
+ */
+use FacebookAds\Object\AdCreative;
+use FacebookAds\Object\Fields\AdCreativeFields;
+
+$creative = new AdCreative(null, $account->id);
+$creative->setData(array(
+  AdCreativeFields::NAME => 'Sample Creative',
+  AdCreativeFields::TITLE => 'Welcome to the Jungle',
+  AdCreativeFields::BODY => 'We\'ve got fun \'n\' games',
+  AdCreativeFields::IMAGE_HASH => $image->hash,
+  AdCreativeFields::OBJECT_URL => 'http://www.example.com/',
+));
+
+$creative->create();
+echo 'Creative ID: '.$creative->id . "\n";
+
+
+/**
  * Step 7 Create an AdGroup
  */
 use FacebookAds\Object\AdGroup;
@@ -182,11 +186,8 @@ $adgroup->setData(array(
   AdGroupFields::CREATIVE =>
     array('creative_id' => $creative->id),
   AdGroupFields::NAME => 'My First AdGroup',
-  AdGroupFields::BID_TYPE => BidTypes::BID_TYPE_CPM,
-  AdGroupFields::BID_INFO =>
-    array(AdGroupBidInfoFields::IMPRESSIONS => '2'),
   AdGroupFields::CAMPAIGN_ID => $adset->id,
-  AdGroupFields::TARGETING => $targeting,
+  AdGroupFields::ADGROUP_STATUS => AdGroup::STATUS_ACTIVE,
 ));
 
 $adgroup->create();
