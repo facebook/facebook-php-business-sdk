@@ -44,9 +44,19 @@ class RequestException extends Exception {
   protected $errorSubcode;
 
   /**
-   * @var int|null
+   * @var string|null
    */
   protected $errorMessage;
+
+  /**
+   * @var string|null
+   */
+  protected $errorUserTitle;
+
+  /**
+   * @var string|null
+   */
+  protected $errorUserMessage;
 
   /**
    * @var int|null
@@ -65,6 +75,10 @@ class RequestException extends Exception {
     $errorData = static::getErrorData($response_data);
 
     parent::__construct($errorData['message'], $errorData['code']);
+
+    $this->errorSubcode = $errorData['error_subcode'];
+    $this->errorUserTitle = $errorData['error_user_title'];
+    $this->errorUserMessage = $errorData['error_user_msg'];
   }
 
   /**
@@ -91,6 +105,8 @@ class RequestException extends Exception {
         static::idx($error_data, 'code', static::idx($response_data, 'code')),
       'error_subcode' => static::idx($error_data, 'error_subcode'),
       'message' => static::idx($error_data, 'message'),
+      'error_user_title' => static::idx($error_data, 'error_user_title'),
+      'error_user_msg' => static::idx($error_data, 'error_user_msg'),
       'type' => static::idx($error_data, 'type'),
     );
   }
@@ -135,5 +151,26 @@ class RequestException extends Exception {
    */
   public function getHttpStatusCode() {
     return $this->statusCode;
+  }
+
+  /**
+   * @return int|null
+   */
+  public function getErrorSubcode() {
+    return $this->errorSubcode;
+  }
+
+  /**
+   * @return string|null
+   */
+  public function getErrorUserTitle() {
+    return $this->errorUserTitle;
+  }
+
+  /**
+   * @return string|null
+   */
+  public function getErrorUserMessage() {
+    return $this->errorUserMessage;
   }
 }

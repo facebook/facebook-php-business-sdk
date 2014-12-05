@@ -27,10 +27,13 @@ namespace FacebookAdsTest;
 use FacebookAds\Api;
 use FacebookAds\Http\Adapter\CurlAdapter;
 use FacebookAds\Http\Client;
+use FacebookAds\Http\Exception\RequestException;
 use FacebookAds\Logger\CurlLogger;
 use FacebookAds\Logger\LoggerInterface;
 use FacebookAds\Logger\NullLogger;
 use FacebookAds\Session;
+use FacebookAdsTest\Exception\PHPUnitRequestExceptionWrapper;
+use SebastianBergmann\Exporter\Exception;
 
 /**
  * Base class for the unit test cases, providing the functions for AdsAPI
@@ -294,5 +297,19 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
     $this->api = null;
     $this->httpClient = null;
     $this->session = null;
+  }
+
+  /**
+   * This method is called when a test method did not execute successfully.
+   *
+   * @param \Exception $e
+   * @throws \Exception
+   */
+  protected function onNotSuccessfulTest(\Exception $e) {
+    if ($e instanceof RequestException) {
+      throw new PHPUnitRequestExceptionWrapper($e);
+    } else {
+      throw $e;
+    }
   }
 }
