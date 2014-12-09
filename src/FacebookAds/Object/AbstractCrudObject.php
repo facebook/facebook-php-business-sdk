@@ -327,13 +327,14 @@ abstract class AbstractCrudObject extends AbstractObject {
    * Helper function which determines whether an object should be created or
    * updated
    *
+   * @param array $params
    * @return $this
    */
-  public function save() {
+  public function save(array $params = array()) {
     if ($this->data[static::FIELD_ID]) {
-      return $this->update();
+      return $this->update($params);
     } else {
-      return $this->create();
+      return $this->create($params);
     }
   }
 

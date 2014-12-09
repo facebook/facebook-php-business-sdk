@@ -83,9 +83,8 @@ $campaign->setData(array(
   AdCampaignFields::STATUS => AdCampaign::STATUS_PAUSED,
 ));
 
-$campaign->create();
+$campaign->validate()->create();
 echo "Campaign ID:" . $campaign->id . "\n";
-
 
 /**
  * Step 3 Search Targeting
@@ -103,6 +102,9 @@ $target = (count($results)) ? $results->current() : null;
 
 echo "Using target: ".$target->name."\n";
 
+use FacebookAds\Object\TargetingSpecs;
+use FacebookAds\Object\Fields\TargetingSpecsFields;
+
 $targeting = new TargetingSpecs();
 $targeting->{TargetingSpecsFields::GEO_LOCATIONS}
   = array('countries' => array('GB'));
@@ -115,8 +117,6 @@ $targeting->{TargetingSpecsFields::INTERESTS} = array(
  * Step 4 Create the AdSet
  */
 use FacebookAds\Object\AdSet;
-use FacebookAds\Object\TargetingSpecs;
-use FacebookAds\Object\Fields\TargetingSpecsFields;
 use FacebookAds\Object\Fields\AdSetFields;
 use FacebookAds\Object\Fields\AdGroupBidInfoFields;
 use FacebookAds\Object\Values\BidTypes;
@@ -129,7 +129,7 @@ $adset->setData(array(
   AdSetFields::DAILY_BUDGET => '150',
   AdSetFields::TARGETING => $targeting,
   AdSetFields::BID_TYPE => BidTypes::BID_TYPE_CPM,
-  $this->adSet->{AdSetFields::BID_INFO} =>
+  AdSetFields::BID_INFO =>
     array(AdGroupBidInfoFields::IMPRESSIONS => 2),
   AdSetFields::START_TIME =>
     (new \DateTime("+1 week"))->format(\DateTime::ISO8601),
@@ -137,7 +137,7 @@ $adset->setData(array(
     (new \DateTime("+2 week"))->format(\DateTime::ISO8601),
 ));
 
-$adset->create();
+$adset->validate()->create();
 echo 'AdSet  ID: '. $adset->id . "\n";
 
 /**

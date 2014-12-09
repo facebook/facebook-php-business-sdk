@@ -26,11 +26,12 @@ namespace FacebookAds\Object;
 
 use FacebookAds\Object\Fields\AdSetFields;
 use FacebookAds\Object\Traits\FieldValidation;
+use FacebookAds\Object\Traits\ObjectValidation;
 use FacebookAds\Cursor;
 
 class AdSet extends AbstractArchivableCrudObject
   implements CanRedownloadInterface {
-  use FieldValidation;
+  use FieldValidation, ObjectValidation;
 
   /**
    * @var string
