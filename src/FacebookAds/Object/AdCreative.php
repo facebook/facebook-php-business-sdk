@@ -54,6 +54,7 @@ class AdCreative extends AbstractCrudObject {
     AdCreativeFields::OBJECT_URL,
     AdCreativeFields::URL_TAGS,
     AdCreativeFields::PREVIEW_URL,
+    AdCreativeFields::THUMBNAIL_URL,
     AdCreativeFields::FOLLOW_REDIRECT,
     AdCreativeFields::OBJECT_STORE_URL,
     AdCreativeFields::LINK_DEEP_LINK_URL,
