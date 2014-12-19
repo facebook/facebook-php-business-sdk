@@ -507,6 +507,6 @@ abstract class AbstractCrudObject extends AbstractObject {
       $result[] = $object;
     }
 
-    return new Cursor($result, $response);
+    return $result;
   }
 }
