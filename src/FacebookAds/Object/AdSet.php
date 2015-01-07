@@ -106,7 +106,7 @@ class AdSet extends AbstractArchivableCrudObject
   /**
    * @param array $fields
    * @param array $params
-   * @return Cursor
+   * @return AdStats
    */
   public function getStats(array $fields = array(), array $params = array()) {
     return $this->getOneByConnection(
