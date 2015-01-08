@@ -22,12 +22,13 @@
  *
  */
 
-// Set your access token here:
+// Configurations
 $access_token = null;
 $app_id = null;
 $app_secret = null;
 // should begin with "act_" (eg: $account_id = 'act_1234567890';)
 $account_id = null;
+// Configurations - End
 
 if (is_null($access_token) || is_null($app_id) || is_null($app_secret)) {
   throw new \Exception(
@@ -63,6 +64,8 @@ $audience->create();
 echo "Audience ID: " . $audience->id."\n";
 
 // Assuming you have an array of emails:
+// NOTE: The SDK will hash (SHA-2) your data before submitting
+// it to Facebook servers
 $emails = array(
   'paul@example.com',
   'luca@example.com',

@@ -22,12 +22,15 @@
  *
  */
 
-// Set your access token here:
+// Configurations
 $access_token = null;
 $app_id = null;
 $app_secret = null;
 // should begin with "act_" (eg: $account_id = 'act_1234567890';)
 $account_id = null;
+define('SDK_DIR', __DIR__ . '/..'); // Path to the SDK directory
+$loader = include SDK_DIR.'/vendor/autoload.php';
+// Configurations - End
 
 if (is_null($access_token) || is_null($app_id) || is_null($app_secret)) {
   throw new \Exception(
@@ -39,9 +42,6 @@ if (is_null($account_id)) {
   throw new \Exception(
     'You must set your account id before executing');
 }
-
-define('SDK_DIR', __DIR__ . '/..'); // Path to the SDK directory
-$loader = include SDK_DIR.'/vendor/autoload.php';
 
 use FacebookAds\Api;
 use FacebookAds\Logger\CurlLogger;

@@ -22,12 +22,15 @@
  *
  */
 
-// Set your access token here:
+// Configurations
 $access_token = null;
 $app_id = null;
 $app_secret = null;
 // should begin with "act_" (eg: $account_id = 'act_1234567890';)
 $account_id = null;
+define('SDK_DIR', __DIR__ . '/..'); // Path to the SDK directory
+$loader = include SDK_DIR.'/vendor/autoload.php';
+// Configurations - End
 
 if(is_null($access_token) || is_null($app_id) || is_null($app_secret)) {
   throw new \Exception(
@@ -39,9 +42,6 @@ if (is_null($account_id)) {
   throw new \Exception(
     'You must set your account id before executing');
 }
-
-define('SDK_DIR', __DIR__ . '/..'); // Path to the SDK directory
-$loader = include SDK_DIR.'/vendor/autoload.php';
 
 use FacebookAds\Api;
 
@@ -92,6 +92,8 @@ echo "Campaign ID:" . $campaign->id . "\n";
  */
 use FacebookAds\Object\TargetingSearch;
 use FacebookAds\Object\Search\TargetingSearchTypes;
+use FacebookAds\Object\TargetingSpecs;
+use FacebookAds\Object\Fields\TargetingSpecsFields;
 
 $results = TargetingSearch::search(
   $type = TargetingSearchTypes::INTEREST,
@@ -110,8 +112,10 @@ $targeting = new TargetingSpecs();
 $targeting->{TargetingSpecsFields::GEO_LOCATIONS}
   = array('countries' => array('GB'));
 $targeting->{TargetingSpecsFields::INTERESTS} = array(
-  'id' => $target->id,
-  'name' => $target->name
+    array(
+        'id' => $target->id,
+        'name' => $target->name,
+    ),
 );
 
 /**
@@ -139,6 +143,7 @@ $adset->setData(array(
 ));
 
 $adset->validate()->create();
+
 echo 'AdSet  ID: '. $adset->id . "\n";
 
 /**
@@ -149,7 +154,7 @@ use FacebookAds\Object\Fields\AdImageFields;
 
 $image = new AdImage(null, $account->id);
 $image->{AdImageFields::FILENAME}
-  = SDK_DIR.'/test/misc/FB-f-Logo__blue_512.png';
+  = SDK_DIR.'/test/misc/image.png';
 
 $image->create();
 echo 'Image Hash: '.$image->hash . "\n";
