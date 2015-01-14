@@ -249,19 +249,21 @@ abstract class AbstractCrudObject extends AbstractObject {
 
     $this->clearHistory();
     $data = $response->getContent();
-    $id = is_string($data) ? $data : $data[static::FIELD_ID];
+    if (!isset($params['execution_options'])){
+      $id = is_string($data) ? $data : $data[static::FIELD_ID];
 
     /** @var AbstractCrudObject $this */
-    if ($this instanceof CanRedownloadInterface
-      && isset($params[CanRedownloadInterface::PARAM_REDOWNLOAD])
-      && $params[CanRedownloadInterface::PARAM_REDOWNLOAD] === true
-      && isset($data['data'][$id])
-      && is_array($data['data'][$id])
-    ) {
-      $this->setData($data['data'][$id]);
-    }
+      if ($this instanceof CanRedownloadInterface
+        && isset($params[CanRedownloadInterface::PARAM_REDOWNLOAD])
+        && $params[CanRedownloadInterface::PARAM_REDOWNLOAD] === true
+        && isset($data['data'][$id])
+        && is_array($data['data'][$id])
+      ) {
+        $this->setData($data['data'][$id]);
+      }
 
-    $this->data[static::FIELD_ID] = (string) $id;
+      $this->data[static::FIELD_ID] = (string) $id;
+    }
 
 
     return $this;
