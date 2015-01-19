@@ -373,6 +373,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
     if ($this->position == $this->getIndexLeft()) {
       if ($this->getUseImplicitFetch()) {
         $this->fetchBefore();
+        --$this->position;
         if ($this->position == $this->getIndexLeft()) {
           $this->position = null;
         }
@@ -388,6 +389,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
     if ($this->position == $this->getIndexRight()) {
       if ($this->getUseImplicitFetch()) {
         $this->fetchAfter();
+        ++$this->position;
         if ($this->position == $this->getIndexRight()) {
           $this->position = null;
         }
