@@ -32,7 +32,8 @@ class AdAccountTest extends AbstractCrudObjectTestCase {
   public function testCrud() {
     $account = new AdAccount($this->getActId());
     $this->assertCanRead($account);
-    $name = $account->{AdAccountFields::NAME};
+    $name = $account->read(array(AdAccountFields::NAME))
+      ->{AdAccountFields::NAME};
     $this->assertCanUpdate(
       $account,
       array(AdAccountFields::NAME => $this->getTestRunId()));
