@@ -60,7 +60,5 @@ abstract class AdAccountFields {
   const TIMEZONE_OFFSET_HOURS_UTC = 'timezone_offset_hours_utc';
   const TOS_ACCEPTED = 'tos_accepted';
   const USERS = 'users';
-  // Deprecated field
-  const VAT_STATUS = 'tax_id_status';
   const TAX_ID_STATUS = 'tax_id_status';
 }
