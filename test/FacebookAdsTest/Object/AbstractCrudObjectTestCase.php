@@ -28,6 +28,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Object\AbstractCrudObject;
 use FacebookAds\Object\AbstractObject;
 use FacebookAds\Object\AbstractArchivableCrudObject;
+use FacebookAds\Object\CanRedownloadInterface;
 use FacebookAdsTest\AbstractTestCase;
 
 abstract class AbstractCrudObjectTestCase extends AbstractTestCase {
@@ -36,9 +37,27 @@ abstract class AbstractCrudObjectTestCase extends AbstractTestCase {
    * @param AbstractCrudObject $subject
    */
   public function assertCanCreate(AbstractCrudObject $subject) {
+    $params = $subject instanceof CanRedownloadInterface
+      ? array(CanRedownloadInterface::PARAM_REDOWNLOAD => true)
+      : array();
+
     $this->assertEmpty($subject->{AbstractCrudObject::FIELD_ID});
-    $subject->create();
+    $subject->create($params);
     $this->assertNotEmpty($subject->{AbstractCrudObject::FIELD_ID});
+
+    /** @var AbstractCrudObject $subject */
+    if ($subject instanceof CanRedownloadInterface) {
+      $non_null_count = 0;
+      foreach ($subject->getData() as $key => $value) {
+        if ($key !== AbstractCrudObject::FIELD_ID && $value !== null) {
+          ++$non_null_count;
+          // Normalize assert function behaviour with non-redownloadable objects
+          $subject->{$key} = null;
+        }
+      }
+
+      $this->assertGreaterThan(0, $non_null_count);
+    }
   }
 
   /**
@@ -82,8 +101,9 @@ abstract class AbstractCrudObjectTestCase extends AbstractTestCase {
    * @param string $connection_name
    * @param array $fields
    * @param array $params
+   * @return mixed
    */
-  public function assertCanFetchConnection(
+  protected function fetchConnection(
     AbstractCrudObject $subject,
     $connection_name,
     array $fields = array(),
@@ -91,12 +111,52 @@ abstract class AbstractCrudObjectTestCase extends AbstractTestCase {
 
     $this->assertNotEmpty($subject->{AbstractCrudObject::FIELD_ID});
     $mirror = $this->getEmptyClone($subject);
-    $result = call_user_func(
-      array($mirror, $connection_name), $fields, $params);
+    return call_user_func(array($mirror, $connection_name), $fields, $params);
+  }
+
+  /**
+   * @param AbstractCrudObject $subject
+   * @param string $connection_name
+   * @param array $fields
+   * @param array $params
+   */
+  public function assertCanFetchConnection(
+    AbstractCrudObject $subject,
+    $connection_name,
+    array $fields = array(),
+    array $params = array()) {
+
+    $result = $this->fetchConnection(
+      $subject, $connection_name, $fields, $params);
+
     $this->assertTrue(
       $result instanceof Cursor
       || $result instanceof AbstractObject);
-  }  
+  }
+
+  /**
+   * @param AbstractCrudObject $subject
+   * @param string $connection_name
+   * @param array $fields
+   * @param array $params
+   */
+  public function assertCanFetchConnectionAsArray(
+    AbstractCrudObject $subject,
+    $connection_name,
+    array $fields = array(),
+    array $params = array()) {
+
+    $result = $this->fetchConnection(
+      $subject, $connection_name, $fields, $params);
+
+    $this->assertTrue(is_array($result));
+
+    foreach ($result as $object) {
+      if (!$object instanceof AbstractObject) {
+        $this->fail("Not an instance of AbstractObject");
+      }
+    }
+  }
 
   /**
    * @param AbstractCrudObject $object

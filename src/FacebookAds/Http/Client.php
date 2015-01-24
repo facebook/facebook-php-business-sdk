@@ -177,6 +177,7 @@ class Client {
    */
   public function sendRequest(RequestInterface $request) {
     $response = $this->getAdapter()->sendRequest($request);
+    $response->setRequest($request);
     $response_content = $response->getContent();
 
     if ($response_content === null) {

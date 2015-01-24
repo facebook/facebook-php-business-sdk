@@ -22,13 +22,19 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAdsTest\Object;
 
-abstract class BidTypes {
+use FacebookAds\Object\TargetingSearch;
+use FacebookAds\Object\Search\TargetingSearchTypes;
 
-  const BID_TYPE_CPA = 'CPA';
-  const BID_TYPE_CPC = 'CPC';
-  const BID_TYPE_CPM = 'CPM';
-  const BID_TYPE_MULTI_PREMIUM = 'MULTI_PREMIUM';
-  const BID_TYPE_ABSOLUTE_OCPM = 'ABSOLUTE_OCPM';
+class TargetingSearchTest extends AbstractCrudObjectTestCase {
+
+  public function testCrudAccess() {
+    $cursor = TargetingSearch::search(TargetingSearchTypes::CITY, null, 'Lon');
+
+    /* @var $category AbstractCrudObject */
+    $result = $cursor->current();
+    $this->assertTrue($result instanceof TargetingSearch);
+    $this->assertNotEmpty($result->key);
+  }
 }

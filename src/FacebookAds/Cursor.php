@@ -24,15 +24,11 @@
 
 namespace FacebookAds;
 
+use FacebookAds\Http\RequestInterface;
 use FacebookAds\Http\ResponseInterface;
 use FacebookAds\Object\AbstractObject;
 
 class Cursor implements \Iterator, \Countable, \arrayaccess {
-
-  /**
-   * @var AbstractObject[]
-   */
-  protected $objects = array();
 
   /**
    * @var ResponseInterface
@@ -40,9 +36,24 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   protected $response;
 
   /**
-   * @var int
+   * @var AbstractObject[]
    */
-  protected $position = 0;
+  protected $objects = array();
+
+  /**
+   * @var int|null
+   */
+  protected $indexLeft = null;
+
+  /**
+   * @var int|null
+   */
+  protected $indexRight = null;
+
+  /**
+   * @var int|null
+   */
+  protected $position = null;
 
   /**
    * @var string
@@ -55,33 +66,214 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   protected $before;
 
   /**
-   * @var int
+   * @var AbstractObject
    */
-  protected $limit;
+  protected $objectPrototype;
 
   /**
-   * @param array $objects
-   * @param ResponseInterface $response
+   * @var bool
    */
+  protected static $defaultUseImplicitFetch = false;
+
+  /**
+   * @var bool
+   */
+  protected $useImplicitFectch;
+
   public function __construct(
-    array $objects,
-    ResponseInterface $response) {
+    ResponseInterface $response, AbstractObject $object_prototype) {
 
-    $this->objects = $objects;
     $this->response = $response;
+    $this->objectPrototype = $object_prototype;
+    $this->appendResponse($response);
+    $this->before = $this->getLastRequestBefore();
+  }
 
-    $resp = $response->getContent();
+  /**
+   * @param array $object_data
+   * @return AbstractObject
+   */
+  protected function createObject(array $object_data) {
+    $object = clone $this->objectPrototype;
+    $object->setData($object_data);
 
-    $this->before = isset($resp['paging']['cursors']['before'])
-      ? $resp['paging']['cursors']['before']
-      : null;
+    return $object;
+  }
 
-    $this->after = isset($resp['paging']['cursors']['after'])
-      ? $resp['paging']['cursors']['after']
+  /**
+   * @return string|null
+   */
+  protected function getLastRequestBefore() {
+    $content = $this->getLastResponse()->getContent();
+
+    return isset($content['paging']['cursors']['before'])
+      ? $content['paging']['cursors']['before']
       : null;
   }
 
   /**
+   * @return string|null
+   */
+  protected function getLastRequestAfter() {
+    $content = $this->getLastResponse()->getContent();
+
+    return isset($content['paging']['cursors']['after'])
+      ? $content['paging']['cursors']['after']
+      : null;
+  }
+
+  /**
+   * @param ResponseInterface $response
+   * @return array
+   * @throws \InvalidArgumentException
+   */
+  protected function assureResponseData(ResponseInterface $response) {
+    $content = $response->getContent();
+    if (!isset($content['data']) || !is_array($content['data'])) {
+      throw new \InvalidArgumentException("Malformed cursor response data");
+    }
+
+    return $content['data'];
+  }
+
+  /**
+   * @param ResponseInterface $response
+   */
+  protected function prependResponse(ResponseInterface $response) {
+    $this->response = $response;
+    $this->before = $this->getLastRequestBefore();
+    $data = $this->assureResponseData($response);
+    if (!$data) {
+      return;
+    }
+
+    $left_index = $this->indexLeft;
+    $count = count($data);
+    $position = $count - 1;
+    for ($i = $left_index - 1; $i >= $left_index - $count; $i--) {
+      $this->objects[$i] = $this->createObject($data[$position--]);
+      --$this->indexLeft;
+    }
+  }
+
+  /**
+   * @param ResponseInterface $response
+   */
+  protected function appendResponse(ResponseInterface $response) {
+    $this->response = $response;
+    $this->after = $this->getLastRequestAfter();
+    $data = $this->assureResponseData($response);
+    if (!$data) {
+      return;
+    }
+
+    if ($this->indexRight === null) {
+      $this->indexLeft = 0;
+      $this->indexRight = -1;
+      $this->position = 0;
+    }
+
+    $this->indexRight += count($data);
+
+    foreach ($data as $object_data) {
+      $this->objects[] = $this->createObject($object_data);
+    }
+  }
+
+  /**
+   * @return bool
+   */
+  public static function getDefaultUseImplicitFetch() {
+    return static::$defaultUseImplicitFetch;
+  }
+
+  /**
+   * @param bool $use_implicit_fectch
+   */
+  public static function setDefaultUseImplicitFetch($use_implicit_fectch) {
+    static::$defaultUseImplicitFetch = $use_implicit_fectch;
+  }
+
+  /**
+   * @return bool
+   */
+  public function getUseImplicitFetch() {
+    return $this->useImplicitFectch !== null
+      ? $this->useImplicitFectch
+      : static::$defaultUseImplicitFetch;
+  }
+
+  /**
+   * @param bool $use_implicit_fectch
+   */
+  public function setUseImplicitFetch($use_implicit_fectch) {
+    $this->useImplicitFectch = $use_implicit_fectch;
+  }
+
+  /**
+   * @return RequestInterface
+   */
+  protected function createUndirectionalizedRequest() {
+    $request = clone $this->getLastResponse()->getRequest();
+    $params = $request->getQueryParams();
+    if (array_key_exists('before', $params)) {
+      unset($params['before']);
+    }
+    if (array_key_exists('after', $params)) {
+      unset($params['after']);
+    }
+
+    return $request;
+  }
+
+  /**
+   * @return RequestInterface|null
+   */
+  public function createBeforeRequest() {
+    if (!$this->getBefore()) {
+      return null;
+    }
+
+    $request = $this->createUndirectionalizedRequest();
+    $request->getQueryParams()->offsetSet('before', $this->getBefore());
+
+    return $request;
+  }
+
+  /**
+   * @return RequestInterface|null
+   */
+  public function createAfterRequest() {
+    if (!$this->getAfter()) {
+      return null;
+    }
+
+    $request = $this->createUndirectionalizedRequest();
+    $request->getQueryParams()->offsetSet('after', $this->getAfter());
+
+    return $request;
+  }
+
+  public function fetchBefore() {
+    $request = $this->createBeforeRequest();
+    if (!$request) {
+      return;
+    }
+
+    $this->prependResponse($request->execute());
+  }
+
+  public function fetchAfter() {
+    $request = $this->createAfterRequest();
+    if (!$request) {
+      return;
+    }
+
+    $this->appendResponse($request->execute());
+  }
+
+  /**
+   * @deprecated Use getArrayCopy()
    * @return AbstractObject[]
    */
   public function getObjects() {
@@ -89,9 +281,31 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   }
 
   /**
+   * @param bool $ksort
+   * @return AbstractObject[]
+   */
+  public function getArrayCopy($ksort = false) {
+    if ($ksort) {
+      // Sort the main array to imrpove best case performance in future
+      // invocations
+      ksort($this->objects);
+    }
+
+    return $this->objects;
+  }
+
+  /**
+   * @deprecated Use getLastResponse()
    * @return ResponseInterface
    */
   public function getResponse() {
+    return $this->response;
+  }
+
+  /**
+   * @return ResponseInterface
+   */
+  public function getLastResponse() {
     return $this->response;
   }
 
@@ -109,15 +323,43 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
     return $this->after;
   }
 
-  public function rewind() {
-    $this->position = 0;
+  /**
+   * @return int
+   */
+  public function getIndexLeft() {
+    return $this->indexLeft;
   }
 
   /**
-   * @return AbstractObject
+   * @return int
+   */
+  public function getIndexRight() {
+    return $this->indexRight;
+  }
+
+  public function rewind() {
+    $this->position = $this->indexLeft;
+  }
+
+  public function end() {
+    $this->position = $this->indexRight;
+  }
+
+  /**
+   * @param int $position
+   */
+  public function seekTo($position) {
+    $position = array_key_exists($position, $this->objects) ? $position : null;
+    $this->position = $position;
+  }
+
+  /**
+   * @return AbstractObject|bool
    */
   public function current() {
-    return $this->objects[$this->position];
+    return isset($this->objects[$this->position])
+      ? $this->objects[$this->position]
+      : false;
   }
 
   /**
@@ -127,8 +369,36 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
     return $this->position;
   }
 
+  public function prev() {
+    if ($this->position == $this->getIndexLeft()) {
+      if ($this->getUseImplicitFetch()) {
+        $this->fetchBefore();
+        --$this->position;
+        if ($this->position == $this->getIndexLeft()) {
+          $this->position = null;
+        }
+      } else {
+        $this->position = null;
+      }
+    } else {
+      --$this->position;
+    }
+  }
+
   public function next() {
-    ++$this->position;
+    if ($this->position == $this->getIndexRight()) {
+      if ($this->getUseImplicitFetch()) {
+        $this->fetchAfter();
+        ++$this->position;
+        if ($this->position == $this->getIndexRight()) {
+          $this->position = null;
+        }
+      } else {
+        $this->position = null;
+      }
+    } else {
+      ++$this->position;
+    }
   }
 
   /**
@@ -146,8 +416,8 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   }
 
   /**
-   * @var mixed $offset
-   * @var mixed $value
+   * @param mixed $offset
+   * @param mixed $value
    */
   public function offsetSet($offset, $value) {
     if (is_null($offset)) {
@@ -158,7 +428,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   }
 
   /**
-   * @var mixed $offset
+   * @param mixed $offset
    * @return bool
    */
   public function offsetExists($offset) {
@@ -166,18 +436,17 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   }
 
   /**
-   * @var mixed $offset
+   * @param mixed $offset
    */
   public function offsetUnset($offset) {
     unset($this->objects[$offset]);
   }
 
   /**
-   * @var mixed $offset
+   * @param mixed $offset
    * @return mixed
    */
   public function offsetGet($offset) {
     return isset($this->objects[$offset]) ? $this->objects[$offset] : null;
   }
-
 }

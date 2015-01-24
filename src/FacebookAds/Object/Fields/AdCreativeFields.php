@@ -45,6 +45,7 @@ abstract class AdCreativeFields {
   const OBJECT_URL = 'object_url';
   const URL_TAGS = 'url_tags';
   const PREVIEW_URL = 'preview_url';
+  const THUMBNAIL_URL = 'thumbnail_url';
   const FOLLOW_REDIRECT = 'follow_redirect';
   const OBJECT_STORE_URL = 'object_store_url';
   const LINK_DEEP_LINK_URL = 'link_deep_link_url';

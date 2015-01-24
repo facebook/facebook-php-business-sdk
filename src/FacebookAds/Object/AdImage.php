@@ -57,14 +57,14 @@ class AdImage extends AbstractCrudObject {
    * @param string $account_id
    * @param array $params
    * @param Api $api
-   * @return Cursor
+   * @return array
    */
   public static function createFromZip(
     $file_path, $account_id, array $params = array(), Api $api = null) {
 
     $image = new AdImage(null, $account_id, $api);
     $image->{AdImageFields::FILENAME} = $file_path;
-    return $image->cursorFromZip($params);
+    return $image->arrayFromZip($params);
   }
 
   /**
@@ -176,10 +176,10 @@ class AdImage extends AbstractCrudObject {
    * Uploads images from a zip file and returns a cursor of results
    *
    * @param array $params
-   * @return Cursor
+   * @return array
    * @throws \RuntimeException
    */
-  protected function cursorFromZip($params = array()) {
+  protected function arrayFromZip($params = array()) {
     if (!$this->isZipFile($this->data[AdImageFields::FILENAME])) {
       throw new \RuntimeException(
         $this->data[AdImageFields::FILENAME]." doesn't resolve to a zip file");
@@ -211,7 +211,7 @@ class AdImage extends AbstractCrudObject {
       $result[] = $adimage;
     }
 
-    return new Cursor($result, $response);
+    return $result;
   }
 
   /**

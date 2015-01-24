@@ -249,8 +249,22 @@ abstract class AbstractCrudObject extends AbstractObject {
 
     $this->clearHistory();
     $data = $response->getContent();
-    $this->data[static::FIELD_ID]
-     = is_string($data) ? $data : (string) $data[static::FIELD_ID];
+    if (!isset($params['execution_options'])){
+      $id = is_string($data) ? $data : $data[static::FIELD_ID];
+
+    /** @var AbstractCrudObject $this */
+      if ($this instanceof CanRedownloadInterface
+        && isset($params[CanRedownloadInterface::PARAM_REDOWNLOAD])
+        && $params[CanRedownloadInterface::PARAM_REDOWNLOAD] === true
+        && isset($data['data'][$id])
+        && is_array($data['data'][$id])
+      ) {
+        $this->setData($data['data'][$id]);
+      }
+
+      $this->data[static::FIELD_ID] = (string) $id;
+    }
+
 
     return $this;
   }
@@ -273,7 +287,7 @@ abstract class AbstractCrudObject extends AbstractObject {
       RequestInterface::METHOD_GET,
       $params);
 
-    $this->setData((array) $response->getContent());
+    $this->setData($response->getContent());
     $this->clearHistory();
 
     return $this;
@@ -315,13 +329,14 @@ abstract class AbstractCrudObject extends AbstractObject {
    * Helper function which determines whether an object should be created or
    * updated
    *
+   * @param array $params
    * @return $this
    */
-  public function save() {
+  public function save(array $params = array()) {
     if ($this->data[static::FIELD_ID]) {
-      return $this->update();
+      return $this->update($params);
     } else {
-      return $this->create();
+      return $this->create($params);
     }
   }
 
@@ -333,7 +348,7 @@ abstract class AbstractCrudObject extends AbstractObject {
    */
   protected function assureEndpoint($prototype_class, $endpoint) {
     if (!$endpoint) {
-      $prototype = new $prototype_class();
+      $prototype = new $prototype_class(null, null, $this->getApi());
       if (!$prototype instanceof AbstractCrudObject) {
         throw new \InvalidArgumentException('Either prototype must be instance
           of AbstractCrudObject or $endpoint must be given');
@@ -345,18 +360,16 @@ abstract class AbstractCrudObject extends AbstractObject {
   }
 
   /**
-   * @param string $prototype_class
-   * @param callable $response_parser
    * @param array $fields
    * @param array $params
+   * @param string $prototype_class
    * @param null $endpoint
-   * @return mixed
+   * @return ResponseInterface
    */
-  protected function getConnections(
-    $prototype_class,
-    callable $response_parser,
+  protected function fetchConnection(
     array $fields = array(),
     array $params = array(),
+    $prototype_class,
     $endpoint = null) {
 
     $fields = implode(',', $fields ?: static::getDefaultReadFields());
@@ -365,52 +378,11 @@ abstract class AbstractCrudObject extends AbstractObject {
     }
 
     $endpoint = $this->assureEndpoint($prototype_class, $endpoint);
-    $response = $this->getApi()->call(
+
+    return $this->getApi()->call(
       '/'.$this->assureId().'/'.$endpoint,
       RequestInterface::METHOD_GET,
       $params);
-
-    return call_user_func($response_parser, $response, $prototype_class);
-  }
-
-  /**
-   * Default response parser for self::getOneByConnection
-   *
-   * @param ResponseInterface $response
-   * @param string $prototype_class
-   * @return AbstractObject
-   */
-  protected function getObjectByConnection(
-    ResponseInterface $response,
-    $prototype_class) {
-
-    /** @var AbstractObject $object */
-    $object = new $prototype_class();
-    $object->setData((array) $response->getContent());
-
-    return $object;
-  }
-
-  /**
-   * Default response parser for self::getManyByConnection
-   *
-   * @param ResponseInterface $response
-   * @param $prototype_class
-   * @return Cursor
-   */
-  protected function getCursorByConnection(
-    ResponseInterface $response,
-    $prototype_class) {
-
-    $result = array();
-    foreach ($response->getContent()['data'] as $data) {
-      /** @var AbstractObject $object */
-      $object = new $prototype_class(null, null, $this->getApi());
-      $object->setData((array) $data);
-      $result[] = $object;
-    }
-
-    return new Cursor($result, $response);
   }
 
   /**
@@ -428,12 +400,19 @@ abstract class AbstractCrudObject extends AbstractObject {
     array $params = array(),
     $endpoint = null) {
 
-    return $this->getConnections(
-      $prototype_class,
-      array($this, 'getObjectByConnection'),
-      $fields,
-      $params,
-      $endpoint);
+    $response = $this->fetchConnection(
+      $fields, $params, $prototype_class, $endpoint);
+
+    if (!$response->getContent()) {
+      return null;
+    }
+
+    $object = new $prototype_class(
+      null, $this->{static::FIELD_ID}, $this->getApi());
+    /** @var AbstractCrudObject $object */
+    $object->setData($response->getContent());
+
+    return $object;
   }
 
   /**
@@ -451,12 +430,12 @@ abstract class AbstractCrudObject extends AbstractObject {
     array $params = array(),
     $endpoint = null) {
 
-    return $this->getConnections(
-      $prototype_class,
-      array($this, 'getCursorByConnection'),
-      $fields,
-      $params,
-      $endpoint);
+    $response = $this->fetchConnection(
+      $fields, $params, $prototype_class, $endpoint);
+
+    return new Cursor(
+      $response,
+      new $prototype_class(null, $this->{static::FIELD_ID}, $this->getApi()));
   }
 
   /**
@@ -530,6 +509,6 @@ abstract class AbstractCrudObject extends AbstractObject {
       $result[] = $object;
     }
 
-    return new Cursor($result, $response);
+    return $result;
   }
 }

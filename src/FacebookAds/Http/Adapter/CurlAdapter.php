@@ -174,6 +174,14 @@ class CurlAdapter extends AbstractAdapter {
 
     curl_setopt_array($this->handle, $this->getOpts()->getArrayCopy());
 
+    if ($request->getHeaders()->count()) {
+      $headers = array();
+      foreach ($request->getHeaders() as $header => $value) {
+        $headers[] = "{$header}: {$value}";
+      }
+      curl_setopt($this->handle, CURLOPT_HTTPHEADER, $headers);
+    }
+
     $postfields = array();
     if ($method === RequestInterface::METHOD_POST
       && $request->getFileParams()->count()

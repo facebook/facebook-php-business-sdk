@@ -49,12 +49,12 @@ class AdImageTest extends AbstractCrudObjectTestCase {
   }
 
   public function testBulkZipUpload() {
-    $cursor = AdImage::createFromZip(
+    $images = AdImage::createFromZip(
        $this->getTestZippedImagesPath(),
        $this->getActId());
-    $this->assertTrue($cursor instanceof Cursor);
+    $this->assertTrue(is_array($images));
 
-    foreach ($cursor->getObjects() as $image) {
+    foreach ($images as $image) {
       $this->assertCanDelete($image);
     }
   }

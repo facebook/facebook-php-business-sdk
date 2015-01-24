@@ -27,9 +27,10 @@ namespace FacebookAds\Object;
 use FacebookAds\Cursor;
 use FacebookAds\Object\Fields\AdCampaignFields;
 use FacebookAds\Object\Traits\FieldValidation;
+use FacebookAds\Object\Traits\ObjectValidation;
 
 class AdCampaign extends AbstractArchivableCrudObject {
-  use FieldValidation;
+  use FieldValidation, ObjectValidation;
 
   /**
    * @var string

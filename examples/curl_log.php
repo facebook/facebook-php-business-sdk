@@ -26,6 +26,7 @@
 $access_token = null;
 $app_id = null;
 $app_secret = null;
+// should begin with "act_" (eg: $account_id = 'act_1234567890';)
 $account_id = null;
 
 if (is_null($access_token) || is_null($app_id) || is_null($app_secret)) {

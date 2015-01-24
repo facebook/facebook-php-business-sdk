@@ -60,17 +60,6 @@ class TargetingSearch extends AbstractObject {
     ));
 
     $response = $api->call('/search', RequestInterface::METHOD_GET, $params);
-
-    $result = array();
-    foreach ($response->getContent()['data'] as $data) {
-      /** @var $object AbstractObject */
-      $object = new static();
-      if (is_object($data)) {
-        $data = get_object_vars($data);
-      }
-      $object->setData($data);
-      $result[] = $object;
-    }
-    return new Cursor($result, $response);
+    return new Cursor($response, new TargetingSearch());
   }
 }

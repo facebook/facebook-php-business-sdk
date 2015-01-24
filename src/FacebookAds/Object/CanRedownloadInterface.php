@@ -22,13 +22,12 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-abstract class BidTypes {
+interface CanRedownloadInterface {
 
-  const BID_TYPE_CPA = 'CPA';
-  const BID_TYPE_CPC = 'CPC';
-  const BID_TYPE_CPM = 'CPM';
-  const BID_TYPE_MULTI_PREMIUM = 'MULTI_PREMIUM';
-  const BID_TYPE_ABSOLUTE_OCPM = 'ABSOLUTE_OCPM';
+  /**
+   * @string
+   */
+  const PARAM_REDOWNLOAD = 'redownload';
 }

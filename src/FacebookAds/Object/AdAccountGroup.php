@@ -62,15 +62,22 @@ class AdAccountGroup extends AbstractCrudObject {
   }
 
   /**
-   * AdAccountGroup connections
+   * Read objects from a connection
    *
-   * @param ResponseInterface $response
-   * @param $prototype_class
-   * @return Cursor
+   * @param string $prototype_class
+   * @param array $fields Fields to request
+   * @param array $params Additional filters for the reading
+   * @param string $endpoint
+   * @return array
    */
-  protected function getCursorByConnection(
-    ResponseInterface $response,
-    $prototype_class) {
+  protected function getConnectedObjects(
+    $prototype_class,
+    array $fields = array(),
+    array $params = array(),
+    $endpoint = null) {
+
+    $response = $this->fetchConnection(
+      $fields, $params, $prototype_class, $endpoint);
 
     $result = array();
     $response_data = $response->getContent();
@@ -83,7 +90,7 @@ class AdAccountGroup extends AbstractCrudObject {
       }
     }
 
-    return new Cursor($result, $response);
+    return $result;
   }
 
   /**
@@ -92,7 +99,7 @@ class AdAccountGroup extends AbstractCrudObject {
    * @return Cursor
    */
   public function getUsers(array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
+    return $this->getConnectedObjects(
       AdAccountGroupUser::className(), $fields, $params, 'users');
   }
 
@@ -103,7 +110,7 @@ class AdAccountGroup extends AbstractCrudObject {
    */
   public function getAdAccounts(
     array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
+    return $this->getConnectedObjects(
       AdAccountGroupAccount::className(), $fields, $params, 'adaccounts');
   }
 }

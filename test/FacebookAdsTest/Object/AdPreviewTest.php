@@ -101,6 +101,8 @@ class AdPreviewTest extends AbstractCrudObjectTestCase
       = (new \DateTime("+2 week"))->format(\DateTime::ISO8601);
     $this->adSet->{AdGroupFields::TARGETING} = $targeting;
     $this->adSet->{AdGroupFields::BID_TYPE} = BidTypes::BID_TYPE_CPM;
+    $this->adSet->{AdSetFields::BID_INFO}
+      = array(AdGroupBidInfoFields::IMPRESSIONS => 2);
     $this->adSet->create();
 
     $this->adImage = new AdImage(null, $this->getActId());
@@ -118,8 +120,6 @@ class AdPreviewTest extends AbstractCrudObjectTestCase
     $this->adGroup = new AdGroup(null, $this->getActId());
     $this->adGroup->{AdGroupFields::ADGROUP_STATUS} = AdGroup::STATUS_PAUSED;
     $this->adGroup->{AdGroupFields::NAME} = $this->getTestRunId();
-    $this->adGroup->{AdGroupFields::BID_INFO}
-      = array(AdGroupBidInfoFields::IMPRESSIONS => '2');
     $this->adGroup->{AdGroupFields::CAMPAIGN_ID}
       = (int) $this->adSet->{AdSetFields::ID};
     $this->adGroup->{AdGroupFields::CREATIVE}

@@ -22,13 +22,17 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAdsTest\Object;
 
-abstract class BidTypes {
+use FacebookAds\Object\AbstractCrudObject;
+use FacebookAds\Object\AbstractObject;
 
-  const BID_TYPE_CPA = 'CPA';
-  const BID_TYPE_CPC = 'CPC';
-  const BID_TYPE_CPM = 'CPM';
-  const BID_TYPE_MULTI_PREMIUM = 'MULTI_PREMIUM';
-  const BID_TYPE_ABSOLUTE_OCPM = 'ABSOLUTE_OCPM';
+class EmptyObject extends AbstractObject {
+
+  /**
+   * @var array
+   */
+  protected static $fields = array(
+    AbstractCrudObject::FIELD_ID,
+  );
 }

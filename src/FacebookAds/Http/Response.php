@@ -109,12 +109,17 @@ class Response implements ResponseInterface {
    */
   public function setBody($body) {
     $this->body = $body;
+    $this->content = null;
   }
 
   /**
    * @return array|null
    */
   public function getContent() {
-    return json_decode($this->getBody(), true);
+    if ($this->content === null) {
+      $this->content = json_decode($this->getBody(), true);
+    }
+
+    return $this->content;
   }
 }

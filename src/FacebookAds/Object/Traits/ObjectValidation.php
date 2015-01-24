@@ -22,13 +22,20 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Traits;
 
-abstract class BidTypes {
-
-  const BID_TYPE_CPA = 'CPA';
-  const BID_TYPE_CPC = 'CPC';
-  const BID_TYPE_CPM = 'CPM';
-  const BID_TYPE_MULTI_PREMIUM = 'MULTI_PREMIUM';
-  const BID_TYPE_ABSOLUTE_OCPM = 'ABSOLUTE_OCPM';
+trait ObjectValidation {
+  /**
+   * @param array $params
+   * @throws \InvalidArgumentException
+   */
+  public function validate(array $params = array()) {
+    $changed_fields = $this->changedFields;
+    $validate_flag = array(
+      'execution_options' => array('validate_only')
+    );
+    $this->save(array_merge($params, $validate_flag));
+    $this->changedFields = $changed_fields;
+    return $this;
+  }
 }
