@@ -39,6 +39,7 @@ class AdCampaignTest extends AbstractCrudObjectTestCase {
       $campaign,
       array(AdCampaignFields::NAME => $this->getTestRunId().' updated'));
     $this->assertCanFetchConnection($campaign, 'getAdSets');
+    $this->assertCanFetchConnection($campaign, 'getAdGroups');
     $this->assertCanFetchConnection($campaign, 'getStats');
 
     $this->assertCanArchive($campaign);
