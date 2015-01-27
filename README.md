@@ -1,5 +1,11 @@
 # Facebook Ads API SDK for PHP
 
+[![Packagist](https://img.shields.io/packagist/v/facebook/php-ads-sdk.svg?style=flat-square)](https://packagist.org/packages/facebook/php-ads-sdk)
+[![License](https://img.shields.io/badge/license-Facebook%20Platform-blue.svg?style=flat-square)](https://github.com/facebook/facebook-php-ads-sdk/blob/master/LICENSE)
+[![Travis](https://img.shields.io/travis/facebook/facebook-php-ads-sdk.svg?style=flat-square)](https://travis-ci.org/facebook/facebook-php-ads-sdk)
+[![Scrutinizer](https://img.shields.io/scrutinizer/g/facebook/facebook-php-ads-sdk.svg?style=flat-square)](https://scrutinizer-ci.com/g/facebook/facebook-php-ads-sdk)
+[![Scrutinizer Coverage](https://img.shields.io/scrutinizer/coverage/g/facebook/facebook-php-ads-sdk.svg?style=flat-square)](https://scrutinizer-ci.com/g/facebook/facebook-php-ads-sdk)
+
 This Ads API SDK is built to facilitate application development for [Facebook Ads API](https://developers.facebook.com/docs/ads-api).
 
 ## Installation
@@ -187,7 +193,7 @@ Implicit Fetching will make you lose controll of the number of HTTP request that
 Implicit Fetching can be enabled for a specific cursor:
 
 ```php
-$cursor->setUseImplicitFetching(true);
+$cursor->setUseImplicitFetch(true);
 ```
 
 Or globally:
@@ -218,17 +224,36 @@ while ($cursor->valid()) {
 
 ## Tests
 
-The 'test' folder contains the test cases.
+The 'test' folder contains the test cases. These are logically divided in unit and integration tests.
+Integration tests require an active Facebook Ad Account, a Facebook Application and a valid Access Token.
+
+Note: we are currently unable to securely and reliably run integration tests on a public CI system. Our integrations with Travis and Scrutinizer (including badges at the top of this file) include only unit tests.
+
 
 ### Install dependencies
 
 From the root folder run:
 
 ```shell
-php composer.phar install
+php composer.phar install --dev
 ```
 
-### Configure tests
+### Execute unit tests only
+
+```shell
+./vendor/bin/phpunit -c test/phpunit-travis.xml
+```
+
+To run tests individually (be sure not to be pointing to an integration test file):
+
+```shell
+./vendor/bin/phpunit -c test/phpunit-travis.xml path/to/class/file
+```
+
+
+### Execute all tests (unit + integration)
+
+Setup your integration config:
 
 1 - Copy the config file template.
 
@@ -236,10 +261,9 @@ php composer.phar install
 cp test/config.php.dist test/config.php
 ```
 
-2 - Edit `test/config.php` with your information.
+2 - Edit `test/config.php` with your informations.
 
-
-### Run tests
+Execute:
 
 ```shell
 ./vendor/bin/phpunit -c test/
