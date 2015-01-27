@@ -61,7 +61,8 @@ class PHPUnitRequestExceptionWrapper
     ."  Code: ".$e->getCode()."\n"
     ."  Error Subcode: ".$e->getErrorSubcode()."\n"
     ."  Error User Title: ".$e->getErrorUserTitle()."\n"
-    ."  Error User Message: ".$e->getErrorUserMessage()."\n";
+    ."  Error User Message: ".$e->getErrorUserMessage()."\n"
+    ."  Error Blame Fields: ".$e->getErrorBlameFieldSpecs()."\n";
 
     if ($trace = \PHPUnit_Util_Filter::getFilteredStacktrace($this)) {
       $string .= "\n" . $trace;

@@ -64,6 +64,11 @@ class RequestException extends Exception {
   protected $errorType;
 
   /**
+   * @var array|null
+   */
+  protected $errorBlameFieldSpecs;
+
+  /**
    * @param array $response_data The response from the Graph API
    * @param int $status_code
    */
@@ -79,6 +84,7 @@ class RequestException extends Exception {
     $this->errorSubcode = $errorData['error_subcode'];
     $this->errorUserTitle = $errorData['error_user_title'];
     $this->errorUserMessage = $errorData['error_user_msg'];
+    $this->errorBlameFieldSpecs = $errorData['error_blame_field_specs'];
   }
 
   /**
@@ -107,6 +113,9 @@ class RequestException extends Exception {
       'message' => static::idx($error_data, 'message'),
       'error_user_title' => static::idx($error_data, 'error_user_title'),
       'error_user_msg' => static::idx($error_data, 'error_user_msg'),
+      'error_blame_field_specs' =>
+        static::idx(static::idx($error_data, 'error_data', array()),
+          'blame_field_specs'),
       'type' => static::idx($error_data, 'type'),
     );
   }
@@ -120,7 +129,6 @@ class RequestException extends Exception {
    */
   public static function create(array $response_data, $status_code) {
     $errorData = static::getErrorData($response_data);
-
     if (in_array(
       $errorData['error_subcode'], array(458, 459, 460, 463, 464, 467))
       || in_array($errorData['code'], array(100, 102, 190))
@@ -172,5 +180,12 @@ class RequestException extends Exception {
    */
   public function getErrorUserMessage() {
     return $this->errorUserMessage;
+  }
+
+  /**
+   * @return array|null
+   */
+  public function getErrorBlameFieldSpecs() {
+    return $this->errorBlameFieldSpecs;
   }
 }
