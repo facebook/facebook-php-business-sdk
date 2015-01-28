@@ -24,152 +24,124 @@
 
 namespace FacebookAdsTest;
 
+use FacebookAds\Http\Parameters;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\Http\ResponseInterface;
 use FacebookAds\Object\AbstractCrudObject;
 use FacebookAds\Object\AbstractObject;
-use FacebookAds\Object\AdAccount;
 use FacebookAds\Cursor;
 use FacebookAdsTest\Object\EmptyObject;
+use \PHPUnit_Framework_MockObject_Builder_InvocationMocker as Mock;
 
-class CursorTest extends AbstractTestCase {
-
-  /**
-   * @var ResponseInterface
-   */
-  protected $response;
-
-  /**
-   * @var string
-   */
-  protected $before = 'NDMyNzQyODI3OTQw';
-
-  /**
-   * @var string
-   */
-  protected $after = 'MTAxNTExOTQ1MjAwNzI5NDE';
-
-  /**
-   * @var array
-   */
-  protected $responseContent;
-
-  /**
-   * @var array
-   */
-  protected $emptyResponseContent;
-
+class CursorTest extends AbstractUnitTestCase {
   /**
    * @var EmptyObject
    */
   protected $objectPrototype;
 
   /**
-   * @var bool
+   * @return array
    */
-  protected $haltProcession = false;
+  protected function createEmptyResponseContent() {
+    return array('data' => array());
+  }
 
   /**
-   * @param int $max
-   * @return ResponseInterface
+   * @return array
    */
-  protected function getRandomSizeResponse($max = 100) {
-    $max = abs($max);
-    $response = clone $this->response;
-    $response_content = $this->responseContent;
-    $response_content['data'] = array();
+  protected function createSampleResponseContent() {
+    $content = array(
+      'paging' => array(
+        'cursors' => array(
+          'after' => uniqid(),
+          'before' => uniqid(),
+        ),
+      ),
+    ) + $this->createEmptyResponseContent();
 
-    $count = rand(0, $max);
+    $count = rand(2, 5);
     for ($i = 0; $i < $count; $i++) {
-      $response_content['data'][] = array(
+      $content['data'][] = array(
         AbstractCrudObject::FIELD_ID => $i,
       );
     }
 
-    $response->setBody(json_encode($response_content));
+    return $content;
+  }
+
+  /**
+   * @param int $num_pages
+   * @param RequestInterface|null $prev
+   * @return Mock|ResponseInterface
+   */
+  protected function createResponseChainMock(
+    $num_pages, RequestInterface $prev = null) {
+
+    $query_params = $prev ? clone $prev->getQueryParams() : new Parameters();
+    $sample_content = $this->createSampleResponseContent();
+
+    $request = $this->createRequestMock();
+    $request->method('getMethod')->willReturn(RequestInterface::METHOD_GET);
+    $request->method('getQueryParams')->willReturn($query_params);
+
+    $response = $this->createResponseMock();
+    $response->method('getRequest')->willReturn($request);
+
+    $request->method('execute')->willReturn($response);
+
+    $callback = function() use ($num_pages, $sample_content) {
+      return $num_pages > 0
+        ? $sample_content
+        : $this->createEmptyResponseContent();
+    };
+
+    $clone_callback = function() use ($num_pages, $request) {
+      return $this->createResponseChainMock(
+        $num_pages - 1, $request)->getRequest();
+    };
+
+    $response->method('getContent')->willReturnCallback($callback);
+    $request->method('createClone')->willReturnCallback($clone_callback);
+
+    return $response;
+  }
+
+  /**
+   * @return Mock|ResponseInterface
+   */
+  protected function createEmptyResponseMock() {
+    $response = $this->createResponseMock();
+    $response->method('getContent')->willReturn(array(
+      'data' => array(),
+    ));
 
     return $response;
   }
 
   public function setup() {
     parent::setup();
-
     $this->objectPrototype = new EmptyObject();
-
-    $this->responseContent = array(
-      'data' => array(
-        array(
-          AbstractCrudObject::FIELD_ID => 1,
-        ),
-        array(
-          AbstractCrudObject::FIELD_ID => 2,
-        ),
-        array(
-          AbstractCrudObject::FIELD_ID => 3,
-        ),
-      ),
-      'paging' => array(
-        'cursors' => array(
-          'after' => $this->after,
-          'before' => $this->before,
-        ),
-      ),
-    );
-
-    $this->emptyResponseContent = array(
-      'data' => array(),
-    );
-
-    $request = $this->getMock(
-      get_class($this->getHttpClient()->createRequest()),
-      array('execute'),
-      array($this->getHttpClient()));
-
-    $test = $this;
-
-    $request->expects($this->any())
-      ->method('execute')
-      ->will($this->returnCallback(
-        function() use ($test, $request) {
-          /** @var RequestInterface $request */
-          $mock_response = $test->getHttpClient()->createResponse();
-          $mock_response->setRequest($request);
-
-          $response_body = $test->haltProcession
-            ? $test->emptyResponseContent
-            : $test->responseContent;
-
-          $mock_response->setBody(json_encode($response_body));
-
-          return $mock_response;
-        }));
-
-    /** @var RequestInterface $request */
-    $request->setMethod(RequestInterface::METHOD_GET);
-
-    $this->response = $this->getHttpClient()->createResponse();
-    $this->response->setRequest($request);
-    $response_content = $this->responseContent;
-    $response_content['_unique'] = uniqid();
-    $this->response->setBody(json_encode($response_content));
   }
 
   public function tearDown() {
-    $this->response = null;
     $this->objectPrototype = null;
-    $this->responseContent = null;
     parent::tearDown();
   }
 
   public function testGetters() {
-    $cursor = new Cursor($this->response, $this->objectPrototype);
+    $response = $this->createResponseChainMock(1);
+    $cursor = new Cursor($response, $this->objectPrototype);
 
-    $this->assertTrue($this->response === $cursor->getResponse());
-    $this->assertTrue($this->response === $cursor->getLastResponse());
-    $this->assertEquals($this->after, $cursor->getAfter());
-    $this->assertEquals($this->before, $cursor->getBefore());
+    $this->assertTrue($response === $cursor->getResponse());
+    $this->assertTrue($response === $cursor->getLastResponse());
+    $this->assertTrue(is_string($cursor->getAfter()));
+    $this->assertTrue(is_string($cursor->getBefore()));
+    $this->assertNotEquals($cursor->getBefore(), $cursor->getAfter());
   }
 
+  /**
+   * @return array
+   */
   public function responseDataStructureProvider() {
     return array(
       array(array()),
@@ -184,21 +156,15 @@ class CursorTest extends AbstractTestCase {
    * @param mixed $content
    */
   public function testResponseDataStructure($content) {
-    $response = clone $this->response;
-    $response->setBody(json_encode($content));
+    $response = $this->createResponseMock();
+    $response->method('getContent')->willReturn($content);
 
     new Cursor($response, $this->objectPrototype);
   }
 
   public function testIterator() {
-    $objects = array();
-    $account = new AdAccount();
-    $count = rand(0, 100);
-    for ($i = 0; $i < $count; $i++) {
-      $objects[] = clone $account;
-    }
-
-    $cursor = new Cursor($this->response, $this->objectPrototype);
+    $cursor = new Cursor(
+      $this->createResponseChainMock(1), $this->objectPrototype);
 
     $this->assertTrue($cursor instanceof \Iterator);
 
@@ -226,8 +192,7 @@ class CursorTest extends AbstractTestCase {
   }
 
   public function testCountable() {
-    $response = $this->getRandomSizeResponse();
-
+    $response = $this->createResponseChainMock(1);
     $cursor = new Cursor($response, $this->objectPrototype);
 
     $this->assertTrue($cursor instanceof \Countable);
@@ -237,7 +202,7 @@ class CursorTest extends AbstractTestCase {
   }
 
   public function testArrayAccess() {
-    $response = $this->getRandomSizeResponse();
+    $response = $this->createResponseChainMock(1);
     $test_index = rand(1, count($response->getContent()) - 1);
 
     $cursor = new Cursor($response, $this->objectPrototype);
@@ -263,10 +228,26 @@ class CursorTest extends AbstractTestCase {
     $this->assertEquals(count($cursor), $count + 1);
   }
 
-  public function testIterability() {
-    $cursor_prototype = new Cursor($this->response, $this->objectPrototype);
+  public function testUnneededFetch() {
+    $response = $this->createEmptyResponseMock();
+    $cursor = new Cursor($response, $this->objectPrototype);
+    $this->assertNull($cursor->createBeforeRequest());
+    $this->assertNull($cursor->createAfterRequest());
 
-    $cursor = clone $cursor_prototype;
+    // Reset for proper fetching
+    $response = $this->createEmptyResponseMock();
+    $cursor = new Cursor($response, $this->objectPrototype);
+    $length = $cursor->count();
+    $cursor->fetchBefore();
+    $this->assertEquals($length, $cursor->count());
+    $cursor->fetchAfter();
+    $this->assertEquals($length, $cursor->count());
+  }
+
+  public function testIterability() {
+    $response = $this->createResponseChainMock(1);
+    $cursor = new Cursor($response, $this->objectPrototype);
+
     $cursor->next();
     $cursor->rewind();
     $this->assertEquals($cursor->getIndexLeft(), $cursor->key());
@@ -278,80 +259,27 @@ class CursorTest extends AbstractTestCase {
     $cursor->seekTo($index);
     $this->assertEquals($index, $cursor->key());
 
-    $cursor = clone $cursor_prototype;
+    // Fetch after
+    $cursor = new Cursor($response, $this->objectPrototype);
     $cursor->fetchAfter();
-    $this->assertFalse($this->response === $cursor->getLastResponse());
+    $this->assertFalse($response === $cursor->getLastResponse());
 
-    $cursor = clone $cursor_prototype;
     // Test request cursor param reset
+    $cursor = new Cursor($response, $this->objectPrototype);
     $params = $cursor->getLastResponse()->getRequest()->getQueryParams();
     $params->offsetSet('after', uniqid());
     $params->offsetSet('before', uniqid());
-    $expect_exit = false;
-    $count = $cursor->count();
-    $iterations = 0;
 
-    // Fetch After
-    while (true) {
-      $cursor->fetchAfter();
-
-      $length = count($cursor->getLastResponse()->getContent()['data']);
-      if ($expect_exit) {
-        $this->assertEquals($length, 0);
-        $this->assertNull($cursor->createAfterRequest());
-
-        break;
-      }
-      $this->assertEquals($count + $length, $cursor->count());
-
-      $count += $length;
-
-      if (!$cursor->getLastResponse()->getContent()['data']) {
-        $expect_exit = true;
-
-        continue;
-      }
-
-      ++$iterations;
-      if ($iterations >= 2) {
-        $this->haltProcession = true;
-      }
-    }
-
-    $this->haltProcession = false;
-    $expect_exit = false;
-
-    // Fetch Before
-    while (true) {
-      $cursor->fetchBefore();
-      $length = count($cursor->getLastResponse()->getContent()['data']);
-
-      if ($expect_exit) {
-        $this->assertEquals($length, 0);
-        $this->assertNull($cursor->createBeforeRequest());
-
-        break;
-      }
-
-      $this->assertEquals($count + $length, $cursor->count());
-
-      $count += $length;
-
-      if (!$cursor->getLastResponse()->getContent()['data']) {
-        $expect_exit = true;
-
-        continue;
-      }
-
-      ++$iterations;
-      if ($iterations >= 2) {
-        $this->haltProcession = true;
-      }
-    }
+    $cursor->fetchAfter();
+    $params2 = $cursor->getLastResponse()->getRequest()->getQueryParams();
+    $this->assertNotEquals(
+      $params->offsetGet('after'), $params2->offsetGet('after'));
   }
 
   public function testImplicitFetch() {
-    $cursor = new Cursor($this->response, $this->objectPrototype);
+    // Test setters/getters
+    $response = $this->createEmptyResponseMock();
+    $cursor = new Cursor($response, $this->objectPrototype);
 
     $this->assertFalse(Cursor::getDefaultUseImplicitFetch());
     $this->assertFalse($cursor->getUseImplicitFetch());
@@ -360,39 +288,38 @@ class CursorTest extends AbstractTestCase {
 
     Cursor::setDefaultUseImplicitFetch(true);
 
-    $cursor = new Cursor($this->response, $this->objectPrototype);
+    $response = $this->createEmptyResponseMock();
+    $cursor = new Cursor($response, $this->objectPrototype);
     $this->assertTrue(Cursor::getDefaultUseImplicitFetch());
     $this->assertTrue($cursor->getUseImplicitFetch());
 
-    $cursor = new Cursor($this->response, $this->objectPrototype);
-    $count = 0;
+    // Test ordered iteration
+    // f() lower interval * min repetition > upper interval
+    // Min repetition > upper interval / lower interval -> f(x): x > 5 / 2 -> 3
+    $response = $this->createResponseChainMock(3);
+    $cursor = new Cursor($response, $this->objectPrototype);
     while ($cursor->valid()) {
       $cursor->next();
-      if ($count >= 10) {
-        $this->haltProcession = true;
-      }
-      ++$count;
     }
 
-    $this->assertGreaterThanOrEqual(10, $cursor->count());
-    $this->haltProcession = false;
+    // Min upper boundary = upper interval + 1 = 5 + 1 = 6
+    $this->assertGreaterThanOrEqual(6, $cursor->count());
 
-    $cursor = new Cursor($this->response, $this->objectPrototype);
+    // Test rervese iteration
+    // same f()
+    $response = $this->createResponseChainMock(3);
+    $cursor = new Cursor($response, $this->objectPrototype);
 
     $count = 0;
     while ($cursor->valid()) {
       $cursor->prev();
-      if ($count >= 10) {
-        $this->haltProcession = true;
-      }
-      ++$count;
     }
 
-    $this->assertGreaterThanOrEqual(10, $cursor->count());
-    $this->haltProcession = false;
+    $this->assertGreaterThanOrEqual(6, $cursor->count());
 
     // Force the array out of boundaries
-    $cursor = new Cursor($this->response, $this->objectPrototype);
+    $response = $this->createResponseChainMock(1);
+    $cursor = new Cursor($response, $this->objectPrototype);
     $cursor->setUseImplicitFetch(false);
     $cursor->prev();
 
@@ -401,13 +328,14 @@ class CursorTest extends AbstractTestCase {
   }
 
   public function testExportability() {
-    $cursor = new Cursor($this->response, $this->objectPrototype);
+    $response = $this->createResponseChainMock(1);
+    $cursor = new Cursor($response, $this->objectPrototype);
     $array_copy = $cursor->getArrayCopy();
-    $this->assertEquals($cursor->getArrayCopy(), $cursor->getObjects());
 
     $this->assertTrue(is_array($array_copy));
+    $this->assertEquals($cursor->getArrayCopy(), $cursor->getObjects());
     $this->assertEquals(
-      count($array_copy), count($this->responseContent['data']));
+      count($array_copy), count($response->getContent()['data']));
 
     foreach ($array_copy as $object) {
       if (!$object instanceof AbstractObject) {

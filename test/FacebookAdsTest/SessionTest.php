@@ -22,43 +22,38 @@
  *
  */
 
-namespace FacebookAds\Http\Adapter;
+namespace FacebookAdsTest;
 
-use FacebookAds\Http\Client;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\Http\ResponseInterface;
+use FacebookAds\Session;
 
-interface AdapterInterface {
+class SessionTest extends AbstractUnitTestCase {
 
   /**
-   * @param Client $client
+   * @return Session
    */
-  public function __construct(Client $client);
+  protected function createSession() {
+    return new Session(
+      static::VALUE_SESSION_APP_ID,
+      static::VALUE_SESSION_APP_SECRET,
+      static::VALUE_SESSION_ACCESS_TOKEN);
+  }
 
-  /**
-   * @return Client
-   */
-  public function getClient();
+  public function testGetters() {
+    $session = $this->createSession();
 
-  /**
-   * @return string
-   */
-  public function getCaBundlePath();
+    $this->assertEquals(
+      static::VALUE_SESSION_APP_ID, $session->getAppId());
+    $this->assertEquals(
+      static::VALUE_SESSION_APP_SECRET, $session->getAppSecret());
+    $this->assertEquals(
+      static::VALUE_SESSION_ACCESS_TOKEN, $session->getAccessToken());
+  }
 
-  /**
-   * @return \ArrayObject
-   */
-  public function getOpts();
+  public function testAppSecretProof() {
+    $session = $this->createSession();
+    $proof = $session->getAppSecretProof();
 
-  /**
-   * @param \ArrayObject $opts
-   * @return void
-   */
-  public function setOpts(\ArrayObject $opts);
-
-  /**
-   * @param RequestInterface $request
-   * @return ResponseInterface
-   */
-  public function sendRequest(RequestInterface $request);
+    // Assert SHA-2 > 256 bits > 64 chars
+    $this->assertTrue(strlen($proof) == 64);
+  }
 }

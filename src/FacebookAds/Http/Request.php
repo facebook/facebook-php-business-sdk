@@ -93,6 +93,12 @@ class Request implements RequestInterface {
     $this->client = $client;
   }
 
+  public function __clone() {
+    $this->queryParams && $this->queryParams = clone $this->queryParams;
+    $this->bodyParams && $this->bodyParams = clone $this->bodyParams;
+    $this->fileParams && $this->fileParams = clone $this->fileParams;
+  }
+
   /**
    * @return Client
    */
@@ -274,5 +280,13 @@ class Request implements RequestInterface {
    */
   public function execute() {
     return $this->getClient()->sendRequest($this);
+  }
+
+  /**
+   * @return Request
+   * @see RequestInterface::createClone()
+   */
+  public function createClone() {
+    return clone $this;
   }
 }

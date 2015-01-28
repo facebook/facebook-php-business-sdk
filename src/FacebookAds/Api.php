@@ -211,10 +211,6 @@ class Api {
    * @return Client
    */
   public function getHttpClient() {
-    if ($this->httpClient === null) {
-      $this->httpClient = new Client();
-    }
-
     return $this->httpClient;
   }
 }

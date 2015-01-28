@@ -22,43 +22,38 @@
  *
  */
 
-namespace FacebookAds\Http\Adapter;
+namespace FacebookAdsTest\Http\Adapter;
 
+use FacebookAds\Http\Adapter\AdapterInterface;
 use FacebookAds\Http\Client;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\Http\ResponseInterface;
+use FacebookAdsTest\AbstractUnitTestCase;
 
-interface AdapterInterface {
+abstract class AbstractAdapterTest extends AbstractUnitTestCase {
 
   /**
    * @param Client $client
+   * @return AdapterInterface
    */
-  public function __construct(Client $client);
+  abstract protected function createAdapter($client = null);
 
-  /**
-   * @return Client
-   */
-  public function getClient();
+  public function testGetters() {
+    $client = new Client();
+    $adapter = $this->createAdapter($client);
+    $this->assertTrue($client === $adapter->getClient());
+    $this->assertEquals(
+      $client->getCaBundlePath(), $adapter->getCaBundlePath());
+  }
 
-  /**
-   * @return string
-   */
-  public function getCaBundlePath();
+  public function testOpts() {
+    $adapter = $this->createAdapter();
+    $opts = new \ArrayObject();
+    $adapter->setOpts($opts);
+    $this->assertTrue($opts === $adapter->getOpts());
 
-  /**
-   * @return \ArrayObject
-   */
-  public function getOpts();
+    // Default initialization
+    $adapter = $this->createAdapter();
+    $this->assertTrue($adapter->getOpts() instanceof \ArrayObject);
+  }
 
-  /**
-   * @param \ArrayObject $opts
-   * @return void
-   */
-  public function setOpts(\ArrayObject $opts);
-
-  /**
-   * @param RequestInterface $request
-   * @return ResponseInterface
-   */
-  public function sendRequest(RequestInterface $request);
+  abstract public function testRequest();
 }

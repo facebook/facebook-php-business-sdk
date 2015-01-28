@@ -24,62 +24,16 @@
 
 namespace FacebookAdsTest;
 
-use FacebookAds\Api;
-use FacebookAds\Http\Adapter\CurlAdapter;
-use FacebookAds\Http\Client;
-use FacebookAds\Http\Exception\RequestException;
 use FacebookAds\Logger\CurlLogger;
 use FacebookAds\Logger\LoggerInterface;
 use FacebookAds\Logger\NullLogger;
-use FacebookAds\Session;
-use FacebookAdsTest\Exception\PHPUnitRequestExceptionWrapper;
-use SebastianBergmann\Exporter\Exception;
+use \PHPUnit_Framework_MockObject_Builder_InvocationMocker as Mock;
 
 /**
  * Base class for the unit test cases, providing the functions for AdsAPI
  * initialization etc.
  */
 class AbstractTestCase extends \PHPUnit_Framework_TestCase {
-
-  /**
-   * @var string
-   */
-  public static $appId;
-
-  /**
-   * @var string
-   */
-  public static $appSecret;
-
-  /**
-   * @var string
-   */
-  public static $accessToken;
-
-  /**
-   * @var string
-   */
-  public static $actId;
-
-  /**
-   * @var string
-   */
-  public static $pageId;
-
-  /**
-   * @var string
-   */
-  public static $appUrl;
-
-  /**
-   * @var string|null
-   */
-  public static $graphBaseDomain;
-
-  /**
-   * @var bool
-   */
-  public static $skipSslVerification = false;
 
   /**
    * @var resource|null
@@ -97,66 +51,9 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
   public static $testRunId;
 
   /**
-   * @var Client
-   */
-  protected $httpClient;
-
-  /**
-   * @var Session
-   */
-  protected $session;
-
-  /**
    * @var LoggerInterface
    */
   protected static $logger;
-
-  /**
-   * @var Api
-   */
-  protected $api;
-
-  /**
-   * @return string
-   */
-  public function getAppId() {
-    return static::$appId;
-  }
-
-  /**
-   * @return string
-   */
-  public function getAppSecret() {
-    return static::$appSecret;
-  }
-
-  /**
-   * @return string
-   */
-  public function getAccessToken() {
-    return static::$accessToken;
-  }
-
-  /**
-   * @return string
-   */
-  public function getActId() {
-    return static::$actId;
-  }
-
-  /**
-   * @return string
-   */
-  public function getPageId() {
-    return static::$pageId;
-  }
-
-  /**
-   * @return string
-   */
-  public function getAppUrl() {
-    return static::$appUrl;
-  }
 
   /**
    * @return string
@@ -166,45 +63,10 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @return Session
-   */
-  public function getSession() {
-    return $this->session;
-  }
-
-  /**
    * @return LoggerInterface
    */
   public function getLogger() {
     return static::$logger;
-  }
-
-  /**
-   * @return null|string
-   */
-  public static function getGraphBaseDomain() {
-    return self::$graphBaseDomain;
-  }
-
-  /**
-   * @return boolean
-   */
-  public static function getSkipSslVerification() {
-    return self::$skipSslVerification;
-  }
-
-  /**
-   * @return Client
-   */
-  public function getHttpClient() {
-    return $this->httpClient;
-  }
-
-  /**
-   * @return Api
-   */
-  public function getApi() {
-    return $this->api;
   }
 
   /**
@@ -245,36 +107,6 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
       : new NullLogger();
   }
 
-  protected function setupSession() {
-    $this->session = new Session(
-      static::$appId,
-      static::$appSecret,
-      static::$accessToken);
-  }
-
-  protected function setupHttpClient() {
-    $this->httpClient = new Client();
-    if ($this->getGraphBaseDomain()) {
-      $this->httpClient->setDefaultGraphBaseDomain($this->getGraphBaseDomain());
-    }
-    if ($this->getSkipSslVerification()) {
-      /** @var CurlAdapter $adapter */
-      $adapter = $this->httpClient->getAdapter();
-      $adapter->getOpts()->offsetSet(CURLOPT_SSL_VERIFYHOST, false);
-      $adapter->getOpts()->offsetSet(CURLOPT_SSL_VERIFYPEER, false);
-    }
-  }
-
-  protected function setupApi() {
-    $this->api = new Api(
-      $this->getHttpClient(),
-      $this->getSession());
-
-    $this->api->setLogger($this->getLogger());
-
-    Api::setInstance($this->api);
-  }
-
   public function setup() {
     if ($this instanceof SkippableFeatureTestInterface) {
       foreach ($this->skipIfAny() as $config_key) {
@@ -286,30 +118,19 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
     }
 
     parent::setup();
-
-    $this->setupSession();
-    $this->setupHttpClient();
-    $this->setupApi();
-  }
-
-  public function tearDown() {
-    parent::tearDown();
-    $this->api = null;
-    $this->httpClient = null;
-    $this->session = null;
   }
 
   /**
-   * This method is called when a test method did not execute successfully.
-   *
-   * @param \Exception $e
-   * @throws \Exception
+   * @param \PHPUnit_Framework_MockObject_MockObject|Mock $mock
+   * @param array $data
    */
-  protected function onNotSuccessfulTest(\Exception $e) {
-    if ($e instanceof RequestException) {
-      throw new PHPUnitRequestExceptionWrapper($e);
-    } else {
-      throw $e;
-    }
+  protected function makeMockIterable(
+    \PHPUnit_Framework_MockObject_MockObject $mock, array $data = array()) {
+
+    /** @var Mock $mock */
+    $mock->method('count')->willReturn(count($data));
+    $mock->method('getIterator')->willReturn(new \ArrayIterator($data));
+    $mock->method('getArrayCopy')->willReturn($data);
+    $mock->method('export')->willReturn($data);
   }
 }

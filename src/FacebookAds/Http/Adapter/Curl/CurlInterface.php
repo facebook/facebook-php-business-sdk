@@ -73,7 +73,7 @@ interface CurlInterface {
    * @param $filepath
    * @return string|\CurlFile
    */
-  public static function preparePostFileField($filepath);
+  public function preparePostFileField($filepath);
 
   /**
    * @return void

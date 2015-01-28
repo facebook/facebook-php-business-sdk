@@ -27,6 +27,7 @@ namespace FacebookAds\Http\Adapter;
 use FacebookAds\Exception\Exception;
 use FacebookAds\Http\Adapter\Curl\AbstractCurl;
 use FacebookAds\Http\Adapter\Curl\Curl;
+use FacebookAds\Http\Adapter\Curl\CurlInterface;
 use FacebookAds\Http\Client;
 use FacebookAds\Http\Headers;
 use FacebookAds\Http\RequestInterface;
@@ -46,17 +47,18 @@ class CurlAdapter extends AbstractAdapter {
 
   /**
    * @param Client $client
+   * @param CurlInterface $curl
    */
-  public function __construct(Client $client) {
+  public function __construct(Client $client, CurlInterface $curl = null) {
     parent::__construct($client);
-    $this->curl = AbstractCurl::createOptimalVersion();
+    $this->curl = $curl ?: AbstractCurl::createOptimalVersion();
     $this->curl->init();
   }
 
   /**
    * @return Curl
    */
-  protected function getCurl() {
+  public function getCurl() {
     return $this->curl;
   }
 

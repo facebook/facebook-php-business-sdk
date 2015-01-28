@@ -29,9 +29,9 @@ use FacebookAds\Object\AbstractCrudObject;
 use FacebookAds\Object\AbstractObject;
 use FacebookAds\Object\AbstractArchivableCrudObject;
 use FacebookAds\Object\CanRedownloadInterface;
-use FacebookAdsTest\AbstractTestCase;
+use FacebookAdsTest\AbstractIntegrationTestCase;
 
-abstract class AbstractCrudObjectTestCase extends AbstractTestCase {
+abstract class AbstractCrudObjectTestCase extends AbstractIntegrationTestCase {
 
   /**
    * @param AbstractCrudObject $subject

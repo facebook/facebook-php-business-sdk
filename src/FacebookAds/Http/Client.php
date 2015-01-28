@@ -94,7 +94,7 @@ class Client {
    * @return RequestInterface
    */
   public function createRequest() {
-    return clone $this->getRequestPrototype();
+    return $this->getRequestPrototype()->createClone();
   }
 
   /**

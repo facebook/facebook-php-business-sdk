@@ -22,43 +22,13 @@
  *
  */
 
-namespace FacebookAds\Http\Adapter;
+namespace FacebookAdsTest\Logger;
 
-use FacebookAds\Http\Client;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\Http\ResponseInterface;
+use FacebookAds\Logger\NullLogger;
 
-interface AdapterInterface {
+class NullLoggerTest extends AbstractLoggerTest {
 
-  /**
-   * @param Client $client
-   */
-  public function __construct(Client $client);
-
-  /**
-   * @return Client
-   */
-  public function getClient();
-
-  /**
-   * @return string
-   */
-  public function getCaBundlePath();
-
-  /**
-   * @return \ArrayObject
-   */
-  public function getOpts();
-
-  /**
-   * @param \ArrayObject $opts
-   * @return void
-   */
-  public function setOpts(\ArrayObject $opts);
-
-  /**
-   * @param RequestInterface $request
-   * @return ResponseInterface
-   */
-  public function sendRequest(RequestInterface $request);
+  protected function createLogger() {
+    return new NullLogger();
+  }
 }

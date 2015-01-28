@@ -56,7 +56,7 @@ class Curl55 extends AbstractCurl {
    * @param string $filepath
    * @return \CURLFile
    */
-  public static function preparePostFileField($filepath) {
+  public function preparePostFileField($filepath) {
     return new \CURLFile($filepath);
   }
 

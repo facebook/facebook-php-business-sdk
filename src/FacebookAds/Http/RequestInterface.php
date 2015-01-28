@@ -160,4 +160,10 @@ interface RequestInterface {
    * @return ResponseInterface
    */
   public function execute();
+
+  /**
+   * Required for Mocking request/response chaining
+   * @return RequestInterface
+   */
+  public function createClone();
 }
