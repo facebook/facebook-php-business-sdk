@@ -65,6 +65,11 @@ class Client {
   /**
    * @var string
    */
+  protected $caBundlePath;
+
+  /**
+   * @var string
+   */
   protected $defaultGraphBaseDomain = self::DEFAULT_GRAPH_BASE_DOMAIN;
 
   /**
@@ -168,6 +173,26 @@ class Client {
    */
   public function setAdapter(AdapterInterface $adapter) {
     $this->adapter = $adapter;
+  }
+
+  /**
+   * @return string
+   */
+  public function getCaBundlePath() {
+    if ($this->caBundlePath === null) {
+      $this->caBundlePath = __DIR__.DIRECTORY_SEPARATOR
+        .str_repeat('..'.DIRECTORY_SEPARATOR, 3)
+        .'fb_ca_chain_bundle.crt';
+    }
+
+    return $this->caBundlePath;
+  }
+
+  /**
+   * @param string $path
+   */
+  public function setCaBundlePath($path) {
+    $this->caBundlePath = $path;
   }
 
   /**

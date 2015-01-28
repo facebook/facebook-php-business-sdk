@@ -25,18 +25,19 @@
 namespace FacebookAds\Http\Adapter;
 
 use FacebookAds\Exception\Exception;
+use FacebookAds\Http\Adapter\Curl\AbstractCurl;
+use FacebookAds\Http\Adapter\Curl\Curl;
 use FacebookAds\Http\Client;
 use FacebookAds\Http\Headers;
-use FacebookAds\Http\Parameters;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\Http\ResponseInterface;
 
 class CurlAdapter extends AbstractAdapter {
 
   /**
-   * @var resource
+   * @var Curl
    */
-  protected $handle;
+  protected $curl;
 
   /**
    * @var \ArrayObject
@@ -48,29 +49,15 @@ class CurlAdapter extends AbstractAdapter {
    */
   public function __construct(Client $client) {
     parent::__construct($client);
-    if (!extension_loaded('curl')) {
-      throw new \RuntimeException(
-        get_class($this)." requires php curl extention");
-    }
+    $this->curl = AbstractCurl::createOptimalVersion();
+    $this->curl->init();
   }
 
   /**
-   * @return resource|null
+   * @return Curl
    */
-  public function getLatestHandle() {
-    return $this->handle;
-  }
-
-  /**
-   * @return string
-   */
-  protected function getCaBundlePath() {
-    return dirname(__FILE__).DIRECTORY_SEPARATOR
-    .'..'.DIRECTORY_SEPARATOR
-    .'..'.DIRECTORY_SEPARATOR
-    .'..'.DIRECTORY_SEPARATOR
-    .'..'.DIRECTORY_SEPARATOR
-    .'fb_ca_chain_bundle.crt';
+  protected function getCurl() {
+    return $this->curl;
   }
 
   /**
@@ -101,7 +88,7 @@ class CurlAdapter extends AbstractAdapter {
    * @return int
    */
   protected function getheaderSize() {
-    return curl_getinfo($this->handle, CURLINFO_HEADER_SIZE);
+    return $this->getCurl()->getInfo(CURLINFO_HEADER_SIZE);
   }
 
   /**
@@ -143,43 +130,31 @@ class CurlAdapter extends AbstractAdapter {
   }
 
   /**
-   * @param Parameters $file_params
-   * @return array
-   */
-  protected function prepareFilePostfields(Parameters $file_params) {
-    $postfields = array();
-    foreach ($file_params as $key => $value) {
-      if (version_compare(PHP_VERSION, '5.5.0') >= 0) {
-        $postfields[$key] = curl_file_create($value);
-      } else {
-        $postfields[$key] = '@'.$value;
-      }
-    }
-
-    return $postfields;
-  }
-
-  /**
    * @param RequestInterface $request
    * @return ResponseInterface
    * @throws Exception
    */
   public function sendRequest(RequestInterface $request) {
     $response = $this->getClient()->createResponse();
-    $this->handle = curl_init($request->getUrl());
+    $this->getCurl()->reset();
+    $curlopts = array(
+      CURLOPT_URL => $request->getUrl(),
+    );
+
     $method = $request->getMethod();
-    if ($method === RequestInterface::METHOD_DELETE) {
-      curl_setopt($this->handle, CURLOPT_CUSTOMREQUEST, $method);
+    if ($method !== RequestInterface::METHOD_GET
+      && $method !== RequestInterface::METHOD_POST) {
+      $curlopts[CURLOPT_CUSTOMREQUEST] = $method;
     }
 
-    curl_setopt_array($this->handle, $this->getOpts()->getArrayCopy());
+    $curlopts = $this->getOpts()->getArrayCopy() + $curlopts;
 
     if ($request->getHeaders()->count()) {
       $headers = array();
       foreach ($request->getHeaders() as $header => $value) {
         $headers[] = "{$header}: {$value}";
       }
-      curl_setopt($this->handle, CURLOPT_HTTPHEADER, $headers);
+      $curlopts[CURLOPT_HTTPHEADER] = $headers;
     }
 
     $postfields = array();
@@ -187,7 +162,10 @@ class CurlAdapter extends AbstractAdapter {
       && $request->getFileParams()->count()
     ) {
       $postfields = array_merge(
-        $postfields, $this->prepareFilePostfields($request->getFileParams()));
+        $postfields,
+        array_map(
+          array($this->getCurl(), 'preparePostFileField'),
+          $request->getFileParams()->getArrayCopy()));
     }
     if ($method !== RequestInterface::METHOD_GET
       && $request->getBodyParams()->count()) {
@@ -196,25 +174,21 @@ class CurlAdapter extends AbstractAdapter {
     }
 
     if ($postfields) {
-      curl_setopt(
-        $this->handle,
-        CURLOPT_POSTFIELDS,
-        $postfields);
+      $curlopts[CURLOPT_POSTFIELDS] = $postfields;
     }
 
-    $raw_response = curl_exec($this->handle);
+    $this->getCurl()->setoptArray($curlopts);
+    $raw_response = $this->getCurl()->exec();
 
-    $status_code = curl_getinfo($this->handle, CURLINFO_HTTP_CODE);
-    $curl_errno = curl_errno($this->handle);
-    $curl_error = $curl_errno ? curl_error($this->handle) : null;
+    $status_code = $this->getCurl()->getInfo(CURLINFO_HTTP_CODE);
+    $curl_errno = $this->getCurl()->errno();
+    $curl_error = $curl_errno ? $this->getCurl()->error() : null;
 
     $response_parts = $this->extractResponseHeadersAndBody($raw_response);
 
     $response->setStatusCode($status_code);
     $this->parseHeaders($response->getHeaders(), $response_parts[0]);
     $response->setBody($response_parts[1]);
-
-    curl_close($this->handle);
 
     if ($curl_errno) {
       throw new Exception($curl_error, $curl_errno);
