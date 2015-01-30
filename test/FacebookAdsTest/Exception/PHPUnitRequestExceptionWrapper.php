@@ -52,6 +52,15 @@ class PHPUnitRequestExceptionWrapper
   /**
    * @return string
    */
+  protected function blameFieldSpecsToString() {
+    return implode(", ", array_map(function($value) {
+      return $value[0];
+    }, $this->getWrappedException()->getErrorBlameFieldSpecs()));
+  }
+
+  /**
+   * @return string
+   */
   public function __toString() {
     $string = \PHPUnit_Framework_TestFailure::exceptionToString($this);
 
@@ -61,8 +70,11 @@ class PHPUnitRequestExceptionWrapper
     ."  Code: ".$e->getCode()."\n"
     ."  Error Subcode: ".$e->getErrorSubcode()."\n"
     ."  Error User Title: ".$e->getErrorUserTitle()."\n"
-    ."  Error User Message: ".$e->getErrorUserMessage()."\n"
-    ."  Error Blame Fields: ".$e->getErrorBlameFieldSpecs()."\n";
+    ."  Error User Message: ".$e->getErrorUserMessage()."\n";
+
+    if ($e->getErrorBlameFieldSpecs()) {
+      $string .= "  Error Blame Fields: ".$this->blameFieldSpecsToString()."\n";
+    }
 
     if ($trace = \PHPUnit_Util_Filter::getFilteredStacktrace($this)) {
       $string .= "\n" . $trace;
