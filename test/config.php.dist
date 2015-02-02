@@ -113,4 +113,9 @@ return array(
    *             Tip: access std streams with 'php://stdout' or 'php://stderr'
    */
   'curl_logger' => '',
+
+  /**
+   * @var string Class name for alternative HTTP adapter
+   */
+  'http_adapter' => '',  
 );
