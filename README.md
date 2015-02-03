@@ -187,7 +187,7 @@ Implicit Fetching will make you lose controll of the number of HTTP request that
 Implicit Fetching can be enabled for a specific cursor:
 
 ```php
-$cursor->setUseImplicitFetching(true);
+$cursor->setUseImplicitFetch(true);
 ```
 
 Or globally:
