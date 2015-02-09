@@ -22,12 +22,7 @@
  *
  */
 
-namespace FacebookAds;
-
-use FacebookAdsTest\AbstractTestCase;
-
-error_reporting(E_ALL | E_STRICT);
-chdir(__DIR__);
+namespace FacebookAdsTest;
 
 abstract class Bootstrap {
 
@@ -42,11 +37,6 @@ abstract class Bootstrap {
    * @var array
    */
   private static $config = array();
-
-  public static function init() {
-    self::initAutoloader();
-    self::initConfig();
-  }
 
   /**
    * Simplifies the common pattern of checking for an index in an array
@@ -101,21 +91,21 @@ abstract class Bootstrap {
   /**
    * @throws \RuntimeException
    */
-  private static function initAutoloader() {
+  public static function initAutoloader() {
     $vendor_path = static::findParentPath('vendor');
     if (!$vendor_path || !is_readable($vendor_path . '/autoload.php')) {
       throw new \RuntimeException("Could not read autoload.php");
     }
     self::$loader = include $vendor_path . '/autoload.php';
     self::$loader->addPsr4(
-      'FacebookAdsTest\\', __DIR__.'/FacebookAdsTest/');
+      'FacebookAdsTest\\', __DIR__.'/');
   }
 
   /**
    * @throws \RuntimeException
    */
-  private static function initConfig() {
-    $config_path = __DIR__ . '/config.php';
+  public static function initConfig() {
+    $config_path = dirname(__DIR__).'/config.php';
     if (!is_readable($config_path)) {
       throw new \RuntimeException("Could not read config.php");
     }
@@ -166,5 +156,3 @@ abstract class Bootstrap {
     return $dir.'/'.$path;
   }
 }
-
-Bootstrap::init();

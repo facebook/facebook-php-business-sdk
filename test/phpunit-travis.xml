@@ -1,7 +1,8 @@
-<phpunit bootstrap="init_integration.php" colors="true">
+<phpunit bootstrap="init_unit.php" colors="true">
     <testsuites>
         <testsuite name="Facebook AdsAPI PHP SDK">
             <directory>./FacebookAdsTest</directory>
+            <exclude>./FacebookAdsTest/Object</exclude>
         </testsuite>
     </testsuites>
     <logging>
@@ -11,6 +12,10 @@
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">../src</directory>
+            <exclude>
+                <directory>../src/FacebookAds/Http/Adapter/Curl/</directory>
+                <directory>../src/FacebookAds/Object/</directory>
+            </exclude>
         </whitelist>
     </filter>
 </phpunit>
