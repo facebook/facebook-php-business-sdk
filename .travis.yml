@@ -4,9 +4,7 @@ php:
   - 5.4
   - 5.5
   - 5.6
-
-before_install:
-  - cp test/config.travis.php test/config.php
+  - hhvm
 
 install:
   - composer self-update && composer --version
@@ -17,3 +15,8 @@ script:
 
 notifications:
   email: false
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - php: hhvm
