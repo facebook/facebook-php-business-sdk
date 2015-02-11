@@ -215,7 +215,7 @@ $status = AdGroup::deleteIds($ids = array(...));
 
 ### Save Helper 
 
-On object that extends `AbstractCrudObject` you can call the `save` method which will call `create` if they object does not have a value for `id` set, or will call `update` a value is present. 
+On object that extends `AbstractCrudObject` you can call the `save` method which will call `create` if the object does not have a value for `id` set, or will call `update` a value is present. 
 
 
 ## Connections
