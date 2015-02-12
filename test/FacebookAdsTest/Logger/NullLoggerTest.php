@@ -31,4 +31,19 @@ class NullLoggerTest extends AbstractLoggerTest {
   protected function createLogger() {
     return new NullLogger();
   }
+
+  public function testLog() {
+    $this->createLogger()->log(
+      static::VALUE_LOG_LEVEL, static::VALUE_LOG_MESSAGE);
+  }
+
+  public function testLogRequest() {
+    $this->createLogger()->logRequest(
+      static::VALUE_LOG_LEVEL, $this->createRequestMock());
+  }
+
+  public function testLogResponse() {
+    $this->createLogger()->logResponse(
+      static::VALUE_LOG_LEVEL, $this->createResponseMock());
+  }
 }

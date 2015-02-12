@@ -101,9 +101,8 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
 
   public static function setupBeforeClass() {
     parent::setupBeforeClass();
-
-    static::$logger = static::$curlLoggerResource
-      ? new CurlLogger(static::$curlLoggerResource)
+    static::$logger = self::$curlLoggerResource
+      ? new CurlLogger(self::$curlLoggerResource)
       : new NullLogger();
   }
 

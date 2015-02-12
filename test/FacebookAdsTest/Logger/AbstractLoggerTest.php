@@ -43,13 +43,4 @@ abstract class AbstractLoggerTest extends AbstractUnitTestCase {
    * @return LoggerInterface
    */
   abstract protected function createLogger();
-
-  public function testEmptyLogging() {
-    $this->createLogger()->log(
-      static::VALUE_LOG_LEVEL, static::VALUE_LOG_MESSAGE);
-    $this->createLogger()->logRequest(
-      static::VALUE_LOG_LEVEL, $this->createRequestMock());
-    $this->createLogger()->logResponse(
-      static::VALUE_LOG_LEVEL, $this->createResponseMock());
-  }
 }
