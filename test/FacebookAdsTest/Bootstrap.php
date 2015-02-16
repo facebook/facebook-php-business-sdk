@@ -111,17 +111,18 @@ abstract class Bootstrap {
     }
 
     self::$config = include $config_path;
-    AbstractTestCase::$appId = self::confxt('app_id');
-    AbstractTestCase::$appSecret = self::confxt('app_secret');
-    AbstractTestCase::$accessToken = self::confxt('access_token');
-    AbstractTestCase::$actId = self::confxt('act_id');
-    AbstractTestCase::$pageId = self::confxt('page_id');
-    AbstractTestCase::$appUrl = self::confxt('app_url');
-    AbstractTestCase::$graphBaseDomain = self::confx('graph_base_domain');
-    AbstractTestCase::$skipSslVerification
+    AbstractIntegrationTestCase::$appId = self::confxt('app_id');
+    AbstractIntegrationTestCase::$appSecret = self::confxt('app_secret');
+    AbstractIntegrationTestCase::$accessToken = self::confxt('access_token');
+    AbstractIntegrationTestCase::$actId = self::confxt('act_id');
+    AbstractIntegrationTestCase::$pageId = self::confxt('page_id');
+    AbstractIntegrationTestCase::$appUrl = self::confxt('app_url');
+    AbstractIntegrationTestCase::$graphBaseDomain
+      = self::confx('graph_base_domain');
+    AbstractIntegrationTestCase::$skipSslVerification
       = self::confx('skip_ssl_verification');
     AbstractTestCase::$skipIf = self::confx('skip_if', array());
-    AbstractTestCase::$testRunId = md5(
+    AbstractIntegrationTestCase::$testRunId = md5(
       (isset($_SERVER['LOGNAME']) ? $_SERVER['LOGNAME'] : uniqid(true))
       . microtime(true));
 
