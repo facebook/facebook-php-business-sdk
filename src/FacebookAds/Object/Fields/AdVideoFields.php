@@ -37,4 +37,5 @@ abstract class AdVideoFields {
   const PICTURE = 'picture';
   const SOURCE = 'source';
   const UPDATED_TIME = 'updated_time';
+  const THUMBNAILS = 'thumbnails';
 }
