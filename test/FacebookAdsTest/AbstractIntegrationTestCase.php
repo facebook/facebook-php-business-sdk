@@ -69,6 +69,11 @@ class AbstractIntegrationTestCase extends AbstractTestCase {
   public static $appUrl;
 
   /**
+   * @var string
+   */
+  public static $businessManagerId;
+
+  /**
    * @var string|null
    */
   public static $graphBaseDomain;
@@ -153,6 +158,13 @@ class AbstractIntegrationTestCase extends AbstractTestCase {
    */
   public function getAppUrl() {
     return static::$appUrl;
+  }
+
+  /**
+   * @return string
+   */
+  public function getBusinessManagerId() {
+    return static::$businessManagerId;
   }
 
   /**

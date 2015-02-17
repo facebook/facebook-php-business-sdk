@@ -22,33 +22,28 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAdsTest\Object;
 
-abstract class CustomAudienceTypes {
+use FacebookAds\Object\ProductCatalog;
+use FacebookAds\Object\Fields\ProductCatalogFields;
 
-  /**
-   * @var string
-   */
-  const ID = 'UID';
+class ProductCatalogTest extends AbstractCrudObjectTestCase {
 
-  /**
-   * @var string
-   */
-  const CLAIM = 'CLAIM';
+  public function testCrud() {
+    $catalog_name = $this->getTestRunId();
+    $catalog = new ProductCatalog(null, $this->getBusinessManagerId());
+    $catalog->setData(array(
+      ProductCatalogFields::NAME => $catalog_name,
+    ));
 
-  /**
-   * @var string
-   */
-  const EMAIL = 'EMAIL_SHA256';
-
-  /**
-   * @var string
-   */
-  const PHONE = 'PHONE_SHA256';
-
-  /**
-   * @var string
-   */
-  const MOBILE_ADVERTISER_ID = 'MOBILE_ADVERTISER_ID';
-
+    $this->assertCanCreate($catalog);
+    $this->assertCanRead($catalog);
+    $this->assertCanUpdate($catalog, array(
+      ProductCatalogFields::NAME => $catalog_name.' updated',
+    ));
+    $this->assertCanFetchConnectionAsArray($catalog, 'getExternalEventSources');
+    $this->assertCanFetchConnection($catalog, 'getProductSets');
+    $this->assertCanFetchConnection($catalog, 'getProductFeeds');
+    $this->assertCanDelete($catalog);
+  }
 }

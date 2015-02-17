@@ -69,4 +69,5 @@ abstract class TargetingSpecsFields {
   const CUSTOM_AUDIENCES = 'custom_audiences';
   const EXCLUDED_CUSTOM_AUDIENCES = 'excluded_custom_audiences';
   const CONJUNCTIVE_USER_ADCLUSTERS = 'conjunctive_user_adclusters';
+  const DYNAMIC_AUDIENCE_IDS = 'dynamic_audience_ids';
 }

@@ -22,33 +22,42 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-abstract class CustomAudienceTypes {
+use FacebookAds\Object\Fields\ProductFeedUploadFields;
+use FacebookAds\Object\Traits\CannotCreate;
+use FacebookAds\Object\Traits\CannotDelete;
+use FacebookAds\Object\Traits\CannotUpdate;
+use FacebookAds\Cursor;
 
-  /**
-   * @var string
-   */
-  const ID = 'UID';
-
-  /**
-   * @var string
-   */
-  const CLAIM = 'CLAIM';
+class ProductFeedUpload extends AbstractCrudObject {
+  use CannotDelete;
+  use CannotUpdate;
 
   /**
-   * @var string
+   * @var string[]
    */
-  const EMAIL = 'EMAIL_SHA256';
+  protected static $fields = array(
+    ProductFeedUploadFields::ID,
+    ProductFeedUploadFields::START_TIME,
+    ProductFeedUploadFields::END_TIME,
+    ProductFeedUploadFields::INPUT_METHOD,
+  );
 
   /**
-   * @var string
+   * @return string
    */
-  const PHONE = 'PHONE_SHA256';
+  protected function getEndpoint() {
+    return 'uploads';
+  }
 
   /**
-   * @var string
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
    */
-  const MOBILE_ADVERTISER_ID = 'MOBILE_ADVERTISER_ID';
-
+  public function getErrors(array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(
+      ProductFeedUploadError::className(), $fields, $params);
+  }
 }

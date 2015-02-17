@@ -24,31 +24,12 @@
 
 namespace FacebookAds\Object\Values;
 
-abstract class CustomAudienceTypes {
+abstract class FeedEncoding {
 
-  /**
-   * @var string
-   */
-  const ID = 'UID';
-
-  /**
-   * @var string
-   */
-  const CLAIM = 'CLAIM';
-
-  /**
-   * @var string
-   */
-  const EMAIL = 'EMAIL_SHA256';
-
-  /**
-   * @var string
-   */
-  const PHONE = 'PHONE_SHA256';
-
-  /**
-   * @var string
-   */
-  const MOBILE_ADVERTISER_ID = 'MOBILE_ADVERTISER_ID';
+  const AUTODETECT  = 'AUTODETECT';
+  const ASCII = 'ASCII';
+  const UTF_8 = 'UTF_8';
+  const UTF_16 = 'UTF_16';
+  const LATIN_1 = 'LATIN_1';
 
 }

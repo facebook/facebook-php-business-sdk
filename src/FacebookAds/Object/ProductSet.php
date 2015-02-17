@@ -22,33 +22,50 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-abstract class CustomAudienceTypes {
+use FacebookAds\Object\Fields\ProductSetFields;
+use FacebookAds\Object\Traits\FieldValidation;
+use FacebookAds\Cursor;
 
-  /**
-   * @var string
-   */
-  const ID = 'UID';
-
-  /**
-   * @var string
-   */
-  const CLAIM = 'CLAIM';
+class ProductSet extends AbstractCrudObject {
+  use FieldValidation;
 
   /**
-   * @var string
+   * @var string[]
    */
-  const EMAIL = 'EMAIL_SHA256';
+  protected static $fields = array(
+    ProductSetFields::ID,
+    ProductSetFields::NAME,
+    ProductSetFields::FILTER,
+  );
 
   /**
-   * @var string
+   * @return string
    */
-  const PHONE = 'PHONE_SHA256';
+  protected function getEndpoint() {
+    return 'product_sets';
+  }
 
   /**
-   * @var string
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
    */
-  const MOBILE_ADVERTISER_ID = 'MOBILE_ADVERTISER_ID';
+  public function getProducts(
+    array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(
+      Product::className(), $fields, $params);
+  }
 
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getProductGroups(
+    array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(
+      ProductGroup::className(), $fields, $params, 'product_groups');
+  }
 }

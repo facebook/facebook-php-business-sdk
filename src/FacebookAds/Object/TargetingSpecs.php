@@ -77,5 +77,6 @@ class TargetingSpecs extends AbstractObject {
     TargetingSpecsFields::CUSTOM_AUDIENCES,
     TargetingSpecsFields::EXCLUDED_CUSTOM_AUDIENCES,
     TargetingSpecsFields::CONJUNCTIVE_USER_ADCLUSTERS,
+    TargetingSpecsFields::DYNAMIC_AUDIENCE_IDS,
   );
 }

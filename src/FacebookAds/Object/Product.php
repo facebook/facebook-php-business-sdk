@@ -24,60 +24,58 @@
 
 namespace FacebookAds\Object;
 
-use FacebookAds\Cursor;
-use FacebookAds\Object\Fields\AdCreativeFields;
+use FacebookAds\Object\Fields\ProductFields;
+use FacebookAds\Object\Traits\CannotCreate;
 use FacebookAds\Object\Traits\FieldValidation;
 
-class AdCreative extends AbstractCrudObject {
+class Product extends AbstractCrudObject {
+  use CannotCreate;
   use FieldValidation;
 
   /**
    * @var string[]
-   **/
+   */
   protected static $fields = array(
-    AdCreativeFields::ID,
-    AdCreativeFields::TITLE,
-    AdCreativeFields::ACTOR_ID,
-    AdCreativeFields::ACTOR_NAME,
-    AdCreativeFields::NAME,
-    AdCreativeFields::OBJECT_ID,
-    AdCreativeFields::OBJECT_STORY_ID,
-    AdCreativeFields::OBJECT_STORY_SPEC,
-    AdCreativeFields::PRODUCT_SET_ID,
-    AdCreativeFields::BODY,
-    AdCreativeFields::IMAGE_HASH,
-    AdCreativeFields::IMAGE_FILE,
-    AdCreativeFields::IMAGE_URL,
-    AdCreativeFields::IMAGE_CROPS,
-    AdCreativeFields::VIDEO_ID,
-    AdCreativeFields::ACTOR_IMAGE_HASH,
-    AdCreativeFields::LINK_URL,
-    AdCreativeFields::OBJECT_URL,
-    AdCreativeFields::URL_TAGS,
-    AdCreativeFields::PREVIEW_URL,
-    AdCreativeFields::THUMBNAIL_URL,
-    AdCreativeFields::FOLLOW_REDIRECT,
-    AdCreativeFields::OBJECT_STORE_URL,
-    AdCreativeFields::LINK_DEEP_LINK_URL,
-    AdCreativeFields::CALL_TO_ACTION_TYPE,
-    AdCreativeFields::OBJECT_TYPE,
+    ProductFields::ID,
+    ProductFields::AGE_GROUP,
+    ProductFields::AVAILABILITY,
+    ProductFields::BRAND,
+    ProductFields::CATEGORY,
+    ProductFields::COLOR,
+    ProductFields::CONDITION,
+    ProductFields::DESCRIPTION,
+    ProductFields::EXPIRATION_DATE,
+    ProductFields::GENDER,
+    ProductFields::GTIN,
+    ProductFields::IMAGE_URL,
+    ProductFields::MATERIAL,
+    ProductFields::MANUFACTURER_PART_NUMBER,
+    ProductFields::NAME,
+    ProductFields::PATTERN,
+    ProductFields::PRICE,
+    ProductFields::PRODUCT_TYPE,
+    ProductFields::RETAILER_ID,
+    ProductFields::RETAILER_PRODUCT_GROUP_ID,
+    ProductFields::SALE_PRICE,
+    ProductFields::SALE_PRICE_START_DATE,
+    ProductFields::SALE_PRICE_END_DATE,
+    ProductFields::SHIPPING_WEIGHT_VALUE,
+    ProductFields::SHIPPING_WEIGHT_UNIT,
+    ProductFields::SIZE,
+    ProductFields::URL,
+    ProductFields::PRODUCT_FEED,
   );
 
   /**
    * @return string
    */
   protected function getEndpoint() {
-    return 'adcreatives';
+    return 'products';
   }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getAdPreviews(
+  public function getProductSets(
     array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(
-      AdPreview::className(), $fields, $params, 'previews');
+      ProductSet::className(), $fields, $params, 'product_sets');
   }
 }

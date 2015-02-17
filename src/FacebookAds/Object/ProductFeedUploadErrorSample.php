@@ -22,33 +22,31 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-abstract class CustomAudienceTypes {
+use FacebookAds\Object\Fields\ProductFeedUploadErrorSampleFields;
+use FacebookAds\Object\Traits\CannotCreate;
+use FacebookAds\Object\Traits\CannotDelete;
+use FacebookAds\Object\Traits\CannotUpdate;
 
-  /**
-   * @var string
-   */
-  const ID = 'UID';
-
-  /**
-   * @var string
-   */
-  const CLAIM = 'CLAIM';
+class ProductFeedUploadErrorSample extends AbstractObject {
+  use CannotDelete;
+  use CannotCreate;
+  use CannotUpdate;
 
   /**
-   * @var string
+   * @var string[]
    */
-  const EMAIL = 'EMAIL_SHA256';
+  protected static $fields = array(
+    ProductFeedUploadErrorSampleFields::ID,
+    ProductFeedUploadErrorSampleFields:: RETAILER_ID,
+    ProductFeedUploadErrorSampleFields::ROW_NUMBER,
+  );
 
   /**
-   * @var string
+   * @return string
    */
-  const PHONE = 'PHONE_SHA256';
-
-  /**
-   * @var string
-   */
-  const MOBILE_ADVERTISER_ID = 'MOBILE_ADVERTISER_ID';
-
+  protected function getEndpoint() {
+    return 'samples';
+  }
 }

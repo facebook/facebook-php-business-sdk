@@ -22,33 +22,11 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
-abstract class CustomAudienceTypes {
+abstract class ProductSetFields {
 
-  /**
-   * @var string
-   */
-  const ID = 'UID';
-
-  /**
-   * @var string
-   */
-  const CLAIM = 'CLAIM';
-
-  /**
-   * @var string
-   */
-  const EMAIL = 'EMAIL_SHA256';
-
-  /**
-   * @var string
-   */
-  const PHONE = 'PHONE_SHA256';
-
-  /**
-   * @var string
-   */
-  const MOBILE_ADVERTISER_ID = 'MOBILE_ADVERTISER_ID';
-
+  const ID = 'id';
+  const NAME = 'name';
+  const FILTER = 'filter';
 }

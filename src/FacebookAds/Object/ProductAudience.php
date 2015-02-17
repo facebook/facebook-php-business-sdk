@@ -22,33 +22,31 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-abstract class CustomAudienceTypes {
+use FacebookAds\Object\Fields\ProductAudienceFields;
+use FacebookAds\Object\Traits\FieldValidation;
 
-  /**
-   * @var string
-   */
-  const ID = 'UID';
-
-  /**
-   * @var string
-   */
-  const CLAIM = 'CLAIM';
+class ProductAudience extends AbstractCrudObject {
+  use FieldValidation;
 
   /**
-   * @var string
+   * @var string[]
    */
-  const EMAIL = 'EMAIL_SHA256';
+  protected static $fields = array(
+    ProductAudienceFields::ID,
+    ProductAudienceFields::NAME,
+    ProductAudienceFields::DESCRIPTION,
+    ProductAudienceFields::PRODUCT_SET_ID,
+    ProductAudienceFields::PIXEL_ID,
+    ProductAudienceFields::INCLUSIONS,
+    ProductAudienceFields::EXCLUSIONS,
+  );
 
   /**
-   * @var string
+   * @return string
    */
-  const PHONE = 'PHONE_SHA256';
-
-  /**
-   * @var string
-   */
-  const MOBILE_ADVERTISER_ID = 'MOBILE_ADVERTISER_ID';
-
+  protected function getEndpoint() {
+    return 'product_audiences';
+  }
 }

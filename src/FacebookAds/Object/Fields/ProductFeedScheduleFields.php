@@ -22,33 +22,16 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
-abstract class CustomAudienceTypes {
+abstract class ProductFeedScheduleFields {
 
-  /**
-   * @var string
-   */
-  const ID = 'UID';
-
-  /**
-   * @var string
-   */
-  const CLAIM = 'CLAIM';
-
-  /**
-   * @var string
-   */
-  const EMAIL = 'EMAIL_SHA256';
-
-  /**
-   * @var string
-   */
-  const PHONE = 'PHONE_SHA256';
-
-  /**
-   * @var string
-   */
-  const MOBILE_ADVERTISER_ID = 'MOBILE_ADVERTISER_ID';
+  const INTERVAL = 'interval';
+  const DAY_OF_WEEK = 'day_of_week';
+  const DAY_OF_MONTH = 'day_of_month';
+  const HOUR = 'hour';
+  const URL = 'url';
+  const USERNAME = 'username';
+  const PASSWORD = 'password';
 
 }

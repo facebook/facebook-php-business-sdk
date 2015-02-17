@@ -22,33 +22,46 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-abstract class CustomAudienceTypes {
+use FacebookAds\Object\Fields\ProductFeedUploadErrorFields;
+use FacebookAds\Object\Traits\CannotCreate;
+use FacebookAds\Object\Traits\CannotDelete;
+use FacebookAds\Object\Traits\CannotUpdate;
+use FacebookAds\Cursor;
 
-  /**
-   * @var string
-   */
-  const ID = 'UID';
-
-  /**
-   * @var string
-   */
-  const CLAIM = 'CLAIM';
-
-  /**
-   * @var string
-   */
-  const EMAIL = 'EMAIL_SHA256';
+class ProductFeedUploadError extends AbstractCrudObject {
+  use CannotDelete;
+  use CannotCreate;
+  use CannotUpdate;
 
   /**
-   * @var string
+   * @var string[]
    */
-  const PHONE = 'PHONE_SHA256';
+  protected static $fields = array(
+    ProductFeedUploadErrorFields::ID,
+    ProductFeedUploadErrorFields::SUMMARY,
+    ProductFeedUploadErrorFields::DESCRIPTION,
+    ProductFeedUploadErrorFields::SEVERITY,
+    ProductFeedUploadErrorFields::ROW_NUMBER,
+    ProductFeedUploadErrorFields::COLUMN_NUMBER,
+    ProductFeedUploadErrorFields::TOTAL_COUNT,
+  );
 
   /**
-   * @var string
+   * @return string
    */
-  const MOBILE_ADVERTISER_ID = 'MOBILE_ADVERTISER_ID';
+  protected function getEndpoint() {
+    return 'errors';
+  }
 
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getSamples(array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(
+      ProductFeedUploadErrorSample::className(), $fields, $params, 'samples');
+  }
 }

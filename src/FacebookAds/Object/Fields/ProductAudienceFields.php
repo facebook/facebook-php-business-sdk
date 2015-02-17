@@ -22,33 +22,16 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
-abstract class CustomAudienceTypes {
+abstract class ProductAudienceFields {
 
-  /**
-   * @var string
-   */
-  const ID = 'UID';
-
-  /**
-   * @var string
-   */
-  const CLAIM = 'CLAIM';
-
-  /**
-   * @var string
-   */
-  const EMAIL = 'EMAIL_SHA256';
-
-  /**
-   * @var string
-   */
-  const PHONE = 'PHONE_SHA256';
-
-  /**
-   * @var string
-   */
-  const MOBILE_ADVERTISER_ID = 'MOBILE_ADVERTISER_ID';
+  const ID = 'id';
+  const NAME = 'name';
+  const DESCRIPTION = 'description';
+  const PRODUCT_SET_ID = 'product_set_id';
+  const PIXEL_ID = 'pixel_id';
+  const INCLUSIONS = 'inclusions';
+  const EXCLUSIONS = 'exclusions';
 
 }

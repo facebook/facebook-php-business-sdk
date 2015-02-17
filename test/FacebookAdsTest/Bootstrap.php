@@ -117,6 +117,8 @@ abstract class Bootstrap {
     AbstractIntegrationTestCase::$actId = self::confxt('act_id');
     AbstractIntegrationTestCase::$pageId = self::confxt('page_id');
     AbstractIntegrationTestCase::$appUrl = self::confxt('app_url');
+    AbstractIntegrationTestCase::$businessManagerId
+      = self::confxt('business_manager_id');
     AbstractIntegrationTestCase::$graphBaseDomain
       = self::confx('graph_base_domain');
     AbstractIntegrationTestCase::$skipSslVerification

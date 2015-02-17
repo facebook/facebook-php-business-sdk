@@ -22,33 +22,25 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\ObjectStory;
 
-abstract class CustomAudienceTypes {
+use FacebookAds\Object\AbstractObject;
+use FacebookAds\Object\Fields\ObjectStory\TemplateDataFields;
+use FacebookAds\Object\Traits\FieldValidation;
 
-  /**
-   * @var string
-   */
-  const ID = 'UID';
 
-  /**
-   * @var string
-   */
-  const CLAIM = 'CLAIM';
+class TemplateData extends AbstractObject {
+  use FieldValidation;
 
   /**
-   * @var string
+   * @var string[]
    */
-  const EMAIL = 'EMAIL_SHA256';
-
-  /**
-   * @var string
-   */
-  const PHONE = 'PHONE_SHA256';
-
-  /**
-   * @var string
-   */
-  const MOBILE_ADVERTISER_ID = 'MOBILE_ADVERTISER_ID';
-
+  protected static $fields = array(
+    TemplateDataFields::CALL_TO_ACTION,
+    TemplateDataFields::DESCRIPTION,
+    TemplateDataFields::LINK,
+    TemplateDataFields::MESSAGE,
+    TemplateDataFields::NAME,
+    TemplateDataFields::MAX_PRODUCT_COUNT,
+  );
 }

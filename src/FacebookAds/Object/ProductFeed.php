@@ -24,22 +24,54 @@
 
 namespace FacebookAds\Object;
 
-use FacebookAds\Object\Fields\ObjectStorySpecFields;
+use FacebookAds\Object\Fields\ProductFeedFields;
 use FacebookAds\Object\Traits\FieldValidation;
+use FacebookAds\Cursor;
 
-class ObjectStorySpec extends AbstractObject {
+class ProductFeed extends AbstractCrudObject {
   use FieldValidation;
 
   /**
    * @var string[]
    */
   protected static $fields = array(
-    ObjectStorySpecFields::LINK_DATA,
-    ObjectStorySpecFields::OFFER_DATA,
-    ObjectStorySpecFields::PAGE_ID,
-    ObjectStorySpecFields::PHOTO_DATA,
-    ObjectStorySpecFields::TEXT_DATA,
-    ObjectStorySpecFields::TEMPLATE_DATA,
-    ObjectStorySpecFields::VIDEO_DATA,
+    ProductFeedFields::ID,
+    ProductFeedFields::FILE_NAME,
+    ProductFeedFields::FORMAT,
+    ProductFeedFields::COUNTRY,
+    ProductFeedFields::ENCODING,
+    ProductFeedFields::DELIMITER,
+    ProductFeedFields::NAME,
+    ProductFeedFields::QUOTES,
+    ProductFeedFields::SCHEDULE,
   );
+
+  /**
+   * @return string
+   */
+  protected function getEndpoint() {
+    return 'product_feeds';
+  }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getUploads(array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(
+      ProductFeedUpload::className(), $fields, $params);
+  }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getProducts(
+    array $fields = array(),
+    array $params = array()) {
+    return $this->getManyByConnection(
+      Product::className(), $fields, $params);
+  }
 }

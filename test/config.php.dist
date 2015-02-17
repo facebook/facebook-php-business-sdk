@@ -60,6 +60,12 @@ return array(
    */
   'app_url' => '',
 
+  /**
+   * @var string Numeric Facebook Business Manager id, espressed as string
+   */
+  'business_manager_id' => '',
+
+
   // OPTIONAL INTEGRATION TESTS
 
   'skip_if' => array(

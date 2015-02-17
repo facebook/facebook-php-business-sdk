@@ -22,33 +22,14 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields\ObjectStory;
 
-abstract class CustomAudienceTypes {
+abstract class TemplateDataFields {
 
-  /**
-   * @var string
-   */
-  const ID = 'UID';
-
-  /**
-   * @var string
-   */
-  const CLAIM = 'CLAIM';
-
-  /**
-   * @var string
-   */
-  const EMAIL = 'EMAIL_SHA256';
-
-  /**
-   * @var string
-   */
-  const PHONE = 'PHONE_SHA256';
-
-  /**
-   * @var string
-   */
-  const MOBILE_ADVERTISER_ID = 'MOBILE_ADVERTISER_ID';
-
+  const CALL_TO_ACTION = 'call_to_action';
+  const DESCRIPTION = 'description';
+  const LINK = 'link';
+  const MESSAGE = 'message';
+  const NAME = 'name';
+  const MAX_PRODUCT_COUNT = 'max_product_count';
 }

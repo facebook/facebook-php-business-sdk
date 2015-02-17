@@ -30,4 +30,5 @@ abstract class AdPreviewFields {
   const POST = 'post';
   const AD_FORMAT = 'ad_format';
   const BODY = 'body';
+  const PRODUCT_ITEM_IDS = 'product_item_ids';
 }

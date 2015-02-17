@@ -33,4 +33,5 @@ abstract class AdCampaignFields {
   const STATUS = 'campaign_group_status';
   const IS_COMPLETED = 'is_completed';
   const BUYING_TYPE = 'buying_type';
+  const PROMOTED_OBJECT = 'promoted_object';
 }
