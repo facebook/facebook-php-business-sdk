@@ -55,10 +55,13 @@ $logger = new CurlLogger();
 // $logger = new CurlLogger(fopen('test','w'));
 
 // If you need to escape double quotes, use the following - useful for docs
-$logger->setEscapeQuotes(true);
+$logger->setEscapeLevels(1);
 
 // Hide target ids and tokens
 $logger->setShowSensitiveData(false);
+
+// Attach the logger to the Api instance
+Api::instance()->setLogger($logger);
 
 use FacebookAds\Object\AdAccount;
 use FacebookAds\Object\Fields\AdAccountFields;
