@@ -29,5 +29,4 @@ abstract class ReachEstimateFields {
   const USERS = 'users';
   const BID_ESTIMATIONS = 'bid_estimations';
   const ESTIMATE_READY = 'estimate_ready';
-
 }

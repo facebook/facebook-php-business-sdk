@@ -56,6 +56,9 @@ class AdAccountGroupAccount extends AbstractObject {
    * @param Api $api
    */
   public function __construct(
+    // FIXME @pruno
+    // $id is unused and force a different signature than AdAccountGroupUser.
+    // Signature to be refactored in v2.3
     $id = null,
     $ad_account_group_id,
     Api $api = null) {
@@ -112,12 +115,12 @@ class AdAccountGroupAccount extends AbstractObject {
    * @return $this
    */
   public function save(array $params = array()) {
-    $accountData = array('account_ids' => $this->assureId());
+    $account_data = array('account_ids' => $this->assureId());
 
     $this->getApi()->call(
       '/'.$this->adAccountGroupId.'/adaccounts',
       RequestInterface::METHOD_POST,
-      array_merge($accountData, $params));
+      array_merge($account_data, $params));
 
     return $this;
   }

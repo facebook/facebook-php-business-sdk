@@ -29,5 +29,4 @@ abstract class ProductFeedUploadErrorSampleFields {
   const ID = 'id';
   const RETAILER_ID = 'retailer_id';
   const ROW_NUMBER = 'row_number';
-
 }

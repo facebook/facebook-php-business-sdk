@@ -84,7 +84,7 @@ class CurlLogger implements LoggerInterface {
    * @param resource $handle
    */
   public function __construct($handle = null) {
-    $this->handle = $handle ?: STDOUT;
+    $this->handle = is_resource($handle) ? $handle : STDOUT;
   }
 
   /**
@@ -93,11 +93,11 @@ class CurlLogger implements LoggerInterface {
    */
   public static function getMethodFlag($method) {
     switch ($method) {
-      case RequestInterface::METHOD_GET :
+      case RequestInterface::METHOD_GET:
         return static::METHOD_GET_FLAG;
-      case RequestInterface::METHOD_PUT :
+      case RequestInterface::METHOD_PUT:
         return static::METHOD_PUT_FLAG;
-      case RequestInterface::METHOD_DELETE :
+      case RequestInterface::METHOD_DELETE:
         return static::METHOD_DELETE_FLAG;
     }
 

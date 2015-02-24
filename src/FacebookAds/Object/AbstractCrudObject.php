@@ -363,7 +363,7 @@ abstract class AbstractCrudObject extends AbstractObject {
    * @param array $fields
    * @param array $params
    * @param string $prototype_class
-   * @param null $endpoint
+   * @param string|null $endpoint
    * @return ResponseInterface
    */
   protected function fetchConnection(
@@ -391,7 +391,7 @@ abstract class AbstractCrudObject extends AbstractObject {
    * @param string $prototype_class
    * @param array $fields Fields to request
    * @param array $params Additional filters for the reading
-   * @param string $endpoint
+   * @param string|null $endpoint
    * @return AbstractObject
    */
   protected function getOneByConnection(
@@ -421,7 +421,7 @@ abstract class AbstractCrudObject extends AbstractObject {
    * @param string $prototype_class
    * @param array $fields Fields to request
    * @param array $params Additional filters for the reading
-   * @param string $endpoint
+   * @param string|null $endpoint
    * @return Cursor
    */
   protected function getManyByConnection(
@@ -488,11 +488,11 @@ abstract class AbstractCrudObject extends AbstractObject {
     array $params = array(),
     Api $api = null) {
 
-    if (!$fields) {
+    if (empty($fields)) {
       $fields = static::getDefaultReadFields();
     }
 
-    if ($fields) {
+    if (!empty($fields)) {
       $params['fields'] = implode(',', $fields);
     }
 

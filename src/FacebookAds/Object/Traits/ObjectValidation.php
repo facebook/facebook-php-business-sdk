@@ -24,9 +24,20 @@
 
 namespace FacebookAds\Object\Traits;
 
+/**
+ * @property array $changedFields
+ */
 trait ObjectValidation {
+
   /**
    * @param array $params
+   * @return $this
+   */
+  abstract public function save(array $params = array());
+
+  /**
+   * @param array $params
+   * @return $this
    * @throws \InvalidArgumentException
    */
   public function validate(array $params = array()) {

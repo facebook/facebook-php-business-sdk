@@ -134,7 +134,8 @@ class ApiTest extends AbstractUnitTestCase {
     // HTTP POST request
     $request->expects($this->exactly(1))->method('getBodyParams');
 
-    $api->call('/<PATH>', RequestInterface::METHOD_POST);
+    $api->call(
+      '/<PATH>', RequestInterface::METHOD_POST, array('param' => 'value'));
     $this->assertTrue($response instanceof ResponseInterface);
   }
 

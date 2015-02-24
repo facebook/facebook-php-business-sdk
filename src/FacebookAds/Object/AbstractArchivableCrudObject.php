@@ -41,7 +41,7 @@ abstract class AbstractArchivableCrudObject extends AbstractCrudObject {
   /**
    * @return string
    */
-  public abstract function getStatusFieldName();
+  abstract public function getStatusFieldName();
 
   /**
    * Archive this object

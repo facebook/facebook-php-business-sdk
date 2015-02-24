@@ -33,5 +33,4 @@ abstract class ProductFeedUploadErrorFields {
   const ROW_NUMBER = 'row_number';
   const COLUMN_NUMBER = 'column_number';
   const TOTAL_COUNT = 'total_count';
-
 }

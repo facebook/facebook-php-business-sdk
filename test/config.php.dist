@@ -65,7 +65,6 @@ return array(
    */
   'business_manager_id' => '',
 
-
   // OPTIONAL INTEGRATION TESTS
 
   'skip_if' => array(
@@ -91,7 +90,6 @@ return array(
      * @var bool Skip tests that require reach and frequency whitelisting
      */
     'no_reach_and_frequency_whitelist' => true,
-
   ),
 
   // OPTIONAL CONFIGURATIONS

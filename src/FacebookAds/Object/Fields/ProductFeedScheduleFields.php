@@ -33,5 +33,4 @@ abstract class ProductFeedScheduleFields {
   const URL = 'url';
   const USERNAME = 'username';
   const PASSWORD = 'password';
-
 }

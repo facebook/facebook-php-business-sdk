@@ -30,6 +30,7 @@ trait FieldValidation {
    * @param string $name
    * @param mixed $value
    * @throws \InvalidArgumentException
+   * @staticvar array $fields
    */
   public function __set($name, $value) {
     if (in_array($name, static::$fields)) {

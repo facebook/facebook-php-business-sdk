@@ -77,14 +77,14 @@ class RequestException extends Exception {
     $status_code) {
 
     $this->statusCode = $status_code;
-    $errorData = static::getErrorData($response_data);
+    $error_data = static::getErrorData($response_data);
 
-    parent::__construct($errorData['message'], $errorData['code']);
+    parent::__construct($error_data['message'], $error_data['code']);
 
-    $this->errorSubcode = $errorData['error_subcode'];
-    $this->errorUserTitle = $errorData['error_user_title'];
-    $this->errorUserMessage = $errorData['error_user_msg'];
-    $this->errorBlameFieldSpecs = $errorData['error_blame_field_specs'];
+    $this->errorSubcode = $error_data['error_subcode'];
+    $this->errorUserTitle = $error_data['error_user_title'];
+    $this->errorUserMessage = $error_data['error_user_msg'];
+    $this->errorBlameFieldSpecs = $error_data['error_blame_field_specs'];
   }
 
   /**
@@ -128,24 +128,24 @@ class RequestException extends Exception {
    * @return RequestException
    */
   public static function create(array $response_data, $status_code) {
-    $errorData = static::getErrorData($response_data);
+    $error_data = static::getErrorData($response_data);
     if (in_array(
-      $errorData['error_subcode'], array(458, 459, 460, 463, 464, 467))
-      || in_array($errorData['code'], array(100, 102, 190))
-      || $errorData['type'] === 'OAuthException') {
+      $error_data['error_subcode'], array(458, 459, 460, 463, 464, 467))
+      || in_array($error_data['code'], array(100, 102, 190))
+      || $error_data['type'] === 'OAuthException') {
 
       return new AuthorizationException($response_data, $status_code);
-    } elseif (in_array($errorData['code'], array(1, 2))) {
+    } elseif (in_array($error_data['code'], array(1, 2))) {
 
       return new ServerException($response_data, $status_code);
-    } elseif (in_array($errorData['code'], array(4, 17, 341))) {
+    } elseif (in_array($error_data['code'], array(4, 17, 341))) {
 
       return new ThrottleException($response_data, $status_code);
-    } elseif ($errorData['code'] == 506) {
+    } elseif ($error_data['code'] == 506) {
 
       return new ClientException($response_data, $status_code);
-    } elseif ($errorData['code'] == 10
-      || ($errorData['code'] >= 200 && $errorData['code'] <= 299)) {
+    } elseif ($error_data['code'] == 10
+      || ($error_data['code'] >= 200 && $error_data['code'] <= 299)) {
 
       return new PermissionException($response_data, $status_code);
     } else {

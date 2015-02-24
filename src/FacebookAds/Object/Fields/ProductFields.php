@@ -54,5 +54,4 @@ abstract class ProductFields {
   const SIZE = 'size';
   const URL = 'url';
   const PRODUCT_FEED = 'product_feed';
-
 }

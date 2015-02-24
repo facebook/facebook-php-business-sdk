@@ -37,7 +37,7 @@ abstract class AbstractObject {
   protected $data = array();
 
   public function __construct() {
-    if (static::$fields) {
+    if (!empty(static::$fields)) {
       $this->data = array_combine(
         static::$fields,
         array_fill(0, count(static::$fields), null));
@@ -88,12 +88,12 @@ abstract class AbstractObject {
    */
   protected function exportValue($value) {
     switch (true) {
-      case $value === null :
+      case $value === null:
         break;
-      case $value instanceof AbstractObject :
+      case $value instanceof AbstractObject:
         $value = $value->exportData();
         break;
-      case is_array($value) :
+      case is_array($value):
         foreach ($value as $key => $sub_value) {
           if ($sub_value === null) {
             unset($value[$key]);

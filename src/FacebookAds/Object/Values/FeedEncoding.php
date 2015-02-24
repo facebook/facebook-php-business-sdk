@@ -31,5 +31,4 @@ abstract class FeedEncoding {
   const UTF_8 = 'UTF_8';
   const UTF_16 = 'UTF_16';
   const LATIN_1 = 'LATIN_1';
-
 }

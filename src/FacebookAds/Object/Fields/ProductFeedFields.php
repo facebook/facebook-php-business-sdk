@@ -35,5 +35,4 @@ abstract class ProductFeedFields {
   const DELIMITER = 'delimiter';
   const QUOTES = 'quotes';
   const SCHEDULE = 'schedule';
-
 }

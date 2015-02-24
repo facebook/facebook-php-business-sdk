@@ -28,7 +28,6 @@ use FacebookAds\Object\AbstractObject;
 use FacebookAds\Object\Fields\ObjectStory\LinkDataFields;
 use FacebookAds\Object\Traits\FieldValidation;
 
-
 class LinkData extends AbstractObject{
   use FieldValidation;
 

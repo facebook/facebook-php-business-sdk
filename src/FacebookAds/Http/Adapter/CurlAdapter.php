@@ -36,7 +36,7 @@ use FacebookAds\Http\ResponseInterface;
 class CurlAdapter extends AbstractAdapter {
 
   /**
-   * @var Curl
+   * @var CurlInterface
    */
   protected $curl;
 
@@ -175,7 +175,7 @@ class CurlAdapter extends AbstractAdapter {
         = array_merge($postfields, $request->getBodyParams()->export());
     }
 
-    if ($postfields) {
+    if (!empty($postfields)) {
       $curlopts[CURLOPT_POSTFIELDS] = $postfields;
     }
 

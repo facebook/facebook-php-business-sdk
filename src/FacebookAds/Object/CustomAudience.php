@@ -146,7 +146,7 @@ class CustomAudience extends AbstractCrudObject {
     );
 
     if ($type === CustomAudienceTypes::ID) {
-      if (!$app_ids) {
+      if (empty($app_ids)) {
         throw new \InvalidArgumentException(
           "Custom audiences with type ".CustomAudienceTypes::ID." require"
           ."at least one app_id");
@@ -183,5 +183,4 @@ class CustomAudience extends AbstractCrudObject {
       RequestInterface::METHOD_DELETE,
       array('adaccounts' => $act_ids))->getContent();
   }
-
 }

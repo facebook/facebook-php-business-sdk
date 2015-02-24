@@ -42,7 +42,7 @@ abstract class AdGroupFields {
   const TRACKING_SPECS = 'tracking_specs';
   const UPDATED_TIME = 'updated_time';
   const VIEW_TAGS = 'view_tags';
-  const CREATIVE = 'creative'; // {'creative_id': xxx}
+  const CREATIVE = 'creative';
   const SOCIAL_PREFS = 'social_prefs';
   const FAILED_DELIVERY_CHECKS = 'failed_delivery_checks';
   const REDOWNLOAD = 'redownload';

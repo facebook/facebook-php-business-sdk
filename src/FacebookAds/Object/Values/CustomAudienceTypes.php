@@ -50,5 +50,4 @@ abstract class CustomAudienceTypes {
    * @var string
    */
   const MOBILE_ADVERTISER_ID = 'MOBILE_ADVERTISER_ID';
-
 }

@@ -33,5 +33,4 @@ abstract class ProductAudienceFields {
   const PIXEL_ID = 'pixel_id';
   const INCLUSIONS = 'inclusions';
   const EXCLUSIONS = 'exclusions';
-
 }

@@ -30,5 +30,4 @@ abstract class ProductFeedUploadFields {
   const START_TIME = 'start_time';
   const END_TIME = 'end_time';
   const INPUT_METHOD = 'input_method';
-
 }

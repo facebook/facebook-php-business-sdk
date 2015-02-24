@@ -143,7 +143,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
     $this->response = $response;
     $this->before = $this->getLastRequestBefore();
     $data = $this->assureResponseData($response);
-    if (!$data) {
+    if (empty($data)) {
       return;
     }
 
@@ -163,7 +163,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
     $this->response = $response;
     $this->after = $this->getLastRequestAfter();
     $data = $this->assureResponseData($response);
-    if (!$data) {
+    if (empty($data)) {
       return;
     }
 
@@ -422,7 +422,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
    * @param mixed $value
    */
   public function offsetSet($offset, $value) {
-    if (is_null($offset)) {
+    if ($offset === null) {
       $this->objects[] = $value;
     } else {
       $this->objects[$offset] = $value;

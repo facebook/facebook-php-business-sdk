@@ -28,7 +28,6 @@ use FacebookAds\Object\AbstractObject;
 use FacebookAds\Object\Fields\ObjectStory\TemplateDataFields;
 use FacebookAds\Object\Traits\FieldValidation;
 
-
 class TemplateData extends AbstractObject {
   use FieldValidation;
 
