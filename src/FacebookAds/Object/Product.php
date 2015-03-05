@@ -116,12 +116,22 @@ class Product extends AbstractCrudObject {
     return 'products';
   }
 
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
   public function getProductSets(
     array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(
       ProductSet::className(), $fields, $params, 'product_sets');
   }
 
+  /**
+   * @param string $retailer_id
+   * @param int $catalog_id
+   * @return string
+   */
   public static function buildCatalogUrlForRetailerId(
     $retailer_id, $catalog_id) {
     return '/catalog:'.$catalog_id.':'.Api::base64UrlEncode($retailer_id);
