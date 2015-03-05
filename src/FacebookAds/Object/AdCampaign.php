@@ -52,6 +52,7 @@ class AdCampaign extends AbstractArchivableCrudObject {
     AdCampaignFields::NAME,
     AdCampaignFields::STATUS,
     AdCampaignFields::BUYING_TYPE,
+    AdCampaignFields::PROMOTED_OBJECT,
   );
 
   /**

@@ -24,6 +24,8 @@
 
 namespace FacebookAds\Object;
 
+use FacebookAds\Api;
+use FacebookAds\Http\RequestInterface;
 use FacebookAds\Object\Fields\ProductFields;
 use FacebookAds\Object\Traits\CannotCreate;
 use FacebookAds\Object\Traits\FieldValidation;
@@ -67,6 +69,47 @@ class Product extends AbstractCrudObject {
   );
 
   /**
+   * @param string $retailer_id
+   * @param int $catalog_id
+   * @param array $fields
+   * @param array $params
+   * @return Product
+   */
+  public static function getProductFromCatalogByRetailerId (
+    $retailer_id,
+    $catalog_id,
+    array $fields = array(),
+    array $params = array()) {
+    $response = Api::instance()->call(
+      self::buildCatalogUrlForRetailerId($retailer_id, $catalog_id),
+      RequestInterface::METHOD_GET,
+      array_merge($params, array('fields' => $fields)));
+    $response_data = $response->getContent();
+    $product = new static($response_data[ProductFields::ID]);
+    $product->setData($response_data);
+    return $product;
+  }
+
+  /**
+   * @param string $retailer_id
+   * @param int $catalog_id
+   * @param array $data
+   * @param array $params
+   * @return bool
+   */
+  public static function updateProductInCatalogByRetailerId (
+    $retailer_id, $catalog_id, array $data = array(), array $params = array()) {
+    $product = new static();
+    $product->setData($data);
+
+    $data = Api::instance()->call(
+      self::buildCatalogUrlForRetailerId($retailer_id, $catalog_id),
+      RequestInterface::METHOD_POST,
+      array_merge($product->exportData(), $params))->getContent();
+    return (isset($data['success'])) ? $data['success'] : false;
+  }
+
+  /**
    * @return string
    */
   protected function getEndpoint() {
@@ -77,5 +120,10 @@ class Product extends AbstractCrudObject {
     array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(
       ProductSet::className(), $fields, $params, 'product_sets');
+  }
+
+  public static function buildCatalogUrlForRetailerId(
+    $retailer_id, $catalog_id) {
+    return '/catalog:'.$catalog_id.':'.Api::base64UrlEncode($retailer_id);
   }
 }

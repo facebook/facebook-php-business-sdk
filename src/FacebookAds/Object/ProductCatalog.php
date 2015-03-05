@@ -24,6 +24,7 @@
 
 namespace FacebookAds\Object;
 
+use FacebookAds\Api;
 use FacebookAds\Object\Fields\ProductCatalogFields;
 use FacebookAds\Object\Traits\FieldValidation;
 use FacebookAds\Http\RequestInterface;

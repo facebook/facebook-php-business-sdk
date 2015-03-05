@@ -62,7 +62,7 @@ class ProductSetTest extends AbstractCrudObjectTestCase {
     $product_set->setData(array(
       ProductSetFields::NAME => $feed_name,
       ProductSetFields::FILTER => array(
-        'retailer_product_id' => array(
+        'retailer_id' => array(
           'is_any' => array('pid1', 'pid2')
         )
       )

@@ -137,4 +137,8 @@ class ApiTest extends AbstractUnitTestCase {
     $api->call('/<PATH>', RequestInterface::METHOD_POST);
     $this->assertTrue($response instanceof ResponseInterface);
   }
+
+  public function testBase64UrlEncode() {
+    $this->assertEquals('MTIzNDU', Api::base64UrlEncode('12345'));
+  }
 }

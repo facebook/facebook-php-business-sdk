@@ -103,6 +103,16 @@ class Api {
   }
 
   /**
+   * @param string $string
+   * @return string
+   */
+  public static function base64UrlEncode($string) {
+    $str = strtr(base64_encode($string), '+/', '-_');
+    $str = str_replace('=', '', $str);
+    return $str;
+  }
+
+  /**
    * @param string $path
    * @param string $method
    * @param array $params
