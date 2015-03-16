@@ -132,13 +132,10 @@ abstract class Bootstrap {
     $config->testImagePath = __DIR__.'/../misc/image.png';
     $config->testZippedImagesPath = __DIR__.'/../misc/images.zip';
     $config->testVideoPath = __DIR__.'/../misc/video.mp4';
-
-    if (!date_default_timezone_set(
-      self::confx(
-        'act_timezone',
-        date_default_timezone_get() ?: self::DEFAULT_TIMEZONE))
-    ) {
-      throw new \Exception("Invalid timezone");
+    
+    if (date_default_timezone_set(self::confxt('act_timezone')) === false) {
+      throw new \InvalidArgumentException(sprintf(
+        'Not a valid timezone: "%s"', self::confx('act_timezone')));
     }
 
     return $config;

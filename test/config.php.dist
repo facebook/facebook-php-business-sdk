@@ -48,6 +48,12 @@ return array(
   'act_id' => '',
 
   /**
+   * @var string PHP timezone compatible with the AdAccount timezone, override php.ini config
+   * @see http://php.net/manual/en/timezones.php
+   */
+  'act_timezone' => '',
+
+  /**
    * @var string Numeric Facebook id, preceded by 'act_', espressed as string
    * @see https://www.facebook.com/ads/manage/home/
    */
@@ -93,12 +99,6 @@ return array(
   ),
 
   // OPTIONAL CONFIGURATIONS
-
-  /**
-   * @var string PHP timezone, override php.ini config
-   * @see http://php.net/manual/en/timezones.php
-   */
-  'act_timezone' => '',
 
   /**
    * @var string Override Facebook graph domain
