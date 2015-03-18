@@ -110,7 +110,7 @@ $fields = array(
 $account = new AdAccount($account_id);
 $account->read($fields);
 ```
-Requesting an high number of fields my cause the response time to visibly increase, you should always request only the fields you really need.
+Requesting an high number of fields may cause the response time to visibly increase, you should always request only the fields you really need.
 
 #### Create Objects
 
@@ -160,7 +160,7 @@ $set->delete();
 
 ### Cursors
 
-Since the release of the Facebook Graph API 2.0, pagination is handled throuh [cursors](https://developers.facebook.com/docs/graph-api/using-graph-api/v2.2#paging).
+Since the release of the Facebook Graph API 2.0, pagination is handled through [cursors](https://developers.facebook.com/docs/graph-api/using-graph-api/v2.2#paging).
 Here cursors are defined as in `\FacebookAds\Cursor`. Cursors are generally returned from connection methods:
 
 ```php
@@ -187,7 +187,7 @@ $cursor->fetchAfter();
 
 #### Implicit Fetching
 
-Whenever all object connected to a parent are required (carelessly from the number of HTTP requests) implicit fetching can help reducing the amout of code required.
+Whenever all object connected to a parent are required (carelessly from the number of HTTP requests) implicit fetching can help reducing the amount of code required.
 If cursor has Implicit Fetching enabled, while iterating (foreach, Cursor::next(), Cursor::prev()) the page end is reached, the SDK will automatically fetch and append a new page, untill cursor end.
 Implicit Fetching will make you lose controll of the number of HTTP request that will be sent and, for this reason, is disabled by default.
 Implicit Fetching can be enabled for a specific cursor:
