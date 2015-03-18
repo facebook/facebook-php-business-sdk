@@ -27,7 +27,7 @@ namespace FacebookAdsTest\Object;
 use FacebookAds\Object\ReachFrequencyPrediction;
 use FacebookAds\Object\Fields\ReachFrequencyPredictionFields as RF;
 use FacebookAds\Object\Values\AdObjectives;
-use FacebookAdsTest\SkippableFeatureTestInterface;
+use FacebookAdsTest\Config\SkippableFeatureTestInterface;
 
 class ReachFrequencyPredictionTest extends AbstractCrudObjectTestCase
   implements SkippableFeatureTestInterface {

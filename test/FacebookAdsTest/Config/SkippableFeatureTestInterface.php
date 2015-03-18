@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAdsTest;
+namespace FacebookAdsTest\Config;
 
 interface SkippableFeatureTestInterface {
 

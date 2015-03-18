@@ -27,7 +27,7 @@ namespace FacebookAdsTest\Object;
 use FacebookAds\Object\AbstractCrudObject;
 use FacebookAds\Object\AdAccount;
 use FacebookAds\Object\PartnerCategory;
-use FacebookAdsTest\SkippableFeatureTestInterface;
+use FacebookAdsTest\Config\SkippableFeatureTestInterface;
 
 class PartnerCategoryTest extends AbstractCrudObjectTestCase
   implements SkippableFeatureTestInterface {

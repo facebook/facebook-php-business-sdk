@@ -38,7 +38,7 @@ use FacebookAds\Object\TargetingSpecs;
 use FacebookAds\Object\Fields\TargetingSpecsFields;
 use FacebookAds\Object\Fields\AdGroupBidInfoFields;
 use FacebookAds\Object\Values\BidTypes;
-use FacebookAdsTest\SkippableFeatureTestInterface;
+use FacebookAdsTest\Config\SkippableFeatureTestInterface;
 
 class AdGroupTest extends AbstractCrudObjectTestCase
   implements SkippableFeatureTestInterface {

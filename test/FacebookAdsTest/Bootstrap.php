@@ -24,6 +24,9 @@
 
 namespace FacebookAdsTest;
 
+use FacebookAdsTest\Config\Config;
+use FacebookAdsTest\Config\SkippableFeaturesManager;
+
 abstract class Bootstrap {
 
   /**
@@ -102,44 +105,68 @@ abstract class Bootstrap {
   }
 
   /**
-   * @throws \RuntimeException
+   * @param $filepath
+   * @return array
    */
-  public static function initConfig() {
-    $config_path = dirname(__DIR__).'/config.php';
-    if (!is_readable($config_path)) {
-      throw new \RuntimeException("Could not read config.php");
+  protected static function readConfigFile($filepath) {
+    if (!is_readable($filepath)) {
+      throw new \RuntimeException("Could not read {$filepath}");
+    }
+    $config = require $filepath;
+    if (!is_array($config)) {
+      throw new \RuntimeException("Invalid config structure");
     }
 
-    self::$config = include $config_path;
-    AbstractIntegrationTestCase::$appId = self::confxt('app_id');
-    AbstractIntegrationTestCase::$appSecret = self::confxt('app_secret');
-    AbstractIntegrationTestCase::$accessToken = self::confxt('access_token');
-    AbstractIntegrationTestCase::$actId = self::confxt('act_id');
-    AbstractIntegrationTestCase::$pageId = self::confxt('page_id');
-    AbstractIntegrationTestCase::$appUrl = self::confxt('app_url');
-    AbstractIntegrationTestCase::$businessManagerId
-      = self::confxt('business_manager_id');
-    AbstractIntegrationTestCase::$graphBaseDomain
-      = self::confx('graph_base_domain');
-    AbstractIntegrationTestCase::$skipSslVerification
-      = self::confx('skip_ssl_verification');
-    AbstractTestCase::$skipIf = self::confx('skip_if', array());
-    AbstractIntegrationTestCase::$testRunId = md5(
+    return $config;
+  }
+
+  /**
+   * @return Config
+   * @throws \Exception
+   */
+  public static function initUnitConfig() {
+    $config = Config::instance();
+    $config->testRunId = md5(
       (isset($_SERVER['LOGNAME']) ? $_SERVER['LOGNAME'] : uniqid(true))
       . microtime(true));
+    $config->testImagePath = __DIR__.'/../misc/image.png';
+    $config->testZippedImagesPath = __DIR__.'/../misc/images.zip';
+    $config->testVideoPath = __DIR__.'/../misc/video.mp4';
 
     if (!date_default_timezone_set(
       self::confx(
         'act_timezone',
         date_default_timezone_get() ?: self::DEFAULT_TIMEZONE))
     ) {
-
       throw new \Exception("Invalid timezone");
     }
 
-    if ($curl_logger = self::confx('curl_logger')) {
-      AbstractTestCase::$curlLoggerResource = fopen($curl_logger, "w+");
-    }
+    return $config;
+  }
+
+  /**
+   * @return Config
+   * @throws \Exception
+   */
+  public static function initIntegrationConfig() {
+    static::$config = static::readConfigFile(dirname(__DIR__).'/config.php');
+    $config = static::initUnitConfig();
+    $config->appId = self::confxt('app_id');
+    $config->appSecret = self::confxt('app_secret');
+    $config->accessToken = self::confxt('access_token');
+    $config->accountId = self::confxt('act_id');
+    $config->pageId = self::confxt('page_id');
+    $config->appUrl = self::confxt('app_url');
+    $config->businessManagerId = self::confxt('business_manager_id');
+
+    // Optionals
+    $config->graphBaseDomain = self::confx('graph_base_domain');
+    $config->skipSslVerification = self::confx('skip_ssl_verification', false);
+    $config->curlLogger = self::confx('curl_logger');
+
+    new SkippableFeaturesManager(self::confx('skip_if', array()));
+
+    return $config;
   }
 
   /**

@@ -28,7 +28,9 @@ use FacebookAds\Api;
 use FacebookAds\Http\Adapter\CurlAdapter;
 use FacebookAds\Http\Client;
 use FacebookAds\Http\Exception\RequestException;
+use FacebookAds\Logger\CurlLogger;
 use FacebookAds\Logger\LoggerInterface;
+use FacebookAds\Logger\NullLogger;
 use FacebookAds\Session;
 use FacebookAdsTest\Exception\PHPUnitRequestExceptionWrapper;
 
@@ -39,64 +41,9 @@ use FacebookAdsTest\Exception\PHPUnitRequestExceptionWrapper;
 class AbstractIntegrationTestCase extends AbstractTestCase {
 
   /**
-   * @var string
+   * @var LoggerInterface
    */
-  public static $appId;
-
-  /**
-   * @var string
-   */
-  public static $appSecret;
-
-  /**
-   * @var string
-   */
-  public static $accessToken;
-
-  /**
-   * @var string
-   */
-  public static $actId;
-
-  /**
-   * @var string
-   */
-  public static $pageId;
-
-  /**
-   * @var string
-   */
-  public static $appUrl;
-
-  /**
-   * @var string
-   */
-  public static $businessManagerId;
-
-  /**
-   * @var string|null
-   */
-  public static $graphBaseDomain;
-
-  /**
-   * @var bool
-   */
-  public static $skipSslVerification = false;
-
-  /**
-   * @var resource|null
-   */
-  public static $curlLoggerResource;
-
-  /**
-   * @var array
-   */
-  public static $skipIf = array();
-
-  /**
-   * @var string
-   */
-  public static $testRunId;
+  protected $logger;
 
   /**
    * @var Client
@@ -109,69 +56,15 @@ class AbstractIntegrationTestCase extends AbstractTestCase {
   protected $session;
 
   /**
-   * @var LoggerInterface
-   */
-  protected static $logger;
-
-  /**
    * @var Api
    */
   protected $api;
 
   /**
-   * @return string
+   * @return LoggerInterface
    */
-  public function getAppId() {
-    return static::$appId;
-  }
-
-  /**
-   * @return string
-   */
-  public function getAppSecret() {
-    return static::$appSecret;
-  }
-
-  /**
-   * @return string
-   */
-  public function getAccessToken() {
-    return static::$accessToken;
-  }
-
-  /**
-   * @return string
-   */
-  public function getActId() {
-    return static::$actId;
-  }
-
-  /**
-   * @return string
-   */
-  public function getPageId() {
-    return static::$pageId;
-  }
-
-  /**
-   * @return string
-   */
-  public function getAppUrl() {
-    return static::$appUrl;
-  }
-
-  /**
-   * @return string
-   */
-  public function getBusinessManagerId() {
-    return static::$businessManagerId;
-  }
-
-  /**
-   * @return string
-   */
-  public function getTestRunId() {
-    return static::$testRunId;
+  public function getLogger() {
+    return $this->logger;
   }
 
   /**
@@ -179,27 +72,6 @@ class AbstractIntegrationTestCase extends AbstractTestCase {
    */
   public function getSession() {
     return $this->session;
-  }
-
-  /**
-   * @return LoggerInterface
-   */
-  public function getLogger() {
-    return static::$logger;
-  }
-
-  /**
-   * @return null|string
-   */
-  public static function getGraphBaseDomain() {
-    return self::$graphBaseDomain;
-  }
-
-  /**
-   * @return boolean
-   */
-  public static function getSkipSslVerification() {
-    return self::$skipSslVerification;
   }
 
   /**
@@ -218,43 +90,109 @@ class AbstractIntegrationTestCase extends AbstractTestCase {
 
   /**
    * @return string
+   * @deprecated use getConfig()
    */
-  public function getTestImagePath() {
-    return __DIR__.'/../misc/image.png';
+  public function getAppId() {
+    return $this->getConfig()->appId;
   }
 
   /**
    * @return string
+   * @deprecated use getConfig()
    */
-  public function getTestZippedImagesPath() {
-    return __DIR__.'/../misc/images.zip';
+  public function getAppSecret() {
+    return $this->getConfig()->appSecret;
   }
 
   /**
    * @return string
+   * @deprecated use getConfig()
    */
-  public function getTestVideoPath() {
-    return __DIR__.'/../misc/video.mp4';
+  public function getAccessToken() {
+    return $this->getConfig()->accessToken;
+  }
+
+  /**
+   * @return string
+   * @deprecated use getConfig()
+   */
+  public function getActId() {
+    return $this->getConfig()->accountId;
+  }
+
+  /**
+   * @return string
+   * @deprecated use getConfig()
+   */
+  public function getPageId() {
+    return $this->getConfig()->pageId;
+  }
+
+  /**
+   * @return string
+   * @deprecated use getConfig()
+   */
+  public function getAppUrl() {
+    return $this->getConfig()->appUrl;
+  }
+
+  /**
+   * @return string
+   * @deprecated use getConfig()
+   */
+  public function getBusinessManagerId() {
+    return $this->getConfig()->businessManagerId;
+  }
+
+  /**
+   * @return string
+   * @deprecated use getConfig()
+   */
+  public function getTestRunId() {
+    return $this->getConfig()->testRunId;
+  }
+
+  /**
+   * @return string|null
+   * @deprecated use getConfig()
+   */
+  public function getGraphBaseDomain() {
+    return $this->getConfig()->graphBaseDomain;
+  }
+
+  /**
+   * @return boolean
+   * @deprecated use getConfig()
+   */
+  public function getSkipSslVerification() {
+    return $this->getConfig()->skipSslVerification;
   }
 
   protected function setupSession() {
     $this->session = new Session(
-      static::$appId,
-      static::$appSecret,
-      static::$accessToken);
+      $this->getConfig()->appId,
+      $this->getConfig()->appSecret,
+      $this->getConfig()->accessToken);
   }
 
   protected function setupHttpClient() {
     $this->httpClient = new Client();
-    if ($this->getGraphBaseDomain()) {
-      $this->httpClient->setDefaultGraphBaseDomain($this->getGraphBaseDomain());
+    if ($this->getConfig()->graphBaseDomain) {
+      $this->httpClient->setDefaultGraphBaseDomain(
+        $this->getConfig()->graphBaseDomain);
     }
-    if ($this->getSkipSslVerification()) {
+    if ($this->getConfig()->skipSslVerification) {
       /** @var CurlAdapter $adapter */
       $adapter = $this->httpClient->getAdapter();
       $adapter->getOpts()->offsetSet(CURLOPT_SSL_VERIFYHOST, false);
       $adapter->getOpts()->offsetSet(CURLOPT_SSL_VERIFYPEER, false);
     }
+  }
+
+  protected function setupLogger() {
+    $this->logger = $this->getConfig()->curlLogger
+      ? new CurlLogger(fopen($this->getConfig()->curlLogger, "a"))
+      : new NullLogger();
   }
 
   protected function setupApi() {
@@ -270,6 +208,7 @@ class AbstractIntegrationTestCase extends AbstractTestCase {
   public function setup() {
     parent::setup();
 
+    $this->setupLogger();
     $this->setupSession();
     $this->setupHttpClient();
     $this->setupApi();
@@ -279,6 +218,8 @@ class AbstractIntegrationTestCase extends AbstractTestCase {
     $this->api = null;
     $this->httpClient = null;
     $this->session = null;
+    $this->logger = null;
+
     parent::tearDown();
   }
 

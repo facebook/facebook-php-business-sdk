@@ -24,9 +24,8 @@
 
 namespace FacebookAdsTest;
 
-use FacebookAds\Logger\CurlLogger;
-use FacebookAds\Logger\LoggerInterface;
-use FacebookAds\Logger\NullLogger;
+use FacebookAdsTest\Config\Config;
+use FacebookAdsTest\Config\SkippableFeaturesManager;
 use \PHPUnit_Framework_MockObject_Builder_InvocationMocker as Mock;
 
 /**
@@ -36,87 +35,57 @@ use \PHPUnit_Framework_MockObject_Builder_InvocationMocker as Mock;
 class AbstractTestCase extends \PHPUnit_Framework_TestCase {
 
   /**
-   * @var resource|null
+   * @return SkippableFeaturesManager
    */
-  public static $curlLoggerResource;
-
-  /**
-   * @var array
-   */
-  public static $skipIf = array();
-
-  /**
-   * @var string
-   */
-  public static $testRunId;
-
-  /**
-   * @var LoggerInterface
-   */
-  protected static $logger;
-
-  /**
-   * @return string
-   */
-  public function getTestRunId() {
-    return static::$testRunId;
+  public function getSkippableFeaturesManager() {
+    return SkippableFeaturesManager::instance();
   }
 
   /**
-   * @return LoggerInterface
-   */
-  public function getLogger() {
-    return static::$logger;
-  }
-
-  /**
-   * @return string
-   */
-  public function getTestImagePath() {
-    return __DIR__.'/../misc/image.png';
-  }
-
-  /**
-   * @return string
-   */
-  public function getTestZippedImagesPath() {
-    return __DIR__.'/../misc/images.zip';
-  }
-
-  /**
-   * @return string
-   */
-  public function getTestVideoPath() {
-    return __DIR__.'/../misc/video.mp4';
-  }
-
-  /**
-   * @param $config_key
+   * @param string $key
    * @return bool
    */
-  public function shouldSkipTest($config_key) {
-    return array_key_exists($config_key, static::$skipIf)
-      && static::$skipIf[$config_key];
+  public function shouldSkipTest($key) {
+    return $this->getSkippableFeaturesManager()->isSkipKey($key);
   }
 
-  public static function setupBeforeClass() {
-    parent::setupBeforeClass();
-    static::$logger = self::$curlLoggerResource
-      ? new CurlLogger(self::$curlLoggerResource)
-      : new NullLogger();
+  /**
+   * @return Config
+   */
+  public function getConfig() {
+    return Config::instance();
   }
 
-  public function setup() {
-    if ($this instanceof SkippableFeatureTestInterface) {
-      foreach ($this->skipIfAny() as $config_key) {
-        /** @var AbstractTestCase $this */
-        if ($this->shouldSkipTest($config_key)) {
-          $this->markTestSkipped("Reason: skipped by config '{$config_key}'");
-        }
-      }
-    }
+  /**
+   * @return string
+   * @deprecated use getConfig()
+   */
+  public function getTestRunId() {
+    return $this->getConfig()->testRunId;
+  }
 
-    parent::setup();
+  /**
+   * @return string
+   * @deprecated use getConfig()
+   */
+  public function getTestImagePath() {
+    return $this->getConfig()->testImagePath;
+  }
+
+  /**
+   * @return string
+   * @deprecated use getConfig()
+   */
+  public function getTestZippedImagesPath() {
+    return $this->getConfig()->testZippedImagesPath;
+  }
+
+  /**
+   * @return string
+   * @deprecated use getConfig()
+   */
+  public function getTestVideoPath() {
+    return $this->getConfig()->testVideoPath;
   }
 
   /**

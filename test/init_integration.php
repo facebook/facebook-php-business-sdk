@@ -31,4 +31,4 @@ require_once __DIR__.DIRECTORY_SEPARATOR
   .'Bootstrap.php';
 
 Bootstrap::initAutoloader();
-Bootstrap::initConfig();
+Bootstrap::initIntegrationConfig();
