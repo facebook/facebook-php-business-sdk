@@ -45,4 +45,6 @@ abstract class AdSetFields {
   const UPDATED_TIME = 'updated_time';
   const TARGETING = 'targeting';
   const PROMOTED_OBJECT = 'promoted_object';
+  const IS_AUTOBIS = 'is_autobid';	
+	
 }
