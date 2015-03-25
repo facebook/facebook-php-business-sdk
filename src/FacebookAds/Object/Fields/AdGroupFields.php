@@ -34,7 +34,6 @@ abstract class AdGroupFields {
   const CAMPAIGN_GROUP_ID = 'campaign_group_id';
   const CONVERSION_SPECS = 'conversion_specs';
   const CREATED_TIME = 'created_time';
-  const CREATIVE_IDS = 'creative_ids';
   const ADGROUP_REVIEW_FEEDBACK = 'adgroup_review_feedback';
   const ID = 'id';
   const NAME = 'name';
