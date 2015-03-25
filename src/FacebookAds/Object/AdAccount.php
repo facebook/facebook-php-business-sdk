@@ -365,4 +365,15 @@ class AdAccount extends AbstractCrudObject {
     return $this->getManyByConnection(
       AdPreview::classname(), $fields, $params, 'generatepreviews');
   }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getInsights(
+    array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(
+      Insights::classname(), $fields, $params, 'insights');
+  }
 }

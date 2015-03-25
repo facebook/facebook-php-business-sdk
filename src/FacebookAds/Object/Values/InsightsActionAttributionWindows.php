@@ -22,29 +22,15 @@
  *
  */
 
-namespace FacebookAdsTest\Object;
+namespace FacebookAds\Object\Values;
 
-use FacebookAds\Object\AdCampaign;
-use FacebookAds\Object\Fields\AdCampaignFields;
+abstract class InsightsActionAttributionWindows {
 
-class AdCampaignTest extends AbstractCrudObjectTestCase {
-
-  public function testCrud() {
-    $campaign = new AdCampaign(null, $this->getActId());
-    $campaign->{AdCampaignFields::NAME} = $this->getTestRunId();
-    
-    $this->assertCanCreate($campaign);
-    $this->assertCanRead($campaign);
-    $this->assertCanUpdate(
-      $campaign,
-      array(AdCampaignFields::NAME => $this->getTestRunId().' updated'));
-    $this->assertCanFetchConnection($campaign, 'getAdSets');
-    $this->assertCanFetchConnection($campaign, 'getAdGroups');
-    $this->assertCanFetchConnection($campaign, 'getStats');
-    $this->assertCanFetchConnection($campaign, 'getInsights');
-
-    $this->assertCanArchive($campaign);
-
-    $this->assertCanDelete($campaign);
-  }
+  const CLICK_1D = '1d_click';
+  const VIEW_1D = '1d_view';
+  const CLICK_28D = '28d_click';
+  const VIEW_28D = '28d_view';
+  const CLICK_7D = '7d_click';
+  const VIEW_7D = '7d_view';
+  const DEFAULT_ = 'default';
 }

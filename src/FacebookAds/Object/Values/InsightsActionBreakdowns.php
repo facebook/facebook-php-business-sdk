@@ -22,29 +22,13 @@
  *
  */
 
-namespace FacebookAdsTest\Object;
+namespace FacebookAds\Object\Values;
 
-use FacebookAds\Object\AdCampaign;
-use FacebookAds\Object\Fields\AdCampaignFields;
+abstract class InsightsActionBreakdowns {
 
-class AdCampaignTest extends AbstractCrudObjectTestCase {
-
-  public function testCrud() {
-    $campaign = new AdCampaign(null, $this->getActId());
-    $campaign->{AdCampaignFields::NAME} = $this->getTestRunId();
-    
-    $this->assertCanCreate($campaign);
-    $this->assertCanRead($campaign);
-    $this->assertCanUpdate(
-      $campaign,
-      array(AdCampaignFields::NAME => $this->getTestRunId().' updated'));
-    $this->assertCanFetchConnection($campaign, 'getAdSets');
-    $this->assertCanFetchConnection($campaign, 'getAdGroups');
-    $this->assertCanFetchConnection($campaign, 'getStats');
-    $this->assertCanFetchConnection($campaign, 'getInsights');
-
-    $this->assertCanArchive($campaign);
-
-    $this->assertCanDelete($campaign);
-  }
+  const ACTION_DESTINATION = 'action_destination';
+  const ACTION_DEVICE = 'action_device';
+  const ACTION_TARGET_ID = 'action_target_id';
+  const ACTION_TYPE = 'action_type';
+  const ACTION_VIDEO_TYPE = 'action_video_type';
 }

@@ -193,4 +193,15 @@ class AdGroup extends AbstractArchivableCrudObject
     return $this->getOneByConnection(
       AdStats::className(), $fields, $params, 'conversions');
   }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getInsights(
+    array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(
+      Insights::classname(), $fields, $params, 'insights');
+  }
 }

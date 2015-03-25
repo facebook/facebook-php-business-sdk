@@ -22,29 +22,23 @@
  *
  */
 
-namespace FacebookAdsTest\Object;
+namespace FacebookAds\Object\Values;
 
-use FacebookAds\Object\AdCampaign;
-use FacebookAds\Object\Fields\AdCampaignFields;
+abstract class InsightsOperators {
 
-class AdCampaignTest extends AbstractCrudObjectTestCase {
-
-  public function testCrud() {
-    $campaign = new AdCampaign(null, $this->getActId());
-    $campaign->{AdCampaignFields::NAME} = $this->getTestRunId();
-    
-    $this->assertCanCreate($campaign);
-    $this->assertCanRead($campaign);
-    $this->assertCanUpdate(
-      $campaign,
-      array(AdCampaignFields::NAME => $this->getTestRunId().' updated'));
-    $this->assertCanFetchConnection($campaign, 'getAdSets');
-    $this->assertCanFetchConnection($campaign, 'getAdGroups');
-    $this->assertCanFetchConnection($campaign, 'getStats');
-    $this->assertCanFetchConnection($campaign, 'getInsights');
-
-    $this->assertCanArchive($campaign);
-
-    $this->assertCanDelete($campaign);
-  }
+  const ALL = 'all';
+  const ANY = 'any';
+  const CONTAIN = 'contain';
+  const EQUAL = 'equal';
+  const GREATER_THAN = 'greater_than';
+  const GREATER_THAN_OR_EQUAL = 'greater_than_or_equal';
+  const IN = 'in';
+  const IN_RANGE = 'in_range';
+  const LESS_THAN = 'less_than';
+  const LESS_THAN_OR_EQUAL = 'less_than_or_equal';
+  const NONE = 'none';
+  const NOT_CONTAIN = 'not_contain';
+  const NOT_EQUAL = 'not_equal';
+  const NOT_IN = 'not_in';
+  const NOT_IN_RANGE = 'not_in_range';
 }

@@ -22,29 +22,21 @@
  *
  */
 
-namespace FacebookAdsTest\Object;
+namespace FacebookAds\Object\Values;
 
-use FacebookAds\Object\AdCampaign;
-use FacebookAds\Object\Fields\AdCampaignFields;
+abstract class InsightsPresets {
 
-class AdCampaignTest extends AbstractCrudObjectTestCase {
-
-  public function testCrud() {
-    $campaign = new AdCampaign(null, $this->getActId());
-    $campaign->{AdCampaignFields::NAME} = $this->getTestRunId();
-    
-    $this->assertCanCreate($campaign);
-    $this->assertCanRead($campaign);
-    $this->assertCanUpdate(
-      $campaign,
-      array(AdCampaignFields::NAME => $this->getTestRunId().' updated'));
-    $this->assertCanFetchConnection($campaign, 'getAdSets');
-    $this->assertCanFetchConnection($campaign, 'getAdGroups');
-    $this->assertCanFetchConnection($campaign, 'getStats');
-    $this->assertCanFetchConnection($campaign, 'getInsights');
-
-    $this->assertCanArchive($campaign);
-
-    $this->assertCanDelete($campaign);
-  }
+  const LAST_14_DAYS = 'last_14_days';
+  const LAST_28_DAYS = 'last_28_days';
+  const LAST_30_DAYS = 'last_30_days';
+  const LAST_3_MONTHS = 'last_3_months';
+  const LAST_7_DAYS = 'last_7_days';
+  const LAST_90_DAYS = 'last_90_days';
+  const LAST_MONTH = 'last_month';
+  const THIS_MONTH = 'this_month';
+  const LAST_WEEK = 'last_week';
+  const THIS_QUARTER = 'this_quarter';
+  const THIS_WEEK = 'this_week';
+  const TODAY = 'today';
+  const YESTERDAY = 'yesterday';
 }
