@@ -132,11 +132,6 @@ abstract class Bootstrap {
     $config->testImagePath = __DIR__.'/../misc/image.png';
     $config->testZippedImagesPath = __DIR__.'/../misc/images.zip';
     $config->testVideoPath = __DIR__.'/../misc/video.mp4';
-    
-    if (date_default_timezone_set(self::confxt('act_timezone')) === false) {
-      throw new \InvalidArgumentException(sprintf(
-        'Not a valid timezone: "%s"', self::confx('act_timezone')));
-    }
 
     return $config;
   }
@@ -161,7 +156,13 @@ abstract class Bootstrap {
     $config->skipSslVerification = self::confx('skip_ssl_verification', false);
     $config->curlLogger = self::confx('curl_logger');
 
-    new SkippableFeaturesManager(self::confx('skip_if', array()));
+    if (date_default_timezone_set(self::confxt('act_timezone')) === false) {
+      throw new \InvalidArgumentException(sprintf(
+        'Not a valid timezone: "%s"', self::confx('act_timezone')));
+    }
+
+    SkippableFeaturesManager::setInstance(
+      new SkippableFeaturesManager(self::confx('skip_if', array())));
 
     return $config;
   }

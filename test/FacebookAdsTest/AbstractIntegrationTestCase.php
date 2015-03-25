@@ -208,6 +208,8 @@ class AbstractIntegrationTestCase extends AbstractTestCase {
   public function setup() {
     parent::setup();
 
+    $this->getSkippableFeaturesManager()->enforceSkipTest($this);
+
     $this->setupLogger();
     $this->setupSession();
     $this->setupHttpClient();
