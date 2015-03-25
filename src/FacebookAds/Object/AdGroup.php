@@ -83,7 +83,6 @@ class AdGroup extends AbstractArchivableCrudObject
     AdGroupFields::UPDATED_TIME,
     AdGroupFields::VIEW_TAGS,
     AdGroupFields::CREATIVE,
-    AdGroupFields::OBJECTIVE,
     AdGroupFields::REDOWNLOAD,
     AdGroupFields::SOCIAL_PREFS,
   );
