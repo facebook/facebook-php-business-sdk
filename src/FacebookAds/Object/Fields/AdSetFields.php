@@ -37,6 +37,7 @@ abstract class AdSetFields {
   const DAILY_BUDGET = 'daily_budget';
   const END_TIME = 'end_time';
   const ID = 'id';
+  const IS_AUTOBID = 'is_autobid';
   const LIFETIME_BUDGET = 'lifetime_budget';
   const NAME = 'name';
   const PACING_TYPE = 'pacing_type';

@@ -66,6 +66,7 @@ class AdSet extends AbstractArchivableCrudObject
     AdSetFields::BID_INFO,
     AdSetFields::PROMOTED_OBJECT,
     AdSetFields::UPDATED_TIME,
+    AdSetFields::IS_AUTOBID,
   );
 
   /**
