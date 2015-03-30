@@ -24,28 +24,16 @@
 
 namespace FacebookAdsTest\Object;
 
-use FacebookAds\Object\AdCampaign;
-use FacebookAds\Object\Fields\AdCampaignFields;
+use FacebookAds\Object\AdAccount;
+use FacebookAds\Object\AsyncJobInsights;
 
-class AdCampaignTest extends AbstractCrudObjectTestCase {
+class AsyncJobInsightsTest extends AbstractAsyncJobTestCase {
 
   public function testCrud() {
-    $campaign = new AdCampaign(null, $this->getActId());
-    $campaign->{AdCampaignFields::NAME} = $this->getTestRunId();
-    
-    $this->assertCanCreate($campaign);
-    $this->assertCanRead($campaign);
-    $this->assertCanUpdate(
-      $campaign,
-      array(AdCampaignFields::NAME => $this->getTestRunId().' updated'));
-    $this->assertCanFetchConnection($campaign, 'getAdSets');
-    $this->assertCanFetchConnection($campaign, 'getAdGroups');
-    $this->assertCanFetchConnection($campaign, 'getStats');
-    $this->assertCanFetchConnection($campaign, 'getInsights');
-    $this->assertCanFetchConnection($campaign, 'getInsightsAsync');
-
-    $this->assertCanArchive($campaign);
-
-    $this->assertCanDelete($campaign);
+    $account = new AdAccount($this->getConfig()->accountId);
+    $job = $account->getInsightsAsync();
+    $this->assertTrue($job instanceof AsyncJobInsights);
+    $this->waitTillJobComplete($job);
+    $job->getResult();
   }
 }

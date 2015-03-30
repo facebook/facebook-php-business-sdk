@@ -24,28 +24,22 @@
 
 namespace FacebookAdsTest\Object;
 
-use FacebookAds\Object\AdCampaign;
-use FacebookAds\Object\Fields\AdCampaignFields;
+use FacebookAds\Object\AdAccount;
+use FacebookAds\Object\AsyncJobReportStats;
 
-class AdCampaignTest extends AbstractCrudObjectTestCase {
+class AsyncJobReportStatsTest extends AbstractAsyncJobTestCase {
 
   public function testCrud() {
-    $campaign = new AdCampaign(null, $this->getActId());
-    $campaign->{AdCampaignFields::NAME} = $this->getTestRunId();
-    
-    $this->assertCanCreate($campaign);
-    $this->assertCanRead($campaign);
-    $this->assertCanUpdate(
-      $campaign,
-      array(AdCampaignFields::NAME => $this->getTestRunId().' updated'));
-    $this->assertCanFetchConnection($campaign, 'getAdSets');
-    $this->assertCanFetchConnection($campaign, 'getAdGroups');
-    $this->assertCanFetchConnection($campaign, 'getStats');
-    $this->assertCanFetchConnection($campaign, 'getInsights');
-    $this->assertCanFetchConnection($campaign, 'getInsightsAsync');
+    $account = new AdAccount($this->getConfig()->accountId);
 
-    $this->assertCanArchive($campaign);
+    $report_stats_params = array(
+      'date_preset' => 'yesterday',
+      'data_columns' => "['campaign_name','reach','actions','spend', 'clicks']"
+    );
 
-    $this->assertCanDelete($campaign);
+    $job = $account->getReportStatsAsync(array(), $report_stats_params);
+    $this->assertTrue($job instanceof AsyncJobReportStats);
+    $this->waitTillJobComplete($job);
+    $job->getResult();
   }
 }

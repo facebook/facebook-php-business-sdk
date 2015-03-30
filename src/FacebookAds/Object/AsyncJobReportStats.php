@@ -22,30 +22,48 @@
  *
  */
 
-namespace FacebookAdsTest\Object;
+namespace FacebookAds\Object;
 
-use FacebookAds\Object\AdCampaign;
-use FacebookAds\Object\Fields\AdCampaignFields;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
 
-class AdCampaignTest extends AbstractCrudObjectTestCase {
+class AsyncJobReportStats extends AbstractAsyncJobObject {
 
-  public function testCrud() {
-    $campaign = new AdCampaign(null, $this->getActId());
-    $campaign->{AdCampaignFields::NAME} = $this->getTestRunId();
-    
-    $this->assertCanCreate($campaign);
-    $this->assertCanRead($campaign);
-    $this->assertCanUpdate(
-      $campaign,
-      array(AdCampaignFields::NAME => $this->getTestRunId().' updated'));
-    $this->assertCanFetchConnection($campaign, 'getAdSets');
-    $this->assertCanFetchConnection($campaign, 'getAdGroups');
-    $this->assertCanFetchConnection($campaign, 'getStats');
-    $this->assertCanFetchConnection($campaign, 'getInsights');
-    $this->assertCanFetchConnection($campaign, 'getInsightsAsync');
+  /**
+   * @return string
+   */
+  protected function getCreateIdFieldName() {
+    return 'id';
+  }
 
-    $this->assertCanArchive($campaign);
+  /**
+   * @return string
+   */
+  public function getEndpoint() {
+    return 'reportstats';
+  }
 
-    $this->assertCanDelete($campaign);
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getResult(
+    array $fields = array(), array $params = array()) {
+    $fields = implode(',', $fields ?: static::getDefaultReadFields());
+    if ($fields) {
+      $params['fields'] = $fields;
+    }
+
+    $params['report_run_id'] = $this->assureId();
+
+    $response = $this->getApi()->call(
+      '/' . $this->assureParentId() . '/reportstats',
+      RequestInterface::METHOD_GET,
+      $params);
+
+    $prototype = new AdStats(null, $this->{static::FIELD_ID}, $this->getApi());
+
+    return new Cursor($response, $prototype);
   }
 }

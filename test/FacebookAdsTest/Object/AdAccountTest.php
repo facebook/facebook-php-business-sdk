@@ -24,13 +24,18 @@
 
 namespace FacebookAdsTest\Object;
 
+use FacebookAds\Object\AbstractAsyncJobObject;
 use FacebookAds\Object\AdAccount;
+use FacebookAds\Object\AsyncJobInsights;
+use FacebookAds\Object\AsyncJobReportStats;
 use FacebookAds\Object\Fields\AdAccountFields;
+use FacebookAds\Object\Fields\InsightsFields;
 
 class AdAccountTest extends AbstractCrudObjectTestCase {
 
   public function testCrud() {
     $account = new AdAccount($this->getActId());
+
     $this->assertCanRead($account);
     $name = $account->read(array(AdAccountFields::NAME))
       ->{AdAccountFields::NAME};
@@ -70,18 +75,21 @@ class AdAccountTest extends AbstractCrudObjectTestCase {
             array('countries' => array('US')))));
     }
 
-    $this->assertCanFetchConnection($account, 'getReportsStats',
-      array(),
-      array(
-        'date_preset' => 'yesterday',
-        'data_columns'
-        => "['campaign_name','reach','actions','spend', 'clicks']"
-      ));
+    $report_stats_params = array(
+      'date_preset' => 'yesterday',
+      'data_columns' => "['campaign_name','reach','actions','spend', 'clicks']"
+    );
+
+    $this->assertCanFetchConnection(
+      $account, 'getReportsStats', array(), $report_stats_params);
+    $this->assertCanFetchConnection(
+      $account, 'getReportStatsAsync', array(), $report_stats_params);
     $this->assertCanFetchConnection($account, 'getStats');
     $this->assertCanFetchConnection($account, 'getTransactions');
     $this->assertCanFetchConnection($account, 'getConversions');
     $this->assertCanFetchConnection($account, 'getAdCampaignConversions');
     $this->assertCanFetchConnection($account, 'getAdGroupConversions');
     $this->assertCanFetchConnection($account, 'getInsights');
+    $this->assertCanFetchConnection($account, 'getInsightsAsync');
   }
 }

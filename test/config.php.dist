@@ -96,6 +96,11 @@ return array(
      * @var bool Skip tests that require reach and frequency whitelisting
      */
     'no_reach_and_frequency_whitelist' => true,
+
+    /**
+     * @var bool Skip tests that require polling for async jobs execution
+     */
+    'no_async_jobs' => true,
   ),
 
   // OPTIONAL CONFIGURATIONS

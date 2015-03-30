@@ -162,6 +162,7 @@ class AdGroupTest extends AbstractCrudObjectTestCase
     $this->assertCanFetchConnection($group, 'getClickTrackingTag');
     $this->assertCanFetchConnection($group, 'getConversions');
     $this->assertCanFetchConnection($group, 'getInsights');
+    $this->assertCanFetchConnection($group, 'getInsightsAsync');
 
     $this->assertCanArchive($group);
 

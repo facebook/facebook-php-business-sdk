@@ -439,6 +439,28 @@ abstract class AbstractCrudObject extends AbstractObject {
   }
 
   /**
+   * @param string $job_class
+   * @param array $fields
+   * @param array $params
+   * @return AbstractAsyncJobObject
+   * @throws \InvalidArgumentException
+   */
+  protected function createAsyncJob(
+    $job_class,
+    array $fields = array(),
+    array $params = array()) {
+    $object = new $job_class(null, $this->assureId(), $this->getApi());
+    if (!$object instanceof AbstractAsyncJobObject) {
+      throw new \InvalidArgumentException(
+        "Class {$job_class} is not of type "
+        .AbstractAsyncJobObject::className());
+    }
+
+    return $object->setData($fields)
+      ->create($params);
+  }
+
+  /**
    * Delete objects.
    *
    * Used batch API calls to delete multiple objects at once

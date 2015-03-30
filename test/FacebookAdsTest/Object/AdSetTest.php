@@ -83,6 +83,7 @@ class AdSetTest extends AbstractCrudObjectTestCase {
     $this->assertCanFetchConnection($set, 'getAdCreatives');
     $this->assertCanFetchConnection($set, 'getStats');
     $this->assertCanFetchConnection($set, 'getInsights');
+    $this->assertCanFetchConnection($set, 'getInsightsAsync');
 
     $this->assertCanArchive($set);
 

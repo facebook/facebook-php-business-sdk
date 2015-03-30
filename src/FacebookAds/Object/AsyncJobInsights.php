@@ -22,30 +22,31 @@
  *
  */
 
-namespace FacebookAdsTest\Object;
+namespace FacebookAds\Object;
 
-use FacebookAds\Object\AdCampaign;
-use FacebookAds\Object\Fields\AdCampaignFields;
+use FacebookAds\Cursor;
 
-class AdCampaignTest extends AbstractCrudObjectTestCase {
+class AsyncJobInsights extends AbstractAsyncJobObject {
 
-  public function testCrud() {
-    $campaign = new AdCampaign(null, $this->getActId());
-    $campaign->{AdCampaignFields::NAME} = $this->getTestRunId();
-    
-    $this->assertCanCreate($campaign);
-    $this->assertCanRead($campaign);
-    $this->assertCanUpdate(
-      $campaign,
-      array(AdCampaignFields::NAME => $this->getTestRunId().' updated'));
-    $this->assertCanFetchConnection($campaign, 'getAdSets');
-    $this->assertCanFetchConnection($campaign, 'getAdGroups');
-    $this->assertCanFetchConnection($campaign, 'getStats');
-    $this->assertCanFetchConnection($campaign, 'getInsights');
-    $this->assertCanFetchConnection($campaign, 'getInsightsAsync');
+  /**
+   * @return string
+   */
+  protected function getCreateIdFieldName() {
+    return 'report_run_id';
+  }
 
-    $this->assertCanArchive($campaign);
+  /**
+   * @return string
+   */
+  public function getEndpoint() {
+    return 'insights';
+  }
 
-    $this->assertCanDelete($campaign);
+  /**
+   * @return Cursor
+   */
+  public function getResult() {
+    return $this->getManyByConnection(
+      Insights::classname(), array(), array(), $this->getEndpoint());
   }
 }

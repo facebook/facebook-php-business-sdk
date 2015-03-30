@@ -202,4 +202,15 @@ class AdGroup extends AbstractArchivableCrudObject
     return $this->getManyByConnection(
       Insights::classname(), $fields, $params, 'insights');
   }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return AsyncJobInsights
+   */
+  public function getInsightsAsync(
+    array $fields = array(), array $params = array()) {
+    return $this->createAsyncJob(
+      AsyncJobInsights::className(), $fields, $params);
+  }
 }

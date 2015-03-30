@@ -24,28 +24,36 @@
 
 namespace FacebookAdsTest\Object;
 
-use FacebookAds\Object\AdCampaign;
-use FacebookAds\Object\Fields\AdCampaignFields;
+use FacebookAds\Object\AbstractAsyncJobObject;
+use FacebookAdsTest\Config\SkippableFeatureTestInterface;
 
-class AdCampaignTest extends AbstractCrudObjectTestCase {
+abstract class AbstractAsyncJobTestCase extends AbstractCrudObjectTestCase
+  implements SkippableFeatureTestInterface {
 
-  public function testCrud() {
-    $campaign = new AdCampaign(null, $this->getActId());
-    $campaign->{AdCampaignFields::NAME} = $this->getTestRunId();
-    
-    $this->assertCanCreate($campaign);
-    $this->assertCanRead($campaign);
-    $this->assertCanUpdate(
-      $campaign,
-      array(AdCampaignFields::NAME => $this->getTestRunId().' updated'));
-    $this->assertCanFetchConnection($campaign, 'getAdSets');
-    $this->assertCanFetchConnection($campaign, 'getAdGroups');
-    $this->assertCanFetchConnection($campaign, 'getStats');
-    $this->assertCanFetchConnection($campaign, 'getInsights');
-    $this->assertCanFetchConnection($campaign, 'getInsightsAsync');
+  /**
+   * @return array
+   */
+  public function skipIfAny() {
+    return array('no_async_jobs');
+  }
 
-    $this->assertCanArchive($campaign);
+  /**
+   * @param AbstractAsyncJobObject $job
+   * @param int $timeout
+   * @param int $interval
+   */
+  protected function waitTillJobComplete(
+    AbstractAsyncJobObject $job, $timeout = 60, $interval = 2) {
 
-    $this->assertCanDelete($campaign);
+    $end = time() + $timeout;
+    do {
+      if ($job->read()->isComplete()) {
+        return;
+      }
+      sleep($interval);
+    } while (time() <= $end);
+
+    $this->markTestSkipped(
+      "Async Job timed out. Timeout: {$timeout}, Interval: {$interval}");
   }
 }
