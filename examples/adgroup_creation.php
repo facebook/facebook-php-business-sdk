@@ -105,9 +105,6 @@ $target = (count($results)) ? $results->current() : null;
 
 echo "Using target: ".$target->name."\n";
 
-use FacebookAds\Object\TargetingSpecs;
-use FacebookAds\Object\Fields\TargetingSpecsFields;
-
 $targeting = new TargetingSpecs();
 $targeting->{TargetingSpecsFields::GEO_LOCATIONS}
   = array('countries' => array('GB'));
