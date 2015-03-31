@@ -53,6 +53,7 @@ class AdSet extends AbstractArchivableCrudObject
     AdSetFields::CAMPAIGN_GROUP_ID,
     AdSetFields::CAMPAIGN_STATUS,
     AdSetFields::CREATED_TIME,
+    AdSetFields::CREATIVE_SEQUENCE,
     AdSetFields::START_TIME,
     AdSetFields::END_TIME,
     AdSetFields::DAILY_BUDGET,

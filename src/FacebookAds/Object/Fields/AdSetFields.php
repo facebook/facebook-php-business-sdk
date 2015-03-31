@@ -34,6 +34,7 @@ abstract class AdSetFields {
   const CAMPAIGN_SCHEDULE = 'campaign_schedule';
   const CAMPAIGN_STATUS = 'campaign_status';
   const CREATED_TIME = 'created_time';
+  const CREATIVE_SEQUENCE = 'creative_sequence';
   const DAILY_BUDGET = 'daily_budget';
   const END_TIME = 'end_time';
   const ID = 'id';
@@ -41,8 +42,8 @@ abstract class AdSetFields {
   const LIFETIME_BUDGET = 'lifetime_budget';
   const NAME = 'name';
   const PACING_TYPE = 'pacing_type';
-  const START_TIME = 'start_time';
   const RF_PREDICTION_ID = 'rf_prediction_id';
+  const START_TIME = 'start_time';
   const UPDATED_TIME = 'updated_time';
   const TARGETING = 'targeting';
   const PROMOTED_OBJECT = 'promoted_object';
