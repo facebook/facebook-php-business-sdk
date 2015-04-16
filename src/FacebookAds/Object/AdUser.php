@@ -42,6 +42,7 @@ class AdUser extends AbstractCrudObject {
    */
   protected static $fields = array(
     AdUserFields::ID,
+    AdUserFields::NAME,
     AdUserFields::PERMISSIONS,
     AdUserFields::ROLE,
   );

@@ -27,6 +27,7 @@ namespace FacebookAds\Object\Fields;
 abstract class AdUserFields {
 
   const ID = 'id';
+  const NAME = 'name';
   const PERMISSIONS = 'permissions';
   const ROLE = 'role';
 }
