@@ -168,7 +168,7 @@ use FacebookAds\Object\AdAccount;
 use FacebookAds\Object\AdCampaignFields;
 
 $account = new AdAccount('<ACT_ID>');
-$cursor = $account->getCampaigns();
+$cursor = $account->getAdCampaigns();
 
 // Loop over objects
 foreach ($cursor as $campaign) {
