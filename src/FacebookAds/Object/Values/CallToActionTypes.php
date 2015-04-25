@@ -26,11 +26,12 @@ namespace FacebookAds\Object\Values;
 
 abstract class CallToActionTypes {
 
-  const BOOK_TRAVEL  = 'BOOK_TRAVEL';
+  const BOOK_TRAVEL = 'BOOK_TRAVEL';
+  const CALL_NOW = 'CALL_NOW';
   const LISTEN_MUSIC = 'LISTEN_MUSIC';
   const OPEN_LINK = 'OPEN_LINK';
   const PLAY_GAME = 'PLAY_GAME';
   const SHOP_NOW = 'SHOP_NOW';
-  const USE_APP  = 'USE_APP';
+  const USE_APP = 'USE_APP';
   const WATCH_VIDEO = 'WATCH_VIDEO';
 }
