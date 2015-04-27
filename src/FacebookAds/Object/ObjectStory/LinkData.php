@@ -45,5 +45,6 @@ class LinkData extends AbstractObject{
     LinkDataFields::MESSAGE,
     LinkDataFields::NAME,
     LinkDataFields::PICTURE,
+    LinkDataFields::MULTI_SHARE_OPTIMIZED,
   );
 }

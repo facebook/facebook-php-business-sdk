@@ -36,4 +36,5 @@ abstract class LinkDataFields {
   const MESSAGE = 'message';
   const NAME = 'name';
   const PICTURE = 'picture';
+  const MULTI_SHARE_OPTIMIZED = 'multi_share_optimized';
 }
