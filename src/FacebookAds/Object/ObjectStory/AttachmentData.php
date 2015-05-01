@@ -35,6 +35,7 @@ class AttachmentData extends AbstractObject{
    * @var string[]
    */
   protected static $fields = array(
+    AttachmentDataFields::CALL_TO_ACTION,
     AttachmentDataFields::DESCRIPTION,
     AttachmentDataFields::IMAGE_HASH,
     AttachmentDataFields::LINK,
