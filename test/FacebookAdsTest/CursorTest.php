@@ -24,7 +24,9 @@
 
 namespace FacebookAdsTest;
 
+use FacebookAds\Http\Client;
 use FacebookAds\Http\Parameters;
+use FacebookAds\Http\Request;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\Http\ResponseInterface;
 use FacebookAds\Object\AbstractCrudObject;
@@ -46,6 +48,14 @@ class CursorTest extends AbstractUnitTestCase {
     return array('data' => array());
   }
 
+
+  /**
+   * @return string
+   */
+  protected function getUniquePageId() {
+    return uniqid();
+  }
+
   /**
    * @return array
    */
@@ -53,8 +63,8 @@ class CursorTest extends AbstractUnitTestCase {
     $content = array(
       'paging' => array(
         'cursors' => array(
-          'after' => uniqid(),
-          'before' => uniqid(),
+          'after' => $this->getUniquePageId(),
+          'before' => $this->getUniquePageId(),
         ),
       ),
     ) + $this->createEmptyResponseContent();
@@ -67,6 +77,16 @@ class CursorTest extends AbstractUnitTestCase {
     }
 
     return $content;
+  }
+
+  /**
+   * @return string
+   */
+  protected function createUnparameterizedUrl() {
+    return Request::PROTOCOL_HTTPS
+      .Client::DEFAULT_LAST_LEVEL_DOMAIN
+      .'.'.Client::DEFAULT_GRAPH_BASE_DOMAIN
+      .'/node/edge';
   }
 
   /**
@@ -100,8 +120,14 @@ class CursorTest extends AbstractUnitTestCase {
         $num_pages - 1, $request)->getRequest();
     };
 
+    $url_callback = function() use ($query_params) {
+      return $this->createUnparameterizedUrl().'?'
+        .http_build_query($query_params->getArrayCopy());
+    };
+
     $response->method('getContent')->willReturnCallback($callback);
     $request->method('createClone')->willReturnCallback($clone_callback);
+    $request->method('getUrl')->willReturnCallback($url_callback);
 
     return $response;
   }
@@ -263,12 +289,14 @@ class CursorTest extends AbstractUnitTestCase {
     $cursor = new Cursor($response, $this->objectPrototype);
     $cursor->fetchAfter();
     $this->assertFalse($response === $cursor->getLastResponse());
+  }
 
-    // Test request cursor param reset
+  public function testRequestParamReset() {
+    $response = $this->createResponseChainMock(1);
     $cursor = new Cursor($response, $this->objectPrototype);
     $params = $cursor->getLastResponse()->getRequest()->getQueryParams();
-    $params->offsetSet('after', uniqid());
-    $params->offsetSet('before', uniqid());
+    $params->offsetSet('after', $this->getUniquePageId());
+    $params->offsetSet('before', $this->getUniquePageId());
 
     $cursor->fetchAfter();
     $params2 = $cursor->getLastResponse()->getRequest()->getQueryParams();

@@ -43,27 +43,17 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   /**
    * @var int|null
    */
-  protected $indexLeft = null;
+  protected $indexLeft;
 
   /**
    * @var int|null
    */
-  protected $indexRight = null;
+  protected $indexRight;
 
   /**
    * @var int|null
    */
-  protected $position = null;
-
-  /**
-   * @var string
-   */
-  protected $after;
-
-  /**
-   * @var string
-   */
-  protected $before;
+  protected $position;
 
   /**
    * @var AbstractObject
@@ -86,7 +76,6 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
     $this->response = $response;
     $this->objectPrototype = $object_prototype;
     $this->appendResponse($response);
-    $this->before = $this->getLastRequestBefore();
   }
 
   /**
@@ -101,28 +90,6 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   }
 
   /**
-   * @return string|null
-   */
-  protected function getLastRequestBefore() {
-    $content = $this->getLastResponse()->getContent();
-
-    return isset($content['paging']['cursors']['before'])
-      ? $content['paging']['cursors']['before']
-      : null;
-  }
-
-  /**
-   * @return string|null
-   */
-  protected function getLastRequestAfter() {
-    $content = $this->getLastResponse()->getContent();
-
-    return isset($content['paging']['cursors']['after'])
-      ? $content['paging']['cursors']['after']
-      : null;
-  }
-
-  /**
    * @param ResponseInterface $response
    * @return array
    * @throws \InvalidArgumentException
@@ -130,7 +97,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   protected function assureResponseData(ResponseInterface $response) {
     $content = $response->getContent();
     if (!isset($content['data']) || !is_array($content['data'])) {
-      throw new \InvalidArgumentException("Malformed cursor response data");
+      throw new \InvalidArgumentException("Malformed response data");
     }
 
     return $content['data'];
@@ -141,7 +108,6 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
    */
   protected function prependResponse(ResponseInterface $response) {
     $this->response = $response;
-    $this->before = $this->getLastRequestBefore();
     $data = $this->assureResponseData($response);
     if (empty($data)) {
       return;
@@ -161,7 +127,6 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
    */
   protected function appendResponse(ResponseInterface $response) {
     $this->response = $response;
-    $this->after = $this->getLastRequestAfter();
     $data = $this->assureResponseData($response);
     if (empty($data)) {
       return;
@@ -211,6 +176,28 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   }
 
   /**
+   * @return string|null
+   */
+  public function getBefore() {
+    $content = $this->getLastResponse()->getContent();
+
+    return isset($content['paging']['cursors']['before'])
+      ? $content['paging']['cursors']['before']
+      : null;
+  }
+
+  /**
+   * @return string|null
+   */
+  public function getAfter() {
+    $content = $this->getLastResponse()->getContent();
+
+    return isset($content['paging']['cursors']['after'])
+      ? $content['paging']['cursors']['after']
+      : null;
+  }
+
+  /**
    * @return RequestInterface
    */
   protected function createUndirectionalizedRequest() {
@@ -227,15 +214,56 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   }
 
   /**
-   * @return RequestInterface|null
+   * @return string|null
    */
-  public function createBeforeRequest() {
-    if (!$this->getBefore()) {
-      return null;
+  public function getPrevious() {
+    $content = $this->getLastResponse()->getContent();
+    if (isset($content['paging']['previous'])) {
+      return $content['paging']['previous'];
     }
 
-    $request = $this->createUndirectionalizedRequest();
-    $request->getQueryParams()->offsetSet('before', $this->getBefore());
+    $before = $this->getBefore();
+    if ($before !== null) {
+      $request = $this->createUndirectionalizedRequest();
+      $request->getQueryParams()->offsetSet('before', $before);
+      return $request->getUrl();
+    }
+
+    return null;
+  }
+
+  /**
+   * @return string|null
+   */
+  public function getNext() {
+    $content = $this->getLastResponse()->getContent();
+    if (isset($content['paging']['next'])) {
+      return $content['paging']['next'];
+    }
+
+    $after = $this->getAfter();
+    if ($after !== null) {
+      $request = $this->createUndirectionalizedRequest();
+      $request->getQueryParams()->offsetSet('after', $after);
+      return $request->getUrl();
+    }
+
+    return null;
+  }
+
+  /**
+   * @param string $url
+   * @return RequestInterface
+   */
+  protected function createRequestFromUrl($url) {
+    $components = parse_url($url);
+    $request = $this->getLastResponse()->getRequest()->createClone();
+    $request->setDomain($components['host']);
+    $query = array();
+    if (isset($components['query'])) {
+      parse_str($components['query'], $query);
+    }
+    $request->getQueryParams()->exchangeArray($query);
 
     return $request;
   }
@@ -243,15 +271,17 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   /**
    * @return RequestInterface|null
    */
+  public function createBeforeRequest() {
+    $url = $this->getPrevious();
+    return $url !== null ? $this->createRequestFromUrl($url) : null;
+  }
+
+  /**
+   * @return RequestInterface|null
+   */
   public function createAfterRequest() {
-    if (!$this->getAfter()) {
-      return null;
-    }
-
-    $request = $this->createUndirectionalizedRequest();
-    $request->getQueryParams()->offsetSet('after', $this->getAfter());
-
-    return $request;
+    $url = $this->getNext();
+    return $url !== null ? $this->createRequestFromUrl($url) : null;
   }
 
   public function fetchBefore() {
@@ -286,7 +316,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
    */
   public function getArrayCopy($ksort = false) {
     if ($ksort) {
-      // Sort the main array to imrpove best case performance in future
+      // Sort the main array to improve best case performance in future
       // invocations
       ksort($this->objects);
     }
@@ -307,20 +337,6 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
    */
   public function getLastResponse() {
     return $this->response;
-  }
-
-  /**
-   * @return bool
-   */
-  public function getBefore() {
-    return $this->before;
-  }
-
-  /**
-   * @return bool
-   */
-  public function getAfter() {
-    return $this->after;
   }
 
   /**
