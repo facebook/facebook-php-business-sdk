@@ -48,6 +48,7 @@ class AdVideo extends AbstractCrudObject {
     AdVideoFields::ID,
     AdVideoFields::NAME,
     AdVideoFields::PICTURE,
+    AdVideoFields::PUBLISHED,
     AdVideoFields::SOURCE,
     AdVideoFields::UPDATED_TIME,
     AdVideoFields::THUMBNAILS

@@ -35,6 +35,7 @@ abstract class AdVideoFields {
   const ID = 'id';
   const NAME = 'name';
   const PICTURE = 'picture';
+  const PUBLISHED = 'published';
   const SOURCE = 'source';
   const UPDATED_TIME = 'updated_time';
   const THUMBNAILS = 'thumbnails';
