@@ -192,6 +192,17 @@ class AdAccount extends AbstractCrudObject {
    * @param array $params
    * @return Cursor
    */
+  public function getAdTags(
+    array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(
+      AdTag::classname(), $fields, $params);
+  }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
   public function getAdVideos(
     array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(AdVideo::className(), $fields, $params);
