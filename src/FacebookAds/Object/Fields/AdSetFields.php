@@ -40,6 +40,7 @@ abstract class AdSetFields {
   const ID = 'id';
   const IS_AUTOBID = 'is_autobid';
   const LIFETIME_BUDGET = 'lifetime_budget';
+  const LIFETIME_IMPS = 'lifetime_imps';
   const NAME = 'name';
   const PACING_TYPE = 'pacing_type';
   const RF_PREDICTION_ID = 'rf_prediction_id';
