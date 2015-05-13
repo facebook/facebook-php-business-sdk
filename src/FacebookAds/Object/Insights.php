@@ -41,6 +41,7 @@ class Insights extends AbstractObject {
     InsightsFields::ADGROUP_NAME,
     InsightsFields::ASYNC_PERCENT_COMPLETION,
     InsightsFields::ASYNC_STATUS,
+    InsightsFields::CALL_TO_ACTION_CLICKS,
     InsightsFields::CAMPAIGN_END,
     InsightsFields::CAMPAIGN_GROUP_END,
     InsightsFields::CAMPAIGN_GROUP_ID,

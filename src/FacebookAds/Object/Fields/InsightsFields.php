@@ -35,6 +35,7 @@ abstract class InsightsFields {
   const ADGROUP_NAME = 'adgroup_name';
   const ASYNC_PERCENT_COMPLETION = 'async_percent_completion';
   const ASYNC_STATUS = 'async_status';
+  const CALL_TO_ACTION_CLICKS = 'call_to_action_clicks';
   const CAMPAIGN_END = 'campaign_end';
   const CAMPAIGN_GROUP_END = 'campaign_group_end';
   const CAMPAIGN_GROUP_ID = 'campaign_group_id';
