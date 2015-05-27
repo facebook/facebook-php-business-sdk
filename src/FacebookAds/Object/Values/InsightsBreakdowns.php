@@ -29,6 +29,10 @@ abstract class InsightsBreakdowns {
   const AGE = 'age';
   const COUNTRY = 'country';
   const GENDER = 'gender';
+  const HOURLY_STATS_AGGREGATED_BY_ADVERTISER_TIME_ZONE =
+    'hourly_stats_aggregated_by_advertiser_time_zone';
+  const HOURLY_STATS_AGGREGATED_BY_AUDIENCE_TIME_ZONE =
+    'hourly_stats_aggregated_by_audience_time_zone';
   const IMPRESSION_DEVICE = 'impression_device';
   const PLACEMENT = 'placement';
 }
