@@ -48,6 +48,7 @@ class CustomAudience extends AbstractCrudObject {
     CustomAudienceFields::LOOKALIKE_AUDIENCE_IDS,
     CustomAudienceFields::NAME,
     CustomAudienceFields::PERMISSION_FOR_ACTIONS,
+    CustomAudienceFields::PIXEL_ID,
     CustomAudienceFields::PREFILL,
     CustomAudienceFields::RULE,
     CustomAudienceFields::RETENTION_DAYS,

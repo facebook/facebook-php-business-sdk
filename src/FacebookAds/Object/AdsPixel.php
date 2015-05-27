@@ -31,7 +31,6 @@ use FacebookAds\Object\Traits\FieldValidation;
 
 class AdsPixel extends AbstractCrudObject {
   use CannotDelete;
-  use CannotUpdate;
   use FieldValidation;
 
   /**
