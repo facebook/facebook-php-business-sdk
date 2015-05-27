@@ -39,6 +39,7 @@ abstract class CustomAudienceFields {
   const OPT_OUT_LINK = 'opt_out_link';
   const ORIGIN_AUDIENCE_ID = 'origin_audience_id';
   const PERMISSION_FOR_ACTIONS = 'permission_for_actions';
+  const PIXEL_ID = 'pixel_id';
   const PREFILL = 'prefill';
   const RETENTION_DAYS = 'retention_days';
   const RULE = 'rule';
