@@ -31,6 +31,7 @@ abstract class TargetingSearchTypes {
   const EDUCATION = 'adeducationschool';
   const EMPLOYER = 'adworkemployer';
   const GEOLOCATION = 'adgeolocation';
+  const GEOLOCATIONMETA = 'adgeolocationmeta';
   const INTEREST = 'adinterest';
   const INTEREST_SUGGESTION = 'adinterestsuggestion';
   const INTEREST_VALIDATE = 'adinterestvalid';
