@@ -113,7 +113,7 @@ class ReachFrequencyPrediction extends AbstractCrudObject {
       RequestInterface::METHOD_POST,
       $params);
 
-    return new self((string) $response->getContent(), $this->assureParentId());
+    return new self($response->getContent()['id'], $this->assureParentId());
   }
 
   /**
