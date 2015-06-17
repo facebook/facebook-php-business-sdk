@@ -51,18 +51,10 @@ class AdAccountGroupAccount extends AbstractObject {
   protected $adAccountGroupId;
 
   /**
-   * @param string $id This param is ignored
    * @param string $ad_account_group_id
    * @param Api $api
    */
-  public function __construct(
-    // FIXME @pruno
-    // $id is unused and force a different signature than AdAccountGroupUser.
-    // Signature to be refactored in v2.3
-    $id = null,
-    $ad_account_group_id,
-    Api $api = null) {
-
+  public function __construct($ad_account_group_id, Api $api = null) {
     $this->adAccountGroupId = $ad_account_group_id;
     $this->api = $api;
   }
