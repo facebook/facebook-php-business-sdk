@@ -31,7 +31,7 @@ use FacebookAds\Object\Fields\AdsPixelsFields;
 class AdsPixelsTest extends AbstractCrudObjectTestCase {
 
   public function testCrud() {
-    $account = new AdAccount($this->getActId());
+    $account = new AdAccount($this->getConfig()->accountId);
     $pixels = $account->getAdsPixels();
 
     $this->assertEquals(1, $pixels->count());
@@ -54,7 +54,7 @@ class AdsPixelsTest extends AbstractCrudObjectTestCase {
    * AdsPixels can be created but only one per account can exist
    */
   public function testCreate() {
-    $pixel = new AdsPixel(null, $this->getActId());
+    $pixel = new AdsPixel(null, $this->getConfig()->accountId);
 
     $has_thrown = false;
     try {

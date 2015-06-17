@@ -30,8 +30,8 @@ use FacebookAds\Object\Fields\ProductCatalogFields;
 class ProductCatalogTest extends AbstractCrudObjectTestCase {
 
   public function testCrud() {
-    $catalog_name = $this->getTestRunId();
-    $catalog = new ProductCatalog(null, $this->getBusinessManagerId());
+    $catalog_name = $this->getConfig()->testRunId;
+    $catalog = new ProductCatalog(null, $this->getConfig()->businessManagerId);
     $catalog->setData(array(
       ProductCatalogFields::NAME => $catalog_name,
     ));

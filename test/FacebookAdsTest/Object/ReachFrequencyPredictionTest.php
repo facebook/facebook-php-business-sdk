@@ -41,7 +41,8 @@ class ReachFrequencyPredictionTest extends AbstractCrudObjectTestCase
 
   public function testCrudAccess() {
 
-    $prediction = new ReachFrequencyPrediction(null, $this->getActId());
+    $prediction
+      = new ReachFrequencyPrediction(null, $this->getConfig()->accountId);
 
     $targeting = array(
     'geo_locations' => array('countries' => array('US')),
@@ -57,7 +58,7 @@ class ReachFrequencyPredictionTest extends AbstractCrudObjectTestCase
       RF::START_TIME => strtotime('midnight + 2 weeks'),
       RF::END_TIME => strtotime('midnight + 3 weeks'),
       RF::FREQUENCY_CAP => 4,
-      RF::DESTINATION_ID => $this->getPageId(),
+      RF::DESTINATION_ID => $this->getConfig()->pageId,
       RF::PREDICTION_MODE => ReachFrequencyPrediction::PREDICTION_MODE_REACH,
       RF::OBJECTIVE => AdObjectives::POST_ENGAGEMENT,
       RF::STORY_EVENT_TYPE => 128,

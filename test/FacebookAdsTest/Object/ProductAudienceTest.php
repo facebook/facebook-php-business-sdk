@@ -59,22 +59,22 @@ class ProductAudienceTest extends AbstractCrudObjectTestCase {
   public function setup() {
     parent::setup();
 
-    $this->account = new AdAccount($this->getActId());
+    $this->account = new AdAccount($this->getConfig()->accountId);
 
     $cursor = $this->account->getAdsPixels();
     $this->adsPixel = $cursor->current();
 
     $this->productCatalog =
-      new ProductCatalog(null, $this->getBusinessManagerId());
+      new ProductCatalog(null, $this->getConfig()->businessManagerId);
     $this->productCatalog->setData(array(
-      ProductCatalogFields::NAME => 'Test Catalog ' . $this->getTestRunId(),
+      ProductCatalogFields::NAME => $this->getConfig()->testRunId,
     ));
     $this->productCatalog->create();
 
     $this->productSet =
       new ProductSet(null, $this->productCatalog->{ProductCatalogFields::ID});
     $this->productSet->setData(array(
-      ProductSetFields::NAME => 'Test Set '.$this->getTestRunId(),
+      ProductSetFields::NAME => $this->getConfig()->testRunId,
       ProductSetFields::FILTER => array(
         'retailer_id' => array(
           'is_any' => array('pid1', 'pid2')
@@ -99,10 +99,10 @@ class ProductAudienceTest extends AbstractCrudObjectTestCase {
   }
 
   public function testCrudAccess() {
-    $audience_name = 'Test Audience '.$this->getTestRunId();
+    $audience_name = $this->getConfig()->testRunId;
     $this->adsPixel->{AdsPixelsFields::ID};
 
-    $audience = new ProductAudience(null, $this->getActId());
+    $audience = new ProductAudience(null, $this->getConfig()->accountId);
     $audience->setData(array(
       ProductAudienceFields::NAME => $audience_name,
       ProductAudienceFields::PRODUCT_SET_ID =>

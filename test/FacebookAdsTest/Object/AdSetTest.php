@@ -42,9 +42,9 @@ class AdSetTest extends AbstractCrudObjectTestCase {
 
   public function setup() {
     parent::setup();
-    $this->adCampaign = new AdCampaign(null, $this->getActId());
+    $this->adCampaign = new AdCampaign(null, $this->getConfig()->accountId);
     $this->adCampaign->{AdCampaignFields::NAME}
-      = $this->getTestRunId();
+      = $this->getConfig()->testRunId;
     $this->adCampaign->create();
   }
 
@@ -59,10 +59,10 @@ class AdSetTest extends AbstractCrudObjectTestCase {
     $targeting->{TargetingSpecsFields::GEO_LOCATIONS}
       = array('countries' => array('US'));
 
-    $set = new AdSet(null, $this->getActId());
+    $set = new AdSet(null, $this->getConfig()->accountId);
     $set->{AdSetFields::CAMPAIGN_GROUP_ID}
       = $this->adCampaign->{AdCampaignFields::ID};
-    $set->{AdSetFields::NAME} = $this->getTestRunId();
+    $set->{AdSetFields::NAME} = $this->getConfig()->testRunId;
     $set->{AdSetFields::CAMPAIGN_STATUS} = AdSet::STATUS_PAUSED;
     $set->{AdSetFields::BID_TYPE} = BidTypes::BID_TYPE_CPM;
     $set->{AdSetFields::BID_INFO}
@@ -77,7 +77,7 @@ class AdSetTest extends AbstractCrudObjectTestCase {
     $this->assertCanCreate($set);
     $this->assertCanRead($set);
     $this->assertCanUpdate($set, array(
-      AdSetFields::NAME => $this->getTestRunId().' updated',
+      AdSetFields::NAME => $this->getConfig()->testRunId.' updated',
     ));
     $this->assertCanFetchConnection($set, 'getAdGroups');
     $this->assertCanFetchConnection($set, 'getAdCreatives');

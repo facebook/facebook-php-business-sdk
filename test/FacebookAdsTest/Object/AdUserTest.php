@@ -29,7 +29,7 @@ use FacebookAds\Object\AdAccount;
 class AdUserTest extends AbstractCrudObjectTestCase {
 
   public function testCrudAccess() {
-    $ad_account = new AdAccount($this->getActId());
+    $ad_account = new AdAccount($this->getConfig()->accountId);
     $ad_users = $ad_account->getAdUsers();
     $this->assertNotNull($ad_users);
 

@@ -84,14 +84,14 @@ class AdTagTest extends AbstractCrudObjectTestCase
     $targeting->{TargetingSpecsFields::GEO_LOCATIONS}
       = array('countries' => array('US'));
 
-    $this->adCampaign = new AdCampaign(null, $this->getActId());
-    $this->adCampaign->{AdCampaignFields::NAME} = $this->getTestRunId();
+    $this->adCampaign = new AdCampaign(null, $this->getConfig()->accountId);
+    $this->adCampaign->{AdCampaignFields::NAME} = $this->getConfig()->testRunId;
     $this->adCampaign->create();
 
-    $this->adSet = new AdSet(null, $this->getActId());
+    $this->adSet = new AdSet(null, $this->getConfig()->accountId);
     $this->adSet->{AdSetFields::CAMPAIGN_GROUP_ID}
       = (int) $this->adCampaign->{AdSetFields::ID};
-    $this->adSet->{AdSetFields::NAME} = $this->getTestRunId();
+    $this->adSet->{AdSetFields::NAME} = $this->getConfig()->testRunId;
     $this->adSet->{AdSetFields::CAMPAIGN_STATUS} = AdSet::STATUS_PAUSED;
     $this->adSet->{AdSetFields::DAILY_BUDGET} = '150';
     $this->adSet->{AdSetFields::START_TIME}
@@ -104,19 +104,21 @@ class AdTagTest extends AbstractCrudObjectTestCase
       = array(BidInfoFields::IMPRESSIONS => 2);
     $this->adSet->save();
 
-    $this->adImage = new AdImage(null, $this->getActId());
-    $this->adImage->{AdImageFields::FILENAME} = $this->getTestImagePath();
+    $this->adImage = new AdImage(null, $this->getConfig()->accountId);
+    $this->adImage->{AdImageFields::FILENAME}
+      = $this->getConfig()->testImagePath;
     $this->adImage->save();
 
-    $this->adCreative = new AdCreative(null, $this->getActId());
+    $this->adCreative = new AdCreative(null, $this->getConfig()->accountId);
     $this->adCreative->{AdCreativeFields::TITLE} = 'My Test Ad';
     $this->adCreative->{AdCreativeFields::BODY} = 'My Test Ad Body';
-    $this->adCreative->{AdCreativeFields::OBJECT_ID} = $this->getPageId();
+    $this->adCreative->{AdCreativeFields::OBJECT_ID}
+      = $this->getConfig()->pageId;
     $this->adCreative->create();
 
-    $this->adGroup = new AdGroup(null, $this->getActId());
+    $this->adGroup = new AdGroup(null, $this->getConfig()->accountId);
     $this->adGroup->{AdGroupFields::ADGROUP_STATUS} = AdGroup::STATUS_PAUSED;
-    $this->adGroup->{AdGroupFields::NAME} = $this->getTestRunId();
+    $this->adGroup->{AdGroupFields::NAME} = $this->getConfig()->testRunId;
     $this->adGroup->{AdGroupFields::CAMPAIGN_ID}
       = (int) $this->adSet->{AdSetFields::ID};
     $this->adGroup->{AdGroupFields::CREATIVE}
@@ -159,13 +161,13 @@ class AdTagTest extends AbstractCrudObjectTestCase
     $adSets = array($this->adSet);
     $adGroups = array($this->adGroup);
 
-    $adTag = new AdTag(null, $this->getActId());
-    $adTag->{AdTagFields::NAME} = $this->getTestRunId();
+    $adTag = new AdTag(null, $this->getConfig()->accountId);
+    $adTag->{AdTagFields::NAME} = $this->getConfig()->testRunId;
 
     $this->assertCanCreate($adTag);
     $this->assertCanRead($adTag);
     $this->assertCanUpdate($adTag, array(
-      AdTagFields::NAME => $this->getTestRunId().' updated',
+      AdTagFields::NAME => $this->getConfig()->testRunId.' updated',
     ));
     $this->assertCanFetchConnection($adTag, 'getAdCampaigns');
     $this->assertCanFetchConnection($adTag, 'getAdSets');

@@ -31,8 +31,8 @@ use FacebookAds\Object\Fields\AdImageFields;
 class AdImageTest extends AbstractCrudObjectTestCase {
 
   public function testCrud() {
-    $image = new AdImage(null, $this->getActId());
-    $image->{AdImageFields::FILENAME} = $this->getTestImagePath();
+    $image = new AdImage(null, $this->getConfig()->accountId);
+    $image->{AdImageFields::FILENAME} = $this->getConfig()->testImagePath;
     $this->assertCanCreate($image);
     $this->assertCanRead($image);
     $this->assertCannotUpdate($image);
@@ -43,15 +43,16 @@ class AdImageTest extends AbstractCrudObjectTestCase {
    * @expectedException \Exception
    */
   public function testZipFileInNormalCreate() {
-    $image = new AdImage(null, $this->getActId());
-    $image->{AdImageFields::FILENAME}  = $this->getTestZippedImagesPath();
+    $image = new AdImage(null, $this->getConfig()->accountId);
+    $image->{AdImageFields::FILENAME}
+      = $this->getConfig()->testZippedImagesPath;
     $image->create();
   }
 
   public function testBulkZipUpload() {
     $images = AdImage::createFromZip(
-       $this->getTestZippedImagesPath(),
-       $this->getActId());
+       $this->getConfig()->testZippedImagesPath,
+       $this->getConfig()->accountId);
     $this->assertTrue(is_array($images));
 
     foreach ($images as $image) {

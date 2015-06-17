@@ -34,14 +34,14 @@ use FacebookAds\Object\Fields\InsightsFields;
 class AdAccountTest extends AbstractCrudObjectTestCase {
 
   public function testCrud() {
-    $account = new AdAccount($this->getActId());
+    $account = new AdAccount($this->getConfig()->accountId);
 
     $this->assertCanRead($account);
     $name = $account->read(array(AdAccountFields::NAME))
       ->{AdAccountFields::NAME};
     $this->assertCanUpdate(
       $account,
-      array(AdAccountFields::NAME => $this->getTestRunId()));
+      array(AdAccountFields::NAME => $this->getConfig()->testRunId));
 
     // Restore original account name
     $account->{AdAccountFields::NAME} = $name;

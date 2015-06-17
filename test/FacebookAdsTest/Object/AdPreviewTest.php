@@ -85,14 +85,14 @@ class AdPreviewTest extends AbstractCrudObjectTestCase
     $targeting->{TargetingSpecsFields::GEO_LOCATIONS}
       = array('countries' => array('US'));
 
-    $this->adCampaign = new AdCampaign(null, $this->getActId());
-    $this->adCampaign->{AdCampaignFields::NAME} = $this->getTestRunId();
+    $this->adCampaign = new AdCampaign(null, $this->getConfig()->accountId);
+    $this->adCampaign->{AdCampaignFields::NAME} = $this->getConfig()->testRunId;
     $this->adCampaign->create();
 
-    $this->adSet = new AdSet(null, $this->getActId());
+    $this->adSet = new AdSet(null, $this->getConfig()->accountId);
     $this->adSet->{AdSetFields::CAMPAIGN_GROUP_ID}
       = (int) $this->adCampaign->{AdSetFields::ID};
-    $this->adSet->{AdSetFields::NAME} = $this->getTestRunId();
+    $this->adSet->{AdSetFields::NAME} = $this->getConfig()->testRunId;
     $this->adSet->{AdSetFields::CAMPAIGN_STATUS} = AdSet::STATUS_PAUSED;
     $this->adSet->{AdSetFields::DAILY_BUDGET} = '150';
     $this->adSet->{AdSetFields::START_TIME}
@@ -105,21 +105,23 @@ class AdPreviewTest extends AbstractCrudObjectTestCase
       = array(BidInfoFields::IMPRESSIONS => 2);
     $this->adSet->create();
 
-    $this->adImage = new AdImage(null, $this->getActId());
-    $this->adImage->{AdImageFields::FILENAME} = $this->getTestImagePath();
+    $this->adImage = new AdImage(null, $this->getConfig()->accountId);
+    $this->adImage->{AdImageFields::FILENAME}
+      = $this->getConfig()->testImagePath;
     $this->adImage->save();
 
-    $this->adCreative = new AdCreative(null, $this->getActId());
+    $this->adCreative = new AdCreative(null, $this->getConfig()->accountId);
     $this->adCreative->{AdCreativeFields::TITLE} = 'My Test Ad';
     $this->adCreative->{AdCreativeFields::BODY} = 'My Test Ad Body';
-    $this->adCreative->{AdCreativeFields::OBJECT_ID} = $this->getPageId();
+    $this->adCreative->{AdCreativeFields::OBJECT_ID}
+      = $this->getConfig()->pageId;
     $this->adCreative->{AdCreativeFields::IMAGE_HASH}
       = $this->adImage->{AdImageFields::HASH};
     $this->adCreative->create();
 
-    $this->adGroup = new AdGroup(null, $this->getActId());
+    $this->adGroup = new AdGroup(null, $this->getConfig()->accountId);
     $this->adGroup->{AdGroupFields::ADGROUP_STATUS} = AdGroup::STATUS_PAUSED;
-    $this->adGroup->{AdGroupFields::NAME} = $this->getTestRunId();
+    $this->adGroup->{AdGroupFields::NAME} = $this->getConfig()->testRunId;
     $this->adGroup->{AdGroupFields::CAMPAIGN_ID}
       = (int) $this->adSet->{AdSetFields::ID};
     $this->adGroup->{AdGroupFields::CREATIVE}
@@ -187,13 +189,13 @@ class AdPreviewTest extends AbstractCrudObjectTestCase
     );
 
     // Preview with creative specs
-    $account = new AdAccount($this->getActId());
+    $account = new AdAccount($this->getConfig()->accountId);
     $previews = $account->getAdPreviews(
       array(),
       array(
         AdPreviewFields::CREATIVE => array(
           AdCreativeFields::BODY => 'Testing the creative preview',
-          AdCreativeFields::OBJECT_ID => $this->getPageId(),
+          AdCreativeFields::OBJECT_ID => $this->getConfig()->pageId,
         ),
         AdPreviewFields::AD_FORMAT => AdFormats::RIGHT_COLUMN_STANDARD,
       )

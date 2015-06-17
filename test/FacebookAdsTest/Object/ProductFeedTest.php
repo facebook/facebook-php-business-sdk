@@ -40,9 +40,9 @@ class ProductFeedTest extends AbstractCrudObjectTestCase {
     parent::setup();
 
     $this->productCatalog
-      = new ProductCatalog(null, $this->getBusinessManagerId());
+      = new ProductCatalog(null, $this->getConfig()->businessManagerId);
     $this->productCatalog->setData(array(
-      ProductCatalogFields::NAME => $this->getTestRunId(),
+      ProductCatalogFields::NAME => $this->getConfig()->testRunId,
     ));
     $this->productCatalog->create();
   }
@@ -57,7 +57,7 @@ class ProductFeedTest extends AbstractCrudObjectTestCase {
   }
 
   public function testCrudAccess() {
-    $feed_name = $this->getTestRunId();
+    $feed_name = $this->getConfig()->testRunId;
     $feed = new ProductFeed(null, $this->productCatalog->id);
     $feed->setData(array(
       ProductFeedFields::FILE_NAME => 'my_product_feed.tsv',

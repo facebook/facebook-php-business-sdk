@@ -31,11 +31,11 @@ class AdAccountGroupTest extends AbstractCrudObjectTestCase {
 
   public function testCrudAccess() {
     $group = new AdAccountGroup();
-    $group->{AdAccountGroupFields::NAME} = $this->getTestRunId();
+    $group->{AdAccountGroupFields::NAME} = $this->getConfig()->testRunId;
     $this->assertCanCreate($group);
     $this->assertCanRead($group);
     $this->assertCanUpdate($group, array(
-      AdAccountGroupFields::NAME => $this->getTestRunId().' updated'));
+      AdAccountGroupFields::NAME => $this->getConfig()->testRunId.' updated'));
 
     $this->assertCanFetchConnectionAsArray($group, 'getUsers');
     $this->assertCanFetchConnectionAsArray($group, 'getAdAccounts');

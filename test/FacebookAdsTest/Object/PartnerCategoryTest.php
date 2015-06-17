@@ -40,7 +40,7 @@ class PartnerCategoryTest extends AbstractCrudObjectTestCase
   }
 
   public function testCrudAccess() {
-    $account = new AdAccount($this->getActId());
+    $account = new AdAccount($this->getConfig()->accountId);
     $cursor = $account->getPartnerCategories();
     if (!$cursor->count()) {
       $this->markTestSkipped();
@@ -53,6 +53,7 @@ class PartnerCategoryTest extends AbstractCrudObjectTestCase
     $this->assertCanRead($category);
     $this->assertCannotUpdate($category);
     $this->assertCannotDelete($category);
-    $this->assertCannotCreate(new PartnerCategory(null, $this->getActId()));
+    $this->assertCannotCreate(
+      new PartnerCategory(null, $this->getConfig()->accountId));
   }
 }
