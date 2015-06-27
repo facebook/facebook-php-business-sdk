@@ -285,6 +285,20 @@ class AdAccount extends AbstractCrudObject {
    * @param array $params
    * @return Cursor
    */
+  public function getTargetingDescription(
+    array $fields = array(), array $params = array()) {
+    return $this->getOneByConnection(
+      TargetingDescription::className(),
+      $fields,
+      $params,
+      'targetingsentencelines');
+  }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
   public function getTransactions(
     array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(

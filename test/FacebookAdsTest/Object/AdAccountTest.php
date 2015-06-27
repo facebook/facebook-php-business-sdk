@@ -73,6 +73,15 @@ class AdAccountTest extends AbstractCrudObjectTestCase {
             array('countries' => array('US')))));
     }
 
+    $targeting_specs = array(
+      TargetingSpecsFields::GEO_LOCATIONS =>
+        array('countries' => array('US', 'JP')),
+      TargetingSpecsFields::GENDERS => array(1),
+      TargetingSpecsFields::AGE_MIN => 20,
+      TargetingSpecsFields::AGE_MAX => 24,
+    );
+    $this->assertCanFetchConnection(
+      $account, 'getTargetingDescription', array(), $targeting_specs);
     $this->assertCanFetchConnection($account, 'getTransactions');
     $this->assertCanFetchConnection($account, 'getAgencies');
     $this->assertCanFetchConnection($account, 'getInsights');
