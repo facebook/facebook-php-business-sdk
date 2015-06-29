@@ -76,6 +76,12 @@ return array(
   'skip_if' => array(
 
     /**
+     * @var bool Skip tests that require an business manager
+     * @see https://developers.facebook.com/docs/marketing-api/businessmanager/
+     */
+    'no_business_manager' => true,
+
+    /**
      * @var bool Skip tests that require an account with a valid payment method
      * @see https://secure.facebook.com/ads/manage/funding.php
      */
@@ -122,4 +128,24 @@ return array(
    *             Tip: access std streams with 'php://stdout' or 'php://stderr'
    */
   'curl_logger' => '',
+
+  /**
+   * @var string Page ID that can be added and removed from Business Manager
+   *              Cannot be the primary page for the business.
+   *              Test will be skipped if omitted
+   */
+  'secondary_page_id' => '',
+
+  /**
+   * @var string Account ID that can be added and removed from Business Manager
+   *              Cannot be the primary admin for the business, must not already
+   *              have access to this account.
+   */
+  'secondary_account_id' => '',
+
+  /**
+   * @var string App ID that can be added and removed from Business Manager
+   *              Must not already have access to this app.
+   */
+  'secondary_app_id' => '',
 );

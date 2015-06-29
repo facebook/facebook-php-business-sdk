@@ -28,6 +28,7 @@ use FacebookAds\Object\Fields\AdAccountFields;
 use FacebookAds\Object\Traits\CannotCreate;
 use FacebookAds\Object\Traits\CannotDelete;
 use FacebookAds\Object\Traits\FieldValidation;
+use FacebookAds\Http\RequestInterface;
 use FacebookAds\Cursor;
 
 class AdAccount extends AbstractCrudObject {
@@ -49,6 +50,7 @@ class AdAccount extends AbstractCrudObject {
     AdAccountFields::BALANCE,
     AdAccountFields::BUSINESS_CITY,
     AdAccountFields::BUSINESS_COUNTRY_CODE,
+    AdAccountFields::BUSINESS_ID,
     AdAccountFields::BUSINESS_NAME,
     AdAccountFields::BUSINESS_STATE,
     AdAccountFields::BUSINESS_STREET2,
@@ -408,5 +410,46 @@ class AdAccount extends AbstractCrudObject {
     array $fields = array(), array $params = array()) {
     return $this->createAsyncJob(
       AsyncJobInsights::className(), $fields, $params);
+  }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getAgencies(
+    array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(
+      Agency::className(), $fields, $params, 'agencies');
+  }
+
+  /**
+   * @param int $business_id
+   * @param array $permitted_roles
+   */
+  public function grantAgencyAcccess($business_id, $permitted_roles) {
+    $params = array(
+      'business' => $business_id,
+      'permitted_roles' => $permitted_roles,
+    );
+
+    $this->getApi()->call(
+      '/'.$this->assureId().'/agencies',
+      RequestInterface::METHOD_POST,
+      $params);
+  }
+
+  /**
+   * @param int $business_id
+   */
+  public function revokeAgencyAccess($business_id) {
+    $params = array(
+      'business' => $business_id,
+    );
+
+    $this->getApi()->call(
+      '/'.$this->assureId().'/agencies',
+      RequestInterface::METHOD_DELETE,
+      $params);
   }
 }

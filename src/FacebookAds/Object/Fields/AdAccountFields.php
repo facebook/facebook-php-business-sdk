@@ -35,6 +35,7 @@ abstract class AdAccountFields {
   const BALANCE = 'balance';
   const BUSINESS_CITY = 'business_city';
   const BUSINESS_COUNTRY_CODE = 'business_country_code';
+  const BUSINESS_ID = 'business_id';
   const BUSINESS_NAME = 'business_name';
   const BUSINESS_STATE = 'business_state';
   const BUSINESS_STREET2 = 'business_street2';

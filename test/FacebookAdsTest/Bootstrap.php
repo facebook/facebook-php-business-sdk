@@ -150,8 +150,13 @@ abstract class Bootstrap {
     $config->pageId = self::confxt('page_id');
     $config->appUrl = self::confxt('app_url');
     $config->businessManagerId = self::confxt('business_manager_id');
-
     // Optionals
+    $config->secondaryPageId =
+      self::confx('secondary_page_id', '');
+    $config->secondaryAccountId =
+      self::confx('secondary_account_id', '');
+    $config->secondaryAppId =
+      self::confx('secondary_app_id', '');
     $config->graphBaseDomain = self::confx('graph_base_domain');
     $config->skipSslVerification = self::confx('skip_ssl_verification', false);
     $config->curlLogger = self::confx('curl_logger');

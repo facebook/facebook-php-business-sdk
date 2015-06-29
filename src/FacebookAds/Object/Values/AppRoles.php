@@ -22,29 +22,14 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Values;
 
-use FacebookAds\Object\Fields\ProductAudienceFields;
+abstract class AppRoles {
 
-class ProductAudience extends AbstractCrudObject {
+  const ADMINISTRATOR  = 'ADMINISTRATOR';
+  const DEVELOPER = 'DEVELOPER';
+  const TESTER = 'TESTER';
+  const INSIGHTS_USER = 'INSIGHTS_USER';
+  const TEST_USER = 'TEST_USER';
 
-  /**
-   * @var string[]
-   */
-  protected static $fields = array(
-    ProductAudienceFields::ID,
-    ProductAudienceFields::NAME,
-    ProductAudienceFields::DESCRIPTION,
-    ProductAudienceFields::PRODUCT_SET_ID,
-    ProductAudienceFields::PIXEL_ID,
-    ProductAudienceFields::INCLUSIONS,
-    ProductAudienceFields::EXCLUSIONS,
-  );
-
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'product_audiences';
-  }
 }

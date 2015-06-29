@@ -30,6 +30,7 @@ use FacebookAds\Object\AsyncJobInsights;
 use FacebookAds\Object\AsyncJobReportStats;
 use FacebookAds\Object\Fields\AdAccountFields;
 use FacebookAds\Object\Fields\InsightsFields;
+use FacebookAds\Object\Values\AdAccountRoles;
 
 class AdAccountTest extends AbstractCrudObjectTestCase {
 
@@ -89,7 +90,17 @@ class AdAccountTest extends AbstractCrudObjectTestCase {
     $this->assertCanFetchConnection($account, 'getConversions');
     $this->assertCanFetchConnection($account, 'getAdCampaignConversions');
     $this->assertCanFetchConnection($account, 'getAdGroupConversions');
+    $this->assertCanFetchConnection($account, 'getAgencies');
     $this->assertCanFetchConnection($account, 'getInsights');
     $this->assertCanFetchConnection($account, 'getInsightsAsync');
+
+    if (!$this->getSkippableFeaturesManager()
+      ->isSkipKey('no_business_manager')) {
+
+      $account->revokeAgencyAccess($this->getConfig()->businessManagerId);
+      $account->grantAgencyAcccess(
+        $this->getConfig()->businessManagerId,
+        array(AdAccountRoles::GENERAL_USER));
+    }
   }
 }

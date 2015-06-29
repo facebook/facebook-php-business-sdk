@@ -24,27 +24,35 @@
 
 namespace FacebookAds\Object;
 
-use FacebookAds\Object\Fields\ProductAudienceFields;
+use FacebookAds\Object\Fields\SystemUserFields;
+use FacebookAds\Object\Traits\FieldValidation;
+use FacebookAds\Object\Traits\CannotDelete;
+use FacebookAds\Object\Traits\CannotUpdate;
 
-class ProductAudience extends AbstractCrudObject {
+class SystemUser extends AbstractCrudObject {
+  use FieldValidation;
+  use CannotDelete;
 
   /**
    * @var string[]
    */
   protected static $fields = array(
-    ProductAudienceFields::ID,
-    ProductAudienceFields::NAME,
-    ProductAudienceFields::DESCRIPTION,
-    ProductAudienceFields::PRODUCT_SET_ID,
-    ProductAudienceFields::PIXEL_ID,
-    ProductAudienceFields::INCLUSIONS,
-    ProductAudienceFields::EXCLUSIONS,
+    SystemUserFields::ID,
+    SystemUserFields::NAME,
+    SystemUserFields::PERMISSIONS,
+    SystemUserFields::ROLE,
   );
 
   /**
    * @return string
    */
   protected function getEndpoint() {
-    return 'product_audiences';
+    return 'system_users';
+  }
+
+  public function invalidateAccessTokens() {
+    $this->getApi()->call(
+      '/'.$this->assureId().'/access_tokens',
+      RequestInterface::METHOD_DELETE);
   }
 }

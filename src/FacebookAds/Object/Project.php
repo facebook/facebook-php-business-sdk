@@ -24,28 +24,32 @@
 
 namespace FacebookAds\Object;
 
-use FacebookAds\Api;
-use FacebookAds\Object\Fields\ProductCatalogFields;
+use FacebookAds\Object\Fields\ProjectFields;
 use FacebookAds\Object\Traits\FieldValidation;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\Cursor;
 
-class ProductCatalog extends AbstractCrudObject {
+class Project extends AbstractCrudObject {
   use FieldValidation;
 
   /**
    * @var string[]
    */
   protected static $fields = array(
-    ProductCatalogFields::ID,
-    ProductCatalogFields::NAME,
+    ProjectFields::ID,
+    ProjectFields::NAME,
+    ProjectFields::BUSINESS,
+    ProjectFields::UPDATE_TIME,
+    ProjectFields::UPDATED_BY,
+    ProjectFields::CREATED_TIME,
+    ProjectFields::CREATED_BY,
   );
 
   /**
    * @return string
    */
   protected function getEndpoint() {
-    return 'product_catalogs';
+    return 'businessprojects';
   }
 
   /**
@@ -53,10 +57,10 @@ class ProductCatalog extends AbstractCrudObject {
    * @param array $params
    * @return Cursor
    */
-  public function getProducts(
+  public function getPages(
     array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(
-      Product::className(), $fields, $params);
+      Page::className(), $fields, $params, 'pages');
   }
 
   /**
@@ -64,10 +68,10 @@ class ProductCatalog extends AbstractCrudObject {
    * @param array $params
    * @return Cursor
    */
-  public function getProductSets(
+  public function getAdAccounts(
     array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(
-      ProductSet::className(), $fields, $params);
+      AdAccount::className(), $fields, $params);
   }
 
   /**
@@ -75,86 +79,86 @@ class ProductCatalog extends AbstractCrudObject {
    * @param array $params
    * @return Cursor
    */
-  public function getProductFeeds(
+  public function getApps(
     array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(
-      ProductFeed::className(), $fields, $params);
+      App::className(), $fields, $params, 'apps');
   }
 
   /**
-   * @return array
+   * @param int $page_id
    */
-  public function getExternalEventSources() {
-    $response = $this->getApi()->call(
-      '/'.$this->assureId().'/external_event_sources',
-      RequestInterface::METHOD_GET);
-    $data = $response->getContent();
-    return (isset($data['data'])) ? $data['data'] : array();
-  }
-
-  /**
-   * @param int $pixel_ids
-   * @return bool
-   */
-  public function setExternalEventSources(array $pixel_ids) {
-    return $this->modifyExternalEventSources(
+  public function addPage($page_id) {
+    $params = array(
+      'page_id' => $page_id,
+    );
+    $this->getApi()->call(
+      '/'.$this->assureId().'/pages',
       RequestInterface::METHOD_POST,
-      $pixel_ids);
+      $params);
   }
 
   /**
-   * @param array $pixel_ids
-   * @return bool
+   * @param int $page_id
    */
-  public function removeExternalEventSources(array $pixel_ids) {
-    return $this->modifyExternalEventSources(
+  public function deletePage($page_id) {
+    $params = array(
+      'page_id' => $page_id,
+    );
+    $this->getApi()->call(
+      '/'.$this->assureId().'/pages',
       RequestInterface::METHOD_DELETE,
-      $pixel_ids);
-  }
-
-  /**
-   * @param array $pixel_ids
-   * @return bool
-   */
-  protected function modifyExternalEventSources(
-    string $method,
-    array $pixel_ids) {
-    $params = array(
-      ProductCatalogFields::EXTERNAL_EVENT_SOURCES => $pixel_ids,
-    );
-
-    $response = $this->getApi()->call(
-      '/'.$this->assureId().'/external_event_sources',
-      $method,
       $params);
-    $data = $response->getContent();
-    return (isset($data['success'])) ? $data['success'] : false;
   }
 
   /**
-   * @param int $user_id
-   * @param string $role
+   * @param int $account_id
    */
-  public function addUserPermission($user_id, $role) {
+  public function adAdAccount($account_id) {
     $params = array(
-      'user' => $user_id,
-      'role' => $role,
+      'adaccount_id' => $account_id,
     );
     $this->getApi()->call(
-      '/'.$this->assureId().'/userpermissions',
+      '/'.$this->assureId().'/adaccounts',
       RequestInterface::METHOD_POST,
       $params);
   }
 
   /**
-   * @param int $user_id
+   * @param int $account_id
    */
-  public function deleteUserPermission($user_id) {
+  public function deleteAdAccount($account_id) {
     $params = array(
-      'user' => $user_id,
+      'adaccount_id' => $account_id,
     );
     $this->getApi()->call(
-      '/'.$this->assureId().'/userpermissions',
+      '/'.$this->assureId().'/adaccounts',
+      RequestInterface::METHOD_DELETE,
+      $params);
+  }
+
+  /**
+   * @param int $app_id
+   */
+  public function addApp($app_id) {
+    $params = array(
+      'app_id' => $app_id,
+    );
+    $this->getApi()->call(
+      '/'.$this->assureId().'/apps',
+      RequestInterface::METHOD_POST,
+      $params);
+  }
+
+  /**
+   * @param int $app_id
+   */
+  public function deleteApp($app_id) {
+    $params = array(
+      'app_id' => $app_id,
+    );
+    $this->getApi()->call(
+      '/'.$this->assureId().'/apps',
       RequestInterface::METHOD_DELETE,
       $params);
   }

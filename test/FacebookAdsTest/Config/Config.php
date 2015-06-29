@@ -94,6 +94,21 @@ final class Config {
   /**
    * @var string
    */
+  public $secondaryPageId;
+
+  /**
+   * @var string
+   */
+  public $secondaryAccountId;
+
+  /**
+   * @var string
+   */
+  public $secondaryAppId;
+
+  /**
+   * @var string
+   */
   public $graphBaseDomain;
 
   /**
