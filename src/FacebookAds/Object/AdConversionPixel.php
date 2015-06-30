@@ -47,9 +47,9 @@ class AdConversionPixel extends AbstractCrudObject {
    */
   protected static $fields = array(
     AdConversionPixelFields::ID,
+    AdConversionPixelFields::LAST_FIRING_TIME,
     AdConversionPixelFields::NAME,
     AdConversionPixelFields::TAG,
-    AdConversionPixelFields::STATUS,
     AdConversionPixelFields::CREATOR,
     AdConversionPixelFields::JS_PIXEL,
     AdConversionPixelFields::VALUE,

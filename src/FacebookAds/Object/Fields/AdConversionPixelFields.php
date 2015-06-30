@@ -27,9 +27,9 @@ namespace FacebookAds\Object\Fields;
 abstract class AdConversionPixelFields {
 
   const ID = 'id';
+  const LAST_FIRING_TIME = 'last_firing_time';
   const NAME = 'name';
   const TAG = 'tag';
-  const STATUS = 'status';
   const CREATOR = 'creator';
   const JS_PIXEL = 'js_pixel';
   const VALUE = 'value';
