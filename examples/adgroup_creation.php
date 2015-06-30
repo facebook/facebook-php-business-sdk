@@ -120,8 +120,8 @@ $targeting->{TargetingSpecsFields::INTERESTS} = array(
  */
 use FacebookAds\Object\AdSet;
 use FacebookAds\Object\Fields\AdSetFields;
-use FacebookAds\Object\Fields\BidInfoFields;
-use FacebookAds\Object\Values\BidTypes;
+use FacebookAds\Object\Values\OptimizationGoals;
+use FacebookAds\Object\Values\BillingEvents;
 
 $adset = new AdSet(null, $account->id);
 $adset->setData(array(
@@ -130,9 +130,9 @@ $adset->setData(array(
   AdSetFields::CAMPAIGN_STATUS => AdSet::STATUS_ACTIVE,
   AdSetFields::DAILY_BUDGET => '150',
   AdSetFields::TARGETING => $targeting,
-  AdSetFields::BID_TYPE => BidTypes::BID_TYPE_CPM,
-  AdSetFields::BID_INFO =>
-    array(BidInfoFields::IMPRESSIONS => 2),
+  AdSetFields::OPTIMIZATION_GOAL => OptimizationGoals::REACH,
+  AdSetFields::BILLING_EVENT => BillingEvents::IMPRESSIONS,
+  AdSetFields::BID_AMOUNT => 2,
   AdSetFields::START_TIME =>
     (new \DateTime("+1 week"))->format(\DateTime::ISO8601),
   AdSetFields::END_TIME =>

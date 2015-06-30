@@ -24,11 +24,14 @@
 
 namespace FacebookAds\Object\Values;
 
-abstract class BidTypes {
+abstract class BillingEvents {
 
-  const BID_TYPE_CPA = 'CPA';
-  const BID_TYPE_CPC = 'CPC';
-  const BID_TYPE_CPM = 'CPM';
-  const BID_TYPE_MULTI_PREMIUM = 'MULTI_PREMIUM';
-  const BID_TYPE_ABSOLUTE_OCPM = 'ABSOLUTE_OCPM';
+  const APP_INSTALLS = 'APP_INSTALLS';
+  const CLICKS = 'CLICKS';
+  const IMPRESSIONS = 'IMPRESSIONS';
+  const LINK_CLICKS = 'LINK_CLICKS';
+  const MULTI_PREMIUM = 'MULTI_PREMIUM';
+  const OFFER_CLAIMS = 'OFFER_CLAIMS';
+  const PAGE_LIKES = 'PAGE_LIKES';
+  const POST_ENGAGEMENT = 'POST_ENGAGEMENT';
 }

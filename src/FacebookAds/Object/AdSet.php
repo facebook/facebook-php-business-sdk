@@ -64,11 +64,12 @@ class AdSet extends AbstractArchivableCrudObject
     AdSetFields::RF_PREDICTION_ID,
     AdSetFields::CAMPAIGN_SCHEDULE,
     AdSetFields::TARGETING,
-    AdSetFields::BID_TYPE,
-    AdSetFields::BID_INFO,
     AdSetFields::PROMOTED_OBJECT,
     AdSetFields::UPDATED_TIME,
     AdSetFields::IS_AUTOBID,
+    AdSetFields::BILLING_EVENT,
+    AdSetFields::BID_AMOUNT,
+    AdSetFields::OPTIMIZATION_GOAL,
   );
 
   /**

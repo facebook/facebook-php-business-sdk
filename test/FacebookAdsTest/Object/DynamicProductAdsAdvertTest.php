@@ -49,8 +49,9 @@ use FacebookAds\Object\Fields\ProductCatalogFields;
 use FacebookAds\Object\Fields\ProductSetFields;
 use FacebookAds\Object\Fields\TargetingSpecsFields;
 use FacebookAds\Object\Values\AdObjectives;
-use FacebookAds\Object\Values\BidTypes;
+use FacebookAds\Object\Values\BillingEvents;
 use FacebookAds\Object\Values\CallToActionTypes;
+use FacebookAds\Object\Values\OptimizationGoals;
 
 class DynamicProductAdsAdvertTest extends AbstractCrudObjectTestCase {
 
@@ -203,16 +204,16 @@ class DynamicProductAdsAdvertTest extends AbstractCrudObjectTestCase {
     $this->adSet = new AdSet(null, $this->getConfig()->accountId);
     $this->adSet->setData(array(
       AdSetFields::NAME => $this->getConfig()->testRunId,
-      AdSetFields::BID_TYPE => BidTypes::BID_TYPE_CPC,
-      AdSetFields::BID_INFO =>
-        array(BidInfoFields::CLICKS => 150),
-        AdSetFields::DAILY_BUDGET => 2000,
-        AdSetFields::CAMPAIGN_GROUP_ID =>
-          $this->adCampaign->{AdCampaignFields::ID},
-        AdSetFields::TARGETING => $targeting,
-        AdsetFields::PROMOTED_OBJECT =>
-          array('product_set_id' => $this->productSet->{ProductSetFields::ID})
-      ));
+      AdSetFields::OPTIMIZATION_GOAL => OptimizationGoals::OFFSITE_CONVERSIONS,
+      AdSetFields::BILLING_EVENT => BillingEvents::IMPRESSIONS,
+      AdSetFields::BID_AMOUNT => 2,
+      AdSetFields::DAILY_BUDGET => 2000,
+      AdSetFields::CAMPAIGN_GROUP_ID =>
+        $this->adCampaign->{AdCampaignFields::ID},
+      AdSetFields::TARGETING => $targeting,
+      AdsetFields::PROMOTED_OBJECT =>
+        array('product_set_id' => $this->productSet->{ProductSetFields::ID})
+    ));
     $this->assertCanCreate($this->adSet);
 
     $template = new TemplateData();

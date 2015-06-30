@@ -39,8 +39,8 @@ use FacebookAds\Object\Fields\AdSetFields;
 use FacebookAds\Object\Fields\AdCampaignFields;
 use FacebookAds\Object\Fields\TargetingSpecsFields;
 use FacebookAds\Object\Values\AdFormats;
-use FacebookAds\Object\Fields\BidInfoFields;
-use FacebookAds\Object\Values\BidTypes;
+use FacebookAds\Object\Values\BillingEvents;
+use FacebookAds\Object\Values\OptimizationGoals;
 use FacebookAdsTest\Config\SkippableFeatureTestInterface;
 
 class AdPreviewTest extends AbstractCrudObjectTestCase
@@ -100,9 +100,9 @@ class AdPreviewTest extends AbstractCrudObjectTestCase
     $this->adSet->{AdSetFields::END_TIME}
       = (new \DateTime("+2 week"))->format(\DateTime::ISO8601);
     $this->adSet->{AdGroupFields::TARGETING} = $targeting;
-    $this->adSet->{AdGroupFields::BID_TYPE} = BidTypes::BID_TYPE_CPM;
-    $this->adSet->{AdSetFields::BID_INFO}
-      = array(BidInfoFields::IMPRESSIONS => 2);
+    $this->adSet->{AdSetFields::OPTIMIZATION_GOAL} = OptimizationGoals::REACH;
+    $this->adSet->{AdSetFields::BILLING_EVENT} = BillingEvents::IMPRESSIONS;
+    $this->adSet->{AdSetFields::BID_AMOUNT} = 2;
     $this->adSet->create();
 
     $this->adImage = new AdImage(null, $this->getConfig()->accountId);

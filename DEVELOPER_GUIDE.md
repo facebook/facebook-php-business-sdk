@@ -368,7 +368,8 @@ The `AdSet` holds the attributes about the duration of a campaign and the budget
 ```php
 use FacebookAds\Object\AdSet;
 use FacebookAds\Object\Fields\AdSetFields;
-use FacebookAds\Object\Values\BidTypes;
+use FacebookAds\Object\Values\BillingEvents;
+use FacebookAds\Object\Values\OptimizationGoals;
 
 $adset = new AdSet(null, $account->id);
 $adset->setData(array(
@@ -376,7 +377,9 @@ $adset->setData(array(
   AdSetFields::CAMPAIGN_GROUP_ID => $campaign->id,
   AdSetFields::CAMPAIGN_STATUS => AdSet::STATUS_ACTIVE,
   AdSetFields::DAILY_BUDGET => '150',
-  AdSetFields::BID_TYPE => BidTypes::BID_TYPE_CPM;
+  AdSetFields::OPTIMIZATION_GOAL => OptimizationGoals::REACH,
+  AdSetFields::BILLING_EVENT => BillingEvents::IMPRESSIONS,
+  AdSetFields::BID_AMOUNT => 2,
   AdSetFields::TARGETING => $targeting,
   AdSetFields::START_TIME => 
     (new \DateTime("+1 week"))->format(\DateTime::ISO8601),
@@ -430,15 +433,12 @@ The final step is to create the [`AdGroup`](https://developers.facebook.com/docs
 ```php
 use FacebookAds\Object\AdGroup;
 use FacebookAds\Object\Fields\AdGroupFields;
-use FacebookAds\Object\Fields\BidInfoFields;
 
 $adgroup = new AdGroup(null, $account->id);
 $adgroup->setData(array(
   AdGroupFields::CREATIVE => 
     array('creative_id' => $creative->id),
   AdGroupFields::NAME => 'My First AdGroup',
-  AdGroupFields::BID_INFO => 
-    array(BidInfoFields::IMPRESSIONS => '2'),
   AdGroupFields::CAMPAIGN_ID => $adset->id,
 ));
 
