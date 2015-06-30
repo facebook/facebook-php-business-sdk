@@ -62,7 +62,6 @@ class AdAccount extends AbstractCrudObject {
     AdAccountFields::PARTNER,
     AdAccountFields::CAPABILITIES,
     AdAccountFields::CURRENCY,
-    AdAccountFields::DAILY_SPEND_LIMIT,
     AdAccountFields::IS_PERSONAL,
     AdAccountFields::NAME,
     AdAccountFields::OFFSITE_PIXELS_TOS_ACCEPTED,

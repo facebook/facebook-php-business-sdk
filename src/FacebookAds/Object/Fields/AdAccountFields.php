@@ -47,7 +47,6 @@ abstract class AdAccountFields {
   const PARTNER = 'partner';
   const CAPABILITIES = 'capabilities';
   const CURRENCY = 'currency';
-  const DAILY_SPEND_LIMIT = 'daily_spend_limit';
   const ID = 'id';
   const IS_PERSONAL = 'is_personal';
   const NAME = 'name';
