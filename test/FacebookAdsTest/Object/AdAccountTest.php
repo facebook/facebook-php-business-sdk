@@ -30,6 +30,8 @@ use FacebookAds\Object\AsyncJobInsights;
 use FacebookAds\Object\Fields\AdAccountFields;
 use FacebookAds\Object\Fields\InsightsFields;
 use FacebookAds\Object\Values\AdAccountRoles;
+use FacebookAds\Object\Fields\TargetingSpecsFields;
+use FacebookAds\Object\TargetingSpecs;
 
 class AdAccountTest extends AbstractCrudObjectTestCase {
 
@@ -73,15 +75,18 @@ class AdAccountTest extends AbstractCrudObjectTestCase {
             array('countries' => array('US')))));
     }
 
-    $targeting_specs = array(
+    $targeting = new TargetingSpecs();
+    $targeting->setData(array(
       TargetingSpecsFields::GEO_LOCATIONS =>
         array('countries' => array('US', 'JP')),
       TargetingSpecsFields::GENDERS => array(1),
       TargetingSpecsFields::AGE_MIN => 20,
       TargetingSpecsFields::AGE_MAX => 24,
-    );
+    ));
+    $params = array('targeting_spec' => $targeting->exportData());
     $this->assertCanFetchConnection(
-      $account, 'getTargetingDescription', array(), $targeting_specs);
+      $account, 'getTargetingDescription', array(), $params);
+
     $this->assertCanFetchConnection($account, 'getTransactions');
     $this->assertCanFetchConnection($account, 'getAgencies');
     $this->assertCanFetchConnection($account, 'getInsights');
