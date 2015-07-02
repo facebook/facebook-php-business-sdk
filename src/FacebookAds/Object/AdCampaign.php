@@ -109,14 +109,4 @@ class AdCampaign extends AbstractArchivableCrudObject {
     return $this->createAsyncJob(
       AsyncJobInsights::className(), $fields, $params);
   }
-
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getStats(array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      AdStats::className(), $fields, $params, 'stats');
-  }
 }

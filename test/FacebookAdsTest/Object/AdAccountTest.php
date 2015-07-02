@@ -27,7 +27,6 @@ namespace FacebookAdsTest\Object;
 use FacebookAds\Object\AbstractAsyncJobObject;
 use FacebookAds\Object\AdAccount;
 use FacebookAds\Object\AsyncJobInsights;
-use FacebookAds\Object\AsyncJobReportStats;
 use FacebookAds\Object\Fields\AdAccountFields;
 use FacebookAds\Object\Fields\InsightsFields;
 use FacebookAds\Object\Values\AdAccountRoles;
@@ -76,20 +75,7 @@ class AdAccountTest extends AbstractCrudObjectTestCase {
             array('countries' => array('US')))));
     }
 
-    $report_stats_params = array(
-      'date_preset' => 'yesterday',
-      'data_columns' => "['campaign_name','reach','actions','spend', 'clicks']"
-    );
-
-    $this->assertCanFetchConnection(
-      $account, 'getReportsStats', array(), $report_stats_params);
-    $this->assertCanFetchConnection(
-      $account, 'getReportStatsAsync', array(), $report_stats_params);
-    $this->assertCanFetchConnection($account, 'getStats');
     $this->assertCanFetchConnection($account, 'getTransactions');
-    $this->assertCanFetchConnection($account, 'getConversions');
-    $this->assertCanFetchConnection($account, 'getAdCampaignConversions');
-    $this->assertCanFetchConnection($account, 'getAdGroupConversions');
     $this->assertCanFetchConnection($account, 'getAgencies');
     $this->assertCanFetchConnection($account, 'getInsights');
     $this->assertCanFetchConnection($account, 'getInsightsAsync');

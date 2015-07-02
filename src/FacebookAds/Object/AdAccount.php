@@ -130,31 +130,9 @@ class AdAccount extends AbstractCrudObject {
    * @param array $params
    * @return Cursor
    */
-  public function getAdCampaignStats(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      AdStats::className(), $fields, $params, 'adcampaignstats');
-  }
-
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
   public function getAdGroups(
     array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(AdGroup::className(), $fields, $params);
-  }
-
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getAdGroupStats(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      AdStats::className(), $fields, $params, 'adgroupstats');
   }
 
   /**
@@ -307,75 +285,10 @@ class AdAccount extends AbstractCrudObject {
    * @param array $params
    * @return Cursor
    */
-  public function getReportsStats(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      AdStats::className(), $fields, $params, 'reportstats');
-  }
-
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return AsyncJobReportStats
-   */
-  public function getReportStatsAsync(
-    array $fields = array(), array $params = array()) {
-    return $this->createAsyncJob(
-      AsyncJobReportStats::className(), $fields, $params);
-  }
-
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getStats(array $fields = array(), array $params = array()) {
-    return $this->getOneByConnection(
-      AdStats::className(), $fields, $params, 'stats');
-  }
-
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
   public function getTransactions(
     array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(
       Transaction::className(), $fields, $params, 'transactions');
-  }
-
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return AdStats
-   */
-  public function getConversions(
-    array $fields = array(), array $params = array()) {
-    return $this->getOneByConnection(
-      AdStats::className(), $fields, $params, 'conversions');
-  }
-
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return AdStats
-   */
-  public function getAdCampaignConversions(
-    array $fields = array(), array $params = array()) {
-    return $this->getOneByConnection(
-      AdStats::className(), $fields, $params, 'adcampaignconversions');
-  }
-
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return AdStats
-   */
-  public function getAdgroupConversions(
-    array $fields = array(), array $params = array()) {
-    return $this->getOneByConnection(
-      AdStats::className(), $fields, $params, 'adgroupconversions');
   }
 
   /**

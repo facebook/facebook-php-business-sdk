@@ -160,9 +160,7 @@ class AdGroupTest extends AbstractCrudObjectTestCase
     if (!$this->shouldSkipTest('no_reach_and_frequency')) {
       $this->assertCanFetchConnection($group, 'getReachEstimate');
     }
-    $this->assertCanFetchConnection($group, 'getStats');
     $this->assertCanFetchConnection($group, 'getClickTrackingTag');
-    $this->assertCanFetchConnection($group, 'getConversions');
     $this->assertCanFetchConnection($group, 'getInsights');
     $this->assertCanFetchConnection($group, 'getInsightsAsync');
 

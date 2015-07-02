@@ -162,17 +162,6 @@ class AdGroup extends AbstractArchivableCrudObject
    * @param array $params
    * @return Cursor
    */
-  public function getKeywordStat(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      AdStats::className(), $fields, $params, 'keywordstats');
-  }
-
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
   public function getAdPreviews(
     array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(
@@ -193,33 +182,12 @@ class AdGroup extends AbstractArchivableCrudObject
   /**
    * @param array $fields
    * @param array $params
-   * @return AdStats
-   */
-  public function getStats(array $fields = array(), array $params = array()) {
-    return $this->getOneByConnection(
-      AdStats::className(), $fields, $params, 'stats');
-  }
-
-  /**
-   * @param array $fields
-   * @param array $params
    * @return Cursor
    */
   public function getClickTrackingTag(
     array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(
       ClickTrackingTag::className(), $fields, $params, 'trackingtag');
-  }
-
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return AdStats
-   */
-  public function getConversions(
-    array $fields = array(), array $params = array()) {
-    return $this->getOneByConnection(
-      AdStats::className(), $fields, $params, 'conversions');
   }
 
   /**

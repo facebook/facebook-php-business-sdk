@@ -127,14 +127,4 @@ class AdSet extends AbstractArchivableCrudObject
     return $this->createAsyncJob(
       AsyncJobInsights::className(), $fields, $params);
   }
-
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return AdStats
-   */
-  public function getStats(array $fields = array(), array $params = array()) {
-    return $this->getOneByConnection(
-      AdStats::className(), $fields, $params, 'stats');
-  }
 }
