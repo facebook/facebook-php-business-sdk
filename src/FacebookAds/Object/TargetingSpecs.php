@@ -40,7 +40,6 @@ class TargetingSpecs extends AbstractObject {
     TargetingSpecsFields::GEO_LOCATIONS,
     TargetingSpecsFields::EXCLUDED_GEO_LOCATIONS,
     TargetingSpecsFields::USER_ADCLUSTERS,
-    TargetingSpecsFields::EXCLUDED_USER_ADCLUSTERS,
     TargetingSpecsFields::INTERESTS,
     TargetingSpecsFields::USER_OS,
     TargetingSpecsFields::USER_DEVICE,
@@ -76,7 +75,6 @@ class TargetingSpecs extends AbstractObject {
     TargetingSpecsFields::ZIPS,
     TargetingSpecsFields::CUSTOM_AUDIENCES,
     TargetingSpecsFields::EXCLUDED_CUSTOM_AUDIENCES,
-    TargetingSpecsFields::CONJUNCTIVE_USER_ADCLUSTERS,
     TargetingSpecsFields::DYNAMIC_AUDIENCE_IDS,
   );
 }

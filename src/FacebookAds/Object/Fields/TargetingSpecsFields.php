@@ -32,7 +32,6 @@ abstract class TargetingSpecsFields {
   const GEO_LOCATIONS = 'geo_locations';
   const EXCLUDED_GEO_LOCATIONS = 'excluded_geo_locations';
   const USER_ADCLUSTERS = 'user_adclusters';
-  const EXCLUDED_USER_ADCLUSTERS = 'excluded_user_adclusters';
   const INTERESTS = 'interests';
   const USER_OS = 'user_os';
   const USER_DEVICE = 'user_device';
@@ -68,6 +67,5 @@ abstract class TargetingSpecsFields {
   const ZIPS = 'zips';
   const CUSTOM_AUDIENCES = 'custom_audiences';
   const EXCLUDED_CUSTOM_AUDIENCES = 'excluded_custom_audiences';
-  const CONJUNCTIVE_USER_ADCLUSTERS = 'conjunctive_user_adclusters';
   const DYNAMIC_AUDIENCE_IDS = 'dynamic_audience_ids';
 }
