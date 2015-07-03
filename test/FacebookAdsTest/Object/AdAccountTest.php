@@ -53,9 +53,7 @@ class AdAccountTest extends AbstractCrudObjectTestCase {
     $this->assertCanFetchConnection($account, 'getAdUsers');
     $this->assertCanFetchConnection($account, 'getAdCampaigns');
     $this->assertCanFetchConnection($account, 'getAdSets');
-    $this->assertCanFetchConnection($account, 'getAdCampaignStats');
     $this->assertCanFetchConnection($account, 'getAdGroups');
-    $this->assertCanFetchConnection($account, 'getAdGroupStats');
     $this->assertCanFetchConnection($account, 'getAdCreatives');
     $this->assertCanFetchConnection($account, 'getAdImages');
     $this->assertCanFetchConnection($account, 'getAdsPixels');
