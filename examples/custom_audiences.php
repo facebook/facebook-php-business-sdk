@@ -52,12 +52,14 @@ Api::init($app_id, $app_secret, $access_token);
 use FacebookAds\Object\CustomAudience;
 use FacebookAds\Object\Fields\CustomAudienceFields;
 use FacebookAds\Object\Values\CustomAudienceTypes;
+use FacebookAds\Object\Values\CustomAudienceSubtypes;
 
 // Create a custom audience object, setting the parent to be the account id
 $audience = new CustomAudience(null, $account_id);
 $audience->setData(array(
   CustomAudienceFields::NAME => 'My Custom Audiece',
   CustomAudienceFields::DESCRIPTION => 'Lots of people',
+  CustomAudienceFields::SUBTYPE => CustomAudienceSubtypes::CUSTOM,
 ));
 // Create the audience
 $audience->create();

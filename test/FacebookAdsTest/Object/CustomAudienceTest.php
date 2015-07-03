@@ -26,6 +26,7 @@ namespace FacebookAdsTest\Object;
 
 use FacebookAds\Object\CustomAudience;
 use FacebookAds\Object\Fields\CustomAudienceFields;
+use FacebookAds\Object\Values\CustomAudienceSubtypes;
 use FacebookAds\Object\Values\CustomAudienceTypes;
 
 class CustomAudienceTest extends AbstractCrudObjectTestCase {
@@ -47,6 +48,7 @@ class CustomAudienceTest extends AbstractCrudObjectTestCase {
   public function testCustomAudiences() {
     $ca = new CustomAudience(null, $this->getConfig()->accountId);
     $ca->{CustomAudienceFields::NAME} = $this->getConfig()->testRunId;
+    $ca->{CustomAudienceFields::SUBTYPE} = CustomAudienceSubtypes::CUSTOM;
 
     $this->assertCanCreate($ca);
 
@@ -77,6 +79,7 @@ class CustomAudienceTest extends AbstractCrudObjectTestCase {
   public function testAppIdsPayload() {
     $ca = new CustomAudience(null, $this->getConfig()->accountId);
     $ca->{CustomAudienceFields::NAME} = $this->getConfig()->testRunId;
+    $ca->{CustomAudienceFields::SUBTYPE} = CustomAudienceSubtypes::CUSTOM;
     $ca->create();
 
     $users = array($this->getApi()->call('/me')->getContent()['id']);
