@@ -74,6 +74,11 @@ final class Config {
   /**
    * @var string
    */
+  public $businessId;
+
+  /**
+   * @var string
+   */
   public $accountId;
 
   /**
@@ -89,7 +94,7 @@ final class Config {
   /**
    * @var string
    */
-  public $businessManagerId;
+  public $secondaryBusinessId;
 
   /**
    * @var string

@@ -42,6 +42,11 @@ return array(
   'access_token' => '',
 
   /**
+   * @var string Numeric Facebook Business Manager id, espressed as string
+   */
+  'business_id' => '',
+
+  /**
    * @var string Numeric Facebook id, preceded by 'act_', espressed as string
    * @see https://www.facebook.com/ads/manage/home/
    */
@@ -54,7 +59,7 @@ return array(
   'act_timezone' => '',
 
   /**
-   * @var string Numeric Facebook id, preceded by 'act_', espressed as string
+   * @var string Numeric Facebook id, espressed as string
    * @see https://www.facebook.com/ads/manage/home/
    */
   'page_id' => '',
@@ -65,11 +70,6 @@ return array(
    * @see https://developers.facebook.com/docs/facebook-login/security/#surfacearea
    */
   'app_url' => '',
-
-  /**
-   * @var string Numeric Facebook Business Manager id, espressed as string
-   */
-  'business_manager_id' => '',
 
   // OPTIONAL INTEGRATION TESTS
 
@@ -129,23 +129,26 @@ return array(
    */
   'curl_logger' => '',
 
-  /**
-   * @var string Page ID that can be added and removed from Business Manager
-   *              Cannot be the primary page for the business.
-   *              Test will be skipped if omitted
-   */
-  'secondary_page_id' => '',
+  // OPTIONAL SECONDARY ENTITIES
+  // Do not set the same as primary. May incurr in lost permissions.
 
   /**
-   * @var string Account ID that can be added and removed from Business Manager
-   *              Cannot be the primary admin for the business, must not already
-   *              have access to this account.
+   * @var string Ausiliary Business ID for permissions and sharing testing
+   */
+  'secondary_business_id' => '',
+
+  /**
+   * @var string Ausiliary Account ID for permissions and sharing testing
    */
   'secondary_account_id' => '',
 
   /**
-   * @var string App ID that can be added and removed from Business Manager
-   *              Must not already have access to this app.
+   * @var string Ausiliary Page ID for permissions and sharing testing
+   */
+  'secondary_page_id' => '',
+
+  /**
+   * @var string Ausiliary Page ID for permissions and sharing testing
    */
   'secondary_app_id' => '',
 );

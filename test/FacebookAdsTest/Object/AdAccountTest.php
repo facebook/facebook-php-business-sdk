@@ -83,10 +83,11 @@ class AdAccountTest extends AbstractCrudObjectTestCase {
     if (!$this->getSkippableFeaturesManager()
       ->isSkipKey('no_business_manager')) {
 
-      $account->revokeAgencyAccess($this->getConfig()->businessManagerId);
       $account->grantAgencyAcccess(
-        $this->getConfig()->businessManagerId,
+        $this->getConfig()->secondaryBusinessId,
         array(AdAccountRoles::GENERAL_USER));
+
+      $account->revokeAgencyAccess($this->getConfig()->secondaryBusinessId);
     }
   }
 }

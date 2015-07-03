@@ -65,7 +65,7 @@ class ProductAudienceTest extends AbstractCrudObjectTestCase {
     $this->adsPixel = $cursor->current();
 
     $this->productCatalog =
-      new ProductCatalog(null, $this->getConfig()->businessManagerId);
+      new ProductCatalog(null, $this->getConfig()->businessId);
     $this->productCatalog->setData(array(
       ProductCatalogFields::NAME => $this->getConfig()->testRunId,
     ));

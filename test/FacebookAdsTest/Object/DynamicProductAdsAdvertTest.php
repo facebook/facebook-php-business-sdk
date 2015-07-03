@@ -30,6 +30,7 @@ use FacebookAds\Object\AdCreative;
 use FacebookAds\Object\AdGroup;
 use FacebookAds\Object\AdSet;
 use FacebookAds\Object\AdsPixel;
+use FacebookAds\Object\Fields\BidInfoFields;
 use FacebookAds\Object\ObjectStorySpec;
 use FacebookAds\Object\ProductAudience;
 use FacebookAds\Object\ProductCatalog;
@@ -39,7 +40,6 @@ use FacebookAds\Object\ObjectStory\TemplateData;
 use FacebookAds\Object\Fields\AdCampaignFields;
 use FacebookAds\Object\Fields\AdCreativeFields;
 use FacebookAds\Object\Fields\AdGroupFields;
-use FacebookAds\Object\Fields\AdGroupBidInfoFields;
 use FacebookAds\Object\Fields\AdSetFields;
 use FacebookAds\Object\Fields\AdsPixelsFields;
 use FacebookAds\Object\Fields\ObjectStory\TemplateDataFields;
@@ -104,7 +104,7 @@ class DynamicProductAdsAdvertTest extends AbstractCrudObjectTestCase {
     }
 
     $this->productCatalog =
-      new ProductCatalog(null, $this->getConfig()->businessManagerId);
+      new ProductCatalog(null, $this->getConfig()->businessId);
     $this->productCatalog->setData(array(
       ProductCatalogFields::NAME => $this->getConfig()->testRunId,
     ));
@@ -205,7 +205,7 @@ class DynamicProductAdsAdvertTest extends AbstractCrudObjectTestCase {
       AdSetFields::NAME => $this->getConfig()->testRunId,
       AdSetFields::BID_TYPE => BidTypes::BID_TYPE_CPC,
       AdSetFields::BID_INFO =>
-        array(AdGroupBidInfoFields::CLICKS => 150),
+        array(BidInfoFields::CLICKS => 150),
         AdSetFields::DAILY_BUDGET => 2000,
         AdSetFields::CAMPAIGN_GROUP_ID =>
           $this->adCampaign->{AdCampaignFields::ID},
@@ -248,7 +248,6 @@ class DynamicProductAdsAdvertTest extends AbstractCrudObjectTestCase {
       AdGroupFields::CAMPAIGN_ID => $this->adSet->{AdSetFields::ID},
       AdGroupFields::CREATIVE =>
         array('creative_id' => $this->creative->{AdCreativeFields::ID}),
-      AdGroupFields::OBJECTIVE => AdObjectives::PRODUCT_CATALOG_SALES
     ));
     $this->assertCanCreate($this->adGroup);
   }

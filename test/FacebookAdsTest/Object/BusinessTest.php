@@ -26,6 +26,7 @@ namespace FacebookAdsTest\Object;
 
 use FacebookAds\Object\AdUser;
 use FacebookAds\Object\Business;
+use FacebookAds\Object\Fields\AdUserFields;
 use FacebookAds\Object\Fields\BusinessFields;
 use FacebookAds\Object\Values\AdAccountRoles;
 use FacebookAds\Object\Values\AppRoles;
@@ -43,7 +44,7 @@ class BusinessTest extends AbstractCrudObjectTestCase
   }
 
   public function testCrud() {
-    $business = new Business($this->getConfig()->businessManagerId);
+    $business = new Business($this->getConfig()->businessId);
     $this->assertCanRead($business);
     $this->assertCannotDelete($business);
 
@@ -67,11 +68,11 @@ class BusinessTest extends AbstractCrudObjectTestCase
     }
 
     $business->inviteUserByEmail('test@example.com', BusinessRoles::EMPLOYEE);
-    $business->deleteUserByEmail('test@example.com', BusinessRoles::EMPLOYEE);
+    $business->deleteUserByEmail('test@example.com');
 
     $user = (new AdUser('me'))->read(array('id'));
     $business->addUserPermissionById(
-      $user->id,
+      $user->{AdUserFields::ID},
       BusinessRoles::ADMIN);
 
     if ($this->getConfig()->secondaryAccountId) {
@@ -87,13 +88,12 @@ class BusinessTest extends AbstractCrudObjectTestCase
       $business->claimApp(
         $this->getConfig()->secondaryAppId,
         BusinessRoles::OWNER);
-      $business->deleteApp(
-        $this->getConfig()->secondaryAppId);
+      $business->deleteApp($this->getConfig()->secondaryAppId);
     }
   }
 
   public function testConnections() {
-    $business = new Business($this->getConfig()->businessManagerId);
+    $business = new Business($this->getConfig()->businessId);
     $this->assertCanFetchConnection($business, 'getAdAccounts');
     $this->assertCanFetchConnection($business, 'getUserPermissions');
     $this->assertCanFetchConnection($business, 'getProjects');

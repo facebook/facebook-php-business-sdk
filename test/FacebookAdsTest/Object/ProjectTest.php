@@ -39,7 +39,7 @@ class ProjectTest extends AbstractCrudObjectTestCase
   }
 
   public function testCrud() {
-    $project = new Project(null, $this->getConfig()->businessManagerId);
+    $project = new Project(null, $this->getConfig()->businessId);
     $project->{ProjectFields::NAME} = 'Test Project';
 
     $this->assertCanCreate($project);
@@ -52,15 +52,14 @@ class ProjectTest extends AbstractCrudObjectTestCase
     $this->assertCanFetchConnection($project, 'getAdAccounts');
     $this->assertCanFetchConnection($project, 'getApps');
 
-
     $project->addPage($this->getConfig()->pageId);
     $project->deletePage($this->getConfig()->pageId);
 
     $project->adAdAccount($this->getConfig()->accountId);
     $project->deleteAdAccount($this->getConfig()->accountId);
 
-    $project->addApp($this->getConfig()->accountId);
-    $project->deleteApp($this->getConfig()->accountId);
+    $project->addApp($this->getConfig()->appId);
+    $project->deleteApp($this->getConfig()->appId);
 
     $this->assertCanDelete($project);
   }

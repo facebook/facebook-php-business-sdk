@@ -31,7 +31,7 @@ class ProductCatalogTest extends AbstractCrudObjectTestCase {
 
   public function testCrud() {
     $catalog_name = $this->getConfig()->testRunId;
-    $catalog = new ProductCatalog(null, $this->getConfig()->businessManagerId);
+    $catalog = new ProductCatalog(null, $this->getConfig()->businessId);
     $catalog->setData(array(
       ProductCatalogFields::NAME => $catalog_name,
     ));
