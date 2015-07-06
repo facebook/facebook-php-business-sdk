@@ -26,7 +26,7 @@ namespace FacebookAds\Object;
 
 use FacebookAds\Api;
 use FacebookAds\Cursor;
-use FacebookAds\Http\ResponseInterface;
+use FacebookAds\Http\RequestInterface;
 use FacebookAds\Object\Fields\AdAccountGroupFields;
 use FacebookAds\Object\Traits\FieldValidation;
 
@@ -81,7 +81,7 @@ class AdAccountGroup extends AbstractCrudObject {
 
     $result = array();
     $response_data = $response->getContent();
-    if(!empty($response_data)) {
+    if (!empty($response_data)) {
       foreach (array_shift($response_data) as $data) {
         /** @var AbstractObject $object */
         $object = new $prototype_class(null, null, $this->getApi());
@@ -112,5 +112,84 @@ class AdAccountGroup extends AbstractCrudObject {
     array $fields = array(), array $params = array()) {
     return $this->getConnectedObjects(
       AdAccountGroupAccount::className(), $fields, $params, 'adaccounts');
+  }
+
+  /**
+   * Add users to the AdAccountGroup.
+   *
+   * @param array $roles list of user's roles indexed by user id
+   * @return bool
+   */
+  public function addUsers(array $roles) {
+    $params = array();
+    foreach ($roles as $uid => $role) {
+      $params[] = array(
+        'uid' => $uid,
+        'role' => $role
+      );
+    }
+
+    return $this->getApi()->call(
+      '/'.$this->assureId().'/users',
+      RequestInterface::METHOD_POST,
+      array('account_group_roles' => $params))->getContent();
+  }
+
+  /**
+   * Update users in the AdAccountGroup.
+   *
+   * @param array $roles list of user's roles indexed by user id
+   * @return bool
+   */
+  public function updateUsers(array $roles) {
+    $params = array();
+    foreach ($roles as $uid => $role) {
+      $params[] = array(
+        'uid' => $uid,
+        'role' => $role
+      );
+    }
+
+    return $this->getApi()->call(
+      '/'.$this->assureId().'/users',
+      RequestInterface::METHOD_POST,
+      array('account_group_roles' => $params))->getContent();
+  }
+
+  /**
+   * Delete user from AdAccountGroup
+   *
+   * @param $user_id
+   * @return bool
+   */
+  public function removeUser($user_id) {
+    return $this->getApi()->call(
+      '/'.$this->assureId().'/users/'.$user_id,
+      RequestInterface::METHOD_DELETE)->getContent();
+  }
+
+  /**
+   * Add ad account to the AdAccountGroup.
+   *
+   * @param array $account_ids list of ad account ids to be added
+   * @return bool
+   */
+  public function addAdAccounts(array $account_ids) {
+    return $this->getApi()->call(
+      '/'.$this->assureId().'/adaccounts',
+      RequestInterface::METHOD_POST,
+      array('account_ids' => $account_ids))->getContent();
+  }
+
+  /**
+   * Delete ad account from AdAccountGroup
+   *
+   * @param $account_id
+   * @return bool
+   */
+  public function removeAdAccount($account_id) {
+    return $this->getApi()->call(
+      '/'.$this->assureId().'/adaccounts/'.$account_id,
+      RequestInterface::METHOD_DELETE)->getContent();
   }
 }
