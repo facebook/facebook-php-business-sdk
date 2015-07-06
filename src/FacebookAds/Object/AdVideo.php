@@ -42,6 +42,7 @@ class AdVideo extends AbstractCrudObject {
     AdVideoFields::CREATED_TIME,
     AdVideoFields::DESCRIPTION,
     AdVideoFields::EMBED_HTML,
+    AdVideoFields::EMBEDDABLE,
     AdVideoFields::FORMAT,
     AdVideoFields::FROM,
     AdVideoFields::ICON,

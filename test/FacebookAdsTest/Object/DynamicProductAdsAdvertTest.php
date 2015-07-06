@@ -30,7 +30,6 @@ use FacebookAds\Object\AdCreative;
 use FacebookAds\Object\AdGroup;
 use FacebookAds\Object\AdSet;
 use FacebookAds\Object\AdsPixel;
-use FacebookAds\Object\Fields\BidInfoFields;
 use FacebookAds\Object\ObjectStorySpec;
 use FacebookAds\Object\ProductAudience;
 use FacebookAds\Object\ProductCatalog;
@@ -204,7 +203,7 @@ class DynamicProductAdsAdvertTest extends AbstractCrudObjectTestCase {
     $this->adSet = new AdSet(null, $this->getConfig()->accountId);
     $this->adSet->setData(array(
       AdSetFields::NAME => $this->getConfig()->testRunId,
-      AdSetFields::OPTIMIZATION_GOAL => OptimizationGoals::OFFSITE_CONVERSIONS,
+      AdSetFields::OPTIMIZATION_GOAL => OptimizationGoals::LINK_CLICKS,
       AdSetFields::BILLING_EVENT => BillingEvents::IMPRESSIONS,
       AdSetFields::BID_AMOUNT => 2,
       AdSetFields::DAILY_BUDGET => 2000,
@@ -212,7 +211,9 @@ class DynamicProductAdsAdvertTest extends AbstractCrudObjectTestCase {
         $this->adCampaign->{AdCampaignFields::ID},
       AdSetFields::TARGETING => $targeting,
       AdsetFields::PROMOTED_OBJECT =>
-        array('product_set_id' => $this->productSet->{ProductSetFields::ID})
+        array(
+          'product_set_id' => $this->productSet->{ProductSetFields::ID},
+        ),
     ));
     $this->assertCanCreate($this->adSet);
 
@@ -225,7 +226,7 @@ class DynamicProductAdsAdvertTest extends AbstractCrudObjectTestCase {
       TemplateDataFields::MAX_PRODUCT_COUNT => 3,
       TemplateDataFields::CALL_TO_ACTION => array(
         'type' => CallToActionTypes::SHOP_NOW
-      )
+      ),
     ));
 
     $story = new ObjectStorySpec();

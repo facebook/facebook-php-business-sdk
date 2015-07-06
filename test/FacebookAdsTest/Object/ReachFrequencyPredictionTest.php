@@ -24,8 +24,10 @@
 
 namespace FacebookAdsTest\Object;
 
+use FacebookAds\Object\Fields\TargetingSpecsFields;
 use FacebookAds\Object\ReachFrequencyPrediction;
 use FacebookAds\Object\Fields\ReachFrequencyPredictionFields as RF;
+use FacebookAds\Object\TargetingSpecs;
 use FacebookAds\Object\Values\AdObjectives;
 use FacebookAdsTest\Config\SkippableFeatureTestInterface;
 
@@ -44,13 +46,14 @@ class ReachFrequencyPredictionTest extends AbstractCrudObjectTestCase
     $prediction
       = new ReachFrequencyPrediction(null, $this->getConfig()->accountId);
 
-    $targeting = array(
-    'geo_locations' => array('countries' => array('US')),
-      'age_max' => 35,
-      'age_min' => 20,
-      'genders' =>  array('2'),
-      'page_types' => array('feed'),
-    );
+    $targeting = new TargetingSpecs();
+    $targeting->{TargetingSpecsFields::GEO_LOCATIONS}
+      = array('countries' => array('US'));
+    $targeting->{TargetingSpecsFields::AGE_MAX} = 35;
+    $targeting->{TargetingSpecsFields::AGE_MIN} = 20;
+    $targeting->{TargetingSpecsFields::GENDERS} = array(2);
+    $targeting->{TargetingSpecsFields::PAGE_TYPES} = array('desktopfeed');
+
 
     $prediction->setData(array(
       RF::BUDGET => 3000000,

@@ -24,4 +24,6 @@
 
 namespace FacebookAds\Object;
 
-class ExtendedCredit extends AbstractObject {}
+class ExtendedCredit extends AbstractObject {
+
+}

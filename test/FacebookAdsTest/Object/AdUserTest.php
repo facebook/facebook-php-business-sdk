@@ -25,10 +25,8 @@
 namespace FacebookAdsTest\Object;
 
 use FacebookAds\Object\AdAccount;
-use FacebookAds\Object\AdAccountGroup;
 use FacebookAds\Object\AdUser;
 use FacebookAds\Object\Fields\AdUserFields;
-use FacebookAds\Object\Fields\AdAccountGroupFields;
 
 class AdUserTest extends AbstractCrudObjectTestCase {
 
@@ -43,7 +41,7 @@ class AdUserTest extends AbstractCrudObjectTestCase {
     foreach ($ad_users as $ad_user) {
       if ($ad_user->id === $uid) {
         $this->assertCanFetchConnection($ad_user, 'getAdAccounts');
-        $this->assertCanFetchConnection($ad_user, 'getAdAccountsGroups');
+        $this->assertCanFetchConnection($ad_user, 'getAdAccountGroups');
         $found = true;
         break;
       }

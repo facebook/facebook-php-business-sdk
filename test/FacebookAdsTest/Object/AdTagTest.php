@@ -36,6 +36,10 @@ use FacebookAds\Object\Fields\AdGroupFields;
 use FacebookAds\Object\Fields\AdImageFields;
 use FacebookAds\Object\Fields\AdSetFields;
 use FacebookAds\Object\Fields\AdTagFields;
+use FacebookAds\Object\Fields\ObjectStory\LinkDataFields;
+use FacebookAds\Object\Fields\ObjectStorySpecFields;
+use FacebookAds\Object\ObjectStory\LinkData;
+use FacebookAds\Object\ObjectStorySpec;
 use FacebookAds\Object\TargetingSpecs;
 use FacebookAds\Object\Fields\TargetingSpecsFields;
 use FacebookAds\Object\Values\BillingEvents;
@@ -109,11 +113,17 @@ class AdTagTest extends AbstractCrudObjectTestCase
       = $this->getConfig()->testImagePath;
     $this->adImage->save();
 
+    $link = new LinkData();
+    $link->{LinkDataFields::MESSAGE} = 'Message';
+    $link->{LinkDataFields::IMAGE_HASH} = $this->adImage->{AdImageFields::HASH};
+    $link->{LinkDataFields::LINK} = $this->getConfig()->appUrl;
+
+    $story = new ObjectStorySpec();
+    $story->{ObjectStorySpecFields::PAGE_ID} = $this->getConfig()->pageId;
+    $story->{ObjectStorySpecFields::LINK_DATA} = $link;
+
     $this->adCreative = new AdCreative(null, $this->getConfig()->accountId);
-    $this->adCreative->{AdCreativeFields::TITLE} = 'My Test Ad';
-    $this->adCreative->{AdCreativeFields::BODY} = 'My Test Ad Body';
-    $this->adCreative->{AdCreativeFields::OBJECT_ID}
-      = $this->getConfig()->pageId;
+    $this->adCreative->{AdCreativeFields::OBJECT_STORY_SPEC} = $story;
     $this->adCreative->create();
 
     $this->adGroup = new AdGroup(null, $this->getConfig()->accountId);

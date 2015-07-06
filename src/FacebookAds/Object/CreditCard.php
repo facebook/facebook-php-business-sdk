@@ -24,4 +24,6 @@
 
 namespace FacebookAds\Object;
 
-class CreditCard extends AbstractObject {}
+class CreditCard extends AbstractObject {
+
+}

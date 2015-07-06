@@ -60,7 +60,7 @@ class Project extends AbstractCrudObject {
   public function getPages(
     array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(
-      Page::className(), $fields, $params, 'pages');
+      Page::className(), $fields, $params);
   }
 
   /**

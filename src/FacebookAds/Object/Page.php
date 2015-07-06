@@ -24,7 +24,17 @@
 
 namespace FacebookAds\Object;
 
-class Page extends AbstractObject {
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+
+class Page extends AbstractCrudObject {
+
+  /**
+   * @return string
+   */
+  public function getEndpoint() {
+    return 'pages';
+  }
 
   /**
    * @param array $fields

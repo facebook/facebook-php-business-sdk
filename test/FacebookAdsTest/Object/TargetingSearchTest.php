@@ -24,6 +24,7 @@
 
 namespace FacebookAdsTest\Object;
 
+use FacebookAds\Object\AbstractCrudObject;
 use FacebookAds\Object\TargetingSearch;
 use FacebookAds\Object\Search\TargetingSearchTypes;
 

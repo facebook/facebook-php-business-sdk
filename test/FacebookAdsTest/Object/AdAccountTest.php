@@ -24,11 +24,8 @@
 
 namespace FacebookAdsTest\Object;
 
-use FacebookAds\Object\AbstractAsyncJobObject;
 use FacebookAds\Object\AdAccount;
-use FacebookAds\Object\AsyncJobInsights;
 use FacebookAds\Object\Fields\AdAccountFields;
-use FacebookAds\Object\Fields\InsightsFields;
 use FacebookAds\Object\Values\AdAccountRoles;
 use FacebookAds\Object\Fields\TargetingSpecsFields;
 use FacebookAds\Object\TargetingSpecs;

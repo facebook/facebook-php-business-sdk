@@ -24,7 +24,6 @@
 
 namespace FacebookAdsTest\Object;
 
-use FacebookAds\Cursor;
 use FacebookAds\Object\AdImage;
 use FacebookAds\Object\Fields\AdImageFields;
 

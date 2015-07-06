@@ -24,10 +24,10 @@
 
 namespace FacebookAds\Object;
 
+use FacebookAds\Http\RequestInterface;
 use FacebookAds\Object\Fields\SystemUserFields;
 use FacebookAds\Object\Traits\FieldValidation;
 use FacebookAds\Object\Traits\CannotDelete;
-use FacebookAds\Object\Traits\CannotUpdate;
 
 class SystemUser extends AbstractCrudObject {
   use FieldValidation;

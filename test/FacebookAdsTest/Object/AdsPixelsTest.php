@@ -36,20 +36,20 @@ class AdsPixelsTest extends AbstractCrudObjectTestCase {
   public function testCreate() {
 
     // make sure there's at least one pixel
-    $account = new AdAccount($this->getActId());
+    $account = new AdAccount($this->getConfig()->accountId);
     $pixels = $account->getAdsPixels();
     $pixel = null;
 
     if (!$pixels->count()) {
-      $pixel = new AdsPixel(null, $this->getActId());
+      $pixel = new AdsPixel(null, $this->getConfig()->accountId);
       $pixel->{AdsPixelsFields::NAME} = 'WCA Pixel';
       $this->assertCanCreate($pixel);
     } else {
       $pixel = $pixels->current();
     }
 
-    $pixel = new AdsPixel(null, $this->getActId());
-    $pixel->{AdsPixelsFields::NAME} = $this->getTestRunId();
+    $pixel = new AdsPixel(null, $this->getConfig()->accountId);
+    $pixel->{AdsPixelsFields::NAME} = $this->getConfig()->testRunId;
     $this->assertCannotCreate($pixel);
   }
 
@@ -58,7 +58,7 @@ class AdsPixelsTest extends AbstractCrudObjectTestCase {
    */
   public function testCrud() {
 
-    $account = new AdAccount($this->getActId());
+    $account = new AdAccount($this->getConfig()->accountId);
     $pixel = $account->getAdsPixels()->current();
 
     $pixelId = $pixel->{AdsPixelsFields::ID};
@@ -69,7 +69,7 @@ class AdsPixelsTest extends AbstractCrudObjectTestCase {
 
     $this->assertCanUpdate(
       $pixel,
-      array(AdsPixelsFields::NAME => $this->getTestRunId().' updated'));
+      array(AdsPixelsFields::NAME => $this->getConfig()->testRunId.' updated'));
 
     $this->assertCannotDelete($pixel);
   }

@@ -24,4 +24,6 @@
 
 namespace FacebookAds\Object;
 
-class Agency extends AbstractObject {}
+class Agency extends AbstractObject {
+
+}

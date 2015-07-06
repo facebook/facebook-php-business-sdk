@@ -26,11 +26,4 @@ namespace FacebookAds\Object;
 
 class BusinessProductCatalog extends AbstractObject {
 
-
-  /**
-   * @return ProductCatalog
-   */
-  public function getProductCatalog() {
-    return new ProductCatalog($this->assureId());
-  }
 }

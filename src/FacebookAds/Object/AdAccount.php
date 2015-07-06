@@ -283,7 +283,7 @@ class AdAccount extends AbstractCrudObject {
   /**
    * @param array $fields
    * @param array $params
-   * @return Cursor
+   * @return TargetingDescription
    */
   public function getTargetingDescription(
     array $fields = array(), array $params = array()) {

@@ -29,7 +29,6 @@ use FacebookAds\Object\Business;
 use FacebookAds\Object\Fields\AdUserFields;
 use FacebookAds\Object\Fields\BusinessFields;
 use FacebookAds\Object\Values\AdAccountRoles;
-use FacebookAds\Object\Values\AppRoles;
 use FacebookAdsTest\Config\SkippableFeatureTestInterface;
 use FacebookAds\Object\Values\BusinessRoles;
 

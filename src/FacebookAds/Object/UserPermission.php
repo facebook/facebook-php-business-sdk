@@ -25,4 +25,5 @@
 namespace FacebookAds\Object;
 
 class UserPermission extends AbstractObject {
+
 }

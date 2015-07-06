@@ -26,11 +26,4 @@ namespace FacebookAds\Object;
 
 class BusinessAdAccount extends AbstractObject {
 
-
-  /**
-   * @return AdAccount
-   */
-  public function getAdAccount() {
-    return new AdAccount($this->assureId());
-  }
 }

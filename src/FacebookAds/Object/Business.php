@@ -107,7 +107,7 @@ class Business extends AbstractCrudObject {
   }
 
   /**
-   * @param int email
+   * @param int $email
    * @param string $role
    */
   public function inviteUserByEmail($email, $role) {
@@ -137,7 +137,7 @@ class Business extends AbstractCrudObject {
   /**
    * @param int $account_id
    * @param string $access_type
-   * @param roles $roles
+   * @param array $roles
    */
   public function claimAdAccount($account_id, $access_type, $roles = array()) {
     $params = array(
@@ -246,7 +246,7 @@ class Business extends AbstractCrudObject {
   public function getPages(
     array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(
-      Page::className(), $fields, $params, 'pages');
+      Page::className(), $fields, $params);
   }
 
   /**
