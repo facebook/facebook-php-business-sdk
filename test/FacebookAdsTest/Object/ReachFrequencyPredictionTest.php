@@ -29,6 +29,7 @@ use FacebookAds\Object\ReachFrequencyPrediction;
 use FacebookAds\Object\Fields\ReachFrequencyPredictionFields as RF;
 use FacebookAds\Object\TargetingSpecs;
 use FacebookAds\Object\Values\AdObjectives;
+use FacebookAds\Object\Values\PageTypes;
 use FacebookAdsTest\Config\SkippableFeatureTestInterface;
 
 class ReachFrequencyPredictionTest extends AbstractCrudObjectTestCase
@@ -52,8 +53,9 @@ class ReachFrequencyPredictionTest extends AbstractCrudObjectTestCase
     $targeting->{TargetingSpecsFields::AGE_MAX} = 35;
     $targeting->{TargetingSpecsFields::AGE_MIN} = 20;
     $targeting->{TargetingSpecsFields::GENDERS} = array(2);
-    $targeting->{TargetingSpecsFields::PAGE_TYPES} = array('desktopfeed');
-
+    $targeting->{TargetingSpecsFields::PAGE_TYPES} = array(
+      PageTypes::DESKTOP_FEED,
+    );
 
     $prediction->setData(array(
       RF::BUDGET => 3000000,
