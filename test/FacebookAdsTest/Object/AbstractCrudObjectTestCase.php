@@ -28,7 +28,10 @@ use FacebookAds\Cursor;
 use FacebookAds\Object\AbstractCrudObject;
 use FacebookAds\Object\AbstractObject;
 use FacebookAds\Object\AbstractArchivableCrudObject;
+use FacebookAds\Object\AdLabel;
 use FacebookAds\Object\CanRedownloadInterface;
+use FacebookAds\Object\Fields\AdLabelFields;
+use FacebookAds\Object\Traits\AdLabelAwareCrudObjectTrait;
 use FacebookAdsTest\AbstractIntegrationTestCase;
 
 abstract class AbstractCrudObjectTestCase extends AbstractIntegrationTestCase {
@@ -269,5 +272,29 @@ abstract class AbstractCrudObjectTestCase extends AbstractIntegrationTestCase {
     $this->assertTrue(is_array($response_content));
     $this->assertArrayHasKey('success', $response_content);
     $this->assertTrue($response_content['success']);
+  }
+
+  /**
+   * @param AdLabelAwareCrudObjectTrait|AbstractCrudObject $object
+   */
+  public function assertCanBeLabeled(AbstractCrudObject $object) {
+    $label = new AdLabel(null, $this->getConfig()->accountId);
+    $label->{AdLabelFields::NAME} = $this->getConfig()->testRunId;
+    $label->create();
+
+    /** @var AdLabelAwareCrudObjectTrait|AbstractCrudObject $mirror */
+    $mirror = $this->getEmptyClone($object);
+    $mirror->addAdLabels(array($label->{AdLabelFields::ID}));
+
+    $mirror = $this->getEmptyClone($object);
+    $mirror->read(array('adlabels'));
+    $this->assertCount(1, $mirror->{'adlabels'});
+
+    $mirror = $this->getEmptyClone($object);
+    $mirror->removeAdLabels(array($label->{AdLabelFields::ID}));
+    $mirror->read(array('adlabels'));
+    $this->assertNull($mirror->{'adlabels'});
+
+    $label->delete();
   }
 }

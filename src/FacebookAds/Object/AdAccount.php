@@ -332,4 +332,48 @@ class AdAccount extends AbstractCrudObject {
       RequestInterface::METHOD_DELETE,
       $params);
   }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getAdLabels(
+    array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(
+      AdLabel::className(), $fields, $params);
+  }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getAdCampaignsByLabel(
+    array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(
+      AdCampaign::classname(), $fields, $params, 'adcampaigngroupsbylabels');
+  }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getAdSetsByLabel(
+    array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(
+      AdSet::classname(), $fields, $params, 'adcampaignsbylabels');
+  }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getAdGroupsByLabel(
+    array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(
+      AdGroup::classname(), $fields, $params, 'adgroupsbylabels');
+  }
 }

@@ -27,9 +27,11 @@ namespace FacebookAds\Object;
 use FacebookAds\Cursor;
 use FacebookAds\Object\Fields\AdCreativeFields;
 use FacebookAds\Object\Traits\FieldValidation;
+use FacebookAds\Object\Traits\AdLabelAwareCrudObjectTrait;
 
 class AdCreative extends AbstractCrudObject {
   use FieldValidation;
+  use AdLabelAwareCrudObjectTrait;
 
   /**
    * @return string

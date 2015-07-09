@@ -50,6 +50,7 @@ class AdCreativeTest extends AbstractCrudObjectTestCase {
       array(
         AdCreativeFields::NAME => 'My Test Ad '. $this->getConfig()->testRunId,
       ));
+    $this->assertCanBeLabeled($creative);
     $this->assertCanDelete($creative);
   }
 

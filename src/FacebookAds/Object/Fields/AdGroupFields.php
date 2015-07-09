@@ -50,4 +50,5 @@ class AdGroupFields extends AbstractEnum {
   const SOCIAL_PREFS = 'social_prefs';
   const FAILED_DELIVERY_CHECKS = 'failed_delivery_checks';
   const REDOWNLOAD = 'redownload';
+  const ADLABELS = 'adlabels';
 }

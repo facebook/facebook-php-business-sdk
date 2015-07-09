@@ -66,4 +66,5 @@ class AdAccountFields extends AbstractEnum {
   const TOS_ACCEPTED = 'tos_accepted';
   const USERS = 'users';
   const TAX_ID_STATUS = 'tax_id_status';
+  const ADLABELS = 'adlabels';
 }

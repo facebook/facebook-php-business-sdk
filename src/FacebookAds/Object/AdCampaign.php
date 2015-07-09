@@ -28,9 +28,12 @@ use FacebookAds\Cursor;
 use FacebookAds\Object\Fields\AdCampaignFields;
 use FacebookAds\Object\Traits\FieldValidation;
 use FacebookAds\Object\Traits\ObjectValidation;
+use FacebookAds\Object\Traits\AdLabelAwareCrudObjectTrait;
 
 class AdCampaign extends AbstractArchivableCrudObject {
-  use FieldValidation, ObjectValidation;
+  use FieldValidation;
+  use ObjectValidation;
+  use AdLabelAwareCrudObjectTrait;
 
   /**
    * @var string

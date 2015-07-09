@@ -24,30 +24,21 @@
 
 namespace FacebookAdsTest\Object;
 
-use FacebookAds\Object\AdCampaign;
-use FacebookAds\Object\Fields\AdCampaignFields;
+use FacebookAds\Object\AdLabel;
+use FacebookAds\Object\Fields\AdLabelFields;
 
-class AdCampaignTest extends AbstractCrudObjectTestCase {
+class AdLabelTest extends AbstractCrudObjectTestCase {
 
-  public function testCrud() {
-    $campaign = new AdCampaign(null, $this->getConfig()->accountId);
-    $campaign->{AdCampaignFields::NAME} = $this->getConfig()->testRunId;
-    
-    $this->assertCanCreate($campaign);
-    $this->assertCanRead($campaign);
+  public function testCrudAccess() {
+    $label = new AdLabel(null, $this->getConfig()->accountId);
+    $label->{AdLabelFields::NAME} = $this->getConfig()->testRunId;
+
+    $this->assertCanCreate($label);
+    $this->assertCanRead($label);
     $this->assertCanUpdate(
-      $campaign,
-      array(
-        AdCampaignFields::NAME => $this->getConfig()->testRunId.' updated',
-      ));
-    $this->assertCanFetchConnection($campaign, 'getAdSets');
-    $this->assertCanFetchConnection($campaign, 'getAdGroups');
-    $this->assertCanFetchConnection($campaign, 'getInsights');
-    $this->assertCanFetchConnection($campaign, 'getInsightsAsync');
+      $label,
+      array(AdLabelFields::NAME => $this->getConfig()->testRunId . ' updated'));
 
-    $this->assertCanBeLabeled($campaign);
-    $this->assertCanArchive($campaign);
-
-    $this->assertCanDelete($campaign);
+    $this->assertCanDelete($label);
   }
 }

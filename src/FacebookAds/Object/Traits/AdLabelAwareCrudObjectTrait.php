@@ -22,37 +22,47 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Traits;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\Api;
+use FacebookAds\Http\RequestInterface;
 
 /**
- * @method static AdSetFields getInstance()
+ * @method Api getApi()
+ * @method string assureId()
  */
-class AdSetFields extends AbstractEnum {
+trait AdLabelAwareCrudObjectTrait {
 
-  const ACCOUNT_ID = 'account_id';
-  const BID_AMOUNT = 'bid_amount';
-  const BILLING_EVENT = 'billing_event';
-  const BUDGET_REMAINING = 'budget_remaining';
-  const CAMPAIGN_GROUP_ID = 'campaign_group_id';
-  const CAMPAIGN_SCHEDULE = 'campaign_schedule';
-  const CAMPAIGN_STATUS = 'campaign_status';
-  const CREATED_TIME = 'created_time';
-  const CREATIVE_SEQUENCE = 'creative_sequence';
-  const DAILY_BUDGET = 'daily_budget';
-  const END_TIME = 'end_time';
-  const ID = 'id';
-  const IS_AUTOBID = 'is_autobid';
-  const LIFETIME_BUDGET = 'lifetime_budget';
-  const LIFETIME_IMPS = 'lifetime_imps';
-  const NAME = 'name';
-  const OPTIMIZATION_GOAL = 'optimization_goal';
-  const PACING_TYPE = 'pacing_type';
-  const RF_PREDICTION_ID = 'rf_prediction_id';
-  const START_TIME = 'start_time';
-  const UPDATED_TIME = 'updated_time';
-  const TARGETING = 'targeting';
-  const PROMOTED_OBJECT = 'promoted_object';
-  const ADLABELS = 'adlabels';
+  /**
+   * Take ad label ids and format them correctly for the request
+   * @param array $adlabel_ids
+   * @return array
+   */
+  protected function formatParams(array $adlabel_ids) {
+    foreach ($adlabel_ids as &$adlabel_id) {
+      $adlabel_id = array('id' => $adlabel_id);
+    }
+
+    return array('adlabels' => $adlabel_ids);
+  }
+
+  /**
+   * @param array $ad_label_ids
+   */
+  public function addAdLabels(array $ad_label_ids) {
+    $this->getApi()->call(
+      '/'.$this->assureId().'/adlabels',
+      RequestInterface::METHOD_POST,
+      $this->formatParams($ad_label_ids));
+  }
+
+  /**
+   * @param array $ad_label_ids
+   */
+  public function removeAdLabels(array $ad_label_ids) {
+    $this->getApi()->call(
+      '/'.$this->assureId().'/adlabels',
+      RequestInterface::METHOD_DELETE,
+      $this->formatParams($ad_label_ids));
+  }
 }

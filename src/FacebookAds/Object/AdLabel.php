@@ -22,32 +22,25 @@
  *
  */
 
-namespace FacebookAdsTest\Object;
+namespace FacebookAds\Object;
 
-use FacebookAds\Object\AdCampaign;
-use FacebookAds\Object\Fields\AdCampaignFields;
+use FacebookAds\Object\Fields\AdLabelFields;
+use FacebookAds\Object\Traits\FieldValidation;
 
-class AdCampaignTest extends AbstractCrudObjectTestCase {
+class AdLabel extends AbstractCrudObject {
+  use FieldValidation;
 
-  public function testCrud() {
-    $campaign = new AdCampaign(null, $this->getConfig()->accountId);
-    $campaign->{AdCampaignFields::NAME} = $this->getConfig()->testRunId;
-    
-    $this->assertCanCreate($campaign);
-    $this->assertCanRead($campaign);
-    $this->assertCanUpdate(
-      $campaign,
-      array(
-        AdCampaignFields::NAME => $this->getConfig()->testRunId.' updated',
-      ));
-    $this->assertCanFetchConnection($campaign, 'getAdSets');
-    $this->assertCanFetchConnection($campaign, 'getAdGroups');
-    $this->assertCanFetchConnection($campaign, 'getInsights');
-    $this->assertCanFetchConnection($campaign, 'getInsightsAsync');
+  /**
+   * @return string
+   */
+  protected function getEndpoint() {
+    return 'adlabels';
+  }
 
-    $this->assertCanBeLabeled($campaign);
-    $this->assertCanArchive($campaign);
-
-    $this->assertCanDelete($campaign);
+  /**
+   * @return AdLabelFields
+   */
+  public static function getFieldsEnum() {
+    return AdLabelFields::getInstance();
   }
 }

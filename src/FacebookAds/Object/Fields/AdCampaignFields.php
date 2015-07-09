@@ -40,4 +40,5 @@ class AdCampaignFields extends AbstractEnum {
   const BUYING_TYPE = 'buying_type';
   const PROMOTED_OBJECT = 'promoted_object';
   const SPEND_CAP = 'spend_cap';
+  const ADLABELS = 'adlabels';
 }
