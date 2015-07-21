@@ -41,4 +41,8 @@ class AdCampaignFields extends AbstractEnum {
   const PROMOTED_OBJECT = 'promoted_object';
   const SPEND_CAP = 'spend_cap';
   const ADLABELS = 'adlabels';
+  const CREATED_TIME = 'created_time';
+  const START_TIME = 'start_time';
+  const STOP_TIME = 'stop_time';
+  const UPDATED_TIME = 'updated_time';
 }
