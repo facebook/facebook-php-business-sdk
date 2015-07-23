@@ -40,4 +40,5 @@ class AdImageFields extends AbstractEnum {
   const HEIGHT = 'height';
   const ORIGINAL_WIDTH = 'original_width';
   const ORIGINAL_HEIGHT = 'original_height';
+  const NAME = 'name';
 }
