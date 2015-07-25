@@ -109,4 +109,15 @@ class AdSet extends AbstractArchivableCrudObject
     return $this->createAsyncJob(
       AsyncJobInsights::className(), $fields, $params);
   }
+  
+    /**
+   * @param array $fields
+   * @param array $params
+   * @return ReachEstimate
+   */
+  public function getReachEstimate(
+    array $fields = array(), array $params = array()) {
+    return $this->getOneByConnection(
+      ReachEstimate::className(), $fields, $params, 'reachestimate');
+  }
 }
