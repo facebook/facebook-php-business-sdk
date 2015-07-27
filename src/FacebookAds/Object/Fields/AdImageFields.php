@@ -35,7 +35,7 @@ class AdImageFields extends AbstractEnum {
   const HASH = 'hash';
   const URL = 'url';
   const CREATIVES = 'creatives';
-  const FILENAME = 'filename';
+  const NAME = 'name';
   const WIDTH = 'width';
   const HEIGHT = 'height';
   const ORIGINAL_WIDTH = 'original_width';
