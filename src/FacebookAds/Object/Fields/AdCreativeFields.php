@@ -58,4 +58,6 @@ class AdCreativeFields extends AbstractEnum {
   const CALL_TO_ACTION_TYPE = 'call_to_action_type';
   const OBJECT_TYPE = 'object_type';
   const ADLABELS = 'adlabels';
+  const TEMPLATE_URL = 'template_url';
+  const APPLINK_TREATMENT = 'applink_treatment';
 }

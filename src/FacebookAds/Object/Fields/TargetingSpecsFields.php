@@ -73,4 +73,6 @@ class TargetingSpecsFields extends AbstractEnum {
   const CUSTOM_AUDIENCES = 'custom_audiences';
   const EXCLUDED_CUSTOM_AUDIENCES = 'excluded_custom_audiences';
   const DYNAMIC_AUDIENCE_IDS = 'dynamic_audience_ids';
+  const PRODUCT_AUDIENCE_SPECS = 'product_audience_specs';
+  const EXCLUDED_PRODUCT_AUDIENCE_SPECS = 'excluded_product_audience_specs';
 }
