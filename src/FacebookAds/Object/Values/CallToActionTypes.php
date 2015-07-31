@@ -33,6 +33,7 @@ class CallToActionTypes extends AbstractEnum {
 
   const BOOK_TRAVEL = 'BOOK_TRAVEL';
   const CALL_NOW = 'CALL_NOW';
+  const GET_DIRECTIONS = 'GET_DIRECTIONS';
   const LISTEN_MUSIC = 'LISTEN_MUSIC';
   const OPEN_LINK = 'OPEN_LINK';
   const PLAY_GAME = 'PLAY_GAME';
