@@ -22,16 +22,20 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Fields;
 
-use FacebookAds\Object\Fields\ActivityFields;
+use FacebookAds\Enum\AbstractEnum;
 
-class Activity extends AbstractObject {
+/**
+ * @method static ActivityFields getInstance()
+ */
+class ActivityFields extends AbstractEnum {
 
-  /**
-   * @return ActivityFields
-   */
-  public static function getFieldsEnum() {
-    return ActivityFields::getInstance();
-  }
+    const ACTOR_ID = 'actor_id';
+    const ACTOR_NAME = 'actor_name';
+    const EXTRA_DATA = 'extra_data';
+    const EVENT_TIME = 'event_time';
+    const EVENT_TYPE = 'event_type';
+    const OBJECT_ID = 'object_id';
+    const OBJECT_NAME = 'object_name';
 }
