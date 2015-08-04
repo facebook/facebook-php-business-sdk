@@ -60,4 +60,5 @@ class AdCreativeFields extends AbstractEnum {
   const ADLABELS = 'adlabels';
   const TEMPLATE_URL = 'template_url';
   const APPLINK_TREATMENT = 'applink_treatment';
+  const RUN_STATUS = 'run_status';
 }
