@@ -73,4 +73,66 @@ class AdsPixelsTest extends AbstractCrudObjectTestCase {
 
     $this->assertCannotDelete($pixel);
   }
+
+  /**
+   * @depends testCreate
+   */
+  public function testShare() {
+
+    $account = new AdAccount($this->getConfig()->accountId);
+    $secondaryAccountId = $this->getConfig()->secondaryAccountId;
+    $business = new Business($this->getConfig()->businessManagerId);
+    $businessId = $this->getConfig()->businessManagerId;
+    $secondaryBusinessId = $this->getConfig()->secondaryBusinessId;
+    $pixel = $account->getAdsPixels()->current();
+
+    $business->claimAdAccount(
+      $this->getConfig()->accountId,
+      BusinessRoles::AGENCY,
+      array(AdAccountRoles::ADMIN));
+    $business->claimAdAccount(
+      $this->getConfig()->secondaryAccountId,
+      BusinessRoles::AGENCY,
+      array(AdAccountRoles::ADMIN));
+
+    $pixelId = $pixel->{AdsPixelsFields::ID};
+
+    $pixel = new AdsPixel($pixelId);
+
+    $responseAccount = $pixel->sharePixel($businessId, $secondaryAccountId);
+    $responseBusiness = $pixel->sharePixelAgencies(
+      $businessId,
+      $secondaryBusinessId);
+
+    $this->assertSuccessResponse($responseAccount);
+    $this->assertSuccessResponse($responseBusiness);
+  }
+
+  /**
+   * @depends testShare
+   */
+  public function testList() {
+    $account = new AdAccount($this->getConfig()->accountId);
+    $business = new Business($this->getConfig()->businessManagerId);
+    $businessId = $this->getConfig()->businessManagerId;
+    $pixel = $account->getAdsPixels()->current();
+
+    $business->claimAdAccount(
+      $this->getConfig()->accountId,
+      BusinessRoles::AGENCY,
+      array(AdAccountRoles::ADMIN));
+
+    $pixelId = $pixel->{AdsPixelsFields::ID};
+
+    $pixel = new AdsPixel($pixelId);
+
+    $accountCursor = $pixel->listAdAccounts($businessId);
+    $businessCursor = $pixel->listSharedAgencies();
+
+    $accountList = $accountCursor->current();
+    $businessList = $businessCursor->current();
+
+    $this->assertNotEmpty($accountList->key);
+    $this->assertNotEmpty($businessList->key);
+  }
 }

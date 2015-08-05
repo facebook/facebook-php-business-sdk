@@ -33,6 +33,54 @@ class AdsPixel extends AbstractCrudObject {
   use FieldValidation;
 
   /**
+   * @var string[]
+   **/
+  protected static $fields = array(
+    AdsPixelsFields::CODE,
+    AdsPixelsFields::CREATION_TIME,
+    AdsPixelsFields::ID,
+    AdsPixelsFields::LAST_FIRED_TIME,
+    AdsPixelsFields::NAME,
+    AdsPixelsFields::RULE_VALIDATION,
+    AdsPixelsFields::RULES,
+  );
+
+  public function sharePixel($business_id, $account_id) {
+    return $this->getApi()->call(
+      '/'.$this->assureId().'/shared_accounts',
+      RequestInterface::METHOD_POST,
+      array(
+        'business' => $business_id,
+        'account_id' => $account_id))->getContent();
+  }
+
+  public function sharePixelAgencies($business_id, $agency_id) {
+    return $this->getApi()->call(
+      '/'.$this->assureId().'/shared_agencies',
+      RequestInterface::METHOD_POST,
+      array(
+        'business' => $business_id,
+        'agency_id' => $agency_id))->getContent();
+  }
+
+  public function listAdAccounts($business_id) {
+    $response = $this->getApi()->call(
+      '/'.$this->assureId().'/shared_accounts',
+      RequestInterface::METHOD_GET,
+      array('business' => $business_id))->getContent();
+
+    return new Cursor($response, new AdAccount());
+  }
+
+  public function listSharedAgencies() {
+    $response = $this->getApi()->call(
+      '/'.$this->assureId().'/shared_agencies',
+      RequestInterface::METHOD_GET)->getContent();
+
+    return new Cursor($response, new Business());
+  }
+
+  /**
    * @return string
    */
   protected function getEndpoint() {
