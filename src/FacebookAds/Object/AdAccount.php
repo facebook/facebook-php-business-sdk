@@ -376,4 +376,15 @@ class AdAccount extends AbstractCrudObject {
     return $this->getManyByConnection(
       AdGroup::classname(), $fields, $params, 'adgroupsbylabels');
   }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getAdCreativesByLabel(
+    array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(
+      AdCreative::classname(), $fields, $params, 'adcreativesbylabels');
+  }
 }
