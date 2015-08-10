@@ -24,6 +24,8 @@
 
 namespace FacebookAds\Object;
 
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
 use FacebookAds\Object\Fields\AdsPixelsFields;
 use FacebookAds\Object\Traits\CannotDelete;
 use FacebookAds\Object\Traits\FieldValidation;
@@ -33,51 +35,10 @@ class AdsPixel extends AbstractCrudObject {
   use FieldValidation;
 
   /**
-   * @var string[]
-   **/
-  protected static $fields = array(
-    AdsPixelsFields::CODE,
-    AdsPixelsFields::CREATION_TIME,
-    AdsPixelsFields::ID,
-    AdsPixelsFields::LAST_FIRED_TIME,
-    AdsPixelsFields::NAME,
-    AdsPixelsFields::RULE_VALIDATION,
-    AdsPixelsFields::RULES,
-  );
-
-  public function sharePixel($business_id, $account_id) {
-    return $this->getApi()->call(
-      '/'.$this->assureId().'/shared_accounts',
-      RequestInterface::METHOD_POST,
-      array(
-        'business' => $business_id,
-        'account_id' => $account_id))->getContent();
-  }
-
-  public function sharePixelAgencies($business_id, $agency_id) {
-    return $this->getApi()->call(
-      '/'.$this->assureId().'/shared_agencies',
-      RequestInterface::METHOD_POST,
-      array(
-        'business' => $business_id,
-        'agency_id' => $agency_id))->getContent();
-  }
-
-  public function listAdAccounts($business_id) {
-    $response = $this->getApi()->call(
-      '/'.$this->assureId().'/shared_accounts',
-      RequestInterface::METHOD_GET,
-      array('business' => $business_id))->getContent();
-
-    return new Cursor($response, new AdAccount());
-  }
-
-  public function listSharedAgencies() {
-    $response = $this->getApi()->call(
-      '/'.$this->assureId().'/shared_agencies',
-      RequestInterface::METHOD_GET)->getContent();
-
-    return new Cursor($response, new Business());
+   * @return AdsPixelsFields
+   */
+  public static function getFieldsEnum() {
+    return AdsPixelsFields::getInstance();
   }
 
   /**
@@ -88,9 +49,82 @@ class AdsPixel extends AbstractCrudObject {
   }
 
   /**
-   * @return AdsPixelsFields
+   * @param int $business_id
+   * @param string $account_id
    */
-  public static function getFieldsEnum() {
-    return AdsPixelsFields::getInstance();
+  public function sharePixelWithAdAccount($business_id, $account_id) {
+    $this->getApi()->call(
+      '/'.$this->assureId().'/shared_accounts',
+      RequestInterface::METHOD_POST,
+      array(
+        'business' => $business_id,
+        'account_id' => $account_id,
+      ));
+  }
+
+  /**
+   * @param $business_id
+   * @param $account_id
+   */
+  public function unsharePixelWithAdAccount($business_id, $account_id) {
+    $this->getApi()->call(
+      '/'.$this->assureId().'/shared_accounts',
+      RequestInterface::METHOD_DELETE,
+      array(
+        'business' => $business_id,
+        'account_id' => $account_id,
+      ));
+  }
+
+  /**
+   * @param int $business_id
+   * @param int $agency_id
+   */
+  public function sharePixelWithAgency($business_id, $agency_id) {
+    $this->getApi()->call(
+      '/'.$this->assureId().'/shared_agencies',
+      RequestInterface::METHOD_POST,
+      array(
+        'business' => $business_id,
+        'agency_id' => $agency_id,
+      ));
+  }
+
+  /**
+   * @param int $business_id
+   * @param int $agency_id
+   */
+  public function unsharePixelWithAgency($business_id, $agency_id) {
+    $this->getApi()->call(
+      '/'.$this->assureId().'/shared_agencies',
+      RequestInterface::METHOD_DELETE,
+      array(
+        'business' => $business_id,
+        'agency_id' => $agency_id,
+      ));
+  }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getAdAccounts(
+    array $fields = array(), array $params = array()) {
+
+    return $this->getManyByConnection(
+      AdAccount::className(), $fields, $params, 'shared_accounts');
+  }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getAgencies(
+    array $fields = array(), array $params = array()) {
+
+    return $this->getManyByConnection(
+      Business::className(), $fields, $params, 'shared_agencies');
   }
 }

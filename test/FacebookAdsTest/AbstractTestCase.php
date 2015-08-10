@@ -49,6 +49,12 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
     return $this->getSkippableFeaturesManager()->isSkipKey($key);
   }
 
+  public function skipIf($key) {
+    if ($this->shouldSkipTest($key)) {
+      $this->markTestSkipped();
+    }
+  }
+
   /**
    * @return Config
    */
