@@ -42,4 +42,5 @@ class OptimizationGoals extends AbstractEnum {
   const POST_ENGAGEMENT = 'POST_ENGAGEMENT';
   const REACH = 'REACH';
   const VIDEO_VIEWS = 'VIDEO_VIEWS';
+  const IMPRESSIONS = 'IMPRESSIONS';
 }
