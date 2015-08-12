@@ -263,7 +263,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
     if (isset($components['query'])) {
       parse_str($components['query'], $query);
     }
-    $request->getQueryParams()->exchangeArray($query);
+    $request->getQueryParams()->enhance($query);
 
     return $request;
   }
