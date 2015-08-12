@@ -67,4 +67,6 @@ class AdAccountFields extends AbstractEnum {
   const USERS = 'users';
   const TAX_ID_STATUS = 'tax_id_status';
   const ADLABELS = 'adlabels';
+  const MIN_DAILY_BUDGET = 'min_daily_budget';
+  const MIN_CAMPAIGN_GROUP_SPEND_CAP = 'min_campaign_group_spend_cap';
 }
