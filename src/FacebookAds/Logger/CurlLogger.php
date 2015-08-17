@@ -117,11 +117,11 @@ class CurlLogger implements LoggerInterface {
     $chunks = array();
     foreach ($params->export() as $name => $value) {
       $chunks[$name] = sprintf(
-        '-%s "%s=%s%s"',
+        '-%s \'%s=%s%s\'',
         $flag,
         $name,
         $is_file ? '@' : '',
-        $value);
+        addcslashes($value, '\''));
     }
 
     return $chunks;
