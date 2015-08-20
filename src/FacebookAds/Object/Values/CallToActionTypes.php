@@ -41,4 +41,5 @@ class CallToActionTypes extends AbstractEnum {
   const SHOP_NOW = 'SHOP_NOW';
   const USE_APP = 'USE_APP';
   const WATCH_VIDEO = 'WATCH_VIDEO';
+  const LEARN_MORE = 'LEARN_MORE';
 }
