@@ -38,6 +38,7 @@ class AdAccountFields extends AbstractEnum {
   const AGENCY_CLIENT_DECLARATION = 'agency_client_declaration';
   const AMOUNT_SPENT = 'amount_spent';
   const BALANCE = 'balance';
+  const BUSINESS = 'business';
   const BUSINESS_CITY = 'business_city';
   const BUSINESS_COUNTRY_CODE = 'business_country_code';
   const BUSINESS_ID = 'business_id';
