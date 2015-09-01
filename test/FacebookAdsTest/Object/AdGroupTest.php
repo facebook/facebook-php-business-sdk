@@ -162,6 +162,7 @@ class AdGroupTest extends AbstractCrudObjectTestCase
     ));
 
     $this->assertCanFetchConnection($group, 'getAdCreatives');
+    $this->assertCanFetchConnection($group, 'getLeads');
     $this->assertCanFetchConnection($group, 'getTargetingDescription');
     $this->assertCanFetchConnection($group, 'getAdPreviews',
       array(),

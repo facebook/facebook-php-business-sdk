@@ -41,6 +41,17 @@ class Page extends AbstractCrudObject {
    * @param array $params
    * @return Cursor
    */
+  public function getLeadgenForms(
+    array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(
+      LeadgenForm::className(), $fields, $params);
+  }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
   public function getAgencies(
     array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(

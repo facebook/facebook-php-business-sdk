@@ -129,6 +129,15 @@ class AdGroup extends AbstractArchivableCrudObject
   /**
    * @param array $fields
    * @param array $params
+   * @return Cursor
+   */
+  public function getLeads(array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(Lead::className(), $fields, $params);
+  }
+
+  /**
+   * @param array $fields
+   * @param array $params
    * @return TargetingDescription
    */
   public function getTargetingDescription(
