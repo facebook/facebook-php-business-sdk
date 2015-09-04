@@ -60,6 +60,14 @@ abstract class AbstractObject {
   }
 
   /**
+   * @param string $name
+   * @return boolean
+   */
+  public function __isset($name) {
+    return array_key_exists($name, $this->data);
+  }
+
+  /**
    * @param array
    * @return $this
    */
