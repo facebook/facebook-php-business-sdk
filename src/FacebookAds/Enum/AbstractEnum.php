@@ -169,6 +169,7 @@ abstract class AbstractEnum implements EnumInstanceInterface {
 
   /**
    * @param mixed $value
+   * @throws \InvalidArgumentException
    */
   public function assureIsValidValue($value) {
     if (!$this->isValidValue($value)) {
