@@ -22,20 +22,45 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAdsDocsRunner;
 
-use FacebookAds\Enum\AbstractEnum;
+class ResultPrinter extends \PHPUnit_TextUI_ResultPrinter {
 
-/**
- * @method static InsightsActionBreakdowns getInstance()
- */
-class InsightsActionBreakdowns extends AbstractEnum {
+  /**
+   * @var resource|null
+   */
+  protected $resource;
 
-  const ACTION_CAROUSEL_CARD_ID = 'action_carousel_card_id';
-  const ACTION_CAROUSEL_CARD_NAME = 'action_carousel_card_name';
-  const ACTION_DESTINATION = 'action_destination';
-  const ACTION_DEVICE = 'action_device';
-  const ACTION_TARGET_ID = 'action_target_id';
-  const ACTION_TYPE = 'action_type';
-  const ACTION_VIDEO_TYPE = 'action_video_type';
+  protected function printHeader() {}
+
+  protected function printFooter(\PHPUnit_Framework_TestResult $result) {}
+
+  protected function writeProgress($progress) {}
+
+  /**
+   * @param resource $resource
+   */
+  public function setResource($resource) {
+    $this->resource = $resource;
+  }
+
+  /**
+   * @return resource
+   */
+  public function getResource() {
+    if ($this->resource === null) {
+      $this->resource = STDOUT;
+    }
+
+    return $this->resource;
+  }
+
+  /**
+   * @param string $buffer
+   */
+  public function write($buffer) {
+    if ($buffer !== \PHPUnit_Runner_Version::getVersionString()."\n\n") {
+      fwrite($this->getResource(), $buffer);
+    }
+  }
 }

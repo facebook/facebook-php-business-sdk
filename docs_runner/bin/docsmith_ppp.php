@@ -1,3 +1,4 @@
+#!/usr/bin/env php
 <?php
 /**
  * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
@@ -22,20 +23,24 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+use FacebookAdsTest\Bootstrap;
+use FacebookAdsDocsRunner\Docsmith\DocsmithRunner;
 
-use FacebookAds\Enum\AbstractEnum;
+$relative_path = getcwd();
+chdir(__DIR__);
 
-/**
- * @method static InsightsActionBreakdowns getInstance()
- */
-class InsightsActionBreakdowns extends AbstractEnum {
-
-  const ACTION_CAROUSEL_CARD_ID = 'action_carousel_card_id';
-  const ACTION_CAROUSEL_CARD_NAME = 'action_carousel_card_name';
-  const ACTION_DESTINATION = 'action_destination';
-  const ACTION_DEVICE = 'action_device';
-  const ACTION_TARGET_ID = 'action_target_id';
-  const ACTION_TYPE = 'action_type';
-  const ACTION_VIDEO_TYPE = 'action_video_type';
+if (!ini_get('date.timezone')) {
+  ini_set('date.timezone', 'UTC');
 }
+
+$loader = require __DIR__ . '/../autoload.php';
+require_once __DIR__.'/../../test/FacebookAdsTest/Bootstrap.php';
+
+// Setup the same env as our tests
+Bootstrap::initAutoloader();
+Bootstrap::initIntegrationConfig();
+
+$runner = new DocsmithRunner($_SERVER['argc'], $_SERVER['argv']);
+$runner->setRelativePath($relative_path);
+
+exit($runner->run());

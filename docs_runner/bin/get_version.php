@@ -1,3 +1,4 @@
+#!/usr/bin/env php
 <?php
 /**
  * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
@@ -22,20 +23,18 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+use \FacebookAds\Bootstrap;
+use FacebookAds\Api;
 
-use FacebookAds\Enum\AbstractEnum;
+chdir(__DIR__);
 
-/**
- * @method static InsightsActionBreakdowns getInstance()
- */
-class InsightsActionBreakdowns extends AbstractEnum {
-
-  const ACTION_CAROUSEL_CARD_ID = 'action_carousel_card_id';
-  const ACTION_CAROUSEL_CARD_NAME = 'action_carousel_card_name';
-  const ACTION_DESTINATION = 'action_destination';
-  const ACTION_DEVICE = 'action_device';
-  const ACTION_TARGET_ID = 'action_target_id';
-  const ACTION_TYPE = 'action_type';
-  const ACTION_VIDEO_TYPE = 'action_video_type';
+if (!ini_get('date.timezone')) {
+  ini_set('date.timezone', 'UTC');
 }
+
+// FIXME - @pruno
+// Untill we will run in full CI mode, composer won't be here, autoload manually
+require_once __DIR__.'/../src/SplClassLoader.php';
+(new SplClassLoader('FacebookAds', __DIR__.'/../../src/'))->register();
+
+echo sprintf('v%s', Api::init('', '', '')->getDefaultGraphVersion()).PHP_EOL;

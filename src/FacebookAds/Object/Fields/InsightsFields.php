@@ -33,6 +33,7 @@ class InsightsFields extends AbstractEnum {
 
   const ACCOUNT_ID = 'account_id';
   const ACCOUNT_NAME = 'account_name';
+  const ACTION_TYPE = 'action_type';
   const ACTION_VALUES = 'action_values';
   const ACTIONS = 'actions';
   const ACTIONS_PER_IMPRESSION = 'actions_per_impression';
@@ -89,4 +90,5 @@ class InsightsFields extends AbstractEnum {
   const VIDEO_P75_WATCHED_ACTIONS = 'video_p75_watched_actions';
   const VIDEO_P95_WATCHED_ACTIONS = 'video_p95_watched_actions';
   const VIDEO_START_ACTIONS = 'video_start_actions';
+  const WEBSITE_CTR = 'website_ctr';
 }

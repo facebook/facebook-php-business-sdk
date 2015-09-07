@@ -22,20 +22,28 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAdsDocsRunner\Docsmith;
 
-use FacebookAds\Enum\AbstractEnum;
+class DocsmithCurlParameters extends AbstractJsonUnpackAwareParameters {
 
-/**
- * @method static InsightsActionBreakdowns getInstance()
- */
-class InsightsActionBreakdowns extends AbstractEnum {
+  /**
+   * @return array
+   */
+  public function export() {
+    $data = parent::export();
+    foreach ($data as $key => &$value) {
+      if (!is_scalar($this->offsetGet($key)) && is_string($value)) {
+        $chunks = $this->jsonUnpack($value);
+        foreach ($chunks as &$chunk) {
+          $chunk = preg_replace(
+            '/^"'.DocsmithCurlLogger::CURL_VARIABLE_SIGN.'(.*)"$/',
+            DocsmithCurlLogger::CURL_VARIABLE_SIGN.'$1',
+            $chunk);
+        }
+        $value = implode('', $chunks);
+      }
+    }
 
-  const ACTION_CAROUSEL_CARD_ID = 'action_carousel_card_id';
-  const ACTION_CAROUSEL_CARD_NAME = 'action_carousel_card_name';
-  const ACTION_DESTINATION = 'action_destination';
-  const ACTION_DEVICE = 'action_device';
-  const ACTION_TARGET_ID = 'action_target_id';
-  const ACTION_TYPE = 'action_type';
-  const ACTION_VIDEO_TYPE = 'action_video_type';
+    return $data;
+  }
 }

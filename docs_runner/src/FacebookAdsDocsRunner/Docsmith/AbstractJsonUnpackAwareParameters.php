@@ -22,20 +22,40 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAdsDocsRunner\Docsmith;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\Http\Parameters;
 
-/**
- * @method static InsightsActionBreakdowns getInstance()
- */
-class InsightsActionBreakdowns extends AbstractEnum {
+abstract class AbstractJsonUnpackAwareParameters extends Parameters {
 
-  const ACTION_CAROUSEL_CARD_ID = 'action_carousel_card_id';
-  const ACTION_CAROUSEL_CARD_NAME = 'action_carousel_card_name';
-  const ACTION_DESTINATION = 'action_destination';
-  const ACTION_DEVICE = 'action_device';
-  const ACTION_TARGET_ID = 'action_target_id';
-  const ACTION_TYPE = 'action_type';
-  const ACTION_VIDEO_TYPE = 'action_video_type';
+  /**
+   * @var array
+   */
+  protected $jsonStructChars = array('{', '}', '[', ']', ',', ':');
+
+  /**
+   * @param string $json
+   * @return array
+   */
+  protected function jsonUnpack($json) {
+    $chunks = array();
+    $chunk = '';
+    for ($i = 0; $i < strlen($json); $i++) {
+      $char = $json[$i];
+      if (in_array($char, $this->jsonStructChars)) {
+          $chunks[] = $char;
+      } else {
+        $chunk .= $char;
+        if (
+          !isset($json[$i + 1])
+          || in_array($json[$i + 1], $this->jsonStructChars)) {
+
+          $chunks[] = $chunk;
+          $chunk = '';
+        }
+      }
+    }
+
+    return $chunks;
+  }
 }
