@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2014 Facebook, Inc.
+ * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -124,6 +124,15 @@ class AdGroup extends AbstractArchivableCrudObject
     array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(
       AdCreative::className(), $fields, $params);
+  }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getLeads(array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(Lead::className(), $fields, $params);
   }
 
   /**

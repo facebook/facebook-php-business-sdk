@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2014 Facebook, Inc.
+ * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -62,6 +62,7 @@ class AdAccountTest extends AbstractCrudObjectTestCase {
     $this->assertCanFetchConnection($account, 'getCustomAudiences');
     $this->assertCanFetchConnection($account, 'getConversionPixels');
     $this->assertCanFetchConnection($account, 'getRateCards');
+    $this->assertCanFetchConnection($account, 'getAdCreativesByLabel');
 
     if (!$this->shouldSkipTest('no_reach_and_frequency')) {
       $this->assertCanFetchConnection($account, 'getReachEstimate',

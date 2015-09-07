@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2014 Facebook, Inc.
+ * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -60,4 +60,5 @@ class AdCreativeFields extends AbstractEnum {
   const ADLABELS = 'adlabels';
   const TEMPLATE_URL = 'template_url';
   const APPLINK_TREATMENT = 'applink_treatment';
+  const RUN_STATUS = 'run_status';
 }

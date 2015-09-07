@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2014 Facebook, Inc.
+ * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -375,5 +375,16 @@ class AdAccount extends AbstractCrudObject {
     array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(
       AdGroup::classname(), $fields, $params, 'adgroupsbylabels');
+  }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getAdCreativesByLabel(
+    array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(
+      AdCreative::classname(), $fields, $params, 'adcreativesbylabels');
   }
 }

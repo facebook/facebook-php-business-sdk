@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2014 Facebook, Inc.
+ * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -93,30 +93,22 @@ class CurlLoggerTest extends AbstractLoggerTest {
    */
   public function logRequestProvider() {
     return array(
-      array(RequestInterface::METHOD_GET, true),
-      array(RequestInterface::METHOD_GET, false),
-      array(RequestInterface::METHOD_POST, true),
-      array(RequestInterface::METHOD_POST, false),
-      array(RequestInterface::METHOD_PUT, true),
-      array(RequestInterface::METHOD_PUT, false),
-      array(RequestInterface::METHOD_DELETE, true),
-      array(RequestInterface::METHOD_DELETE, false),
+      array(RequestInterface::METHOD_GET),
+      array(RequestInterface::METHOD_POST),
+      array(RequestInterface::METHOD_PUT),
+      array(RequestInterface::METHOD_DELETE),
     );
   }
 
   /**
    * @dataProvider logRequestProvider
    * @param string $http_method
-   * @param bool $show_sensitive_data
    */
-  public function testLogRequest($http_method, $show_sensitive_data) {
+  public function testLogRequest($http_method) {
     $request = $this->createRequestMock();
     $request->method('getMethod')->willReturn($http_method);
 
     $logger = $this->createLogger();
-    $logger->setShowSensitiveData($show_sensitive_data);
-    $logger->getSensitiveParametersList()->append('body_field');
-    $logger->setEscapeLevels(2);
     $logger->logRequest(
       static::VALUE_LOG_LEVEL, $request);
   }
@@ -124,26 +116,5 @@ class CurlLoggerTest extends AbstractLoggerTest {
   public function testLogResponse() {
     $this->createLogger()->logResponse(
       static::VALUE_LOG_LEVEL, $this->createResponseMock());
-  }
-
-  public function testSensitiveData() {
-    $logger = $this->createLogger();
-    $show = (bool) rand(0, 1);
-    $logger->setShowSensitiveData($show);
-    $this->assertEquals($show, $logger->getShowSensitiveData());
-
-    $logger = $this->createLogger();
-    $list = new \ArrayObject();
-    $logger->setSensitiveParametersList($list);
-    $this->assertTrue($list === $logger->getSensitiveParametersList());
-
-    // Test default
-    $logger = $this->createLogger();
-    $this->assertTrue(in_array(
-      'access_token',
-      $logger->getSensitiveParametersList()->getArrayCopy()));
-    $this->assertTrue(in_array(
-      'appsecret_proof',
-      $logger->getSensitiveParametersList()->getArrayCopy()));
   }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2014 Facebook, Inc.
+ * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -41,4 +41,5 @@ class CallToActionTypes extends AbstractEnum {
   const SHOP_NOW = 'SHOP_NOW';
   const USE_APP = 'USE_APP';
   const WATCH_VIDEO = 'WATCH_VIDEO';
+  const LEARN_MORE = 'LEARN_MORE';
 }

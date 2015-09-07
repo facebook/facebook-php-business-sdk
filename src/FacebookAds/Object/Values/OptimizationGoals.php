@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2014 Facebook, Inc.
+ * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -42,4 +42,5 @@ class OptimizationGoals extends AbstractEnum {
   const POST_ENGAGEMENT = 'POST_ENGAGEMENT';
   const REACH = 'REACH';
   const VIDEO_VIEWS = 'VIDEO_VIEWS';
+  const IMPRESSIONS = 'IMPRESSIONS';
 }

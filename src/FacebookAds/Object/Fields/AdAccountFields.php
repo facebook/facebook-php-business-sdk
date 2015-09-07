@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2014 Facebook, Inc.
+ * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -38,6 +38,7 @@ class AdAccountFields extends AbstractEnum {
   const AGENCY_CLIENT_DECLARATION = 'agency_client_declaration';
   const AMOUNT_SPENT = 'amount_spent';
   const BALANCE = 'balance';
+  const BUSINESS = 'business';
   const BUSINESS_CITY = 'business_city';
   const BUSINESS_COUNTRY_CODE = 'business_country_code';
   const BUSINESS_ID = 'business_id';

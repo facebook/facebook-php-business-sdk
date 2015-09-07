@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2014 Facebook, Inc.
+ * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -47,6 +47,12 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
    */
   public function shouldSkipTest($key) {
     return $this->getSkippableFeaturesManager()->isSkipKey($key);
+  }
+
+  public function skipIf($key) {
+    if ($this->shouldSkipTest($key)) {
+      $this->markTestSkipped();
+    }
   }
 
   /**

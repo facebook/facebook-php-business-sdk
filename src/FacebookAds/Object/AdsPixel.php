@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2014 Facebook, Inc.
+ * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -24,6 +24,8 @@
 
 namespace FacebookAds\Object;
 
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
 use FacebookAds\Object\Fields\AdsPixelsFields;
 use FacebookAds\Object\Traits\CannotDelete;
 use FacebookAds\Object\Traits\FieldValidation;
@@ -33,6 +35,13 @@ class AdsPixel extends AbstractCrudObject {
   use FieldValidation;
 
   /**
+   * @return AdsPixelsFields
+   */
+  public static function getFieldsEnum() {
+    return AdsPixelsFields::getInstance();
+  }
+
+  /**
    * @return string
    */
   protected function getEndpoint() {
@@ -40,9 +49,82 @@ class AdsPixel extends AbstractCrudObject {
   }
 
   /**
-   * @return AdsPixelsFields
+   * @param int $business_id
+   * @param string $account_id
    */
-  public static function getFieldsEnum() {
-    return AdsPixelsFields::getInstance();
+  public function sharePixelWithAdAccount($business_id, $account_id) {
+    $this->getApi()->call(
+      '/'.$this->assureId().'/shared_accounts',
+      RequestInterface::METHOD_POST,
+      array(
+        'business' => $business_id,
+        'account_id' => $account_id,
+      ));
+  }
+
+  /**
+   * @param $business_id
+   * @param $account_id
+   */
+  public function unsharePixelWithAdAccount($business_id, $account_id) {
+    $this->getApi()->call(
+      '/'.$this->assureId().'/shared_accounts',
+      RequestInterface::METHOD_DELETE,
+      array(
+        'business' => $business_id,
+        'account_id' => $account_id,
+      ));
+  }
+
+  /**
+   * @param int $business_id
+   * @param int $agency_id
+   */
+  public function sharePixelWithAgency($business_id, $agency_id) {
+    $this->getApi()->call(
+      '/'.$this->assureId().'/shared_agencies',
+      RequestInterface::METHOD_POST,
+      array(
+        'business' => $business_id,
+        'agency_id' => $agency_id,
+      ));
+  }
+
+  /**
+   * @param int $business_id
+   * @param int $agency_id
+   */
+  public function unsharePixelWithAgency($business_id, $agency_id) {
+    $this->getApi()->call(
+      '/'.$this->assureId().'/shared_agencies',
+      RequestInterface::METHOD_DELETE,
+      array(
+        'business' => $business_id,
+        'agency_id' => $agency_id,
+      ));
+  }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getAdAccounts(
+    array $fields = array(), array $params = array()) {
+
+    return $this->getManyByConnection(
+      AdAccount::className(), $fields, $params, 'shared_accounts');
+  }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getAgencies(
+    array $fields = array(), array $params = array()) {
+
+    return $this->getManyByConnection(
+      Business::className(), $fields, $params, 'shared_agencies');
   }
 }

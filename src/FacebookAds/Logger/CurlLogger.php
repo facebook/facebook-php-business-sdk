@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2014 Facebook, Inc.
+ * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -61,24 +61,9 @@ class CurlLogger implements LoggerInterface {
   const METHOD_DELETE_FLAG = 'X DELETE';
 
   /**
-   * @var int
-   */
-  protected $escapeLevels = 0;
-
-  /**
-   * @var bool
-   */
-  protected $showSensitiveData = true;
-
-  /**
    * @var resource
    */
   protected $handle;
-
-  /**
-   * @var \ArrayObject
-   */
-  protected $sensitiveParameterList;
 
   /**
    * @param resource $handle
@@ -123,86 +108,20 @@ class CurlLogger implements LoggerInterface {
   }
 
   /**
-   * Set how many times quotes should be escaped
-   *
-   * @param int $levels
-   */
-  public function setEscapeLevels($levels = 0) {
-    $this->escapeLevels = $levels;
-  }
-
-  /**
-   * @return int
-   */
-  public function getEscapeLevels() {
-    return $this->escapeLevels;
-  }
-
-  /**
-   * @param string $string
-   * @return string
-   */
-  public function escape($string) {
-    for ($i = 0; $i < $this->getEscapeLevels(); $i++) {
-      $string = str_replace('"', '\"', $string);
-    }
-
-    return $string;
-  }
-
-  /**
-   * Whether to show ids and tokens
-   * @param $show
-   */
-  public function setShowSensitiveData($show) {
-    $this->showSensitiveData = $show;
-  }
-
-  /**
-   * @return bool
-   */
-  public function getShowSensitiveData() {
-    return $this->showSensitiveData;
-  }
-
-  /**
-   * @param \ArrayObject $list
-   */
-  public function setSensitiveParametersList(\ArrayObject $list) {
-    $this->sensitiveParameterList = $list;
-  }
-
-  /**
-   * @return \ArrayObject
-   */
-  public function getSensitiveParametersList() {
-    if ($this->sensitiveParameterList === null) {
-      $this->sensitiveParameterList = new \ArrayObject(array(
-        'access_token',
-        'appsecret_proof',
-      ));
-    }
-
-    return $this->sensitiveParameterList;
-  }
-
-  /**
    * @param Parameters $params
    * @param string $flag
    * @param bool $is_file
    * @return string
    */
-  protected function processParams(
-    Parameters $params, $flag, $is_file = false) {
+  protected function processParams(Parameters $params, $flag, $is_file) {
     $chunks = array();
-    $file_mod = $is_file ? '@' : '';
-    foreach ($params->export() as $name => $value ) {
-      if (!$this->showSensitiveData
-        && in_array(
-          $name, $this->getSensitiveParametersList()->getArrayCopy())) {
-        $value = static::getPlaceholder($name);
-      }
-      $chunks[$name] = '-'.$flag.' "'.$name.'='.$file_mod.$value.'"';
+    foreach ($params->export() as $name => $value) {
+      $chunks[$name] = sprintf(
+        '-%s \'%s=%s%s\'',
+        $flag,
+        $name,
+        $is_file ? '@' : '',
+        addcslashes($value, '\''));
     }
 
     return $chunks;
@@ -213,16 +132,15 @@ class CurlLogger implements LoggerInterface {
    * @return string
    */
   protected function processUrl(RequestInterface $request) {
-    $path = $request->getPath();
-    if (!$this->showSensitiveData) {
-      $path = preg_replace(
-        array('/\/act_\d+(\/|$)/i', '/\/\d+(\/|$)/'),
-        array('/act_<AD_ACCOUNT_ID>$1', '/<OBJECT_ID>$1'),
-        $path);
-    }
-
     return $request->getProtocol().$request->getDomain()
-    .'/v'.$request->getGraphVersion().$path;
+      .'/v'.$request->getGraphVersion().$request->getPath();
+  }
+
+  /**
+   * @param string $buffer
+   */
+  protected function flush($buffer) {
+    fwrite($this->handle, $buffer.PHP_EOL.PHP_EOL);
   }
 
   /**
@@ -231,7 +149,7 @@ class CurlLogger implements LoggerInterface {
    * @param array $context
    */
   public function log($level, $message, array $context = array()) {
-    // We don't care for anything except requests
+    // We only care about requests
   }
 
   /**
@@ -246,8 +164,8 @@ class CurlLogger implements LoggerInterface {
     $method_flag = static::getMethodFlag($request->getMethod());
     $param_flag = static::getParamFlag($request->getMethod());
     $params = array_merge(
-      $this->processParams($request->getQueryParams(), $param_flag),
-      $this->processParams($request->getBodyParams(), $param_flag),
+      $this->processParams($request->getQueryParams(), $param_flag, false),
+      $this->processParams($request->getBodyParams(), $param_flag, false),
       $this->processParams($request->getFileParams(), $param_flag, true));
 
     $buffer = 'curl'.($method_flag ? ' -'.$method_flag : '');
@@ -256,7 +174,7 @@ class CurlLogger implements LoggerInterface {
     }
     $buffer .= $new_line.$this->processUrl($request);
 
-    fwrite($this->handle, $this->escape($buffer.PHP_EOL.PHP_EOL));
+    $this->flush($buffer);
   }
 
   /**
@@ -266,6 +184,6 @@ class CurlLogger implements LoggerInterface {
    */
   public function logResponse(
     $level, ResponseInterface $response, array $context = array()) {
-    // We don't care for anything except requests
+    // We only care about requests
   }
 }

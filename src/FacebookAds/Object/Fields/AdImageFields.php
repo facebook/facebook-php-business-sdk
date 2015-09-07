@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2014 Facebook, Inc.
+ * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -41,4 +41,9 @@ class AdImageFields extends AbstractEnum {
   const ORIGINAL_WIDTH = 'original_width';
   const ORIGINAL_HEIGHT = 'original_height';
   const NAME = 'name';
+  const STATUS = 'status';
+  const CREATED_TIME = 'created_time';
+  const UPDATED_TIME = 'updated_time';
+  const PERMALINK_URL = 'permalink_url';
+  const URL_128 = 'url_128';
 }
