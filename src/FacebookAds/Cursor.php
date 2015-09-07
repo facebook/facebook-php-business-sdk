@@ -68,7 +68,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   /**
    * @var bool
    */
-  protected $useImplicitFectch;
+  protected $useImplicitFetch;
 
   public function __construct(
     ResponseInterface $response, AbstractObject $object_prototype) {
@@ -153,26 +153,26 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   }
 
   /**
-   * @param bool $use_implicit_fectch
+   * @param bool $use_implicit_fetch
    */
-  public static function setDefaultUseImplicitFetch($use_implicit_fectch) {
-    static::$defaultUseImplicitFetch = $use_implicit_fectch;
+  public static function setDefaultUseImplicitFetch($use_implicit_fetch) {
+    static::$defaultUseImplicitFetch = $use_implicit_fetch;
   }
 
   /**
    * @return bool
    */
   public function getUseImplicitFetch() {
-    return $this->useImplicitFectch !== null
-      ? $this->useImplicitFectch
+    return $this->useImplicitFetch !== null
+      ? $this->useImplicitFetch
       : static::$defaultUseImplicitFetch;
   }
 
   /**
-   * @param bool $use_implicit_fectch
+   * @param bool $use_implicit_fetch
    */
-  public function setUseImplicitFetch($use_implicit_fectch) {
-    $this->useImplicitFectch = $use_implicit_fectch;
+  public function setUseImplicitFetch($use_implicit_fetch) {
+    $this->useImplicitFetch = $use_implicit_fetch;
   }
 
   /**
