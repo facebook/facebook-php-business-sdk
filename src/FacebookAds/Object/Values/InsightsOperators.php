@@ -31,19 +31,19 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class InsightsOperators extends AbstractEnum {
 
-  const ALL = 'all';
-  const ANY = 'any';
-  const CONTAIN = 'contain';
-  const EQUAL = 'equal';
-  const GREATER_THAN = 'greater_than';
-  const GREATER_THAN_OR_EQUAL = 'greater_than_or_equal';
-  const IN = 'in';
-  const IN_RANGE = 'in_range';
-  const LESS_THAN = 'less_than';
-  const LESS_THAN_OR_EQUAL = 'less_than_or_equal';
-  const NONE = 'none';
-  const NOT_CONTAIN = 'not_contain';
-  const NOT_EQUAL = 'not_equal';
-  const NOT_IN = 'not_in';
-  const NOT_IN_RANGE = 'not_in_range';
+  const ALL = 'ALL';
+  const ANY = 'ANY';
+  const CONTAIN = 'CONTAIN';
+  const EQUAL = 'EQUAL';
+  const GREATER_THAN = 'GREATER_THAN';
+  const GREATER_THAN_OR_EQUAL = 'GREATER_THAN_OR_EQUAL';
+  const IN = 'IN';
+  const IN_RANGE = 'IN_RANGE';
+  const LESS_THAN = 'LESS_THAN';
+  const LESS_THAN_OR_EQUAL = 'LESS_THAN_OR_EQUAL';
+  const NONE = 'NONE';
+  const NOT_CONTAIN = 'NOT_CONTAIN';
+  const NOT_EQUAL = 'NOT_EQUAL';
+  const NOT_IN = 'NOT_IN';
+  const NOT_IN_RANGE = 'NOT_IN_RANGE';
 }
