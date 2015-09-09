@@ -32,8 +32,6 @@ use FacebookAds\Object\Traits\FieldValidation;
 
 class AdVideo extends AbstractCrudObject {
   use FieldValidation;
-  use CannotDelete;
-  use CannotUpdate;
 
   /**
    * @return string

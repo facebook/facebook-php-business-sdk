@@ -44,7 +44,9 @@ class AdVideoTest extends AbstractCrudObjectTestCase
     $video->{AdVideoFields::SOURCE} = $this->getConfig()->testVideoPath;
     $this->assertCanCreate($video);
     $this->assertCanRead($video);
-    $this->assertCannotUpdate($video);
-    $this->assertCannotDelete($video);
+    $this->assertCanUpdate($video, array(
+      AdVideoFields::NAME => $this->getConfig()->testRunId.' updated',
+    ));
+    $this->assertCanDelete($video);
   }
 }
