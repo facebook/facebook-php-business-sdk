@@ -134,6 +134,6 @@ class AdAccountGroupAccount extends AbstractObject {
    */
   public function getAdAccount() {
     return new AdAccount(
-      'act_'.$this->{AdAccountGroupAccountFields::ACCOUNT_ID});;
+      'act_'.$this->{AdAccountGroupAccountFields::ACCOUNT_ID});
   }
 }
