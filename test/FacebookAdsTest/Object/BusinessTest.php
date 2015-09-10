@@ -104,5 +104,6 @@ class BusinessTest extends AbstractCrudObjectTestCase
     $this->assertCanFetchConnection($business, 'getExtendedCredits');
     $this->assertCanFetchConnection($business, 'getProductCatalogues');
     $this->assertCanFetchConnection($business, 'getSystemUsers');
+    $this->assertCanFetchConnection($business, 'getAdsPixels');
   }
 }

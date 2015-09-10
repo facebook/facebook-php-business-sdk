@@ -318,4 +318,15 @@ class Business extends AbstractCrudObject {
     return $this->getManyByConnection(
       SystemUser::className(), $fields, $params);
   }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getAdsPixels(
+    array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(
+      AdsPixel::className(), $fields, $params);
+  }
 }
