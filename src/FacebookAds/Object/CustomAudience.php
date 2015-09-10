@@ -60,8 +60,9 @@ class CustomAudience extends AbstractCrudObject {
    *   gathered. Required when $type = 'UID'.
    * @return array
    */
-  public function addUsers(array $users, $type, array $app_ids = array()) {
-    $params = $this->formatParams($users, $type, $app_ids);
+  public function addUsers(
+      array $users, $type, array $app_ids = array(), $isHashed=false) {
+    $params = $this->formatParams($users, $type, $app_ids, $isHashed);
     return $this->getApi()->call(
       '/'.$this->assureId().'/users',
       RequestInterface::METHOD_POST,
@@ -77,8 +78,9 @@ class CustomAudience extends AbstractCrudObject {
    *   gathered. Required when $type = 'UID'.
    * @return array
    */
-  public function removeUsers(array $users, $type, array $app_ids = array()) {
-    $params = $this->formatParams($users, $type, $app_ids);
+  public function removeUsers(
+      array $users, $type, array $app_ids = array(), $isHashed=false) {
+    $params = $this->formatParams($users, $type, $app_ids, $isHashed);
     return $this->getApi()->call(
       '/'.$this->assureId().'/users',
       RequestInterface::METHOD_DELETE,
@@ -94,8 +96,9 @@ class CustomAudience extends AbstractCrudObject {
    *   gathered. Required when $type = 'UID'.
    * @return array
    */
-  public function optOutUsers(array $users, $type, array $app_ids = array()) {
-    $params = $this->formatParams($users, $type, $app_ids);
+  public function optOutUsers(
+      array $users, $type, array $app_ids = array(), $isHashed=false) {
+    $params = $this->formatParams($users, $type, $app_ids, $isHashed);
     return $this->getApi()->call(
       '/'.$this->assureParentId().'/usersofanyaudience',
       RequestInterface::METHOD_DELETE,
@@ -111,7 +114,7 @@ class CustomAudience extends AbstractCrudObject {
    * @return array
    */
   protected function formatParams(
-    array $users, $type, array $app_ids = array()) {
+      array $users, $type, array $app_ids = array(), $isHashed) {
 
     if ($type == CustomAudienceTypes::EMAIL
       || $type == CustomAudienceTypes::PHONE) {
@@ -119,7 +122,9 @@ class CustomAudience extends AbstractCrudObject {
         if ($type == CustomAudienceTypes::EMAIL) {
           $user = trim(strtolower($user), " \t\r\n\0\x0B.");
         }
-        $user = hash(self::HASH_TYPE_SHA256, $user);
+        if (!$isHashed) {
+            $user = hash(self::HASH_TYPE_SHA256, $user);
+        }
       }
     }
 
