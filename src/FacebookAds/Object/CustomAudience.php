@@ -61,8 +61,8 @@ class CustomAudience extends AbstractCrudObject {
    * @return array
    */
   public function addUsers(
-      array $users, $type, array $app_ids = array(), $isHashed=false) {
-    $params = $this->formatParams($users, $type, $app_ids, $isHashed);
+      array $users, $type, array $app_ids = array(), $is_hashed=false) {
+    $params = $this->formatParams($users, $type, $app_ids, $is_hashed);
     return $this->getApi()->call(
       '/'.$this->assureId().'/users',
       RequestInterface::METHOD_POST,
@@ -79,8 +79,8 @@ class CustomAudience extends AbstractCrudObject {
    * @return array
    */
   public function removeUsers(
-      array $users, $type, array $app_ids = array(), $isHashed=false) {
-    $params = $this->formatParams($users, $type, $app_ids, $isHashed);
+      array $users, $type, array $app_ids = array(), $is_hashed=false) {
+    $params = $this->formatParams($users, $type, $app_ids, $is_hashed);
     return $this->getApi()->call(
       '/'.$this->assureId().'/users',
       RequestInterface::METHOD_DELETE,
@@ -97,8 +97,8 @@ class CustomAudience extends AbstractCrudObject {
    * @return array
    */
   public function optOutUsers(
-      array $users, $type, array $app_ids = array(), $isHashed=false) {
-    $params = $this->formatParams($users, $type, $app_ids, $isHashed);
+      array $users, $type, array $app_ids = array(), $is_hashed=false) {
+    $params = $this->formatParams($users, $type, $app_ids, $is_hashed);
     return $this->getApi()->call(
       '/'.$this->assureParentId().'/usersofanyaudience',
       RequestInterface::METHOD_DELETE,
@@ -114,7 +114,7 @@ class CustomAudience extends AbstractCrudObject {
    * @return array
    */
   protected function formatParams(
-      array $users, $type, array $app_ids = array(), $isHashed) {
+      array $users, $type, array $app_ids = array(), $is_hashed) {
 
     if ($type == CustomAudienceTypes::EMAIL
       || $type == CustomAudienceTypes::PHONE) {
@@ -122,7 +122,7 @@ class CustomAudience extends AbstractCrudObject {
         if ($type == CustomAudienceTypes::EMAIL) {
           $user = trim(strtolower($user), " \t\r\n\0\x0B.");
         }
-        if (!$isHashed) {
+        if (!$is_hashed) {
             $user = hash(self::HASH_TYPE_SHA256, $user);
         }
       }
