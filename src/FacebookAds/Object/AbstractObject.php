@@ -60,11 +60,14 @@ abstract class AbstractObject {
   }
 
   /**
-   * @param array
+   * @param array $data
    * @return $this
    */
   public function setData(array $data) {
-    $this->data = $data;
+    foreach ($data as $key => $value) {
+      $this->{$key} = $value;
+    }
+
     return $this;
   }
 

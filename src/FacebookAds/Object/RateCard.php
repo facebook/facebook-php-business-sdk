@@ -24,6 +24,14 @@
 
 namespace FacebookAds\Object;
 
+use FacebookAds\Object\Fields\RateCardFields;
+
 class RateCard extends AbstractObject {
 
+  /**
+   * @return RateCardFields
+   */
+  public static function getFieldsEnum() {
+    return RateCardFields::getInstance();
+  }
 }

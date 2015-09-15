@@ -22,39 +22,15 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Fields;
 
-use FacebookAds\Cursor;
-use FacebookAds\Object\Fields\AsyncJobFields;
+use FacebookAds\Enum\AbstractEnum;
 
-class AsyncJobInsights extends AbstractAsyncJobObject {
+/**
+ * @method static TargetingDescriptionFields getInstance()
+ */
+class TargetingDescriptionFields extends AbstractEnum {
 
-  /**
-   * @return AsyncJobFields
-   */
-  public static function getFieldsEnum() {
-    return AsyncJobFields::getInstance();
-  }
-
-  /**
-   * @return string
-   */
-  protected function getCreateIdFieldName() {
-    return 'report_run_id';
-  }
-
-  /**
-   * @return string
-   */
-  public function getEndpoint() {
-    return 'insights';
-  }
-
-  /**
-   * @return Cursor
-   */
-  public function getResult() {
-    return $this->getManyByConnection(
-      Insights::classname(), array(), array(), $this->getEndpoint());
-  }
+  const ID = 'id';
+  const TARGETING_SENTENCE_LINES = 'targetingsentencelines';
 }

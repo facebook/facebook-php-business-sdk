@@ -198,18 +198,6 @@ abstract class AbstractCrudObject extends AbstractObject {
   }
 
   /**
-   * @param array $data
-   * @return $this
-   */
-  public function setData(array $data) {
-    foreach ($data as $key => $value) {
-      $this->{$key} = $value;
-    }
-
-    return $this;
-  }
-
-  /**
    * @param string[] $fields
    */
   public static function setDefaultReadFields(array $fields = array()) {

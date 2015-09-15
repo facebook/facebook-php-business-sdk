@@ -22,39 +22,18 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Fields;
 
-use FacebookAds\Cursor;
-use FacebookAds\Object\Fields\AsyncJobFields;
+use FacebookAds\Enum\AbstractEnum;
 
-class AsyncJobInsights extends AbstractAsyncJobObject {
+/**
+ * @method static AsyncJobFields getInstance()
+ */
+class AsyncJobFields extends AbstractEnum {
 
-  /**
-   * @return AsyncJobFields
-   */
-  public static function getFieldsEnum() {
-    return AsyncJobFields::getInstance();
-  }
-
-  /**
-   * @return string
-   */
-  protected function getCreateIdFieldName() {
-    return 'report_run_id';
-  }
-
-  /**
-   * @return string
-   */
-  public function getEndpoint() {
-    return 'insights';
-  }
-
-  /**
-   * @return Cursor
-   */
-  public function getResult() {
-    return $this->getManyByConnection(
-      Insights::classname(), array(), array(), $this->getEndpoint());
-  }
+  const ASYNC_PERCENT_COMPLETITION = 'async_percent_completion';
+  const EXPORT_COLUMNS = 'export_columns';
+  const FORMAT = 'format';
+  const NAME = 'name';
+  const REPORT_RUN_ID = 'report_run_id';
 }
