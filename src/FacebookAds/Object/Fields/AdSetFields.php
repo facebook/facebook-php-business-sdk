@@ -56,4 +56,5 @@ class AdSetFields extends AbstractEnum {
   const PROMOTED_OBJECT = 'promoted_object';
   const ADLABELS = 'adlabels';
   const PRODUCT_AD_BEHAVIOR = 'product_ad_behavior';
+  const USE_NEW_APP_CLICK = 'use_new_app_click';
 }
