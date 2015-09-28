@@ -30,35 +30,36 @@ use FacebookAds\Enum\AbstractEnum;
  * @method static AdCreativeFields getInstance()
  */
 class AdCreativeFields extends AbstractEnum {
-
-  const ID = 'id';
-  const TITLE = 'title';
   const ACTOR_ID = 'actor_id';
+  const ACTOR_IMAGE_HASH = 'actor_image_hash';
   const ACTOR_NAME = 'actor_name';
-  const NAME = 'name';
-  const OBJECT_ID = 'object_id';
-  const OBJECT_STORY_ID = 'object_story_id';
-  const OBJECT_STORY_SPEC = 'object_story_spec';
-  const PRODUCT_SET_ID = 'product_set_id';
+  const ADLABELS = 'adlabels';
+  const APPLINK_TREATMENT = 'applink_treatment';
   const BODY = 'body';
+  const CALL_TO_ACTION_TYPE = 'call_to_action_type';
+  const FOLLOW_REDIRECT = 'follow_redirect';
+  const ID = 'id';
   const IMAGE_HASH = 'image_hash';
   const IMAGE_FILE = 'image_file';
   const IMAGE_URL = 'image_url';
   const IMAGE_CROPS = 'image_crops';
-  const VIDEO_ID = 'video_id';
-  const ACTOR_IMAGE_HASH = 'actor_image_hash';
-  const LINK_URL = 'link_url';
-  const OBJECT_URL = 'object_url';
-  const URL_TAGS = 'url_tags';
-  const PREVIEW_URL = 'preview_url';
-  const THUMBNAIL_URL = 'thumbnail_url';
-  const FOLLOW_REDIRECT = 'follow_redirect';
-  const OBJECT_STORE_URL = 'object_store_url';
+  const INSTAGRAM_ACTOR_ID = 'instagram_actor_id';
+  const INSTAGRAM_PERMALINK_URL = 'instagram_permalink_url';
   const LINK_DEEP_LINK_URL = 'link_deep_link_url';
-  const CALL_TO_ACTION_TYPE = 'call_to_action_type';
+  const LINK_URL = 'link_url';
+  const NAME = 'name';
+  const OBJECT_ID = 'object_id';
+  const OBJECT_STORY_ID = 'object_story_id';
+  const OBJECT_STORY_SPEC = 'object_story_spec';
+  const OBJECT_STORE_URL = 'object_store_url';
   const OBJECT_TYPE = 'object_type';
-  const ADLABELS = 'adlabels';
-  const TEMPLATE_URL = 'template_url';
-  const APPLINK_TREATMENT = 'applink_treatment';
+  const OBJECT_URL = 'object_url';
+  const PREVIEW_URL = 'preview_url';
+  const PRODUCT_SET_ID = 'product_set_id';
   const RUN_STATUS = 'run_status';
+  const TEMPLATE_URL = 'template_url';
+  const THUMBNAIL_URL = 'thumbnail_url';
+  const TITLE = 'title';
+  const URL_TAGS = 'url_tags';
+  const VIDEO_ID = 'video_id';
 }

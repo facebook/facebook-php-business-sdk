@@ -31,6 +31,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ObjectStorySpecFields extends AbstractEnum {
 
+  const INSTAGRAM_ACTOR_ID = 'instagram_actor_id';
   const LINK_DATA = 'link_data';
   const OFFER_DATA = 'offer_data';
   const PAGE_ID = 'page_id';
