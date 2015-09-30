@@ -35,7 +35,7 @@ class Api {
   /**
    * @var string
    */
-  const VERSION = '2.4.2';
+  const VERSION = '2.5.0';
 
   /**
    * @var Api
