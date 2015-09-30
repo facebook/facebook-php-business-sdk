@@ -31,13 +31,11 @@ class ReachEstimate extends AbstractObject {
   use FieldValidation;
 
   /**
-   * @var string[]
+   * @return ReachEstimateFields
    */
-  protected static $fields = array(
-    ReachEstimateFields::USERS,
-    ReachEstimateFields::BID_ESTIMATIONS,
-    ReachEstimateFields::ESTIMATE_READY,
-  );
+  public static function getFieldsEnum() {
+    return ReachEstimateFields::getInstance();
+  }
 
   /**
    * @param array
