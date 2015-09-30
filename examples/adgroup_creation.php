@@ -58,7 +58,7 @@ use FacebookAds\Object\Fields\AdAccountFields;
 $account = (new AdAccount($account_id))->read(array(
   AdAccountFields::ID,
   AdAccountFields::NAME,
-  AdAccountFields::ACCOUNT_STATUS
+  AdAccountFields::ACCOUNT_STATUS,
 ));
 
 echo "\nUsing this account: ";
@@ -71,17 +71,17 @@ if($account->{AdAccountFields::ACCOUNT_STATUS} !== 1) {
 }
 
 /**
- * Step 2 Create the AdCampaign
+ * Step 2 Create the Campaign
  */
-use FacebookAds\Object\AdCampaign;
-use FacebookAds\Object\Fields\AdCampaignFields;
+use FacebookAds\Object\Campaign;
+use FacebookAds\Object\Fields\CampaignFields;
 use FacebookAds\Object\Values\AdObjectives;
 
-$campaign  = new AdCampaign(null, $account->id);
+$campaign  = new Campaign(null, $account->id);
 $campaign->setData(array(
-  AdCampaignFields::NAME => 'My First Campaign',
-  AdCampaignFields::OBJECTIVE => AdObjectives::WEBSITE_CLICKS,
-  AdCampaignFields::STATUS => AdCampaign::STATUS_PAUSED,
+  CampaignFields::NAME => 'My First Campaign',
+  CampaignFields::OBJECTIVE => AdObjectives::WEBSITE_CLICKS,
+  CampaignFields::STATUS => Campaign::STATUS_PAUSED,
 ));
 
 $campaign->validate()->create();
@@ -126,8 +126,8 @@ use FacebookAds\Object\Values\BillingEvents;
 $adset = new AdSet(null, $account->id);
 $adset->setData(array(
   AdSetFields::NAME => 'My First AdSet',
-  AdSetFields::CAMPAIGN_GROUP_ID => $campaign->id,
-  AdSetFields::CAMPAIGN_STATUS => AdSet::STATUS_ACTIVE,
+  AdSetFields::CAMPAIGN_ID => $campaign->id,
+  AdSetFields::STATUS => AdSet::STATUS_ACTIVE,
   AdSetFields::DAILY_BUDGET => '150',
   AdSetFields::TARGETING => $targeting,
   AdSetFields::OPTIMIZATION_GOAL => OptimizationGoals::REACH,
@@ -175,18 +175,18 @@ $creative->create();
 echo 'Creative ID: '.$creative->id . "\n";
 
 /**
- * Step 7 Create an AdGroup
+ * Step 7 Create an Ad
  */
-use FacebookAds\Object\AdGroup;
-use FacebookAds\Object\Fields\AdGroupFields;
+use FacebookAds\Object\Ad;
+use FacebookAds\Object\Fields\AdFields;
 
-$adgroup = new AdGroup(null, $account->id);
-$adgroup->setData(array(
-  AdGroupFields::CREATIVE =>
+$ad = new Ad(null, $account->id);
+$ad->setData(array(
+  AdFields::CREATIVE =>
     array('creative_id' => $creative->id),
-  AdGroupFields::NAME => 'My First AdGroup',
-  AdGroupFields::CAMPAIGN_ID => $adset->id,
+  AdFields::NAME => 'My First Ad',
+  AdFields::ADSET_ID => $adset->id,
 ));
 
-$adgroup->create();
-echo 'AdGroup ID:' . $adgroup->id . "\n";
+$ad->create();
+echo 'Ad ID:' . $ad->id . "\n";

@@ -25,33 +25,29 @@
 namespace FacebookAds\Object\Fields;
 
 /**
- * @method static AdSetFields getInstance()
+ * @method static AdFields getInstance()
  */
-class AdSetFields extends AbstractArchivableCrudObjectFields {
+class AdFields extends AbstractArchivableCrudObjectFields {
 
   const ACCOUNT_ID = 'account_id';
-  const ADSET_SCHEDULE = 'adset_schedule';
   const BID_AMOUNT = 'bid_amount';
-  const BILLING_EVENT = 'billing_event';
-  const BUDGET_REMAINING = 'budget_remaining';
+  const ADSET_ID = 'adset_id';
   const CAMPAIGN_ID = 'campaign_id';
+  const CONVERSION_SPECS = 'conversion_specs';
   const CREATED_TIME = 'created_time';
-  const CREATIVE_SEQUENCE = 'creative_sequence';
-  const DAILY_BUDGET = 'daily_budget';
-  const END_TIME = 'end_time';
+  const AD_REVIEW_FEEDBACK = 'ad_review_feedback';
   const ID = 'id';
-  const IS_AUTOBID = 'is_autobid';
-  const LIFETIME_BUDGET = 'lifetime_budget';
-  const LIFETIME_IMPS = 'lifetime_imps';
   const NAME = 'name';
-  const OPTIMIZATION_GOAL = 'optimization_goal';
-  const PACING_TYPE = 'pacing_type';
-  const RF_PREDICTION_ID = 'rf_prediction_id';
-  const START_TIME = 'start_time';
-  const UPDATED_TIME = 'updated_time';
+  const RTB_FLAG = 'rtb_flag';
   const TARGETING = 'targeting';
-  const PROMOTED_OBJECT = 'promoted_object';
+  const TRACKING_SPECS = 'tracking_specs';
+  const UPDATED_TIME = 'updated_time';
+  const VIEW_TAGS = 'view_tags';
+  const CREATIVE = 'creative';
+  const SOCIAL_PREFS = 'social_prefs';
+  const FAILED_DELIVERY_CHECKS = 'failed_delivery_checks';
+  const REDOWNLOAD = 'redownload';
   const ADLABELS = 'adlabels';
-  const PRODUCT_AD_BEHAVIOR = 'product_ad_behavior';
-  const USE_NEW_APP_CLICK = 'use_new_app_click';
+  const ENGAGEMENT_AUDIENCE = 'engagement_audience';
+  const EXECUTION_OPTIONS = 'execution_options';
 }

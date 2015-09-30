@@ -24,9 +24,9 @@
 
 namespace FacebookAdsTest\Object;
 
-use FacebookAds\Object\AdCampaign;
+use FacebookAds\Object\Campaign;
 use FacebookAds\Object\AdSet;
-use FacebookAds\Object\Fields\AdCampaignFields;
+use FacebookAds\Object\Fields\CampaignFields;
 use FacebookAds\Object\Fields\AdSetFields;
 use FacebookAds\Object\Fields\TargetingSpecsFields;
 use FacebookAds\Object\TargetingSpecs;
@@ -36,21 +36,21 @@ use FacebookAds\Object\Values\OptimizationGoals;
 class AdSetTest extends AbstractCrudObjectTestCase {
 
   /**
-   * @var AdCampaign
+   * @var Campaign
    */
-  protected $adCampaign;
+  protected $campaign;
 
   public function setup() {
     parent::setup();
-    $this->adCampaign = new AdCampaign(null, $this->getConfig()->accountId);
-    $this->adCampaign->{AdCampaignFields::NAME}
+    $this->campaign = new Campaign(null, $this->getConfig()->accountId);
+    $this->campaign->{CampaignFields::NAME}
       = $this->getConfig()->testRunId;
-    $this->adCampaign->create();
+    $this->campaign->create();
   }
 
   public function tearDown() {
-    $this->adCampaign->delete();
-    $this->adCampaign = null;
+    $this->campaign->delete();
+    $this->campaign = null;
     parent::tearDown();
   }
 
@@ -60,10 +60,9 @@ class AdSetTest extends AbstractCrudObjectTestCase {
       = array('countries' => array('US'));
 
     $set = new AdSet(null, $this->getConfig()->accountId);
-    $set->{AdSetFields::CAMPAIGN_GROUP_ID}
-      = $this->adCampaign->{AdCampaignFields::ID};
+    $set->{AdSetFields::CAMPAIGN_ID}
+      = $this->campaign->{CampaignFields::ID};
     $set->{AdSetFields::NAME} = $this->getConfig()->testRunId;
-    $set->{AdSetFields::CAMPAIGN_STATUS} = AdSet::STATUS_PAUSED;
     $set->{AdSetFields::OPTIMIZATION_GOAL} = OptimizationGoals::REACH;
     $set->{AdSetFields::BILLING_EVENT} = BillingEvents::IMPRESSIONS;
     $set->{AdSetFields::BID_AMOUNT} = 2;
@@ -74,12 +73,14 @@ class AdSetTest extends AbstractCrudObjectTestCase {
     $set->{AdSetFields::END_TIME}
       = (new \DateTime("+2 week"))->format(\DateTime::ISO8601);
 
-    $this->assertCanCreate($set);
+    $this->assertCanCreate($set, array(
+      AdSet::STATUS_PARAM_NAME => AdSet::STATUS_PAUSED,
+    ));
     $this->assertCanRead($set);
     $this->assertCanUpdate($set, array(
       AdSetFields::NAME => $this->getConfig()->testRunId.' updated',
     ));
-    $this->assertCanFetchConnection($set, 'getAdGroups');
+    $this->assertCanFetchConnection($set, 'getAds');
     $this->assertCanFetchConnection($set, 'getAdCreatives');
     $this->assertCanFetchConnection($set, 'getInsights');
     $this->assertCanFetchConnection($set, 'getInsightsAsync');

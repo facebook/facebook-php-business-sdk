@@ -22,27 +22,23 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
-/**
- * @method static AdCampaignFields getInstance()
- */
-class AdCampaignFields extends AbstractEnum {
+class ArchivableCrudObjectEffectiveStatuses extends AbstractEnum {
 
-  const ID = 'id';
-  const ACCOUNT_ID = 'account_id';
-  const OBJECTIVE = 'objective';
-  const NAME = 'name';
-  const STATUS = 'campaign_group_status';
-  const IS_COMPLETED = 'is_completed';
-  const BUYING_TYPE = 'buying_type';
-  const PROMOTED_OBJECT = 'promoted_object';
-  const SPEND_CAP = 'spend_cap';
-  const ADLABELS = 'adlabels';
-  const CREATED_TIME = 'created_time';
-  const START_TIME = 'start_time';
-  const STOP_TIME = 'stop_time';
-  const UPDATED_TIME = 'updated_time';
+  const ACTIVE = 'ACTIVE';
+  const AD_PAUSED = 'AD_PAUSED';
+  const ADSET_PAUSED = 'ADSET_PAUSED';
+  const ARCHIVED = 'ARCHIVED';
+  const ARCHIVED_IN_DRAFT = 'ARCHIVED_IN_DRAFT';
+  const CAMPAIGN_PAUSED = 'CAMPAIGN_PAUSED';
+  const DELETED = 'DELETED';
+  const DISAPPROVED = 'DISAPPROVED';
+  const PAUSED = 'PAUSED';
+  const PENDING = 'PENDING';
+  const PENDING_BILLING_INFO = 'PENDING_BILLING_INFO';
+  const PENDING_REVIEW = 'PENDING_REVIEW';
+  const PREAPPROVED = 'PREAPPROVED';
 }

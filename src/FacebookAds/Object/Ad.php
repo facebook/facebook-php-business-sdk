@@ -25,45 +25,27 @@
 namespace FacebookAds\Object;
 
 use FacebookAds\Cursor;
-use FacebookAds\Object\Fields\AdCampaignFields;
+use FacebookAds\Object\Fields\AdFields;
 use FacebookAds\Object\Traits\FieldValidation;
-use FacebookAds\Object\Traits\ObjectValidation;
 use FacebookAds\Object\Traits\AdLabelAwareCrudObjectTrait;
 
-class AdCampaign extends AbstractArchivableCrudObject {
+class Ad extends AbstractArchivableCrudObject
+  implements CanRedownloadInterface {
   use FieldValidation;
-  use ObjectValidation;
   use AdLabelAwareCrudObjectTrait;
-
-  /**
-   * @var string
-   */
-  const STATUS_ACTIVE = 'ACTIVE';
-
-  /**
-   * @var string
-   */
-  const STATUS_PAUSED = 'PAUSED';
 
   /**
    * @return string
    */
   protected function getEndpoint() {
-    return 'adcampaign_groups';
+    return 'ads';
   }
 
   /**
-   * @return AdCampaignFields
+   * @return AdFields
    */
   public static function getFieldsEnum() {
-    return AdCampaignFields::getInstance();
-  }
-
-  /**
-   * @return string
-   */
-  public function getStatusFieldName() {
-    return AdCampaignFields::STATUS;
+    return AdFields::getInstance();
   }
 
   /**
@@ -71,8 +53,10 @@ class AdCampaign extends AbstractArchivableCrudObject {
    * @param array $params
    * @return Cursor
    */
-  public function getAdSets(array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(AdSet::className(), $fields, $params);
+  public function getAdCreatives(
+    array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(
+      AdCreative::className(), $fields, $params);
   }
 
   /**
@@ -80,8 +64,56 @@ class AdCampaign extends AbstractArchivableCrudObject {
    * @param array $params
    * @return Cursor
    */
-  public function getAdGroups(array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(AdGroup::className(), $fields, $params);
+  public function getLeads(array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(Lead::className(), $fields, $params);
+  }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return TargetingDescription
+   */
+  public function getTargetingDescription(
+    array $fields = array(), array $params = array()) {
+    return $this->getOneByConnection(
+      TargetingDescription::className(),
+      $fields,
+      $params,
+      'targetingsentencelines'
+    );
+  }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getAdPreviews(
+    array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(
+      AdPreview::className(), $fields, $params, 'previews');
+  }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return ReachEstimate
+   */
+  public function getReachEstimate(
+    array $fields = array(), array $params = array()) {
+    return $this->getOneByConnection(
+      ReachEstimate::className(), $fields, $params, 'reachestimate');
+  }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getClickTrackingTag(
+    array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(
+      ClickTrackingTag::className(), $fields, $params, 'trackingtag');
   }
 
   /**

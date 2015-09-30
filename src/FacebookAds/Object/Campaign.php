@@ -24,14 +24,13 @@
 
 namespace FacebookAds\Object;
 
-use FacebookAds\Object\Fields\AdSetFields;
+use FacebookAds\Cursor;
+use FacebookAds\Object\Fields\CampaignFields;
 use FacebookAds\Object\Traits\FieldValidation;
 use FacebookAds\Object\Traits\ObjectValidation;
 use FacebookAds\Object\Traits\AdLabelAwareCrudObjectTrait;
-use FacebookAds\Cursor;
 
-class AdSet extends AbstractArchivableCrudObject
-  implements CanRedownloadInterface {
+class Campaign extends AbstractArchivableCrudObject {
   use FieldValidation;
   use ObjectValidation;
   use AdLabelAwareCrudObjectTrait;
@@ -40,14 +39,14 @@ class AdSet extends AbstractArchivableCrudObject
    * @return string
    */
   protected function getEndpoint() {
-    return 'adsets';
+    return 'campaigns';
   }
 
   /**
-   * @return AdSetFields
+   * @return CampaignFields
    */
   public static function getFieldsEnum() {
-    return AdSetFields::getInstance();
+    return CampaignFields::getInstance();
   }
 
   /**
@@ -55,20 +54,17 @@ class AdSet extends AbstractArchivableCrudObject
    * @param array $params
    * @return Cursor
    */
-  public function getAds(
-    array $fields = array(), array $params = array()) {
+  public function getAdSets(array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(AdSet::className(), $fields, $params);
+  }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getAds(array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(Ad::className(), $fields, $params);
-  }
-
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getAdCreatives(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      AdCreative::className(), $fields, $params);
   }
 
   /**

@@ -31,6 +31,21 @@ abstract class AbstractArchivableCrudObject extends AbstractCrudObject {
   /**
    * @var string
    */
+  const STATUS_PARAM_NAME = 'status';
+
+  /**
+   * @var string
+   */
+  const STATUS_ACTIVE = 'ACTIVE';
+
+  /**
+   * @var string
+   */
+  const STATUS_PAUSED = 'PAUSED';
+
+  /**
+   * @var string
+   */
   const STATUS_DELETED = 'DELETED';
 
   /**
@@ -41,7 +56,9 @@ abstract class AbstractArchivableCrudObject extends AbstractCrudObject {
   /**
    * @return string
    */
-  abstract public function getStatusFieldName();
+  public function getStatusParamName() {
+    return self::STATUS_PARAM_NAME;
+  }
 
   /**
    * Archive this object
@@ -54,7 +71,7 @@ abstract class AbstractArchivableCrudObject extends AbstractCrudObject {
       $this->getNodePath(),
       RequestInterface::METHOD_POST,
       array_merge($params, array(
-        $this->getStatusFieldName() => static::STATUS_ARCHIVED)));
+        $this->getStatusParamName() => static::STATUS_ARCHIVED)));
   }
 
   /**
@@ -68,6 +85,6 @@ abstract class AbstractArchivableCrudObject extends AbstractCrudObject {
       $this->getNodePath(),
       RequestInterface::METHOD_POST,
       array_merge($params, array(
-        $this->getStatusFieldName() => static::STATUS_DELETED)));
+        $this->getStatusParamName() => static::STATUS_DELETED)));
   }
 }

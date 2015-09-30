@@ -24,24 +24,24 @@
 
 namespace FacebookAdsTest\Object;
 
-use FacebookAds\Object\AdCampaign;
-use FacebookAds\Object\Fields\AdCampaignFields;
+use FacebookAds\Object\Campaign;
+use FacebookAds\Object\Fields\CampaignFields;
 
-class AdCampaignTest extends AbstractCrudObjectTestCase {
+class CampaignTest extends AbstractCrudObjectTestCase {
 
   public function testCrud() {
-    $campaign = new AdCampaign(null, $this->getConfig()->accountId);
-    $campaign->{AdCampaignFields::NAME} = $this->getConfig()->testRunId;
+    $campaign = new Campaign(null, $this->getConfig()->accountId);
+    $campaign->{CampaignFields::NAME} = $this->getConfig()->testRunId;
     
     $this->assertCanCreate($campaign);
     $this->assertCanRead($campaign);
     $this->assertCanUpdate(
       $campaign,
       array(
-        AdCampaignFields::NAME => $this->getConfig()->testRunId.' updated',
+        CampaignFields::NAME => $this->getConfig()->testRunId.' updated',
       ));
     $this->assertCanFetchConnection($campaign, 'getAdSets');
-    $this->assertCanFetchConnection($campaign, 'getAdGroups');
+    $this->assertCanFetchConnection($campaign, 'getAds');
     $this->assertCanFetchConnection($campaign, 'getInsights');
     $this->assertCanFetchConnection($campaign, 'getInsightsAsync');
 

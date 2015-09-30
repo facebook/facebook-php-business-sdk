@@ -119,18 +119,19 @@ use FacebookAds\Object\AdSet;
 use FacebookAds\Object\Fields\AdSetFields;
 
 $account_id = 'act_123123';
-$campaign_group_id = '123456';
+$campaign_id = '123456';
 
 $set = new AdSet(null, $account_id);
 $set->setData(array(
   AdSetFields::NAME => 'My Test AdSet',
-  AdSetFields::CAMPAIGN_STATUS => AdSet::STATUS_PAUSED,
-  AdSetFields::CAMPAIGN_GROUP_ID => $campaign_group_id,
-  AdSetFields::DAILY_BUDGET => '150',
+  AdSetFields::CAMPAIGN_ID => $campaign_id,
+  AdSetFields::DAILY_BUDGET => 150,
   AdSetFields::START_TIME => (new \DateTime("+1 week"))->format(\DateTime::ISO8601),
   AdSetFields::END_TIME => (new \DateTime("+2 week"))->format(\DateTime::ISO8601),
 ));
-$set->create();
+$set->create(array(
+  AdSet::STATUS_PARAM_NAME => AdSet::STATUS_PAUSED,
+));
 echo $set->id;
 ```
 
@@ -165,19 +166,19 @@ Here cursors are defined as in `\FacebookAds\Cursor`. Cursors are generally retu
 
 ```php
 use FacebookAds\Object\AdAccount;
-use FacebookAds\Object\AdCampaignFields;
+use FacebookAds\Object\CampaignFields;
 
 $account = new AdAccount('<ACT_ID>');
-$cursor = $account->getAdCampaigns();
+$cursor = $account->getCampaigns();
 
 // Loop over objects
 foreach ($cursor as $campaign) {
-  echo $campaign->{AdCampaignFields::NAME}.PHP_EOL;
+  echo $campaign->{CampaignFields::NAME}.PHP_EOL;
 }
 
 // Access objects by index
 if ($cursor->count() > 0) {
-  echo "The first campaign in the cursor is: ".$cursor[0]->{AdCampaignFields::NAME}.PHP_EOL;
+  echo "The first campaign in the cursor is: ".$cursor[0]->{CampaignFields::NAME}.PHP_EOL;
 }
 
 // Fetch the next page

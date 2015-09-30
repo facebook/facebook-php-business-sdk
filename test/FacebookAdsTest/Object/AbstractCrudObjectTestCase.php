@@ -30,6 +30,7 @@ use FacebookAds\Object\AbstractObject;
 use FacebookAds\Object\AbstractArchivableCrudObject;
 use FacebookAds\Object\AdLabel;
 use FacebookAds\Object\CanRedownloadInterface;
+use FacebookAds\Object\Fields\AbstractArchivableCrudObjectFields;
 use FacebookAds\Object\Fields\AdLabelFields;
 use FacebookAds\Object\Traits\AdLabelAwareCrudObjectTrait;
 use FacebookAdsTest\AbstractIntegrationTestCase;
@@ -38,11 +39,14 @@ abstract class AbstractCrudObjectTestCase extends AbstractIntegrationTestCase {
 
   /**
    * @param AbstractCrudObject $subject
+   * @param array $params
    */
-  public function assertCanCreate(AbstractCrudObject $subject) {
-    $params = $subject instanceof CanRedownloadInterface
-      ? array(CanRedownloadInterface::PARAM_REDOWNLOAD => true)
-      : array();
+  public function assertCanCreate(
+    AbstractCrudObject $subject, array $params = array()) {
+
+    if ($subject instanceof CanRedownloadInterface) {
+      $params[CanRedownloadInterface::PARAM_REDOWNLOAD] = true;
+    }
 
     $this->assertEmpty($subject->{AbstractCrudObject::FIELD_ID});
     $subject->create($params);
@@ -219,20 +223,35 @@ abstract class AbstractCrudObjectTestCase extends AbstractIntegrationTestCase {
   }
 
   /**
+   * @param AbstractArchivableCrudObject $subject
+   * @param string $status
+   */
+  private function assertArchivableCrudObjectStatus(
+    AbstractArchivableCrudObject $subject, $status) {
+
+    $fields = array(
+      AbstractArchivableCrudObjectFields::CONFIGURED_STATUS,
+      AbstractArchivableCrudObjectFields::EFFECTIVE_STATUS,
+    );
+
+    $mirror = $this->getEmptyClone($subject);
+    $mirror->read($fields);
+
+    foreach ($fields as $field) {
+      $this->assertEquals($mirror->{$field}, $status);
+      $subject->{$field} = $status;
+    }
+  }
+
+  /**
    * @param AbstractCrudObject $subject
    */
   public function assertCanDelete(AbstractCrudObject $subject) {
     $this->assertNotEmpty($subject->{AbstractCrudObject::FIELD_ID});
     $subject->delete();
     if ($subject instanceof AbstractArchivableCrudObject) {
-      /** @var AbstractArchivableCrudObject $mirror */
-      $mirror = $this->getEmptyClone($subject);
-      $mirror->read(array($mirror->getStatusFieldName()));
-      $this->assertEquals(
-        $mirror->{$mirror->getStatusFieldName()},
-        AbstractArchivableCrudObject::STATUS_DELETED);
-
-      $subject->read(array($subject->getStatusFieldName()));
+      $this->assertArchivableCrudObjectStatus(
+        $subject, AbstractArchivableCrudObject::STATUS_DELETED);
     }
   }
 
@@ -255,14 +274,10 @@ abstract class AbstractCrudObjectTestCase extends AbstractIntegrationTestCase {
   public function assertCanArchive(AbstractArchivableCrudObject $subject) {
     $this->assertNotEmpty($subject->{AbstractCrudObject::FIELD_ID});
     $subject->archive();
-    /** @var AbstractArchivableCrudObject $mirror */
-    $mirror = $this->getEmptyClone($subject);
-    $mirror->read(array($mirror->getStatusFieldName()));
-    $this->assertEquals(
-      AbstractArchivableCrudObject::STATUS_ARCHIVED,
-      $mirror->{$mirror->getStatusFieldName()});
-
-    $subject->read(array($subject->getStatusFieldName()));
+    if ($subject instanceof AbstractArchivableCrudObject) {
+      $this->assertArchivableCrudObjectStatus(
+        $subject, AbstractArchivableCrudObject::STATUS_ARCHIVED);
+    }
   }
 
   /**

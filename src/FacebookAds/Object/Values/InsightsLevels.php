@@ -31,8 +31,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class InsightsLevels extends AbstractEnum {
 
-  const ACCOUNT = 'account';
-  const ADGROUP = 'adgroup';
+  const AD = 'ad';
+  const ADSET = 'adset';
   const CAMPAIGN = 'campaign';
-  const CAMPAIGN_GROUP = 'campaign_group';
 }

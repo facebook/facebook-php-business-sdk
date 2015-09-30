@@ -26,17 +26,17 @@ namespace FacebookAdsTest\Object;
 
 use FacebookAds\Object\AdImage;
 use FacebookAds\Object\AdCreative;
-use FacebookAds\Object\AdGroup;
+use FacebookAds\Object\Ad;
 use FacebookAds\Object\AdSet;
-use FacebookAds\Object\AdCampaign;
+use FacebookAds\Object\Campaign;
 use FacebookAds\Object\AdAccount;
 use FacebookAds\Object\Fields\AdImageFields;
 use FacebookAds\Object\TargetingSpecs;
 use FacebookAds\Object\Fields\AdPreviewFields;
 use FacebookAds\Object\Fields\AdCreativeFields;
-use FacebookAds\Object\Fields\AdGroupFields;
+use FacebookAds\Object\Fields\AdFields;
 use FacebookAds\Object\Fields\AdSetFields;
-use FacebookAds\Object\Fields\AdCampaignFields;
+use FacebookAds\Object\Fields\CampaignFields;
 use FacebookAds\Object\Fields\TargetingSpecsFields;
 use FacebookAds\Object\Values\AdFormats;
 use FacebookAds\Object\Values\BillingEvents;
@@ -47,9 +47,9 @@ class AdPreviewTest extends AbstractCrudObjectTestCase
   implements SkippableFeatureTestInterface {
 
   /**
-   * @var AdCampaign
+   * @var Campaign
    */
-  protected $adCampaign;
+  protected $campaign;
 
   /**
    * @var AdSet
@@ -57,9 +57,9 @@ class AdPreviewTest extends AbstractCrudObjectTestCase
   protected $adSet;
 
   /**
-   * @var AdGroup
+   * @var Ad
    */
-  protected $adGroup;
+  protected $ad;
 
   /**
    * @var AdImage
@@ -85,25 +85,26 @@ class AdPreviewTest extends AbstractCrudObjectTestCase
     $targeting->{TargetingSpecsFields::GEO_LOCATIONS}
       = array('countries' => array('US'));
 
-    $this->adCampaign = new AdCampaign(null, $this->getConfig()->accountId);
-    $this->adCampaign->{AdCampaignFields::NAME} = $this->getConfig()->testRunId;
-    $this->adCampaign->create();
+    $this->campaign = new Campaign(null, $this->getConfig()->accountId);
+    $this->campaign->{CampaignFields::NAME} = $this->getConfig()->testRunId;
+    $this->campaign->create();
 
     $this->adSet = new AdSet(null, $this->getConfig()->accountId);
-    $this->adSet->{AdSetFields::CAMPAIGN_GROUP_ID}
-      = (int) $this->adCampaign->{AdSetFields::ID};
+    $this->adSet->{AdSetFields::CAMPAIGN_ID}
+      = (int) $this->campaign->{AdSetFields::ID};
     $this->adSet->{AdSetFields::NAME} = $this->getConfig()->testRunId;
-    $this->adSet->{AdSetFields::CAMPAIGN_STATUS} = AdSet::STATUS_PAUSED;
     $this->adSet->{AdSetFields::DAILY_BUDGET} = '150';
     $this->adSet->{AdSetFields::START_TIME}
       = (new \DateTime("+1 week"))->format(\DateTime::ISO8601);
     $this->adSet->{AdSetFields::END_TIME}
       = (new \DateTime("+2 week"))->format(\DateTime::ISO8601);
-    $this->adSet->{AdGroupFields::TARGETING} = $targeting;
+    $this->adSet->{AdFields::TARGETING} = $targeting;
     $this->adSet->{AdSetFields::OPTIMIZATION_GOAL} = OptimizationGoals::REACH;
     $this->adSet->{AdSetFields::BILLING_EVENT} = BillingEvents::IMPRESSIONS;
     $this->adSet->{AdSetFields::BID_AMOUNT} = 2;
-    $this->adSet->create();
+    $this->adSet->create(array(
+      AdSet::STATUS_PARAM_NAME => AdSet::STATUS_PAUSED,
+    ));
 
     $this->adImage = new AdImage(null, $this->getConfig()->accountId);
     $this->adImage->{AdImageFields::FILENAME}
@@ -119,21 +120,22 @@ class AdPreviewTest extends AbstractCrudObjectTestCase
       = $this->adImage->{AdImageFields::HASH};
     $this->adCreative->create();
 
-    $this->adGroup = new AdGroup(null, $this->getConfig()->accountId);
-    $this->adGroup->{AdGroupFields::ADGROUP_STATUS} = AdGroup::STATUS_PAUSED;
-    $this->adGroup->{AdGroupFields::NAME} = $this->getConfig()->testRunId;
-    $this->adGroup->{AdGroupFields::CAMPAIGN_ID}
+    $this->ad = new Ad(null, $this->getConfig()->accountId);
+    $this->ad->{AdFields::NAME} = $this->getConfig()->testRunId;
+    $this->ad->{AdFields::ADSET_ID}
       = (int) $this->adSet->{AdSetFields::ID};
-    $this->adGroup->{AdGroupFields::CREATIVE}
+    $this->ad->{AdFields::CREATIVE}
       = array('creative_id' => $this->adCreative->{AdCreativeFields::ID});
-    $this->adGroup->create();
+    $this->ad->create(array(
+      Ad::STATUS_PARAM_NAME => Ad::STATUS_PAUSED,
+    ));
   }
 
   public function tearDown() {
 
-    if ($this->adGroup) {
-      $this->adGroup->delete();
-      $this->adGroup = null;
+    if ($this->ad) {
+      $this->ad->delete();
+      $this->ad = null;
     }
 
     if ($this->adSet) {
@@ -141,9 +143,9 @@ class AdPreviewTest extends AbstractCrudObjectTestCase
       $this->adSet = null;
     }
 
-    if ($this->adCampaign) {
-      $this->adCampaign->delete();
-      $this->adCampaign = null;
+    if ($this->campaign) {
+      $this->campaign->delete();
+      $this->campaign = null;
     }
 
     if ($this->adCreative) {
@@ -175,7 +177,7 @@ class AdPreviewTest extends AbstractCrudObjectTestCase
     );
 
     // Preview with actual adgroup
-    $previews = $this->adGroup->getAdPreviews(
+    $previews = $this->ad->getAdPreviews(
       array(),
       array(
         AdPreviewFields::AD_FORMAT => AdFormats::RIGHT_COLUMN_STANDARD

@@ -24,14 +24,14 @@
 
 namespace FacebookAdsTest\Object;
 
-use FacebookAds\Object\AdCampaign;
+use FacebookAds\Object\Campaign;
 use FacebookAds\Object\AdCreative;
-use FacebookAds\Object\AdGroup;
+use FacebookAds\Object\Ad;
 use FacebookAds\Object\AdImage;
 use FacebookAds\Object\AdSet;
-use FacebookAds\Object\Fields\AdCampaignFields;
+use FacebookAds\Object\Fields\CampaignFields;
 use FacebookAds\Object\Fields\AdCreativeFields;
-use FacebookAds\Object\Fields\AdGroupFields;
+use FacebookAds\Object\Fields\AdFields;
 use FacebookAds\Object\Fields\AdImageFields;
 use FacebookAds\Object\Fields\AdSetFields;
 use FacebookAds\Object\Fields\ObjectStory\LinkDataFields;
@@ -44,13 +44,13 @@ use FacebookAds\Object\Values\BillingEvents;
 use FacebookAds\Object\Values\OptimizationGoals;
 use FacebookAdsTest\Config\SkippableFeatureTestInterface;
 
-class AdGroupTest extends AbstractCrudObjectTestCase
+class AdTest extends AbstractCrudObjectTestCase
   implements SkippableFeatureTestInterface {
 
   /**
-   * @var AdCampaign
+   * @var Campaign
    */
-  protected $adCampaign;
+  protected $campaign;
 
   /**
    * @var AdSet
@@ -82,15 +82,14 @@ class AdGroupTest extends AbstractCrudObjectTestCase
       'countries' => array('US'),
     );
 
-    $this->adCampaign = new AdCampaign(null, $this->getConfig()->accountId);
-    $this->adCampaign->{AdCampaignFields::NAME} = $this->getConfig()->testRunId;
-    $this->adCampaign->create();
+    $this->campaign = new Campaign(null, $this->getConfig()->accountId);
+    $this->campaign->{CampaignFields::NAME} = $this->getConfig()->testRunId;
+    $this->campaign->create();
 
     $this->adSet = new AdSet(null, $this->getConfig()->accountId);
-    $this->adSet->{AdSetFields::CAMPAIGN_GROUP_ID}
-      = (int) $this->adCampaign->{AdSetFields::ID};
+    $this->adSet->{AdSetFields::CAMPAIGN_ID}
+      = (int) $this->campaign->{AdSetFields::ID};
     $this->adSet->{AdSetFields::NAME} = $this->getConfig()->testRunId;
-    $this->adSet->{AdSetFields::CAMPAIGN_STATUS} = AdSet::STATUS_PAUSED;
     $this->adSet->{AdSetFields::DAILY_BUDGET} = '150';
     $this->adSet->{AdSetFields::START_TIME}
       = (new \DateTime("+1 week"))->format(\DateTime::ISO8601);
@@ -100,7 +99,9 @@ class AdGroupTest extends AbstractCrudObjectTestCase
     $this->adSet->{AdSetFields::OPTIMIZATION_GOAL} = OptimizationGoals::REACH;
     $this->adSet->{AdSetFields::BILLING_EVENT} = BillingEvents::IMPRESSIONS;
     $this->adSet->{AdSetFields::BID_AMOUNT} = 2;
-    $this->adSet->save();
+    $this->adSet->save(array(
+      AdSet::STATUS_PARAM_NAME => AdSet::STATUS_PAUSED,
+    ));
 
     $this->adImage = new AdImage(null, $this->getConfig()->accountId);
     $this->adImage->{AdImageFields::FILENAME}
@@ -127,9 +128,9 @@ class AdGroupTest extends AbstractCrudObjectTestCase
       $this->adSet = null;
     }
 
-    if ($this->adCampaign) {
-      $this->adCampaign->delete();
-      $this->adCampaign = null;
+    if ($this->campaign) {
+      $this->campaign->delete();
+      $this->campaign = null;
     }
 
     if ($this->adCreative) {
@@ -147,18 +148,19 @@ class AdGroupTest extends AbstractCrudObjectTestCase
 
   public function testCrudAccess() {
 
-    $group = new AdGroup(null, $this->getConfig()->accountId);
-    $group->{AdGroupFields::ADGROUP_STATUS} = AdGroup::STATUS_PAUSED;
-    $group->{AdGroupFields::NAME} = $this->getConfig()->testRunId;
-    $group->{AdGroupFields::CAMPAIGN_ID}
+    $group = new Ad(null, $this->getConfig()->accountId);
+    $group->{AdFields::NAME} = $this->getConfig()->testRunId;
+    $group->{AdFields::ADSET_ID}
       = (int) $this->adSet->{AdSetFields::ID};
-    $group->{AdGroupFields::CREATIVE}
+    $group->{AdFields::CREATIVE}
       = array('creative_id' => $this->adCreative->{AdCreativeFields::ID});
 
-    $this->assertCanCreate($group);
+    $this->assertCanCreate($group, array(
+      Ad::STATUS_PARAM_NAME => Ad::STATUS_PAUSED,
+    ));
     $this->assertCanRead($group);
     $this->assertCanUpdate($group, array(
-      AdGroupFields::NAME => $this->getConfig()->testRunId.' updated',
+      AdFields::NAME => $this->getConfig()->testRunId.' updated',
     ));
 
     $this->assertCanFetchConnection($group, 'getAdCreatives');

@@ -44,7 +44,7 @@ Generally you should not need to make requests to the Graph API directly as thes
 $response = $api->call(
   '/61405622', 
   Api::HTTP_METHOD_GET, 
-  array('fields'=>'name',)
+  array('fields'=>'name')
 );
 var_dump($response->getContent());
 ```
@@ -61,8 +61,8 @@ The first is by mutating the default instance used by the application. The defau
 The second is to explicitly define the `Api` instance you want to use when querying the Graph. This is achieved by passing an instance to the constructor of any class that extends from `Object\AbstractCrudObject`.
 
 ```php
-use FacebookAds\Object\AdGroup;
-$my_adgroup = new AdGroup($id, $parent_id=null, $api);
+use FacebookAds\Object\Ad;
+$my_ad = new Ad($id, $parent_id=null, $api);
 ```
 
 ## Objects Types
@@ -152,26 +152,24 @@ foreach($adaccounts as $account) {
 
 ##Creating Objects
 
-When creating objects on the Graph, they are generally created by making a POST request to an edge of a parent object. For example, AdGroups are created using the endpoint `https://graph.facebook.com/act_123123/adgroups`. Therefore when creating an object, you must know the `id` of the parent object which is generally the id of an AdAccount. You should consult the [Facebook Developer Documentation](https://developers.facebook.com/docs/ads-api) to see which parent object to use. 
+When creating objects on the Graph, they are generally created by making a POST request to an edge of a parent object. For example, ads are created using the endpoint `https://graph.facebook.com/act_123123/ads`. Therefore when creating an object, you must know the `id` of the parent object which is generally the id of an AdAccount. You should consult the [Facebook Developer Documentation](https://developers.facebook.com/docs/ads-api) to see which parent object to use.
  
 ```php
-use FacebookAds\Object\AdGroup;
-use FacebookAds\Object\Fields\AdGroupFields;
+use FacebookAds\Object\Ad;
+use FacebookAds\Object\Fields\AdFields;
 
 $account_id = 'act_123123';
-$adgroup = new AdGroup($id=null, $account_id);
+$ad = new Ad($id=null, $account_id);
 
-$adgroup->setData(array(
-  AdGroupFields::NAME => 'My Test AdGroup',
-  AdSetFields::CAMPAIGN_GROUP_ID => $campaign_group_id,
-  AdSetFields::CAMPAIGN_STATUS => AdSet::STATUS_PAUSED,
-  AdSetFields::DAILY_BUDGET => '150',
-  AdSetFields::START_TIME => (new \DateTime("+1 week"))->format(\DateTime::ISO8601),
-  AdSetFields::END_TIME => (new \DateTime("+2 week"))->format(\DateTime::ISO8601),
+$ad->setData(array(
+  AdFields::NAME => 'My Test Ad',
+  AdFields::ADSET_ID => $adset_id,
 ));
 
-$adgroup->create();
-echo $adgroup->id;
+$ad->create(array(
+  Ad::STATUS_PARAM_NAME => Ad::STATUS_PAUSED,
+));
+echo $ad->{AdFields::ID};
 ```
 
 ##Updating Objects
@@ -181,12 +179,12 @@ When you mutate an AdObject, we record which variables have changed and make it 
 Please note that in some cases the variable name used to update an attribute of an entity differs from the one read from Graph API. Any variable you change will be included in the request to update an object an you will likely receive an `\Exception` if the field name is incorrect. Please consult the [Facebook Developer Documentation](https://developers.facebook.com/docs/ads-api) to see which fields are required. 
 
 ```php
-use FacebookAds\Object\AdGroup;
-use FacebookAds\Object\Fields\AdGroupFields;
+use FacebookAds\Object\Ad;
+use FacebookAds\Object\Fields\AdFields;
 
-$adgroup = new AdGroup($id);
-$adgroup->name = 'Updated Name';
-$adgroup->update();
+$ad = new Ad($id);
+$ad->name = 'Updated Name';
+$ad->update();
 ```
 
 ## Deleting Objects
@@ -197,11 +195,11 @@ $adgroup->update();
 To delete an object, you only need call the `delete` method on an instance of that object. Note, you do not have had to have read the object from the Graph API, all you need is the `id` of the object.
 
 ```php
-use FacebookAds\Object\AdGroup;
-use FacebookAds\Object\Fields\AdGroupFields;
+use FacebookAds\Object\Ad;
+use FacebookAds\Object\Fields\AdFields;
 
-$adgroup = new AdGroup($id);
-$adgroup->delete();
+$ad = new Ad($id);
+$ad->delete();
 ```
 
 ###Deleting multiple objects
@@ -209,8 +207,8 @@ $adgroup->delete();
 We provide the static method `deleteIds($ids = array(...))` to enable you to delete many objects at the same time. This method returns a boolean value and will only return `true` if all objects were successfully deleted. A return value of `false` means one or more failed to be deleted. Please also note that we do not verify the type of the `id` you have passed into this function.
 
 ```php
-use FacebookAds\Object\AdGroup;
-$status = AdGroup::deleteIds($ids = array(...));
+use FacebookAds\Object\Ad;
+$status = Ad::deleteIds($ids = array(...));
 ```
 
 ### Save Helper 
@@ -220,16 +218,16 @@ On object that extends `AbstractCrudObject` you can call the `save` method which
 
 ## Connections
 
-Objects on the Graph API may also have connections. A connection provides a way to retrieve objects which relate to the current object, for example, you can retrieve all of the AdGroups relative to an AdAccount using the URL `https://graph.facebook.com/act_123123/adgroups`.
+Objects on the Graph API may also have connections. A connection provides a way to retrieve objects which relate to the current object, for example, you can retrieve all the ads relative to an ad account using the URL `https://graph.facebook.com/act_123123/ads`.
 
-For each connection an object has, we provide a helper method to retrieve its related objects. In the case of `ObjectObject\AdAccount` we provide several of these methods including `getAdgroups($required_fields)` which will return a `Cursor` containing a page of `Object\AdGroup` objects.
+For each connection an object has, we provide a helper method to retrieve its related objects. In the case of `ObjectObject\AdAccount` we provide several of these methods including `getAds($required_fields)` which will return a `Cursor` containing a page of `Object\Ad` objects.
 
 ```php
 use FacebookAds\Object\AdAccount;
 $account = new AdAccount($id);
-$adgroups = $account->getAdgroups($fields = array('name')));
-foreach($adgroups as $adgroup) {
-  echo $adgroup->name."\n";
+$ads = $account->getAds($fields = array('name')));
+foreach($ads as $ad) {
+  echo $ad->name."\n";
 }
 ```
 
@@ -248,12 +246,12 @@ To query targeting using the Ads SDK, you can use the `Object\TargetingSearch` c
 This set of examples will walk you through:
 
 1. Reading AdAccounts for a user
-* Creating an AdCampaign
+* Creating a Campaign
 * Searching targeting criteria
 * Creating an AdSet
 * Creating an AdImage
 * Creating an AdCreative
-* Creating an AdGroup
+* Creating an Ad
 
 Examples can be found within the `examples/` folder of the SDK. This assumes you have bootstrap code with an access token:
 
@@ -299,33 +297,34 @@ echo "\nUsing this account: ";
 echo $account->id."\n";
 ```
 
-### 2. Creating an AdCampaign
+### 2. Creating a Campaign
 
-Now we have an `AdAccount` for the current user we can go ahead an create our [AdCampaign](https://developers.facebook.com/docs/reference/ads-api/adcampaign). All `AdGroups` within your `AdCampaign` should have the same objective. You can find the available objectives within the [`AdObjectives`](src/FacebookAds/Object/Values/AdObjectives.php) class. 
+Now we have an `AdAccount` for the current user we can go ahead an create our [Campaign](https://developers.facebook.com/docs/reference/ads-api/adcampaign). All `ads` within your `campaign` should have the same objective. You can find the available objectives within the [`AdObjectives`](src/FacebookAds/Object/Values/AdObjectives.php) class.
 
 In the following example we create a paused campaign so your ads do not go live, however you can omit the status field if you want your ad to run. 
 
 ```php
-use FacebookAds\Object\AdCampaign;
-use FacebookAds\Object\Fields\AdCampaignFields;
+use FacebookAds\Object\Campaign;
+use FacebookAds\Object\Fields\CampaignFields;
 use FacebookAds\Object\Values\AdObjectives;
 use FacebookAds\Object\Values\AdBuyingTypes;
 
-$campaign  = new AdCampaign(null, $account->id);
+$campaign  = new Campaign(null, $account->id);
 $campaign->setData(array(
-  AdCampaignFields::NAME => 'My First Campaign',
-  AdCampaignFields::OBJECTIVE => AdObjectives::WEBSITE_CLICKS,
-  AdCampaignFields::STATUS => AdCampaign::STATUS_PAUSED,
+  CampaignFields::NAME => 'My First Campaign',
+  CampaignFields::OBJECTIVE => AdObjectives::WEBSITE_CLICKS,
 ));
 
-$campaign->create();
-echo "Campaign ID:" . $campaign->id . "\n";
+$campaign->create(array(
+  Campaign::STATUS_PARAM_NAME => Campaign::STATUS_PAUSED,
+));
+echo "Campaign ID:".$campaign->id."\n";
 ```
 
 
 ### 3. Searching Targeting
 
-The final thing we need before creating an `AdGroup` is some targeting. Many attributes of targeting can be found defined in the developer documentation, however some categories need you to search, such as interests. For this, we provide the `TargetingSearch` class.
+The final thing we need before creating an `Ad` is some targeting. Many attributes of targeting can be found defined in the developer documentation, however some categories need you to search, such as interests. For this, we provide the `TargetingSearch` class.
 
 ```php
 use FacebookAds\Object\TargetingSearch;
@@ -334,7 +333,7 @@ use FacebookAds\Object\Search\TargetingSearchTypes;
 $results = TargetingSearch::search(
   $type = TargetingSearchTypes::INTEREST,
   $class = null,
-  $query = 'facebook london'
+  $query = 'facebook london',
 );
 
 // we'll take the top result for now
@@ -352,16 +351,16 @@ $targeting = array(
   'interests' => array(
     array(
       'id' => $target->id,
-      'name'=>$target->name
-    )
-  )
+      'name'=>$target->name,
+    ),
+  ),
 );
 ```
 
 
 ### 4. Creating an AdSet
 
-An [`AdSet`](https://developers.facebook.com/docs/reference/ads-api/adset) is a set of [`AdGroup`](https://developers.facebook.com/docs/reference/ads-api/adgroup) objects and it is best practice to ensure all `AdGroup` objects within an `AdSet` have the same targeting.
+An [`AdSet`](https://developers.facebook.com/docs/reference/ads-api/adset) is a set of [`Ad`](https://developers.facebook.com/docs/reference/ads-api/adgroup) objects and it is best practice to ensure all `Ad` objects within an `AdSet` have the same targeting.
 
 The `AdSet` holds the attributes about the duration of a campaign and the budget. When deciding a budget, you should also choose between `lifetime_budget` and `daily_budget`.
 
@@ -374,8 +373,7 @@ use FacebookAds\Object\Values\OptimizationGoals;
 $adset = new AdSet(null, $account->id);
 $adset->setData(array(
   AdSetFields::NAME => 'My First AdSet',
-  AdSetFields::CAMPAIGN_GROUP_ID => $campaign->id,
-  AdSetFields::CAMPAIGN_STATUS => AdSet::STATUS_ACTIVE,
+  AdSetFields::CAMPAIGN_ID => $campaign->id,
   AdSetFields::DAILY_BUDGET => '150',
   AdSetFields::OPTIMIZATION_GOAL => OptimizationGoals::REACH,
   AdSetFields::BILLING_EVENT => BillingEvents::IMPRESSIONS,
@@ -388,11 +386,11 @@ $adset->setData(array(
 ));
 
 $adset->create();
-echo 'AdSet  ID: '. $adset->id . "\n";
+echo 'AdSet  ID: '.$adset->id."\n";
 ```
 ### 5. Create an AdImage
 
-Now you have a `AdSet`, you will be able to create an `AdGroup`, however, first you will need to upload the image you want to use as part of the `AdCreative`. 
+Now you have a `AdSet`, you will be able to create an `Ad`, however, first you will need to upload the image you want to use as part of the `AdCreative`.
 
 ```php
 use FacebookAds\Object\AdImage;
@@ -402,12 +400,12 @@ $image = new AdImage(null, $account->id);
 $image->filename = SDK_DIR.'/test/misc/FB-f-Logo__blue_512.png';
 
 $image->create();
-echo 'Image Hash: '.$image->hash . "\n";
+echo 'Image Hash: '.$image->hash."\n";
 ```
 
 ### 6. Creating an AdCreative
 
-You can create an `AdCreative` in two ways. The first is by including a JSON object when creating an `AdGroup` and the second, which we will demonstrate here, is by explicitly creation an `AdCreative` and using its `id` when creating an `AdGroup`.
+You can create an `AdCreative` in two ways. The first is by including a JSON object when creating an `Ad` and the second, which we will demonstrate here, is by explicitly creation an `AdCreative` and using its `id` when creating an `Ad`.
 
 ```php
 use FacebookAds\Object\AdCreative;
@@ -426,24 +424,23 @@ $creative->create();
 echo 'Creative ID: '.$creative->id . "\n";
 ```
 
-### 7. Creating an AdGroup
+### 7. Creating an Ad
 
-The final step is to create the [`AdGroup`](https://developers.facebook.com/docs/reference/ads-api/adgroup/). The `AdGroup` contains all of the information about bid, creative and targeting. It should also have the asme objective as the `AdCampaign` we created.
+The final step is to create the [`Ad`](https://developers.facebook.com/docs/reference/ads-api/adgroup/). The `Ad` contains all of the information about bid, creative and targeting. It should also have the asme objective as the `Campaign` we created.
 
 ```php
-use FacebookAds\Object\AdGroup;
-use FacebookAds\Object\Fields\AdGroupFields;
+use FacebookAds\Object\Ad;
+use FacebookAds\Object\Fields\AdFields;
 
-$adgroup = new AdGroup(null, $account->id);
-$adgroup->setData(array(
-  AdGroupFields::CREATIVE => 
-    array('creative_id' => $creative->id),
-  AdGroupFields::NAME => 'My First AdGroup',
-  AdGroupFields::CAMPAIGN_ID => $adset->id,
+$ad = new Ad(null, $account->id);
+$ad->setData(array(
+  AdFields::CREATIVE => array('creative_id' => $creative->id),
+  AdFields::NAME => 'My First Ad',
+  AdFields::ADSET_ID => $adset->id,
 ));
 
-$adgroup->create();
-echo 'AdGroup ID:' . $adgroup->id . "\n";
+$ad->create();
+echo 'Ad ID:'.$ad->id."\n";
 ```
 ## Extending the SDK 
 
@@ -487,12 +484,12 @@ In this case, you can use our generic connection methods to retrieve the correct
 ```php
 use FacebookAds\Object\AdAccount;
 
-// AdGroup in your namespace which you have used to extend the 
-// FacebookAds\Object\AdGroup class
-use MyNamespace\Object\AdGroup;
+// Ad in your namespace which you have used to extend the
+// FacebookAds\Object\Ad class
+use MyNamespace\Object\Ad;
 
 $account = new AdAccount($id);
 $my_adaccount_objects = $account->getManyByConnection(
-  AdGroup::className(), $fields = array(...), $params = array(...));
+  Ad::className(), $fields = array(...), $params = array(...));
 
 ```
