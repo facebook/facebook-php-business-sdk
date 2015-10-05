@@ -80,6 +80,20 @@ abstract class AbstractObject {
   }
 
   /**
+   * Like setData but will skip field validation
+   *
+   * @param array
+   * @return $this
+   */
+  public function setEnforceData(array $data) {
+    foreach ($data as $key => $value) {
+      $this->data[$key] = $value;
+    }
+
+    return $this;
+  }
+
+  /**
    * @return array
    */
   public function getData() {

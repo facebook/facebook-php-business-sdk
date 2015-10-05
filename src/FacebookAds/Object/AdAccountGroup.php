@@ -80,7 +80,7 @@ class AdAccountGroup extends AbstractCrudObject {
       foreach (array_shift($response_data) as $data) {
         /** @var AbstractObject $object */
         $object = new $prototype_class(null, null, $this->getApi());
-        $object->setData((array) $data);
+        $object->setEnforceData((array) $data);
         $result[] = $object;
       }
     }

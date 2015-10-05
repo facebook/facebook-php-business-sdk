@@ -247,7 +247,7 @@ abstract class AbstractCrudObject extends AbstractObject {
         && isset($data['data'][$id])
         && is_array($data['data'][$id])
       ) {
-        $this->setData($data['data'][$id]);
+        $this->setEnforceData($data['data'][$id]);
       }
 
       $this->data[static::FIELD_ID] = (string) $id;
@@ -275,7 +275,7 @@ abstract class AbstractCrudObject extends AbstractObject {
       RequestInterface::METHOD_GET,
       $params);
 
-    $this->setData($response->getContent());
+    $this->setEnforceData($response->getContent());
     $this->clearHistory();
 
     return $this;
@@ -398,7 +398,7 @@ abstract class AbstractCrudObject extends AbstractObject {
     $object = new $prototype_class(
       null, $this->{static::FIELD_ID}, $this->getApi());
     /** @var AbstractCrudObject $object */
-    $object->setData($response->getContent());
+    $object->setEnforceData($response->getContent());
 
     return $object;
   }
@@ -444,7 +444,7 @@ abstract class AbstractCrudObject extends AbstractObject {
         .AbstractAsyncJobObject::className());
     }
 
-    return $object->setData($fields)
+    return $object->setEnforceData($fields)
       ->create($params);
   }
 
@@ -515,7 +515,7 @@ abstract class AbstractCrudObject extends AbstractObject {
     foreach ($response->getContent() as $data) {
       /** @var AbstractObject $object */
       $object = new static(null, null, $api);
-      $object->setData((array) $data);
+      $object->setEnforceData((array) $data);
       $result[] = $object;
     }
 
