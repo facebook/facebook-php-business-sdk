@@ -85,7 +85,7 @@ abstract class AbstractObject {
    * @param array
    * @return $this
    */
-  public function setEnforceData(array $data) {
+  public function setDataWithoutValidation(array $data) {
     foreach ($data as $key => $value) {
       $this->data[$key] = $value;
     }

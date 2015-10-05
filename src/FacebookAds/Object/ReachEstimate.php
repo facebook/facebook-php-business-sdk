@@ -59,7 +59,7 @@ class ReachEstimate extends AbstractObject {
    * @param array
    * @return $this
    */
-  public function setEnforceData(array $data) {
-    return parent::setEnforceData($this->normalizeData($data));
+  public function setDataWithoutValidation(array $data) {
+    return parent::setDataWithoutValidation($this->normalizeData($data));
   }
 }

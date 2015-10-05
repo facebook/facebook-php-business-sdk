@@ -67,7 +67,7 @@ class Product extends AbstractCrudObject {
       array_merge($params, array('fields' => $fields)));
     $response_data = $response->getContent();
     $product = new static($response_data[ProductFields::ID]);
-    $product->setEnforceData($response_data);
+    $product->setDataWithoutValidation($response_data);
     return $product;
   }
 
@@ -81,7 +81,7 @@ class Product extends AbstractCrudObject {
   public static function updateProductInCatalogByRetailerId (
     $retailer_id, $catalog_id, array $data = array(), array $params = array()) {
     $product = new static();
-    $product->setEnforceData($data);
+    $product->setDataWithoutValidation($data);
 
     $data = Api::instance()->call(
       self::buildCatalogUrlForRetailerId($retailer_id, $catalog_id),
