@@ -80,7 +80,7 @@ use FacebookAds\Object\Values\AdObjectives;
 $campaign  = new Campaign(null, $account->id);
 $campaign->setData(array(
   CampaignFields::NAME => 'My First Campaign',
-  CampaignFields::OBJECTIVE => AdObjectives::WEBSITE_CLICKS,
+  CampaignFields::OBJECTIVE => AdObjectives::LINK_CLICKS,
   CampaignFields::STATUS => Campaign::STATUS_PAUSED,
 ));
 

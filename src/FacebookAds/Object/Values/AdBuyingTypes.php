@@ -32,6 +32,6 @@ use FacebookAds\Enum\AbstractEnum;
 class AdBuyingTypes extends AbstractEnum {
 
   const AUCTION  = 'AUCTION';
-  const FIXED_CPM = 'FIXED_CPM';
+  const FIXED_PRICE = 'FIXED_PRICE';
   const RESERVED = 'RESERVED';
 }

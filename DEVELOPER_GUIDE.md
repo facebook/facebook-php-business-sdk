@@ -312,7 +312,7 @@ use FacebookAds\Object\Values\AdBuyingTypes;
 $campaign  = new Campaign(null, $account->id);
 $campaign->setData(array(
   CampaignFields::NAME => 'My First Campaign',
-  CampaignFields::OBJECTIVE => AdObjectives::WEBSITE_CLICKS,
+  CampaignFields::OBJECTIVE => AdObjectives::LINK_CLICKS,
 ));
 
 $campaign->create(array(
