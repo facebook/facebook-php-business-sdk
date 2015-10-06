@@ -31,7 +31,8 @@ use FacebookAds\Object\Search\TargetingSearchTypes;
 class TargetingSearchTest extends AbstractCrudObjectTestCase {
 
   public function testCrudAccess() {
-    $cursor = TargetingSearch::search(TargetingSearchTypes::CITY, null, 'Lon');
+    $cursor = TargetingSearch::search(
+      TargetingSearchTypes::GEOLOCATION, null, 'Lon');
 
     /* @var $category AbstractCrudObject */
     $result = $cursor->current();

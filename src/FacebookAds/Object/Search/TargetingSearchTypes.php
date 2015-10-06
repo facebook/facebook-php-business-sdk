@@ -31,7 +31,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class TargetingSearchTypes extends AbstractEnum {
 
-  const CITY = 'adcity';
   const COUNTRY = 'adcountry';
   const EDUCATION = 'adeducationschool';
   const EMPLOYER = 'adworkemployer';
@@ -45,7 +44,6 @@ class TargetingSearchTypes extends AbstractEnum {
   const MAJOR = 'adeducationmajor';
   const POSITION = 'adworkposition';
   const RADIUS_SUGGESTION = 'adradiussuggestion';
-  const REGION = 'adregion';
   const TARGETING_CATEGORY = 'adTargetingCategory';
   const ZIPCODE = 'adzipcode';
 }
