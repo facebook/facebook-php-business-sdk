@@ -7,3 +7,4 @@
 .DS_Store
 /.idea
 /builds
+arcanist/.phutil_module_cache
