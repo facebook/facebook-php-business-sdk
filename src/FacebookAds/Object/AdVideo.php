@@ -69,4 +69,16 @@ class AdVideo extends AbstractCrudObject {
 
     return $this;
   }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getVideoThumbnails(
+    array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(
+      VideoThumbnail::className(), $fields, $params, 'thumbnails');
+  }
+
 }
