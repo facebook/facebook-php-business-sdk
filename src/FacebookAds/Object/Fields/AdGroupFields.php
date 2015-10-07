@@ -53,4 +53,5 @@ class AdGroupFields extends AbstractEnum {
   const ADLABELS = 'adlabels';
   const ENGAGEMENT_AUDIENCE = 'engagement_audience';
   const EXECUTION_OPTIONS = 'execution_options';
+  const BID_TYPE = 'bid_type';
 }
