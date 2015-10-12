@@ -53,11 +53,11 @@ class TargetingSearch extends AbstractObject {
         'set as instance in the \FacebookAds\Api');
     }
 
-    $params = array_merge($params, array(
-      'type' => $type,
+    $params['type'] = $type;
+    $params = array_merge($params, array_filter(array(
       'class' => $class,
       'q' => $query,
-    ));
+    )));
 
     $response = $api->call('/search', RequestInterface::METHOD_GET, $params);
     return new Cursor($response, new TargetingSearch());
