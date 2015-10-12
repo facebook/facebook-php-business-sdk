@@ -29,6 +29,7 @@ use FacebookAds\Object\AdAccount;
 use FacebookAds\Object\AdsPixel;
 use FacebookAds\Object\Business;
 use FacebookAds\Object\Fields\AdsPixelsFields;
+use FacebookAds\Object\Values\AdsPixelStatAggregations;
 
 class AdsPixelTest extends AbstractCrudObjectTestCase {
 
@@ -89,6 +90,9 @@ class AdsPixelTest extends AbstractCrudObjectTestCase {
       'business' => $this->getConfig()->businessId,
     ));
     $this->assertCanFetchConnection($pixel, 'getAgencies');
+    $this->assertCanFetchConnection($pixel, 'getStats', array(), array(
+      'aggregation' => AdsPixelStatAggregations::EVENT,
+    ));
 
     $this->assertCannotDelete($pixel);
   }

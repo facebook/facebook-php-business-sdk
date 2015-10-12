@@ -127,4 +127,16 @@ class AdsPixel extends AbstractCrudObject {
     return $this->getManyByConnection(
       Business::className(), $fields, $params, 'shared_agencies');
   }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
+  public function getStats(
+    array $fields = array(), array $params = array()) {
+
+    return $this->getManyByConnection(
+      AdsPixelStat::className(), $fields, $params, 'stats');
+  }
 }
