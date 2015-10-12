@@ -338,6 +338,17 @@ class AdAccount extends AbstractCrudObject {
    * @param array $params
    * @return Cursor
    */
+  public function getMinimumBudgets(
+    array $fields = array(), array $params = array()) {
+    return $this->getManyByConnection(
+      MinimumBudget::className(), $fields, $params, 'minimum_budgets');
+  }
+
+  /**
+   * @param array $fields
+   * @param array $params
+   * @return Cursor
+   */
   public function getAdLabels(
     array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(

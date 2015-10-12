@@ -25,12 +25,16 @@
 namespace FacebookAdsTest\Object;
 
 use FacebookAds\Object\AdAccount;
+use FacebookAds\Object\AdCreative;
 use FacebookAds\Object\AdLabel;
 use FacebookAds\Object\Fields\AdAccountFields;
+use FacebookAds\Object\Fields\AdCreativeFields;
 use FacebookAds\Object\Fields\AdLabelFields;
 use FacebookAds\Object\Values\AdAccountRoles;
 use FacebookAds\Object\Fields\TargetingSpecsFields;
 use FacebookAds\Object\TargetingSpecs;
+use FacebookAds\Object\Values\AdFormats;
+use FacebookAds\Object\Values\OptimizationGoals;
 
 class AdAccountTest extends AbstractCrudObjectTestCase {
 
@@ -81,6 +85,12 @@ class AdAccountTest extends AbstractCrudObjectTestCase {
       TargetingSpecsFields::AGE_MAX => 24,
     ));
 
+    $creative = (new AdCreative())->setData(array(
+      AdCreativeFields::TITLE => 'My Test Creative',
+      AdCreativeFields::BODY => 'My Test Ad Creative Body',
+      AdCreativeFields::OBJECT_URL => 'https://www.facebook.com/facebook',
+    ));
+
     $targeting_params = array(
       'targeting_spec' => $targeting->exportData(),
     );
@@ -107,7 +117,14 @@ class AdAccountTest extends AbstractCrudObjectTestCase {
     $this->assertCanFetchConnection($account, 'getPartnerCategories');
     $this->assertCanFetchConnection($account, 'getRateCards');
     $this->assertCanFetchConnection(
-      $account, 'getReachEstimate', array(), $targeting_params);
+      $account,
+      'getReachEstimate',
+      array(),
+      array_merge(
+        $targeting_params,
+        array(
+          'optimize_for' => OptimizationGoals::OFFSITE_CONVERSIONS,
+        )));
 
     if (!$this->shouldSkipTest('no_reach_and_frequency')) {
       $this->assertCanFetchConnection($account, 'getReachFrequencyPredictions');
@@ -117,10 +134,14 @@ class AdAccountTest extends AbstractCrudObjectTestCase {
       $account, 'getTargetingDescription', array(), $targeting_params);
 
     $this->assertCanFetchConnection($account, 'getTransactions');
-    $this->assertCanFetchConnection($account, 'getAdPreviews');
+    $this->assertCanFetchConnection($account, 'getAdPreviews', array(), array(
+      'ad_format' => AdFormats::DESKTOP_FEED_STANDARD,
+      'creative' => $creative->exportData(),
+    ));
     $this->assertCanFetchConnection($account, 'getInsights');
     $this->assertCanFetchConnection($account, 'getInsightsAsync');
     $this->assertCanFetchConnection($account, 'getAgencies');
+    $this->assertCanFetchConnection($account, 'getMinimumBudgets');
     $this->assertCanFetchConnection($account, 'getAdLabels');
     $this->assertCanFetchConnection(
       $account, 'getCampaignsByLabel', array(), $label_params);
@@ -130,6 +151,7 @@ class AdAccountTest extends AbstractCrudObjectTestCase {
       $account, 'getAdsByLabel', array(), $label_params);
     $this->assertCanFetchConnection(
       $account, 'getAdCreativesByLabel', array(), $label_params);
+
 
     if (!$this->getSkippableFeaturesManager()
       ->isSkipKey('no_business_manager')) {
