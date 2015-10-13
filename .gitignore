@@ -8,3 +8,7 @@
 /.idea
 /builds
 arcanist/.phutil_module_cache
+# VIM Swap Files #
+*.swp
+*.swo
+
