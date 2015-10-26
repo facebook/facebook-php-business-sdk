@@ -98,7 +98,7 @@ class Page extends AbstractCrudObject {
    */
   public function grantBusinessAccess($business_id, $roles) {
     $params = array(
-      'business_id' => $business_id,
+      'business' => $business_id,
       'permitted_roles' => $roles,
     );
 
@@ -113,7 +113,7 @@ class Page extends AbstractCrudObject {
    */
   public function revokeBusinessAccess($business_id) {
     $params = array(
-      'business_id' => $business_id,
+      'business' => $business_id,
     );
 
     $this->getApi()->call(
