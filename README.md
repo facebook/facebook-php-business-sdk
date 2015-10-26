@@ -166,7 +166,7 @@ Here cursors are defined as in `\FacebookAds\Cursor`. Cursors are generally retu
 
 ```php
 use FacebookAds\Object\AdAccount;
-use FacebookAds\Object\CampaignFields;
+use FacebookAds\Object\Fields\CampaignFields;
 
 $account = new AdAccount('<ACT_ID>');
 $cursor = $account->getCampaigns();
