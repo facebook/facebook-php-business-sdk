@@ -42,6 +42,7 @@ class AdVideoFields extends AbstractEnum {
   const NAME = 'name';
   const PICTURE = 'picture';
   const PUBLISHED = 'published';
+  const SLIDESHOW_SPEC = 'slideshow_spec';
   const SOURCE = 'source';
   const UPDATED_TIME = 'updated_time';
   const THUMBNAILS = 'thumbnails';

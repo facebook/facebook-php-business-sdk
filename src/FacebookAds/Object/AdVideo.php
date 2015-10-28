@@ -49,8 +49,11 @@ class AdVideo extends AbstractCrudObject {
 
   public function create(array $params = array()) {
     $data = $this->exportData();
-    $source = $data[AdVideoFields::SOURCE];
-    unset($data[AdVideoFields::SOURCE]);
+    $source = null;
+    if (array_key_exists(AdVideoFields::SOURCE, $data)) {
+      $source = $data[AdVideoFields::SOURCE];
+      unset($data[AdVideoFields::SOURCE]);
+    }
     $params = array_merge($data, $params);
 
     $request = $this->getApi()->prepareRequest(
@@ -60,7 +63,9 @@ class AdVideo extends AbstractCrudObject {
     );
 
     $request->setLastLevelDomain('graph-video');
-    $request->getFileParams()->offsetSet(AdVideoFields::SOURCE, $source);
+    if ($source) {
+      $request->getFileParams()->offsetSet(AdVideoFields::SOURCE, $source);
+    }
     $response = $this->getApi()->executeRequest($request);
 
     $data = $response->getContent();
