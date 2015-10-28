@@ -153,6 +153,36 @@ class CurlLogger implements LoggerInterface {
   }
 
   /**
+   * @param array $array
+   * @param mixed $key
+   * @return mixed
+   */
+  protected function removeArrayKey(array &$array, $key) {
+    if (array_key_exists($key, $array)) {
+      $value = $array[$key];
+      unset($array[$key]);
+
+      return $value;
+    } else {
+
+      return null;
+    }
+  }
+
+  /**
+   * @param array $params
+   * @return array
+   */
+  protected function sortParams(array $params) {
+    $access_token = $this->removeArrayKey($params, 'access_token');
+    $appsecret_proof = $this->removeArrayKey($params, 'appsecret_proof');
+    $access_token !== null && $params['access_token'] = $access_token;
+    $appsecret_proof !== null && $params['appsecret_proof'] = $appsecret_proof;
+
+    return $params;
+  }
+
+  /**
    * @param string $level
    * @param RequestInterface $request
    * @param array $context
@@ -163,10 +193,10 @@ class CurlLogger implements LoggerInterface {
     $new_line = ' \\'.PHP_EOL.'  ';
     $method_flag = static::getMethodFlag($request->getMethod());
     $param_flag = static::getParamFlag($request->getMethod());
-    $params = array_merge(
+    $params = $this->sortParams(array_merge(
       $this->processParams($request->getQueryParams(), $param_flag, false),
       $this->processParams($request->getBodyParams(), $param_flag, false),
-      $this->processParams($request->getFileParams(), $param_flag, true));
+      $this->processParams($request->getFileParams(), $param_flag, true)));
 
     $buffer = 'curl'.($method_flag ? ' -'.$method_flag : '');
     foreach ($params as $param) {
