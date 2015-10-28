@@ -51,10 +51,14 @@ class AsyncJobInsights extends AbstractAsyncJobObject {
   }
 
   /**
+   * @param array $fields
+   * @param array $params
+   *
    * @return Cursor
    */
-  public function getResult() {
+  public function getResult(
+    array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(
-      Insights::classname(), array(), array(), $this->getEndpoint());
+      Insights::classname(), $fields, $params, $this->getEndpoint());
   }
 }
