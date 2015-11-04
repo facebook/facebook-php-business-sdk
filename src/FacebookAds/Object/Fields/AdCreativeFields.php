@@ -37,6 +37,7 @@ class AdCreativeFields extends AbstractEnum {
   const APPLINK_TREATMENT = 'applink_treatment';
   const BODY = 'body';
   const CALL_TO_ACTION_TYPE = 'call_to_action_type';
+  const DYNAMIC_AD_VOICE = 'dynamic_ad_voice';
   const FOLLOW_REDIRECT = 'follow_redirect';
   const ID = 'id';
   const IMAGE_HASH = 'image_hash';
@@ -54,6 +55,7 @@ class AdCreativeFields extends AbstractEnum {
   const OBJECT_STORE_URL = 'object_store_url';
   const OBJECT_TYPE = 'object_type';
   const OBJECT_URL = 'object_url';
+  const PLACE_PAGE_SET_ID = 'place_page_set_id';
   const PREVIEW_URL = 'preview_url';
   const PRODUCT_SET_ID = 'product_set_id';
   const RUN_STATUS = 'run_status';

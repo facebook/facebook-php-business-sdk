@@ -22,20 +22,27 @@
  *
  */
 
-namespace FacebookAds\Object\Fields\ObjectStory;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\Object\Fields\PlacePageSetFields;
+use FacebookAds\Object\Traits\CannotDelete;
+use FacebookAds\Object\Traits\FieldValidation;
 
-/**
- * @method static TemplateDataFields getInstance()
- */
-class TemplateDataFields extends AbstractEnum {
+class PlacePageSet extends AbstractCrudObject {
+  use FieldValidation;
+  use CannotDelete;
 
-  const CALL_TO_ACTION = 'call_to_action';
-  const DESCRIPTION = 'description';
-  const LINK = 'link';
-  const MESSAGE = 'message';
-  const NAME = 'name';
-  const MAX_PRODUCT_COUNT = 'max_product_count';
-  const PICTURE = 'picture';
+  /**
+   * @return string
+   */
+  protected function getEndpoint() {
+    return 'ad_place_page_sets';
+  }
+
+  /**
+   * @return PlacePageSetFields
+   */
+  public static function getFieldsEnum() {
+    return PlacePageSetFields::getInstance();
+  }
 }

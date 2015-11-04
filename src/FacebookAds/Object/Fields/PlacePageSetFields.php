@@ -22,20 +22,18 @@
  *
  */
 
-namespace FacebookAds\Object\Fields\ObjectStory;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * @method static TemplateDataFields getInstance()
+ * @method static PlacePageSetFields getInstance()
  */
-class TemplateDataFields extends AbstractEnum {
+class PlacePageSetFields extends AbstractEnum {
 
-  const CALL_TO_ACTION = 'call_to_action';
-  const DESCRIPTION = 'description';
-  const LINK = 'link';
-  const MESSAGE = 'message';
+  const ACCOUNT_ID = 'account_id';
+  const ID = 'id';
   const NAME = 'name';
-  const MAX_PRODUCT_COUNT = 'max_product_count';
-  const PICTURE = 'picture';
+  const PAGES_COUNT = 'pages_count';
+  const PARENT_PAGE = 'parent_page';
 }
