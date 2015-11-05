@@ -24,11 +24,11 @@
 
 namespace FacebookAds\Object;
 
-use FacebookAds\Object\Fields\PlacePageSetFields;
+use FacebookAds\Object\Fields\AdPlacePageSetFields;
 use FacebookAds\Object\Traits\CannotDelete;
 use FacebookAds\Object\Traits\FieldValidation;
 
-class PlacePageSet extends AbstractCrudObject {
+class AdPlacePageSet extends AbstractCrudObject {
   use FieldValidation;
   use CannotDelete;
 
@@ -40,9 +40,9 @@ class PlacePageSet extends AbstractCrudObject {
   }
 
   /**
-   * @return PlacePageSetFields
+   * @return AdPlacePageSetFields
    */
   public static function getFieldsEnum() {
-    return PlacePageSetFields::getInstance();
+    return AdPlacePageSetFields::getInstance();
   }
 }

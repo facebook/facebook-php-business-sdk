@@ -27,9 +27,9 @@ namespace FacebookAds\Object\Fields;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * @method static PlacePageSetFields getInstance()
+ * @method static AdPlacePageSetFields getInstance()
  */
-class PlacePageSetFields extends AbstractEnum {
+class AdPlacePageSetFields extends AbstractEnum {
 
   const ACCOUNT_ID = 'account_id';
   const ID = 'id';

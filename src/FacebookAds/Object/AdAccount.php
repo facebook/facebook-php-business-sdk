@@ -349,10 +349,10 @@ class AdAccount extends AbstractCrudObject {
    * @param array $params
    * @return Cursor
    */
-  public function getPlacePageSets(
+  public function getAdPlacePageSets(
     array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(
-      PlacePageSet::className(), $fields, $params);
+      AdPlacePageSet::className(), $fields, $params);
   }
 
   /**
