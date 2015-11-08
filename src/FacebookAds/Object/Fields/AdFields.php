@@ -50,4 +50,7 @@ class AdFields extends AbstractArchivableCrudObjectFields {
   const ADLABELS = 'adlabels';
   const ENGAGEMENT_AUDIENCE = 'engagement_audience';
   const EXECUTION_OPTIONS = 'execution_options';
+  const CONFIGURED_STATUS = 'configured_status';
+  const EFFECTIVE_STATUS = 'effective_status';
+  const STATUS = 'status';
 }
