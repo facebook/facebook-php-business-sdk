@@ -26,6 +26,7 @@ namespace FacebookAdsTest\Logger;
 
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\Logger\CurlLogger;
+use FacebookAds\Logger\CurlLogger\JsonAwareParameters;
 
 class CurlLoggerTest extends AbstractLoggerTest {
 
@@ -59,6 +60,8 @@ class CurlLoggerTest extends AbstractLoggerTest {
   protected function createRequestMock() {
     $query = $this->createParametersMock();
     $query->method('export')->willReturn(array(
+      'appsecret_proof' => '<APPSECRET_PROOF>',
+      'access_token' => '<ACCESS_TOKEN>',
       'query_field' => 'query_value',
     ));
 
@@ -73,12 +76,9 @@ class CurlLoggerTest extends AbstractLoggerTest {
     ));
 
     $request = parent::createRequestMock();
-    $request->method('getQueryParams')
-      ->willReturn($query);
-    $request->method('getBodyParams')
-      ->willReturn($body);
-    $request->method('getFileParams')
-      ->willReturn($files);
+    $request->method('getQueryParams')->willReturn($query);
+    $request->method('getBodyParams')->willReturn($body);
+    $request->method('getFileParams')->willReturn($files);
 
     return $request;
   }
@@ -109,12 +109,33 @@ class CurlLoggerTest extends AbstractLoggerTest {
     $request->method('getMethod')->willReturn($http_method);
 
     $logger = $this->createLogger();
-    $logger->logRequest(
-      static::VALUE_LOG_LEVEL, $request);
+    $logger->logRequest(static::VALUE_LOG_LEVEL, $request);
   }
 
   public function testLogResponse() {
     $this->createLogger()->logResponse(
       static::VALUE_LOG_LEVEL, $this->createResponseMock());
+  }
+
+  public function testJsonPrettyPrint() {
+    $logger = $this->createLogger();
+    $this->assertFalse($logger->isJsonPrettyPrint());
+    $logger->setJsonPrettyPrint(true);
+    $this->assertTrue($logger->isJsonPrettyPrint());
+
+    $query = new JsonAwareParameters(array(
+      'json_field' => array_fill(0, 3, 'json_value'),
+    ));
+    $body = $files = $this->createParametersMock();
+
+    $request = parent::createRequestMock();
+    $request->method('getQueryParams')->willReturn($query);
+    $request->method('getBodyParams')->willReturn($body);
+    $request->method('getFileParams')->willReturn($files);
+
+    $logger->logRequest(static::VALUE_LOG_LEVEL, $request);
+
+    $logger->setJsonPrettyPrint(false);
+    $this->assertFalse($logger->isJsonPrettyPrint());
   }
 }

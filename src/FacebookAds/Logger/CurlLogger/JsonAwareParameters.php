@@ -22,38 +22,17 @@
  *
  */
 
-namespace FacebookAds\Http;
+namespace FacebookAds\Logger\CurlLogger;
 
-class Parameters extends \ArrayObject {
+use FacebookAds\Http\Parameters;
 
-  /**
-   * @param array $data
-   */
-  public function enhance(array $data) {
-    foreach ($data as $key => $value) {
-      $this[$key] = $value;
-    }
-  }
+class JsonAwareParameters extends Parameters {
 
   /**
    * @param mixed $value
    * @return string
    */
   protected function exportNonScalar($value) {
-    return json_encode($value);
-  }
-
-  /**
-   * @return array
-   */
-  public function export() {
-    $data = array();
-    foreach ($this as $key => $value) {
-      $data[$key] = is_null($value) || is_scalar($value)
-        ? $value
-        : $this->exportNonScalar($value);
-    }
-
-    return $data;
+    return JsonNode::factory($value)->encode();
   }
 }

@@ -22,38 +22,40 @@
  *
  */
 
-namespace FacebookAds\Http;
+namespace FacebookAdsTest\Logger\CurlLogger;
 
-class Parameters extends \ArrayObject {
+use FacebookAds\Logger\CurlLogger\JsonNode;
+use FacebookAdsTest\AbstractUnitTestCase;
+
+class JsonNodeTest extends AbstractUnitTestCase {
+  use JsonAwareTestTrait;
 
   /**
-   * @param array $data
+   * @dataProvider parameterProvider
+   * @param mixed $param_data
    */
-  public function enhance(array $data) {
-    foreach ($data as $key => $value) {
-      $this[$key] = $value;
-    }
+  public function testEncoding($param_data) {
+    JsonNode::factory($param_data)->encode();
   }
 
   /**
-   * @param mixed $value
-   * @return string
+   * @expectedException \InvalidArgumentException
    */
-  protected function exportNonScalar($value) {
-    return json_encode($value);
+  public function testInvalidType() {
+    JsonNode::factory(fopen('php://memory', 'r'))->encode();
   }
 
   /**
-   * @return array
+   * Test the sanity check for behaviour on empty children list
+   * which should never happen as this is protected method
    */
-  public function export() {
-    $data = array();
-    foreach ($this as $key => $value) {
-      $data[$key] = is_null($value) || is_scalar($value)
-        ? $value
-        : $this->exportNonScalar($value);
-    }
+  public function testGetLastChildKey() {
+    $object = JsonNode::factory(array());
+    $method = new \ReflectionMethod($object, 'getLastChildKey');
+    $method->setAccessible(true);
 
-    return $data;
+    $this->assertNull($method->invoke($object));
+
+    $method->setAccessible(false);
   }
 }

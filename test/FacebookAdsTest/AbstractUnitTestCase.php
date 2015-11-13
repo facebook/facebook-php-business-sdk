@@ -74,6 +74,12 @@ abstract class AbstractUnitTestCase extends AbstractTestCase {
   /**
    * @var string
    */
+  const FQN_JSON_AWARE_PARAMETERS
+    = '\FacebookAds\Logger\CurlLogger\JsonAwareParameters';
+
+  /**
+   * @var string
+   */
   const FQN_REQUEST_INTERFACE = '\FacebookAds\Http\RequestInterface';
 
   /**
@@ -141,6 +147,13 @@ abstract class AbstractUnitTestCase extends AbstractTestCase {
    */
   protected function createParametersMock() {
     return $this->getMock(static::FQN_PARAMETERS);
+  }
+
+  /**
+   * @return Mocker|Mock|Parameters
+   */
+  protected function createJsonAwareParametersMock() {
+    return $this->getMock(static::FQN_JSON_AWARE_PARAMETERS);
   }
 
   /**

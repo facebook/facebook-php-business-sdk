@@ -22,38 +22,21 @@
  *
  */
 
-namespace FacebookAds\Http;
+namespace FacebookAdsTest\Logger\CurlLogger;
 
-class Parameters extends \ArrayObject {
+use FacebookAds\Logger\CurlLogger\JsonAwareParameters;
+use FacebookAdsTest\AbstractUnitTestCase;
+
+class JsonAwareParametersTest extends AbstractUnitTestCase {
+  use JsonAwareTestTrait;
 
   /**
-   * @param array $data
+   * @dataProvider parameterProvider
+   * @param mixed $param_data
    */
-  public function enhance(array $data) {
-    foreach ($data as $key => $value) {
-      $this[$key] = $value;
+  public function testExtract($param_data) {
+    foreach ((new JsonAwareParameters($param_data))->export() as $param) {
+      $this->assertTrue(is_scalar($param) || is_null($param));
     }
-  }
-
-  /**
-   * @param mixed $value
-   * @return string
-   */
-  protected function exportNonScalar($value) {
-    return json_encode($value);
-  }
-
-  /**
-   * @return array
-   */
-  public function export() {
-    $data = array();
-    foreach ($this as $key => $value) {
-      $data[$key] = is_null($value) || is_scalar($value)
-        ? $value
-        : $this->exportNonScalar($value);
-    }
-
-    return $data;
   }
 }
