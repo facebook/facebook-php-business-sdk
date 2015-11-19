@@ -36,7 +36,5 @@ class LeadFields extends AbstractEnum {
   const FIELD_DATA = 'field_data';
   const FORM_ID = 'form_id';
   const ID = 'id';
-  const IS_TCPA_COMPLIANT = 'is_tcpa_compliant';
   const POST = 'post';
-  const TCPA_DISCLOSURE = 'tcpa_disclosure';
 }
