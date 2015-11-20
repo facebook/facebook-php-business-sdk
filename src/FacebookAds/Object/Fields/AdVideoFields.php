@@ -46,4 +46,5 @@ class AdVideoFields extends AbstractEnum {
   const SOURCE = 'source';
   const UPDATED_TIME = 'updated_time';
   const THUMBNAILS = 'thumbnails';
+  const IS_INSTAGRAM_ELIGIBLE = 'is_instagram_eligible';
 }
