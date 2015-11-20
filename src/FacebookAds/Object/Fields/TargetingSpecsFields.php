@@ -46,6 +46,7 @@ class TargetingSpecsFields extends AbstractEnum {
   const PAGE_TYPES = 'page_types';
   const CONNECTIONS = 'connections';
   const EXCLUDED_CONNECTIONS = 'excluded_connections';
+  const FAMILY_STATUSES = 'family_statuses';
   const FRIENDS_OF_CONNECTIONS = 'friends_of_connections';
   const FLEXIBLE_SPEC = 'flexible_spec';
   const BEHAVIORS = 'behaviors';
