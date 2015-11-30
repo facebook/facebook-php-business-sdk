@@ -39,12 +39,12 @@ class AdVideoFields extends AbstractEnum {
   const FROM = 'from';
   const ICON = 'icon';
   const ID = 'id';
+  const IS_INSTAGRAM_ELIGIBLE = 'is_instagram_eligible';
   const NAME = 'name';
   const PICTURE = 'picture';
   const PUBLISHED = 'published';
   const SLIDESHOW_SPEC = 'slideshow_spec';
   const SOURCE = 'source';
-  const UPDATED_TIME = 'updated_time';
   const THUMBNAILS = 'thumbnails';
-  const IS_INSTAGRAM_ELIGIBLE = 'is_instagram_eligible';
+  const UPDATED_TIME = 'updated_time';
 }
