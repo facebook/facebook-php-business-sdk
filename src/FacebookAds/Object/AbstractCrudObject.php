@@ -444,8 +444,8 @@ abstract class AbstractCrudObject extends AbstractObject {
         .AbstractAsyncJobObject::className());
     }
 
-    return $object->setDataWithoutValidation($fields)
-      ->create($params);
+    $params['fields'] = $fields;
+    return $object->create($params);
   }
 
   /**
