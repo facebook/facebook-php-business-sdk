@@ -27,12 +27,15 @@ namespace FacebookAds\Object;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\Object\Fields\CustomAudienceFields;
 use FacebookAds\Object\Values\CustomAudienceTypes;
+use FacebookAds\Object\CustomAudienceNormalizers\EmailNormalizer;
+use FacebookAds\Object\CustomAudienceNormalizers\HashNormalizer;
 
 class CustomAudience extends AbstractCrudObject {
 
-  /**
-   * @var string
-   */
+ /**
+  * @var string
+  * @deprecated use HashNormalizer::HASH_TYPE_SHA256
+ */
   const HASH_TYPE_SHA256 = 'sha256';
 
   /**
@@ -139,10 +142,13 @@ class CustomAudience extends AbstractCrudObject {
       || $type == CustomAudienceTypes::PHONE) {
       foreach ($users as &$user) {
         if ($type == CustomAudienceTypes::EMAIL) {
-          $user = trim(strtolower($user), " \t\r\n\0\x0B.");
+          $normalizer = new EmailNormalizer();
+          $user = $normalizer->normalize(CustomAudienceTypes::EMAIL, $user);
         }
         if (!$is_hashed) {
-            $user = hash(self::HASH_TYPE_SHA256, $user);
+          $hash_normalizer = new HashNormalizer();
+          $user = $hash_normalizer->normalize(
+            CustomAudienceTypes::EMAIL, $user);
         }
       }
     }
