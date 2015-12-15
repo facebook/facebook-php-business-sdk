@@ -55,7 +55,7 @@ class ProjectTest extends AbstractCrudObjectTestCase
     $project->addPage($this->getConfig()->pageId);
     $project->deletePage($this->getConfig()->pageId);
 
-    $project->adAdAccount($this->getConfig()->accountId);
+    $project->addAdAccount($this->getConfig()->accountId);
     $project->deleteAdAccount($this->getConfig()->accountId);
 
     $project->addApp($this->getConfig()->appId);

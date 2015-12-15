@@ -108,7 +108,7 @@ class Project extends AbstractCrudObject {
   /**
    * @param int $account_id
    */
-  public function adAdAccount($account_id) {
+  public function addAdAccount($account_id) {
     $params = array(
       'adaccount_id' => $account_id,
     );
