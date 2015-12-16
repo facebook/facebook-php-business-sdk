@@ -97,6 +97,16 @@ class IntegrationBootstrap extends Bootstrap {
       $this->config->appUrl = $this->confxt('app_url');
       $this->config->businessId = $this->confxt('business_id');
 
+      // Optionals: Override unit config
+      $this->config->testRunId = $this->confx(
+        'test_run_id', $this->config->testRunId);
+      $this->config->testImagePath = $this->confx(
+        'test_image_path', $this->config->testImagePath);
+      $this->config->testZippedImagesPath = $this->confx(
+        'test_zipped_images_path', $this->config->testZippedImagesPath);
+      $this->config->testVideoPath = $this->confx(
+        'test_video_path', $this->config->testVideoPath);
+
       // Optionals
       $this->config->secondaryBusinessId
         = $this->confx('secondary_business_id', '');
