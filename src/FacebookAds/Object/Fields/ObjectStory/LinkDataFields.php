@@ -42,4 +42,5 @@ class LinkDataFields extends AbstractEnum {
   const NAME = 'name';
   const PICTURE = 'picture';
   const MULTI_SHARE_OPTIMIZED = 'multi_share_optimized';
+  const MULTI_SHARE_END_CARD = 'multi_share_end_card';
 }
