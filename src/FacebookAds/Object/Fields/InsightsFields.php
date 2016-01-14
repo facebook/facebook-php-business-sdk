@@ -61,16 +61,22 @@ class InsightsFields extends AbstractEnum {
   const DATE_STOP = 'date_stop';
   const DEEPLINK_CLICKS = 'deeplink_clicks';
   const ESTIMATED_AD_RECALLERS = 'estimated_ad_recallers';
-  const ESTIMATED_AD_RECALLERS_LOWER_BOUND = 'estimated_ad_recallers_lower_bound';
-  const ESTIMATED_AD_RECALLERS_UPPER_BOUND = 'estimated_ad_recallers_upper_bound';
+  const ESTIMATED_AD_RECALLERS_LOWER_BOUND
+      = 'estimated_ad_recallers_lower_bound';
+  const ESTIMATED_AD_RECALLERS_UPPER_BOUND
+      = 'estimated_ad_recallers_upper_bound';
   const ESTIMATED_AD_RECALL_RATE = 'estimated_ad_recall_rate';
-  const ESTIMATED_AD_RECALL_RATE_LOWER_BOUND = 'estimated_ad_recall_rate_lower_bound';
-  const ESTIMATED_AD_RECALL_RATE_UPPPER_BOUND = 'estimated_ad_recall_rate_upper_bound';
+  const ESTIMATED_AD_RECALL_RATE_LOWER_BOUND
+      = 'estimated_ad_recall_rate_lower_bound';
+  const ESTIMATED_AD_RECALL_RATE_UPPPER_BOUND
+      = 'estimated_ad_recall_rate_upper_bound';
   const FREQUENCY = 'frequency';
   const FREQUENCY_VALUE = 'frequency_value';
   const GENDER = 'gender';
-  const HOURLY_STATS_AGGREGATED_BY_ADVERTISER_TIME_ZONE = 'hourly_stats_aggregated_by_advertiser_time_zone';
-  const HOURLY_STATS_AGGREGATED_BY_AUDIENCE_TIME_ZONE = 'hourly_stats_aggregated_by_audience_time_zone';
+  const HOURLY_STATS_AGGREGATED_BY_ADVERTISER_TIME_ZONE
+      = 'hourly_stats_aggregated_by_advertiser_time_zone';
+  const HOURLY_STATS_AGGREGATED_BY_AUDIENCE_TIME_ZONE
+      = 'hourly_stats_aggregated_by_audience_time_zone';
   const IMPRESSIONS = 'impressions';
   const IMPRESSION_DEVICE = 'impression_device';
   const INLINE_LINK_CLICKS = 'inline_link_clicks';
