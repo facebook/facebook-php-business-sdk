@@ -26,6 +26,7 @@ namespace FacebookAds;
 
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\Http\ResponseInterface;
+use FacebookAds\Http\Util;
 use FacebookAds\Object\AbstractObject;
 
 class Cursor implements \Iterator, \Countable, \arrayaccess {
@@ -259,10 +260,9 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
     $components = parse_url($url);
     $request = $this->getLastResponse()->getRequest()->createClone();
     $request->setDomain($components['host']);
-    $query = array();
-    if (isset($components['query'])) {
-      parse_str($components['query'], $query);
-    }
+    $query = isset($components['query'])
+      ? Util::parseUrlQuery($components['query'])
+      : array();
     $request->getQueryParams()->enhance($query);
 
     return $request;

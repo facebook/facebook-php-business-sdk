@@ -30,6 +30,7 @@ use FacebookAds\Http\Headers;
 use FacebookAds\Http\Parameters;
 use FacebookAds\Http\Request;
 use FacebookAds\Http\ResponseInterface;
+use FacebookAds\Http\Util;
 use FacebookAdsTest\AbstractUnitTestCase;
 
 class RequestTest extends AbstractUnitTestCase {
@@ -207,8 +208,7 @@ class RequestTest extends AbstractUnitTestCase {
     // With query
     $request->setQueryParams(new Parameters(array('sdk' => 'PHP')));
     $url = $request->getUrl();
-    $parsed_query = array();
-    parse_str(parse_url($url, PHP_URL_QUERY), $parsed_query);
+    $parsed_query = Util::parseUrlQuery(parse_url($url, PHP_URL_QUERY));
     $this->assertEquals(
       $parsed_query, $request->getQueryParams()->getArrayCopy());
   }
