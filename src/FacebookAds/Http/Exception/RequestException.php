@@ -25,8 +25,14 @@
 namespace FacebookAds\Http\Exception;
 
 use FacebookAds\Exception\Exception;
+use FacebookAds\Http\ResponseInterface;
 
 class RequestException extends Exception {
+
+  /**
+   * @var ResponseInterface|null
+   */
+  protected $response;
 
   /**
    * @var int Status code for the response causing the exception
@@ -69,6 +75,9 @@ class RequestException extends Exception {
   protected $errorBlameFieldSpecs;
 
   /**
+   * FIXME - v2.6 breaking change:
+   *   make interface __contruct(ResponseInterface $response)
+   *
    * @param array $response_data The response from the Graph API
    * @param int $status_code
    */
@@ -85,6 +94,23 @@ class RequestException extends Exception {
     $this->errorUserTitle = $error_data['error_user_title'];
     $this->errorUserMessage = $error_data['error_user_msg'];
     $this->errorBlameFieldSpecs = $error_data['error_blame_field_specs'];
+  }
+
+  /**
+   * @return ResponseInterface|null
+   */
+  public function getResponse() {
+    return $this->response;
+  }
+
+  /**
+   * @param ResponseInterface $response
+   * @return $this
+   */
+  public function setResponse(ResponseInterface $response) {
+    $this->response = $response;
+
+    return $this;
   }
 
   /**
@@ -187,5 +213,20 @@ class RequestException extends Exception {
    */
   public function getErrorBlameFieldSpecs() {
     return $this->errorBlameFieldSpecs;
+  }
+
+  /**
+   * @return bool
+   */
+  public function isTransient() {
+    if ($this->getResponse() !== null) {
+      return false;
+    }
+
+    $body = $this->getResponse()->getBody();
+
+    return array_key_exists('error', $body)
+      && array_key_exists('is_transient', $body['error'])
+      && $body['error']['is_transient'];
   }
 }
