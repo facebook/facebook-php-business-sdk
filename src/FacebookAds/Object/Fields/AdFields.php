@@ -47,7 +47,7 @@ class AdFields extends AbstractArchivableCrudObjectFields {
   const SOCIAL_PREFS = 'social_prefs';
   const FAILED_DELIVERY_CHECKS = 'failed_delivery_checks';
   const REDOWNLOAD = 'redownload';
+  const RECOMMENDATIONS = 'recommendations';
   const ADLABELS = 'adlabels';
   const ENGAGEMENT_AUDIENCE = 'engagement_audience';
-  const EXECUTION_OPTIONS = 'execution_options';
 }
