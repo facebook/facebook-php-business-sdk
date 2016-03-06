@@ -32,12 +32,17 @@ use FacebookAds\Enum\AbstractEnum;
 class ProductFeedFields extends AbstractEnum {
 
   const ID = 'id';
+  const COUNTRY = 'country';
+  const CREATED_TIME = 'created_time';
+  const DELETION_ENABLED = 'deletion_enabled';
+  const DELIMITER = 'delimiter';
+  const ENCODING = 'encoding';
   const FILE_NAME = 'file_name';
   const FORMAT = 'format';
-  const COUNTRY = 'country';
-  const ENCODING = 'encoding';
   const NAME = 'name';
-  const DELIMITER = 'delimiter';
+  const LATEST_UPLOAD = 'latest_upload';
   const QUOTES = 'quotes';
+  const QUOTED_FIELDS = 'quoted_fields';
+  const PRODUCT_COUNT = 'product_count';
   const SCHEDULE = 'schedule';
 }
