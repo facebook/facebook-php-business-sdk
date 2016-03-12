@@ -31,38 +31,43 @@ use FacebookAds\Http\RequestInterface;
  * @method Api getApi()
  * @method string assureId()
  */
-trait AdLabelAwareCrudObjectTrait {
+trait AdLabelAwareCrudObjectTrait
+{
+    /**
+     * Take ad label ids and format them correctly for the request
+     * @param array $adlabel_ids
+     * @return array
+     */
+    protected function formatParams(array $adlabel_ids)
+    {
+        foreach ($adlabel_ids as &$adlabel_id) {
+            $adlabel_id = array('id' => $adlabel_id);
+        }
 
-  /**
-   * Take ad label ids and format them correctly for the request
-   * @param array $adlabel_ids
-   * @return array
-   */
-  protected function formatParams(array $adlabel_ids) {
-    foreach ($adlabel_ids as &$adlabel_id) {
-      $adlabel_id = array('id' => $adlabel_id);
+        return array('adlabels' => $adlabel_ids);
     }
 
-    return array('adlabels' => $adlabel_ids);
-  }
+    /**
+     * @param array $ad_label_ids
+     */
+    public function addAdLabels(array $ad_label_ids)
+    {
+        $this->getApi()->call(
+            '/'.$this->assureId().'/adlabels',
+            RequestInterface::METHOD_POST,
+            $this->formatParams($ad_label_ids)
+        );
+    }
 
-  /**
-   * @param array $ad_label_ids
-   */
-  public function addAdLabels(array $ad_label_ids) {
-    $this->getApi()->call(
-      '/'.$this->assureId().'/adlabels',
-      RequestInterface::METHOD_POST,
-      $this->formatParams($ad_label_ids));
-  }
-
-  /**
-   * @param array $ad_label_ids
-   */
-  public function removeAdLabels(array $ad_label_ids) {
-    $this->getApi()->call(
-      '/'.$this->assureId().'/adlabels',
-      RequestInterface::METHOD_DELETE,
-      $this->formatParams($ad_label_ids));
-  }
+    /**
+     * @param array $ad_label_ids
+     */
+    public function removeAdLabels(array $ad_label_ids)
+    {
+        $this->getApi()->call(
+            '/'.$this->assureId().'/adlabels',
+            RequestInterface::METHOD_DELETE,
+            $this->formatParams($ad_label_ids)
+        );
+    }
 }

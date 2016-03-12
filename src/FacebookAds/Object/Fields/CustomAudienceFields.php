@@ -29,25 +29,25 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static CustomAudienceFields getInstance()
  */
-class CustomAudienceFields extends AbstractEnum {
-
-  const ACCOUNT_ID = 'account_id';
-  const APPROXIMATE_COUNT = 'approximate_count';
-  const DATA_SOURCE = 'data_source';
-  const DELIVERY_STATUS = 'delivery_status';
-  const DESCRIPTION = 'description';
-  const ID = 'id';
-  const LOOKALIKE_AUDIENCE_IDS = 'lookalike_audience_ids';
-  const LOOKALIKE_SPEC = 'lookalike_spec';
-  const NAME = 'name';
-  const OPERATION_STATUS = 'operation_status';
-  const OPT_OUT_LINK = 'opt_out_link';
-  const ORIGIN_AUDIENCE_ID = 'origin_audience_id';
-  const PERMISSION_FOR_ACTIONS = 'permission_for_actions';
-  const PIXEL_ID = 'pixel_id';
-  const PREFILL = 'prefill';
-  const RETENTION_DAYS = 'retention_days';
-  const RULE = 'rule';
-  const SUBTYPE = 'subtype';
-  const TIME_UPDATED = 'time_updated';
+class CustomAudienceFields extends AbstractEnum
+{
+    const ACCOUNT_ID = 'account_id';
+    const APPROXIMATE_COUNT = 'approximate_count';
+    const DATA_SOURCE = 'data_source';
+    const DELIVERY_STATUS = 'delivery_status';
+    const DESCRIPTION = 'description';
+    const ID = 'id';
+    const LOOKALIKE_AUDIENCE_IDS = 'lookalike_audience_ids';
+    const LOOKALIKE_SPEC = 'lookalike_spec';
+    const NAME = 'name';
+    const OPERATION_STATUS = 'operation_status';
+    const OPT_OUT_LINK = 'opt_out_link';
+    const ORIGIN_AUDIENCE_ID = 'origin_audience_id';
+    const PERMISSION_FOR_ACTIONS = 'permission_for_actions';
+    const PIXEL_ID = 'pixel_id';
+    const PREFILL = 'prefill';
+    const RETENTION_DAYS = 'retention_days';
+    const RULE = 'rule';
+    const SUBTYPE = 'subtype';
+    const TIME_UPDATED = 'time_updated';
 }

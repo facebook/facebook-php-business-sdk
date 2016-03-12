@@ -29,17 +29,17 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static LeadgenFormFields getInstance()
  */
-class LeadgenFormFields extends AbstractEnum {
-
-  const CREATED_TIME = 'created_time';
-  const CUSTOMIZED_TCPA_CONTENT = 'cusomized_tcpa_content';
-  const FOLLOW_UP_ACTION_TEXT = 'follow_up_action_text';
-  const FOLLOW_UP_ACTION_URL = 'follow_up_action_url';
-  const ID = 'id';
-  const LEADGEN_EXPORT_CSV_URL = 'leadgen_export_csv_url';
-  const LEADS = 'leads';
-  const LOCALE = 'locale';
-  const NAME = 'name';
-  const PRIVACY_POLICY_URL = 'privacy_policy_url';
-  const TCPA_COMPLIANCE = 'tcpa_compliance';
+class LeadgenFormFields extends AbstractEnum
+{
+    const CREATED_TIME = 'created_time';
+    const CUSTOMIZED_TCPA_CONTENT = 'cusomized_tcpa_content';
+    const FOLLOW_UP_ACTION_TEXT = 'follow_up_action_text';
+    const FOLLOW_UP_ACTION_URL = 'follow_up_action_url';
+    const ID = 'id';
+    const LEADGEN_EXPORT_CSV_URL = 'leadgen_export_csv_url';
+    const LEADS = 'leads';
+    const LOCALE = 'locale';
+    const NAME = 'name';
+    const PRIVACY_POLICY_URL = 'privacy_policy_url';
+    const TCPA_COMPLIANCE = 'tcpa_compliance';
 }

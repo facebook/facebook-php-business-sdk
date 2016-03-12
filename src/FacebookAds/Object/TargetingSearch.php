@@ -28,38 +28,39 @@ use FacebookAds\Api;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 
-class TargetingSearch extends AbstractObject {
+class TargetingSearch extends AbstractObject
+{
+    /**
+     * @param string $query
+     * @param string $type
+     * @param string $class
+     * @param array $params
+     * @param Api $api
+     * @return Cursor
+     * @throws \InvalidArgumentException
+     */
+    public static function search(
+        $type,
+        $class = null,
+        $query = null,
+        array $params = array(),
+        Api $api = null
+    ) {
+        $api = $api ?: Api::instance();
+        if (!$api) {
+            throw new \InvalidArgumentException(
+                'An Api instance must be provided as argument or '.
+                'set as instance in the \FacebookAds\Api'
+            );
+        }
 
-  /**
-   * @param string $query
-   * @param string $type
-   * @param string $class
-   * @param array $params
-   * @param Api $api
-   * @return Cursor
-   * @throws \InvalidArgumentException
-   */
-  public static function search(
-    $type,
-    $class=null,
-    $query=null,
-    array $params = array(),
-    Api $api = null) {
+        $params['type'] = $type;
+        $params = array_merge($params, array_filter(array(
+            'class' => $class,
+            'q' => $query,
+        )));
 
-    $api = $api ?: Api::instance();
-    if (!$api) {
-      throw new \InvalidArgumentException(
-        'An Api instance must be provided as argument or '.
-        'set as instance in the \FacebookAds\Api');
+        $response = $api->call('/search', RequestInterface::METHOD_GET, $params);
+        return new Cursor($response, new TargetingSearch());
     }
-
-    $params['type'] = $type;
-    $params = array_merge($params, array_filter(array(
-      'class' => $class,
-      'q' => $query,
-    )));
-
-    $response = $api->call('/search', RequestInterface::METHOD_GET, $params);
-    return new Cursor($response, new TargetingSearch());
-  }
 }

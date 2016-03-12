@@ -28,37 +28,37 @@ use FacebookAds\Http\Client;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\Http\ResponseInterface;
 
-interface AdapterInterface {
+interface AdapterInterface
+{
+    /**
+     * @param Client $client
+     */
+    public function __construct(Client $client);
 
-  /**
-   * @param Client $client
-   */
-  public function __construct(Client $client);
+    /**
+     * @return Client
+     */
+    public function getClient();
 
-  /**
-   * @return Client
-   */
-  public function getClient();
+    /**
+     * @return string
+     */
+    public function getCaBundlePath();
 
-  /**
-   * @return string
-   */
-  public function getCaBundlePath();
+    /**
+     * @return \ArrayObject
+     */
+    public function getOpts();
 
-  /**
-   * @return \ArrayObject
-   */
-  public function getOpts();
+    /**
+     * @param \ArrayObject $opts
+     * @return void
+     */
+    public function setOpts(\ArrayObject $opts);
 
-  /**
-   * @param \ArrayObject $opts
-   * @return void
-   */
-  public function setOpts(\ArrayObject $opts);
-
-  /**
-   * @param RequestInterface $request
-   * @return ResponseInterface
-   */
-  public function sendRequest(RequestInterface $request);
+    /**
+     * @param RequestInterface $request
+     * @return ResponseInterface
+     */
+    public function sendRequest(RequestInterface $request);
 }

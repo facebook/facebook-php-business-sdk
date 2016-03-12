@@ -25,16 +25,18 @@
 namespace FacebookAds\Object\ObjectStory;
 
 use FacebookAds\Object\AbstractObject;
-use FacebookAds\Object\Traits\FieldValidation;
 use FacebookAds\Object\Fields\ObjectStory\AttachmentDataFields;
+use FacebookAds\Object\Traits\FieldValidation;
 
-class AttachmentData extends AbstractObject{
-  use FieldValidation;
+class AttachmentData extends AbstractObject
+{
+    use FieldValidation;
 
-  /**
-   * @return AttachmentDataFields
-   */
-  public static function getFieldsEnum() {
-    return AttachmentDataFields::getInstance();
-  }
+    /**
+     * @return AttachmentDataFields
+     */
+    public static function getFieldsEnum()
+    {
+        return AttachmentDataFields::getInstance();
+    }
 }

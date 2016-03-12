@@ -24,6 +24,6 @@
 
 namespace FacebookAds\Http\Exception;
 
-class AuthorizationException extends RequestException {
-
+class AuthorizationException extends RequestException
+{
 }

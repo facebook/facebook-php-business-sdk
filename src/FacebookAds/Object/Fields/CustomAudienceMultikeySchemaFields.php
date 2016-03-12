@@ -29,19 +29,19 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static LookalikeAudienceSpecFields getInstance()
  */
-class CustomAudienceMultikeySchemaFields extends AbstractEnum {
-
-  const EMAIL = 'EMAIL';
-  const PHONE = 'PHONE';
-  const GENDER = 'GEN';
-  const BIRTH_YEAR = 'DOBY';
-  const BIRTH_MONTH = 'DOBM';
-  const BIRTH_DATE = 'DOBD';
-  const LAST_NAME = 'LN';
-  const FIRST_NAME = 'FN';
-  const FIRST_NAME_INITIAL = 'FI';
-  const CITY = 'CT';
-  const STATE = 'ST';
-  const ZIP = 'ZIP';
-  const MADID = 'MADID';
+class CustomAudienceMultikeySchemaFields extends AbstractEnum
+{
+    const EMAIL = 'EMAIL';
+    const PHONE = 'PHONE';
+    const GENDER = 'GEN';
+    const BIRTH_YEAR = 'DOBY';
+    const BIRTH_MONTH = 'DOBM';
+    const BIRTH_DATE = 'DOBD';
+    const LAST_NAME = 'LN';
+    const FIRST_NAME = 'FN';
+    const FIRST_NAME_INITIAL = 'FI';
+    const CITY = 'CT';
+    const STATE = 'ST';
+    const ZIP = 'ZIP';
+    const MADID = 'MADID';
 }

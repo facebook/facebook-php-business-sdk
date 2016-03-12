@@ -30,60 +30,64 @@ use FacebookAds\Object\Traits\CannotDelete;
 use FacebookAds\Object\Traits\CannotUpdate;
 use FacebookAds\Object\Traits\FieldValidation;
 
-class AdVideo extends AbstractCrudObject {
-  use FieldValidation;
+class AdVideo extends AbstractCrudObject
+{
+    use FieldValidation;
 
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'advideos';
-  }
-
-  /**
-   * @return AdVideoFields
-   */
-  public static function getFieldsEnum() {
-    return AdVideoFields::getInstance();
-  }
-
-  public function create(array $params = array()) {
-    $data = $this->exportData();
-    $source = null;
-    if (array_key_exists(AdVideoFields::SOURCE, $data)) {
-      $source = $data[AdVideoFields::SOURCE];
-      unset($data[AdVideoFields::SOURCE]);
+    /**
+     * @return string
+     */
+    protected function getEndpoint()
+    {
+        return 'advideos';
     }
-    $params = array_merge($data, $params);
 
-    $request = $this->getApi()->prepareRequest(
-      '/'.$this->assureParentId().'/'.$this->getEndpoint(),
-      RequestInterface::METHOD_POST,
-      $params
-    );
-
-    $request->setLastLevelDomain('graph-video');
-    if ($source) {
-      $request->getFileParams()->offsetSet(AdVideoFields::SOURCE, $source);
+    /**
+     * @return AdVideoFields
+     */
+    public static function getFieldsEnum()
+    {
+        return AdVideoFields::getInstance();
     }
-    $response = $this->getApi()->executeRequest($request);
 
-    $data = $response->getContent();
-    $this->data[static::FIELD_ID]
-      = is_string($data) ? $data : (string) $data[static::FIELD_ID];
+    public function create(array $params = array())
+    {
+        $data = $this->exportData();
+        $source = null;
+        if (array_key_exists(AdVideoFields::SOURCE, $data)) {
+            $source = $data[AdVideoFields::SOURCE];
+            unset($data[AdVideoFields::SOURCE]);
+        }
+        $params = array_merge($data, $params);
 
-    return $this;
-  }
+        $request = $this->getApi()->prepareRequest(
+            '/'.$this->assureParentId().'/'.$this->getEndpoint(),
+            RequestInterface::METHOD_POST,
+            $params
+        );
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getVideoThumbnails(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      VideoThumbnail::className(), $fields, $params, 'thumbnails');
-  }
+        $request->setLastLevelDomain('graph-video');
+        if ($source) {
+            $request->getFileParams()->offsetSet(AdVideoFields::SOURCE, $source);
+        }
+        $response = $this->getApi()->executeRequest($request);
 
+        $data = $response->getContent();
+        $this->data[static::FIELD_ID]
+            = is_string($data) ? $data : (string) $data[static::FIELD_ID];
+
+        return $this;
+    }
+
+    /**
+     * @param array $fields
+     * @param array $params
+     * @return Cursor
+     */
+    public function getVideoThumbnails(
+        array $fields = array(),
+        array $params = array()
+    ) {
+        return $this->getManyByConnection(VideoThumbnail::className(), $fields, $params, 'thumbnails');
+    }
 }

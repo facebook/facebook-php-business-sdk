@@ -29,9 +29,9 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static TermsOfService getInstance()
  */
-class TermsOfService extends AbstractEnum {
-
-  const CUSTOM_AUDIENCE  = 'custom_audience';
-  const WEBSITE_CUSTOM_AUDIENCE = 'website_custom_audience';
-  const MOBILE_APP_CUSTOM_AUDIENCE = 'mobile_app_custom_audience';
+class TermsOfService extends AbstractEnum
+{
+    const CUSTOM_AUDIENCE    = 'custom_audience';
+    const WEBSITE_CUSTOM_AUDIENCE = 'website_custom_audience';
+    const MOBILE_APP_CUSTOM_AUDIENCE = 'mobile_app_custom_audience';
 }

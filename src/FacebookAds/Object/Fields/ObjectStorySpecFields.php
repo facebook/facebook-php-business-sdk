@@ -29,14 +29,14 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static ObjectStorySpecFields getInstance()
  */
-class ObjectStorySpecFields extends AbstractEnum {
-
-  const INSTAGRAM_ACTOR_ID = 'instagram_actor_id';
-  const LINK_DATA = 'link_data';
-  const OFFER_DATA = 'offer_data';
-  const PAGE_ID = 'page_id';
-  const PHOTO_DATA = 'photo_data';
-  const TEXT_DATA = 'text_data';
-  const TEMPLATE_DATA = 'template_data';
-  const VIDEO_DATA = 'video_data';
+class ObjectStorySpecFields extends AbstractEnum
+{
+    const INSTAGRAM_ACTOR_ID = 'instagram_actor_id';
+    const LINK_DATA = 'link_data';
+    const OFFER_DATA = 'offer_data';
+    const PAGE_ID = 'page_id';
+    const PHOTO_DATA = 'photo_data';
+    const TEXT_DATA = 'text_data';
+    const TEMPLATE_DATA = 'template_data';
+    const VIDEO_DATA = 'video_data';
 }

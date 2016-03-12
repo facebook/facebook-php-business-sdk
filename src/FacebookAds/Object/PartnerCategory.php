@@ -30,23 +30,26 @@ use FacebookAds\Object\Traits\CannotDelete;
 use FacebookAds\Object\Traits\CannotUpdate;
 use FacebookAds\Object\Traits\FieldValidation;
 
-class PartnerCategory extends AbstractCrudObject {
-  use CannotCreate;
-  use CannotDelete;
-  use CannotUpdate;
-  use FieldValidation;
+class PartnerCategory extends AbstractCrudObject
+{
+    use CannotCreate;
+    use CannotDelete;
+    use CannotUpdate;
+    use FieldValidation;
 
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'partnercategories';
-  }
+    /**
+     * @return string
+     */
+    protected function getEndpoint()
+    {
+        return 'partnercategories';
+    }
 
-  /**
-   * @return PartnerCategoryFields
-   */
-  public static function getFieldsEnum() {
-    return PartnerCategoryFields::getInstance();
-  }
+    /**
+     * @return PartnerCategoryFields
+     */
+    public static function getFieldsEnum()
+    {
+        return PartnerCategoryFields::getInstance();
+    }
 }

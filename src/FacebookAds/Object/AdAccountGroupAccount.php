@@ -29,111 +29,122 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\Object\Fields\AdAccountGroupAccountFields;
 use FacebookAds\Object\Traits\FieldValidation;
 
-class AdAccountGroupAccount extends AbstractObject {
-  use FieldValidation;
+class AdAccountGroupAccount extends AbstractObject
+{
+    use FieldValidation;
 
-  /**
-   * @var Api
-   */
-  protected $api;
+    /**
+     * @var Api
+     */
+    protected $api;
 
-  /**
-   * @var string
-   */
-  protected $adAccountGroupId;
+    /**
+     * @var string
+     */
+    protected $adAccountGroupId;
 
-  /**
-   * @param string $ad_account_group_id
-   * @param Api $api
-   */
-  public function __construct($ad_account_group_id, Api $api = null) {
-    $this->adAccountGroupId = $ad_account_group_id;
-    $this->api = $api;
-  }
-
-  /**
-   * @return AdAccountGroupAccountFields
-   */
-  public static function getFieldsEnum() {
-    return AdAccountGroupAccountFields::getInstance();
-  }
-
-  /**
-   * @return Api
-   */
-  public function getApi() {
-    return $this->api;
-  }
-
-  /**
-   * @return string
-   */
-  public function getParentId() {
-    return $this->adAccountGroupId;
-  }
-
-  /**
-   * @param array $params
-   * @return $this
-   */
-  public function create(array $params = array()) {
-    return $this->save($params);
-  }
-
-  /**
-   * @param array $params
-   * @return $this
-   */
-  public function update(array $params = array()) {
-    return $this->save($params);
-  }
-
-  /**
-   * @return string
-   * @throws \Exception
-   */
-  protected function assureId() {
-    if (!$this->data[AdAccountGroupAccountFields::ACCOUNT_ID]) {
-      throw new \Exception(
-        AdAccountGroupAccountFields::ACCOUNT_ID." field must be set");
+    /**
+     * @param string $ad_account_group_id
+     * @param Api $api
+     */
+    public function __construct($ad_account_group_id, Api $api = null)
+    {
+        $this->adAccountGroupId = $ad_account_group_id;
+        $this->api = $api;
     }
 
-    return $this->data[AdAccountGroupAccountFields::ACCOUNT_ID];
-  }
+    /**
+     * @return AdAccountGroupAccountFields
+     */
+    public static function getFieldsEnum()
+    {
+        return AdAccountGroupAccountFields::getInstance();
+    }
 
-  /**
-   * @param array $params
-   * @return $this
-   */
-  public function save(array $params = array()) {
-    $account_data = array('account_ids' => $this->assureId());
+    /**
+     * @return Api
+     */
+    public function getApi()
+    {
+        return $this->api;
+    }
 
-    $this->getApi()->call(
-      '/'.$this->adAccountGroupId.'/adaccounts',
-      RequestInterface::METHOD_POST,
-      array_merge($account_data, $params));
+    /**
+     * @return string
+     */
+    public function getParentId()
+    {
+        return $this->adAccountGroupId;
+    }
 
-    return $this;
-  }
+    /**
+     * @param array $params
+     * @return $this
+     */
+    public function create(array $params = array())
+    {
+        return $this->save($params);
+    }
 
-  /**
-   * @param array $params
-   * @throws \Exception
-   */
-  public function delete(array $params = array()) {
-    $this->getApi()->call(
-      '/'.$this->adAccountGroupId.'/adaccounts/'.$this->assureId(),
-      RequestInterface::METHOD_DELETE,
-      $params);
+    /**
+     * @param array $params
+     * @return $this
+     */
+    public function update(array $params = array())
+    {
+        return $this->save($params);
+    }
 
-    $this->data = array();
-  }
+    /**
+     * @return string
+     * @throws \Exception
+     */
+    protected function assureId()
+    {
+        if (!$this->data[AdAccountGroupAccountFields::ACCOUNT_ID]) {
+            throw new \Exception(AdAccountGroupAccountFields::ACCOUNT_ID." field must be set");
+        }
 
-  /**
-   * @return AdAccount
-   */
-  public function getAdAccount() {
-    return new AdAccount(
-      'act_'.$this->{AdAccountGroupAccountFields::ACCOUNT_ID});
-  }
+        return $this->data[AdAccountGroupAccountFields::ACCOUNT_ID];
+    }
+
+    /**
+     * @param array $params
+     * @return $this
+     */
+    public function save(array $params = array())
+    {
+        $account_data = array('account_ids' => $this->assureId());
+
+        $this->getApi()->call(
+            '/'.$this->adAccountGroupId.'/adaccounts',
+            RequestInterface::METHOD_POST,
+            array_merge($account_data, $params)
+        );
+
+        return $this;
+    }
+
+    /**
+     * @param array $params
+     * @throws \Exception
+     */
+    public function delete(array $params = array())
+    {
+        $this->getApi()->call(
+            '/'.$this->adAccountGroupId.'/adaccounts/'.$this->assureId(),
+            RequestInterface::METHOD_DELETE,
+            $params
+        );
+
+        $this->data = array();
+    }
+
+    /**
+     * @return AdAccount
+     */
+    public function getAdAccount()
+    {
+        return new AdAccount('act_'.$this->{AdAccountGroupAccountFields::ACCOUNT_ID});
+    }
 }

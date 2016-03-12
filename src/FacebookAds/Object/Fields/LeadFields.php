@@ -29,12 +29,12 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static LeadFields getInstance()
  */
-class LeadFields extends AbstractEnum {
-
-  const ADGROUP_ID = 'adgroup_id';
-  const CREATED_TIME = 'created_time';
-  const FIELD_DATA = 'field_data';
-  const FORM_ID = 'form_id';
-  const ID = 'id';
-  const POST = 'post';
+class LeadFields extends AbstractEnum
+{
+    const ADGROUP_ID = 'adgroup_id';
+    const CREATED_TIME = 'created_time';
+    const FIELD_DATA = 'field_data';
+    const FORM_ID = 'form_id';
+    const ID = 'id';
+    const POST = 'post';
 }

@@ -29,11 +29,11 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static PageRoles getInstance()
  */
-class PageRoles extends AbstractEnum {
-
-  const ADVERTISER  = 'ADVERTISER';
-  const CONTENT_CREATOR = 'CONTENT_CREATOR';
-  const MANAGER = 'MANAGER';
-  const MODERATOR = 'MODERATOR';
-  const INSIGHTS_ANALYST = 'INSIGHTS_ANALYST';
+class PageRoles extends AbstractEnum
+{
+    const ADVERTISER    = 'ADVERTISER';
+    const CONTENT_CREATOR = 'CONTENT_CREATOR';
+    const MANAGER = 'MANAGER';
+    const MODERATOR = 'MODERATOR';
+    const INSIGHTS_ANALYST = 'INSIGHTS_ANALYST';
 }

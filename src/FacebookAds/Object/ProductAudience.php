@@ -26,19 +26,21 @@ namespace FacebookAds\Object;
 
 use FacebookAds\Object\Fields\ProductAudienceFields;
 
-class ProductAudience extends AbstractCrudObject {
+class ProductAudience extends AbstractCrudObject
+{
+    /**
+     * @return string
+     */
+    protected function getEndpoint()
+    {
+        return 'product_audiences';
+    }
 
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'product_audiences';
-  }
-
-  /**
-   * @return ProductAudienceFields
-   */
-  public static function getFieldsEnum() {
-    return ProductAudienceFields::getInstance();
-  }
+    /**
+     * @return ProductAudienceFields
+     */
+    public static function getFieldsEnum()
+    {
+        return ProductAudienceFields::getInstance();
+    }
 }

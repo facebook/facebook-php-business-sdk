@@ -27,20 +27,23 @@ namespace FacebookAds\Object;
 use FacebookAds\Object\Fields\AdLabelFields;
 use FacebookAds\Object\Traits\FieldValidation;
 
-class AdLabel extends AbstractCrudObject {
-  use FieldValidation;
+class AdLabel extends AbstractCrudObject
+{
+    use FieldValidation;
 
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'adlabels';
-  }
+    /**
+     * @return string
+     */
+    protected function getEndpoint()
+    {
+        return 'adlabels';
+    }
 
-  /**
-   * @return AdLabelFields
-   */
-  public static function getFieldsEnum() {
-    return AdLabelFields::getInstance();
-  }
+    /**
+     * @return AdLabelFields
+     */
+    public static function getFieldsEnum()
+    {
+        return AdLabelFields::getInstance();
+    }
 }

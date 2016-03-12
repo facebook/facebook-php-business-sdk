@@ -29,8 +29,8 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static ActivityFields getInstance()
  */
-class ActivityFields extends AbstractEnum {
-
+class ActivityFields extends AbstractEnum
+{
     const ACTOR_ID = 'actor_id';
     const ACTOR_NAME = 'actor_name';
     const EXTRA_DATA = 'extra_data';

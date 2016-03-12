@@ -27,13 +27,15 @@ namespace FacebookAds\Object;
 use FacebookAds\Object\Fields\ObjectStorySpecFields;
 use FacebookAds\Object\Traits\FieldValidation;
 
-class ObjectStorySpec extends AbstractObject {
-  use FieldValidation;
+class ObjectStorySpec extends AbstractObject
+{
+    use FieldValidation;
 
-  /**
-   * @return ObjectStorySpecFields
-   */
-  public static function getFieldsEnum() {
-    return ObjectStorySpecFields::getInstance();
-  }
+    /**
+     * @return ObjectStorySpecFields
+     */
+    public static function getFieldsEnum()
+    {
+        return ObjectStorySpecFields::getInstance();
+    }
 }

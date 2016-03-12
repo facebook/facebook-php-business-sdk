@@ -29,9 +29,9 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static LookalikeAudienceFields getInstance()
  */
-class LookalikeAudienceFields extends AbstractEnum {
-
-  const NAME = 'name';
-  const ORIGIN_AUDIENCE_ID = 'origin_audience_id';
-  const LOOKALIKE_SPEC = 'lookalike_spec';
+class LookalikeAudienceFields extends AbstractEnum
+{
+    const NAME = 'name';
+    const ORIGIN_AUDIENCE_ID = 'origin_audience_id';
+    const LOOKALIKE_SPEC = 'lookalike_spec';
 }

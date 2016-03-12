@@ -27,30 +27,30 @@ namespace FacebookAds\Object\Fields;
 /**
  * @method static AdSetFields getInstance()
  */
-class AdSetFields extends AbstractArchivableCrudObjectFields {
-
-  const ACCOUNT_ID = 'account_id';
-  const ADSET_SCHEDULE = 'adset_schedule';
-  const BID_AMOUNT = 'bid_amount';
-  const BILLING_EVENT = 'billing_event';
-  const BUDGET_REMAINING = 'budget_remaining';
-  const CAMPAIGN_ID = 'campaign_id';
-  const CREATED_TIME = 'created_time';
-  const CREATIVE_SEQUENCE = 'creative_sequence';
-  const DAILY_BUDGET = 'daily_budget';
-  const END_TIME = 'end_time';
-  const ID = 'id';
-  const IS_AUTOBID = 'is_autobid';
-  const LIFETIME_BUDGET = 'lifetime_budget';
-  const LIFETIME_IMPS = 'lifetime_imps';
-  const NAME = 'name';
-  const OPTIMIZATION_GOAL = 'optimization_goal';
-  const PACING_TYPE = 'pacing_type';
-  const RF_PREDICTION_ID = 'rf_prediction_id';
-  const START_TIME = 'start_time';
-  const UPDATED_TIME = 'updated_time';
-  const TARGETING = 'targeting';
-  const PROMOTED_OBJECT = 'promoted_object';
-  const ADLABELS = 'adlabels';
-  const PRODUCT_AD_BEHAVIOR = 'product_ad_behavior';
+class AdSetFields extends AbstractArchivableCrudObjectFields
+{
+    const ACCOUNT_ID = 'account_id';
+    const ADSET_SCHEDULE = 'adset_schedule';
+    const BID_AMOUNT = 'bid_amount';
+    const BILLING_EVENT = 'billing_event';
+    const BUDGET_REMAINING = 'budget_remaining';
+    const CAMPAIGN_ID = 'campaign_id';
+    const CREATED_TIME = 'created_time';
+    const CREATIVE_SEQUENCE = 'creative_sequence';
+    const DAILY_BUDGET = 'daily_budget';
+    const END_TIME = 'end_time';
+    const ID = 'id';
+    const IS_AUTOBID = 'is_autobid';
+    const LIFETIME_BUDGET = 'lifetime_budget';
+    const LIFETIME_IMPS = 'lifetime_imps';
+    const NAME = 'name';
+    const OPTIMIZATION_GOAL = 'optimization_goal';
+    const PACING_TYPE = 'pacing_type';
+    const RF_PREDICTION_ID = 'rf_prediction_id';
+    const START_TIME = 'start_time';
+    const UPDATED_TIME = 'updated_time';
+    const TARGETING = 'targeting';
+    const PROMOTED_OBJECT = 'promoted_object';
+    const ADLABELS = 'adlabels';
+    const PRODUCT_AD_BEHAVIOR = 'product_ad_behavior';
 }

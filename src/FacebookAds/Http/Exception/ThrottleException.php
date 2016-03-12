@@ -24,6 +24,6 @@
 
 namespace FacebookAds\Http\Exception;
 
-class ThrottleException extends RequestException {
-
+class ThrottleException extends RequestException
+{
 }

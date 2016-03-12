@@ -24,10 +24,10 @@
 
 namespace FacebookAds\Object;
 
-interface CanRedownloadInterface {
-
-  /**
-   * @string
-   */
-  const PARAM_REDOWNLOAD = 'redownload';
+interface CanRedownloadInterface
+{
+    /**
+     * @string
+     */
+    const PARAM_REDOWNLOAD = 'redownload';
 }

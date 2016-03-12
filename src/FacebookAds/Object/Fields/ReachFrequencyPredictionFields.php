@@ -29,41 +29,41 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static ReachFrequencyPredictionFields getInstance()
  */
-class ReachFrequencyPredictionFields extends AbstractEnum {
-
-  const ID = 'id';
-  const ACCOUNT_ID = 'account_id';
-  const ACTION = 'action';
-  const BUDGET = 'budget';
-  const BUYING_TYPE = 'buying_type';
-  const CAMPAIGN_ID = 'campaign_id';
-  const CAMPAIGN_TIME_START= 'campaign_time_start';
-  const CAMPAIGN_TIME_STOP = 'campaign_time_stop';
-  const CURVE_BUDGET_REACH = 'curve_budget_reach';
-  const DESTINATION_ID = 'destination_id';
-  const EXTERNAL_REACH = 'external_reach';
-  const EXTERNAL_BUDGET = 'external_budget';
-  const EXTERNAL_IMPRESSION = 'external_impression';
-  const EXTERNAL_MAXIMUM_REACH = 'external_maximum_reach';
-  const EXTERNAL_MAXIMUM_IMPRESSION = 'external_maximum_impression';
-  const EXTERNAL_MAXIMUM_BUDGET = 'external_maximum_budget';
-  const EXTERNAL_MINIMUM_REACH = 'external_maximum_reach';
-  const EXTERNAL_MINIMUM_IMPRESSION = 'external_maximum_impression';
-  const EXTERNAL_MINIMUM_BUDGET = 'external_maximum_budget';
-  const END_TIME = 'end_time';
-  const FREQUENCY_CAP = 'frequency_cap';
-  const IMPRESSION = 'impression';
-  const PREDICTION_ID = 'rf_prediction_id';
-  const PREDICTION_ID_TO_RELEASE = 'rf_prediction_id_to_release';
-  const PREDICTION_ID_TO_SHARE = 'prediction_id_to_share';
-  const PREDICTION_MODE = 'prediction_mode';
-  const PREDICTION_PROGRESS = 'prediction_progress';
-  const TARGET_AUDIENCE_SIZE = 'target_audience_size';
-  const TARGET_SPEC = 'target_spec';
-  const TIME_CREATED = 'time_created';
-  const OBJECTIVE = 'objective';
-  const REACH = 'reach';
-  const START_TIME = 'start_time';
-  const STATUS = 'status';
-  const STORY_EVENT_TYPE = 'story_event_type';
+class ReachFrequencyPredictionFields extends AbstractEnum
+{
+    const ID = 'id';
+    const ACCOUNT_ID = 'account_id';
+    const ACTION = 'action';
+    const BUDGET = 'budget';
+    const BUYING_TYPE = 'buying_type';
+    const CAMPAIGN_ID = 'campaign_id';
+    const CAMPAIGN_TIME_START= 'campaign_time_start';
+    const CAMPAIGN_TIME_STOP = 'campaign_time_stop';
+    const CURVE_BUDGET_REACH = 'curve_budget_reach';
+    const DESTINATION_ID = 'destination_id';
+    const EXTERNAL_REACH = 'external_reach';
+    const EXTERNAL_BUDGET = 'external_budget';
+    const EXTERNAL_IMPRESSION = 'external_impression';
+    const EXTERNAL_MAXIMUM_REACH = 'external_maximum_reach';
+    const EXTERNAL_MAXIMUM_IMPRESSION = 'external_maximum_impression';
+    const EXTERNAL_MAXIMUM_BUDGET = 'external_maximum_budget';
+    const EXTERNAL_MINIMUM_REACH = 'external_maximum_reach';
+    const EXTERNAL_MINIMUM_IMPRESSION = 'external_maximum_impression';
+    const EXTERNAL_MINIMUM_BUDGET = 'external_maximum_budget';
+    const END_TIME = 'end_time';
+    const FREQUENCY_CAP = 'frequency_cap';
+    const IMPRESSION = 'impression';
+    const PREDICTION_ID = 'rf_prediction_id';
+    const PREDICTION_ID_TO_RELEASE = 'rf_prediction_id_to_release';
+    const PREDICTION_ID_TO_SHARE = 'prediction_id_to_share';
+    const PREDICTION_MODE = 'prediction_mode';
+    const PREDICTION_PROGRESS = 'prediction_progress';
+    const TARGET_AUDIENCE_SIZE = 'target_audience_size';
+    const TARGET_SPEC = 'target_spec';
+    const TIME_CREATED = 'time_created';
+    const OBJECTIVE = 'objective';
+    const REACH = 'reach';
+    const START_TIME = 'start_time';
+    const STATUS = 'status';
+    const STORY_EVENT_TYPE = 'story_event_type';
 }

@@ -26,35 +26,39 @@ namespace FacebookAds\Object;
 
 use FacebookAds\Cursor;
 use FacebookAds\Object\Fields\AdCreativeFields;
-use FacebookAds\Object\Traits\FieldValidation;
 use FacebookAds\Object\Traits\AdLabelAwareCrudObjectTrait;
+use FacebookAds\Object\Traits\FieldValidation;
 
-class AdCreative extends AbstractCrudObject {
-  use FieldValidation;
-  use AdLabelAwareCrudObjectTrait;
+class AdCreative extends AbstractCrudObject
+{
+    use FieldValidation;
+    use AdLabelAwareCrudObjectTrait;
 
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'adcreatives';
-  }
+    /**
+     * @return string
+     */
+    protected function getEndpoint()
+    {
+        return 'adcreatives';
+    }
 
-  /**
-   * @return AdCreativeFields
-   */
-  public static function getFieldsEnum() {
-    return AdCreativeFields::getInstance();
-  }
+    /**
+     * @return AdCreativeFields
+     */
+    public static function getFieldsEnum()
+    {
+        return AdCreativeFields::getInstance();
+    }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getAdPreviews(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      AdPreview::className(), $fields, $params, 'previews');
-  }
+    /**
+     * @param array $fields
+     * @param array $params
+     * @return Cursor
+     */
+    public function getAdPreviews(
+        array $fields = array(),
+        array $params = array()
+    ) {
+        return $this->getManyByConnection(AdPreview::className(), $fields, $params, 'previews');
+    }
 }

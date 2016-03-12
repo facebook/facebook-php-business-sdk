@@ -29,8 +29,8 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static UserPermissionRoles getInstance()
  */
-class UserPermissionRoles extends AbstractEnum {
-
-  const ADMIN  = 'ADMIN';
-  const EMPLOYEE  = 'EMPLOYEE';
+class UserPermissionRoles extends AbstractEnum
+{
+    const ADMIN    = 'ADMIN';
+    const EMPLOYEE    = 'EMPLOYEE';
 }

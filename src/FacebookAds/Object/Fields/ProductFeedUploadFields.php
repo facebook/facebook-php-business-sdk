@@ -29,11 +29,11 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static ProductFeedUploadFields getInstance()
  */
-class ProductFeedUploadFields extends AbstractEnum {
-
-  const ID = 'id';
-  const START_TIME = 'start_time';
-  const END_TIME = 'end_time';
-  const INPUT_METHOD = 'input_method';
-  const URL = 'url';
+class ProductFeedUploadFields extends AbstractEnum
+{
+    const ID = 'id';
+    const START_TIME = 'start_time';
+    const END_TIME = 'end_time';
+    const INPUT_METHOD = 'input_method';
+    const URL = 'url';
 }

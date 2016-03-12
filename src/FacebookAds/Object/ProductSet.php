@@ -24,46 +24,51 @@
 
 namespace FacebookAds\Object;
 
+use FacebookAds\Cursor;
 use FacebookAds\Object\Fields\ProductSetFields;
 use FacebookAds\Object\Traits\FieldValidation;
-use FacebookAds\Cursor;
 
-class ProductSet extends AbstractCrudObject {
-  use FieldValidation;
+class ProductSet extends AbstractCrudObject
+{
+    use FieldValidation;
 
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'product_sets';
-  }
+    /**
+     * @return string
+     */
+    protected function getEndpoint()
+    {
+        return 'product_sets';
+    }
 
-  /**
-   * @return ProductSetFields
-   */
-  public static function getFieldsEnum() {
-    return ProductSetFields::getInstance();
-  }
+    /**
+     * @return ProductSetFields
+     */
+    public static function getFieldsEnum()
+    {
+        return ProductSetFields::getInstance();
+    }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getProducts(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      Product::className(), $fields, $params);
-  }
+    /**
+     * @param array $fields
+     * @param array $params
+     * @return Cursor
+     */
+    public function getProducts(
+        array $fields = array(),
+        array $params = array()
+    ) {
+        return $this->getManyByConnection(Product::className(), $fields, $params);
+    }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getProductGroups(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      ProductGroup::className(), $fields, $params, 'product_groups');
-  }
+    /**
+     * @param array $fields
+     * @param array $params
+     * @return Cursor
+     */
+    public function getProductGroups(
+        array $fields = array(),
+        array $params = array()
+    ) {
+        return $this->getManyByConnection(ProductGroup::className(), $fields, $params, 'product_groups');
+    }
 }

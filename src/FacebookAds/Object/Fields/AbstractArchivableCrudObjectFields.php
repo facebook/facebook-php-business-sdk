@@ -26,8 +26,8 @@ namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
-abstract class AbstractArchivableCrudObjectFields extends AbstractEnum {
-
-  const CONFIGURED_STATUS = 'configured_status';
-  const EFFECTIVE_STATUS = 'effective_status';
+abstract class AbstractArchivableCrudObjectFields extends AbstractEnum
+{
+    const CONFIGURED_STATUS = 'configured_status';
+    const EFFECTIVE_STATUS = 'effective_status';
 }

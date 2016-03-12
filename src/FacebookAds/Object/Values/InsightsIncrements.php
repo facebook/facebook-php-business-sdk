@@ -29,8 +29,8 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static InsightsIncrements getInstance()
  */
-class InsightsIncrements extends AbstractEnum {
-
-  const MONTHLY = 'monthly';
-  const ALL_DAYS = 'all_days';
+class InsightsIncrements extends AbstractEnum
+{
+    const MONTHLY = 'monthly';
+    const ALL_DAYS = 'all_days';
 }

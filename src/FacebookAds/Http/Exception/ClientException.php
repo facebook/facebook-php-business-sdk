@@ -24,6 +24,6 @@
 
 namespace FacebookAds\Http\Exception;
 
-class ClientException extends RequestException {
-
+class ClientException extends RequestException
+{
 }

@@ -26,65 +26,72 @@ namespace FacebookAds\Object;
 
 use FacebookAds\Http\RequestInterface;
 
-abstract class AbstractArchivableCrudObject extends AbstractCrudObject {
+abstract class AbstractArchivableCrudObject extends AbstractCrudObject
+{
+    /**
+     * @var string
+     */
+    const STATUS_PARAM_NAME = 'status';
 
-  /**
-   * @var string
-   */
-  const STATUS_PARAM_NAME = 'status';
+    /**
+     * @var string
+     */
+    const STATUS_ACTIVE = 'ACTIVE';
 
-  /**
-   * @var string
-   */
-  const STATUS_ACTIVE = 'ACTIVE';
+    /**
+     * @var string
+     */
+    const STATUS_PAUSED = 'PAUSED';
 
-  /**
-   * @var string
-   */
-  const STATUS_PAUSED = 'PAUSED';
+    /**
+     * @var string
+     */
+    const STATUS_DELETED = 'DELETED';
 
-  /**
-   * @var string
-   */
-  const STATUS_DELETED = 'DELETED';
+    /**
+     * @var string
+     */
+    const STATUS_ARCHIVED = 'ARCHIVED';
 
-  /**
-   * @var string
-   */
-  const STATUS_ARCHIVED = 'ARCHIVED';
+    /**
+     * @return string
+     */
+    public function getStatusParamName()
+    {
+        return self::STATUS_PARAM_NAME;
+    }
 
-  /**
-   * @return string
-   */
-  public function getStatusParamName() {
-    return self::STATUS_PARAM_NAME;
-  }
+    /**
+     * Archive this object
+     *
+     * @param array $params
+     * @return void
+     */
+    public function archive(array $params = array())
+    {
+        $this->getApi()->call(
+            $this->getNodePath(),
+            RequestInterface::METHOD_POST,
+            array_merge($params, array(
+                $this->getStatusParamName() => static::STATUS_ARCHIVED
+            ))
+        );
+    }
 
-  /**
-   * Archive this object
-   *
-   * @param array $params
-   * @return void
-   */
-  public function archive(array $params = array()) {
-    $this->getApi()->call(
-      $this->getNodePath(),
-      RequestInterface::METHOD_POST,
-      array_merge($params, array(
-        $this->getStatusParamName() => static::STATUS_ARCHIVED)));
-  }
-
-  /**
-   * Delete this object
-   *
-   * @param array $params
-   * @return void
-   */
-  public function delete(array $params = array()) {
-    $this->getApi()->call(
-      $this->getNodePath(),
-      RequestInterface::METHOD_POST,
-      array_merge($params, array(
-        $this->getStatusParamName() => static::STATUS_DELETED)));
-  }
+    /**
+     * Delete this object
+     *
+     * @param array $params
+     * @return void
+     */
+    public function delete(array $params = array())
+    {
+        $this->getApi()->call(
+            $this->getNodePath(),
+            RequestInterface::METHOD_POST,
+            array_merge($params, array(
+                $this->getStatusParamName() => static::STATUS_DELETED
+            ))
+        );
+    }
 }

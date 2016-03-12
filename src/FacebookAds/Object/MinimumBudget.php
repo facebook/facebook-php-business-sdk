@@ -26,12 +26,13 @@ namespace FacebookAds\Object;
 
 use FacebookAds\Object\Fields\MinimumBudgetFields;
 
-class MinimumBudget extends AbstractObject {
-
-  /**
-   * @return MinimumBudgetFields
-   */
-  public static function getFieldsEnum() {
-    return MinimumBudgetFields::getInstance();
-  }
+class MinimumBudget extends AbstractObject
+{
+    /**
+     * @return MinimumBudgetFields
+     */
+    public static function getFieldsEnum()
+    {
+        return MinimumBudgetFields::getInstance();
+    }
 }

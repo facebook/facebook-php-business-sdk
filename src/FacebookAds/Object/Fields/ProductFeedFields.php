@@ -29,15 +29,15 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static ProductFeedFields getInstance()
  */
-class ProductFeedFields extends AbstractEnum {
-
-  const ID = 'id';
-  const FILE_NAME = 'file_name';
-  const FORMAT = 'format';
-  const COUNTRY = 'country';
-  const ENCODING = 'encoding';
-  const NAME = 'name';
-  const DELIMITER = 'delimiter';
-  const QUOTES = 'quotes';
-  const SCHEDULE = 'schedule';
+class ProductFeedFields extends AbstractEnum
+{
+    const ID = 'id';
+    const FILE_NAME = 'file_name';
+    const FORMAT = 'format';
+    const COUNTRY = 'country';
+    const ENCODING = 'encoding';
+    const NAME = 'name';
+    const DELIMITER = 'delimiter';
+    const QUOTES = 'quotes';
+    const SCHEDULE = 'schedule';
 }

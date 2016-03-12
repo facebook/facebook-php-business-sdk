@@ -24,69 +24,73 @@
 
 namespace FacebookAds;
 
-class Session {
+class Session
+{
+    /**
+     * @var string
+     */
+    protected $appId;
 
-  /**
-   * @var string
-   */
-  protected $appId;
+    /**
+     * @var string
+     */
+    protected $appSecret;
 
-  /**
-   * @var string
-   */
-  protected $appSecret;
+    /**
+     * @var string
+     */
+    protected $accessToken;
 
-  /**
-   * @var string
-   */
-  protected $accessToken;
+    /**
+     * @var string
+     */
+    protected $appSecretProof;
 
-  /**
-   * @var string
-   */
-  protected $appSecretProof;
-
-  /**
-   * @param string $app_id
-   * @param string $app_secret
-   * @param string $access_token
-   */
-  public function __construct($app_id, $app_secret, $access_token) {
-    $this->appId = $app_id;
-    $this->appSecret = $app_secret;
-    $this->accessToken = $access_token;
-  }
-
-  /**
-   * @return string
-   */
-  public function getAppId() {
-    return $this->appId;
-  }
-
-  /**
-   * @return string
-   */
-  public function getAppSecret() {
-    return $this->appSecret;
-  }
-
-  /**
-   * @return string
-   */
-  public function getAccessToken() {
-    return $this->accessToken;
-  }
-
-  /**
-   * @return string
-   */
-  public function getAppSecretProof() {
-    if ($this->appSecretProof === null) {
-      $this->appSecretProof
-        = hash_hmac('sha256', $this->getAccessToken(), $this->getAppSecret());
+    /**
+     * @param string $app_id
+     * @param string $app_secret
+     * @param string $access_token
+     */
+    public function __construct($app_id, $app_secret, $access_token)
+    {
+        $this->appId = $app_id;
+        $this->appSecret = $app_secret;
+        $this->accessToken = $access_token;
     }
 
-    return $this->appSecretProof;
-  }
+    /**
+     * @return string
+     */
+    public function getAppId()
+    {
+        return $this->appId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAppSecret()
+    {
+        return $this->appSecret;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAccessToken()
+    {
+        return $this->accessToken;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAppSecretProof()
+    {
+        if ($this->appSecretProof === null) {
+            $this->appSecretProof = hash_hmac('sha256', $this->getAccessToken(), $this->getAppSecret());
+        }
+
+        return $this->appSecretProof;
+    }
 }

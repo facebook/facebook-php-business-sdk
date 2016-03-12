@@ -28,21 +28,24 @@ use FacebookAds\Object\Fields\AdPlacePageSetFields;
 use FacebookAds\Object\Traits\CannotDelete;
 use FacebookAds\Object\Traits\FieldValidation;
 
-class AdPlacePageSet extends AbstractCrudObject {
-  use FieldValidation;
-  use CannotDelete;
+class AdPlacePageSet extends AbstractCrudObject
+{
+    use FieldValidation;
+    use CannotDelete;
 
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'ad_place_page_sets';
-  }
+    /**
+     * @return string
+     */
+    protected function getEndpoint()
+    {
+        return 'ad_place_page_sets';
+    }
 
-  /**
-   * @return AdPlacePageSetFields
-   */
-  public static function getFieldsEnum() {
-    return AdPlacePageSetFields::getInstance();
-  }
+    /**
+     * @return AdPlacePageSetFields
+     */
+    public static function getFieldsEnum()
+    {
+        return AdPlacePageSetFields::getInstance();
+    }
 }

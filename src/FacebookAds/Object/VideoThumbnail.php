@@ -26,13 +26,13 @@ namespace FacebookAds\Object;
 
 use FacebookAds\Object\Fields\VideoThumbnailFields;
 
-class VideoThumbnail extends AbstractObject {
-
-  /**
-   * @return VideoThumbnailFields
-   */
-  public static function getFieldsEnum() {
-    return VideoThumbnailFields::getInstance();
-  }
-
+class VideoThumbnail extends AbstractObject
+{
+    /**
+     * @return VideoThumbnailFields
+     */
+    public static function getFieldsEnum()
+    {
+        return VideoThumbnailFields::getInstance();
+    }
 }

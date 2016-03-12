@@ -29,8 +29,8 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static AdAccountGroupUserFields getInstance()
  */
-class AdAccountGroupUserFields extends AbstractEnum {
-
-  const UID = 'uid';
-  const ROLE = 'role';
+class AdAccountGroupUserFields extends AbstractEnum
+{
+    const UID = 'uid';
+    const ROLE = 'role';
 }

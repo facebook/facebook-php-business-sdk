@@ -26,12 +26,13 @@ namespace FacebookAds\Object;
 
 use FacebookAds\Object\Fields\AdPreviewFields;
 
-class AdPreview extends AbstractObject {
-
-  /**
-   * @return AdPreviewFields
-   */
-  public static function getFieldsEnum() {
-    return AdPreviewFields::getInstance();
-  }
+class AdPreview extends AbstractObject
+{
+    /**
+     * @return AdPreviewFields
+     */
+    public static function getFieldsEnum()
+    {
+        return AdPreviewFields::getInstance();
+    }
 }

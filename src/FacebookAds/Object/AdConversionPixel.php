@@ -26,26 +26,28 @@ namespace FacebookAds\Object;
 
 use FacebookAds\Object\Fields\AdConversionPixelFields;
 
-class AdConversionPixel extends AbstractCrudObject {
+class AdConversionPixel extends AbstractCrudObject
+{
+    const CHECKOUT = 'checkout';
+    const REGISTRATION = 'registration';
+    const LEAD = 'lead';
+    const KEY_PAGE_VIEW = 'key_page_view';
+    const ADD_TO_CART = 'add_to_cart';
+    const OTHER = 'other';
 
-  const CHECKOUT = 'checkout';
-  const REGISTRATION = 'registration';
-  const LEAD = 'lead';
-  const KEY_PAGE_VIEW = 'key_page_view';
-  const ADD_TO_CART = 'add_to_cart';
-  const OTHER = 'other';
+    /**
+     * @return string
+     */
+    protected function getEndpoint()
+    {
+        return 'offsitepixels';
+    }
 
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'offsitepixels';
-  }
-
-  /**
-   * @return AdConversionPixelFields
-   */
-  public static function getFieldsEnum() {
-    return AdConversionPixelFields::getInstance();
-  }
+    /**
+     * @return AdConversionPixelFields
+     */
+    public static function getFieldsEnum()
+    {
+        return AdConversionPixelFields::getInstance();
+    }
 }

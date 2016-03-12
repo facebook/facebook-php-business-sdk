@@ -29,8 +29,8 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static InsightsActionReportTimes getInstance()
  */
-class InsightsActionReportTimes extends AbstractEnum {
-
-  const CONVERSION = 'conversion';
-  const IMPRESSION = 'impression';
+class InsightsActionReportTimes extends AbstractEnum
+{
+    const CONVERSION = 'conversion';
+    const IMPRESSION = 'impression';
 }

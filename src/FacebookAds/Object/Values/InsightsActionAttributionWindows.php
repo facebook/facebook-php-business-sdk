@@ -29,13 +29,13 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static InsightsActionAttributionWindows getInstance()
  */
-class InsightsActionAttributionWindows extends AbstractEnum {
-
-  const CLICK_1D = '1d_click';
-  const VIEW_1D = '1d_view';
-  const CLICK_28D = '28d_click';
-  const VIEW_28D = '28d_view';
-  const CLICK_7D = '7d_click';
-  const VIEW_7D = '7d_view';
-  const DEFAULT_ = 'default';
+class InsightsActionAttributionWindows extends AbstractEnum
+{
+    const CLICK_1D = '1d_click';
+    const VIEW_1D = '1d_view';
+    const CLICK_28D = '28d_click';
+    const VIEW_28D = '28d_view';
+    const CLICK_7D = '7d_click';
+    const VIEW_7D = '7d_view';
+    const DEFAULT_ = 'default';
 }

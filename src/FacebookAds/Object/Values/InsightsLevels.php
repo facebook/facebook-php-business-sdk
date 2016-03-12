@@ -29,10 +29,10 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static InsightsLevels getInstance()
  */
-class InsightsLevels extends AbstractEnum {
-
-  const ACCOUNT = 'account';
-  const AD = 'ad';
-  const ADSET = 'adset';
-  const CAMPAIGN = 'campaign';
+class InsightsLevels extends AbstractEnum
+{
+    const ACCOUNT = 'account';
+    const AD = 'ad';
+    const ADSET = 'adset';
+    const CAMPAIGN = 'campaign';
 }

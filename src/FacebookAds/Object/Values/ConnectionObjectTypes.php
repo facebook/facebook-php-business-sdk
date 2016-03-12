@@ -29,11 +29,11 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static ConnectionObjectTypes getInstance()
  */
-class ConnectionObjectTypes extends AbstractEnum {
-
-  const PAGE = 1;
-  const APPLICATION = 2;
-  const EVENT = 3;
-  const PLACE = 6;
-  const DOMAIN = 7;
+class ConnectionObjectTypes extends AbstractEnum
+{
+    const PAGE = 1;
+    const APPLICATION = 2;
+    const EVENT = 3;
+    const PLACE = 6;
+    const DOMAIN = 7;
 }

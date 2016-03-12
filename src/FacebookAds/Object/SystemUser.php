@@ -26,30 +26,34 @@ namespace FacebookAds\Object;
 
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\Object\Fields\SystemUserFields;
-use FacebookAds\Object\Traits\FieldValidation;
 use FacebookAds\Object\Traits\CannotDelete;
+use FacebookAds\Object\Traits\FieldValidation;
 
-class SystemUser extends AbstractCrudObject {
-  use FieldValidation;
-  use CannotDelete;
+class SystemUser extends AbstractCrudObject
+{
+    use FieldValidation;
+    use CannotDelete;
 
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'system_users';
-  }
+    /**
+     * @return string
+     */
+    protected function getEndpoint()
+    {
+        return 'system_users';
+    }
 
-  /**
-   * @return SystemUserFields
-   */
-  public static function getFieldsEnum() {
-    return SystemUserFields::getInstance();
-  }
+    /**
+     * @return SystemUserFields
+     */
+    public static function getFieldsEnum()
+    {
+        return SystemUserFields::getInstance();
+    }
 
-  public function invalidateAccessTokens() {
-    $this->getApi()->call(
-      '/'.$this->assureId().'/access_tokens',
-      RequestInterface::METHOD_DELETE);
-  }
+    public function invalidateAccessTokens()
+    {
+        $this->getApi()->call(
+            '/'.$this->assureId().'/access_tokens',
+            RequestInterface::METHOD_DELETE);
+    }
 }

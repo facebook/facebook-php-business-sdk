@@ -27,59 +27,62 @@ namespace FacebookAds\Object;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\Object\Traits\CannotUpdate;
 
-abstract class AbstractAsyncJobObject extends AbstractCrudObject {
-  use CannotUpdate;
+abstract class AbstractAsyncJobObject extends AbstractCrudObject
+{
+    use CannotUpdate;
 
-  /**
-   * @return string
-   */
-  abstract protected function getCreateIdFieldName();
+    /**
+     * @return string
+     */
+    abstract protected function getCreateIdFieldName();
 
-  /**
-   * @return string
-   */
-  protected function getCompletitionPercentageFieldName() {
-    return 'async_percent_completion';
-  }
-
-  /**
-   * Create function for the object.
-   *
-   * @param array $params Additional parameters to include in the request
-   * @return $this
-   * @throws \Exception
-   */
-  public function create(array $params = array()) {
-    if ($this->data[static::FIELD_ID]) {
-      throw new \Exception("Object has already an ID");
+    /**
+     * @return string
+     */
+    protected function getCompletitionPercentageFieldName()
+    {
+        return 'async_percent_completion';
     }
 
-    $response = $this->getApi()->call(
-      '/'.$this->assureParentId().'/'.$this->getEndpoint(),
-      RequestInterface::METHOD_POST,
-      array_merge($this->exportData(), $params));
-    $this->clearHistory();
-    $data = $response->getContent();
-    $this->data[static::FIELD_ID]
-      = (string) $data[$this->getCreateIdFieldName()];
+    /**
+     * Create function for the object.
+     *
+     * @param array $params Additional parameters to include in the request
+     * @return $this
+     * @throws \Exception
+     */
+    public function create(array $params = array())
+    {
+        if ($this->data[static::FIELD_ID]) {
+            throw new \Exception("Object has already an ID");
+        }
 
-    return $this;
-  }
+        $response = $this->getApi()->call(
+            '/'.$this->assureParentId().'/'.$this->getEndpoint(),
+            RequestInterface::METHOD_POST,
+            array_merge($this->exportData(), $params)
+        );
+        $this->clearHistory();
+        $data = $response->getContent();
+        $this->data[static::FIELD_ID] = (string) $data[$this->getCreateIdFieldName()];
 
-  /**
-   * This method won't fetch new data, you are required to call read() before
-   * @return bool
-   */
-  public function isComplete() {
-    return $this->{$this->getCompletitionPercentageFieldName()} === 100;
-  }
+        return $this;
+    }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   *
-   * @return mixed
-   */
-  abstract public function getResult(
-    array $fields = array(), array $params = array());
+    /**
+     * This method won't fetch new data, you are required to call read() before
+     * @return bool
+     */
+    public function isComplete()
+    {
+        return $this->{$this->getCompletitionPercentageFieldName()} === 100;
+    }
+
+    /**
+     * @param array $fields
+     * @param array $params
+     *
+     * @return mixed
+     */
+    abstract public function getResult(array $fields = array(), array $params = array());
 }

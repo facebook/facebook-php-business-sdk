@@ -24,53 +24,61 @@
 
 namespace FacebookAds\Object;
 
+use FacebookAds\Cursor;
 use FacebookAds\Object\Fields\AdUserFields;
 use FacebookAds\Object\Traits\CannotCreate;
 use FacebookAds\Object\Traits\CannotDelete;
 use FacebookAds\Object\Traits\CannotUpdate;
 use FacebookAds\Object\Traits\FieldValidation;
-use FacebookAds\Cursor;
 
-class AdUser extends AbstractCrudObject {
-  use FieldValidation;
-  use CannotDelete;
-  use CannotCreate;
-  use CannotUpdate;
+class AdUser extends AbstractCrudObject
+{
+    use FieldValidation;
+    use CannotDelete;
+    use CannotCreate;
+    use CannotUpdate;
 
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'users';
-  }
+    /**
+     * @return string
+     */
+    protected function getEndpoint()
+    {
+        return 'users';
+    }
 
-  /**
-   * @return AdUserFields
-   */
-  public static function getFieldsEnum() {
-    return AdUserFields::getInstance();
-  }
+    /**
+     * @return AdUserFields
+     */
+    public static function getFieldsEnum()
+    {
+        return AdUserFields::getInstance();
+    }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getAdAccounts(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(AdAccount::className(), $fields, $params);
-  }
+    /**
+     * @param array $fields
+     * @param array $params
+     * @return Cursor
+     */
+    public function getAdAccounts(
+        array $fields = array(),
+        array $params = array()
+    ) {
+        return $this->getManyByConnection(AdAccount::className(), $fields, $params);
+    }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getAdAccountGroups(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      AdAccountGroup::className(),
-      $fields,
-      $params);
-  }
+    /**
+     * @param array $fields
+     * @param array $params
+     * @return Cursor
+     */
+    public function getAdAccountGroups(
+        array $fields = array(),
+        array $params = array()
+    ) {
+        return $this->getManyByConnection(
+            AdAccountGroup::className(),
+            $fields,
+            $params
+        );
+    }
 }

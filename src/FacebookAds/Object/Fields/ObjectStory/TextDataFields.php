@@ -29,7 +29,7 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static TextDataFields getInstance()
  */
-class TextDataFields extends AbstractEnum {
-
-  const MESSAGE = 'message';
+class TextDataFields extends AbstractEnum
+{
+    const MESSAGE = 'message';
 }

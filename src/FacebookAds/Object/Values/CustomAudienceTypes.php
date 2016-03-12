@@ -29,30 +29,30 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static CustomAudienceTypes getInstance()
  */
-class CustomAudienceTypes extends AbstractEnum {
+class CustomAudienceTypes extends AbstractEnum
+{
+    /**
+     * @var string
+     */
+    const ID = 'UID';
 
-  /**
-   * @var string
-   */
-  const ID = 'UID';
+    /**
+     * @var string
+     */
+    const CLAIM = 'CLAIM';
 
-  /**
-   * @var string
-   */
-  const CLAIM = 'CLAIM';
+    /**
+     * @var string
+     */
+    const EMAIL = 'EMAIL_SHA256';
 
-  /**
-   * @var string
-   */
-  const EMAIL = 'EMAIL_SHA256';
+    /**
+     * @var string
+     */
+    const PHONE = 'PHONE_SHA256';
 
-  /**
-   * @var string
-   */
-  const PHONE = 'PHONE_SHA256';
-
-  /**
-   * @var string
-   */
-  const MOBILE_ADVERTISER_ID = 'MOBILE_ADVERTISER_ID';
+    /**
+     * @var string
+     */
+    const MOBILE_ADVERTISER_ID = 'MOBILE_ADVERTISER_ID';
 }

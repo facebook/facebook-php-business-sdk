@@ -29,10 +29,10 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static MinimumBudgetFields getInstance()
  */
-class MinimumBudgetFields extends AbstractEnum {
-
-  const CURRENCY = 'currency';
-  const MIN_DAILY_BUDGET_IMP = 'min_daily_budget_imp';
-  const MIN_DAILY_BUDGET_HIGH_FREQ = 'min_daily_budget_high_freq';
-  const MIN_DAILY_BUDGET_LOW_FREQ = 'min_daily_budget_low_freq';
+class MinimumBudgetFields extends AbstractEnum
+{
+    const CURRENCY = 'currency';
+    const MIN_DAILY_BUDGET_IMP = 'min_daily_budget_imp';
+    const MIN_DAILY_BUDGET_HIGH_FREQ = 'min_daily_budget_high_freq';
+    const MIN_DAILY_BUDGET_LOW_FREQ = 'min_daily_budget_low_freq';
 }

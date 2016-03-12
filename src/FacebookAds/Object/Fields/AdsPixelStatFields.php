@@ -29,9 +29,9 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static AdsPixelStatFields getInstance()
  */
-class AdsPixelStatFields extends AbstractEnum {
-
-  const AGGREGATION = 'aggregation';
-  const DATA = 'data';
-  const TIMESTAMP = 'timestamps';
+class AdsPixelStatFields extends AbstractEnum
+{
+    const AGGREGATION = 'aggregation';
+    const DATA = 'data';
+    const TIMESTAMP = 'timestamps';
 }

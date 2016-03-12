@@ -27,38 +27,47 @@ namespace FacebookAds\Object;
 use FacebookAds\Cursor;
 use FacebookAds\Object\Fields\AsyncJobFields;
 
-class AsyncJobInsights extends AbstractAsyncJobObject {
+class AsyncJobInsights extends AbstractAsyncJobObject
+{
+    /**
+     * @return AsyncJobFields
+     */
+    public static function getFieldsEnum()
+    {
+        return AsyncJobFields::getInstance();
+    }
 
-  /**
-   * @return AsyncJobFields
-   */
-  public static function getFieldsEnum() {
-    return AsyncJobFields::getInstance();
-  }
+    /**
+     * @return string
+     */
+    protected function getCreateIdFieldName()
+    {
+        return 'report_run_id';
+    }
 
-  /**
-   * @return string
-   */
-  protected function getCreateIdFieldName() {
-    return 'report_run_id';
-  }
+    /**
+     * @return string
+     */
+    public function getEndpoint()
+    {
+        return 'insights';
+    }
 
-  /**
-   * @return string
-   */
-  public function getEndpoint() {
-    return 'insights';
-  }
-
-  /**
-   * @param array $fields
-   * @param array $params
-   *
-   * @return Cursor
-   */
-  public function getResult(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      Insights::classname(), $fields, $params, $this->getEndpoint());
-  }
+    /**
+     * @param array $fields
+     * @param array $params
+     *
+     * @return Cursor
+     */
+    public function getResult(
+        array $fields = array(),
+        array $params = array()
+    ) {
+        return $this->getManyByConnection(
+            Insights::classname(),
+            $fields,
+            $params,
+            $this->getEndpoint()
+        );
+    }
 }

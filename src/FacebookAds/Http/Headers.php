@@ -24,6 +24,6 @@
 
 namespace FacebookAds\Http;
 
-class Headers extends \ArrayObject {
-
+class Headers extends \ArrayObject
+{
 }

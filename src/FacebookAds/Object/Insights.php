@@ -26,12 +26,13 @@ namespace FacebookAds\Object;
 
 use FacebookAds\Object\Fields\InsightsFields;
 
-class Insights extends AbstractObject {
-
-  /**
-   * @return InsightsFields
-   */
-  public static function getFieldsEnum() {
-    return InsightsFields::getInstance();
-  }
+class Insights extends AbstractObject
+{
+    /**
+     * @return InsightsFields
+     */
+    public static function getFieldsEnum()
+    {
+        return InsightsFields::getInstance();
+    }
 }

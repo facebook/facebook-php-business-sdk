@@ -24,6 +24,6 @@
 
 namespace FacebookAds\Object;
 
-class Persona extends AbstractObject {
-
+class Persona extends AbstractObject
+{
 }
