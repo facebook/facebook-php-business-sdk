@@ -25,26 +25,28 @@
 namespace FacebookAds\Object\CustomAudienceNormalizers;
 
 use FacebookAds\Object\CustomAudienceMultiKey;
-use FacebookAds\Object\Fields\CustomAudienceMultikeySchemaFields;
 use FacebookAds\Object\CustomAudienceNormalizers\ValueNormalizerInterface;
+use FacebookAds\Object\Fields\CustomAudienceMultikeySchemaFields;
 
-class CityNormalizer implements ValueNormalizerInterface {
+class CityNormalizer implements ValueNormalizerInterface
+{
+    /**
+     * @param string $key
+     * @param string $key_value
+     * @return boolean
+     */
+    public function shouldNormalize($key, $key_value)
+    {
+        return $key === CustomAudienceMultikeySchemaFields::CITY;
+    }
 
-  /**
-   * @param string $key
-   * @param string $key_value
-   * @return boolean
-   */
-  public function shouldNormalize($key, $key_value) {
-    return $key === CustomAudienceMultikeySchemaFields::CITY;
-  }
-
-  /**
-   * @param string $key
-   * @param string $key_value
-   * @return string
-   */
-  public function normalize($key, $key_value) {
-    return preg_replace('/[^a-zA-Z]/', '', strtolower(trim($key_value)));
-  }
+    /**
+     * @param string $key
+     * @param string $key_value
+     * @return string
+     */
+    public function normalize($key, $key_value)
+    {
+        return preg_replace('/[^a-zA-Z]/', '', strtolower(trim($key_value)));
+    }
 }

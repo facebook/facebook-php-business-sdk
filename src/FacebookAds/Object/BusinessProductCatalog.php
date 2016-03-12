@@ -24,6 +24,6 @@
 
 namespace FacebookAds\Object;
 
-class BusinessProductCatalog extends AbstractObject {
-
+class BusinessProductCatalog extends AbstractObject
+{
 }

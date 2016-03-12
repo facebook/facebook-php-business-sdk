@@ -29,11 +29,11 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static AdPlacePageSetFields getInstance()
  */
-class AdPlacePageSetFields extends AbstractEnum {
-
-  const ACCOUNT_ID = 'account_id';
-  const ID = 'id';
-  const NAME = 'name';
-  const PAGES_COUNT = 'pages_count';
-  const PARENT_PAGE = 'parent_page';
+class AdPlacePageSetFields extends AbstractEnum
+{
+    const ACCOUNT_ID = 'account_id';
+    const ID = 'id';
+    const NAME = 'name';
+    const PAGES_COUNT = 'pages_count';
+    const PARENT_PAGE = 'parent_page';
 }

@@ -29,14 +29,14 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static CustomAudienceSubtypes getInstance()
  */
-class CustomAudienceSubtypes extends AbstractEnum {
-
-  const APP = 'APP';
-  const APP_COMBINATION = 'APP_COMBINATION';
-  const CUSTOM = 'CUSTOM';
-  const LOOKALIKE = 'LOOKALIKE';
-  const MANAGED = 'MANAGED';
-  const PARTNER = 'PARTNER';
-  const VIDEO = 'VIDEO';
-  const WEBSITE = 'WEBSITE';
+class CustomAudienceSubtypes extends AbstractEnum
+{
+    const APP = 'APP';
+    const APP_COMBINATION = 'APP_COMBINATION';
+    const CUSTOM = 'CUSTOM';
+    const LOOKALIKE = 'LOOKALIKE';
+    const MANAGED = 'MANAGED';
+    const PARTNER = 'PARTNER';
+    const VIDEO = 'VIDEO';
+    const WEBSITE = 'WEBSITE';
 }

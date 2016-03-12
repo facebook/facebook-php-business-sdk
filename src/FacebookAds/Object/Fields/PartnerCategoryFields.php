@@ -29,16 +29,16 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static PartnerCategoryFields getInstance()
  */
-class PartnerCategoryFields extends AbstractEnum {
-
-  const ID = 'id';
-  const NAME = 'name';
-  const DESCRIPTION = 'description';
-  const DETAILS = 'details';
-  const SOURCE = 'source';
-  const PARENT_CATEGORY = 'parent_category';
-  const STATUS = 'status';
-  const TARGETING_TYPE = 'targeting_type';
-  const IS_PRIVATE = 'is_private';
-  const APPROXIMATE_COUNT = 'approximate_count';
+class PartnerCategoryFields extends AbstractEnum
+{
+    const ID = 'id';
+    const NAME = 'name';
+    const DESCRIPTION = 'description';
+    const DETAILS = 'details';
+    const SOURCE = 'source';
+    const PARENT_CATEGORY = 'parent_category';
+    const STATUS = 'status';
+    const TARGETING_TYPE = 'targeting_type';
+    const IS_PRIVATE = 'is_private';
+    const APPROXIMATE_COUNT = 'approximate_count';
 }

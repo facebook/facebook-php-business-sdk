@@ -29,10 +29,10 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static ProductCatalogFields getInstance()
  */
-class ProductCatalogFields extends AbstractEnum {
-
-  const ID = 'id';
-  const BUSINESS = 'business';
-  const EXTERNAL_EVENT_SOURCES = 'external_event_sources';
-  const NAME = 'name';
+class ProductCatalogFields extends AbstractEnum
+{
+    const ID = 'id';
+    const BUSINESS = 'business';
+    const EXTERNAL_EVENT_SOURCES = 'external_event_sources';
+    const NAME = 'name';
 }

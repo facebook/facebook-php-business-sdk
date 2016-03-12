@@ -27,39 +27,44 @@ namespace FacebookAds\Object;
 use FacebookAds\Object\Fields\ReachEstimateFields;
 use FacebookAds\Object\Traits\FieldValidation;
 
-class ReachEstimate extends AbstractObject {
-  use FieldValidation;
+class ReachEstimate extends AbstractObject
+{
+    use FieldValidation;
 
-  /**
-   * @return ReachEstimateFields
-   */
-  public static function getFieldsEnum() {
-    return ReachEstimateFields::getInstance();
-  }
+    /**
+     * @return ReachEstimateFields
+     */
+    public static function getFieldsEnum()
+    {
+        return ReachEstimateFields::getInstance();
+    }
 
-  /**
-   * @param array $data
-   * @return array
-   */
-  protected function normalizeData(array $data) {
-    return array_key_exists('data', $data)
-      ? $data['data']
-      : $data;
-  }
+    /**
+     * @param array $data
+     * @return array
+     */
+    protected function normalizeData(array $data)
+    {
+        return array_key_exists('data', $data)
+            ? $data['data']
+            : $data;
+    }
 
-  /**
-   * @param array
-   * @return $this
-   */
-  public function setData(array $data) {
-    return parent::setData($this->normalizeData($data));
-  }
+    /**
+     * @param array
+     * @return $this
+     */
+    public function setData(array $data)
+    {
+        return parent::setData($this->normalizeData($data));
+    }
 
-  /**
-   * @param array
-   * @return $this
-   */
-  public function setDataWithoutValidation(array $data) {
-    return parent::setDataWithoutValidation($this->normalizeData($data));
-  }
+    /**
+     * @param array
+     * @return $this
+     */
+    public function setDataWithoutValidation(array $data)
+    {
+        return parent::setDataWithoutValidation($this->normalizeData($data));
+    }
 }

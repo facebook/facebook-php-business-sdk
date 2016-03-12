@@ -25,175 +25,184 @@
 namespace FacebookAds\Object;
 
 use FacebookAds\Http\RequestInterface;
-use FacebookAds\Object\Fields\CustomAudienceFields;
-use FacebookAds\Object\Values\CustomAudienceTypes;
 use FacebookAds\Object\CustomAudienceNormalizers\EmailNormalizer;
 use FacebookAds\Object\CustomAudienceNormalizers\HashNormalizer;
+use FacebookAds\Object\Fields\CustomAudienceFields;
+use FacebookAds\Object\Values\CustomAudienceTypes;
 
-class CustomAudience extends AbstractCrudObject {
+class CustomAudience extends AbstractCrudObject
+{
+    /**
+     * @var string
+     * @deprecated use HashNormalizer::HASH_TYPE_SHA256
+     */
+    const HASH_TYPE_SHA256 = 'sha256';
 
- /**
-  * @var string
-  * @deprecated use HashNormalizer::HASH_TYPE_SHA256
- */
-  const HASH_TYPE_SHA256 = 'sha256';
-
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'customaudiences';
-  }
-
-  /**
-   * @return CustomAudienceFields
-   */
-  public static function getFieldsEnum() {
-    return CustomAudienceFields::getInstance();
-  }
-
-  /**
-   * Add users to the AdCustomAudiences. There is no max on the total number of
-   * users that can be added to an audience, but up to 10000 users can be added
-   * at a given time.
-   *
-   * @param array $users
-   * @param string $type
-   * @param array $app_ids List of app ids from which the user ids has been
-   *   gathered. Required when $type = 'UID'.
-   * @param bool $is_hashed
-   * @return array
-   */
-  public function addUsers(
-    array $users,
-    $type,
-    array $app_ids = array(),
-    $is_hashed = false) {
-
-    $params = $this->formatParams($users, $type, $app_ids, $is_hashed);
-    return $this->getApi()->call(
-      '/'.$this->assureId().'/users',
-      RequestInterface::METHOD_POST,
-      $params)->getContent();
-  }
-
-  /**
-   * Delete users from AdCustomAudiences
-   *
-   * @param array $users
-   * @param string $type
-   * @param array $app_ids List of app ids from which the user ids has been
-   *   gathered. Required when $type = 'UID'.
-   * @param bool $is_hashed
-   * @return array
-   */
-  public function removeUsers(
-    array $users,
-    $type,
-    array $app_ids = array(),
-    $is_hashed = false) {
-
-    $params = $this->formatParams($users, $type, $app_ids, $is_hashed);
-    return $this->getApi()->call(
-      '/'.$this->assureId().'/users',
-      RequestInterface::METHOD_DELETE,
-      $params)->getContent();
-  }
-
-  /**
-   * Remove list of users decided to opt-out from all custom audiences
-   *
-   * @param array $users
-   * @param string $type
-   * @param array $app_ids List of app ids from which the user ids has been
-   *   gathered. Required when $type = 'UID'.
-   * @param bool $is_hashed
-   * @return array
-   */
-  public function optOutUsers(
-    array $users,
-    $type,
-    array $app_ids = array(),
-    $is_hashed = false) {
-
-    $params = $this->formatParams($users, $type, $app_ids, $is_hashed);
-    return $this->getApi()->call(
-      '/'.$this->assureParentId().'/usersofanyaudience',
-      RequestInterface::METHOD_DELETE,
-      $params)->getContent();
-  }
-
-  /**
-   * Take users and format them correctly for the request
-   *
-   * @param array $users
-   * @param string $type
-   * @param array $app_ids
-   * @param bool $is_hashed
-   * @return array
-   */
-  protected function formatParams(
-    array $users,
-    $type,
-    array $app_ids = array(),
-    $is_hashed = false) {
-
-    if ($type == CustomAudienceTypes::EMAIL
-      || $type == CustomAudienceTypes::PHONE) {
-      foreach ($users as &$user) {
-        if ($type == CustomAudienceTypes::EMAIL) {
-          $normalizer = new EmailNormalizer();
-          $user = $normalizer->normalize(CustomAudienceTypes::EMAIL, $user);
-        }
-        if (!$is_hashed) {
-          $hash_normalizer = new HashNormalizer();
-          $user = $hash_normalizer->normalize(
-            CustomAudienceTypes::EMAIL, $user);
-        }
-      }
+    /**
+     * @return string
+     */
+    protected function getEndpoint()
+    {
+        return 'customaudiences';
     }
 
-    $payload = array(
-      'schema' => $type,
-      'data' => $users,
-    );
-
-    if ($type === CustomAudienceTypes::ID) {
-      if (empty($app_ids)) {
-        throw new \InvalidArgumentException(
-          "Custom audiences with type ".CustomAudienceTypes::ID." require"
-          ."at least one app_id");
-      }
-
-      $payload['app_ids'] = $app_ids;
+    /**
+     * @return CustomAudienceFields
+     */
+    public static function getFieldsEnum()
+    {
+        return CustomAudienceFields::getInstance();
     }
 
-    return array('payload' => $payload);
-  }
+    /**
+     * Add users to the AdCustomAudiences. There is no max on the total number of
+     * users that can be added to an audience, but up to 10000 users can be added
+     * at a given time.
+     *
+     * @param array $users
+     * @param string $type
+     * @param array $app_ids List of app ids from which the user ids has been
+     *     gathered. Required when $type = 'UID'.
+     * @param bool $is_hashed
+     * @return array
+     */
+    public function addUsers(
+        array $users,
+        $type,
+        array $app_ids = array(),
+        $is_hashed = false
+    ) {
+        $params = $this->formatParams($users, $type, $app_ids, $is_hashed);
+        return $this->getApi()->call(
+            '/'.$this->assureId().'/users',
+            RequestInterface::METHOD_POST,
+            $params
+        )->getContent();
+    }
 
-  /**
-   * Share this AdCustomAudiences to other accounts
-   *
-   * @param array $act_ids Array of account IDs
-   * @return boolean Returns true on success
-   */
-  public function addSharedAccounts($act_ids) {
-    return $this->getApi()->call(
-      '/'.$this->assureId().'/adaccounts',
-      RequestInterface::METHOD_POST,
-      array('adaccounts' => $act_ids))->getContent();
-  }
+    /**
+     * Delete users from AdCustomAudiences
+     *
+     * @param array $users
+     * @param string $type
+     * @param array $app_ids List of app ids from which the user ids has been
+     *     gathered. Required when $type = 'UID'.
+     * @param bool $is_hashed
+     * @return array
+     */
+    public function removeUsers(
+        array $users,
+        $type,
+        array $app_ids = array(),
+        $is_hashed = false
+    ) {
+        $params = $this->formatParams($users, $type, $app_ids, $is_hashed);
+        return $this->getApi()->call(
+            '/'.$this->assureId().'/users',
+            RequestInterface::METHOD_DELETE,
+            $params
+        )->getContent();
+    }
 
-  /**
-   * Remove accounts from the shared AdCustomAudiences
-   *
-   * @param  array $act_ids Array of Account IDs to remove
-   * @return boolean Returns true on success
-   */
-  public function removeSharedAccounts($act_ids) {
-    return $this->getApi()->call(
-      '/'.$this->assureId().'/adaccounts',
-      RequestInterface::METHOD_DELETE,
-      array('adaccounts' => $act_ids))->getContent();
-  }
+    /**
+     * Remove list of users decided to opt-out from all custom audiences
+     *
+     * @param array $users
+     * @param string $type
+     * @param array $app_ids List of app ids from which the user ids has been
+     *     gathered. Required when $type = 'UID'.
+     * @param bool $is_hashed
+     * @return array
+     */
+    public function optOutUsers(
+        array $users,
+        $type,
+        array $app_ids = array(),
+        $is_hashed = false
+    ) {
+        $params = $this->formatParams($users, $type, $app_ids, $is_hashed);
+        return $this->getApi()->call(
+            '/'.$this->assureParentId().'/usersofanyaudience',
+            RequestInterface::METHOD_DELETE,
+            $params
+        )->getContent();
+    }
+
+    /**
+     * Take users and format them correctly for the request
+     *
+     * @param array $users
+     * @param string $type
+     * @param array $app_ids
+     * @param bool $is_hashed
+     * @return array
+     */
+    protected function formatParams(
+        array $users,
+        $type,
+        array $app_ids = array(),
+        $is_hashed = false
+    ) {
+        if ($type == CustomAudienceTypes::EMAIL
+            || $type == CustomAudienceTypes::PHONE) {
+            foreach ($users as &$user) {
+                if ($type == CustomAudienceTypes::EMAIL) {
+                    $normalizer = new EmailNormalizer();
+                    $user = $normalizer->normalize(CustomAudienceTypes::EMAIL, $user);
+                }
+                if (!$is_hashed) {
+                    $hash_normalizer = new HashNormalizer();
+                    $user = $hash_normalizer->normalize(CustomAudienceTypes::EMAIL, $user);
+                }
+            }
+        }
+
+        $payload = array(
+            'schema' => $type,
+            'data' => $users,
+        );
+
+        if ($type === CustomAudienceTypes::ID) {
+            if (empty($app_ids)) {
+                throw new \InvalidArgumentException(
+                    "Custom audiences with type ".CustomAudienceTypes::ID." require"
+                    ."at least one app_id"
+                );
+            }
+
+            $payload['app_ids'] = $app_ids;
+        }
+
+        return array('payload' => $payload);
+    }
+
+    /**
+     * Share this AdCustomAudiences to other accounts
+     *
+     * @param array $act_ids Array of account IDs
+     * @return boolean Returns true on success
+     */
+    public function addSharedAccounts($act_ids)
+    {
+        return $this->getApi()->call(
+            '/'.$this->assureId().'/adaccounts',
+            RequestInterface::METHOD_POST,
+            array('adaccounts' => $act_ids)
+        )->getContent();
+    }
+
+    /**
+     * Remove accounts from the shared AdCustomAudiences
+     *
+     * @param    array $act_ids Array of Account IDs to remove
+     * @return boolean Returns true on success
+     */
+    public function removeSharedAccounts($act_ids)
+    {
+        return $this->getApi()->call(
+            '/'.$this->assureId().'/adaccounts',
+            RequestInterface::METHOD_DELETE,
+            array('adaccounts' => $act_ids)
+        )->getContent();
+    }
 }

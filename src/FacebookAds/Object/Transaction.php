@@ -24,6 +24,6 @@
 
 namespace FacebookAds\Object;
 
-class Transaction extends AbstractObject {
-
+class Transaction extends AbstractObject
+{
 }

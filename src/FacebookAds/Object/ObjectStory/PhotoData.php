@@ -28,13 +28,15 @@ use FacebookAds\Object\AbstractObject;
 use FacebookAds\Object\Fields\ObjectStory\PhotoDataFields;
 use FacebookAds\Object\Traits\FieldValidation;
 
-class PhotoData extends AbstractObject{
-  use FieldValidation;
+class PhotoData extends AbstractObject
+{
+    use FieldValidation;
 
-  /**
-   * @return PhotoDataFields
-   */
-  public static function getFieldsEnum() {
-    return PhotoDataFields::getInstance();
-  }
+    /**
+     * @return PhotoDataFields
+     */
+    public static function getFieldsEnum()
+    {
+        return PhotoDataFields::getInstance();
+    }
 }

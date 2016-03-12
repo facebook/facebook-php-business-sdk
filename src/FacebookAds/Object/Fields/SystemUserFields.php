@@ -29,10 +29,10 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static SystemUserFields getInstance()
  */
-class SystemUserFields extends AbstractEnum {
-
-  const ID = 'id';
-  const NAME = 'name';
-  const PERMISSIONS = 'permissions';
-  const ROLE = 'role';
+class SystemUserFields extends AbstractEnum
+{
+    const ID = 'id';
+    const NAME = 'name';
+    const PERMISSIONS = 'permissions';
+    const ROLE = 'role';
 }

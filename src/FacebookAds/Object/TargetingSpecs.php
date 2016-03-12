@@ -27,13 +27,15 @@ namespace FacebookAds\Object;
 use FacebookAds\Object\Fields\TargetingSpecsFields;
 use FacebookAds\Object\Traits\FieldValidation;
 
-class TargetingSpecs extends AbstractObject {
-  use FieldValidation;
+class TargetingSpecs extends AbstractObject
+{
+    use FieldValidation;
 
-  /**
-   * @return TargetingSpecsFields
-   */
-  public static function getFieldsEnum() {
-    return TargetingSpecsFields::getInstance();
-  }
+    /**
+     * @return TargetingSpecsFields
+     */
+    public static function getFieldsEnum()
+    {
+        return TargetingSpecsFields::getInstance();
+    }
 }

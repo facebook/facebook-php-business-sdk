@@ -30,33 +30,37 @@ use FacebookAds\Object\Traits\CannotCreate;
 use FacebookAds\Object\Traits\CannotDelete;
 use FacebookAds\Object\Traits\CannotUpdate;
 
-class LeadgenForm extends AbstractCrudObject {
-  use CannotCreate;
-  use CannotUpdate;
-  use CannotDelete;
+class LeadgenForm extends AbstractCrudObject
+{
+    use CannotCreate;
+    use CannotUpdate;
+    use CannotDelete;
 
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'leadgen_forms';
-  }
+    /**
+     * @return string
+     */
+    protected function getEndpoint()
+    {
+        return 'leadgen_forms';
+    }
 
-  /**
-   * @return LeadgenFormFields
-   */
-  public static function getFieldsEnum() {
-    return LeadgenFormFields::getInstance();
-  }
+    /**
+     * @return LeadgenFormFields
+     */
+    public static function getFieldsEnum()
+    {
+        return LeadgenFormFields::getInstance();
+    }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getLeads(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      Lead::className(), $fields, $params);
-  }
+    /**
+     * @param array $fields
+     * @param array $params
+     * @return Cursor
+     */
+    public function getLeads(
+        array $fields = array(),
+        array $params = array()
+    ) {
+        return $this->getManyByConnection(Lead::className(), $fields, $params);
+    }
 }

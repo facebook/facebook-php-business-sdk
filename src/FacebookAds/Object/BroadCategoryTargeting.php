@@ -24,6 +24,6 @@
 
 namespace FacebookAds\Object;
 
-class BroadCategoryTargeting extends AbstractObject {
-
+class BroadCategoryTargeting extends AbstractObject
+{
 }

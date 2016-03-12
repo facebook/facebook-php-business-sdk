@@ -29,13 +29,13 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static AttachmentDataFields getInstance()
  */
-class AttachmentDataFields extends AbstractEnum {
-
-  const CALL_TO_ACTION = 'call_to_action';
-  const DESCRIPTION = 'description';
-  const IMAGE_HASH = 'image_hash';
-  const LINK = 'link';
-  const NAME = 'name';
-  const PICTURE = 'picture';
-  const VIDEO_ID = 'video_id';
+class AttachmentDataFields extends AbstractEnum
+{
+    const CALL_TO_ACTION = 'call_to_action';
+    const DESCRIPTION = 'description';
+    const IMAGE_HASH = 'image_hash';
+    const LINK = 'link';
+    const NAME = 'name';
+    const PICTURE = 'picture';
+    const VIDEO_ID = 'video_id';
 }

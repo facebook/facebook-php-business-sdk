@@ -24,37 +24,40 @@
 
 namespace FacebookAds\Object;
 
+use FacebookAds\Cursor;
 use FacebookAds\Object\Fields\ProductFeedUploadFields;
 use FacebookAds\Object\Traits\CannotCreate;
 use FacebookAds\Object\Traits\CannotDelete;
 use FacebookAds\Object\Traits\CannotUpdate;
-use FacebookAds\Cursor;
 
-class ProductFeedUpload extends AbstractCrudObject {
-  use CannotDelete;
-  use CannotUpdate;
+class ProductFeedUpload extends AbstractCrudObject
+{
+    use CannotDelete;
+    use CannotUpdate;
 
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'uploads';
-  }
+    /**
+     * @return string
+     */
+    protected function getEndpoint()
+    {
+        return 'uploads';
+    }
 
-  /**
-   * @return ProductFeedUploadFields
-   */
-  public static function getFieldsEnum() {
-    return ProductFeedUploadFields::getInstance();
-  }
+    /**
+     * @return ProductFeedUploadFields
+     */
+    public static function getFieldsEnum()
+    {
+        return ProductFeedUploadFields::getInstance();
+    }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getErrors(array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      ProductFeedUploadError::className(), $fields, $params);
-  }
+    /**
+     * @param array $fields
+     * @param array $params
+     * @return Cursor
+     */
+    public function getErrors(array $fields = array(), array $params = array())
+    {
+        return $this->getManyByConnection(ProductFeedUploadError::className(), $fields, $params);
+    }
 }

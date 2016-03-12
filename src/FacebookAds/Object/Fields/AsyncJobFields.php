@@ -29,11 +29,11 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static AsyncJobFields getInstance()
  */
-class AsyncJobFields extends AbstractEnum {
-
-  const ASYNC_PERCENT_COMPLETITION = 'async_percent_completion';
-  const EXPORT_COLUMNS = 'export_columns';
-  const FORMAT = 'format';
-  const NAME = 'name';
-  const REPORT_RUN_ID = 'report_run_id';
+class AsyncJobFields extends AbstractEnum
+{
+    const ASYNC_PERCENT_COMPLETITION = 'async_percent_completion';
+    const EXPORT_COLUMNS = 'export_columns';
+    const FORMAT = 'format';
+    const NAME = 'name';
+    const REPORT_RUN_ID = 'report_run_id';
 }

@@ -29,13 +29,13 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static TemplateDataFields getInstance()
  */
-class TemplateDataFields extends AbstractEnum {
-
-  const CALL_TO_ACTION = 'call_to_action';
-  const DESCRIPTION = 'description';
-  const LINK = 'link';
-  const MESSAGE = 'message';
-  const NAME = 'name';
-  const MAX_PRODUCT_COUNT = 'max_product_count';
-  const PICTURE = 'picture';
+class TemplateDataFields extends AbstractEnum
+{
+    const CALL_TO_ACTION = 'call_to_action';
+    const DESCRIPTION = 'description';
+    const LINK = 'link';
+    const MESSAGE = 'message';
+    const NAME = 'name';
+    const MAX_PRODUCT_COUNT = 'max_product_count';
+    const PICTURE = 'picture';
 }

@@ -29,8 +29,8 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static TemplateDataFields getInstance()
  */
-class PhotoDataFields extends AbstractEnum {
-
-  const CAPTION = 'caption';
-  const URL = 'url';
+class PhotoDataFields extends AbstractEnum
+{
+    const CAPTION = 'caption';
+    const URL = 'url';
 }

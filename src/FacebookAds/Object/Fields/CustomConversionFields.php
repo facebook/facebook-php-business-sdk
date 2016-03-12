@@ -29,12 +29,12 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static AdConversionPixelFields getInstance()
  */
-class CustomConversionFields extends AbstractEnum {
-
-  const CUSTOM_EVENT_TYPE = 'custom_event_type';
-  const DESCRIPTION = 'description';
-  const ID = 'id';
-  const NAME = 'name';
-  const PIXEL_ID = 'pixel_id';
-  const PIXEL_RULE = 'pixel_rule';
+class CustomConversionFields extends AbstractEnum
+{
+    const CUSTOM_EVENT_TYPE = 'custom_event_type';
+    const DESCRIPTION = 'description';
+    const ID = 'id';
+    const NAME = 'name';
+    const PIXEL_ID = 'pixel_id';
+    const PIXEL_RULE = 'pixel_rule';
 }

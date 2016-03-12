@@ -25,16 +25,18 @@
 namespace FacebookAds\Object\ObjectStory;
 
 use FacebookAds\Object\AbstractObject;
-use FacebookAds\Object\Traits\FieldValidation;
 use FacebookAds\Object\Fields\ObjectStory\OfferDataFields;
+use FacebookAds\Object\Traits\FieldValidation;
 
-class OfferData extends AbstractObject{
-  use FieldValidation;
+class OfferData extends AbstractObject
+{
+    use FieldValidation;
 
-  /**
-   * @return OfferDataFields
-   */
-  public static function getFieldsEnum() {
-    return OfferDataFields::getInstance();
-  }
+    /**
+     * @return OfferDataFields
+     */
+    public static function getFieldsEnum()
+    {
+        return OfferDataFields::getInstance();
+    }
 }

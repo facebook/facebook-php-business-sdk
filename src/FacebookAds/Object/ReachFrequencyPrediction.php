@@ -26,82 +26,89 @@ namespace FacebookAds\Object;
 
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\Object\Fields\ReachFrequencyPredictionFields;
-use FacebookAds\Object\Values\ReachFrequencyPredictionActions;
 use FacebookAds\Object\Traits\FieldValidation;
+use FacebookAds\Object\Values\ReachFrequencyPredictionActions;
 
-class ReachFrequencyPrediction extends AbstractCrudObject {
-  use FieldValidation;
+class ReachFrequencyPrediction extends AbstractCrudObject
+{
+    use FieldValidation;
 
-  /**
-   * @var int
-   */
-  const PREDICTION_MODE_BUDGET = 0;
+    /**
+     * @var int
+     */
+    const PREDICTION_MODE_BUDGET = 0;
 
-  /**
-   * @var int
-   */
-  const PREDICTION_MODE_REACH = 1;
+    /**
+     * @var int
+     */
+    const PREDICTION_MODE_REACH = 1;
 
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'reachfrequencypredictions';
-  }
+    /**
+     * @return string
+     */
+    protected function getEndpoint()
+    {
+        return 'reachfrequencypredictions';
+    }
 
-  /**
-   * @return ReachFrequencyPredictionFields
-   */
-  public static function getFieldsEnum() {
-    return ReachFrequencyPredictionFields::getInstance();
-  }
+    /**
+     * @return ReachFrequencyPredictionFields
+     */
+    public static function getFieldsEnum()
+    {
+        return ReachFrequencyPredictionFields::getInstance();
+    }
 
-  /**
-   * @param int $preciction_to_release
-   * @param int $reach
-   * @param int $budget
-   * @param int $impression
-   * @return ReachFrequencyPrediction
-   */
-  public function reserve(
-    $preciction_to_release = null,
-    $reach = null,
-    $budget = null,
-    $impression = null) {
-    $params = array_filter(array(
-      ReachFrequencyPredictionFields::PREDICTION_ID => $this->assureId(),
-      ReachFrequencyPredictionFields::PREDICTION_ID_TO_RELEASE
-        => $preciction_to_release,
-      ReachFrequencyPredictionFields::BUDGET => $budget,
-      ReachFrequencyPredictionFields::REACH => $reach,
-      ReachFrequencyPredictionFields::IMPRESSION => $impression,
-      ReachFrequencyPredictionFields::ACTION
-        => ReachFrequencyPredictionActions::RESERVE,
-    ));
+    /**
+     * @param int $preciction_to_release
+     * @param int $reach
+     * @param int $budget
+     * @param int $impression
+     * @return ReachFrequencyPrediction
+     */
+    public function reserve(
+        $preciction_to_release = null,
+        $reach = null,
+        $budget = null,
+        $impression = null
+    ) {
+        $params = array_filter(array(
+            ReachFrequencyPredictionFields::PREDICTION_ID => $this->assureId(),
+            ReachFrequencyPredictionFields::PREDICTION_ID_TO_RELEASE
+                => $preciction_to_release,
+            ReachFrequencyPredictionFields::BUDGET => $budget,
+            ReachFrequencyPredictionFields::REACH => $reach,
+            ReachFrequencyPredictionFields::IMPRESSION => $impression,
+            ReachFrequencyPredictionFields::ACTION
+                => ReachFrequencyPredictionActions::RESERVE,
+        ));
 
-    $response = $this->getApi()->call(
-      '/'.$this->assureParentId().'/'.$this->getEndpoint(),
-      RequestInterface::METHOD_POST,
-      $params);
+        $response = $this->getApi()->call(
+            '/'.$this->assureParentId().'/'.$this->getEndpoint(),
+            RequestInterface::METHOD_POST,
+            $params
+        );
 
-    return new self($response->getContent()['id'], $this->assureParentId());
-  }
+        return new self($response->getContent()['id'], $this->assureParentId());
+    }
 
-  /**
-   * @return ReachFrequencyPrediction
-   */
-  public function cancel() {
-    $params = array(
-      ReachFrequencyPredictionFields::PREDICTION_ID => $this->assureId(),
-      ReachFrequencyPredictionFields::ACTION
-        => ReachFrequencyPredictionActions::CANCEL,
-    );
+    /**
+     * @return ReachFrequencyPrediction
+     */
+    public function cancel()
+    {
+        $params = array(
+            ReachFrequencyPredictionFields::PREDICTION_ID => $this->assureId(),
+            ReachFrequencyPredictionFields::ACTION
+                => ReachFrequencyPredictionActions::CANCEL,
+        );
 
-    $this->getApi()->call(
-      '/'.$this->assureParentId().'/'.$this->getEndpoint(),
-      RequestInterface::METHOD_POST,
-      $params);
+        $this->getApi()->call(
+            '/'.$this->assureParentId().'/'.$this->getEndpoint(),
+            RequestInterface::METHOD_POST,
+            $params
+        );
 
-    return $this;
-  }
+        return $this;
+    }
 }

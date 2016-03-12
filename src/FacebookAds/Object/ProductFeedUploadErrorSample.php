@@ -29,22 +29,25 @@ use FacebookAds\Object\Traits\CannotCreate;
 use FacebookAds\Object\Traits\CannotDelete;
 use FacebookAds\Object\Traits\CannotUpdate;
 
-class ProductFeedUploadErrorSample extends AbstractObject {
-  use CannotDelete;
-  use CannotCreate;
-  use CannotUpdate;
+class ProductFeedUploadErrorSample extends AbstractObject
+{
+    use CannotDelete;
+    use CannotCreate;
+    use CannotUpdate;
 
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'samples';
-  }
+    /**
+     * @return string
+     */
+    protected function getEndpoint()
+    {
+        return 'samples';
+    }
 
-  /**
-   * @return ProductFeedUploadErrorSampleFields
-   */
-  public static function getFieldsEnum() {
-    return ProductFeedUploadErrorSampleFields::getInstance();
-  }
+    /**
+     * @return ProductFeedUploadErrorSampleFields
+     */
+    public static function getFieldsEnum()
+    {
+        return ProductFeedUploadErrorSampleFields::getInstance();
+    }
 }

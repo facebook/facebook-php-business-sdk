@@ -29,17 +29,17 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static OfferDataFields getInstance()
  */
-class OfferDataFields extends AbstractEnum {
-
-  const BARCODE_TYPE = 'barcode_type';
-  const BARCODE = 'barcode';
-  const CLAIM_LIMIT = 'claim_limit';
-  const COUPON_TYPE = 'coupon_type';
-  const EXPIRATION_TIME = 'expiration_time';
-  const IMAGE_URL = 'image_url';
-  const MESSAGE = 'message';
-  const REMINDER_TIME = 'reminder_time';
-  const REDEMPTION_LINK = 'redemption_link';
-  const REDEMPTION_CODE = 'redemption_code';
-  const TITLE = 'title';
+class OfferDataFields extends AbstractEnum
+{
+    const BARCODE_TYPE = 'barcode_type';
+    const BARCODE = 'barcode';
+    const CLAIM_LIMIT = 'claim_limit';
+    const COUPON_TYPE = 'coupon_type';
+    const EXPIRATION_TIME = 'expiration_time';
+    const IMAGE_URL = 'image_url';
+    const MESSAGE = 'message';
+    const REMINDER_TIME = 'reminder_time';
+    const REDEMPTION_LINK = 'redemption_link';
+    const REDEMPTION_CODE = 'redemption_code';
+    const TITLE = 'title';
 }

@@ -29,8 +29,8 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static AdAccountGroupAccountFields getInstance()
  */
-class AdAccountGroupAccountFields extends AbstractEnum {
-
-  const ACCOUNT_ID = 'account_id';
-  const STATUS = 'status';
+class AdAccountGroupAccountFields extends AbstractEnum
+{
+    const ACCOUNT_ID = 'account_id';
+    const STATUS = 'status';
 }

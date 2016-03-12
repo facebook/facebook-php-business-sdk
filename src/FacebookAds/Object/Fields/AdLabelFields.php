@@ -29,8 +29,8 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static AdLabelFields getInstance()
  */
-class AdLabelFields extends AbstractEnum {
-
-  const ID = 'id';
-  const NAME = 'name';
+class AdLabelFields extends AbstractEnum
+{
+    const ID = 'id';
+    const NAME = 'name';
 }

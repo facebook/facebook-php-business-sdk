@@ -29,10 +29,10 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static ClickTrackingTagFields getInstance()
  */
-class ClickTrackingTagFields extends AbstractEnum {
-
-  const ID = 'id';
-  const ADD_TEMPLATE_PARAM = 'add_template_param';
-  const URL = 'url';
-  const ADGROUP_ID = 'adgroup_id';
+class ClickTrackingTagFields extends AbstractEnum
+{
+    const ID = 'id';
+    const ADD_TEMPLATE_PARAM = 'add_template_param';
+    const URL = 'url';
+    const ADGROUP_ID = 'adgroup_id';
 }

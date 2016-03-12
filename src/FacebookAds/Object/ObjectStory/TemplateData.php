@@ -28,13 +28,15 @@ use FacebookAds\Object\AbstractObject;
 use FacebookAds\Object\Fields\ObjectStory\TemplateDataFields;
 use FacebookAds\Object\Traits\FieldValidation;
 
-class TemplateData extends AbstractObject {
-  use FieldValidation;
+class TemplateData extends AbstractObject
+{
+    use FieldValidation;
 
-  /**
-   * @return TemplateDataFields
-   */
-  public static function getFieldsEnum() {
-    return TemplateDataFields::getInstance();
-  }
+    /**
+     * @return TemplateDataFields
+     */
+    public static function getFieldsEnum()
+    {
+        return TemplateDataFields::getInstance();
+    }
 }

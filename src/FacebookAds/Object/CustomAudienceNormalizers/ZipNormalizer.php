@@ -25,28 +25,31 @@
 namespace FacebookAds\Object\CustomAudienceNormalizers;
 
 use FacebookAds\Object\CustomAudienceMultiKey;
-use FacebookAds\Object\Fields\CustomAudienceMultikeySchemaFields;
 use FacebookAds\Object\CustomAudienceNormalizers\ValueNormalizerInterface;
+use FacebookAds\Object\Fields\CustomAudienceMultikeySchemaFields;
 
-class ZipNormalizer implements ValueNormalizerInterface {
+class ZipNormalizer implements ValueNormalizerInterface
+{
+    /**
+     * @param string $key
+     * @param string $key_value
+     * @return boolean
+     */
+    public function shouldNormalize($key, $key_value)
+    {
+        return $key === CustomAudienceMultikeySchemaFields::ZIP;
+    }
 
-  /**
-   * @param string $key
-   * @param string $key_value
-   * @return boolean
-   */
-  public function shouldNormalize($key, $key_value) {
-    return $key === CustomAudienceMultikeySchemaFields::ZIP;
-  }
-
-  /**
-   * @param string $key
-   * @param string $key_value
-   * @return string
-   */
-  public function normalize($key, $key_value) {
-    return explode(
-      '-',
-      preg_replace('/[ ]/', '', strtolower(trim($key_value))))[0];
-  }
+    /**
+     * @param string $key
+     * @param string $key_value
+     * @return string
+     */
+    public function normalize($key, $key_value)
+    {
+        return explode(
+            '-',
+            preg_replace('/[ ]/', '', strtolower(trim($key_value)))
+        )[0];
+    }
 }

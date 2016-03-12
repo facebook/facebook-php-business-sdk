@@ -24,11 +24,12 @@
 
 namespace FacebookAds\Object\Traits;
 
-trait CannotDelete {
-
-  public function delete(array $params = array()) {
-    throw new \Exception(
-      __CLASS__.' does not have '.__FUNCTION__.' function.'
-    );
-  }
+trait CannotDelete
+{
+    public function delete(array $params = array())
+    {
+        throw new \Exception(
+            __CLASS__.' does not have '.__FUNCTION__.' function.'
+        );
+    }
 }

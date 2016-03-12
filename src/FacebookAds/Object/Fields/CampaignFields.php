@@ -27,19 +27,19 @@ namespace FacebookAds\Object\Fields;
 /**
  * @method static CampaignFields getInstance()
  */
-class CampaignFields extends AbstractArchivableCrudObjectFields {
-
-  const ID = 'id';
-  const ACCOUNT_ID = 'account_id';
-  const OBJECTIVE = 'objective';
-  const NAME = 'name';
-  const IS_COMPLETED = 'is_completed';
-  const BUYING_TYPE = 'buying_type';
-  const PROMOTED_OBJECT = 'promoted_object';
-  const SPEND_CAP = 'spend_cap';
-  const ADLABELS = 'adlabels';
-  const CREATED_TIME = 'created_time';
-  const START_TIME = 'start_time';
-  const STOP_TIME = 'stop_time';
-  const UPDATED_TIME = 'updated_time';
+class CampaignFields extends AbstractArchivableCrudObjectFields
+{
+    const ID = 'id';
+    const ACCOUNT_ID = 'account_id';
+    const OBJECTIVE = 'objective';
+    const NAME = 'name';
+    const IS_COMPLETED = 'is_completed';
+    const BUYING_TYPE = 'buying_type';
+    const PROMOTED_OBJECT = 'promoted_object';
+    const SPEND_CAP = 'spend_cap';
+    const ADLABELS = 'adlabels';
+    const CREATED_TIME = 'created_time';
+    const START_TIME = 'start_time';
+    const STOP_TIME = 'stop_time';
+    const UPDATED_TIME = 'updated_time';
 }

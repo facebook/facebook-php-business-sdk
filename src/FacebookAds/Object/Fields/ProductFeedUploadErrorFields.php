@@ -29,13 +29,13 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static ProductFeedUploadErrorFields getInstance()
  */
-class ProductFeedUploadErrorFields extends AbstractEnum {
-
-  const ID = 'id';
-  const SUMMARY = 'summary';
-  const DESCRIPTION = 'description';
-  const SEVERITY = 'severity';
-  const ROW_NUMBER = 'row_number';
-  const COLUMN_NUMBER = 'column_number';
-  const TOTAL_COUNT = 'total_count';
+class ProductFeedUploadErrorFields extends AbstractEnum
+{
+    const ID = 'id';
+    const SUMMARY = 'summary';
+    const DESCRIPTION = 'description';
+    const SEVERITY = 'severity';
+    const ROW_NUMBER = 'row_number';
+    const COLUMN_NUMBER = 'column_number';
+    const TOTAL_COUNT = 'total_count';
 }

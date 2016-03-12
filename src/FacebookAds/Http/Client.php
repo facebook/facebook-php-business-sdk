@@ -30,192 +30,205 @@ use FacebookAds\Http\Adapter\CurlAdapter;
 use FacebookAds\Http\Exception\EmptyResponseException;
 use FacebookAds\Http\Exception\RequestException;
 
-class Client {
+class Client
+{
+    /**
+     * @var string
+     */
+    const DEFAULT_GRAPH_BASE_DOMAIN = 'facebook.com';
 
-  /**
-   * @var string
-   */
-  const DEFAULT_GRAPH_BASE_DOMAIN = 'facebook.com';
+    /**
+     * @var string
+     */
+    const DEFAULT_LAST_LEVEL_DOMAIN = 'graph';
 
-  /**
-   * @var string
-   */
-  const DEFAULT_LAST_LEVEL_DOMAIN = 'graph';
+    /**
+     * @var RequestInterface
+     */
+    protected $requestPrototype;
 
-  /**
-   * @var RequestInterface
-   */
-  protected $requestPrototype;
+    /**
+     * @var ResponseInterface
+     */
+    protected $responsePrototype;
 
-  /**
-   * @var ResponseInterface
-   */
-  protected $responsePrototype;
+    /**
+     * @var Headers
+     */
+    protected $defaultRequestHeaders;
 
-  /**
-   * @var Headers
-   */
-  protected $defaultRequestHeaders;
+    /**
+     * @var AdapterInterface
+     */
+    protected $adapter;
 
-  /**
-   * @var AdapterInterface
-   */
-  protected $adapter;
+    /**
+     * @var string
+     */
+    protected $caBundlePath;
 
-  /**
-   * @var string
-   */
-  protected $caBundlePath;
+    /**
+     * @var string
+     */
+    protected $defaultGraphBaseDomain = self::DEFAULT_GRAPH_BASE_DOMAIN;
 
-  /**
-   * @var string
-   */
-  protected $defaultGraphBaseDomain = self::DEFAULT_GRAPH_BASE_DOMAIN;
+    /**
+     * @return RequestInterface
+     */
+    public function getRequestPrototype()
+    {
+        if ($this->requestPrototype === null) {
+            $this->requestPrototype = new Request($this);
+        }
 
-  /**
-   * @return RequestInterface
-   */
-  public function getRequestPrototype() {
-    if ($this->requestPrototype === null) {
-      $this->requestPrototype = new Request($this);
+        return $this->requestPrototype;
     }
 
-    return $this->requestPrototype;
-  }
-
-  /**
-   * @param RequestInterface $prototype
-   */
-  public function setRequestPrototype(RequestInterface $prototype) {
-    $this->requestPrototype = $prototype;
-  }
-
-  /**
-   * @return RequestInterface
-   */
-  public function createRequest() {
-    return $this->getRequestPrototype()->createClone();
-  }
-
-  /**
-   * @return ResponseInterface
-   */
-  public function getResponsePrototype() {
-    if ($this->responsePrototype === null) {
-      $this->responsePrototype = new Response();
+    /**
+     * @param RequestInterface $prototype
+     */
+    public function setRequestPrototype(RequestInterface $prototype)
+    {
+        $this->requestPrototype = $prototype;
     }
 
-    return $this->responsePrototype;
-  }
-
-  /**
-   * @param ResponseInterface $prototype
-   */
-  public function setResponsePrototype(ResponseInterface $prototype) {
-    $this->responsePrototype = $prototype;
-  }
-
-  /**
-   * @return ResponseInterface
-   */
-  public function createResponse() {
-    return clone $this->getResponsePrototype();
-  }
-
-  /**
-   * @return Headers
-   */
-  public function getDefaultRequestHeaderds() {
-    if ($this->defaultRequestHeaders === null) {
-      $this->defaultRequestHeaders = new Headers(array(
-        'User-Agent' => 'fb-php-ads-'.Api::VERSION,
-        'Accept-Encoding' => '*',
-      ));
+    /**
+     * @return RequestInterface
+     */
+    public function createRequest()
+    {
+        return $this->getRequestPrototype()->createClone();
     }
 
-    return $this->defaultRequestHeaders;
-  }
+    /**
+     * @return ResponseInterface
+     */
+    public function getResponsePrototype()
+    {
+        if ($this->responsePrototype === null) {
+            $this->responsePrototype = new Response();
+        }
 
-  /**
-   * @param Headers $headers
-   */
-  public function setDefaultRequestHeaders(Headers $headers) {
-    $this->defaultRequestHeaders = $headers;
-  }
-
-  /**
-   * @return string
-   */
-  public function getDefaultGraphBaseDomain() {
-    return $this->defaultGraphBaseDomain;
-  }
-
-  /**
-   * @param string $domain
-   */
-  public function setDefaultGraphBaseDomain($domain) {
-    $this->defaultGraphBaseDomain = $domain;
-  }
-
-  /**
-   * @return AdapterInterface
-   */
-  public function getAdapter() {
-    if ($this->adapter === null) {
-      $this->adapter = new CurlAdapter($this);
+        return $this->responsePrototype;
     }
 
-    return $this->adapter;
-  }
-
-  /**
-   * @param AdapterInterface $adapter
-   */
-  public function setAdapter(AdapterInterface $adapter) {
-    $this->adapter = $adapter;
-  }
-
-  /**
-   * @return string
-   */
-  public function getCaBundlePath() {
-    if ($this->caBundlePath === null) {
-      $this->caBundlePath = __DIR__.DIRECTORY_SEPARATOR
-        .str_repeat('..'.DIRECTORY_SEPARATOR, 3)
-        .'fb_ca_chain_bundle.crt';
+    /**
+     * @param ResponseInterface $prototype
+     */
+    public function setResponsePrototype(ResponseInterface $prototype)
+    {
+        $this->responsePrototype = $prototype;
     }
 
-    return $this->caBundlePath;
-  }
-
-  /**
-   * @param string $path
-   */
-  public function setCaBundlePath($path) {
-    $this->caBundlePath = $path;
-  }
-
-  /**
-   * @param RequestInterface $request
-   * @return ResponseInterface
-   * @throws RequestException
-   */
-  public function sendRequest(RequestInterface $request) {
-    $response = $this->getAdapter()->sendRequest($request);
-    $response->setRequest($request);
-    $response_content = $response->getContent();
-
-    if ($response_content === null) {
-      throw new EmptyResponseException($response->getStatusCode());
+    /**
+     * @return ResponseInterface
+     */
+    public function createResponse()
+    {
+        return clone $this->getResponsePrototype();
     }
 
-    if (is_array($response_content)
-      && array_key_exists('error', $response_content)) {
+    /**
+     * @return Headers
+     */
+    public function getDefaultRequestHeaderds()
+    {
+        if ($this->defaultRequestHeaders === null) {
+            $this->defaultRequestHeaders = new Headers(array(
+                'User-Agent' => 'fb-php-ads-'.Api::VERSION,
+                'Accept-Encoding' => '*',
+            ));
+        }
 
-      throw RequestException::create(
-        $response->getContent(), $response->getStatusCode());
+        return $this->defaultRequestHeaders;
     }
 
-    return $response;
-  }
+    /**
+     * @param Headers $headers
+     */
+    public function setDefaultRequestHeaders(Headers $headers)
+    {
+        $this->defaultRequestHeaders = $headers;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDefaultGraphBaseDomain()
+    {
+        return $this->defaultGraphBaseDomain;
+    }
+
+    /**
+     * @param string $domain
+     */
+    public function setDefaultGraphBaseDomain($domain)
+    {
+        $this->defaultGraphBaseDomain = $domain;
+    }
+
+    /**
+     * @return AdapterInterface
+     */
+    public function getAdapter()
+    {
+        if ($this->adapter === null) {
+            $this->adapter = new CurlAdapter($this);
+        }
+
+        return $this->adapter;
+    }
+
+    /**
+     * @param AdapterInterface $adapter
+     */
+    public function setAdapter(AdapterInterface $adapter)
+    {
+        $this->adapter = $adapter;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCaBundlePath()
+    {
+        if ($this->caBundlePath === null) {
+            $this->caBundlePath = __DIR__.DIRECTORY_SEPARATOR
+                .str_repeat('..'.DIRECTORY_SEPARATOR, 3)
+                .'fb_ca_chain_bundle.crt';
+        }
+
+        return $this->caBundlePath;
+    }
+
+    /**
+     * @param string $path
+     */
+    public function setCaBundlePath($path)
+    {
+        $this->caBundlePath = $path;
+    }
+
+    /**
+     * @param RequestInterface $request
+     * @return ResponseInterface
+     * @throws RequestException
+     */
+    public function sendRequest(RequestInterface $request)
+    {
+        $response = $this->getAdapter()->sendRequest($request);
+        $response->setRequest($request);
+        $response_content = $response->getContent();
+
+        if ($response_content === null) {
+            throw new EmptyResponseException($response->getStatusCode());
+        }
+
+        if (is_array($response_content)
+            && array_key_exists('error', $response_content)) {
+            throw RequestException::create($response->getContent(), $response->getStatusCode());
+        }
+
+        return $response;
+    }
 }

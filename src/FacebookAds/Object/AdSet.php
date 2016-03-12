@@ -24,72 +24,71 @@
 
 namespace FacebookAds\Object;
 
+use FacebookAds\Cursor;
 use FacebookAds\Object\Fields\AdSetFields;
+use FacebookAds\Object\Traits\AdLabelAwareCrudObjectTrait;
 use FacebookAds\Object\Traits\FieldValidation;
 use FacebookAds\Object\Traits\ObjectValidation;
-use FacebookAds\Object\Traits\AdLabelAwareCrudObjectTrait;
-use FacebookAds\Cursor;
 
-class AdSet extends AbstractArchivableCrudObject
-  implements CanRedownloadInterface {
-  use FieldValidation;
-  use ObjectValidation;
-  use AdLabelAwareCrudObjectTrait;
+class AdSet extends AbstractArchivableCrudObject implements CanRedownloadInterface
+{
+    use FieldValidation;
+    use ObjectValidation;
+    use AdLabelAwareCrudObjectTrait;
 
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'adsets';
-  }
+    /**
+     * @return string
+     */
+    protected function getEndpoint()
+    {
+        return 'adsets';
+    }
 
-  /**
-   * @return AdSetFields
-   */
-  public static function getFieldsEnum() {
-    return AdSetFields::getInstance();
-  }
+    /**
+     * @return AdSetFields
+     */
+    public static function getFieldsEnum()
+    {
+        return AdSetFields::getInstance();
+    }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getAds(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(Ad::className(), $fields, $params);
-  }
+    /**
+     * @param array $fields
+     * @param array $params
+     * @return Cursor
+     */
+    public function getAds(array $fields = array(), array $params = array())
+    {
+        return $this->getManyByConnection(Ad::className(), $fields, $params);
+    }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getAdCreatives(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      AdCreative::className(), $fields, $params);
-  }
+    /**
+     * @param array $fields
+     * @param array $params
+     * @return Cursor
+     */
+    public function getAdCreatives(array $fields = array(), array $params = array())
+    {
+        return $this->getManyByConnection(AdCreative::className(), $fields, $params);
+    }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getInsights(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      Insights::classname(), $fields, $params, 'insights');
-  }
+    /**
+     * @param array $fields
+     * @param array $params
+     * @return Cursor
+     */
+    public function getInsights(array $fields = array(), array $params = array())
+    {
+        return $this->getManyByConnection(Insights::classname(), $fields, $params, 'insights');
+    }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return AsyncJobInsights
-   */
-  public function getInsightsAsync(
-    array $fields = array(), array $params = array()) {
-    return $this->createAsyncJob(
-      AsyncJobInsights::className(), $fields, $params);
-  }
+    /**
+     * @param array $fields
+     * @param array $params
+     * @return AsyncJobInsights
+     */
+    public function getInsightsAsync(array $fields = array(), array $params = array())
+    {
+        return $this->createAsyncJob(AsyncJobInsights::className(), $fields, $params);
+    }
 }

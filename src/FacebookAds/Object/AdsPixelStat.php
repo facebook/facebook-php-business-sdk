@@ -26,12 +26,13 @@ namespace FacebookAds\Object;
 
 use FacebookAds\Object\Fields\AdsPixelStatFields;
 
-class AdsPixelStat extends AbstractObject {
-
-  /**
-   * @return AdsPixelStatFields
-   */
-  public static function getFieldsEnum() {
-    return AdsPixelStatFields::getInstance();
-  }
+class AdsPixelStat extends AbstractObject
+{
+    /**
+     * @return AdsPixelStatFields
+     */
+    public static function getFieldsEnum()
+    {
+        return AdsPixelStatFields::getInstance();
+    }
 }

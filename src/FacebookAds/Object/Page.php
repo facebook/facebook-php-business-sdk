@@ -27,98 +27,109 @@ namespace FacebookAds\Object;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 
-class Page extends AbstractCrudObject {
+class Page extends AbstractCrudObject
+{
+    /**
+     * @return string
+     */
+    public function getEndpoint()
+    {
+        return 'pages';
+    }
 
-  /**
-   * @return string
-   */
-  public function getEndpoint() {
-    return 'pages';
-  }
+    /**
+     * @param array $fields
+     * @param array $params
+     * @return Cursor
+     */
+    public function getLeadgenForms(
+        array $fields = array(),
+        array $params = array()
+    ) {
+        return $this->getManyByConnection(LeadgenForm::className(), $fields, $params);
+    }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getLeadgenForms(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      LeadgenForm::className(), $fields, $params);
-  }
+    /**
+     * @param array $fields
+     * @param array $params
+     * @return Cursor
+     */
+    public function getAgencies(
+        array $fields = array(),
+        array $params = array()
+    ) {
+        return $this->getManyByConnection(Agency::className(), $fields, $params, 'agencies');
+    }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getAgencies(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      Agency::className(), $fields, $params, 'agencies');
-  }
+    /**
+     * @param int $business_id
+     * @param int $user_id
+     * @param string $role
+     */
+    public function addUser($business_id, $user_id, $role)
+    {
+        $params = array(
+            'business_id' => $business_id,
+            'user_id' => $user_id,
+            'role' => $role,
+        );
 
-  /**
-   * @param int $business_id
-   * @param int $user_id
-   * @param string $role
-   */
-  public function addUser($business_id, $user_id, $role) {
-    $params = array(
-      'business_id' => $business_id,
-      'user_id' => $user_id,
-      'role' => $role,
-    );
+        $this->getApi()->call(
+            '/'.$this->assureId().'/userpermissions',
+            RequestInterface::METHOD_POST,
+            $params
+        );
+    }
 
-    $this->getApi()->call(
-      '/'.$this->assureId().'/userpermissions',
-      RequestInterface::METHOD_POST,
-      $params);
-  }
+    /**
+     * @param int $business_id
+     * @param int $user_id
+     */
+    public function deleteUser($business_id, $user_id)
+    {
+        $params = array(
+            'business_id' => $business_id,
+            'user_id' => $user_id,
+        );
 
-  /**
-   * @param int $business_id
-   * @param int $user_id
-   */
-  public function deleteUser($business_id, $user_id) {
-    $params = array(
-      'business_id' => $business_id,
-      'user_id' => $user_id,
-    );
+        $this->getApi()->call(
+            '/'.$this->assureId().'/userpermissions',
+            RequestInterface::METHOD_DELETE,
+            $params
+        );
+    }
 
-    $this->getApi()->call(
-      '/'.$this->assureId().'/userpermissions',
-      RequestInterface::METHOD_DELETE,
-      $params);
-  }
+    /**
+     * @param int $business_id
+     * @param array $roles
+     */
+    public function grantBusinessAccess($business_id, $roles)
+    {
+        $params = array(
+            'business' => $business_id,
+            'permitted_roles' => $roles,
+        );
 
-  /**
-   * @param int $business_id
-   * @param array $roles
-   */
-  public function grantBusinessAccess($business_id, $roles) {
-    $params = array(
-      'business' => $business_id,
-      'permitted_roles' => $roles,
-    );
+        $this->getApi()->call(
+            '/'.$this->assureId().'/agencies',
+            RequestInterface::METHOD_POST,
+            $params
+        );
+    }
 
-    $this->getApi()->call(
-      '/'.$this->assureId().'/agencies',
-      RequestInterface::METHOD_POST,
-      $params);
-  }
+    /**
+     * @param int $business_id
+     */
+    public function revokeBusinessAccess($business_id)
+    {
+        $params = array(
+            'business' => $business_id,
+        );
 
-  /**
-   * @param int $business_id
-   */
-  public function revokeBusinessAccess($business_id) {
-    $params = array(
-      'business' => $business_id,
-    );
-
-    $this->getApi()->call(
-      '/'.$this->assureId().'/agencies',
-      RequestInterface::METHOD_DELETE,
-      $params);
-  }
+        $this->getApi()->call(
+            '/'.$this->assureId().'/agencies',
+            RequestInterface::METHOD_DELETE,
+            $params
+        );
+    }
 }

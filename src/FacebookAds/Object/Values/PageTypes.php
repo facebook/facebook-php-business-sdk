@@ -29,13 +29,13 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static PageTypes getInstance()
  */
-class PageTypes extends AbstractEnum {
-
-  const DESKTOP_FEED = 'desktopfeed';
-  const HOME = 'home';
-  const LEGACY_EXTERNAL = 'legacyexternal';
-  const LOGOUT = 'logout';
-  const MOBILE_EXTERNAL = 'mobileexternal';
-  const MOBILE_FEED = 'mobilefeed';
-  const RIGHT_COLUMN = 'rightcolumn';
+class PageTypes extends AbstractEnum
+{
+    const DESKTOP_FEED = 'desktopfeed';
+    const HOME = 'home';
+    const LEGACY_EXTERNAL = 'legacyexternal';
+    const LOGOUT = 'logout';
+    const MOBILE_EXTERNAL = 'mobileexternal';
+    const MOBILE_FEED = 'mobilefeed';
+    const RIGHT_COLUMN = 'rightcolumn';
 }

@@ -29,12 +29,11 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static AppRoles getInstance()
  */
-class AppRoles extends AbstractEnum {
-
-  const ADMINISTRATOR  = 'ADMINISTRATOR';
-  const DEVELOPER = 'DEVELOPER';
-  const TESTER = 'TESTER';
-  const INSIGHTS_USER = 'INSIGHTS_USER';
-  const TEST_USER = 'TEST_USER';
-
+class AppRoles extends AbstractEnum
+{
+    const ADMINISTRATOR    = 'ADMINISTRATOR';
+    const DEVELOPER = 'DEVELOPER';
+    const TESTER = 'TESTER';
+    const INSIGHTS_USER = 'INSIGHTS_USER';
+    const TEST_USER = 'TEST_USER';
 }

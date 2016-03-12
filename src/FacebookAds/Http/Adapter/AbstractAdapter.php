@@ -26,31 +26,34 @@ namespace FacebookAds\Http\Adapter;
 
 use FacebookAds\Http\Client;
 
-abstract class AbstractAdapter implements AdapterInterface {
+abstract class AbstractAdapter implements AdapterInterface
+{
+    /**
+     * @var Client
+     */
+    protected $client;
 
-  /**
-   * @var Client
-   */
-  protected $client;
+    /**
+     * @param Client $client
+     */
+    public function __construct(Client $client)
+    {
+        $this->client = $client;
+    }
 
-  /**
-   * @param Client $client
-   */
-  public function __construct(Client $client) {
-    $this->client = $client;
-  }
+    /**
+     * @return Client
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
 
-  /**
-   * @return Client
-   */
-  public function getClient() {
-    return $this->client;
-  }
-
-  /**
-   * @return string
-   */
-  public function getCaBundlePath() {
-    return $this->getClient()->getCaBundlePath();
-  }
+    /**
+     * @return string
+     */
+    public function getCaBundlePath()
+    {
+        return $this->getClient()->getCaBundlePath();
+    }
 }

@@ -27,20 +27,23 @@ namespace FacebookAds\Object;
 use FacebookAds\Object\Fields\CustomConversionFields;
 use FacebookAds\Object\Traits\CannotDelete;
 
-class CustomConversion extends AbstractCrudObject {
-  use CannotDelete;
+class CustomConversion extends AbstractCrudObject
+{
+    use CannotDelete;
 
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'customconversions';
-  }
+    /**
+     * @return string
+     */
+    protected function getEndpoint()
+    {
+        return 'customconversions';
+    }
 
-  /**
-   * @return CustomConversionFields
-   */
-  public static function getFieldsEnum() {
-    return CustomConversionFields::getInstance();
-  }
+    /**
+     * @return CustomConversionFields
+     */
+    public static function getFieldsEnum()
+    {
+        return CustomConversionFields::getInstance();
+    }
 }

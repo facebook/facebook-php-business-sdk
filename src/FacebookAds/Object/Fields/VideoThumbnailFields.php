@@ -29,13 +29,13 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static VideoThumbnailFields getInstance()
  */
-class VideoThumbnailFields extends AbstractEnum {
-
-  const HEIGHT = 'height';
-  const ID = 'id';
-  const IS_PREFERRED = 'is_preferred';
-  const NAME = 'name';
-  const SCALE = 'scale';
-  const URI = 'uri';
-  const WIDTH = 'width';
+class VideoThumbnailFields extends AbstractEnum
+{
+    const HEIGHT = 'height';
+    const ID = 'id';
+    const IS_PREFERRED = 'is_preferred';
+    const NAME = 'name';
+    const SCALE = 'scale';
+    const URI = 'uri';
+    const WIDTH = 'width';
 }

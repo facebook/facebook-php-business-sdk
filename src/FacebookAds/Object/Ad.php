@@ -26,115 +26,112 @@ namespace FacebookAds\Object;
 
 use FacebookAds\Cursor;
 use FacebookAds\Object\Fields\AdFields;
-use FacebookAds\Object\Traits\FieldValidation;
 use FacebookAds\Object\Traits\AdLabelAwareCrudObjectTrait;
+use FacebookAds\Object\Traits\FieldValidation;
 
-class Ad extends AbstractArchivableCrudObject
-  implements CanRedownloadInterface {
-  use FieldValidation;
-  use AdLabelAwareCrudObjectTrait;
+class Ad extends AbstractArchivableCrudObject implements CanRedownloadInterface
+{
+    use FieldValidation;
+    use AdLabelAwareCrudObjectTrait;
 
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'ads';
-  }
+    /**
+     * @return string
+     */
+    protected function getEndpoint()
+    {
+        return 'ads';
+    }
 
-  /**
-   * @return AdFields
-   */
-  public static function getFieldsEnum() {
-    return AdFields::getInstance();
-  }
+    /**
+     * @return AdFields
+     */
+    public static function getFieldsEnum()
+    {
+        return AdFields::getInstance();
+    }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getAdCreatives(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      AdCreative::className(), $fields, $params);
-  }
+    /**
+     * @param array $fields
+     * @param array $params
+     * @return Cursor
+     */
+    public function getAdCreatives(array $fields = array(), array $params = array())
+    {
+        return $this->getManyByConnection(AdCreative::className(), $fields, $params);
+    }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getLeads(array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(Lead::className(), $fields, $params);
-  }
+    /**
+     * @param array $fields
+     * @param array $params
+     * @return Cursor
+     */
+    public function getLeads(array $fields = array(), array $params = array())
+    {
+        return $this->getManyByConnection(Lead::className(), $fields, $params);
+    }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return TargetingDescription
-   */
-  public function getTargetingDescription(
-    array $fields = array(), array $params = array()) {
-    return $this->getOneByConnection(
-      TargetingDescription::className(),
-      $fields,
-      $params,
-      'targetingsentencelines'
-    );
-  }
+    /**
+     * @param array $fields
+     * @param array $params
+     * @return TargetingDescription
+     */
+    public function getTargetingDescription(array $fields = array(), array $params = array())
+    {
+        return $this->getOneByConnection(
+            TargetingDescription::className(),
+            $fields,
+            $params,
+            'targetingsentencelines'
+        );
+    }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getAdPreviews(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      AdPreview::className(), $fields, $params, 'previews');
-  }
+    /**
+     * @param array $fields
+     * @param array $params
+     * @return Cursor
+     */
+    public function getAdPreviews(array $fields = array(), array $params = array())
+    {
+        return $this->getManyByConnection(AdPreview::className(), $fields, $params, 'previews');
+    }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return ReachEstimate
-   */
-  public function getReachEstimate(
-    array $fields = array(), array $params = array()) {
-    return $this->getOneByConnection(
-      ReachEstimate::className(), $fields, $params, 'reachestimate');
-  }
+    /**
+     * @param array $fields
+     * @param array $params
+     * @return ReachEstimate
+     */
+    public function getReachEstimate(array $fields = array(), array $params = array())
+    {
+        return $this->getOneByConnection(ReachEstimate::className(), $fields, $params, 'reachestimate');
+    }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getClickTrackingTag(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      ClickTrackingTag::className(), $fields, $params, 'trackingtag');
-  }
+    /**
+     * @param array $fields
+     * @param array $params
+     * @return Cursor
+     */
+    public function getClickTrackingTag(array $fields = array(), array $params = array())
+    {
+        return $this->getManyByConnection(ClickTrackingTag::className(), $fields, $params, 'trackingtag');
+    }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getInsights(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      Insights::classname(), $fields, $params, 'insights');
-  }
+    /**
+     * @param array $fields
+     * @param array $params
+     * @return Cursor
+     */
+    public function getInsights(array $fields = array(), array $params = array())
+    {
+        return $this->getManyByConnection(Insights::classname(), $fields, $params, 'insights');
+    }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return AsyncJobInsights
-   */
-  public function getInsightsAsync(
-    array $fields = array(), array $params = array()) {
-    return $this->createAsyncJob(
-      AsyncJobInsights::className(), $fields, $params);
-  }
+    /**
+     * @param array $fields
+     * @param array $params
+     * @return AsyncJobInsights
+     */
+    public function getInsightsAsync(array $fields = array(), array $params = array())
+    {
+        return $this->createAsyncJob(AsyncJobInsights::className(), $fields, $params);
+    }
 }

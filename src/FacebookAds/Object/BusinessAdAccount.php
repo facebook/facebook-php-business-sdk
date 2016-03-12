@@ -24,6 +24,6 @@
 
 namespace FacebookAds\Object;
 
-class BusinessAdAccount extends AbstractObject {
-
+class BusinessAdAccount extends AbstractObject
+{
 }

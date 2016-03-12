@@ -24,38 +24,41 @@
 
 namespace FacebookAds\Object;
 
+use FacebookAds\Cursor;
 use FacebookAds\Object\Fields\ProductFeedUploadErrorFields;
 use FacebookAds\Object\Traits\CannotCreate;
 use FacebookAds\Object\Traits\CannotDelete;
 use FacebookAds\Object\Traits\CannotUpdate;
-use FacebookAds\Cursor;
 
-class ProductFeedUploadError extends AbstractCrudObject {
-  use CannotDelete;
-  use CannotCreate;
-  use CannotUpdate;
+class ProductFeedUploadError extends AbstractCrudObject
+{
+    use CannotDelete;
+    use CannotCreate;
+    use CannotUpdate;
 
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'errors';
-  }
+    /**
+     * @return string
+     */
+    protected function getEndpoint()
+    {
+        return 'errors';
+    }
 
-  /**
-   * @return ProductFeedUploadErrorFields
-   */
-  public static function getFieldsEnum() {
-    return ProductFeedUploadErrorFields::getInstance();
-  }
+    /**
+     * @return ProductFeedUploadErrorFields
+     */
+    public static function getFieldsEnum()
+    {
+        return ProductFeedUploadErrorFields::getInstance();
+    }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getSamples(array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      ProductFeedUploadErrorSample::className(), $fields, $params, 'samples');
-  }
+    /**
+     * @param array $fields
+     * @param array $params
+     * @return Cursor
+     */
+    public function getSamples(array $fields = array(), array $params = array())
+    {
+        return $this->getManyByConnection(ProductFeedUploadErrorSample::className(), $fields, $params, 'samples');
+    }
 }

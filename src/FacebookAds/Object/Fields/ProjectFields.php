@@ -29,13 +29,13 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static ProjectFields getInstance()
  */
-class ProjectFields extends AbstractEnum {
-
-  const ID = 'id';
-  const NAME = 'name';
-  const BUSINESS = 'business';
-  const UPDATE_TIME = 'update_time';
-  const UPDATED_BY = 'updated_by';
-  const CREATED_TIME = 'created_time';
-  const CREATED_BY = 'created_by';
+class ProjectFields extends AbstractEnum
+{
+    const ID = 'id';
+    const NAME = 'name';
+    const BUSINESS = 'business';
+    const UPDATE_TIME = 'update_time';
+    const UPDATED_BY = 'updated_by';
+    const CREATED_TIME = 'created_time';
+    const CREATED_BY = 'created_by';
 }

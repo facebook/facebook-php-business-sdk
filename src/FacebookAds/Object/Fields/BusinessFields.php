@@ -29,15 +29,15 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static BusinessFields getInstance()
  */
-class BusinessFields extends AbstractEnum {
-
-  const ID = 'id';
-  const CREATION_TIME = 'creation_time';
-  const CREATED_BY = 'created_by';
-  const NAME = 'name';
-  const PRIMARY_PAGE = 'primary_page';
-  const TIMEZONE_ID = 'timezone_id';
-  const UPDATE_TIME = 'update_time';
-  const UPDATED_BY = 'updated_by';
-  const VERTICAL_ID = 'vertical_id';
+class BusinessFields extends AbstractEnum
+{
+    const ID = 'id';
+    const CREATION_TIME = 'creation_time';
+    const CREATED_BY = 'created_by';
+    const NAME = 'name';
+    const PRIMARY_PAGE = 'primary_page';
+    const TIMEZONE_ID = 'timezone_id';
+    const UPDATE_TIME = 'update_time';
+    const UPDATED_BY = 'updated_by';
+    const VERTICAL_ID = 'vertical_id';
 }

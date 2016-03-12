@@ -28,13 +28,15 @@ use FacebookAds\Object\AbstractObject;
 use FacebookAds\Object\Fields\ObjectStory\LinkDataFields;
 use FacebookAds\Object\Traits\FieldValidation;
 
-class LinkData extends AbstractObject {
-  use FieldValidation;
+class LinkData extends AbstractObject
+{
+    use FieldValidation;
 
-  /**
-   * @return LinkDataFields
-   */
-  public static function getFieldsEnum() {
-    return LinkDataFields::getInstance();
-  }
+    /**
+     * @return LinkDataFields
+     */
+    public static function getFieldsEnum()
+    {
+        return LinkDataFields::getInstance();
+    }
 }

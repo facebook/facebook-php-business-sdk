@@ -27,13 +27,15 @@ namespace FacebookAds\Object;
 use FacebookAds\Object\Fields\ConnectionObjectFields;
 use FacebookAds\Object\Traits\FieldValidation;
 
-class ConnectionObject extends AbstractObject {
-  use FieldValidation;
+class ConnectionObject extends AbstractObject
+{
+    use FieldValidation;
 
-  /**
-   * @return ConnectionObjectFields
-   */
-  public static function getFieldsEnum() {
-    return ConnectionObjectFields::getInstance();
-  }
+    /**
+     * @return ConnectionObjectFields
+     */
+    public static function getFieldsEnum()
+    {
+        return ConnectionObjectFields::getInstance();
+    }
 }

@@ -26,19 +26,21 @@ namespace FacebookAds\Object;
 
 use FacebookAds\Object\Fields\LookalikeAudienceFields;
 
-class LookalikeAudience extends AbstractCrudObject {
+class LookalikeAudience extends AbstractCrudObject
+{
+    /**
+     * @return string
+     */
+    protected function getEndpoint()
+    {
+        return 'customaudiences';
+    }
 
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'customaudiences';
-  }
-
-  /**
-   * @return LookalikeAudienceFields
-   */
-  public static function getFieldsEnum() {
-    return LookalikeAudienceFields::getInstance();
-  }
+    /**
+     * @return LookalikeAudienceFields
+     */
+    public static function getFieldsEnum()
+    {
+        return LookalikeAudienceFields::getInstance();
+    }
 }

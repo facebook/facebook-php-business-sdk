@@ -29,11 +29,11 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static AdPreviewFields getInstance()
  */
-class AdPreviewFields extends AbstractEnum {
-
-  const CREATIVE = 'creative';
-  const POST = 'post';
-  const AD_FORMAT = 'ad_format';
-  const BODY = 'body';
-  const PRODUCT_ITEM_IDS = 'product_item_ids';
+class AdPreviewFields extends AbstractEnum
+{
+    const CREATIVE = 'creative';
+    const POST = 'post';
+    const AD_FORMAT = 'ad_format';
+    const BODY = 'body';
+    const PRODUCT_ITEM_IDS = 'product_item_ids';
 }

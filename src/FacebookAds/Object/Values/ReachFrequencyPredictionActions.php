@@ -29,8 +29,8 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static ReachFrequencyPredictionActions getInstance()
  */
-class ReachFrequencyPredictionActions extends AbstractEnum {
-
-  const RESERVE = 'reserve';
-  const CANCEL = 'cancel';
+class ReachFrequencyPredictionActions extends AbstractEnum
+{
+    const RESERVE = 'reserve';
+    const CANCEL = 'cancel';
 }

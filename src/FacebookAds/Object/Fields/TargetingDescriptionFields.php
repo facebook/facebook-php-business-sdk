@@ -29,8 +29,8 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static TargetingDescriptionFields getInstance()
  */
-class TargetingDescriptionFields extends AbstractEnum {
-
-  const ID = 'id';
-  const TARGETING_SENTENCE_LINES = 'targetingsentencelines';
+class TargetingDescriptionFields extends AbstractEnum
+{
+    const ID = 'id';
+    const TARGETING_SENTENCE_LINES = 'targetingsentencelines';
 }

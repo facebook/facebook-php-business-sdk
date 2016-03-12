@@ -29,9 +29,9 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static RateCardFields getInstance()
  */
-class RateCardFields extends AbstractEnum {
-
-  const COUNTRY = 'country';
-  const CURRENCY = 'currency';
-  const RATE = 'rate';
+class RateCardFields extends AbstractEnum
+{
+    const COUNTRY = 'country';
+    const CURRENCY = 'currency';
+    const RATE = 'rate';
 }

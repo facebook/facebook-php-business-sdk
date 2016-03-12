@@ -29,9 +29,9 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static ReachEstimateFields getInstance()
  */
-class ReachEstimateFields extends AbstractEnum {
-
-  const USERS = 'users';
-  const BID_ESTIMATIONS = 'bid_estimations';
-  const ESTIMATE_READY = 'estimate_ready';
+class ReachEstimateFields extends AbstractEnum
+{
+    const USERS = 'users';
+    const BID_ESTIMATIONS = 'bid_estimations';
+    const ESTIMATE_READY = 'estimate_ready';
 }

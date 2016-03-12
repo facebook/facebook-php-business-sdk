@@ -29,22 +29,25 @@ use FacebookAds\Object\Traits\CannotCreate;
 use FacebookAds\Object\Traits\CannotDelete;
 use FacebookAds\Object\Traits\CannotUpdate;
 
-class Lead extends AbstractCrudObject {
-  use CannotCreate;
-  use CannotUpdate;
-  use CannotDelete;
+class Lead extends AbstractCrudObject
+{
+    use CannotCreate;
+    use CannotUpdate;
+    use CannotDelete;
 
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'leads';
-  }
+    /**
+     * @return string
+     */
+    protected function getEndpoint()
+    {
+        return 'leads';
+    }
 
-  /**
-   * @return LeadFields
-   */
-  public static function getFieldsEnum() {
-    return LeadFields::getInstance();
-  }
+    /**
+     * @return LeadFields
+     */
+    public static function getFieldsEnum()
+    {
+        return LeadFields::getInstance();
+    }
 }

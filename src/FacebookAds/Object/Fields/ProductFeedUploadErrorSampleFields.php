@@ -29,9 +29,9 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static ProductFeedUploadErrorSampleFields getInstance()
  */
-class ProductFeedUploadErrorSampleFields extends AbstractEnum {
-
-  const ID = 'id';
-  const RETAILER_ID = 'retailer_id';
-  const ROW_NUMBER = 'row_number';
+class ProductFeedUploadErrorSampleFields extends AbstractEnum
+{
+    const ID = 'id';
+    const RETAILER_ID = 'retailer_id';
+    const ROW_NUMBER = 'row_number';
 }

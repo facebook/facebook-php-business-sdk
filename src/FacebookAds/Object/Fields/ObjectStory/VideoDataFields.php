@@ -29,12 +29,12 @@ use FacebookAds\Enum\AbstractEnum;
 /**
  * @method static VideoDataFields getInstance()
  */
-class VideoDataFields extends AbstractEnum {
-
-  const CALL_TO_ACTION = 'call_to_action';
-  const DESCRIPTION = 'description';
-  const IMAGE_HASH = 'image_hash';
-  const IMAGE_URL = 'image_url';
-  const TITLE = 'title';
-  const VIDEO_ID = 'video_id';
+class VideoDataFields extends AbstractEnum
+{
+    const CALL_TO_ACTION = 'call_to_action';
+    const DESCRIPTION = 'description';
+    const IMAGE_HASH = 'image_hash';
+    const IMAGE_URL = 'image_url';
+    const TITLE = 'title';
+    const VIDEO_ID = 'video_id';
 }

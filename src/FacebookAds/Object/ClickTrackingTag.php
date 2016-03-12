@@ -24,29 +24,33 @@
 
 namespace FacebookAds\Object;
 
-use FacebookAds\Object\Fields\ClickTrackingTagFields;
 use FacebookAds\Http\RequestInterface;
+use FacebookAds\Object\Fields\ClickTrackingTagFields;
 
-class ClickTrackingTag extends AbstractCrudObject {
+class ClickTrackingTag extends AbstractCrudObject
+{
+    /**
+     * @return string
+     */
+    protected function getEndpoint()
+    {
+        return 'trackingtag';
+    }
 
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'trackingtag';
-  }
+    /**
+     * @return ClickTrackingTagFields
+     */
+    public static function getFieldsEnum()
+    {
+        return ClickTrackingTagFields::getInstance();
+    }
 
-  /**
-   * @return ClickTrackingTagFields
-   */
-  public static function getFieldsEnum() {
-    return ClickTrackingTagFields::getInstance();
-  }
-
-  public function delete(array $params = array()) {
-    $this->getApi()->call(
-      '/'.$this->parentId.'/'.$this->getEndpoint(),
-      RequestInterface::METHOD_DELETE,
-      $params);
-  }
+    public function delete(array $params = array())
+    {
+        $this->getApi()->call(
+            '/'.$this->parentId.'/'.$this->getEndpoint(),
+            RequestInterface::METHOD_DELETE,
+            $params
+        );
+    }
 }
