@@ -206,7 +206,11 @@ class RequestTest extends AbstractUnitTestCase {
     $this->assertNull(parse_url($url, PHP_URL_QUERY));
 
     // With query
-    $request->setQueryParams(new Parameters(array('sdk' => 'PHP')));
+    $params = array(
+      'sdk' => 'PHP',
+      'names' => 'abc,def',
+    );
+    $request->setQueryParams(new Parameters($params));
     $url = $request->getUrl();
     $parsed_query = Util::parseUrlQuery(parse_url($url, PHP_URL_QUERY));
     $this->assertEquals(
