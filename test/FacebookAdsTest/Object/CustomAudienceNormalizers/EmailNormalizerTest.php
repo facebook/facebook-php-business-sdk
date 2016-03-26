@@ -22,29 +22,37 @@
  *
  */
 
-namespace FacebookAds\Object\CustomAudienceNormalizers;
+namespace FacebookAdsTest\Object\CustomAudienceNormalizers;
 
-use FacebookAds\Object\CustomAudienceMultiKey;
-use FacebookAds\Object\Fields\CustomAudienceMultikeySchemaFields;
-use FacebookAds\Object\CustomAudienceNormalizers\ValueNormalizerInterface;
+use FacebookAdsTest\AbstractUnitTestCase;
+use FacebookAds\Object\CustomAudienceNormalizers\EmailNormalizer;
 
-class EmailNormalizer implements ValueNormalizerInterface {
+class EmailNormalizerTest extends AbstractUnitTestCase {
 
-  /**
-   * @param string $key
-   * @param string $key_value
-   * @return boolean
-   */
-  public function shouldNormalize($key, $key_value) {
-    return $key === CustomAudienceMultikeySchemaFields::EMAIL;
-  }
+    /**
+     * @var EmailNormalizer
+     */
+    protected $emailNormalizer;
 
-  /**
-   * @param string $key
-   * @param string $key_value
-   * @return string
-   */
-  public function normalize($key, $key_value) {
-    return trim(strtolower($key_value), " \t\r\n\0\x0B.");
-  }
+    public function setUp() {
+        $this->emailNormalizer = new EmailNormalizer();
+    }
+
+    public function testNormalizeData() {
+        return array(
+            array(
+                "foo@fb.com\t\r\n\0\x0B.",
+                'foo@fb.com',
+            ),
+        );
+    }
+
+    /**
+     * @dataProvider testNormalizeData
+     */
+    public function testNormalize($input, $expected) {
+        $this->assertEquals(
+            $expected,
+            $this->emailNormalizer->normalize('email', $input));
+    }
 }
