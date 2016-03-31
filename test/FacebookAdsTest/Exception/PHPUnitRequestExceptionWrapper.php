@@ -49,6 +49,23 @@ class PHPUnitRequestExceptionWrapper
     return $this->wrappedException;
   }
 
+  protected function requestToString(RequestException $e) {
+    if ($e->getResponse() === null) {
+      return '-';
+    }
+
+    $request = $e->getResponse()->getRequest();
+
+    return sprintf(
+      "%s %s\n%s",
+      $request->getMethod(),
+      $request->getUrl(),
+      "    ".str_replace("\n", "\n    ", json_encode(
+        $request->getFileParams()->getArrayCopy()
+          + $request->getBodyParams()->getArrayCopy(),
+        JSON_PRETTY_PRINT)));
+  }
+
   /**
    * @return string
    */
@@ -66,11 +83,13 @@ class PHPUnitRequestExceptionWrapper
 
     $e = $this->getWrappedException();
 
-    $string .= "\n  HTTP status Code: ".$e->getHttpStatusCode()."\n"
-    ."  Code: ".$e->getCode()."\n"
-    ."  Error Subcode: ".$e->getErrorSubcode()."\n"
-    ."  Error User Title: ".$e->getErrorUserTitle()."\n"
-    ."  Error User Message: ".$e->getErrorUserMessage()."\n";
+    $string .= "\n  Request: ".$this->requestToString($e)."\n"
+      ."  HTTP status Code: ".$e->getHttpStatusCode()."\n"
+      ."  Is transient: ".($e->isTransient() ? 'true' : 'false')."\n"
+      ."  Code: ".$e->getCode()."\n"
+      ."  Error Subcode: ".$e->getErrorSubcode()."\n"
+      ."  Error User Title: ".$e->getErrorUserTitle()."\n"
+      ."  Error User Message: ".$e->getErrorUserMessage()."\n";
 
     if ($e->getErrorBlameFieldSpecs()) {
       $string .= "  Error Blame Fields: ".$this->blameFieldSpecsToString()."\n";

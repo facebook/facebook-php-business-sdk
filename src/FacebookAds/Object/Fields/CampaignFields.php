@@ -42,4 +42,5 @@ class CampaignFields extends AbstractArchivableCrudObjectFields {
   const START_TIME = 'start_time';
   const STOP_TIME = 'stop_time';
   const UPDATED_TIME = 'updated_time';
+  const RECOMMENDATIONS = 'recommendations';
 }
