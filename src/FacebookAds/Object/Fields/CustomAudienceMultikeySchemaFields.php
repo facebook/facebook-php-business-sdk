@@ -31,6 +31,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class CustomAudienceMultikeySchemaFields extends AbstractEnum {
 
+  const EXTERN_ID = 'EXTERN_ID';
   const EMAIL = 'EMAIL';
   const PHONE = 'PHONE';
   const GENDER = 'GEN';
@@ -44,4 +45,5 @@ class CustomAudienceMultikeySchemaFields extends AbstractEnum {
   const STATE = 'ST';
   const ZIP = 'ZIP';
   const MADID = 'MADID';
+  const COUNTRY = 'COUNTRY';
 }

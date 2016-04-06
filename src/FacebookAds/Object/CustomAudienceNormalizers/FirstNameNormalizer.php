@@ -45,6 +45,6 @@ class FirstNameNormalizer implements ValueNormalizerInterface {
    * @return string
    */
   public function normalize($key, $key_value) {
-    return preg_replace('/[^a-zA-Z]/', '', strtolower(trim($key_value)));
+    return preg_replace('/[^a-z]/', '', strtolower(trim($key_value)));
   }
 }

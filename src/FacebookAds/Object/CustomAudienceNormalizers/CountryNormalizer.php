@@ -28,7 +28,7 @@ use FacebookAds\Object\CustomAudienceMultiKey;
 use FacebookAds\Object\Fields\CustomAudienceMultikeySchemaFields;
 use FacebookAds\Object\CustomAudienceNormalizers\ValueNormalizerInterface;
 
-class LastNameNormalizer implements ValueNormalizerInterface {
+class CountryNormalizer implements ValueNormalizerInterface {
 
   /**
    * @param string $key
@@ -36,7 +36,7 @@ class LastNameNormalizer implements ValueNormalizerInterface {
    * @return boolean
    */
   public function shouldNormalize($key, $key_value) {
-    return $key === CustomAudienceMultikeySchemaFields::LAST_NAME;
+    return $key === CustomAudienceMultikeySchemaFields::COUNTRY;
   }
 
   /**
@@ -45,6 +45,9 @@ class LastNameNormalizer implements ValueNormalizerInterface {
    * @return string
    */
   public function normalize($key, $key_value) {
-    return preg_replace('/[^a-z]/', '', strtolower(trim($key_value)));
+    return substr(
+      preg_replace('/[^a-z]/', '', strtolower(trim($key_value))),
+      0,
+      2);
   }
 }

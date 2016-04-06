@@ -74,6 +74,7 @@ class CustomAudienceMultiKey extends AbstractCrudObject {
         new CustomAudienceNormalizers\StateNormalizer(),
         new CustomAudienceNormalizers\CityNormalizer(),
         new CustomAudienceNormalizers\ZipNormalizer(),
+        new CustomAudienceNormalizers\CountryNormalizer(),
       ));
     }
     return $this->normalizers;
@@ -158,9 +159,11 @@ class CustomAudienceMultiKey extends AbstractCrudObject {
           break;
         }
         foreach ($user as $index => &$key_value) {
+          $key = $types[$index];
           foreach ($normalizers as $normalizer) {
-            if ($normalizer->shouldNormalize($types[$index], $key_value)) {
-              $key_value = $normalizer->normalize($types[$index], $key_value);
+            if ($key !== CustomAudienceMultikeySchemaFields::EXTERN_ID &&
+                $normalizer->shouldNormalize($key, $key_value)) {
+              $key_value = $normalizer->normalize($key, $key_value);
             }
           }
         }

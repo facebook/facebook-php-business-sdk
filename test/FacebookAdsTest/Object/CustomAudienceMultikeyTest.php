@@ -32,6 +32,36 @@ use FacebookAds\Object\Values\CustomAudienceTypes;
 
 class CustomAudienceMultikeyTest extends AbstractCrudObjectTestCase {
 
+  protected $customaudience;
+
+  public function setup() {
+    parent::setup();
+    $ca = new CustomAudienceMultiKey(null, $this->getConfig()->accountId);
+    $ca->{CustomAudienceFields::NAME} = $this->getConfig()->testRunId;
+    $ca->{CustomAudienceFields::SUBTYPE} = CustomAudienceSubtypes::CUSTOM;
+    $ca->create();
+    $this->customaudience = $ca;
+  }
+
+  public function tearDown() {
+    if ($this->customaudience) {
+      $this->customaudience->delete();
+    }
+  }
+
+  private function checkServerResponse(
+    CustomAudienceMultiKey $ca,
+    array $users,
+    array $schema,
+    $is_hashed,
+    $is_normalized) {
+    $add = $ca->addUsers($users, $schema, $is_hashed, $is_normalized);
+    $this->assertClusterChangesResponse($ca, $users, $add);
+    $remove = $ca->removeUsers($users, $schema, $is_hashed, $is_normalized);
+    $this->assertClusterChangesResponse($ca, $users, $remove);
+  }
+
+
   protected function assertClusterChangesResponse(
     CustomAudienceMultiKey $ca, array $users, $response) {
 
@@ -47,28 +77,44 @@ class CustomAudienceMultikeyTest extends AbstractCrudObjectTestCase {
   }
 
   public function testMultikeyCustomAudiences() {
-    $ca = new CustomAudienceMultiKey(null, $this->getConfig()->accountId);
-    $ca->{CustomAudienceFields::NAME} = $this->getConfig()->testRunId;
-    $ca->{CustomAudienceFields::SUBTYPE} = CustomAudienceSubtypes::CUSTOM;
-    $ca->create();
-
     $users = array(
-      array('fname', 'lname', 'someone@example.com'),
-      array('fname_new', 'lname_new', 'someone_new@example.com'),
+      array('abc123def', 'fname', 'lname', 'someone@example.com'),
+      array('abc234def', 'fname_new', 'lname_new', 'someone_new@example.com'),
     );
     $schema = array(
+      CustomAudienceMultikeySchemaFields::EXTERN_ID,
       CustomAudienceMultikeySchemaFields::FIRST_NAME,
       CustomAudienceMultikeySchemaFields::LAST_NAME,
       CustomAudienceMultikeySchemaFields::EMAIL,
     );
     $is_hashed = false;
     $is_normalized = false;
-    $add = $ca->addUsers($users, $schema, $is_hashed, $is_normalized);
-    $this->assertClusterChangesResponse($ca, $users, $add);
-
-    $remove = $ca->removeUsers($users, $schema, $is_hashed, $is_normalized);
-    $this->assertClusterChangesResponse($ca, $users, $remove);
-
-    $ca->delete();
+    $this->checkServerResponse(
+      $this->customaudience,
+      $users,
+      $schema,
+      $is_hashed,
+      $is_normalized);
   }
+
+  public function testSinglekeyExternIDCustomAudiences() {
+    $users = array(
+      array('abc123def'),
+      array('abc234def'),
+      array('abc345def'),
+      array('abc456def'),
+    );
+    $schema = array(
+      CustomAudienceMultikeySchemaFields::EXTERN_ID,
+    );
+    $is_hashed = false;
+    $is_normalized = false;
+    $this->checkServerResponse(
+      $this->customaudience,
+      $users,
+      $schema,
+      $is_hashed,
+      $is_normalized);
+  }
+
 }
