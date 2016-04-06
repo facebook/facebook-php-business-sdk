@@ -31,7 +31,9 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class LeadFields extends AbstractEnum {
 
-  const ADGROUP_ID = 'adgroup_id';
+  const AD_ID = 'ad_id';
+  const ADSET_ID = 'adset_id';
+  const CAMPAIGN_ID = 'campaign_id';
   const CREATED_TIME = 'created_time';
   const FIELD_DATA = 'field_data';
   const FORM_ID = 'form_id';
