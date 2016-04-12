@@ -223,7 +223,6 @@ class DynamicProductAdsAdvertTest extends AbstractCrudObjectTestCase {
       TemplateDataFields::LINK => 'http://www.example.com/',
       TemplateDataFields::MESSAGE => 'Test DPA Ad Message',
       TemplateDataFields::NAME => '{{product.name | titleize}}',
-      TemplateDataFields::MAX_PRODUCT_COUNT => 3,
       TemplateDataFields::CALL_TO_ACTION => array(
         'type' => CallToActionTypes::SHOP_NOW
       ),
