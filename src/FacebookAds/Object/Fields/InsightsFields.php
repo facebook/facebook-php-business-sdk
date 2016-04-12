@@ -40,7 +40,6 @@ class InsightsFields extends AbstractEnum {
   const AD_NAME = 'ad_name';
   const ADSET_ID = 'adset_id';
   const ADSET_NAME = 'adset_name';
-  const AGE = 'age';
   const APP_STORE_CLICKS = 'app_store_clicks';
   const BUYING_TYPE = 'buying_type';
   const CALL_TO_ACTION_CLICKS = 'call_to_action_clicks';
@@ -54,7 +53,6 @@ class InsightsFields extends AbstractEnum {
   const COST_PER_TOTAL_ACTION = 'cost_per_total_action';
   const COST_PER_UNIQUE_CLICK = 'cost_per_unique_click';
   const COST_PER_UNIQUE_ACTION_TYPE = 'cost_per_unique_action_type';
-  const COUNTRY = 'country';
   const CPM = 'cpm';
   const CPP = 'cpp';
   const CTR = 'ctr';
@@ -72,23 +70,13 @@ class InsightsFields extends AbstractEnum {
   const ESTIMATED_AD_RECALL_RATE_UPPPER_BOUND
       = 'estimated_ad_recall_rate_upper_bound';
   const FREQUENCY = 'frequency';
-  const FREQUENCY_VALUE = 'frequency_value';
-  const GENDER = 'gender';
-  const HOURLY_STATS_AGGREGATED_BY_ADVERTISER_TIME_ZONE
-      = 'hourly_stats_aggregated_by_advertiser_time_zone';
-  const HOURLY_STATS_AGGREGATED_BY_AUDIENCE_TIME_ZONE
-      = 'hourly_stats_aggregated_by_audience_time_zone';
   const IMPRESSIONS = 'impressions';
-  const IMPRESSION_DEVICE = 'impression_device';
   const INLINE_LINK_CLICKS = 'inline_link_clicks';
   const INLINE_POST_ENGAGEMENT = 'inline_post_engagement';
   const NEWSFEED_AVG_POSITION = 'newsfeed_avg_position';
   const NEWSFEED_CLICKS = 'newsfeed_clicks';
   const NEWSFEED_IMPRESSIONS = 'newsfeed_impresions';
-  const PLACEMENT = 'placement';
-  const PRODUCT_ID = 'product_id';
   const REACH = 'reach';
-  const REGION = 'region';
   const RELEVANCE_SCORE = 'relevance_score';
   const SOCIAL_CLICKS = 'social_clicks';
   const SOCIAL_IMPRESSIONS = 'social_impressions';

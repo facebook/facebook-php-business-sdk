@@ -33,9 +33,9 @@ class TemplateDataFields extends AbstractEnum {
 
   const CALL_TO_ACTION = 'call_to_action';
   const DESCRIPTION = 'description';
+  const FORCE_SINGLE_LINK = 'force_single_link';
   const LINK = 'link';
   const MESSAGE = 'message';
   const NAME = 'name';
-  const MAX_PRODUCT_COUNT = 'max_product_count';
   const PICTURE = 'picture';
 }
