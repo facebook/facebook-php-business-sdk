@@ -54,4 +54,7 @@ class AdSetFields extends AbstractArchivableCrudObjectFields {
   const PROMOTED_OBJECT = 'promoted_object';
   const ADLABELS = 'adlabels';
   const PRODUCT_AD_BEHAVIOR = 'product_ad_behavior';
+  
+  // required to make updates of AdSet-Status possible
+  const STATUS = 'status';
 }
