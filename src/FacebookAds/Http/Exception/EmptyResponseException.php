@@ -24,16 +24,19 @@
 
 namespace FacebookAds\Http\Exception;
 
+use FacebookAds\Http\ResponseInterface;
+
 class EmptyResponseException extends RequestException {
 
   /**
-   * @param int $status_code
+   * @param ResponseInterface $response
    */
-  public function __construct($status_code) {
-    parent::__construct(array(
+  public function __construct(ResponseInterface $response) {
+    $content = array(
       'error' => array(
         'message' => 'Empty Response',
-      )
-    ), $status_code);
+      ));
+    $response->setBody(json_encode($content));
+    parent::__construct($response);
   }
 }
