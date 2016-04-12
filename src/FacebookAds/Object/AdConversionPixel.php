@@ -24,28 +24,28 @@
 
 namespace FacebookAds\Object;
 
-use FacebookAds\Object\Fields\AdConversionPixelFields;
+use FacebookAds\Object\Values\OffsitePixelTagValues;
 
-class AdConversionPixel extends AbstractCrudObject {
+/**
+ * @deprecated use OffsitePixel instead
+ */
+class AdConversionPixel extends OffsitePixel {
 
-  const CHECKOUT = 'checkout';
-  const REGISTRATION = 'registration';
-  const LEAD = 'lead';
-  const KEY_PAGE_VIEW = 'key_page_view';
-  const ADD_TO_CART = 'add_to_cart';
-  const OTHER = 'other';
+  // @deprecated use OffsitePixelTagValues instead
+  const CHECKOUT = OffsitePixelTagValues::CHECKOUT;
 
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'offsitepixels';
-  }
+  // @deprecated use OffsitePixelTagValues instead
+  const REGISTRATION = OffsitePixelTagValues::REGISTRATION;
 
-  /**
-   * @return AdConversionPixelFields
-   */
-  public static function getFieldsEnum() {
-    return AdConversionPixelFields::getInstance();
-  }
+  // @deprecated use OffsitePixelTagValues instead
+  const LEAD = OffsitePixelTagValues::LEAD;
+
+  // @deprecated use OffsitePixelTagValues instead
+  const KEY_PAGE_VIEW = OffsitePixelTagValues::KEY_PAGE_VIEW;
+
+  // @deprecated use OffsitePixelTagValues instead
+  const ADD_TO_CART = OffsitePixelTagValues::ADD_TO_CART;
+
+  // @deprecated use OffsitePixelTagValues instead
+  const OTHER = OffsitePixelTagValues::OTHER;
 }

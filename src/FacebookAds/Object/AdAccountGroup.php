@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -24,27 +24,28 @@
 
 namespace FacebookAds\Object;
 
-use FacebookAds\Api;
+use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdAccountGroupFields;
-use FacebookAds\Object\Traits\FieldValidation;
+use FacebookAds\Api;
+
+/**
+ * This class is auto-genereated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
+ */
 
 class AdAccountGroup extends AbstractCrudObject {
-  use FieldValidation;
 
-  /**
-   * @param string $id Optional (do not set for new objects)
-   * @param string $parent_id Parent ID for AdAccountGroup is always "me"
-   * @param Api $api The Api instance this object should use to make calls
-   */
-  public function __construct($id = null, $parent_id = null, Api $api = null) {
-    parent::__construct($id, 'me', $api);
+  public function __construct($id = null, $parent_id = 'me', Api $api = null) {
+    parent::__construct($id, $parent_id, $api);
   }
 
-  /**
-   * @return string
-   */
   protected function getEndpoint() {
     return 'adaccountgroups';
   }
@@ -56,66 +57,241 @@ class AdAccountGroup extends AbstractCrudObject {
     return AdAccountGroupFields::getInstance();
   }
 
-  /**
-   * Read objects from a connection
-   *
-   * @param string $prototype_class
-   * @param array $fields Fields to request
-   * @param array $params Additional filters for the reading
-   * @param string $endpoint
-   * @return array
-   */
-  protected function getConnectedObjects(
-    $prototype_class,
-    array $fields = array(),
-    array $params = array(),
-    $endpoint = null) {
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
 
-    $response = $this->fetchConnection(
-      $fields, $params, $prototype_class, $endpoint);
 
-    $result = array();
-    $response_data = $response->getContent();
-    if (!empty($response_data)) {
-      foreach (array_shift($response_data) as $data) {
-        /** @var AbstractObject $object */
-        $object = new $prototype_class(null, null, $this->getApi());
-        $object->setDataWithoutValidation((array) $data);
-        $result[] = $object;
-      }
-    }
+  public function deleteAdAccounts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
 
-    return $result;
+    $param_types = array(
+      'account_id' => 'string',
+      'id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/adaccounts',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getAdAccounts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/adaccounts',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createAdAccount(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'account_ids' => 'list<string>',
+      'id' => 'string',
+      'redownload' => 'bool',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/adaccounts',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function deleteUsers(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'id' => 'string',
+      'redownload' => 'bool',
+      'uid' => 'int',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/users',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createUser(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'account_group_roles' => 'list<map>',
+      'id' => 'string',
+      'redownload' => 'bool',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/users',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function deleteSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/',
+      new AbstractCrudObject(),
+      'NODE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new AdAccountGroup(),
+      'NODE',
+      AdAccountGroup::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'accounts' => 'map',
+      'id' => 'string',
+      'name' => 'string',
+      'redownload' => 'bool',
+      'status' => 'unsigned int',
+      'users' => 'map',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/',
+      new AbstractCrudObject(),
+      'NODE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getUsers(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/users',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
   }
 
   /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
+   * @deprecated use createUser instead
    */
-  public function getUsers(array $fields = array(), array $params = array()) {
-    return $this->getConnectedObjects(
-      AdAccountGroupUser::className(), $fields, $params, 'users');
-  }
-
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getAdAccounts(
-    array $fields = array(), array $params = array()) {
-    return $this->getConnectedObjects(
-      AdAccountGroupAccount::className(), $fields, $params, 'adaccounts');
-  }
-
-  /**
-   * Add users to the AdAccountGroup.
-   *
-   * @param array $roles list of user's roles indexed by user id
-   * @return bool
-   */
-  public function addUsers(array $roles) {
+  public function addUsers(array $roles, $pending = false) {
     $params = array();
     foreach ($roles as $uid => $role) {
       $params[] = array(
@@ -124,19 +300,13 @@ class AdAccountGroup extends AbstractCrudObject {
       );
     }
 
-    return $this->getApi()->call(
-      '/'.$this->assureId().'/users',
-      RequestInterface::METHOD_POST,
-      array('account_group_roles' => $params))->getContent();
+    return $this->createUser(array(), array('account_group_roles' => $params), $pending);
   }
 
   /**
-   * Update users in the AdAccountGroup.
-   *
-   * @param array $roles list of user's roles indexed by user id
-   * @return bool
+   * @deprecated use createUser instead
    */
-  public function updateUsers(array $roles) {
+  public function updateUsers(array $roles, $pending = false) {
     $params = array();
     foreach ($roles as $uid => $role) {
       $params[] = array(
@@ -145,46 +315,27 @@ class AdAccountGroup extends AbstractCrudObject {
       );
     }
 
-    return $this->getApi()->call(
-      '/'.$this->assureId().'/users',
-      RequestInterface::METHOD_POST,
-      array('account_group_roles' => $params))->getContent();
+    return $this->createUser(array(), array('account_group_roles' => $params), $pending);
   }
 
   /**
-   * Delete user from AdAccountGroup
-   *
-   * @param $user_id
-   * @return bool
+   * @deprecated use deleteUsers instead
    */
-  public function removeUser($user_id) {
-    return $this->getApi()->call(
-      '/'.$this->assureId().'/users/'.$user_id,
-      RequestInterface::METHOD_DELETE)->getContent();
+  public function removeUser($user_id, $pending = false) {
+    return $this->deleteUsers(array(), array('uid' => $user_id), $pending);
   }
 
   /**
-   * Add ad account to the AdAccountGroup.
-   *
-   * @param array $account_ids list of ad account ids to be added
-   * @return bool
+   * @deprecated use createAdAccount instead
    */
-  public function addAdAccounts(array $account_ids) {
-    return $this->getApi()->call(
-      '/'.$this->assureId().'/adaccounts',
-      RequestInterface::METHOD_POST,
-      array('account_ids' => $account_ids))->getContent();
+  public function addAdAccounts(array $account_ids, $pending = false) {
+    return $this->createAdAccount(array(), array('account_ids' => $account_ids), $pending);
   }
 
   /**
-   * Delete ad account from AdAccountGroup
-   *
-   * @param $account_id
-   * @return bool
+   * @deprecated use deleteAdAccounts instead
    */
-  public function removeAdAccount($account_id) {
-    return $this->getApi()->call(
-      '/'.$this->assureId().'/adaccounts/'.$account_id,
-      RequestInterface::METHOD_DELETE)->getContent();
+  public function removeAdAccount($account_id, $pending = false) {
+    return $this->deleteAdAccounts(array(), array('account_id' => $account_id), $pending);
   }
 }

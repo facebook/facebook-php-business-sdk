@@ -24,18 +24,11 @@
 
 namespace FacebookAds\Object\Fields\ObjectStory;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\Object\Fields\AdCreativeLinkDataFields;
 
 /**
+ * @deprecated use AdCreativeLinkDataFields instead
+ *
  * @method static TemplateDataFields getInstance()
  */
-class TemplateDataFields extends AbstractEnum {
-
-  const CALL_TO_ACTION = 'call_to_action';
-  const DESCRIPTION = 'description';
-  const FORCE_SINGLE_LINK = 'force_single_link';
-  const LINK = 'link';
-  const MESSAGE = 'message';
-  const NAME = 'name';
-  const PICTURE = 'picture';
-}
+class TemplateDataFields extends AdCreativeLinkDataFields {}

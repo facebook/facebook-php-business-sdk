@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -27,11 +27,29 @@ namespace FacebookAds\Object\Fields;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * @method static ProductSetFields getInstance()
+ * This class is auto-genereated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
  */
+
 class ProductSetFields extends AbstractEnum {
 
+  const FILTER = 'filter';
   const ID = 'id';
   const NAME = 'name';
-  const FILTER = 'filter';
+  const PRODUCT_CATALOG = 'product_catalog';
+  const PRODUCT_COUNT = 'product_count';
+
+  public function getFieldTypes() {
+    return array(
+      'filter' => 'string',
+      'id' => 'string',
+      'name' => 'string',
+      'product_catalog' => 'ProductCatalog',
+      'product_count' => 'unsigned int',
+    );
+  }
 }

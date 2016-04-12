@@ -24,17 +24,9 @@
 
 namespace FacebookAds\Object\ObjectStory;
 
-use FacebookAds\Object\AbstractObject;
-use FacebookAds\Object\Traits\FieldValidation;
-use FacebookAds\Object\Fields\ObjectStory\OfferDataFields;
+use FacebookAds\Object\AdCreativeOfferData;
 
-class OfferData extends AbstractObject{
-  use FieldValidation;
-
-  /**
-   * @return OfferDataFields
-   */
-  public static function getFieldsEnum() {
-    return OfferDataFields::getInstance();
-  }
-}
+/**
+ * @deprecated use AdCreativeOfferData instead
+ */
+class OfferData extends AdCreativeOfferData {}

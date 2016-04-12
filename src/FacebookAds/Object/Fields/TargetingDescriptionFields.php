@@ -24,13 +24,9 @@
 
 namespace FacebookAds\Object\Fields;
 
-use FacebookAds\Enum\AbstractEnum;
-
 /**
+ * @deprecated use TargetingSentenceLineFields instead
+ *
  * @method static TargetingDescriptionFields getInstance()
  */
-class TargetingDescriptionFields extends AbstractEnum {
-
-  const ID = 'id';
-  const TARGETING_SENTENCE_LINES = 'targetingsentencelines';
-}
+class TargetingDescriptionFields extends TargetingSentenceLineFields {}

@@ -24,17 +24,9 @@
 
 namespace FacebookAds\Object\ObjectStory;
 
-use FacebookAds\Object\AbstractObject;
-use FacebookAds\Object\Fields\ObjectStory\LinkDataFields;
-use FacebookAds\Object\Traits\FieldValidation;
+use FacebookAds\Object\AdCreativeLinkData;
 
-class LinkData extends AbstractObject {
-  use FieldValidation;
-
-  /**
-   * @return LinkDataFields
-   */
-  public static function getFieldsEnum() {
-    return LinkDataFields::getInstance();
-  }
-}
+/**
+ * @deprecated use AdCreativeLinkData instead
+ */
+class LinkData extends AdCreativeLinkData {}

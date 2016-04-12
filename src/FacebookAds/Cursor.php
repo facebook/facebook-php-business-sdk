@@ -30,11 +30,15 @@ use FacebookAds\Http\Util;
 use FacebookAds\Object\AbstractObject;
 
 class Cursor implements \Iterator, \Countable, \arrayaccess {
-
   /**
    * @var ResponseInterface
    */
   protected $response;
+
+  /**
+   * @var Api
+   */
+  protected $api;
 
   /**
    * @var AbstractObject[]
@@ -72,10 +76,12 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   protected $useImplicitFectch;
 
   public function __construct(
-    ResponseInterface $response, AbstractObject $object_prototype) {
-
+    ResponseInterface $response,
+    AbstractObject $object_prototype,
+    Api $api = null) {
     $this->response = $response;
     $this->objectPrototype = $object_prototype;
+    $this->api = $api !== null ? $api : Api::instance();
     $this->appendResponse($response);
   }
 
@@ -86,7 +92,9 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   protected function createObject(array $object_data) {
     $object = clone $this->objectPrototype;
     $object->setDataWithoutValidation($object_data);
-
+    if ($object instanceof AbstractCrudObject) {
+      $object->setApi($this->api);
+    }
     return $object;
   }
 
@@ -97,11 +105,54 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
    */
   protected function assureResponseData(ResponseInterface $response) {
     $content = $response->getContent();
-    if (!isset($content['data']) || !is_array($content['data'])) {
-      throw new \InvalidArgumentException("Malformed response data");
+
+    // First, check if the content contains data
+    if (isset($content['data'])) {
+      $data = $content['data'];
+
+      // If data is an object (represented by a map instead of a pure list),
+      // wrap the object into an array
+      if (array_keys($data) !== range(0, count($data) - 1)) {
+        $data = array($data);
+      }
+      return $data;
     }
 
-    return $content['data'];
+    // Second, check if the content contains targetingsentencelines
+    if (isset($content['targetingsentencelines'])) {
+      return $content['targetingsentencelines'];
+    }
+
+    // Third, check if the content is an array of objects indexed by id
+    $is_id_indexed_array = true;
+    $objects = array();
+    foreach ($content as $key => $value) {
+      if ($key === '__fb_trace_id__') {
+        continue;
+      }
+
+      if ($value !== null &&
+          array_keys($value) !== range(0, count($value) - 1) &&
+          isset($value['id']) &&
+          $value['id'] !== null &&
+          $value['id'] === $key) {
+        $objects[] = $value;
+      } else {
+        $is_id_indexed_array = false;
+        break;
+      }
+    }
+    if ($is_id_indexed_array) {
+      return $objects;
+    }
+
+    // Fourth, check if the content itself is an object (represented by a map
+    // instead of a pure list)
+    if (array_keys($content) !== range(0, count($content) - 1)) {
+      return array($content);
+    }
+
+    throw new \InvalidArgumentException("Malformed response data");
   }
 
   /**
@@ -181,7 +232,6 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
    */
   public function getBefore() {
     $content = $this->getLastResponse()->getContent();
-
     return isset($content['paging']['cursors']['before'])
       ? $content['paging']['cursors']['before']
       : null;
@@ -192,7 +242,6 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
    */
   public function getAfter() {
     $content = $this->getLastResponse()->getContent();
-
     return isset($content['paging']['cursors']['after'])
       ? $content['paging']['cursors']['after']
       : null;

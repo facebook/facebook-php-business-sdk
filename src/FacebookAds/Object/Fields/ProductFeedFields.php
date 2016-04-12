@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -27,22 +27,45 @@ namespace FacebookAds\Object\Fields;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * @method static ProductFeedFields getInstance()
+ * This class is auto-genereated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
  */
+
 class ProductFeedFields extends AbstractEnum {
 
-  const ID = 'id';
   const COUNTRY = 'country';
   const CREATED_TIME = 'created_time';
+  const DEFAULT_CURRENCY = 'default_currency';
   const DELETION_ENABLED = 'deletion_enabled';
   const DELIMITER = 'delimiter';
   const ENCODING = 'encoding';
   const FILE_NAME = 'file_name';
-  const FORMAT = 'format';
-  const NAME = 'name';
+  const ID = 'id';
   const LATEST_UPLOAD = 'latest_upload';
-  const QUOTES = 'quotes';
-  const QUOTED_FIELDS = 'quoted_fields';
+  const NAME = 'name';
   const PRODUCT_COUNT = 'product_count';
+  const QUOTED_FIELDS_MODE = 'quoted_fields_mode';
   const SCHEDULE = 'schedule';
+
+  public function getFieldTypes() {
+    return array(
+      'country' => 'string',
+      'created_time' => 'datetime',
+      'default_currency' => 'string',
+      'deletion_enabled' => 'bool',
+      'delimiter' => 'Delimiter',
+      'encoding' => 'Encoding',
+      'file_name' => 'string',
+      'id' => 'string',
+      'latest_upload' => 'ProductFeedUpload',
+      'name' => 'string',
+      'product_count' => 'int',
+      'quoted_fields_mode' => 'QuotedFieldsMode',
+      'schedule' => 'ProductFeedSchedule',
+    );
+  }
 }

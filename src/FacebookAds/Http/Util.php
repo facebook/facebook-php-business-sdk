@@ -40,7 +40,7 @@ abstract class Util {
     $pairs = explode('&', $query_string);
     foreach ($pairs as $pair) {
       list($key, $value) = explode('=', $pair);
-      $query[$key] = urldecode($value);
+      $query[$key] = $value;
     }
 
     return $query;

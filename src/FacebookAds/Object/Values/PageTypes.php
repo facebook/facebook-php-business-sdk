@@ -33,7 +33,6 @@ class PageTypes extends AbstractEnum {
 
   const DESKTOP_FEED = 'desktopfeed';
   const HOME = 'home';
-  const INSTAGRAM_STREAM = 'instagramstream';
   const LEGACY_EXTERNAL = 'legacyexternal';
   const LOGOUT = 'logout';
   const MOBILE_EXTERNAL = 'mobileexternal';

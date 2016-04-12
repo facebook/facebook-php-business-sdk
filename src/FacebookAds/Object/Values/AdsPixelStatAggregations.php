@@ -24,19 +24,9 @@
 
 namespace FacebookAds\Object\Values;
 
-use FacebookAds\Enum\AbstractEnum;
-
 /**
+ * @deprecated use AdsPixelStatsResultAggregationValues instead
+ *
  * @method static AdsPixelStatAggregations getInstance()
  */
-class AdsPixelStatAggregations extends AbstractEnum {
-
-  const BROWSER_TYPE = 'browser_type';
-  const CUSTOM_DATA_FIELD = 'custom_data_field';
-  const DEVICE_TYPE = 'device_type';
-  const DEVICE_OS = 'device_os';
-  const EVENT = 'event';
-  const HOST = 'host';
-  const PIXEL_FIRE = 'pixel_fire';
-  const URL = 'url';
-}
+class AdsPixelStatAggregations extends AdsPixelStatsResultAggregationValues {}

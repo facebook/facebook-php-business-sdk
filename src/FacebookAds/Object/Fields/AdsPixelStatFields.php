@@ -24,14 +24,9 @@
 
 namespace FacebookAds\Object\Fields;
 
-use FacebookAds\Enum\AbstractEnum;
-
 /**
+ * @deprecated use AdsPixelStatsFields instead
+ *
  * @method static AdsPixelStatFields getInstance()
  */
-class AdsPixelStatFields extends AbstractEnum {
-
-  const AGGREGATION = 'aggregation';
-  const DATA = 'data';
-  const TIMESTAMP = 'timestamps';
-}
+class AdsPixelStatFields extends AdsPixelStatsFields {}

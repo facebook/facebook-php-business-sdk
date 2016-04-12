@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -24,20 +24,23 @@
 
 namespace FacebookAds\Object;
 
+use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\LeadgenFormFields;
-use FacebookAds\Object\Traits\CannotCreate;
-use FacebookAds\Object\Traits\CannotDelete;
-use FacebookAds\Object\Traits\CannotUpdate;
+
+/**
+ * This class is auto-genereated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
+ */
 
 class LeadgenForm extends AbstractCrudObject {
-  use CannotCreate;
-  use CannotUpdate;
-  use CannotDelete;
 
-  /**
-   * @return string
-   */
   protected function getEndpoint() {
     return 'leadgen_forms';
   }
@@ -49,14 +52,56 @@ class LeadgenForm extends AbstractCrudObject {
     return LeadgenFormFields::getInstance();
   }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getLeads(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      Lead::className(), $fields, $params);
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
   }
+
+
+  public function getLeads(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/leads',
+      new Lead(),
+      'EDGE',
+      Lead::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new LeadgenForm(),
+      'NODE',
+      LeadgenForm::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
 }

@@ -24,24 +24,9 @@
 
 namespace FacebookAds\Object\Values;
 
-use FacebookAds\Enum\AbstractEnum;
-
 /**
+ * @deprecated use AdsInsightsBreakdownsValues instead
+ *
  * @method static InsightsBreakdowns getInstance()
  */
-class InsightsBreakdowns extends AbstractEnum {
-
-  const AGE = 'age';
-  const COUNTRY = 'country';
-  const FREQUENCY_VALUE = 'frequency_value';
-  const GENDER = 'gender';
-  const HOURLY_STATS_AGGREGATED_BY_ADVERTISER_TIME_ZONE =
-    'hourly_stats_aggregated_by_advertiser_time_zone';
-  const HOURLY_STATS_AGGREGATED_BY_AUDIENCE_TIME_ZONE =
-    'hourly_stats_aggregated_by_audience_time_zone';
-  const IMPRESSION_DEVICE = 'impression_device';
-  const PLACEMENT = 'placement';
-  const PLACE_PAGE_ID = 'place_page_id';
-  const PRODUCT_ID = 'product_id';
-  const REGION = 'region';
-}
+class InsightsBreakdowns extends AdsInsightsBreakdownsValues {}

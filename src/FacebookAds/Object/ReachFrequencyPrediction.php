@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -24,27 +24,24 @@
 
 namespace FacebookAds\Object;
 
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ReachFrequencyPredictionFields;
-use FacebookAds\Object\Values\ReachFrequencyPredictionActions;
-use FacebookAds\Object\Traits\FieldValidation;
+use FacebookAds\Object\Values\ReachFrequencyPredictionStatusValues;
+
+/**
+ * This class is auto-genereated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
+ */
 
 class ReachFrequencyPrediction extends AbstractCrudObject {
-  use FieldValidation;
 
-  /**
-   * @var int
-   */
-  const PREDICTION_MODE_BUDGET = 0;
-
-  /**
-   * @var int
-   */
-  const PREDICTION_MODE_REACH = 1;
-
-  /**
-   * @return string
-   */
   protected function getEndpoint() {
     return 'reachfrequencypredictions';
   }
@@ -56,52 +53,34 @@ class ReachFrequencyPrediction extends AbstractCrudObject {
     return ReachFrequencyPredictionFields::getInstance();
   }
 
-  /**
-   * @param int $preciction_to_release
-   * @param int $reach
-   * @param int $budget
-   * @param int $impression
-   * @return ReachFrequencyPrediction
-   */
-  public function reserve(
-    $preciction_to_release = null,
-    $reach = null,
-    $budget = null,
-    $impression = null) {
-    $params = array_filter(array(
-      ReachFrequencyPredictionFields::PREDICTION_ID => $this->assureId(),
-      ReachFrequencyPredictionFields::PREDICTION_ID_TO_RELEASE
-        => $preciction_to_release,
-      ReachFrequencyPredictionFields::BUDGET => $budget,
-      ReachFrequencyPredictionFields::REACH => $reach,
-      ReachFrequencyPredictionFields::IMPRESSION => $impression,
-      ReachFrequencyPredictionFields::ACTION
-        => ReachFrequencyPredictionActions::RESERVE,
-    ));
-
-    $response = $this->getApi()->call(
-      '/'.$this->assureParentId().'/'.$this->getEndpoint(),
-      RequestInterface::METHOD_POST,
-      $params);
-
-    return new self($response->getContent()['id'], $this->assureParentId());
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    $ref_enums['Status'] = ReachFrequencyPredictionStatusValues::getInstance()->getValues();
+    return $ref_enums;
   }
 
-  /**
-   * @return ReachFrequencyPrediction
-   */
-  public function cancel() {
-    $params = array(
-      ReachFrequencyPredictionFields::PREDICTION_ID => $this->assureId(),
-      ReachFrequencyPredictionFields::ACTION
-        => ReachFrequencyPredictionActions::CANCEL,
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
     );
 
-    $this->getApi()->call(
-      '/'.$this->assureParentId().'/'.$this->getEndpoint(),
-      RequestInterface::METHOD_POST,
-      $params);
-
-    return $this;
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new ReachFrequencyPrediction(),
+      'NODE',
+      ReachFrequencyPrediction::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
   }
+
 }

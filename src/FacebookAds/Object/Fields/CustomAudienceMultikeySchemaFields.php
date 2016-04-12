@@ -27,11 +27,10 @@ namespace FacebookAds\Object\Fields;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * @method static LookalikeAudienceSpecFields getInstance()
+ * @method static CustomAudienceMultikeySchemaFields getInstance()
  */
 class CustomAudienceMultikeySchemaFields extends AbstractEnum {
 
-  const EXTERN_ID = 'EXTERN_ID';
   const EMAIL = 'EMAIL';
   const PHONE = 'PHONE';
   const GENDER = 'GEN';
@@ -45,5 +44,4 @@ class CustomAudienceMultikeySchemaFields extends AbstractEnum {
   const STATE = 'ST';
   const ZIP = 'ZIP';
   const MADID = 'MADID';
-  const COUNTRY = 'COUNTRY';
 }

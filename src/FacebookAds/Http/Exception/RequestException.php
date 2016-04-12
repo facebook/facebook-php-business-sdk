@@ -134,7 +134,8 @@ class RequestException extends Exception {
     $error_data = static::getErrorData($response->getContent());
     if (in_array(
       $error_data['error_subcode'], array(458, 459, 460, 463, 464, 467))
-      || in_array($error_data['code'], array(102, 190))) {
+      || in_array($error_data['code'], array(100, 102, 190))
+      || $error_data['type'] === 'OAuthException') {
 
       return new AuthorizationException($response);
     } elseif (in_array($error_data['code'], array(1, 2))) {
@@ -151,6 +152,7 @@ class RequestException extends Exception {
 
       return new PermissionException($response);
     } else {
+
       return new self($response);
     }
   }

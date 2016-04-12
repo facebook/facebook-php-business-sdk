@@ -96,7 +96,6 @@ class CurlLogger implements LoggerInterface {
    */
   public function setJsonPrettyPrint($json_pretty_print) {
     $this->jsonPrettyPrint = $json_pretty_print;
-
     return $this;
   }
 
@@ -156,7 +155,6 @@ class CurlLogger implements LoggerInterface {
           ? $this->indent($value, 2)
           : $value,
         '\'');
-
       $chunks[$name] = sprintf(
         '-%s \'%s=%s%s\'',
         $this->getParamFlag($method, $value),
@@ -202,10 +200,8 @@ class CurlLogger implements LoggerInterface {
     if (array_key_exists($key, $array)) {
       $value = $array[$key];
       unset($array[$key]);
-
       return $value;
     } else {
-
       return null;
     }
   }

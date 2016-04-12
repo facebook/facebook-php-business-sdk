@@ -26,12 +26,8 @@ namespace FacebookAds\Object;
 
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\Object\Fields\SystemUserFields;
-use FacebookAds\Object\Traits\FieldValidation;
-use FacebookAds\Object\Traits\CannotDelete;
 
 class SystemUser extends AbstractCrudObject {
-  use FieldValidation;
-  use CannotDelete;
 
   /**
    * @return string

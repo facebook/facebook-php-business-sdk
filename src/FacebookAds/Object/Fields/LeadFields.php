@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -27,16 +27,45 @@ namespace FacebookAds\Object\Fields;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * @method static LeadFields getInstance()
+ * This class is auto-genereated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
  */
+
 class LeadFields extends AbstractEnum {
 
   const AD_ID = 'ad_id';
+  const AD_NAME = 'ad_name';
   const ADSET_ID = 'adset_id';
+  const ADSET_NAME = 'adset_name';
   const CAMPAIGN_ID = 'campaign_id';
+  const CAMPAIGN_NAME = 'campaign_name';
   const CREATED_TIME = 'created_time';
+  const CUSTOM_DISCLAIMER_RESPONSES = 'custom_disclaimer_responses';
   const FIELD_DATA = 'field_data';
   const FORM_ID = 'form_id';
   const ID = 'id';
+  const IS_ORGANIC = 'is_organic';
   const POST = 'post';
+
+  public function getFieldTypes() {
+    return array(
+      'ad_id' => 'string',
+      'ad_name' => 'string',
+      'adset_id' => 'string',
+      'adset_name' => 'string',
+      'campaign_id' => 'string',
+      'campaign_name' => 'string',
+      'created_time' => 'datetime',
+      'custom_disclaimer_responses' => 'list<Object>',
+      'field_data' => 'list<Object>',
+      'form_id' => 'string',
+      'id' => 'string',
+      'is_organic' => 'bool',
+      'post' => 'Object',
+    );
+  }
 }

@@ -24,17 +24,9 @@
 
 namespace FacebookAds\Object\ObjectStory;
 
-use FacebookAds\Object\AbstractObject;
-use FacebookAds\Object\Fields\ObjectStory\PhotoDataFields;
-use FacebookAds\Object\Traits\FieldValidation;
+use FacebookAds\Object\AdCreativePhotoData;
 
-class PhotoData extends AbstractObject{
-  use FieldValidation;
-
-  /**
-   * @return PhotoDataFields
-   */
-  public static function getFieldsEnum() {
-    return PhotoDataFields::getInstance();
-  }
-}
+/**
+ * @deprecated use AdCreativePhotoData instead
+ */
+class PhotoData extends AdCreativePhotoData {}

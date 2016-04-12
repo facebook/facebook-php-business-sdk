@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -27,13 +27,29 @@ namespace FacebookAds\Object\Fields;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * @method static ProductFeedUploadFields getInstance()
+ * This class is auto-genereated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
  */
+
 class ProductFeedUploadFields extends AbstractEnum {
 
-  const ID = 'id';
-  const START_TIME = 'start_time';
   const END_TIME = 'end_time';
+  const ID = 'id';
   const INPUT_METHOD = 'input_method';
+  const START_TIME = 'start_time';
   const URL = 'url';
+
+  public function getFieldTypes() {
+    return array(
+      'end_time' => 'datetime',
+      'id' => 'string',
+      'input_method' => 'InputMethod',
+      'start_time' => 'datetime',
+      'url' => 'string',
+    );
+  }
 }

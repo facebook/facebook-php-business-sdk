@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -27,43 +27,103 @@ namespace FacebookAds\Object\Fields;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * @method static ReachFrequencyPredictionFields getInstance()
+ * This class is auto-genereated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
  */
+
 class ReachFrequencyPredictionFields extends AbstractEnum {
 
-  const ID = 'id';
   const ACCOUNT_ID = 'account_id';
-  const ACTION = 'action';
-  const BUDGET = 'budget';
-  const BUYING_TYPE = 'buying_type';
+  const CAMPAIGN_GROUP_ID = 'campaign_group_id';
   const CAMPAIGN_ID = 'campaign_id';
-  const CAMPAIGN_TIME_START= 'campaign_time_start';
+  const CAMPAIGN_TIME_START = 'campaign_time_start';
   const CAMPAIGN_TIME_STOP = 'campaign_time_stop';
   const CURVE_BUDGET_REACH = 'curve_budget_reach';
   const DESTINATION_ID = 'destination_id';
-  const EXTERNAL_REACH = 'external_reach';
+  const EXPIRATION_TIME = 'expiration_time';
   const EXTERNAL_BUDGET = 'external_budget';
   const EXTERNAL_IMPRESSION = 'external_impression';
-  const EXTERNAL_MAXIMUM_REACH = 'external_maximum_reach';
-  const EXTERNAL_MAXIMUM_IMPRESSION = 'external_maximum_impression';
   const EXTERNAL_MAXIMUM_BUDGET = 'external_maximum_budget';
-  const EXTERNAL_MINIMUM_REACH = 'external_maximum_reach';
-  const EXTERNAL_MINIMUM_IMPRESSION = 'external_maximum_impression';
-  const EXTERNAL_MINIMUM_BUDGET = 'external_maximum_budget';
-  const END_TIME = 'end_time';
+  const EXTERNAL_MAXIMUM_IMPRESSION = 'external_maximum_impression';
+  const EXTERNAL_MAXIMUM_REACH = 'external_maximum_reach';
+  const EXTERNAL_MINIMUM_BUDGET = 'external_minimum_budget';
+  const EXTERNAL_MINIMUM_IMPRESSION = 'external_minimum_impression';
+  const EXTERNAL_MINIMUM_REACH = 'external_minimum_reach';
+  const EXTERNAL_REACH = 'external_reach';
   const FREQUENCY_CAP = 'frequency_cap';
-  const IMPRESSION = 'impression';
-  const PREDICTION_ID = 'rf_prediction_id';
-  const PREDICTION_ID_TO_RELEASE = 'rf_prediction_id_to_release';
-  const PREDICTION_ID_TO_SHARE = 'prediction_id_to_share';
+  const GRP_DMAS_AUDIENCE_SIZE = 'grp_dmas_audience_size';
+  const HOLDOUT_PERCENTAGE = 'holdout_percentage';
+  const ID = 'id';
+  const INSTAGRAM_DESTINATION_ID = 'instagram_destination_id';
+  const INTERVAL_FREQUENCY_CAP_RESET_PERIOD = 'interval_frequency_cap_reset_period';
+  const NAME = 'name';
   const PREDICTION_MODE = 'prediction_mode';
   const PREDICTION_PROGRESS = 'prediction_progress';
+  const RESERVATION_STATUS = 'reservation_status';
+  const STATUS = 'status';
+  const STORY_EVENT_TYPE = 'story_event_type';
   const TARGET_AUDIENCE_SIZE = 'target_audience_size';
   const TARGET_SPEC = 'target_spec';
   const TIME_CREATED = 'time_created';
+  const TIME_UPDATED = 'time_updated';
+  const BUDGET = 'budget';
+  const DESTINATION_IDS = 'destination_ids';
+  const END_TIME = 'end_time';
+  const NUM_CURVE_POINTS = 'num_curve_points';
   const OBJECTIVE = 'objective';
   const REACH = 'reach';
+  const RF_PREDICTION_ID_TO_SHARE = 'rf_prediction_id_to_share';
   const START_TIME = 'start_time';
-  const STATUS = 'status';
-  const STORY_EVENT_TYPE = 'story_event_type';
+  const STOP_TIME = 'stop_time';
+
+  public function getFieldTypes() {
+    return array(
+      'account_id' => 'int',
+      'campaign_group_id' => 'unsigned int',
+      'campaign_id' => 'string',
+      'campaign_time_start' => 'datetime',
+      'campaign_time_stop' => 'datetime',
+      'curve_budget_reach' => 'string',
+      'destination_id' => 'string',
+      'expiration_time' => 'datetime',
+      'external_budget' => 'int',
+      'external_impression' => 'unsigned int',
+      'external_maximum_budget' => 'int',
+      'external_maximum_impression' => 'unsigned int',
+      'external_maximum_reach' => 'unsigned int',
+      'external_minimum_budget' => 'int',
+      'external_minimum_impression' => 'unsigned int',
+      'external_minimum_reach' => 'unsigned int',
+      'external_reach' => 'unsigned int',
+      'frequency_cap' => 'unsigned int',
+      'grp_dmas_audience_size' => 'float',
+      'holdout_percentage' => 'unsigned int',
+      'id' => 'string',
+      'instagram_destination_id' => 'string',
+      'interval_frequency_cap_reset_period' => 'unsigned int',
+      'name' => 'string',
+      'prediction_mode' => 'unsigned int',
+      'prediction_progress' => 'unsigned int',
+      'reservation_status' => 'unsigned int',
+      'status' => 'unsigned int',
+      'story_event_type' => 'unsigned int',
+      'target_audience_size' => 'unsigned int',
+      'target_spec' => 'string',
+      'time_created' => 'datetime',
+      'time_updated' => 'datetime',
+      'budget' => 'unsigned int',
+      'destination_ids' => 'list<string>',
+      'end_time' => 'unsigned int',
+      'num_curve_points' => 'unsigned int',
+      'objective' => 'string',
+      'reach' => 'unsigned int',
+      'rf_prediction_id_to_share' => 'string',
+      'start_time' => 'unsigned int',
+      'stop_time' => 'unsigned int',
+    );
+  }
 }

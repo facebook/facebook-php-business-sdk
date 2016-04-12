@@ -63,6 +63,7 @@ abstract class AbstractArchivableCrudObject extends AbstractCrudObject {
   /**
    * Archive this object
    *
+   * @deprecated use api_update instead
    * @param array $params
    * @return void
    */
@@ -77,6 +78,7 @@ abstract class AbstractArchivableCrudObject extends AbstractCrudObject {
   /**
    * Delete this object
    *
+   * @deprecated use api_update instead
    * @param array $params
    * @return void
    */

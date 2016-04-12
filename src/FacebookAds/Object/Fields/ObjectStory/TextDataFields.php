@@ -24,12 +24,11 @@
 
 namespace FacebookAds\Object\Fields\ObjectStory;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\Object\Fields\AdCreativeTextDataFields;
 
 /**
+ * @deprecated use AdCreativeTextDataFields instead
+ *
  * @method static TextDataFields getInstance()
  */
-class TextDataFields extends AbstractEnum {
-
-  const MESSAGE = 'message';
-}
+class TextDataFields extends AdCreativeTextDataFields {}

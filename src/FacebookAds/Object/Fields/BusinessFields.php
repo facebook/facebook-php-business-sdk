@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -27,17 +27,27 @@ namespace FacebookAds\Object\Fields;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * @method static BusinessFields getInstance()
+ * This class is auto-genereated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
  */
+
 class BusinessFields extends AbstractEnum {
 
   const ID = 'id';
-  const CREATION_TIME = 'creation_time';
-  const CREATED_BY = 'created_by';
   const NAME = 'name';
+  const PAYMENT_ACCOUNT_ID = 'payment_account_id';
   const PRIMARY_PAGE = 'primary_page';
-  const TIMEZONE_ID = 'timezone_id';
-  const UPDATE_TIME = 'update_time';
-  const UPDATED_BY = 'updated_by';
-  const VERTICAL_ID = 'vertical_id';
+
+  public function getFieldTypes() {
+    return array(
+      'id' => 'string',
+      'name' => 'string',
+      'payment_account_id' => 'string',
+      'primary_page' => 'Object',
+    );
+  }
 }

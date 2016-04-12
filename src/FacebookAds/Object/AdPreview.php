@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -24,9 +24,27 @@
 
 namespace FacebookAds\Object;
 
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdPreviewFields;
+use FacebookAds\Object\Values\AdPreviewAdFormatValues;
+
+/**
+ * This class is auto-genereated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
+ */
 
 class AdPreview extends AbstractObject {
+
+  protected function getEndpoint() {
+    return 'previews';
+  }
 
   /**
    * @return AdPreviewFields
@@ -34,4 +52,12 @@ class AdPreview extends AbstractObject {
   public static function getFieldsEnum() {
     return AdPreviewFields::getInstance();
   }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    $ref_enums['AdFormat'] = AdPreviewAdFormatValues::getInstance()->getValues();
+    return $ref_enums;
+  }
+
+
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -27,15 +27,33 @@ namespace FacebookAds\Object\Fields;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * @method static ProductFeedScheduleFields getInstance()
+ * This class is auto-genereated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
  */
+
 class ProductFeedScheduleFields extends AbstractEnum {
 
-  const INTERVAL = 'interval';
-  const DAY_OF_WEEK = 'day_of_week';
   const DAY_OF_MONTH = 'day_of_month';
+  const DAY_OF_WEEK = 'day_of_week';
   const HOUR = 'hour';
+  const INTERVAL = 'interval';
+  const MINUTE = 'minute';
   const URL = 'url';
   const USERNAME = 'username';
-  const PASSWORD = 'password';
+
+  public function getFieldTypes() {
+    return array(
+      'day_of_month' => 'unsigned int',
+      'day_of_week' => 'DayOfWeek',
+      'hour' => 'unsigned int',
+      'interval' => 'Interval',
+      'minute' => 'unsigned int',
+      'url' => 'string',
+      'username' => 'string',
+    );
+  }
 }

@@ -24,14 +24,7 @@
 
 namespace FacebookAds\Object;
 
-use FacebookAds\Object\Fields\TargetingDescriptionFields;
-
-class TargetingDescription extends AbstractObject {
-
-  /**
-   * @return TargetingDescriptionFields
-   */
-  public static function getFieldsEnum() {
-    return TargetingDescriptionFields::getInstance();
-  }
-}
+/**
+ * @deprecated use TargetingSentenceLine instead
+ */
+class TargetingDescription extends TargetingSentenceLine {}

@@ -24,20 +24,9 @@
 
 namespace FacebookAds\Object\Values;
 
-use FacebookAds\Enum\AbstractEnum;
-
 /**
+ * @deprecated use AdSetBillingEventValues instead
+ *
  * @method static BillingEvents getInstance()
  */
-class BillingEvents extends AbstractEnum {
-
-  const APP_INSTALLS = 'APP_INSTALLS';
-  const CLICKS = 'CLICKS';
-  const IMPRESSIONS = 'IMPRESSIONS';
-  const LINK_CLICKS = 'LINK_CLICKS';
-  const MULTI_PREMIUM = 'MULTI_PREMIUM';
-  const OFFER_CLAIMS = 'OFFER_CLAIMS';
-  const PAGE_LIKES = 'PAGE_LIKES';
-  const POST_ENGAGEMENT = 'POST_ENGAGEMENT';
-  const VIDEO_VIEWS = 'VIDEO_VIEWS';
-}
+class BillingEvents extends AdSetBillingEventValues {}

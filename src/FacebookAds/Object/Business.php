@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -24,24 +24,30 @@
 
 namespace FacebookAds\Object;
 
-use FacebookAds\Object\Fields\BusinessFields;
-use FacebookAds\Object\Traits\CannotCreate;
-use FacebookAds\Object\Traits\CannotDelete;
-use FacebookAds\Object\Traits\FieldValidation;
-use FacebookAds\Http\RequestInterface;
+use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\BusinessFields;
+use FacebookAds\Object\Values\AdAccountAccessTypeValues;
+use FacebookAds\Object\Values\AdAccountPermittedRolesValues;
+use FacebookAds\Object\Values\BusinessSurveyBusinessTypeValues;
+use FacebookAds\Object\Values\BusinessVerticalValues;
+use FacebookAds\Object\Values\MeasurementReportReportTypeValues;
+use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
+use FacebookAds\Object\Values\ReachFrequencyPredictionStatusValues;
+use FacebookAds\Object\Values\undefinedRoleValues;
+
+/**
+ * This class is auto-genereated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
+ */
 
 class Business extends AbstractCrudObject {
-  use FieldValidation;
-  use CannotCreate;
-  use CannotDelete;
-
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'businesses';
-  }
 
   /**
    * @return BusinessFields
@@ -50,283 +56,792 @@ class Business extends AbstractCrudObject {
     return BusinessFields::getInstance();
   }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getAdAccounts($fields=array(), $params=array()) {
-    return $this->getManyByConnection(
-      BusinessAdAccount::className(), $fields, $params, 'adaccounts');
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    $ref_enums['SurveyBusinessType'] = BusinessSurveyBusinessTypeValues::getInstance()->getValues();
+    $ref_enums['Vertical'] = BusinessVerticalValues::getInstance()->getValues();
+    return $ref_enums;
   }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getUserPermissions($fields=array(), $params=array()) {
-    return $this->getManyByConnection(
-      UserPermission::className(), $fields, $params, 'userpermissions');
-  }
 
-  /**
-   * @param int $user_id
-   * @param string $role
-   */
-  public function addUserPermissionById($user_id, $role) {
-    $params = array(
-      'user' => $user_id,
-      'role' => $role,
+  public function createAdAccount(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'currency' => 'string',
+      'end_advertiser' => 'Object',
+      'funding_id' => 'string',
+      'id' => 'string',
+      'invoice' => 'bool',
+      'io' => 'bool',
+      'media_agency' => 'string',
+      'name' => 'string',
+      'partner' => 'string',
+      'po_number' => 'string',
+      'timezone_id' => 'unsigned int',
     );
-    $this->getApi()->call(
-      '/'.$this->assureId().'/userpermissions',
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
       RequestInterface::METHOD_POST,
-      $params);
+      '/adaccount',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
   }
 
-  /**
-   * @param int $user_id
-   */
-  public function deleteUserPermissionById($user_id) {
-    $params = array(
-      'user' => $user_id,
-    );
-    $this->getApi()->call(
-      '/'.$this->assureId().'/userpermissions',
-      RequestInterface::METHOD_DELETE,
-      $params);
-  }
+  public function createAdAccounts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
 
-  /**
-   * @param int $email
-   * @param string $role
-   */
-  public function inviteUserByEmail($email, $role) {
-    $params = array(
-      'email' => $email,
-      'role' => $role,
+    $param_types = array(
+      'access_type' => 'access_type_enum',
+      'adaccount_id' => 'string',
+      'id' => 'string',
+      'permitted_roles' => 'list<permitted_roles_enum>',
     );
-    $this->getApi()->call(
-      '/'.$this->assureId().'/userpermissions',
+    $enums = array(
+      'access_type_enum' => AdAccountAccessTypeValues::getInstance()->getValues(),
+      'permitted_roles_enum' => AdAccountPermittedRolesValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
       RequestInterface::METHOD_POST,
-      $params);
+      '/adaccounts',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
   }
 
-  /**
-   * @param int $email
-   */
-  public function deleteUserByEmail($email) {
-    $params = array(
-      'email' => $email,
+  public function getAdsPixels(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
     );
-    $this->getApi()->call(
-      '/'.$this->assureId().'/userpermissions',
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/adspixels',
+      new AdsPixel(),
+      'EDGE',
+      AdsPixel::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function deleteApps(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'app_id' => 'int',
+      'id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
       RequestInterface::METHOD_DELETE,
-      $params);
+      '/apps',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
   }
 
-  /**
-   * @param int $account_id
-   * @param string $access_type
-   * @param array $roles
-   */
-  public function claimAdAccount($account_id, $access_type, $roles = array()) {
-    $params = array(
-      'adaccount_id' => $account_id,
-      'access_type' => $access_type,
+  public function getAssignedAdAccounts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'email' => 'string',
+      'user_id' => 'int',
+    );
+    $enums = array(
     );
 
-    if (!empty($roles)) {
-      $params['permitted_roles'] = $roles;
-    }
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/assigned_ad_accounts',
+      new AdAccount(),
+      'EDGE',
+      AdAccount::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
-    $this->getApi()->call(
-      '/'.$this->assureId().'/adaccounts',
+  public function getAssignedPages(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'email' => 'string',
+      'user_id' => 'int',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/assigned_pages',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getAssignedProductCatalogs(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'email' => 'string',
+      'user_id' => 'int',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/assigned_product_catalogs',
+      new ProductCatalog(),
+      'EDGE',
+      ProductCatalog::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getClientAdAccountRequests(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/client_ad_account_requests',
+      new BusinessAdAccountRequest(),
+      'EDGE',
+      BusinessAdAccountRequest::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getClientAdAccounts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/client_ad_accounts',
+      new AdAccount(),
+      'EDGE',
+      AdAccount::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getClientPageRequests(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/client_page_requests',
+      new BusinessPageRequest(),
+      'EDGE',
+      BusinessPageRequest::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getClientPages(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/client_pages',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getGrpPlans(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'status' => 'status_enum',
+    );
+    $enums = array(
+      'status_enum' => ReachFrequencyPredictionStatusValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/grp_plans',
+      new ReachFrequencyPrediction(),
+      'EDGE',
+      ReachFrequencyPrediction::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getInstagramAccounts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/instagram_accounts',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getMeasurementReports(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'filters' => 'list<Object>',
+      'report_type' => 'report_type_enum',
+    );
+    $enums = array(
+      'report_type_enum' => array(
+        'multi_channel_report',
+        'video_metrics_report',
+        'fruit_rollup_report',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/measurement_reports',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createMeasurementReport(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'id' => 'Object',
+      'metadata' => 'string',
+      'report_type' => 'report_type_enum',
+    );
+    $enums = array(
+      'report_type_enum' => array(
+        'multi_channel_report',
+        'video_metrics_report',
+        'fruit_rollup_report',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
       RequestInterface::METHOD_POST,
-      $params);
+      '/measurement_reports',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
   }
 
-  /**
-   * @param int $account_id
-   */
-  public function deleteAdAccount($account_id) {
-    $params = array(
-      'adaccount_id' => $account_id,
+  public function getOfflineConversionDataSets(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
     );
 
-    $this->getApi()->call(
-      '/'.$this->assureId().'/adaccounts',
-      RequestInterface::METHOD_DELETE,
-      $params);
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/offline_conversion_data_sets',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
   }
 
-  public function claimApp($app_id, $access_type, $roles = array()) {
-    $params = array(
-      'app_id' => $app_id,
-      'access_type' => $access_type,
+  public function createOfflineConversionDataSet(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'description' => 'string',
+      'name' => 'string',
+    );
+    $enums = array(
     );
 
-    if (!empty($roles)) {
-      $params['permitted_roles'] = $roles;
-    }
-
-    $this->getApi()->call(
-      '/'.$this->assureId().'/apps',
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
       RequestInterface::METHOD_POST,
-      $params);
+      '/offline_conversion_data_sets',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
   }
 
-  /**
-   * @param int $app_id
-   */
-  public function deleteApp($app_id) {
-    $params = array(
-      'app_id' => $app_id,
+  public function getOwnedAdAccountRequests(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
     );
-    $this->getApi()->call(
-      '/'.$this->assureId().'/apps',
-      RequestInterface::METHOD_DELETE,
-      $params);
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/owned_ad_account_requests',
+      new BusinessAdAccountRequest(),
+      'EDGE',
+      BusinessAdAccountRequest::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
   }
 
-  public function claimPage($page_id, $access_type, $roles = array()) {
-    $params = array(
-      'page_id' => $page_id,
-      'access_type' => $access_type,
+  public function getOwnedAdAccounts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
     );
 
-    if (!empty($roles)) {
-      $params['permitted_roles'] = $roles;
-    }
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/owned_ad_accounts',
+      new AdAccount(),
+      'EDGE',
+      AdAccount::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
-    $this->getApi()->call(
-      '/'.$this->assureId().'/pages',
+  public function getOwnedInstagramAccounts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/owned_instagram_accounts',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getOwnedPageRequests(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/owned_page_requests',
+      new BusinessPageRequest(),
+      'EDGE',
+      BusinessPageRequest::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getOwnedPages(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/owned_pages',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getOwnedPixels(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/owned_pixels',
+      new AdsPixel(),
+      'EDGE',
+      AdsPixel::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getPicture(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'height' => 'int',
+      'redirect' => 'bool',
+      'type' => 'type_enum',
+      'width' => 'int',
+    );
+    $enums = array(
+      'type_enum' => ProfilePictureSourceTypeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/picture',
+      new ProfilePictureSource(),
+      'EDGE',
+      ProfilePictureSource::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getProductCatalogs(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/product_catalogs',
+      new ProductCatalog(),
+      'EDGE',
+      ProductCatalog::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createProductCatalog(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'id' => 'string',
+      'name' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
       RequestInterface::METHOD_POST,
-      $params);
-  }
-
-  /**
-   * @param int $page_id
-   */
-  public function deletePage($page_id) {
-    $params = array(
-      'page_id' => $page_id,
+      '/product_catalogs',
+      new ProductCatalog(),
+      'EDGE',
+      ProductCatalog::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
     );
-    $this->getApi()->call(
-      '/'.$this->assureId().'/pages',
-      RequestInterface::METHOD_DELETE,
-      $params);
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
   }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getProjects(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      Project::className(), $fields, $params);
+  public function getReceivedAudiencePermissions(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'partner_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/received_audience_permissions',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
   }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getPages(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      Page::className(), $fields, $params);
+  public function getSharedAudiencePermissions(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'partner_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/shared_audience_permissions',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
   }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getApps(array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      App::className(), $fields, $params, 'apps');
+  public function getSystemUsers(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/system_users',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
   }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getClients(array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      Client::className(), $fields, $params, 'clients');
+  public function createUserPermission(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'email' => 'string',
+      'id' => 'string',
+      'role' => 'role_enum',
+      'user' => 'int',
+    );
+    $enums = array(
+      'role_enum' => array(
+        'ADMIN',
+        'EMPLOYEE',
+        'SYSTEM_USER',
+        'ADMIN_SYSTEM_USER',
+        'INSTAGRAM_ADMIN',
+        'INSTAGRAM_EMPLOYEE',
+        'FB_EMPLOYEE_ACCOUNT_MANAGER',
+        'FB_EMPLOYEE_SALES_REP',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/userpermissions',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
   }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getAgencies(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      Agency::className(), $fields, $params, 'agencies');
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new Business(),
+      'NODE',
+      Business::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
   }
 
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getCreditCards(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      CreditCard::className(), $fields, $params, 'creditcards');
-  }
-
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getExtendedCredits(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      ExtendedCredit::className(), $fields, $params, 'extendedcredits');
-  }
-
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getProductCatalogues(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      BusinessProductCatalog::className(),
-      $fields,
-      $params,
-      'product_catalogs');
-  }
-
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getSystemUsers(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      SystemUser::className(), $fields, $params);
-  }
-
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getAdsPixels(
-    array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(
-      AdsPixel::className(), $fields, $params);
-  }
 }

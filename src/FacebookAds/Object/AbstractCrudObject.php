@@ -21,41 +21,32 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
-
 namespace FacebookAds\Object;
-
 use FacebookAds\Api;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\Http\ResponseInterface;
-
-abstract class AbstractCrudObject extends AbstractObject {
-
+class AbstractCrudObject extends AbstractObject {
   /**
    * @var string
    */
   const FIELD_ID = 'id';
-
   /**
    * @var string[] set of fields to read by default
    */
   protected static $defaultReadFields = array();
-
   /**
    * @var array set of fields that have been mutated
    */
   protected $changedFields = array();
-
   /**
    * @var Api instance of the Api used by this object
    */
   protected $api;
-
   /**
    * @var string ID of the adaccount this object belongs to
    */
   protected $parentId;
-
   /**
    * @param string $id Optional (do not set for new objects)
    * @param string $parent_id Optional, needed for creating new objects.
@@ -67,33 +58,32 @@ abstract class AbstractCrudObject extends AbstractObject {
     $this->parentId = $parent_id;
     $this->api = static::assureApi($api);
   }
-
   /**
    * @param string $id
    */
   public function setId($id) {
     $this->data[static::FIELD_ID] = $id;
+    return $this;
   }
-
   /**
    * @param string $parent_id
    */
   public function setParentId($parent_id) {
     $this->parentId = $parent_id;
   }
-
   /**
    * @param Api $api The Api instance this object should use to make calls
    */
   public function setApi(Api $api) {
     $this->api = static::assureApi($api);
+    return $this;
   }
-
   /**
    * @return string
    */
-  abstract protected function getEndpoint();
-
+  protected function getEndpoint() {
+    return null;
+  }
   /**
    * @param Api|null $instance
    * @return Api
@@ -108,14 +98,12 @@ abstract class AbstractCrudObject extends AbstractObject {
     }
     return $instance;
   }
-
   /**
    * @return string|null
    */
   public function getParentId() {
     return $this->parentId;
   }
-
   /**
    * @return string
    * @throws \Exception
@@ -124,10 +112,8 @@ abstract class AbstractCrudObject extends AbstractObject {
     if (!$this->parentId) {
       throw new \Exception("A parent ID is required.");
     }
-
     return $this->parentId;
   }
-
   /**
    * @return string
    * @throws \Exception
@@ -136,17 +122,14 @@ abstract class AbstractCrudObject extends AbstractObject {
     if (!$this->data[static::FIELD_ID]) {
       throw new \Exception("field '".static::FIELD_ID."' is required.");
     }
-
     return (string) $this->data[static::FIELD_ID];
   }
-
   /**
    * @return Api
    */
   public function getApi() {
     return $this->api;
   }
-
   /**
    * Get the values which have changed
    *
@@ -155,7 +138,6 @@ abstract class AbstractCrudObject extends AbstractObject {
   public function getChangedValues() {
     return $this->changedFields;
   }
-
   /**
    * Get the name of the fields that have changed
    *
@@ -164,7 +146,6 @@ abstract class AbstractCrudObject extends AbstractObject {
   public function getChangedFields() {
     return array_keys($this->changedFields);
   }
-
   /**
    * Get the values which have changed, converting them to scalars
    */
@@ -173,17 +154,14 @@ abstract class AbstractCrudObject extends AbstractObject {
     foreach ($this->changedFields as $key => $val) {
       $data[$key] = $val instanceof AbstractObject ? $val->exportData() : $val;
     }
-
     return $data;
   }
-
   /**
    * @return void
    */
   protected function clearHistory() {
     $this->changedFields = array();
   }
-
   /**
    * @param string $name
    * @param mixed $value
@@ -191,33 +169,28 @@ abstract class AbstractCrudObject extends AbstractObject {
   public function __set($name, $value) {
     if (!array_key_exists($name, $this->data)
       || $this->data[$name] !== $value) {
-
       $this->changedFields[$name] = $value;
     }
     parent::__set($name, $value);
   }
-
   /**
    * @param string[] $fields
    */
   public static function setDefaultReadFields(array $fields = array()) {
     static::$defaultReadFields = $fields;
   }
-
   /**
    * @return string[]
    */
   public static function getDefaultReadFields() {
     return static::$defaultReadFields;
   }
-
   /**
    * @return string
    */
   protected function getNodePath() {
     return '/'.$this->assureId();
   }
-
   /**
    * Create function for the object.
    *
@@ -229,17 +202,14 @@ abstract class AbstractCrudObject extends AbstractObject {
     if ($this->data[static::FIELD_ID]) {
       throw new \Exception("Object has already an ID");
     }
-
     $response = $this->getApi()->call(
       '/'.$this->assureParentId().'/'.$this->getEndpoint(),
       RequestInterface::METHOD_POST,
       array_merge($this->exportData(), $params));
-
     $this->clearHistory();
     $data = $response->getContent();
     if (!isset($params['execution_options'])){
       $id = is_string($data) ? $data : $data[static::FIELD_ID];
-
     /** @var AbstractCrudObject $this */
       if ($this instanceof CanRedownloadInterface
         && isset($params[CanRedownloadInterface::PARAM_REDOWNLOAD])
@@ -249,14 +219,10 @@ abstract class AbstractCrudObject extends AbstractObject {
       ) {
         $this->setDataWithoutValidation($data['data'][$id]);
       }
-
       $this->data[static::FIELD_ID] = (string) $id;
     }
-
-
     return $this;
   }
-
   /**
    * Read object data from the graph
    *
@@ -269,18 +235,14 @@ abstract class AbstractCrudObject extends AbstractObject {
     if ($fields) {
       $params['fields'] = $fields;
     }
-
     $response = $this->getApi()->call(
       $this->getNodePath(),
       RequestInterface::METHOD_GET,
       $params);
-
     $this->setDataWithoutValidation($response->getContent());
     $this->clearHistory();
-
     return $this;
   }
-
   /**
    * Update the object. Function parameters are similar with the create function
    *
@@ -292,12 +254,9 @@ abstract class AbstractCrudObject extends AbstractObject {
       $this->getNodePath(),
       RequestInterface::METHOD_POST,
       array_merge($this->exportData(), $params));
-
     $this->clearHistory();
-
     return $this;
   }
-
   /**
    * Delete this object from the graph
    *
@@ -310,7 +269,6 @@ abstract class AbstractCrudObject extends AbstractObject {
       RequestInterface::METHOD_DELETE,
       $params);
   }
-
   /**
    * Perform object upsert
    *
@@ -327,7 +285,6 @@ abstract class AbstractCrudObject extends AbstractObject {
       return $this->create($params);
     }
   }
-
   /**
    * @param string $prototype_class
    * @param string $endpoint
@@ -343,10 +300,8 @@ abstract class AbstractCrudObject extends AbstractObject {
       }
       $endpoint = $prototype->getEndpoint();
     }
-
     return $endpoint;
   }
-
   /**
    * @param array $fields
    * @param array $params
@@ -359,20 +314,16 @@ abstract class AbstractCrudObject extends AbstractObject {
     array $params = array(),
     $prototype_class,
     $endpoint = null) {
-
     $fields = implode(',', $fields ?: static::getDefaultReadFields());
     if ($fields) {
       $params['fields'] = $fields;
     }
-
     $endpoint = $this->assureEndpoint($prototype_class, $endpoint);
-
     return $this->getApi()->call(
       '/'.$this->assureId().'/'.$endpoint,
       RequestInterface::METHOD_GET,
       $params);
   }
-
   /**
    * Read a single connection object
    *
@@ -387,22 +338,17 @@ abstract class AbstractCrudObject extends AbstractObject {
     array $fields = array(),
     array $params = array(),
     $endpoint = null) {
-
     $response = $this->fetchConnection(
       $fields, $params, $prototype_class, $endpoint);
-
     if (!$response->getContent()) {
       return null;
     }
-
     $object = new $prototype_class(
       null, $this->{static::FIELD_ID}, $this->getApi());
     /** @var AbstractCrudObject $object */
     $object->setDataWithoutValidation($response->getContent());
-
     return $object;
   }
-
   /**
    * Read objects from a connection
    *
@@ -417,15 +363,12 @@ abstract class AbstractCrudObject extends AbstractObject {
     array $fields = array(),
     array $params = array(),
     $endpoint = null) {
-
     $response = $this->fetchConnection(
       $fields, $params, $prototype_class, $endpoint);
-
     return new Cursor(
       $response,
       new $prototype_class(null, $this->{static::FIELD_ID}, $this->getApi()));
   }
-
   /**
    * @param string $job_class
    * @param array $fields
@@ -443,11 +386,9 @@ abstract class AbstractCrudObject extends AbstractObject {
         "Class {$job_class} is not of type "
         .AbstractAsyncJobObject::className());
     }
-
     $params['fields'] = $fields;
     return $object->create($params);
   }
-
   /**
    * Delete objects.
    *
@@ -458,7 +399,6 @@ abstract class AbstractCrudObject extends AbstractObject {
    * @return bool Returns true on success
    */
   public static function deleteIds(array $ids, Api $api = null) {
-
     $batch = array();
     foreach ($ids as $id) {
       $request = array(
@@ -467,13 +407,11 @@ abstract class AbstractCrudObject extends AbstractObject {
       );
       $batch[] = $request;
     }
-
     $api = static::assureApi($api);
     $response = $api->call(
       '/',
       RequestInterface::METHOD_POST,
       array('batch' => json_encode($batch)));
-
     foreach ($response->getContent() as $result) {
       if (200 != $result['code']) {
         return false;
@@ -481,7 +419,6 @@ abstract class AbstractCrudObject extends AbstractObject {
     }
     return true;
   }
-
   /**
    * Read function for the object. Convert fields and filters into the query
    * part of uri and return objects.
@@ -497,20 +434,15 @@ abstract class AbstractCrudObject extends AbstractObject {
     array $fields = array(),
     array $params = array(),
     Api $api = null) {
-
     if (empty($fields)) {
       $fields = static::getDefaultReadFields();
     }
-
     if (!empty($fields)) {
       $params['fields'] = implode(',', $fields);
     }
-
     $params['ids'] = implode(',', $ids);
-
     $api = static::assureApi($api);
     $response = $api->call('/', RequestInterface::METHOD_GET, $params);
-
     $result = array();
     foreach ($response->getContent() as $data) {
       /** @var AbstractObject $object */
@@ -518,7 +450,6 @@ abstract class AbstractCrudObject extends AbstractObject {
       $object->setDataWithoutValidation((array) $data);
       $result[] = $object;
     }
-
     return $result;
   }
 }

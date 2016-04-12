@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -24,28 +24,184 @@
 
 namespace FacebookAds\Object;
 
+use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
-use FacebookAds\Object\Fields\AdsPixelsFields;
-use FacebookAds\Object\Traits\CannotDelete;
-use FacebookAds\Object\Traits\FieldValidation;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\AdsPixelFields;
+use FacebookAds\Object\Values\AdsPixelStatsResultAggregationValues;
+
+/**
+ * This class is auto-genereated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
+ */
 
 class AdsPixel extends AbstractCrudObject {
-  use CannotDelete;
-  use FieldValidation;
 
-  /**
-   * @return AdsPixelsFields
-   */
-  public static function getFieldsEnum() {
-    return AdsPixelsFields::getInstance();
+  protected function getEndpoint() {
+    return 'adspixels';
   }
 
   /**
-   * @return string
+   * @return AdsPixelFields
    */
-  protected function getEndpoint() {
-    return 'adspixels';
+  public static function getFieldsEnum() {
+    return AdsPixelFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
+  public function getAudiences(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/audiences',
+      new CustomAudience(),
+      'EDGE',
+      CustomAudience::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getSharedAccounts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'business' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/shared_accounts',
+      new AdAccount(),
+      'EDGE',
+      AdAccount::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getSharedAgencies(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/shared_agencies',
+      new Business(),
+      'EDGE',
+      Business::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getStats(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'aggregation' => 'aggregation_enum',
+      'end_time' => 'datetime',
+      'event' => 'string',
+      'start_time' => 'datetime',
+    );
+    $enums = array(
+      'aggregation_enum' => AdsPixelStatsResultAggregationValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/stats',
+      new AdsPixelStatsResult(),
+      'EDGE',
+      AdsPixelStatsResult::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new AdsPixel(),
+      'NODE',
+      AdsPixel::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'name' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/',
+      new AbstractCrudObject(),
+      'NODE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
   }
 
   /**
@@ -83,7 +239,7 @@ class AdsPixel extends AbstractCrudObject {
   public function sharePixelWithAgency($business_id, $agency_id) {
     $this->getApi()->call(
       '/'.$this->assureId().'/shared_agencies',
-      RequestInterface::METHOD_POST,
+      'POST',
       array(
         'business' => $business_id,
         'agency_id' => $agency_id,
@@ -97,7 +253,7 @@ class AdsPixel extends AbstractCrudObject {
   public function unsharePixelWithAgency($business_id, $agency_id) {
     $this->getApi()->call(
       '/'.$this->assureId().'/shared_agencies',
-      RequestInterface::METHOD_DELETE,
+      'DELETE',
       array(
         'business' => $business_id,
         'agency_id' => $agency_id,
@@ -105,38 +261,20 @@ class AdsPixel extends AbstractCrudObject {
   }
 
   /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
+   * @deprecated use getSharedAccounts instead
    */
   public function getAdAccounts(
-    array $fields = array(), array $params = array()) {
+    array $fields = array(), array $params = array(), $pending = false) {
 
-    return $this->getManyByConnection(
-      AdAccount::className(), $fields, $params, 'shared_accounts');
+    return $this->getSharedAccounts($fields, $params, $pending);
   }
 
   /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
+   * @deprecated use getSharedAgencies instead
    */
   public function getAgencies(
-    array $fields = array(), array $params = array()) {
+    array $fields = array(), array $params = array(), $pending = false) {
 
-    return $this->getManyByConnection(
-      Business::className(), $fields, $params, 'shared_agencies');
-  }
-
-  /**
-   * @param array $fields
-   * @param array $params
-   * @return Cursor
-   */
-  public function getStats(
-    array $fields = array(), array $params = array()) {
-
-    return $this->getManyByConnection(
-      AdsPixelStat::className(), $fields, $params, 'stats');
+    return $this->getSharedAgencies($fields, $params, $pending);
   }
 }

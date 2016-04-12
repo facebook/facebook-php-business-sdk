@@ -24,33 +24,9 @@
 
 namespace FacebookAds\Object\Values;
 
-use FacebookAds\Enum\AbstractEnum;
-
 /**
+ * @deprecated use AdCreativeCallToActionTypeValues instead
+ *
  * @method static CallToActionTypes getInstance()
  */
-class CallToActionTypes extends AbstractEnum {
-
-  const BOOK_TRAVEL = 'BOOK_TRAVEL';
-  const BUY_NOW = 'BUY_NOW';
-  const CALL_NOW = 'CALL_NOW';
-  const DOWNLOAD = 'DOWNLOAD';
-  const GET_DIRECTIONS = 'GET_DIRECTIONS';
-  const GET_OFFER = 'GET_OFFER';
-  const INSTALL_APP = 'INSTALL_APP';
-  const INSTALL_MOBILE_APP = 'INSTALL_MOBILE_APP';
-  const LEARN_MORE = 'LEARN_MORE';
-  const LIKE_PAGE = 'LIKE_PAGE';
-  const LISTEN_MUSIC = 'LISTEN_MUSIC';
-  const MESSAGE_PAGE = 'MESSAGE_PAGE';
-  const NO_BUTTON = 'NO_BUTTON';
-  const OPEN_LINK = 'OPEN_LINK';
-  const PLAY_GAME = 'PLAY_GAME';
-  const SHOP_NOW = 'SHOP_NOW';
-  const SIGN_UP = 'SIGN_UP';
-  const SUBSCRIBE = 'SUBSCRIBE';
-  const USE_APP = 'USE_APP';
-  const USE_MOBILE_APP = 'USE_MOBILE_APP';
-  const WATCH_MORE = 'WATCH_MORE';
-  const WATCH_VIDEO = 'WATCH_VIDEO';
-}
+class CallToActionTypes extends AdCreativeCallToActionTypeValues {}

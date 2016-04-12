@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -27,15 +27,31 @@ namespace FacebookAds\Object\Fields;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * @method static AdAccountGroupFields getInstance()
+ * This class is auto-genereated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
  */
+
 class AdAccountGroupFields extends AbstractEnum {
 
-  const ID = 'id';
   const ACCOUNT_GROUP_ID = 'account_group_id';
+  const ACCOUNTS = 'accounts';
+  const ID = 'id';
   const NAME = 'name';
   const STATUS = 'status';
   const USERS = 'users';
-  const ACCOUNTS = 'accounts';
-  const CURRENCY = 'currency';
+
+  public function getFieldTypes() {
+    return array(
+      'account_group_id' => 'string',
+      'accounts' => 'list<Object>',
+      'id' => 'string',
+      'name' => 'string',
+      'status' => 'unsigned int',
+      'users' => 'list<Object>',
+    );
+  }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -24,16 +24,64 @@
 
 namespace FacebookAds\Object;
 
-use FacebookAds\Api;
+use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdImageFields;
-use FacebookAds\Object\Traits\CannotUpdate;
-use FacebookAds\Object\Traits\FieldValidation;
+use FacebookAds\Object\Values\AdImageStatusValues;
+
+/**
+ * This class is auto-genereated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
+ */
 
 class AdImage extends AbstractCrudObject {
-  use FieldValidation;
-  use CannotUpdate;
+
+  protected function getEndpoint() {
+    return 'adimages';
+  }
+
+  /**
+   * @return AdImageFields
+   */
+  public static function getFieldsEnum() {
+    return AdImageFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    $ref_enums['Status'] = AdImageStatusValues::getInstance()->getValues();
+    return $ref_enums;
+  }
+
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new AdImage(),
+      'NODE',
+      AdImage::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
   /**
    * Uploads images from a zip file and returns a cursor of results
@@ -50,20 +98,6 @@ class AdImage extends AbstractCrudObject {
     $image = new AdImage(null, $account_id, $api);
     $image->{AdImageFields::FILENAME} = $file_path;
     return $image->arrayFromZip($params);
-  }
-
-  /**
-   * @return string
-   */
-  protected function getEndpoint() {
-    return 'adimages';
-  }
-
-  /**
-   * @return AdImageFields
-   */
-  public static function getFieldsEnum() {
-    return AdImageFields::getInstance();
   }
 
   /**
@@ -106,8 +140,8 @@ class AdImage extends AbstractCrudObject {
     $response = $this->getApi()->executeRequest($request);
 
     $this->clearHistory();
-    $data = $response->getContent()['images']
-      [basename($this->{AdImageFields::FILENAME})];
+    $content = $response->getContent();
+    $data = $content['images'][basename($this->{AdImageFields::FILENAME})];
 
     $this->data[AdImageFields::HASH] = $data[AdImageFields::HASH];
 
@@ -115,53 +149,6 @@ class AdImage extends AbstractCrudObject {
       = substr($this->getParentId(), 4).':'.$this->data[AdImageFields::HASH];
 
     return $this;
-  }
-
-  /**
-   * Read object data from the graph
-   *
-   * @param string[] $fields Fields to request
-   * @param array $params Additional request parameters
-   * @return $this
-   */
-  public function read(array $fields = array(), array $params = array()) {
-    $fields = implode(',', $fields ?: static::getDefaultReadFields());
-    if ($fields) {
-      $params['fields'] = $fields;
-    }
-    $params['hashes'] = array(explode(':', $this->assureId())[1]);
-
-    $response = $this->getApi()->call(
-      $this->getNodePath(),
-      RequestInterface::METHOD_GET,
-      $params);
-
-    $data = $response->getContent()['data'];
-    if ($data) {
-      $this->setDataWithoutValidation((array) $data[0]);
-    }
-
-    $this->clearHistory();
-
-    return $this;
-  }
-
-  /**
-   * Delete this object from the graph
-   *
-   * @param array $params
-   * @return void
-   * @throws \Exception
-   */
-  public function delete(array $params = array()) {
-    if (!$this->data[AdImageFields::HASH]) {
-      throw new \Exception("AdImage hash is required to delete");
-    }
-
-    $params
-      = array_merge($params, array('hash' => $this->data[AdImageFields::HASH]));
-
-    parent::delete($params);
   }
 
   /**
@@ -192,7 +179,8 @@ class AdImage extends AbstractCrudObject {
     $response = $this->getApi()->executeRequest($request);
 
     $result = array();
-    foreach ($response->getContent()['images'] as $image) {
+    $content = $response->getContent();
+    foreach ($content['images'] as $image) {
       $adimage = new AdImage(
         substr($this->getParentId(), 4).':'.$image[AdImageFields::HASH],
         $this->getParentId(),
@@ -217,5 +205,52 @@ class AdImage extends AbstractCrudObject {
     $file_mime_type = finfo_file($finfo, $file_path);
     return $file_mime_type == 'application/zip' ||
       $file_mime_type == 'multipart/x-zip';
+  }
+
+  /**
+   * Read object data from the graph
+   *
+   * @param string[] $fields Fields to request
+   * @param array $params Additional request parameters
+   * @return $this
+   */
+  public function read(array $fields = array(), array $params = array()) {
+    $fields = implode(',', $fields ?: static::getDefaultReadFields());
+    if ($fields) {
+      $params['fields'] = $fields;
+    }
+    $params['hashes'] = array(explode(':', $this->assureId())[1]);
+
+    $response = $this->getApi()->call(
+      $this->getNodePath(),
+      RequestInterface::METHOD_GET,
+      $params);
+    $content = $response->getContent();
+    $data = $content['data'];
+    if ($data) {
+      $this->setDataWithoutValidation((array) $data[0]);
+    }
+
+    $this->clearHistory();
+
+    return $this;
+  }
+
+  /**
+   * Delete this object from the graph
+   *
+   * @param array $params
+   * @return void
+   * @throws \Exception
+   */
+  public function delete(array $params = array()) {
+    if (!$this->data[AdImageFields::HASH]) {
+      throw new \Exception("AdImage hash is required to delete");
+    }
+
+    $params
+      = array_merge($params, array('hash' => $this->data[AdImageFields::HASH]));
+
+    parent::delete($params);
   }
 }

@@ -27,15 +27,17 @@ namespace FacebookAds\Object\Values;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
+ * @deprecated use AdsInsightsActionAttributionWindowsValues instead
+ *
  * @method static InsightsActionAttributionWindows getInstance()
  */
-class InsightsActionAttributionWindows extends AbstractEnum {
+class InsightsActionAttributionWindows extends AdsInsightsActionAttributionWindowsValues {
 
-  const CLICK_1D = '1d_click';
-  const VIEW_1D = '1d_view';
-  const CLICK_28D = '28d_click';
-  const VIEW_28D = '28d_view';
-  const CLICK_7D = '7d_click';
-  const VIEW_7D = '7d_view';
-  const DEFAULT_ = 'default';
+  const CLICK_1D = AdsInsightsActionAttributionWindowsValues::VALUE_1D_CLICK;
+  const VIEW_1D = AdsInsightsActionAttributionWindowsValues::VALUE_1D_VIEW;
+  const CLICK_28D = AdsInsightsActionAttributionWindowsValues::VALUE_28D_CLICK;
+  const VIEW_28D = AdsInsightsActionAttributionWindowsValues::VALUE_28D_VIEW;
+  const CLICK_7D = AdsInsightsActionAttributionWindowsValues::VALUE_7D_CLICK;
+  const VIEW_7D = AdsInsightsActionAttributionWindowsValues::VALUE_7D_VIEW;
+  const DEFAULT_ = AdsInsightsActionAttributionWindowsValues::VALUE_DEFAULT;
 }

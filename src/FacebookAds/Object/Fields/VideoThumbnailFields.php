@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -27,8 +27,14 @@ namespace FacebookAds\Object\Fields;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * @method static VideoThumbnailFields getInstance()
+ * This class is auto-genereated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
  */
+
 class VideoThumbnailFields extends AbstractEnum {
 
   const HEIGHT = 'height';
@@ -38,4 +44,16 @@ class VideoThumbnailFields extends AbstractEnum {
   const SCALE = 'scale';
   const URI = 'uri';
   const WIDTH = 'width';
+
+  public function getFieldTypes() {
+    return array(
+      'height' => 'unsigned int',
+      'id' => 'string',
+      'is_preferred' => 'bool',
+      'name' => 'string',
+      'scale' => 'float',
+      'uri' => 'string',
+      'width' => 'unsigned int',
+    );
+  }
 }

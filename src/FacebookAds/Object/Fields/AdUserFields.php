@@ -24,12 +24,9 @@
 
 namespace FacebookAds\Object\Fields;
 
-use FacebookAds\Enum\AbstractEnum;
-
-class AdUserFields extends AbstractEnum {
-
-  const ID = 'id';
-  const NAME = 'name';
-  const PERMISSIONS = 'permissions';
-  const ROLE = 'role';
-}
+/**
+ * @deprecated use AdAccountUserFields instead
+ *
+ * @method static AdUserFields getInstance()
+ */
+class AdUserFields extends AdAccountUserFields {}

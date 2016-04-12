@@ -24,18 +24,9 @@
 
 namespace FacebookAds\Object\Fields;
 
-use FacebookAds\Enum\AbstractEnum;
-
 /**
+ * @deprecated use AdsPixelFields instead
+ *
  * @method static AdsPixelsFields getInstance()
  */
-class AdsPixelsFields extends AbstractEnum {
-
-  const CODE = 'code';
-  const CREATION_TIME = 'creation_time';
-  const ID = 'id';
-  const LAST_FIRED_TIME = 'last_fired_time';
-  const NAME = 'name';
-  const RULE_VALIDATION = 'rulevalidation';
-  const RULES = 'rules';
-}
+class AdsPixelsFields extends AdsPixelFields {}

@@ -24,13 +24,9 @@
 
 namespace FacebookAds\Object\Values;
 
-use FacebookAds\Enum\AbstractEnum;
-
 /**
+ * @deprecated use AdsInsightsActionReportTimeValues instead
+ *
  * @method static InsightsActionReportTimes getInstance()
  */
-class InsightsActionReportTimes extends AbstractEnum {
-
-  const CONVERSION = 'conversion';
-  const IMPRESSION = 'impression';
-}
+class InsightsActionReportTimes extends AdsInsightsActionReportTimeValues {}

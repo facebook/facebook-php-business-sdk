@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -24,11 +24,27 @@
 
 namespace FacebookAds\Object;
 
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ReachEstimateFields;
-use FacebookAds\Object\Traits\FieldValidation;
+use FacebookAds\Object\Values\ReachEstimateOptimizeForValues;
+
+/**
+ * This class is auto-genereated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
+ */
 
 class ReachEstimate extends AbstractObject {
-  use FieldValidation;
+
+  protected function getEndpoint() {
+    return 'reachestimate';
+  }
 
   /**
    * @return ReachEstimateFields
@@ -37,29 +53,11 @@ class ReachEstimate extends AbstractObject {
     return ReachEstimateFields::getInstance();
   }
 
-  /**
-   * @param array $data
-   * @return array
-   */
-  protected function normalizeData(array $data) {
-    return array_key_exists('data', $data)
-      ? $data['data']
-      : $data;
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    $ref_enums['OptimizeFor'] = ReachEstimateOptimizeForValues::getInstance()->getValues();
+    return $ref_enums;
   }
 
-  /**
-   * @param array
-   * @return $this
-   */
-  public function setData(array $data) {
-    return parent::setData($this->normalizeData($data));
-  }
 
-  /**
-   * @param array
-   * @return $this
-   */
-  public function setDataWithoutValidation(array $data) {
-    return parent::setDataWithoutValidation($this->normalizeData($data));
-  }
 }

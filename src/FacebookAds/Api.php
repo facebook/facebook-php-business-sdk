@@ -35,7 +35,7 @@ class Api {
   /**
    * @var string
    */
-  const VERSION = '2.6.0';
+  const VERSION = ApiConfig::APIVersion;
 
   /**
    * @var Api
@@ -69,7 +69,6 @@ class Api {
   public function __construct(
     Client $http_client,
     Session $session) {
-
     $this->httpClient = $http_client;
     $this->session = $session;
   }
@@ -215,7 +214,6 @@ class Api {
     if ($this->logger === null) {
       $this->logger = new NullLogger();
     }
-
     return $this->logger;
   }
 

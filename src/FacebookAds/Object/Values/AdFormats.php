@@ -24,19 +24,9 @@
 
 namespace FacebookAds\Object\Values;
 
-use FacebookAds\Enum\AbstractEnum;
-
 /**
+ * @deprecated use AdPreviewAdFormatValues instead
+ *
  * @method static AdFormats getInstance()
  */
-class AdFormats extends AbstractEnum {
-
-  const RIGHT_COLUMN_STANDARD = 'RIGHT_COLUMN_STANDARD';
-  const DESKTOP_FEED_STANDARD = 'DESKTOP_FEED_STANDARD';
-  const MOBILE_FEED_STANDARD = 'MOBILE_FEED_STANDARD';
-  const MOBILE_BANNER = 'MOBILE_BANNER';
-  const MOBILE_INTERSTITIAL = 'MOBILE_INTERSTITIAL';
-  const MOBILE_FEED_BASIC = 'MOBILE_FEED_BASIC';
-  const MOBILE_NATIVE = 'MOBILE_NATIVE';
-  const INSTAGRAM_STANDARD= 'INSTAGRAM_STANDARD';
-}
+class AdFormats extends AdPreviewAdFormatValues {}

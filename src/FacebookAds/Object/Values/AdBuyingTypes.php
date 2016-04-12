@@ -27,11 +27,8 @@ namespace FacebookAds\Object\Values;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
+ * @deprecated use CampaignBuyingTypeValues instead
+ *
  * @method static AdBuyingTypes getInstance()
  */
-class AdBuyingTypes extends AbstractEnum {
-
-  const AUCTION  = 'AUCTION';
-  const FIXED_PRICE = 'FIXED_PRICE';
-  const RESERVED = 'RESERVED';
-}
+class AdBuyingTypes extends CampaignBuyingTypeValues {}

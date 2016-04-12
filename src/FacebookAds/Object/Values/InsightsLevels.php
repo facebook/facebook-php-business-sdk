@@ -24,15 +24,9 @@
 
 namespace FacebookAds\Object\Values;
 
-use FacebookAds\Enum\AbstractEnum;
-
 /**
+ * @deprecated use AdsInsightsLevelValues instead
+ *
  * @method static InsightsLevels getInstance()
  */
-class InsightsLevels extends AbstractEnum {
-
-  const ACCOUNT = 'account';
-  const AD = 'ad';
-  const ADSET = 'adset';
-  const CAMPAIGN = 'campaign';
-}
+class InsightsLevels extends AdsInsightsLevelValues {}

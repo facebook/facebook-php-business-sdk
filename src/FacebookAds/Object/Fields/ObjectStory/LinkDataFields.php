@@ -24,23 +24,11 @@
 
 namespace FacebookAds\Object\Fields\ObjectStory;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\Object\Fields\AdCreativeLinkDataFields;
 
 /**
+ * @deprecated use AdCreativeLinkDataFields instead
+ *
  * @method static LinkDataFields getInstance()
  */
-class LinkDataFields extends AbstractEnum {
-
-  const CALL_TO_ACTION = 'call_to_action';
-  const CAPTION = 'caption';
-  const CHILD_ATTACHMENTS = 'child_attachments';
-  const DESCRIPTION = 'description';
-  const IMAGE_HASH = 'image_hash';
-  const IMAGE_CROPS = 'image_crops';
-  const LINK = 'link';
-  const MESSAGE = 'message';
-  const NAME = 'name';
-  const PICTURE = 'picture';
-  const MULTI_SHARE_OPTIMIZED = 'multi_share_optimized';
-  const MULTI_SHARE_END_CARD = 'multi_share_end_card';
-}
+class LinkDataFields extends AdCreativeLinkDataFields {}

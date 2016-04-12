@@ -86,7 +86,6 @@ class Session {
       $this->appSecretProof
         = hash_hmac('sha256', $this->getAccessToken(), $this->getAppSecret());
     }
-
     return $this->appSecretProof;
   }
 }

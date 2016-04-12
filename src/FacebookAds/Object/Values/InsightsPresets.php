@@ -24,24 +24,9 @@
 
 namespace FacebookAds\Object\Values;
 
-use FacebookAds\Enum\AbstractEnum;
-
 /**
+ * @deprecated use AdsInsightsDatePresetValues instead
+ *
  * @method static InsightsPresets getInstance()
  */
-class InsightsPresets extends AbstractEnum {
-
-  const LAST_14_DAYS = 'last_14_days';
-  const LAST_28_DAYS = 'last_28_days';
-  const LAST_30_DAYS = 'last_30_days';
-  const LAST_3_MONTHS = 'last_3_months';
-  const LAST_7_DAYS = 'last_7_days';
-  const LAST_90_DAYS = 'last_90_days';
-  const LAST_MONTH = 'last_month';
-  const THIS_MONTH = 'this_month';
-  const LAST_WEEK = 'last_week';
-  const THIS_QUARTER = 'this_quarter';
-  const THIS_WEEK = 'this_week';
-  const TODAY = 'today';
-  const YESTERDAY = 'yesterday';
-}
+class InsightsPresets extends AdsInsightsDatePresetValues {}

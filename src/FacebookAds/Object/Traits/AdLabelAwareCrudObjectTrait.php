@@ -47,6 +47,7 @@ trait AdLabelAwareCrudObjectTrait {
   }
 
   /**
+   * @deprecated use createAdLabel instead
    * @param array $ad_label_ids
    */
   public function addAdLabels(array $ad_label_ids) {
@@ -57,6 +58,7 @@ trait AdLabelAwareCrudObjectTrait {
   }
 
   /**
+   * @deprecated use deleteAdLabels instead
    * @param array $ad_label_ids
    */
   public function removeAdLabels(array $ad_label_ids) {

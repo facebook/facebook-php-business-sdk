@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -24,23 +24,29 @@
 
 namespace FacebookAds\Object;
 
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\CustomAudienceFields;
+use FacebookAds\Object\Values\CustomAudienceContentTypeValues;
+use FacebookAds\Object\Values\CustomAudienceFieldsValues;
+use FacebookAds\Object\Values\CustomAudienceSubtypeValues;
 use FacebookAds\Object\Values\CustomAudienceTypes;
 use FacebookAds\Object\CustomAudienceNormalizers\EmailNormalizer;
 use FacebookAds\Object\CustomAudienceNormalizers\HashNormalizer;
 
+/**
+ * This class is auto-genereated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
+ */
+
 class CustomAudience extends AbstractCrudObject {
 
- /**
-  * @var string
-  * @deprecated use HashNormalizer::HASH_TYPE_SHA256
- */
-  const HASH_TYPE_SHA256 = 'sha256';
-
-  /**
-   * @return string
-   */
   protected function getEndpoint() {
     return 'customaudiences';
   }
@@ -52,75 +58,321 @@ class CustomAudience extends AbstractCrudObject {
     return CustomAudienceFields::getInstance();
   }
 
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    $ref_enums['ContentType'] = CustomAudienceContentTypeValues::getInstance()->getValues();
+    $ref_enums['Subtype'] = CustomAudienceSubtypeValues::getInstance()->getValues();
+    $ref_enums['Fields'] = CustomAudienceFieldsValues::getInstance()->getValues();
+    return $ref_enums;
+  }
+
+
+  public function deleteAdAccounts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'adaccounts' => 'list<string>',
+      'id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/adaccounts',
+      new CustomAudienceAdAccount(),
+      'EDGE',
+      CustomAudienceAdAccount::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getAdAccounts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'permissions' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/adaccounts',
+      new CustomAudienceAdAccount(),
+      'EDGE',
+      CustomAudienceAdAccount::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createAdAccount(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'adaccounts' => 'list<string>',
+      'id' => 'string',
+      'permissions' => 'string',
+      'replace' => 'bool',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/adaccounts',
+      new CustomAudienceAdAccount(),
+      'EDGE',
+      CustomAudienceAdAccount::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getAds(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'effective_status' => 'list<string>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/ads',
+      new Ad(),
+      'EDGE',
+      Ad::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getPrefills(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/prefills',
+      new CustomAudiencePrefillState(),
+      'EDGE',
+      CustomAudiencePrefillState::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getSessions(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'session_id' => 'unsigned int',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/sessions',
+      new CustomAudienceSession(),
+      'EDGE',
+      CustomAudienceSession::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function deleteUsers(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'id' => 'string',
+      'payload' => 'Object',
+      'session' => 'Object',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/users',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createUser(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'id' => 'string',
+      'payload' => 'Object',
+      'session' => 'Object',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/users',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function deleteSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'id' => 'int',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/',
+      new AbstractCrudObject(),
+      'NODE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new CustomAudience(),
+      'NODE',
+      CustomAudience::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'content_type' => 'content_type_enum',
+      'description' => 'string',
+      'exclusions' => 'list<Object>',
+      'inclusions' => 'list<Object>',
+      'lookalike_spec' => 'string',
+      'name' => 'string',
+      'opt_out_link' => 'string',
+      'product_set_id' => 'string',
+      'retention_days' => 'unsigned int',
+      'rule' => 'string',
+    );
+    $enums = array(
+      'content_type_enum' => CustomAudienceContentTypeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/',
+      new AbstractCrudObject(),
+      'NODE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   /**
-   * Add users to the AdCustomAudiences. There is no max on the total number of
-   * users that can be added to an audience, but up to 10000 users can be added
-   * at a given time.
-   *
-   * @param array $users
-   * @param string $type
-   * @param array $app_ids List of app ids from which the user ids has been
-   *   gathered. Required when $type = 'UID'.
-   * @param bool $is_hashed
-   * @return array
+   * @deprecated use createUser instead
    */
   public function addUsers(
     array $users,
     $type,
     array $app_ids = array(),
-    $is_hashed = false) {
+    $is_hashed = false,
+    $pending = false) {
 
     $params = $this->formatParams($users, $type, $app_ids, $is_hashed);
-    return $this->getApi()->call(
-      '/'.$this->assureId().'/users',
-      RequestInterface::METHOD_POST,
-      $params)->getContent();
+    return $this->createUser(array(), $params, $pending);
   }
 
   /**
-   * Delete users from AdCustomAudiences
-   *
-   * @param array $users
-   * @param string $type
-   * @param array $app_ids List of app ids from which the user ids has been
-   *   gathered. Required when $type = 'UID'.
-   * @param bool $is_hashed
-   * @return array
+   * @deprecated use deleteUsers instead
    */
   public function removeUsers(
     array $users,
     $type,
     array $app_ids = array(),
-    $is_hashed = false) {
+    $is_hashed = false,
+    $pending = false) {
 
     $params = $this->formatParams($users, $type, $app_ids, $is_hashed);
-    return $this->getApi()->call(
-      '/'.$this->assureId().'/users',
-      RequestInterface::METHOD_DELETE,
-      $params)->getContent();
-  }
-
-  /**
-   * Remove list of users decided to opt-out from all custom audiences
-   *
-   * @param array $users
-   * @param string $type
-   * @param array $app_ids List of app ids from which the user ids has been
-   *   gathered. Required when $type = 'UID'.
-   * @param bool $is_hashed
-   * @return array
-   */
-  public function optOutUsers(
-    array $users,
-    $type,
-    array $app_ids = array(),
-    $is_hashed = false) {
-
-    $params = $this->formatParams($users, $type, $app_ids, $is_hashed);
-    return $this->getApi()->call(
-      '/'.$this->assureParentId().'/usersofanyaudience',
-      RequestInterface::METHOD_DELETE,
-      $params)->getContent();
+    return $this->deleteUsers(array(), $params, $pending);
   }
 
   /**
@@ -169,31 +421,5 @@ class CustomAudience extends AbstractCrudObject {
     }
 
     return array('payload' => $payload);
-  }
-
-  /**
-   * Share this AdCustomAudiences to other accounts
-   *
-   * @param array $act_ids Array of account IDs
-   * @return boolean Returns true on success
-   */
-  public function addSharedAccounts($act_ids) {
-    return $this->getApi()->call(
-      '/'.$this->assureId().'/adaccounts',
-      RequestInterface::METHOD_POST,
-      array('adaccounts' => $act_ids))->getContent();
-  }
-
-  /**
-   * Remove accounts from the shared AdCustomAudiences
-   *
-   * @param  array $act_ids Array of Account IDs to remove
-   * @return boolean Returns true on success
-   */
-  public function removeSharedAccounts($act_ids) {
-    return $this->getApi()->call(
-      '/'.$this->assureId().'/adaccounts',
-      RequestInterface::METHOD_DELETE,
-      array('adaccounts' => $act_ids))->getContent();
   }
 }

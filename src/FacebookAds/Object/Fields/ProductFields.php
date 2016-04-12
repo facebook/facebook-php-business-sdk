@@ -24,39 +24,9 @@
 
 namespace FacebookAds\Object\Fields;
 
-use FacebookAds\Enum\AbstractEnum;
-
 /**
+ * @deprecated use ProductItemFields instead
+ *
  * @method static ProductFields getInstance()
  */
-class ProductFields extends AbstractEnum {
-
-  const ID = 'id';
-  const AGE_GROUP = 'age_group';
-  const AVAILABILITY = 'availability';
-  const BRAND = 'brand';
-  const CATEGORY = 'category';
-  const COLOR = 'color';
-  const CONDITION = 'condition';
-  const DESCRIPTION = 'description';
-  const EXPIRATION_DATE = 'expiration_date';
-  const GENDER = 'gender';
-  const GTIN = 'gtin';
-  const IMAGE_URL = 'image_url';
-  const MATERIAL = 'material';
-  const MANUFACTURER_PART_NUMBER = 'manufacturer_part_number';
-  const NAME = 'name';
-  const PATTERN = 'pattern';
-  const PRICE = 'price';
-  const PRODUCT_TYPE = 'product_type';
-  const RETAILER_ID = 'retailer_id';
-  const RETAILER_PRODUCT_GROUP_ID = 'retailer_product_group_id';
-  const SALE_PRICE = 'sale_price';
-  const SALE_PRICE_START_DATE = 'sale_price_start_date';
-  const SALE_PRICE_END_DATE = 'sale_price_end_date';
-  const SHIPPING_WEIGHT_VALUE = 'shipping_weight_value';
-  const SHIPPING_WEIGHT_UNIT = 'shipping_weight_unit';
-  const SIZE = 'size';
-  const URL = 'url';
-  const PRODUCT_FEED = 'product_feed';
-}
+class ProductFields extends ProductItemFields {}

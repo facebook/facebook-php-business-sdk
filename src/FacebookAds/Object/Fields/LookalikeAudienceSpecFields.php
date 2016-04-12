@@ -24,17 +24,9 @@
 
 namespace FacebookAds\Object\Fields;
 
-use FacebookAds\Enum\AbstractEnum;
-
 /**
+ * @deprecated use LookalikeSpecFields instead
+ *
  * @method static LookalikeAudienceSpecFields getInstance()
  */
-class LookalikeAudienceSpecFields extends AbstractEnum {
-
-  const TYPE = 'type';
-  const RATIO = 'ratio';
-  const STARTING_RATIO = 'starting_ratio';
-  const COUNTRY = 'country';
-  const PIXEL_IDS = 'pixel_ids';
-  const CONVERSION_TYPE = 'conversion_type';
-}
+class LookalikeAudienceSpecFields extends LookalikeSpecFields {}

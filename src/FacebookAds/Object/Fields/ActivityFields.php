@@ -24,18 +24,9 @@
 
 namespace FacebookAds\Object\Fields;
 
-use FacebookAds\Enum\AbstractEnum;
-
 /**
+ * @deprecated use AdActivityFields instead
+ *
  * @method static ActivityFields getInstance()
  */
-class ActivityFields extends AbstractEnum {
-
-    const ACTOR_ID = 'actor_id';
-    const ACTOR_NAME = 'actor_name';
-    const EXTRA_DATA = 'extra_data';
-    const EVENT_TIME = 'event_time';
-    const EVENT_TYPE = 'event_type';
-    const OBJECT_ID = 'object_id';
-    const OBJECT_NAME = 'object_name';
-}
+class ActivityFields extends AdActivityFields {}
