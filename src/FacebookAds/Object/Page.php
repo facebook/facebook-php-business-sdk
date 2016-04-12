@@ -65,8 +65,8 @@ class Page extends AbstractCrudObject {
    */
   public function addUser($business_id, $user_id, $role) {
     $params = array(
-      'business_id' => $business_id,
-      'user_id' => $user_id,
+      'business' => $business_id,
+      'user' => $user_id,
       'role' => $role,
     );
 
@@ -82,8 +82,8 @@ class Page extends AbstractCrudObject {
    */
   public function deleteUser($business_id, $user_id) {
     $params = array(
-      'business_id' => $business_id,
-      'user_id' => $user_id,
+      'business' => $business_id,
+      'user' => $user_id,
     );
 
     $this->getApi()->call(
