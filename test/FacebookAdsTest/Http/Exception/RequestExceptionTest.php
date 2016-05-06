@@ -25,6 +25,7 @@
 namespace FacebookAdsTest\Http\Exception;
 
 use FacebookAds\Http\Exception\RequestException;
+use FacebookAds\Http\Response;
 use FacebookAdsTest\AbstractUnitTestCase;
 
 class RequestExceptionTest extends AbstractUnitTestCase {
@@ -48,7 +49,10 @@ class RequestExceptionTest extends AbstractUnitTestCase {
       ),
     );
     $status_code = 400;
-    $e = new RequestException($data, $status_code);
+    $response = new Response();
+    $response->setBody(json_encode($data));
+    $response->setStatusCode($status_code);
+    $e = new RequestException($response);
     $this->assertEquals($status_code, $e->getHttpStatusCode());
     $this->assertEquals(
       $data['error']['error_subcode'], $e->getErrorSubcode());
@@ -81,7 +85,10 @@ class RequestExceptionTest extends AbstractUnitTestCase {
    * @dataProvider createConcreteProvider
    */
   public function testCreateConcrete($data, $expected_class) {
-    $e = RequestException::create(array('error' => $data), 400);
+    $response = new Response();
+    $response->setBody(json_encode(array('error' => $data)));
+    $response->setStatusCode(400);
+    $e = RequestException::create($response);
     $fqn = '\FacebookAds\Http\Exception\\'.$expected_class;
     $this->assertTrue(is_a($e, $fqn));
   }
