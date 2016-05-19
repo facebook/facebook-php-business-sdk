@@ -49,6 +49,7 @@ class CustomConversionFields extends AbstractEnum {
   const NAME = 'name';
   const PIXEL = 'pixel';
   const PIXEL_RULE = 'pixel_rule';
+  const PIXEL_ID = 'pixel_id';
 
   public function getFieldTypes() {
     return array(
@@ -64,6 +65,7 @@ class CustomConversionFields extends AbstractEnum {
       'name' => 'string',
       'pixel' => 'AdsPixel',
       'pixel_rule' => 'string',
+      'pixel_id' => 'string',
     );
   }
 }

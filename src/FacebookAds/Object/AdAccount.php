@@ -1159,9 +1159,9 @@ class AdAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/customconversions',
-      new AbstractCrudObject(),
+      new CustomConversion(),
       'EDGE',
-      array(),
+      CustomConversion::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

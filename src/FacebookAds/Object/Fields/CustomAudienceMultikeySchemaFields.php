@@ -27,7 +27,7 @@ namespace FacebookAds\Object\Fields;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * @method static LookalikeAudienceSpecFields getInstance()
+ * @method static CustomAudienceMultikeySchemaFields getInstance()
  */
 class CustomAudienceMultikeySchemaFields extends AbstractEnum {
 

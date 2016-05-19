@@ -38,6 +38,10 @@ use FacebookAds\Enum\AbstractEnum;
 class AdPreviewFields extends AbstractEnum {
 
   const BODY = 'body';
+  const CREATIVE = 'creative';
+  const POST = 'post';
+  const AD_FORMAT = 'ad_format';
+  const PRODUCT_ITEM_IDS = 'product_item_ids';
 
   public function getFieldTypes() {
     return array(

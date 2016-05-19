@@ -31,7 +31,6 @@ use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\TargetingFields;
 use FacebookAds\Object\Values\TargetingDevicePlatformsValues;
 use FacebookAds\Object\Values\TargetingEffectiveDevicePlatformsValues;
-use FacebookAds\Object\Values\TargetingEffectivePlatformsValues;
 
 /**
  * This class is auto-genereated.
@@ -55,7 +54,6 @@ class Targeting extends AbstractObject {
     $ref_enums = array();
     $ref_enums['DevicePlatforms'] = TargetingDevicePlatformsValues::getInstance()->getValues();
     $ref_enums['EffectiveDevicePlatforms'] = TargetingEffectiveDevicePlatformsValues::getInstance()->getValues();
-    $ref_enums['EffectivePlatforms'] = TargetingEffectivePlatformsValues::getInstance()->getValues();
     return $ref_enums;
   }
 

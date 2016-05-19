@@ -107,52 +107,64 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
     $content = $response->getContent();
 
     // First, check if the content contains data
-    if (isset($content['data'])) {
+    if (isset($content['data']) && is_array($content['data'])) {
       $data = $content['data'];
 
-      // If data is an object (represented by a map instead of a pure list),
-      // wrap the object into an array
-      if (array_keys($data) !== range(0, count($data) - 1)) {
+      // If data is an object wrap the object into an array
+      if ($this->isJsonObject($data)) {
         $data = array($data);
       }
       return $data;
     }
 
-    // Second, check if the content contains targetingsentencelines
+    // Second, check if the content contains special entries
     if (isset($content['targetingsentencelines'])) {
       return $content['targetingsentencelines'];
+    }
+    if (isset($content['adaccounts'])) {
+      return $content['adaccounts'];
+    }
+    if (isset($content['users'])) {
+      return $content['users'];
     }
 
     // Third, check if the content is an array of objects indexed by id
     $is_id_indexed_array = true;
     $objects = array();
-    foreach ($content as $key => $value) {
-      if ($key === '__fb_trace_id__') {
-        continue;
-      }
+    if (is_array($content) && count($content) >= 1) {
+      foreach ($content as $key => $value) {
+        if ($key === '__fb_trace_id__') {
+          continue;
+        }
 
-      if ($value !== null &&
-          array_keys($value) !== range(0, count($value) - 1) &&
-          isset($value['id']) &&
-          $value['id'] !== null &&
-          $value['id'] === $key) {
-        $objects[] = $value;
-      } else {
-        $is_id_indexed_array = false;
-        break;
+        if ($value !== null &&
+            $this->isJsonObject($value) &&
+            isset($value['id']) &&
+            $value['id'] !== null &&
+            $value['id'] === $key) {
+          $objects[] = $value;
+        } else {
+          $is_id_indexed_array = false;
+          break;
+        }
       }
+    } else {
+      $is_id_indexed_array = false;
     }
     if ($is_id_indexed_array) {
       return $objects;
     }
 
-    // Fourth, check if the content itself is an object (represented by a map
-    // instead of a pure list)
-    if (array_keys($content) !== range(0, count($content) - 1)) {
-      return array($content);
+    throw new \InvalidArgumentException("Malformed response data");
+  }
+
+  private function isJsonObject($object) {
+    if (!is_array($object)) {
+      return false;
     }
 
-    throw new \InvalidArgumentException("Malformed response data");
+    // A json object is represented by a map instead of a pure list
+    return array_keys($object) !== range(0, count($object) - 1);
   }
 
   /**

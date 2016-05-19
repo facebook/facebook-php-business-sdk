@@ -496,4 +496,51 @@ class ProductCatalog extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  /**
+   * @deprecated use createExternalEventSource instead
+   */
+  public function setExternalEventSources(array $pixel_ids, $pending = false) {
+    $params = array(
+      'external_event_sources' => $pixel_ids,
+    );
+    return $this->createExternalEventSource(array(), $params, $pending);
+  }
+
+  /**
+   * @deprecated use deleteExternalEventSources instead
+   */
+  public function removeExternalEventSources(array $pixel_ids, $pending = false) {
+    $params = array(
+      'external_event_sources' => $pixel_ids,
+    );
+    return $this->deleteExternalEventSources(array(), $params, $pending);
+  }
+
+  /**
+   * @param int $user_id
+   * @param string $role
+   */
+  public function addUserPermission($user_id, $role) {
+    $params = array(
+      'user' => $user_id,
+      'role' => $role,
+    );
+    $this->getApi()->call(
+      '/'.$this->assureId().'/userpermissions',
+      RequestInterface::METHOD_POST,
+      $params);
+  }
+
+  /**
+   * @param int $user_id
+   */
+  public function deleteUserPermission($user_id) {
+    $params = array(
+      'user' => $user_id,
+    );
+    $this->getApi()->call(
+      '/'.$this->assureId().'/userpermissions',
+      RequestInterface::METHOD_DELETE,
+      $params);
+  }
 }

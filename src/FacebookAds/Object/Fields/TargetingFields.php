@@ -57,7 +57,6 @@ class TargetingFields extends AbstractEnum {
   const EDUCATION_STATUSES = 'education_statuses';
   const EFFECTIVE_DEVICE_PLATFORMS = 'effective_device_platforms';
   const EFFECTIVE_FACEBOOK_POSITIONS = 'effective_facebook_positions';
-  const EFFECTIVE_PLATFORMS = 'effective_platforms';
   const ENGAGEMENT_SPECS = 'engagement_specs';
   const ETHNIC_AFFINITY = 'ethnic_affinity';
   const EXCLUDE_REACHED_SINCE = 'exclude_reached_since';
@@ -134,7 +133,6 @@ class TargetingFields extends AbstractEnum {
       'education_statuses' => 'list<unsigned int>',
       'effective_device_platforms' => 'EffectiveDevicePlatforms',
       'effective_facebook_positions' => 'list<string>',
-      'effective_platforms' => 'EffectivePlatforms',
       'engagement_specs' => 'list<TargetingDynamicRule>',
       'ethnic_affinity' => 'list<IDName>',
       'exclude_reached_since' => 'list<string>',

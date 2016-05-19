@@ -183,9 +183,9 @@ class User extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/businesses',
-      new AbstractCrudObject(),
+      new Business(),
       'EDGE',
-      array(),
+      Business::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

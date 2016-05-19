@@ -88,9 +88,9 @@ class Business extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/adaccount',
-      new AbstractCrudObject(),
+      new AdAccount(),
       'EDGE',
-      array(),
+      AdAccount::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
