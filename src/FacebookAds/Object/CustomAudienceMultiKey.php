@@ -172,7 +172,6 @@ class CustomAudienceMultiKey extends AbstractCrudObject {
 
     $payload = array(
       'schema' => $types,
-      'is_raw' => true,
       'data' => $users,
     );
 
