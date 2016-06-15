@@ -45,9 +45,9 @@ class InsightsFields extends AbstractEnum {
   const CALL_TO_ACTION_CLICKS = 'call_to_action_clicks';
   const CAMPAIGN_ID = 'campaign_id';
   const CAMPAIGN_NAME = 'campaign_name';
-  const COST_PER_10_SEC_VIDEO_VIEW = 'cost_per_10_esc_video_view';
+  const COST_PER_10_SEC_VIDEO_VIEW = 'cost_per_10_sec_video_view';
   const COST_PER_ACTION_TYPE = 'cost_per_action_type';
-  const COST_PER_ESTIMAED_AD_RECALLERS = 'cost_per_estimated_ad_recallers';
+  const COST_PER_ESTIMATED_AD_RECALLERS = 'cost_per_estimated_ad_recallers';
   const COST_PER_INLINE_LINK_CLICK = 'cost_per_inline_link_click';
   const COST_PER_INLINE_POST_ENGAGEMENT = 'cost_per_inline_post_engagement';
   const COST_PER_TOTAL_ACTION = 'cost_per_total_action';
@@ -75,7 +75,7 @@ class InsightsFields extends AbstractEnum {
   const INLINE_POST_ENGAGEMENT = 'inline_post_engagement';
   const NEWSFEED_AVG_POSITION = 'newsfeed_avg_position';
   const NEWSFEED_CLICKS = 'newsfeed_clicks';
-  const NEWSFEED_IMPRESSIONS = 'newsfeed_impresions';
+  const NEWSFEED_IMPRESSIONS = 'newsfeed_impressions';
   const REACH = 'reach';
   const RELEVANCE_SCORE = 'relevance_score';
   const SOCIAL_CLICKS = 'social_clicks';
