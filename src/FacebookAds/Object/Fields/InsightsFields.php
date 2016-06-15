@@ -75,7 +75,7 @@ class InsightsFields extends AbstractEnum {
   const INLINE_POST_ENGAGEMENT = 'inline_post_engagement';
   const NEWSFEED_AVG_POSITION = 'newsfeed_avg_position';
   const NEWSFEED_CLICKS = 'newsfeed_clicks';
-  const NEWSFEED_IMPRESSIONS = 'newsfeed_impresions';
+  const NEWSFEED_IMPRESSIONS = 'newsfeed_impressions';
   const REACH = 'reach';
   const RELEVANCE_SCORE = 'relevance_score';
   const SOCIAL_CLICKS = 'social_clicks';
