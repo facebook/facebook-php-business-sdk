@@ -47,7 +47,7 @@ class InsightsFields extends AbstractEnum {
   const CAMPAIGN_NAME = 'campaign_name';
   const COST_PER_10_SEC_VIDEO_VIEW = 'cost_per_10_sec_video_view';
   const COST_PER_ACTION_TYPE = 'cost_per_action_type';
-  const COST_PER_ESTIMAED_AD_RECALLERS = 'cost_per_estimated_ad_recallers';
+  const COST_PER_ESTIMATED_AD_RECALLERS = 'cost_per_estimated_ad_recallers';
   const COST_PER_INLINE_LINK_CLICK = 'cost_per_inline_link_click';
   const COST_PER_INLINE_POST_ENGAGEMENT = 'cost_per_inline_post_engagement';
   const COST_PER_TOTAL_ACTION = 'cost_per_total_action';
