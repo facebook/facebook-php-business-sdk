@@ -94,6 +94,11 @@ final class Config {
   /**
    * @var string
    */
+  public $instagramActorId;
+
+  /**
+   * @var string
+   */
   public $secondaryBusinessId;
 
   /**

@@ -96,6 +96,7 @@ class IntegrationBootstrap extends Bootstrap {
       $this->config->pageId = $this->confxt('page_id');
       $this->config->appUrl = $this->confxt('app_url');
       $this->config->businessId = $this->confxt('business_id');
+      $this->config->instagramActorId = $this->confx('instagram_actor_id');
 
       // Optionals: Override unit config
       $this->config->testRunId = $this->confx(

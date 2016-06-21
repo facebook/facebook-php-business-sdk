@@ -71,6 +71,11 @@ return array(
    */
   'app_url' => '',
 
+  /**
+   * @var string Numeric Instagram actor id, espressed as string
+   */
+  'instagram_actor_id' => '',
+
   // OPTIONAL INTEGRATION TESTS
 
   'skip_if' => array(
@@ -107,6 +112,11 @@ return array(
      * @var bool Skip tests that require polling for async jobs execution
      */
     'no_async_jobs' => true,
+
+    /**
+     * @var bool Skip tests that require an instagram actor
+     */
+    'no_instagram' => true,
   ),
 
   // OPTIONAL CONFIGURATIONS
