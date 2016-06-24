@@ -89,4 +89,32 @@ abstract class AbstractArchivableCrudObject extends AbstractCrudObject {
       array_merge($params, array(
         $this->getStatusParamName() => static::STATUS_DELETED)));
   }
+
+  /**
+   * Pause this object
+   *
+   * @param array $params
+   * @return void
+   */
+  public function pause(array $params = array()) {
+    $this->getApi()->call(
+      $this->getNodePath(),
+      RequestInterface::METHOD_POST,
+      array_merge($params, array(
+        $this->getStatusParamName() => static::STATUS_PAUSED)));
+  }
+
+  /**
+   * Activate this object
+   *
+   * @param array $params
+   * @return void
+   */
+  public function activate(array $params = array()) {
+    $this->getApi()->call(
+      $this->getNodePath(),
+      RequestInterface::METHOD_POST,
+      array_merge($params, array(
+        $this->getStatusParamName() => static::STATUS_ACTIVE)));
+  }
 }
