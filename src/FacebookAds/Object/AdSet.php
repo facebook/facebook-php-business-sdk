@@ -96,10 +96,8 @@ class AdSet extends AbstractArchivableCrudObject
     $this->assureId();
 
     $param_types = array(
-      'after' => 'string',
       'business_id' => 'string',
       'category' => 'category_enum',
-      'limit' => 'int',
       'since' => 'datetime',
       'uid' => 'int',
       'until' => 'datetime',
@@ -152,7 +150,6 @@ class AdSet extends AbstractArchivableCrudObject
     $param_types = array(
       'adlabels' => 'list<Object>',
       'execution_options' => 'list<execution_options_enum>',
-      'id' => 'string',
     );
     $enums = array(
       'execution_options_enum' => AdLabelExecutionOptionsValues::getInstance()->getValues(),
@@ -179,7 +176,6 @@ class AdSet extends AbstractArchivableCrudObject
     $param_types = array(
       'adlabels' => 'list<Object>',
       'execution_options' => 'list<execution_options_enum>',
-      'id' => 'string',
     );
     $enums = array(
       'execution_options_enum' => AdLabelExecutionOptionsValues::getInstance()->getValues(),
@@ -190,9 +186,9 @@ class AdSet extends AbstractArchivableCrudObject
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/adlabels',
-      new AbstractCrudObject(),
+      new AdLabel(),
       'EDGE',
-      array(),
+      AdLabel::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -377,7 +373,6 @@ class AdSet extends AbstractArchivableCrudObject
 
     $param_types = array(
       'account_id' => 'string',
-      'id' => 'string',
     );
     $enums = array(
     );
@@ -427,6 +422,7 @@ class AdSet extends AbstractArchivableCrudObject
       'account_id' => 'string',
       'adlabels' => 'list<Object>',
       'adset_schedule' => 'list<Object>',
+      'attribution_window_days' => 'unsigned int',
       'bid_amount' => 'int',
       'billing_event' => 'billing_event_enum',
       'creative_sequence' => 'list<string>',
@@ -434,7 +430,6 @@ class AdSet extends AbstractArchivableCrudObject
       'daily_imps' => 'unsigned int',
       'end_time' => 'datetime',
       'execution_options' => 'list<execution_options_enum>',
-      'id' => 'string',
       'is_autobid' => 'bool',
       'lifetime_budget' => 'unsigned int',
       'lifetime_imps' => 'unsigned int',
@@ -447,6 +442,8 @@ class AdSet extends AbstractArchivableCrudObject
       'start_time' => 'datetime',
       'status' => 'status_enum',
       'targeting' => 'Targeting',
+      'time_based_ad_rotation_id_blocks' => 'list<list<unsigned int>>',
+      'time_based_ad_rotation_intervals' => 'list<unsigned int>',
     );
     $enums = array(
       'billing_event_enum' => AdSetBillingEventValues::getInstance()->getValues(),
@@ -460,9 +457,9 @@ class AdSet extends AbstractArchivableCrudObject
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/',
-      new AbstractCrudObject(),
+      new AdSet(),
       'NODE',
-      array(),
+      AdSet::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

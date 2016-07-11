@@ -28,11 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AdAccountTargetingInsightsFields;
-use FacebookAds\Object\Values\AdAccountTargetingInsightsModeValues;
-use FacebookAds\Object\Values\AdAccountTargetingInsightsObjectiveValues;
-use FacebookAds\Object\Values\AdAccountTargetingInsightsRankModeValues;
-use FacebookAds\Object\Values\AdAccountTargetingInsightsTypeValues;
+use FacebookAds\Object\Fields\UserLeadGenFieldDataFields;
 
 /**
  * This class is auto-genereated.
@@ -43,21 +39,17 @@ use FacebookAds\Object\Values\AdAccountTargetingInsightsTypeValues;
  *
  */
 
-class AdAccountTargetingInsights extends AbstractCrudObject {
+class UserLeadGenFieldData extends AbstractObject {
 
   /**
-   * @return AdAccountTargetingInsightsFields
+   * @return UserLeadGenFieldDataFields
    */
   public static function getFieldsEnum() {
-    return AdAccountTargetingInsightsFields::getInstance();
+    return UserLeadGenFieldDataFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Type'] = AdAccountTargetingInsightsTypeValues::getInstance()->getValues();
-    $ref_enums['Mode'] = AdAccountTargetingInsightsModeValues::getInstance()->getValues();
-    $ref_enums['Objective'] = AdAccountTargetingInsightsObjectiveValues::getInstance()->getValues();
-    $ref_enums['RankMode'] = AdAccountTargetingInsightsRankModeValues::getInstance()->getValues();
     return $ref_enums;
   }
 

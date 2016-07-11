@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,10 +33,27 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static CampaignExecutionOptionsValues getInstance()
  */
-class CampaignExecutionOptionsValues extends AbstractEnum {
 
-  const VALIDATE_ONLY = 'validate_only';
-  const INCLUDE_RECOMMENDATIONS = 'include_recommendations';
+class ProductCatalogHotelRoomsBatchFields extends AbstractEnum {
+
+  const ERRORS = 'errors';
+  const ERRORS_TOTAL_COUNT = 'errors_total_count';
+  const HANDLE = 'handle';
+  const STATUS = 'status';
+  const FILE = 'file';
+  const STANDARD = 'standard';
+  const UPDATE_ONLY = 'update_only';
+
+  public function getFieldTypes() {
+    return array(
+      'errors' => 'list<Object>',
+      'errors_total_count' => 'int',
+      'handle' => 'string',
+      'status' => 'string',
+      'file' => 'file',
+      'standard' => 'Standard',
+      'update_only' => 'bool',
+    );
+  }
 }

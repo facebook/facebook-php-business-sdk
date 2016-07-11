@@ -28,7 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\ConnectionObjectOpenGraphActionFields;
+use FacebookAds\Object\Fields\HotelFields;
 
 /**
  * This class is auto-genereated.
@@ -39,13 +39,17 @@ use FacebookAds\Object\Fields\ConnectionObjectOpenGraphActionFields;
  *
  */
 
-class ConnectionObjectOpenGraphAction extends AbstractObject {
+class Hotel extends AbstractCrudObject {
+
+  protected function getEndpoint() {
+    return 'hotels';
+  }
 
   /**
-   * @return ConnectionObjectOpenGraphActionFields
+   * @return HotelFields
    */
   public static function getFieldsEnum() {
-    return ConnectionObjectOpenGraphActionFields::getInstance();
+    return HotelFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -53,5 +57,61 @@ class ConnectionObjectOpenGraphAction extends AbstractObject {
     return $ref_enums;
   }
 
+
+  public function createHotelRoom(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'applinks' => 'Object',
+      'base_price' => 'float',
+      'currency' => 'string',
+      'description' => 'string',
+      'images' => 'list<Object>',
+      'margin_level' => 'unsigned int',
+      'name' => 'string',
+      'pricing_variables' => 'list<Object>',
+      'room_id' => 'string',
+      'url' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/hotel_rooms',
+      new HotelRoom(),
+      'EDGE',
+      HotelRoom::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new Hotel(),
+      'NODE',
+      Hotel::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
 }

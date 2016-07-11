@@ -161,8 +161,7 @@ class CustomAudienceMultiKey extends AbstractCrudObject {
         foreach ($user as $index => &$key_value) {
           $key = $types[$index];
           foreach ($normalizers as $normalizer) {
-            if ($key_value &&
-                $key !== CustomAudienceMultikeySchemaFields::EXTERN_ID &&
+            if ($key !== CustomAudienceMultikeySchemaFields::EXTERN_ID &&
                 $normalizer->shouldNormalize($key, $key_value)) {
               $key_value = $normalizer->normalize($key, $key_value);
             }
@@ -173,6 +172,7 @@ class CustomAudienceMultiKey extends AbstractCrudObject {
 
     $payload = array(
       'schema' => $types,
+      'is_raw' => true,
       'data' => $users,
     );
 

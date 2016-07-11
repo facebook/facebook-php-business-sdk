@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,10 +33,33 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static CampaignExecutionOptionsValues getInstance()
  */
-class CampaignExecutionOptionsValues extends AbstractEnum {
 
-  const VALIDATE_ONLY = 'validate_only';
-  const INCLUDE_RECOMMENDATIONS = 'include_recommendations';
+class AdCreativeLinkDataCallToActionValueFields extends AbstractEnum {
+
+  const APP_LINK = 'app_link';
+  const APPLICATION = 'application';
+  const EVENT_ID = 'event_id';
+  const LEAD_GEN_FORM_ID = 'lead_gen_form_id';
+  const LINK = 'link';
+  const LINK_CAPTION = 'link_caption';
+  const LINK_DESCRIPTION = 'link_description';
+  const LINK_TITLE = 'link_title';
+  const PAGE = 'page';
+  const PRODUCT_LINK = 'product_link';
+
+  public function getFieldTypes() {
+    return array(
+      'app_link' => 'string',
+      'application' => 'string',
+      'event_id' => 'string',
+      'lead_gen_form_id' => 'string',
+      'link' => 'string',
+      'link_caption' => 'string',
+      'link_description' => 'string',
+      'link_title' => 'string',
+      'page' => 'string',
+      'product_link' => 'string',
+    );
+  }
 }

@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,33 +33,33 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static EventCategoryValues getInstance()
  */
-class EventCategoryValues extends AbstractEnum {
 
-  const ART_EVENT = 'ART_EVENT';
-  const BOOK_EVENT = 'BOOK_EVENT';
-  const MOVIE_EVENT = 'MOVIE_EVENT';
-  const FUNDRAISER = 'FUNDRAISER';
-  const VOLUNTEERING = 'VOLUNTEERING';
-  const FAMILY_EVENT = 'FAMILY_EVENT';
-  const FESTIVAL_EVENT = 'FESTIVAL_EVENT';
-  const NEIGHBORHOOD = 'NEIGHBORHOOD';
-  const RELIGIOUS_EVENT = 'RELIGIOUS_EVENT';
-  const SHOPPING = 'SHOPPING';
-  const COMEDY_EVENT = 'COMEDY_EVENT';
-  const MUSIC_EVENT = 'MUSIC_EVENT';
-  const DANCE_EVENT = 'DANCE_EVENT';
-  const NIGHTLIFE = 'NIGHTLIFE';
-  const THEATER_EVENT = 'THEATER_EVENT';
-  const DINING_EVENT = 'DINING_EVENT';
-  const FOOD_TASTING = 'FOOD_TASTING';
-  const CONFERENCE_EVENT = 'CONFERENCE_EVENT';
-  const MEETUP = 'MEETUP';
-  const CLASS_EVENT = 'CLASS_EVENT';
-  const LECTURE = 'LECTURE';
-  const WORKSHOP = 'WORKSHOP';
-  const FITNESS = 'FITNESS';
-  const SPORTS_EVENT = 'SPORTS_EVENT';
-  const OTHER = 'OTHER';
+class HotelRoomFields extends AbstractEnum {
+
+  const APPLINKS = 'applinks';
+  const BASE_PRICE = 'base_price';
+  const CURRENCY = 'currency';
+  const DESCRIPTION = 'description';
+  const ID = 'id';
+  const IMAGES = 'images';
+  const MARGIN_LEVEL = 'margin_level';
+  const NAME = 'name';
+  const ROOM_ID = 'room_id';
+  const URL = 'url';
+
+  public function getFieldTypes() {
+    return array(
+      'applinks' => 'AppLinks',
+      'base_price' => 'string',
+      'currency' => 'string',
+      'description' => 'string',
+      'id' => 'string',
+      'images' => 'list<string>',
+      'margin_level' => 'string',
+      'name' => 'string',
+      'room_id' => 'string',
+      'url' => 'string',
+    );
+  }
 }

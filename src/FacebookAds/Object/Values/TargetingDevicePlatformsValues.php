@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class TargetingDevicePlatformsValues extends AbstractEnum {
 
-  const MOBILE = 'MOBILE';
-  const DESKTOP = 'DESKTOP';
+  const MOBILE = 'mobile';
+  const DESKTOP = 'desktop';
 }

@@ -35,15 +35,25 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class ConnectionObjectOpenGraphObjectPropertyFields extends AbstractEnum {
+class AdAccountTargetingUnifiedFields extends AbstractEnum {
 
+  const AUDIENCE_SIZE = 'audience_size';
+  const DESCRIPTION = 'description';
+  const ID = 'id';
   const NAME = 'name';
+  const PATH = 'path';
   const TYPE = 'type';
+  const VALID = 'valid';
 
   public function getFieldTypes() {
     return array(
+      'audience_size' => 'unsigned int',
+      'description' => 'string',
+      'id' => 'string',
       'name' => 'string',
+      'path' => 'list<string>',
       'type' => 'string',
+      'valid' => 'bool',
     );
   }
 }

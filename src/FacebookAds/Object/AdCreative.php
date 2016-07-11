@@ -84,7 +84,6 @@ class AdCreative extends AbstractCrudObject {
 
     $param_types = array(
       'adlabels' => 'list<Object>',
-      'id' => 'string',
     );
     $enums = array(
     );
@@ -109,7 +108,6 @@ class AdCreative extends AbstractCrudObject {
 
     $param_types = array(
       'adlabels' => 'list<Object>',
-      'id' => 'string',
     );
     $enums = array(
     );
@@ -119,9 +117,9 @@ class AdCreative extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/adlabels',
-      new AbstractCrudObject(),
+      new AdLabel(),
       'EDGE',
-      array(),
+      AdLabel::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -134,7 +132,9 @@ class AdCreative extends AbstractCrudObject {
 
     $param_types = array(
       'ad_format' => 'ad_format_enum',
+      'dynamic_creative_spec' => 'Object',
       'height' => 'unsigned int',
+      'interactive' => 'bool',
       'locale' => 'string',
       'post' => 'Object',
       'product_item_ids' => 'list<string>',
@@ -165,7 +165,6 @@ class AdCreative extends AbstractCrudObject {
     $param_types = array(
       'account_id' => 'string',
       'adlabels' => 'list<Object>',
-      'id' => 'string',
       'name' => 'string',
       'run_status' => 'unsigned int',
     );
@@ -191,6 +190,8 @@ class AdCreative extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'thumbnail_height' => 'unsigned int',
+      'thumbnail_width' => 'unsigned int',
     );
     $enums = array(
     );
@@ -216,7 +217,6 @@ class AdCreative extends AbstractCrudObject {
     $param_types = array(
       'account_id' => 'string',
       'adlabels' => 'list<Object>',
-      'id' => 'string',
       'name' => 'string',
       'run_status' => 'unsigned int',
     );
@@ -228,9 +228,9 @@ class AdCreative extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/',
-      new AbstractCrudObject(),
+      new AdCreative(),
       'NODE',
-      array(),
+      AdCreative::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

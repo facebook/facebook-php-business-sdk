@@ -22,13 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Fields;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\ConnectionObjectOpenGraphObjectPropertyFields;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-genereated.
@@ -39,19 +35,15 @@ use FacebookAds\Object\Fields\ConnectionObjectOpenGraphObjectPropertyFields;
  *
  */
 
-class ConnectionObjectOpenGraphObjectProperty extends AbstractObject {
+class UserLeadGenDisclaimerResponseFields extends AbstractEnum {
 
-  /**
-   * @return ConnectionObjectOpenGraphObjectPropertyFields
-   */
-  public static function getFieldsEnum() {
-    return ConnectionObjectOpenGraphObjectPropertyFields::getInstance();
+  const CHECKBOX_KEY = 'checkbox_key';
+  const IS_CHECKED = 'is_checked';
+
+  public function getFieldTypes() {
+    return array(
+      'checkbox_key' => 'string',
+      'is_checked' => 'string',
+    );
   }
-
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
 }

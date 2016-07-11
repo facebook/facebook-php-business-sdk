@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\UserLeadGenDisclaimerResponseFields;
 
 /**
  * This class is auto-genereated.
@@ -33,10 +37,21 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static CampaignExecutionOptionsValues getInstance()
  */
-class CampaignExecutionOptionsValues extends AbstractEnum {
 
-  const VALIDATE_ONLY = 'validate_only';
-  const INCLUDE_RECOMMENDATIONS = 'include_recommendations';
+class UserLeadGenDisclaimerResponse extends AbstractObject {
+
+  /**
+   * @return UserLeadGenDisclaimerResponseFields
+   */
+  public static function getFieldsEnum() {
+    return UserLeadGenDisclaimerResponseFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
 }

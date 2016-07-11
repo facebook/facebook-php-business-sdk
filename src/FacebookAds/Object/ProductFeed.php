@@ -115,8 +115,8 @@ class ProductFeed extends AbstractCrudObject {
 
     $param_types = array(
       'file' => 'file',
-      'id' => 'string',
       'password' => 'string',
+      'update_only' => 'bool',
       'url' => 'string',
       'username' => 'string',
     );
@@ -142,7 +142,6 @@ class ProductFeed extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'id' => 'string',
     );
     $enums = array(
     );
@@ -193,7 +192,6 @@ class ProductFeed extends AbstractCrudObject {
       'deletion_enabled' => 'bool',
       'delimiter' => 'delimiter_enum',
       'encoding' => 'encoding_enum',
-      'id' => 'string',
       'name' => 'string',
       'quoted_fields' => 'bool',
       'schedule' => 'string',
@@ -208,9 +206,9 @@ class ProductFeed extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/',
-      new AbstractCrudObject(),
+      new ProductFeed(),
       'NODE',
-      array(),
+      ProductFeed::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

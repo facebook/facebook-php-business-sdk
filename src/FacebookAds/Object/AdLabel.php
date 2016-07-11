@@ -156,7 +156,6 @@ class AdLabel extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'id' => 'string',
     );
     $enums = array(
     );
@@ -203,7 +202,6 @@ class AdLabel extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'id' => 'string',
       'name' => 'string',
     );
     $enums = array(
@@ -214,9 +212,9 @@ class AdLabel extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/',
-      new AbstractCrudObject(),
+      new AdLabel(),
       'NODE',
-      array(),
+      AdLabel::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

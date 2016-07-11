@@ -141,8 +141,8 @@ class AdImage extends AbstractCrudObject {
 
     $this->clearHistory();
     $content = $response->getContent();
-    $images = $content['images'];
-    $data = $images[basename($this->{AdImageFields::FILENAME})];
+    $data = $content['images']
+      [basename($this->{AdImageFields::FILENAME})];
 
     $this->data[AdImageFields::HASH] = $data[AdImageFields::HASH];
 
@@ -226,7 +226,6 @@ class AdImage extends AbstractCrudObject {
       $this->getNodePath(),
       RequestInterface::METHOD_GET,
       $params);
-
     $content = $response->getContent();
     $data = $content['data'];
     if ($data) {

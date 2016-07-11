@@ -29,9 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\UserFields;
-use FacebookAds\Object\Values\BusinessSurveyBusinessTypeValues;
-use FacebookAds\Object\Values\BusinessVerticalValues;
-use FacebookAds\Object\Values\UserInstallTypeValues;
+use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
 
 /**
  * This class is auto-genereated.
@@ -53,7 +51,6 @@ class User extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['InstallType'] = UserInstallTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -113,7 +110,6 @@ class User extends AbstractCrudObject {
 
     $param_types = array(
       'accounts' => 'map',
-      'id' => 'int',
       'name' => 'string',
       'redownload' => 'bool',
       'users' => 'map',
@@ -159,40 +155,6 @@ class User extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createBusinesse(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'id' => 'int',
-      'name' => 'string',
-      'primary_page' => 'string',
-      'sales_rep_email' => 'string',
-      'survey_business_type' => 'survey_business_type_enum',
-      'survey_num_assets' => 'unsigned int',
-      'survey_num_people' => 'unsigned int',
-      'timezone_id' => 'unsigned int',
-      'vertical' => 'vertical_enum',
-    );
-    $enums = array(
-      'survey_business_type_enum' => BusinessSurveyBusinessTypeValues::getInstance()->getValues(),
-      'vertical_enum' => BusinessVerticalValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/businesses',
-      new Business(),
-      'EDGE',
-      Business::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getLeadGenForms(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -210,6 +172,34 @@ class User extends AbstractCrudObject {
       new LeadgenForm(),
       'EDGE',
       LeadgenForm::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getPicture(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'height' => 'int',
+      'redirect' => 'bool',
+      'type' => 'type_enum',
+      'width' => 'int',
+    );
+    $enums = array(
+      'type_enum' => ProfilePictureSourceTypeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/picture',
+      new ProfilePictureSource(),
+      'EDGE',
+      ProfilePictureSource::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

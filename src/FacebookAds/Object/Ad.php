@@ -116,7 +116,6 @@ class Ad extends AbstractArchivableCrudObject
     $param_types = array(
       'adlabels' => 'list<Object>',
       'execution_options' => 'list<execution_options_enum>',
-      'id' => 'string',
     );
     $enums = array(
       'execution_options_enum' => AdLabelExecutionOptionsValues::getInstance()->getValues(),
@@ -143,7 +142,6 @@ class Ad extends AbstractArchivableCrudObject
     $param_types = array(
       'adlabels' => 'list<Object>',
       'execution_options' => 'list<execution_options_enum>',
-      'id' => 'string',
     );
     $enums = array(
       'execution_options_enum' => AdLabelExecutionOptionsValues::getInstance()->getValues(),
@@ -154,9 +152,9 @@ class Ad extends AbstractArchivableCrudObject
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/adlabels',
-      new AbstractCrudObject(),
+      new AdLabel(),
       'EDGE',
-      array(),
+      AdLabel::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -310,10 +308,12 @@ class Ad extends AbstractArchivableCrudObject
 
     $param_types = array(
       'ad_format' => 'ad_format_enum',
+      'dynamic_creative_spec' => 'Object',
       'height' => 'unsigned int',
+      'interactive' => 'bool',
       'locale' => 'string',
       'post' => 'Object',
-      'product_item_ids' => 'list<int>',
+      'product_item_ids' => 'list<string>',
       'width' => 'unsigned int',
     );
     $enums = array(
@@ -456,9 +456,9 @@ class Ad extends AbstractArchivableCrudObject
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/',
-      new AbstractCrudObject(),
+      new Ad(),
       'NODE',
-      array(),
+      Ad::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

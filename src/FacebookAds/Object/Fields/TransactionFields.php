@@ -40,6 +40,7 @@ class TransactionFields extends AbstractEnum {
   const ACCOUNT_ID = 'account_id';
   const APP_AMOUNT = 'app_amount';
   const BILLING_END_TIME = 'billing_end_time';
+  const BILLING_REASON = 'billing_reason';
   const BILLING_START_TIME = 'billing_start_time';
   const CHARGE_TYPE = 'charge_type';
   const FATURA_ID = 'fatura_id';
@@ -56,6 +57,7 @@ class TransactionFields extends AbstractEnum {
       'account_id' => 'string',
       'app_amount' => 'TransactionCurrencyAmount',
       'billing_end_time' => 'unsigned int',
+      'billing_reason' => 'string',
       'billing_start_time' => 'unsigned int',
       'charge_type' => 'string',
       'fatura_id' => 'unsigned int',

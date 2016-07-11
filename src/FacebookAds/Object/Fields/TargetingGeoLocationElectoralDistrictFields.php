@@ -35,19 +35,19 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class ConnectionObjectOpenGraphActionFields extends AbstractEnum {
+class TargetingGeoLocationElectoralDistrictFields extends AbstractEnum {
 
-  const CONNECTED_OBJECTS = 'connected_objects';
-  const DISPLAY_NAME = 'display_name';
+  const COUNTRY = 'country';
+  const ELECTORAL_DISTRICT = 'electoral_district';
+  const KEY = 'key';
   const NAME = 'name';
-  const PROPERTIES = 'properties';
 
   public function getFieldTypes() {
     return array(
-      'connected_objects' => 'list<string>',
-      'display_name' => 'string',
+      'country' => 'string',
+      'electoral_district' => 'string',
+      'key' => 'string',
       'name' => 'string',
-      'properties' => 'list<ConnectionObjectOpenGraphObjectProperty>',
     );
   }
 }

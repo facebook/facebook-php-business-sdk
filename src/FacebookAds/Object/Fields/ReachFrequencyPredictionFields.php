@@ -61,6 +61,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const INSTAGRAM_DESTINATION_ID = 'instagram_destination_id';
   const INTERVAL_FREQUENCY_CAP_RESET_PERIOD = 'interval_frequency_cap_reset_period';
   const NAME = 'name';
+  const PAUSE_PERIODS = 'pause_periods';
   const PREDICTION_MODE = 'prediction_mode';
   const PREDICTION_PROGRESS = 'prediction_progress';
   const RESERVATION_STATUS = 'reservation_status';
@@ -93,7 +94,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'external_budget' => 'int',
       'external_impression' => 'unsigned int',
       'external_maximum_budget' => 'int',
-      'external_maximum_impression' => 'unsigned int',
+      'external_maximum_impression' => 'int',
       'external_maximum_reach' => 'unsigned int',
       'external_minimum_budget' => 'int',
       'external_minimum_impression' => 'unsigned int',
@@ -106,6 +107,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'instagram_destination_id' => 'string',
       'interval_frequency_cap_reset_period' => 'unsigned int',
       'name' => 'string',
+      'pause_periods' => 'string',
       'prediction_mode' => 'unsigned int',
       'prediction_progress' => 'unsigned int',
       'reservation_status' => 'unsigned int',

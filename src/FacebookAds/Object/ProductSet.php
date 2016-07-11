@@ -108,7 +108,6 @@ class ProductSet extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'id' => 'string',
     );
     $enums = array(
     );
@@ -156,7 +155,6 @@ class ProductSet extends AbstractCrudObject {
 
     $param_types = array(
       'filter' => 'Object',
-      'id' => 'string',
       'name' => 'string',
     );
     $enums = array(
@@ -167,9 +165,9 @@ class ProductSet extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/',
-      new AbstractCrudObject(),
+      new ProductSet(),
       'NODE',
-      array(),
+      ProductSet::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

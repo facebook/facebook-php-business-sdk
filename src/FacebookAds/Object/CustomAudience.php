@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\CustomAudienceFields;
+use FacebookAds\Object\Values\CustomAudienceClaimObjectiveValues;
 use FacebookAds\Object\Values\CustomAudienceContentTypeValues;
 use FacebookAds\Object\Values\CustomAudienceFieldsValues;
 use FacebookAds\Object\Values\CustomAudienceSubtypeValues;
@@ -60,6 +61,7 @@ class CustomAudience extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['ClaimObjective'] = CustomAudienceClaimObjectiveValues::getInstance()->getValues();
     $ref_enums['ContentType'] = CustomAudienceContentTypeValues::getInstance()->getValues();
     $ref_enums['Subtype'] = CustomAudienceSubtypeValues::getInstance()->getValues();
     $ref_enums['Fields'] = CustomAudienceFieldsValues::getInstance()->getValues();
@@ -72,7 +74,6 @@ class CustomAudience extends AbstractCrudObject {
 
     $param_types = array(
       'adaccounts' => 'list<string>',
-      'id' => 'string',
     );
     $enums = array(
     );
@@ -82,9 +83,9 @@ class CustomAudience extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_DELETE,
       '/adaccounts',
-      new CustomAudienceAdAccount(),
+      new AbstractCrudObject(),
       'EDGE',
-      CustomAudienceAdAccount::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -106,9 +107,9 @@ class CustomAudience extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/adaccounts',
-      new CustomAudienceAdAccount(),
+      new AdAccount(),
       'EDGE',
-      CustomAudienceAdAccount::getFieldsEnum()->getValues(),
+      AdAccount::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -121,7 +122,6 @@ class CustomAudience extends AbstractCrudObject {
 
     $param_types = array(
       'adaccounts' => 'list<string>',
-      'id' => 'string',
       'permissions' => 'string',
       'replace' => 'bool',
     );
@@ -133,9 +133,9 @@ class CustomAudience extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/adaccounts',
-      new CustomAudienceAdAccount(),
+      new AdAccount(),
       'EDGE',
-      CustomAudienceAdAccount::getFieldsEnum()->getValues(),
+      AdAccount::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -218,7 +218,6 @@ class CustomAudience extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'id' => 'string',
       'payload' => 'Object',
       'session' => 'Object',
     );
@@ -244,7 +243,6 @@ class CustomAudience extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'id' => 'string',
       'payload' => 'Object',
       'session' => 'Object',
     );
@@ -256,9 +254,9 @@ class CustomAudience extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/users',
-      new AbstractCrudObject(),
+      new User(),
       'EDGE',
-      array(),
+      User::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -270,7 +268,6 @@ class CustomAudience extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'id' => 'int',
     );
     $enums = array(
     );
@@ -317,10 +314,10 @@ class CustomAudience extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'claim_objective' => 'claim_objective_enum',
       'content_type' => 'content_type_enum',
       'description' => 'string',
-      'exclusions' => 'list<Object>',
-      'inclusions' => 'list<Object>',
+      'event_source_group' => 'string',
       'lookalike_spec' => 'string',
       'name' => 'string',
       'opt_out_link' => 'string',
@@ -329,6 +326,7 @@ class CustomAudience extends AbstractCrudObject {
       'rule' => 'string',
     );
     $enums = array(
+      'claim_objective_enum' => CustomAudienceClaimObjectiveValues::getInstance()->getValues(),
       'content_type_enum' => CustomAudienceContentTypeValues::getInstance()->getValues(),
     );
 
@@ -337,9 +335,9 @@ class CustomAudience extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/',
-      new AbstractCrudObject(),
+      new CustomAudience(),
       'NODE',
-      array(),
+      CustomAudience::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

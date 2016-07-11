@@ -120,8 +120,9 @@ abstract class AbstractEnum implements EnumInstanceInterface {
    * @return mixed
    */
   public function getValueForName($name) {
-    return array_key_exists($name, $this->getArrayCopy())
-      ? $this->getArrayCopy()[$name]
+    $copy = $this->getArrayCopy();
+    return array_key_exists($name, $copy)
+      ? $copy[$name]
       : null;
   }
 

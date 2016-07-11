@@ -22,13 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Fields;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\ConnectionObjectOpenGraphObjectFields;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-genereated.
@@ -39,19 +35,17 @@ use FacebookAds\Object\Fields\ConnectionObjectOpenGraphObjectFields;
  *
  */
 
-class ConnectionObjectOpenGraphObject extends AbstractObject {
+class EventSourceGroupFields extends AbstractEnum {
 
-  /**
-   * @return ConnectionObjectOpenGraphObjectFields
-   */
-  public static function getFieldsEnum() {
-    return ConnectionObjectOpenGraphObjectFields::getInstance();
+  const EVENT_SOURCES = 'event_sources';
+  const ID = 'id';
+  const NAME = 'name';
+
+  public function getFieldTypes() {
+    return array(
+      'event_sources' => 'list<ExternalEventSource>',
+      'id' => 'string',
+      'name' => 'string',
+    );
   }
-
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
 }

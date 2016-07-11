@@ -46,6 +46,7 @@ class ProductItemFields extends AbstractEnum {
   const COLOR = 'color';
   const COMMERCE_INSIGHTS = 'commerce_insights';
   const CONDITION = 'condition';
+  const CURRENCY = 'currency';
   const CUSTOM_DATA = 'custom_data';
   const CUSTOM_LABEL_0 = 'custom_label_0';
   const CUSTOM_LABEL_1 = 'custom_label_1';
@@ -84,7 +85,6 @@ class ProductItemFields extends AbstractEnum {
   const ANDROID_PACKAGE = 'android_package';
   const ANDROID_URL = 'android_url';
   const CHECKOUT_URL = 'checkout_url';
-  const CURRENCY = 'currency';
   const INVENTORY = 'inventory';
   const IOS_APP_NAME = 'ios_app_name';
   const IOS_APP_STORE_ID = 'ios_app_store_id';
@@ -110,6 +110,7 @@ class ProductItemFields extends AbstractEnum {
       'color' => 'string',
       'commerce_insights' => 'ProductItemCommerceInsights',
       'condition' => 'Condition',
+      'currency' => 'string',
       'custom_data' => 'list<Object>',
       'custom_label_0' => 'string',
       'custom_label_1' => 'string',
@@ -132,7 +133,7 @@ class ProductItemFields extends AbstractEnum {
       'product_type' => 'string',
       'retailer_id' => 'string',
       'retailer_product_group_id' => 'string',
-      'review_rejection_reasons' => 'ReviewRejectionReasons',
+      'review_rejection_reasons' => 'list<string>',
       'review_status' => 'ReviewStatus',
       'sale_price' => 'string',
       'sale_price_end_date' => 'string',
@@ -148,7 +149,6 @@ class ProductItemFields extends AbstractEnum {
       'android_package' => 'string',
       'android_url' => 'string',
       'checkout_url' => 'string',
-      'currency' => 'string',
       'inventory' => 'unsigned int',
       'ios_app_name' => 'string',
       'ios_app_store_id' => 'unsigned int',

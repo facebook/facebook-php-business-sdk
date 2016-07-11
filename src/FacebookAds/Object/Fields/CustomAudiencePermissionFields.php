@@ -41,6 +41,7 @@ class CustomAudiencePermissionFields extends AbstractEnum {
   const CAN_SEE_INSIGHT = 'can_see_insight';
   const CAN_SHARE = 'can_share';
   const SUBTYPE_SUPPORTS_LOOKALIKE = 'subtype_supports_lookalike';
+  const SUPPORTS_RECIPIENT_LOOKALIKE = 'supports_recipient_lookalike';
 
   public function getFieldTypes() {
     return array(
@@ -48,6 +49,7 @@ class CustomAudiencePermissionFields extends AbstractEnum {
       'can_see_insight' => 'bool',
       'can_share' => 'bool',
       'subtype_supports_lookalike' => 'bool',
+      'supports_recipient_lookalike' => 'bool',
     );
   }
 }

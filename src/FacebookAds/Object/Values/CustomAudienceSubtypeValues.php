@@ -40,6 +40,7 @@ class CustomAudienceSubtypeValues extends AbstractEnum {
   const CUSTOM = 'CUSTOM';
   const WEBSITE = 'WEBSITE';
   const APP = 'APP';
+  const OFFLINE = 'OFFLINE';
   const CLAIM = 'CLAIM';
   const PARTNER = 'PARTNER';
   const MANAGED = 'MANAGED';

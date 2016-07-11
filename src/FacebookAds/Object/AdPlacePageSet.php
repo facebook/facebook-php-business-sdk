@@ -85,7 +85,6 @@ class AdPlacePageSet extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'id' => 'string',
       'name' => 'string',
     );
     $enums = array(
@@ -96,9 +95,9 @@ class AdPlacePageSet extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/',
-      new AbstractCrudObject(),
+      new AdPlacePageSet(),
       'NODE',
-      array(),
+      AdPlacePageSet::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

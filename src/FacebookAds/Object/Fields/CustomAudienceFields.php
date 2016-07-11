@@ -42,10 +42,8 @@ class CustomAudienceFields extends AbstractEnum {
   const DATA_SOURCE = 'data_source';
   const DELIVERY_STATUS = 'delivery_status';
   const DESCRIPTION = 'description';
-  const EXCLUDED_CUSTOM_AUDIENCES = 'excluded_custom_audiences';
   const EXTERNAL_EVENT_SOURCE = 'external_event_source';
   const ID = 'id';
-  const INCLUDED_CUSTOM_AUDIENCES = 'included_custom_audiences';
   const LAST_USED_TIME = 'last_used_time';
   const LOOKALIKE_AUDIENCE_IDS = 'lookalike_audience_ids';
   const LOOKALIKE_SPEC = 'lookalike_spec';
@@ -61,9 +59,10 @@ class CustomAudienceFields extends AbstractEnum {
   const TIME_CONTENT_UPDATED = 'time_content_updated';
   const TIME_CREATED = 'time_created';
   const TIME_UPDATED = 'time_updated';
+  const CLAIM_OBJECTIVE = 'claim_objective';
   const CONTENT_TYPE = 'content_type';
-  const EXCLUSIONS = 'exclusions';
-  const INCLUSIONS = 'inclusions';
+  const DATASET_ID = 'dataset_id';
+  const EVENT_SOURCE_GROUP = 'event_source_group';
   const LIST_OF_ACCOUNTS = 'list_of_accounts';
   const ORIGIN_AUDIENCE_ID = 'origin_audience_id';
   const PREFILL = 'prefill';
@@ -76,10 +75,8 @@ class CustomAudienceFields extends AbstractEnum {
       'data_source' => 'CustomAudienceDataSource',
       'delivery_status' => 'CustomAudienceStatus',
       'description' => 'string',
-      'excluded_custom_audiences' => 'list<CustomAudience>',
       'external_event_source' => 'AdsPixel',
       'id' => 'string',
-      'included_custom_audiences' => 'list<CustomAudience>',
       'last_used_time' => 'datetime',
       'lookalike_audience_ids' => 'list<string>',
       'lookalike_spec' => 'LookalikeSpec',
@@ -95,9 +92,10 @@ class CustomAudienceFields extends AbstractEnum {
       'time_content_updated' => 'unsigned int',
       'time_created' => 'unsigned int',
       'time_updated' => 'unsigned int',
+      'claim_objective' => 'ClaimObjective',
       'content_type' => 'ContentType',
-      'exclusions' => 'list<Object>',
-      'inclusions' => 'list<Object>',
+      'dataset_id' => 'string',
+      'event_source_group' => 'string',
       'list_of_accounts' => 'list<unsigned int>',
       'origin_audience_id' => 'string',
       'prefill' => 'bool',

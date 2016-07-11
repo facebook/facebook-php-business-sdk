@@ -43,7 +43,7 @@ class AdCreativeLinkDataCallToActionFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'type' => 'Type',
-      'value' => 'Object',
+      'value' => 'AdCreativeLinkDataCallToActionValue',
     );
   }
 }

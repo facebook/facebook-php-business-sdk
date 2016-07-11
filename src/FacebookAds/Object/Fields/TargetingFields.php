@@ -41,7 +41,6 @@ class TargetingFields extends AbstractEnum {
   const AGE_MAX = 'age_max';
   const AGE_MIN = 'age_min';
   const APP_INSTALL_STATE = 'app_install_state';
-  const AUDIENCE_NETWORK_POSITIONS = 'audience_network_positions';
   const BEHAVIORS = 'behaviors';
   const CITIES = 'cities';
   const COLLEGE_YEARS = 'college_years';
@@ -57,6 +56,7 @@ class TargetingFields extends AbstractEnum {
   const EDUCATION_STATUSES = 'education_statuses';
   const EFFECTIVE_DEVICE_PLATFORMS = 'effective_device_platforms';
   const EFFECTIVE_FACEBOOK_POSITIONS = 'effective_facebook_positions';
+  const EFFECTIVE_PUBLISHER_PLATFORMS = 'effective_publisher_platforms';
   const ENGAGEMENT_SPECS = 'engagement_specs';
   const ETHNIC_AFFINITY = 'ethnic_affinity';
   const EXCLUDE_REACHED_SINCE = 'exclude_reached_since';
@@ -65,9 +65,11 @@ class TargetingFields extends AbstractEnum {
   const EXCLUDED_DYNAMIC_AUDIENCE_IDS = 'excluded_dynamic_audience_ids';
   const EXCLUDED_ENGAGEMENT_SPECS = 'excluded_engagement_specs';
   const EXCLUDED_GEO_LOCATIONS = 'excluded_geo_locations';
+  const EXCLUDED_MOBILE_DEVICE_MODEL = 'excluded_mobile_device_model';
   const EXCLUDED_PRODUCT_AUDIENCE_SPECS = 'excluded_product_audience_specs';
   const EXCLUDED_PUBLISHER_CATEGORIES = 'excluded_publisher_categories';
   const EXCLUDED_PUBLISHER_LIST_IDS = 'excluded_publisher_list_ids';
+  const EXCLUDED_USER_DEVICE = 'excluded_user_device';
   const EXCLUSIONS = 'exclusions';
   const FACEBOOK_POSITIONS = 'facebook_positions';
   const FAMILY_STATUSES = 'family_statuses';
@@ -92,10 +94,11 @@ class TargetingFields extends AbstractEnum {
   const NET_WORTH = 'net_worth';
   const OFFICE_TYPE = 'office_type';
   const PAGE_TYPES = 'page_types';
-  const PLATFORMS = 'platforms';
+  const PLACE_PAGE_SET_ID = 'place_page_set_id';
   const POLITICAL_VIEWS = 'political_views';
   const POLITICS = 'politics';
   const PRODUCT_AUDIENCE_SPECS = 'product_audience_specs';
+  const PUBLISHER_PLATFORMS = 'publisher_platforms';
   const RADIUS = 'radius';
   const REGIONS = 'regions';
   const RELATIONSHIP_STATUSES = 'relationship_statuses';
@@ -117,7 +120,6 @@ class TargetingFields extends AbstractEnum {
       'age_max' => 'unsigned int',
       'age_min' => 'unsigned int',
       'app_install_state' => 'string',
-      'audience_network_positions' => 'list<string>',
       'behaviors' => 'list<IDName>',
       'cities' => 'list<IDName>',
       'college_years' => 'list<unsigned int>',
@@ -133,6 +135,7 @@ class TargetingFields extends AbstractEnum {
       'education_statuses' => 'list<unsigned int>',
       'effective_device_platforms' => 'EffectiveDevicePlatforms',
       'effective_facebook_positions' => 'list<string>',
+      'effective_publisher_platforms' => 'list<string>',
       'engagement_specs' => 'list<TargetingDynamicRule>',
       'ethnic_affinity' => 'list<IDName>',
       'exclude_reached_since' => 'list<string>',
@@ -141,13 +144,15 @@ class TargetingFields extends AbstractEnum {
       'excluded_dynamic_audience_ids' => 'list<string>',
       'excluded_engagement_specs' => 'list<TargetingDynamicRule>',
       'excluded_geo_locations' => 'TargetingGeoLocation',
+      'excluded_mobile_device_model' => 'list<string>',
       'excluded_product_audience_specs' => 'list<TargetingProductAudienceSpec>',
       'excluded_publisher_categories' => 'list<string>',
       'excluded_publisher_list_ids' => 'list<string>',
+      'excluded_user_device' => 'list<string>',
       'exclusions' => 'FlexibleTargeting',
       'facebook_positions' => 'list<string>',
       'family_statuses' => 'list<IDName>',
-      'fb_deal_id' => 'unsigned int',
+      'fb_deal_id' => 'string',
       'flexible_spec' => 'list<FlexibleTargeting>',
       'friends_of_connections' => 'list<IDName>',
       'genders' => 'list<unsigned int>',
@@ -168,10 +173,11 @@ class TargetingFields extends AbstractEnum {
       'net_worth' => 'list<IDName>',
       'office_type' => 'list<IDName>',
       'page_types' => 'list<string>',
-      'platforms' => 'list<string>',
+      'place_page_set_id' => 'string',
       'political_views' => 'list<unsigned int>',
       'politics' => 'list<IDName>',
       'product_audience_specs' => 'list<TargetingProductAudienceSpec>',
+      'publisher_platforms' => 'list<string>',
       'radius' => 'string',
       'regions' => 'list<IDName>',
       'relationship_statuses' => 'list<unsigned int>',

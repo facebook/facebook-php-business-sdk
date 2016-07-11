@@ -29,7 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ExternalEventSourceFields;
-use FacebookAds\Object\Values\ExternalEventSourceSourceTypeValues;
 
 /**
  * This class is auto-genereated.
@@ -55,7 +54,6 @@ class ExternalEventSource extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['SourceType'] = ExternalEventSourceSourceTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 

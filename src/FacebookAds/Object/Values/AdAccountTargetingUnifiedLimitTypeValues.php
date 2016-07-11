@@ -33,9 +33,9 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdAccountTargetingInsightsTypeValues getInstance()
+ * @method static AdAccountTargetingUnifiedLimitTypeValues getInstance()
  */
-class AdAccountTargetingInsightsTypeValues extends AbstractEnum {
+class AdAccountTargetingUnifiedLimitTypeValues extends AbstractEnum {
 
   const ADGROUP_ID = 'adgroup_id';
   const GENDERS = 'genders';
@@ -69,8 +69,8 @@ class AdAccountTargetingInsightsTypeValues extends AbstractEnum {
   const FRIENDS_OF_CONNECTIONS = 'friends_of_connections';
   const USER_EVENT = 'user_event';
   const PAGE_TYPES = 'page_types';
-  const PLATFORMS = 'platforms';
-  const EFFECTIVE_PLATFORMS = 'effective_platforms';
+  const PUBLISHER_PLATFORMS = 'publisher_platforms';
+  const EFFECTIVE_PUBLISHER_PLATFORMS = 'effective_publisher_platforms';
   const FACEBOOK_POSITIONS = 'facebook_positions';
   const EFFECTIVE_FACEBOOK_POSITIONS = 'effective_facebook_positions';
   const DEVICE_PLATFORMS = 'device_platforms';
@@ -79,12 +79,14 @@ class AdAccountTargetingInsightsTypeValues extends AbstractEnum {
   const EXCLUDED_DYNAMIC_AUDIENCE_IDS = 'excluded_dynamic_audience_ids';
   const RTB_FLAG = 'rtb_flag';
   const USER_DEVICE = 'user_device';
+  const EXCLUDED_USER_DEVICE = 'excluded_user_device';
   const USER_OS = 'user_os';
   const WIRELESS_CARRIER = 'wireless_carrier';
   const SITE_CATEGORY = 'site_category';
   const GEO_LOCATIONS = 'geo_locations';
   const EXCLUDED_GEO_LOCATIONS = 'excluded_geo_locations';
   const TIMEZONES = 'timezones';
+  const PLACE_PAGE_SET_ID = 'place_page_set_id';
   const FAMILY_STATUSES = 'family_statuses';
   const INDUSTRIES = 'industries';
   const LIFE_EVENTS = 'life_events';
@@ -115,6 +117,7 @@ class AdAccountTargetingInsightsTypeValues extends AbstractEnum {
   const EXCLUDED_PUBLISHER_LIST_IDS = 'excluded_publisher_list_ids';
   const FB_DEAL_ID = 'fb_deal_id';
   const AUDIENCE_NETWORK_POSITIONS = 'audience_network_positions';
+  const EFFECTIVE_AUDIENCE_NETWORK_POSITIONS = 'effective_audience_network_positions';
   const INTEREST_DEFAULTS_SOURCE = 'interest_defaults_source';
   const EXCLUDED_MOBILE_DEVICE_MODEL = 'excluded_mobile_device_model';
 }

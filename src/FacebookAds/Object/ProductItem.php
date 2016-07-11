@@ -33,7 +33,6 @@ use FacebookAds\Object\Values\ProductItemAgeGroupValues;
 use FacebookAds\Object\Values\ProductItemAvailabilityValues;
 use FacebookAds\Object\Values\ProductItemConditionValues;
 use FacebookAds\Object\Values\ProductItemGenderValues;
-use FacebookAds\Object\Values\ProductItemReviewRejectionReasonsValues;
 use FacebookAds\Object\Values\ProductItemReviewStatusValues;
 use FacebookAds\Object\Values\ProductItemShippingWeightUnitValues;
 use FacebookAds\Object\Values\ProductItemVisibilityValues;
@@ -69,7 +68,6 @@ class ProductItem extends AbstractCrudObject {
     $ref_enums['ReviewStatus'] = ProductItemReviewStatusValues::getInstance()->getValues();
     $ref_enums['ShippingWeightUnit'] = ProductItemShippingWeightUnitValues::getInstance()->getValues();
     $ref_enums['Visibility'] = ProductItemVisibilityValues::getInstance()->getValues();
-    $ref_enums['ReviewRejectionReasons'] = ProductItemReviewRejectionReasonsValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -101,7 +99,6 @@ class ProductItem extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'id' => 'string',
     );
     $enums = array(
     );
@@ -125,6 +122,8 @@ class ProductItem extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'image_height' => 'unsigned int',
+      'image_width' => 'unsigned int',
     );
     $enums = array(
     );
@@ -170,7 +169,6 @@ class ProductItem extends AbstractCrudObject {
       'expiration_date' => 'string',
       'gender' => 'gender_enum',
       'gtin' => 'string',
-      'id' => 'string',
       'image_url' => 'string',
       'inventory' => 'unsigned int',
       'ios_app_name' => 'string',
@@ -211,9 +209,9 @@ class ProductItem extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/',
-      new AbstractCrudObject(),
+      new ProductItem(),
       'NODE',
-      array(),
+      ProductItem::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

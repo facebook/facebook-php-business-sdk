@@ -33,14 +33,10 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static UserInstallTypeValues getInstance()
+ * @method static ProductCatalogVerticalValues getInstance()
  */
-class UserInstallTypeValues extends AbstractEnum {
+class ProductCatalogVerticalValues extends AbstractEnum {
 
-  const UNKNOWN = 'UNKNOWN';
-  const AUTH_DIALOG = 'AUTH_DIALOG';
-  const AUTH_REFERRAL = 'AUTH_REFERRAL';
-  const INSTANT_PERSONALIZATION = 'INSTANT_PERSONALIZATION';
-  const START_NOW = 'START_NOW';
-  const START_NOW_V2 = 'START_NOW_V2';
+  const COMMERCE = 'commerce';
+  const HOTELS = 'hotels';
 }

@@ -194,9 +194,9 @@ class AdsPixel extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/',
-      new AbstractCrudObject(),
+      new AdsPixel(),
       'NODE',
-      array(),
+      AdsPixel::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

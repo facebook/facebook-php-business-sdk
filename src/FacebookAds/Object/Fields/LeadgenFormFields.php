@@ -38,6 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class LeadgenFormFields extends AbstractEnum {
 
   const CREATED_TIME = 'created_time';
+  const CREATOR = 'creator';
   const CUSOMIZED_TCPA_CONTENT = 'cusomized_tcpa_content';
   const EXPIRED_LEADS_COUNT = 'expired_leads_count';
   const FOLLOW_UP_ACTION_TEXT = 'follow_up_action_text';
@@ -52,11 +53,13 @@ class LeadgenFormFields extends AbstractEnum {
   const PAGE_ID = 'page_id';
   const PRIVACY_POLICY_URL = 'privacy_policy_url';
   const QUALIFIERS = 'qualifiers';
+  const STATUS = 'status';
   const TCPA_COMPLIANCE = 'tcpa_compliance';
 
   public function getFieldTypes() {
     return array(
       'created_time' => 'datetime',
+      'creator' => 'User',
       'cusomized_tcpa_content' => 'string',
       'expired_leads_count' => 'unsigned int',
       'follow_up_action_text' => 'string',
@@ -70,7 +73,8 @@ class LeadgenFormFields extends AbstractEnum {
       'page' => 'Object',
       'page_id' => 'string',
       'privacy_policy_url' => 'string',
-      'qualifiers' => 'list<Object>',
+      'qualifiers' => 'list<LeadGenQualifier>',
+      'status' => 'string',
       'tcpa_compliance' => 'bool',
     );
   }

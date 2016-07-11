@@ -45,6 +45,7 @@ class AdCreativeFields extends AbstractEnum {
   const APPLINK_TREATMENT = 'applink_treatment';
   const BODY = 'body';
   const CALL_TO_ACTION_TYPE = 'call_to_action_type';
+  const EFFECTIVE_OBJECT_STORY_ID = 'effective_object_story_id';
   const ID = 'id';
   const IMAGE_CROPS = 'image_crops';
   const IMAGE_HASH = 'image_hash';
@@ -86,6 +87,7 @@ class AdCreativeFields extends AbstractEnum {
       'applink_treatment' => 'ApplinkTreatment',
       'body' => 'string',
       'call_to_action_type' => 'CallToActionType',
+      'effective_object_story_id' => 'string',
       'id' => 'string',
       'image_crops' => 'AdsImageCrops',
       'image_hash' => 'string',

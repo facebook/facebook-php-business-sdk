@@ -68,7 +68,6 @@ class AdAccountGroup extends AbstractCrudObject {
 
     $param_types = array(
       'account_id' => 'string',
-      'id' => 'string',
     );
     $enums = array(
     );
@@ -116,7 +115,6 @@ class AdAccountGroup extends AbstractCrudObject {
 
     $param_types = array(
       'account_ids' => 'list<string>',
-      'id' => 'string',
       'redownload' => 'bool',
     );
     $enums = array(
@@ -141,7 +139,6 @@ class AdAccountGroup extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'id' => 'string',
       'redownload' => 'bool',
       'uid' => 'int',
     );
@@ -168,7 +165,6 @@ class AdAccountGroup extends AbstractCrudObject {
 
     $param_types = array(
       'account_group_roles' => 'list<map>',
-      'id' => 'string',
       'redownload' => 'bool',
     );
     $enums = array(
@@ -193,7 +189,6 @@ class AdAccountGroup extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'id' => 'string',
     );
     $enums = array(
     );
@@ -241,7 +236,6 @@ class AdAccountGroup extends AbstractCrudObject {
 
     $param_types = array(
       'accounts' => 'map',
-      'id' => 'string',
       'name' => 'string',
       'redownload' => 'bool',
       'status' => 'unsigned int',

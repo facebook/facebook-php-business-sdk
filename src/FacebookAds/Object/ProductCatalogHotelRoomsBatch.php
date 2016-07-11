@@ -28,7 +28,8 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\ConnectionObjectFields;
+use FacebookAds\Object\Fields\ProductCatalogHotelRoomsBatchFields;
+use FacebookAds\Object\Values\ProductCatalogHotelRoomsBatchStandardValues;
 
 /**
  * This class is auto-genereated.
@@ -39,21 +40,22 @@ use FacebookAds\Object\Fields\ConnectionObjectFields;
  *
  */
 
-class ConnectionObject extends AbstractCrudObject {
+class ProductCatalogHotelRoomsBatch extends AbstractObject {
 
   protected function getEndpoint() {
-    return 'connectionobjects';
+    return 'hotel_rooms_batch';
   }
 
   /**
-   * @return ConnectionObjectFields
+   * @return ProductCatalogHotelRoomsBatchFields
    */
   public static function getFieldsEnum() {
-    return ConnectionObjectFields::getInstance();
+    return ProductCatalogHotelRoomsBatchFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['Standard'] = ProductCatalogHotelRoomsBatchStandardValues::getInstance()->getValues();
     return $ref_enums;
   }
 

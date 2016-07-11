@@ -29,8 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\EventFields;
-use FacebookAds\Object\Values\EventCategoryValues;
-use FacebookAds\Object\Values\EventTypeValues;
+use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
 
 /**
  * This class is auto-genereated.
@@ -52,11 +51,37 @@ class Event extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Category'] = EventCategoryValues::getInstance()->getValues();
-    $ref_enums['Type'] = EventTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 
+
+  public function getPicture(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'height' => 'int',
+      'redirect' => 'bool',
+      'type' => 'type_enum',
+      'width' => 'int',
+    );
+    $enums = array(
+      'type_enum' => ProfilePictureSourceTypeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/picture',
+      new ProfilePictureSource(),
+      'EDGE',
+      ProfilePictureSource::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
   public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();

@@ -28,7 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\CustomAudienceCapabilitiesFields;
+use FacebookAds\Object\Fields\HotelRoomFields;
 
 /**
  * This class is auto-genereated.
@@ -39,13 +39,13 @@ use FacebookAds\Object\Fields\CustomAudienceCapabilitiesFields;
  *
  */
 
-class CustomAudienceCapabilities extends AbstractObject {
+class HotelRoom extends AbstractCrudObject {
 
   /**
-   * @return CustomAudienceCapabilitiesFields
+   * @return HotelRoomFields
    */
   public static function getFieldsEnum() {
-    return CustomAudienceCapabilitiesFields::getInstance();
+    return HotelRoomFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -53,5 +53,60 @@ class CustomAudienceCapabilities extends AbstractObject {
     return $ref_enums;
   }
 
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new HotelRoom(),
+      'NODE',
+      HotelRoom::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'applinks' => 'Object',
+      'base_price' => 'float',
+      'currency' => 'string',
+      'description' => 'string',
+      'images' => 'list<Object>',
+      'margin_level' => 'unsigned int',
+      'name' => 'string',
+      'pricing_variables' => 'list<Object>',
+      'url' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/',
+      new HotelRoom(),
+      'NODE',
+      HotelRoom::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
 }

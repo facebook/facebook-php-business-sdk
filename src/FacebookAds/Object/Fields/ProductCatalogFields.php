@@ -40,16 +40,22 @@ class ProductCatalogFields extends AbstractEnum {
   const BUSINESS = 'business';
   const FEED_COUNT = 'feed_count';
   const ID = 'id';
+  const IMAGE_PADDING_LANDSCAPE = 'image_padding_landscape';
+  const IMAGE_PADDING_SQUARE = 'image_padding_square';
   const NAME = 'name';
   const PRODUCT_COUNT = 'product_count';
+  const VERTICAL = 'vertical';
 
   public function getFieldTypes() {
     return array(
       'business' => 'Business',
       'feed_count' => 'int',
       'id' => 'string',
+      'image_padding_landscape' => 'bool',
+      'image_padding_square' => 'bool',
       'name' => 'string',
       'product_count' => 'int',
+      'vertical' => 'string',
     );
   }
 }

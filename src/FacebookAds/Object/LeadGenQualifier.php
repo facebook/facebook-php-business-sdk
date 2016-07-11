@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\LeadGenQualifierFields;
 
 /**
  * This class is auto-genereated.
@@ -33,12 +37,21 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static BusinessSurveyBusinessTypeValues getInstance()
  */
-class BusinessSurveyBusinessTypeValues extends AbstractEnum {
 
-  const AGENCY = 'AGENCY';
-  const ADVERTISER = 'ADVERTISER';
-  const APP_DEVELOPER = 'APP_DEVELOPER';
-  const PUBLISHER = 'PUBLISHER';
+class LeadGenQualifier extends AbstractCrudObject {
+
+  /**
+   * @return LeadGenQualifierFields
+   */
+  public static function getFieldsEnum() {
+    return LeadGenQualifierFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
 }

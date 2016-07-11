@@ -74,9 +74,9 @@ class OffsitePixel extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_DELETE,
       '/adaccounts',
-      new AdAccount(),
+      new AbstractCrudObject(),
       'EDGE',
-      AdAccount::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -135,7 +135,6 @@ class OffsitePixel extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'id' => 'string',
     );
     $enums = array(
     );
@@ -159,6 +158,7 @@ class OffsitePixel extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'value' => 'unsigned int',
     );
     $enums = array(
     );
@@ -184,7 +184,6 @@ class OffsitePixel extends AbstractCrudObject {
     $param_types = array(
       'app_event' => 'string',
       'app_id_for_app_event_firing' => 'int',
-      'id' => 'string',
       'name' => 'string',
       'tag' => 'tag_enum',
     );
@@ -197,9 +196,9 @@ class OffsitePixel extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/',
-      new AbstractCrudObject(),
+      new OffsitePixel(),
       'NODE',
-      array(),
+      OffsitePixel::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

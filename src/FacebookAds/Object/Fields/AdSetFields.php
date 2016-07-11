@@ -40,6 +40,9 @@ class AdSetFields extends AbstractEnum {
   const ACCOUNT_ID = 'account_id';
   const ADLABELS = 'adlabels';
   const ADSET_SCHEDULE = 'adset_schedule';
+  const ASSET_FEED_ID = 'asset_feed_id';
+  const ATTRIBUTION_WINDOW_DAYS = 'attribution_window_days';
+  const BEST_CREATIVE = 'best_creative';
   const BID_AMOUNT = 'bid_amount';
   const BID_INFO = 'bid_info';
   const BILLING_EVENT = 'billing_event';
@@ -70,6 +73,8 @@ class AdSetFields extends AbstractEnum {
   const START_TIME = 'start_time';
   const STATUS = 'status';
   const TARGETING = 'targeting';
+  const TIME_BASED_AD_ROTATION_ID_BLOCKS = 'time_based_ad_rotation_id_blocks';
+  const TIME_BASED_AD_ROTATION_INTERVALS = 'time_based_ad_rotation_intervals';
   const UPDATED_TIME = 'updated_time';
   const USE_NEW_APP_CLICK = 'use_new_app_click';
   const DAILY_IMPS = 'daily_imps';
@@ -81,6 +86,9 @@ class AdSetFields extends AbstractEnum {
       'account_id' => 'string',
       'adlabels' => 'list<AdLabel>',
       'adset_schedule' => 'list<DayPart>',
+      'asset_feed_id' => 'string',
+      'attribution_window_days' => 'unsigned int',
+      'best_creative' => 'Object',
       'bid_amount' => 'unsigned int',
       'bid_info' => 'map<string, unsigned int>',
       'billing_event' => 'BillingEvent',
@@ -111,6 +119,8 @@ class AdSetFields extends AbstractEnum {
       'start_time' => 'datetime',
       'status' => 'Status',
       'targeting' => 'Targeting',
+      'time_based_ad_rotation_id_blocks' => 'list<list<int>>',
+      'time_based_ad_rotation_intervals' => 'list<unsigned int>',
       'updated_time' => 'datetime',
       'use_new_app_click' => 'bool',
       'daily_imps' => 'unsigned int',

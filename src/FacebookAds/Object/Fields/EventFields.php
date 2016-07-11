@@ -47,6 +47,7 @@ class EventFields extends AbstractEnum {
   const GUEST_LIST_ENABLED = 'guest_list_enabled';
   const ID = 'id';
   const INTERESTED_COUNT = 'interested_count';
+  const IS_CANCELED = 'is_canceled';
   const IS_PAGE_OWNED = 'is_page_owned';
   const IS_VIEWER_ADMIN = 'is_viewer_admin';
   const MAYBE_COUNT = 'maybe_count';
@@ -65,7 +66,7 @@ class EventFields extends AbstractEnum {
     return array(
       'attending_count' => 'int',
       'can_guests_invite' => 'bool',
-      'category' => 'Category',
+      'category' => 'string',
       'cover' => 'Object',
       'declined_count' => 'int',
       'description' => 'string',
@@ -73,6 +74,7 @@ class EventFields extends AbstractEnum {
       'guest_list_enabled' => 'bool',
       'id' => 'string',
       'interested_count' => 'int',
+      'is_canceled' => 'bool',
       'is_page_owned' => 'bool',
       'is_viewer_admin' => 'bool',
       'maybe_count' => 'int',
@@ -84,7 +86,7 @@ class EventFields extends AbstractEnum {
       'start_time' => 'string',
       'ticket_uri' => 'string',
       'timezone' => 'string',
-      'type' => 'Type',
+      'type' => 'string',
       'updated_time' => 'datetime',
     );
   }

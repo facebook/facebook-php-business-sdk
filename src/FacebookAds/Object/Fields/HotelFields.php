@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,10 +33,39 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdAccountTargetingInsightsModeValues getInstance()
  */
-class AdAccountTargetingInsightsModeValues extends AbstractEnum {
 
-  const ALL = 'ALL';
-  const FREQUENTLY_USED = 'FREQUENTLY_USED';
+class HotelFields extends AbstractEnum {
+
+  const ADDRESS = 'address';
+  const APPLINKS = 'applinks';
+  const BRAND = 'brand';
+  const DESCRIPTION = 'description';
+  const GUEST_RATINGS = 'guest_ratings';
+  const HOTEL_ID = 'hotel_id';
+  const ID = 'id';
+  const IMAGES = 'images';
+  const LOWEST_BASE_PRICE = 'lowest_base_price';
+  const NAME = 'name';
+  const PHONE = 'phone';
+  const STAR_RATING = 'star_rating';
+  const URL = 'url';
+
+  public function getFieldTypes() {
+    return array(
+      'address' => 'string',
+      'applinks' => 'AppLinks',
+      'brand' => 'string',
+      'description' => 'string',
+      'guest_ratings' => 'string',
+      'hotel_id' => 'string',
+      'id' => 'string',
+      'images' => 'list<string>',
+      'lowest_base_price' => 'string',
+      'name' => 'string',
+      'phone' => 'string',
+      'star_rating' => 'string',
+      'url' => 'string',
+    );
+  }
 }

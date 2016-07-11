@@ -33,14 +33,10 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdAccountTargetingInsightsRankModeValues getInstance()
+ * @method static CustomAudienceClaimObjectiveValues getInstance()
  */
-class AdAccountTargetingInsightsRankModeValues extends AbstractEnum {
+class CustomAudienceClaimObjectiveValues extends AbstractEnum {
 
-  const MOST_EXPLORED = 'MOST_EXPLORED';
-  const LEAST_EXPLORED = 'LEAST_EXPLORED';
-  const BEST_PERFORMING = 'BEST_PERFORMING';
-  const WORST_PERFORMING = 'WORST_PERFORMING';
-  const RECOMMEND_INCLUSION = 'RECOMMEND_INCLUSION';
-  const RECOMMEND_EXCLUSION = 'RECOMMEND_EXCLUSION';
+  const PRODUCT = 'PRODUCT';
+  const TRAVEL = 'TRAVEL';
 }

@@ -48,6 +48,4 @@ class AdCreativeObjectTypeValues extends AbstractEnum {
   const STORE_ITEM = 'STORE_ITEM';
   const VIDEO = 'VIDEO';
   const INVALID = 'INVALID';
-  const ACTION_SPEC = 'ACTION_SPEC';
-  const INSTAGRAM_MEDIA = 'INSTAGRAM_MEDIA';
 }

@@ -134,7 +134,6 @@ class ProductGroup extends AbstractCrudObject {
       'expiration_date' => 'string',
       'gender' => 'gender_enum',
       'gtin' => 'string',
-      'id' => 'string',
       'image_url' => 'string',
       'inventory' => 'unsigned int',
       'ios_app_name' => 'string',
@@ -213,7 +212,6 @@ class ProductGroup extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'id' => 'string',
       'variants' => 'list<Object>',
     );
     $enums = array(
@@ -224,9 +222,9 @@ class ProductGroup extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/',
-      new AbstractCrudObject(),
+      new ProductGroup(),
       'NODE',
-      array(),
+      ProductGroup::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

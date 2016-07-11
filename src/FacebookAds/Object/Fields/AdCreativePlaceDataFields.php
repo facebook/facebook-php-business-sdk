@@ -35,13 +35,23 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class CustomAudienceCapabilitiesFields extends AbstractEnum {
+class AdCreativePlaceDataFields extends AbstractEnum {
 
-  const CAPABILITIES = 'capabilities';
+  const ADDRESS_STRING = 'address_string';
+  const LABEL = 'label';
+  const LATITUDE = 'latitude';
+  const LONGITUDE = 'longitude';
+  const PHONE_NUMBER = 'phone_number';
+  const TYPE = 'type';
 
   public function getFieldTypes() {
     return array(
-      'capabilities' => 'map',
+      'address_string' => 'string',
+      'label' => 'string',
+      'latitude' => 'float',
+      'longitude' => 'float',
+      'phone_number' => 'string',
+      'type' => 'string',
     );
   }
 }

@@ -54,7 +54,7 @@ class TargetingGeoLocationFields extends AbstractEnum {
       'countries' => 'list<string>',
       'country_groups' => 'list<string>',
       'custom_locations' => 'list<TargetingGeoLocationCustomLocation>',
-      'electoral_districts' => 'list<Object>',
+      'electoral_districts' => 'list<TargetingGeoLocationElectoralDistrict>',
       'geo_markets' => 'list<TargetingGeoLocationMarket>',
       'location_types' => 'list<string>',
       'places' => 'list<TargetingGeoLocationPlace>',

@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\AdCreativePlaceDataFields;
 
 /**
  * This class is auto-genereated.
@@ -33,28 +37,21 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static BusinessVerticalValues getInstance()
  */
-class BusinessVerticalValues extends AbstractEnum {
 
-  const ADVERTISING = 'ADVERTISING';
-  const AUTOMOTIVE = 'AUTOMOTIVE';
-  const CONSUMER_PACKAGED_GOODS = 'CONSUMER_PACKAGED_GOODS';
-  const ECOMMERCE = 'ECOMMERCE';
-  const EDUCATION = 'EDUCATION';
-  const ENERGY_AND_UTILITIES = 'ENERGY_AND_UTILITIES';
-  const ENTERTAINMENT_AND_MEDIA = 'ENTERTAINMENT_AND_MEDIA';
-  const FINANCIAL_SERVICES = 'FINANCIAL_SERVICES';
-  const GAMING = 'GAMING';
-  const GOVERNMENT_AND_POLITICS = 'GOVERNMENT_AND_POLITICS';
-  const MARKETING = 'MARKETING';
-  const ORGANIZATIONS_AND_ASSOCIATIONS = 'ORGANIZATIONS_AND_ASSOCIATIONS';
-  const PROFESSIONAL_SERVICES = 'PROFESSIONAL_SERVICES';
-  const RETAIL = 'RETAIL';
-  const TECHNOLOGY = 'TECHNOLOGY';
-  const TELECOM = 'TELECOM';
-  const TRAVEL = 'TRAVEL';
-  const NON_PROFIT = 'NON_PROFIT';
-  const RESTAURANT = 'RESTAURANT';
-  const OTHER = 'OTHER';
+class AdCreativePlaceData extends AbstractObject {
+
+  /**
+   * @return AdCreativePlaceDataFields
+   */
+  public static function getFieldsEnum() {
+    return AdCreativePlaceDataFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
 }

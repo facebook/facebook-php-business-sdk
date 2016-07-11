@@ -37,7 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdPromotedObjectCustomEventTypeValues extends AbstractEnum {
 
-  const ACTIVATE_APP = 'ACTIVATE_APP';
   const COMPLETE_REGISTRATION = 'COMPLETE_REGISTRATION';
   const CONTENT_VIEW = 'CONTENT_VIEW';
   const SEARCH = 'SEARCH';

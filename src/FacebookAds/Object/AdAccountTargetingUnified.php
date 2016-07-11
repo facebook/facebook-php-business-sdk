@@ -22,9 +22,14 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\AdAccountTargetingUnifiedFields;
+use FacebookAds\Object\Values\AdAccountTargetingUnifiedLimitTypeValues;
 
 /**
  * This class is auto-genereated.
@@ -35,17 +40,20 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class ConnectionObjectOpenGraphObjectFields extends AbstractEnum {
+class AdAccountTargetingUnified extends AbstractCrudObject {
 
-  const DISPLAY_NAME = 'display_name';
-  const NAME = 'name';
-  const PROPERTIES = 'properties';
-
-  public function getFieldTypes() {
-    return array(
-      'display_name' => 'string',
-      'name' => 'string',
-      'properties' => 'list<ConnectionObjectOpenGraphObjectProperty>',
-    );
+  /**
+   * @return AdAccountTargetingUnifiedFields
+   */
+  public static function getFieldsEnum() {
+    return AdAccountTargetingUnifiedFields::getInstance();
   }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    $ref_enums['LimitType'] = AdAccountTargetingUnifiedLimitTypeValues::getInstance()->getValues();
+    return $ref_enums;
+  }
+
+
 }
