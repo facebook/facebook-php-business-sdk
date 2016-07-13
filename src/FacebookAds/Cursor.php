@@ -163,6 +163,11 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
       return false;
     }
 
+    // Consider an empty array as not object
+    if (empty($object)) {
+      return false;
+    }
+
     // A json object is represented by a map instead of a pure list
     return array_keys($object) !== range(0, count($object) - 1);
   }
