@@ -24,12 +24,11 @@
 
 namespace FacebookAdsTest\Object;
 
-use FacebookAds\Object\Fields\TargetingSpecsFields;
+use FacebookAds\Object\Fields\TargetingFields;
 use FacebookAds\Object\ReachFrequencyPrediction;
 use FacebookAds\Object\Fields\ReachFrequencyPredictionFields as RF;
 use FacebookAds\Object\TargetingSpecs;
 use FacebookAds\Object\Values\AdObjectives;
-use FacebookAds\Object\Values\PageTypes;
 use FacebookAdsTest\Config\SkippableFeatureTestInterface;
 
 class ReachFrequencyPredictionTest extends AbstractCrudObjectTestCase
@@ -50,12 +49,12 @@ class ReachFrequencyPredictionTest extends AbstractCrudObjectTestCase
     $targeting = new TargetingSpecs();
     $targeting->{TargetingSpecsFields::GEO_LOCATIONS}
       = array('countries' => array('US'));
-    $targeting->{TargetingSpecsFields::AGE_MAX} = 35;
-    $targeting->{TargetingSpecsFields::AGE_MIN} = 20;
-    $targeting->{TargetingSpecsFields::GENDERS} = array(2);
-    $targeting->{TargetingSpecsFields::PAGE_TYPES} = array(
-      PageTypes::DESKTOP_FEED,
-    );
+    $targeting->{TargetingFields::AGE_MAX} = 35;
+    $targeting->{TargetingFields::AGE_MIN} = 20;
+    $targeting->{TargetingFields::GENDERS} = array(2);
+    $targeting->{TargetingFields::PUBLISHER_PLATFORMS} = array('facebook');
+    $targeting->{TargetingFields::DEVICE_PLATFORMS} = array('desktop');
+    $targeting->{TargetingFields::FACEBOOK_POSITIONS} = array('feed');
 
     $prediction->setData(array(
       RF::BUDGET => 3000000,
