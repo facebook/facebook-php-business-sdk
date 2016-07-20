@@ -144,7 +144,7 @@ class AdImage extends AbstractCrudObject {
     $data = $content['images']
       [basename($this->{AdImageFields::FILENAME})];
 
-    $this->data[AdImageFields::HASH] = $data[AdImageFields::HASH];
+    $this->setDataWithoutValidation($data);
 
     $this->data[static::FIELD_ID]
       = substr($this->getParentId(), 4).':'.$this->data[AdImageFields::HASH];
