@@ -55,6 +55,7 @@ class AdCreativeLinkDataFields extends AbstractEnum {
   const MULTI_SHARE_END_CARD = 'multi_share_end_card';
   const MULTI_SHARE_OPTIMIZED = 'multi_share_optimized';
   const NAME = 'name';
+  const OFFER_ID = 'offer_id';
   const PICTURE = 'picture';
 
   public function getFieldTypes() {
@@ -77,6 +78,7 @@ class AdCreativeLinkDataFields extends AbstractEnum {
       'multi_share_end_card' => 'bool',
       'multi_share_optimized' => 'bool',
       'name' => 'string',
+      'offer_id' => 'string',
       'picture' => 'string',
     );
   }

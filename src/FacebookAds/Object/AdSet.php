@@ -261,6 +261,9 @@ class AdSet extends AbstractArchivableCrudObject
       'breakdowns' => 'list<breakdowns_enum>',
       'date_preset' => 'date_preset_enum',
       'default_summary' => 'bool',
+      'export_columns' => 'list<string>',
+      'export_format' => 'string',
+      'export_name' => 'string',
       'fields' => 'list<fields_enum>',
       'filtering' => 'list<Object>',
       'level' => 'level_enum',
@@ -308,6 +311,9 @@ class AdSet extends AbstractArchivableCrudObject
       'breakdowns' => 'list<breakdowns_enum>',
       'date_preset' => 'date_preset_enum',
       'default_summary' => 'bool',
+      'export_columns' => 'list<string>',
+      'export_format' => 'string',
+      'export_name' => 'string',
       'fields' => 'list<fields_enum>',
       'filtering' => 'list<Object>',
       'level' => 'level_enum',
@@ -372,7 +378,6 @@ class AdSet extends AbstractArchivableCrudObject
     $this->assureId();
 
     $param_types = array(
-      'account_id' => 'string',
     );
     $enums = array(
     );
@@ -431,6 +436,7 @@ class AdSet extends AbstractArchivableCrudObject
       'end_time' => 'datetime',
       'execution_options' => 'list<execution_options_enum>',
       'is_autobid' => 'bool',
+      'is_average_price_pacing' => 'bool',
       'lifetime_budget' => 'unsigned int',
       'lifetime_imps' => 'unsigned int',
       'name' => 'string',

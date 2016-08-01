@@ -51,6 +51,7 @@ class AdsActionStatsFields extends AbstractEnum {
   const ACTION_TYPE = 'action_type';
   const ACTION_VIDEO_SOUND = 'action_video_sound';
   const ACTION_VIDEO_TYPE = 'action_video_type';
+  const CANVAS_COMPONENT_ID = 'canvas_component_id';
   const VALUE = 'value';
 
   public function getFieldTypes() {
@@ -69,6 +70,7 @@ class AdsActionStatsFields extends AbstractEnum {
       'action_type' => 'string',
       'action_video_sound' => 'string',
       'action_video_type' => 'string',
+      'canvas_component_id' => 'string',
       'value' => 'float',
     );
   }

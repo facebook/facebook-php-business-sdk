@@ -68,6 +68,7 @@ class AdCreativeFields extends AbstractEnum {
   const THUMBNAIL_URL = 'thumbnail_url';
   const TITLE = 'title';
   const URL_TAGS = 'url_tags';
+  const USE_PAGE_ACTOR_OVERRIDE = 'use_page_actor_override';
   const ACTION_SPEC = 'action_spec';
   const CALL_TO_ACTION = 'call_to_action';
   const DYNAMIC_AD_VOICE = 'dynamic_ad_voice';
@@ -110,6 +111,7 @@ class AdCreativeFields extends AbstractEnum {
       'thumbnail_url' => 'string',
       'title' => 'string',
       'url_tags' => 'string',
+      'use_page_actor_override' => 'bool',
       'action_spec' => 'list<unsigned int>',
       'call_to_action' => 'Object',
       'dynamic_ad_voice' => 'DynamicAdVoice',

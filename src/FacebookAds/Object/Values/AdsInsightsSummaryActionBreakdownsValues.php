@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdsInsightsSummaryActionBreakdownsValues extends AbstractEnum {
 
+  const CANVAS_COMPONENT_ID = 'canvas_component_id';
   const ACTION_CAROUSEL_CARD_ID = 'action_carousel_card_id';
   const ACTION_CAROUSEL_CARD_NAME = 'action_carousel_card_name';
   const ACTION_DESTINATION = 'action_destination';

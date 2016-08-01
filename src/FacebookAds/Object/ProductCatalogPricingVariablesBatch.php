@@ -22,9 +22,14 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\ProductCatalogPricingVariablesBatchFields;
+use FacebookAds\Object\Values\ProductCatalogPricingVariablesBatchStandardValues;
 
 /**
  * This class is auto-genereated.
@@ -33,27 +38,26 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static ReachEstimateOptimizeForValues getInstance()
  */
-class ReachEstimateOptimizeForValues extends AbstractEnum {
 
-  const NONE = 'NONE';
-  const APP_INSTALLS = 'APP_INSTALLS';
-  const BRAND_AWARENESS = 'BRAND_AWARENESS';
-  const CLICKS = 'CLICKS';
-  const ENGAGED_USERS = 'ENGAGED_USERS';
-  const EXTERNAL = 'EXTERNAL';
-  const EVENT_RESPONSES = 'EVENT_RESPONSES';
-  const IMPRESSIONS = 'IMPRESSIONS';
-  const LEAD_GENERATION = 'LEAD_GENERATION';
-  const LINK_CLICKS = 'LINK_CLICKS';
-  const OFFER_CLAIMS = 'OFFER_CLAIMS';
-  const OFFSITE_CONVERSIONS = 'OFFSITE_CONVERSIONS';
-  const ONSITE_CONVERSIONS = 'ONSITE_CONVERSIONS';
-  const PAGE_ENGAGEMENT = 'PAGE_ENGAGEMENT';
-  const PAGE_LIKES = 'PAGE_LIKES';
-  const POST_ENGAGEMENT = 'POST_ENGAGEMENT';
-  const REACH = 'REACH';
-  const SOCIAL_IMPRESSIONS = 'SOCIAL_IMPRESSIONS';
-  const VIDEO_VIEWS = 'VIDEO_VIEWS';
+class ProductCatalogPricingVariablesBatch extends AbstractObject {
+
+  protected function getEndpoint() {
+    return 'pricing_variables_batch';
+  }
+
+  /**
+   * @return ProductCatalogPricingVariablesBatchFields
+   */
+  public static function getFieldsEnum() {
+    return ProductCatalogPricingVariablesBatchFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    $ref_enums['Standard'] = ProductCatalogPricingVariablesBatchStandardValues::getInstance()->getValues();
+    return $ref_enums;
+  }
+
+
 }

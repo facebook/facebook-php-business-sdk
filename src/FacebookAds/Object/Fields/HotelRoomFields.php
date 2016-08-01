@@ -47,6 +47,7 @@ class HotelRoomFields extends AbstractEnum {
   const NAME = 'name';
   const ROOM_ID = 'room_id';
   const URL = 'url';
+  const PRICING_VARIABLES = 'pricing_variables';
 
   public function getFieldTypes() {
     return array(
@@ -60,6 +61,7 @@ class HotelRoomFields extends AbstractEnum {
       'name' => 'string',
       'room_id' => 'string',
       'url' => 'string',
+      'pricing_variables' => 'list<Object>',
     );
   }
 }

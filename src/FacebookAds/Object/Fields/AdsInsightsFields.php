@@ -45,7 +45,6 @@ class AdsInsightsFields extends AbstractEnum {
   const AD_NAME = 'ad_name';
   const ADSET_ID = 'adset_id';
   const ADSET_NAME = 'adset_name';
-  const AGE = 'age';
   const APP_STORE_CLICKS = 'app_store_clicks';
   const BUYING_TYPE = 'buying_type';
   const CALL_TO_ACTION_CLICKS = 'call_to_action_clicks';
@@ -62,7 +61,6 @@ class AdsInsightsFields extends AbstractEnum {
   const COST_PER_UNIQUE_ACTION_TYPE = 'cost_per_unique_action_type';
   const COST_PER_UNIQUE_CLICK = 'cost_per_unique_click';
   const COST_PER_UNIQUE_INLINE_LINK_CLICK = 'cost_per_unique_inline_link_click';
-  const COUNTRY = 'country';
   const CPC = 'cpc';
   const CPM = 'cpm';
   const CPP = 'cpp';
@@ -71,11 +69,6 @@ class AdsInsightsFields extends AbstractEnum {
   const DATE_STOP = 'date_stop';
   const DEEPLINK_CLICKS = 'deeplink_clicks';
   const FREQUENCY = 'frequency';
-  const FREQUENCY_VALUE = 'frequency_value';
-  const GENDER = 'gender';
-  const HOURLY_STATS_AGGREGATED_BY_ADVERTISER_TIME_ZONE = 'hourly_stats_aggregated_by_advertiser_time_zone';
-  const HOURLY_STATS_AGGREGATED_BY_AUDIENCE_TIME_ZONE = 'hourly_stats_aggregated_by_audience_time_zone';
-  const IMPRESSION_DEVICE = 'impression_device';
   const IMPRESSIONS = 'impressions';
   const INLINE_LINK_CLICK_CTR = 'inline_link_click_ctr';
   const INLINE_LINK_CLICKS = 'inline_link_clicks';
@@ -84,14 +77,8 @@ class AdsInsightsFields extends AbstractEnum {
   const NEWSFEED_CLICKS = 'newsfeed_clicks';
   const NEWSFEED_IMPRESSIONS = 'newsfeed_impressions';
   const OBJECTIVE = 'objective';
-  const PLACE_PAGE_ID = 'place_page_id';
   const PLACE_PAGE_NAME = 'place_page_name';
-  const PLACEMENT = 'placement';
-  const PLATFORM_POSITION = 'platform_position';
-  const PRODUCT_ID = 'product_id';
-  const PUBLISHER_PLATFORM = 'publisher_platform';
   const REACH = 'reach';
-  const REGION = 'region';
   const RELEVANCE_SCORE = 'relevance_score';
   const SOCIAL_CLICKS = 'social_clicks';
   const SOCIAL_IMPRESSIONS = 'social_impressions';
@@ -134,7 +121,6 @@ class AdsInsightsFields extends AbstractEnum {
       'ad_name' => 'string',
       'adset_id' => 'string',
       'adset_name' => 'string',
-      'age' => 'string',
       'app_store_clicks' => 'string',
       'buying_type' => 'string',
       'call_to_action_clicks' => 'string',
@@ -151,7 +137,6 @@ class AdsInsightsFields extends AbstractEnum {
       'cost_per_unique_action_type' => 'list<AdsActionStats>',
       'cost_per_unique_click' => 'float',
       'cost_per_unique_inline_link_click' => 'float',
-      'country' => 'string',
       'cpc' => 'float',
       'cpm' => 'float',
       'cpp' => 'float',
@@ -160,11 +145,6 @@ class AdsInsightsFields extends AbstractEnum {
       'date_stop' => 'string',
       'deeplink_clicks' => 'string',
       'frequency' => 'float',
-      'frequency_value' => 'string',
-      'gender' => 'string',
-      'hourly_stats_aggregated_by_advertiser_time_zone' => 'string',
-      'hourly_stats_aggregated_by_audience_time_zone' => 'string',
-      'impression_device' => 'string',
       'impressions' => 'string',
       'inline_link_click_ctr' => 'float',
       'inline_link_clicks' => 'string',
@@ -173,14 +153,8 @@ class AdsInsightsFields extends AbstractEnum {
       'newsfeed_clicks' => 'string',
       'newsfeed_impressions' => 'string',
       'objective' => 'string',
-      'place_page_id' => 'string',
       'place_page_name' => 'string',
-      'placement' => 'string',
-      'platform_position' => 'string',
-      'product_id' => 'string',
-      'publisher_platform' => 'string',
       'reach' => 'string',
-      'region' => 'string',
       'relevance_score' => 'AdgroupRelevanceScore',
       'social_clicks' => 'string',
       'social_impressions' => 'string',

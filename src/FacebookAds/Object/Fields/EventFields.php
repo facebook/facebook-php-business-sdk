@@ -66,7 +66,7 @@ class EventFields extends AbstractEnum {
     return array(
       'attending_count' => 'int',
       'can_guests_invite' => 'bool',
-      'category' => 'string',
+      'category' => 'Category',
       'cover' => 'Object',
       'declined_count' => 'int',
       'description' => 'string',
@@ -86,7 +86,7 @@ class EventFields extends AbstractEnum {
       'start_time' => 'string',
       'ticket_uri' => 'string',
       'timezone' => 'string',
-      'type' => 'string',
+      'type' => 'Type',
       'updated_time' => 'datetime',
     );
   }

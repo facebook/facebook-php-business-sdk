@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdgroupReviewFeedbackFields extends AbstractEnum {
 
-  const GLOBAL_ = 'global';
+  const FIELD_GLOBAL = 'global';
   const PLACEMENT_SPECIFIC = 'placement_specific';
 
   public function getFieldTypes() {

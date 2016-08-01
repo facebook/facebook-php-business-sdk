@@ -218,6 +218,7 @@ class CustomAudience extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'namespace' => 'string',
       'payload' => 'Object',
       'session' => 'Object',
     );
@@ -243,6 +244,7 @@ class CustomAudience extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'namespace' => 'string',
       'payload' => 'Object',
       'session' => 'Object',
     );

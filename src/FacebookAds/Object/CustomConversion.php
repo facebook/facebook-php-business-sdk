@@ -30,6 +30,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\CustomConversionFields;
 use FacebookAds\Object\Values\AdsPixelStatsResultAggregationValues;
+use FacebookAds\Object\Values\CustomConversionActivitiesEventTypeValues;
 use FacebookAds\Object\Values\CustomConversionCustomEventTypeValues;
 
 /**
@@ -60,6 +61,38 @@ class CustomConversion extends AbstractCrudObject {
     return $ref_enums;
   }
 
+
+  public function getActivities(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'end_time' => 'datetime',
+      'event_type' => 'event_type_enum',
+      'start_time' => 'datetime',
+    );
+    $enums = array(
+      'event_type_enum' => array(
+        'conversion_archive',
+        'conversion_create',
+        'conversion_delete',
+        'conversion_update',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/activities',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
   public function getStats(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();

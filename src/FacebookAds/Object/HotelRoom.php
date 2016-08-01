@@ -41,6 +41,10 @@ use FacebookAds\Object\Fields\HotelRoomFields;
 
 class HotelRoom extends AbstractCrudObject {
 
+  protected function getEndpoint() {
+    return 'hotel_rooms';
+  }
+
   /**
    * @return HotelRoomFields
    */
@@ -53,6 +57,29 @@ class HotelRoom extends AbstractCrudObject {
     return $ref_enums;
   }
 
+
+  public function deleteSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/',
+      new AbstractCrudObject(),
+      'NODE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
   public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();

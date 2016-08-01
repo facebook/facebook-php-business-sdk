@@ -37,7 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdsPixelStatsResultAggregationValues extends AbstractEnum {
 
-  const BROWSER_TYPE = 'browser_type';
   const CUSTOM_DATA_FIELD = 'custom_data_field';
   const DEVICE_OS = 'device_os';
   const DEVICE_TYPE = 'device_type';

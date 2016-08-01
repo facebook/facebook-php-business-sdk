@@ -37,6 +37,8 @@ use FacebookAds\Enum\AbstractEnum;
 
 class LeadgenFormFields extends AbstractEnum {
 
+  const ALLOW_ORGANIC_LEAD = 'allow_organic_lead';
+  const CONTINUED_FLOW_REQUEST_METHOD = 'continued_flow_request_method';
   const CREATED_TIME = 'created_time';
   const CREATOR = 'creator';
   const CUSOMIZED_TCPA_CONTENT = 'cusomized_tcpa_content';
@@ -58,6 +60,8 @@ class LeadgenFormFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'allow_organic_lead' => 'bool',
+      'continued_flow_request_method' => 'string',
       'created_time' => 'datetime',
       'creator' => 'User',
       'cusomized_tcpa_content' => 'string',

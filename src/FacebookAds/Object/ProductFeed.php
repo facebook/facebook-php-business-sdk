@@ -68,6 +68,7 @@ class ProductFeed extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'filter' => 'Object',
     );
     $enums = array(
     );

@@ -94,45 +94,6 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createAdAccountCreationRequest(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'account_type' => 'string',
-      'additional_comment' => 'string',
-      'address_in_chinese' => 'string',
-      'address_in_english' => 'Object',
-      'billing_party_name' => 'string',
-      'business_registration' => 'file',
-      'business_registration_id' => 'unsigned int',
-      'chinese_legal_entity_name' => 'string',
-      'contact' => 'Object',
-      'currency' => 'string',
-      'english_legal_entity_name' => 'string',
-      'fb_page_url' => 'string',
-      'fb_sales_rep_email' => 'string',
-      'has_planning_agency' => 'bool',
-      'is_targeting_outside_china' => 'bool',
-      'planning_agency_name' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/adaccountcreationrequests',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function createAdAccounts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -368,6 +329,29 @@ class Business extends AbstractCrudObject {
       new AbstractCrudObject(),
       'EDGE',
       array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getEventSourceGroups(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/event_source_groups',
+      new EventSourceGroup(),
+      'EDGE',
+      EventSourceGroup::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

@@ -56,6 +56,9 @@ class AdReportRunFields extends AbstractEnum {
   const BREAKDOWNS = 'breakdowns';
   const DATE_PRESET = 'date_preset';
   const DEFAULT_SUMMARY = 'default_summary';
+  const EXPORT_COLUMNS = 'export_columns';
+  const EXPORT_FORMAT = 'export_format';
+  const EXPORT_NAME = 'export_name';
   const FIELDS = 'fields';
   const FILTERING = 'filtering';
   const LEVEL = 'level';
@@ -88,6 +91,9 @@ class AdReportRunFields extends AbstractEnum {
       'breakdowns' => 'Breakdowns',
       'date_preset' => 'DatePreset',
       'default_summary' => 'bool',
+      'export_columns' => 'list<string>',
+      'export_format' => 'string',
+      'export_name' => 'string',
       'fields' => 'Summary',
       'filtering' => 'list<Object>',
       'level' => 'Level',

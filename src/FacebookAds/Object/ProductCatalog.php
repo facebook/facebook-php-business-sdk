@@ -33,6 +33,7 @@ use FacebookAds\Object\Values\AdVideoContentCategoryValues;
 use FacebookAds\Object\Values\AdVideoUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\AdVideoUploadPhaseValues;
 use FacebookAds\Object\Values\ProductCatalogHotelRoomsBatchStandardValues;
+use FacebookAds\Object\Values\ProductCatalogPricingVariablesBatchStandardValues;
 use FacebookAds\Object\Values\ProductCatalogVerticalValues;
 use FacebookAds\Object\Values\ProductFeedDelimiterValues;
 use FacebookAds\Object\Values\ProductFeedEncodingValues;
@@ -263,9 +264,36 @@ class ProductCatalog extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/pricing_variables_batch',
-      new AbstractCrudObject(),
+      new ProductCatalogPricingVariablesBatch(),
       'EDGE',
-      array(),
+      ProductCatalogPricingVariablesBatch::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createPricingVariablesBatch(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'file' => 'file',
+      'standard' => 'standard_enum',
+      'update_only' => 'bool',
+    );
+    $enums = array(
+      'standard_enum' => ProductCatalogPricingVariablesBatchStandardValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/pricing_variables_batch',
+      new ProductCatalogPricingVariablesBatch(),
+      'EDGE',
+      ProductCatalogPricingVariablesBatch::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -527,6 +555,7 @@ class ProductCatalog extends AbstractCrudObject {
       'sale_price' => 'unsigned int',
       'sale_price_end_date' => 'datetime',
       'sale_price_start_date' => 'datetime',
+      'short_description' => 'string',
       'size' => 'string',
       'start_date' => 'string',
       'url' => 'string',

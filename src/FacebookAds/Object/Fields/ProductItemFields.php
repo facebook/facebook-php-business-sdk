@@ -76,6 +76,7 @@ class ProductItemFields extends AbstractEnum {
   const SALE_PRICE_START_DATE = 'sale_price_start_date';
   const SHIPPING_WEIGHT_UNIT = 'shipping_weight_unit';
   const SHIPPING_WEIGHT_VALUE = 'shipping_weight_value';
+  const SHORT_DESCRIPTION = 'short_description';
   const SIZE = 'size';
   const START_DATE = 'start_date';
   const URL = 'url';
@@ -140,6 +141,7 @@ class ProductItemFields extends AbstractEnum {
       'sale_price_start_date' => 'string',
       'shipping_weight_unit' => 'ShippingWeightUnit',
       'shipping_weight_value' => 'float',
+      'short_description' => 'string',
       'size' => 'string',
       'start_date' => 'string',
       'url' => 'string',

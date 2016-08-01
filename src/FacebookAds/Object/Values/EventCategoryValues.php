@@ -33,27 +33,33 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static ReachEstimateOptimizeForValues getInstance()
+ * @method static EventCategoryValues getInstance()
  */
-class ReachEstimateOptimizeForValues extends AbstractEnum {
+class EventCategoryValues extends AbstractEnum {
 
-  const NONE = 'NONE';
-  const APP_INSTALLS = 'APP_INSTALLS';
-  const BRAND_AWARENESS = 'BRAND_AWARENESS';
-  const CLICKS = 'CLICKS';
-  const ENGAGED_USERS = 'ENGAGED_USERS';
-  const EXTERNAL = 'EXTERNAL';
-  const EVENT_RESPONSES = 'EVENT_RESPONSES';
-  const IMPRESSIONS = 'IMPRESSIONS';
-  const LEAD_GENERATION = 'LEAD_GENERATION';
-  const LINK_CLICKS = 'LINK_CLICKS';
-  const OFFER_CLAIMS = 'OFFER_CLAIMS';
-  const OFFSITE_CONVERSIONS = 'OFFSITE_CONVERSIONS';
-  const ONSITE_CONVERSIONS = 'ONSITE_CONVERSIONS';
-  const PAGE_ENGAGEMENT = 'PAGE_ENGAGEMENT';
-  const PAGE_LIKES = 'PAGE_LIKES';
-  const POST_ENGAGEMENT = 'POST_ENGAGEMENT';
-  const REACH = 'REACH';
-  const SOCIAL_IMPRESSIONS = 'SOCIAL_IMPRESSIONS';
-  const VIDEO_VIEWS = 'VIDEO_VIEWS';
+  const ART_EVENT = 'ART_EVENT';
+  const BOOK_EVENT = 'BOOK_EVENT';
+  const MOVIE_EVENT = 'MOVIE_EVENT';
+  const FUNDRAISER = 'FUNDRAISER';
+  const VOLUNTEERING = 'VOLUNTEERING';
+  const FAMILY_EVENT = 'FAMILY_EVENT';
+  const FESTIVAL_EVENT = 'FESTIVAL_EVENT';
+  const NEIGHBORHOOD = 'NEIGHBORHOOD';
+  const RELIGIOUS_EVENT = 'RELIGIOUS_EVENT';
+  const SHOPPING = 'SHOPPING';
+  const COMEDY_EVENT = 'COMEDY_EVENT';
+  const MUSIC_EVENT = 'MUSIC_EVENT';
+  const DANCE_EVENT = 'DANCE_EVENT';
+  const NIGHTLIFE = 'NIGHTLIFE';
+  const THEATER_EVENT = 'THEATER_EVENT';
+  const DINING_EVENT = 'DINING_EVENT';
+  const FOOD_TASTING = 'FOOD_TASTING';
+  const CONFERENCE_EVENT = 'CONFERENCE_EVENT';
+  const MEETUP = 'MEETUP';
+  const CLASS_EVENT = 'CLASS_EVENT';
+  const LECTURE = 'LECTURE';
+  const WORKSHOP = 'WORKSHOP';
+  const FITNESS = 'FITNESS';
+  const SPORTS_EVENT = 'SPORTS_EVENT';
+  const OTHER = 'OTHER';
 }

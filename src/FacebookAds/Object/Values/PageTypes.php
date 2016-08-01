@@ -27,6 +27,7 @@ namespace FacebookAds\Object\Values;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
+ * @deprecated page_types are read-only in v2.7 and to be removed in v2.8
  * @method static PageTypes getInstance()
  */
 class PageTypes extends AbstractEnum {
