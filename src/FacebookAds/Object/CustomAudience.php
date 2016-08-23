@@ -390,13 +390,13 @@ class CustomAudience extends AbstractCrudObject {
 
     if ($type == CustomAudienceTypes::EMAIL
       || $type == CustomAudienceTypes::PHONE) {
+      $normalizer = new EmailNormalizer();
+      $hash_normalizer = new HashNormalizer();
       foreach ($users as &$user) {
         if ($type == CustomAudienceTypes::EMAIL) {
-          $normalizer = new EmailNormalizer();
           $user = $normalizer->normalize(CustomAudienceTypes::EMAIL, $user);
         }
         if (!$is_hashed) {
-          $hash_normalizer = new HashNormalizer();
           $user = $hash_normalizer->normalize(
             CustomAudienceTypes::EMAIL, $user);
         }
