@@ -25,7 +25,7 @@
 namespace FacebookAds\Object\Fields;
 
 /**
- * @deprecated use TargetingSpecsFields instead
+ * @deprecated use TargetingFields instead
  *
  * @method static TargetingSpecsFields getInstance()
  */
