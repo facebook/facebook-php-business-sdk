@@ -151,7 +151,7 @@ class Campaign extends AbstractArchivableCrudObject {
       'date_preset' => 'date_preset_enum',
       'effective_status' => 'list<string>',
       'include_deleted' => 'bool',
-      'time_range' => 'map',
+      'time_range' => 'Object',
       'updated_since' => 'int',
     );
     $enums = array(
@@ -181,7 +181,7 @@ class Campaign extends AbstractArchivableCrudObject {
       'date_preset' => 'date_preset_enum',
       'effective_status' => 'list<effective_status_enum>',
       'is_completed' => 'bool',
-      'time_range' => 'map',
+      'time_range' => 'Object',
     );
     $enums = array(
       'date_preset_enum' => AdSetDatePresetValues::getInstance()->getValues(),
@@ -224,8 +224,8 @@ class Campaign extends AbstractArchivableCrudObject {
       'summary' => 'list<summary_enum>',
       'summary_action_breakdowns' => 'list<summary_action_breakdowns_enum>',
       'time_increment' => 'string',
-      'time_range' => 'map',
-      'time_ranges' => 'list<map>',
+      'time_range' => 'Object',
+      'time_ranges' => 'list<Object>',
     );
     $enums = array(
       'action_attribution_windows_enum' => AdsInsightsActionAttributionWindowsValues::getInstance()->getValues(),
@@ -274,8 +274,8 @@ class Campaign extends AbstractArchivableCrudObject {
       'summary' => 'list<summary_enum>',
       'summary_action_breakdowns' => 'list<summary_action_breakdowns_enum>',
       'time_increment' => 'string',
-      'time_range' => 'map',
-      'time_ranges' => 'list<map>',
+      'time_range' => 'Object',
+      'time_ranges' => 'list<Object>',
     );
     $enums = array(
       'action_attribution_windows_enum' => AdsInsightsActionAttributionWindowsValues::getInstance()->getValues(),
@@ -354,6 +354,7 @@ class Campaign extends AbstractArchivableCrudObject {
 
     $param_types = array(
       'adlabels' => 'list<Object>',
+      'budget_rebalance_flag' => 'bool',
       'execution_options' => 'list<execution_options_enum>',
       'name' => 'string',
       'objective' => 'objective_enum',

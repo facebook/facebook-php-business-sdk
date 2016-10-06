@@ -68,6 +68,7 @@ class TargetingFields extends AbstractEnum {
   const EXCLUDED_MOBILE_DEVICE_MODEL = 'excluded_mobile_device_model';
   const EXCLUDED_PRODUCT_AUDIENCE_SPECS = 'excluded_product_audience_specs';
   const EXCLUDED_PUBLISHER_CATEGORIES = 'excluded_publisher_categories';
+  const EXCLUDED_PUBLISHER_DOMAINS = 'excluded_publisher_domains';
   const EXCLUDED_PUBLISHER_LIST_IDS = 'excluded_publisher_list_ids';
   const EXCLUDED_USER_DEVICE = 'excluded_user_device';
   const EXCLUSIONS = 'exclusions';
@@ -99,6 +100,7 @@ class TargetingFields extends AbstractEnum {
   const POLITICS = 'politics';
   const PRODUCT_AUDIENCE_SPECS = 'product_audience_specs';
   const PUBLISHER_PLATFORMS = 'publisher_platforms';
+  const PUBLISHER_VISIBILITY_CATEGORIES = 'publisher_visibility_categories';
   const RADIUS = 'radius';
   const REGIONS = 'regions';
   const RELATIONSHIP_STATUSES = 'relationship_statuses';
@@ -128,12 +130,12 @@ class TargetingFields extends AbstractEnum {
       'country' => 'list<string>',
       'country_groups' => 'list<string>',
       'custom_audiences' => 'list<IDName>',
-      'device_platforms' => 'DevicePlatforms',
+      'device_platforms' => 'list<DevicePlatforms>',
       'dynamic_audience_ids' => 'list<string>',
       'education_majors' => 'list<IDName>',
       'education_schools' => 'list<IDName>',
       'education_statuses' => 'list<unsigned int>',
-      'effective_device_platforms' => 'EffectiveDevicePlatforms',
+      'effective_device_platforms' => 'list<EffectiveDevicePlatforms>',
       'effective_facebook_positions' => 'list<string>',
       'effective_publisher_platforms' => 'list<string>',
       'engagement_specs' => 'list<TargetingDynamicRule>',
@@ -147,6 +149,7 @@ class TargetingFields extends AbstractEnum {
       'excluded_mobile_device_model' => 'list<string>',
       'excluded_product_audience_specs' => 'list<TargetingProductAudienceSpec>',
       'excluded_publisher_categories' => 'list<string>',
+      'excluded_publisher_domains' => 'list<string>',
       'excluded_publisher_list_ids' => 'list<string>',
       'excluded_user_device' => 'list<string>',
       'exclusions' => 'FlexibleTargeting',
@@ -178,6 +181,7 @@ class TargetingFields extends AbstractEnum {
       'politics' => 'list<IDName>',
       'product_audience_specs' => 'list<TargetingProductAudienceSpec>',
       'publisher_platforms' => 'list<string>',
+      'publisher_visibility_categories' => 'list<string>',
       'radius' => 'string',
       'regions' => 'list<IDName>',
       'relationship_statuses' => 'list<unsigned int>',

@@ -85,6 +85,7 @@ class ProductSet extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'bulk_pagination' => 'bool',
     );
     $enums = array(
     );

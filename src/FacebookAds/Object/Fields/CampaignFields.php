@@ -39,6 +39,7 @@ class CampaignFields extends AbstractEnum {
 
   const ACCOUNT_ID = 'account_id';
   const ADLABELS = 'adlabels';
+  const BUDGET_REBALANCE_FLAG = 'budget_rebalance_flag';
   const BUYING_TYPE = 'buying_type';
   const CAN_USE_SPEND_CAP = 'can_use_spend_cap';
   const CONFIGURED_STATUS = 'configured_status';
@@ -60,6 +61,7 @@ class CampaignFields extends AbstractEnum {
     return array(
       'account_id' => 'string',
       'adlabels' => 'list<AdLabel>',
+      'budget_rebalance_flag' => 'bool',
       'buying_type' => 'string',
       'can_use_spend_cap' => 'bool',
       'configured_status' => 'ConfiguredStatus',
@@ -74,7 +76,7 @@ class CampaignFields extends AbstractEnum {
       'status' => 'Status',
       'stop_time' => 'datetime',
       'updated_time' => 'datetime',
-      'execution_options' => 'ExecutionOptions',
+      'execution_options' => 'list<ExecutionOptions>',
       'promoted_object' => 'Object',
     );
   }

@@ -148,6 +148,7 @@ class CustomAudience extends AbstractCrudObject {
 
     $param_types = array(
       'effective_status' => 'list<string>',
+      'status' => 'list<string>',
     );
     $enums = array(
     );

@@ -35,31 +35,15 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class BusinessFields extends AbstractEnum {
+class LeadGenQuestionOptionFields extends AbstractEnum {
 
-  const CREATED_BY = 'created_by';
-  const CREATED_TIME = 'created_time';
-  const ID = 'id';
-  const LINK = 'link';
-  const NAME = 'name';
-  const PRIMARY_PAGE = 'primary_page';
-  const TIMEZONE_ID = 'timezone_id';
-  const TWO_FACTOR_TYPE = 'two_factor_type';
-  const UPDATED_BY = 'updated_by';
-  const UPDATED_TIME = 'updated_time';
+  const KEY = 'key';
+  const VALUE = 'value';
 
   public function getFieldTypes() {
     return array(
-      'created_by' => 'User',
-      'created_time' => 'datetime',
-      'id' => 'string',
-      'link' => 'string',
-      'name' => 'string',
-      'primary_page' => 'Object',
-      'timezone_id' => 'unsigned int',
-      'two_factor_type' => 'string',
-      'updated_by' => 'User',
-      'updated_time' => 'datetime',
+      'key' => 'string',
+      'value' => 'string',
     );
   }
 }

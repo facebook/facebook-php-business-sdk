@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class ProductSetFields extends AbstractEnum {
 
+  const AUTO_CREATION_URL = 'auto_creation_url';
   const FILTER = 'filter';
   const ID = 'id';
   const NAME = 'name';
@@ -45,6 +46,7 @@ class ProductSetFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'auto_creation_url' => 'string',
       'filter' => 'string',
       'id' => 'string',
       'name' => 'string',

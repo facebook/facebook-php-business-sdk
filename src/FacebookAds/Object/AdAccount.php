@@ -214,10 +214,6 @@ class AdAccount extends AbstractCrudObject {
 
     $param_types = array(
       'action_spec' => 'list<unsigned int>',
-      'actor_id' => 'unsigned int',
-      'actor_image_hash' => 'string',
-      'actor_image_url' => 'string',
-      'actor_name' => 'string',
       'adlabels' => 'list<Object>',
       'applink_treatment' => 'applink_treatment_enum',
       'body' => 'string',
@@ -230,6 +226,7 @@ class AdAccount extends AbstractCrudObject {
       'image_url' => 'string',
       'instagram_actor_id' => 'string',
       'instagram_permalink_url' => 'string',
+      'instagram_story_id' => 'unsigned int',
       'link_og_id' => 'string',
       'link_url' => 'string',
       'name' => 'string',
@@ -239,7 +236,6 @@ class AdAccount extends AbstractCrudObject {
       'object_story_spec' => 'AdCreativeObjectStorySpec',
       'object_type' => 'string',
       'object_url' => 'string',
-      'place_page_set_id' => 'string',
       'platform_customizations' => 'Object',
       'product_set_id' => 'string',
       'template_url' => 'string',
@@ -476,7 +472,7 @@ class AdAccount extends AbstractCrudObject {
       'date_preset' => 'date_preset_enum',
       'effective_status' => 'list<string>',
       'include_deleted' => 'bool',
-      'time_range' => 'map',
+      'time_range' => 'Object',
       'updated_since' => 'int',
     );
     $enums = array(
@@ -570,7 +566,7 @@ class AdAccount extends AbstractCrudObject {
       'effective_status' => 'list<effective_status_enum>',
       'include_deleted' => 'bool',
       'is_completed' => 'bool',
-      'time_range' => 'map',
+      'time_range' => 'Object',
     );
     $enums = array(
       'date_preset_enum' => AdSetDatePresetValues::getInstance()->getValues(),
@@ -962,7 +958,7 @@ class AdAccount extends AbstractCrudObject {
       'date_preset' => 'date_preset_enum',
       'effective_status' => 'list<effective_status_enum>',
       'is_completed' => 'bool',
-      'time_range' => 'map',
+      'time_range' => 'Object',
     );
     $enums = array(
       'date_preset_enum' => CampaignDatePresetValues::getInstance()->getValues(),
@@ -989,6 +985,7 @@ class AdAccount extends AbstractCrudObject {
 
     $param_types = array(
       'adlabels' => 'list<Object>',
+      'budget_rebalance_flag' => 'bool',
       'buying_type' => 'string',
       'execution_options' => 'list<execution_options_enum>',
       'name' => 'string',
@@ -1086,7 +1083,7 @@ class AdAccount extends AbstractCrudObject {
       'name' => 'string',
       'opt_out_link' => 'string',
       'origin_audience_id' => 'string',
-      'pixel_id' => 'unsigned int',
+      'pixel_id' => 'string',
       'prefill' => 'bool',
       'product_set_id' => 'string',
       'retention_days' => 'unsigned int',
@@ -1145,8 +1142,10 @@ class AdAccount extends AbstractCrudObject {
       'default_conversion_value' => 'float',
       'description' => 'string',
       'name' => 'string',
+      'pixel_aggregation_rule' => 'string',
       'pixel_id' => 'string',
       'pixel_rule' => 'string',
+      'retention_days' => 'int',
     );
     $enums = array(
       'custom_event_type_enum' => CustomConversionCustomEventTypeValues::getInstance()->getValues(),
@@ -1177,6 +1176,7 @@ class AdAccount extends AbstractCrudObject {
       'height' => 'unsigned int',
       'interactive' => 'bool',
       'locale' => 'string',
+      'place_page_id' => 'int',
       'post' => 'Object',
       'product_item_ids' => 'list<string>',
       'width' => 'unsigned int',
@@ -1221,8 +1221,8 @@ class AdAccount extends AbstractCrudObject {
       'summary' => 'list<summary_enum>',
       'summary_action_breakdowns' => 'list<summary_action_breakdowns_enum>',
       'time_increment' => 'string',
-      'time_range' => 'map',
-      'time_ranges' => 'list<map>',
+      'time_range' => 'Object',
+      'time_ranges' => 'list<Object>',
     );
     $enums = array(
       'action_attribution_windows_enum' => AdsInsightsActionAttributionWindowsValues::getInstance()->getValues(),
@@ -1271,8 +1271,8 @@ class AdAccount extends AbstractCrudObject {
       'summary' => 'list<summary_enum>',
       'summary_action_breakdowns' => 'list<summary_action_breakdowns_enum>',
       'time_increment' => 'string',
-      'time_range' => 'map',
-      'time_ranges' => 'list<map>',
+      'time_range' => 'Object',
+      'time_ranges' => 'list<Object>',
     );
     $enums = array(
       'action_attribution_windows_enum' => AdsInsightsActionAttributionWindowsValues::getInstance()->getValues(),
@@ -1548,6 +1548,7 @@ class AdAccount extends AbstractCrudObject {
         'ENGAGEMENT',
         'DATA_SET',
         'BAG_OF_ACCOUNTS',
+        'STUDY_RULE_AUDIENCE',
       ),
     );
 
@@ -1556,9 +1557,9 @@ class AdAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/product_audiences',
-      new AbstractCrudObject(),
+      new CustomAudience(),
       'EDGE',
-      array(),
+      CustomAudience::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1694,6 +1695,7 @@ class AdAccount extends AbstractCrudObject {
     $param_types = array(
       'budget' => 'unsigned int',
       'campaign_group_id' => 'string',
+      'day_parting_schedule' => 'list<Object>',
       'destination_id' => 'unsigned int',
       'destination_ids' => 'list<string>',
       'end_time' => 'unsigned int',

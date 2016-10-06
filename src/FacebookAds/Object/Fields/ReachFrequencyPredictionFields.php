@@ -43,6 +43,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const CAMPAIGN_TIME_START = 'campaign_time_start';
   const CAMPAIGN_TIME_STOP = 'campaign_time_stop';
   const CURVE_BUDGET_REACH = 'curve_budget_reach';
+  const DAILY_IMPRESSION_CURVE = 'daily_impression_curve';
   const DESTINATION_ID = 'destination_id';
   const EXPIRATION_TIME = 'expiration_time';
   const EXTERNAL_BUDGET = 'external_budget';
@@ -62,6 +63,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const INTERVAL_FREQUENCY_CAP_RESET_PERIOD = 'interval_frequency_cap_reset_period';
   const NAME = 'name';
   const PAUSE_PERIODS = 'pause_periods';
+  const PLACEMENT_BREAKDOWN = 'placement_breakdown';
   const PREDICTION_MODE = 'prediction_mode';
   const PREDICTION_PROGRESS = 'prediction_progress';
   const RESERVATION_STATUS = 'reservation_status';
@@ -72,6 +74,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const TIME_CREATED = 'time_created';
   const TIME_UPDATED = 'time_updated';
   const BUDGET = 'budget';
+  const DAY_PARTING_SCHEDULE = 'day_parting_schedule';
   const DESTINATION_IDS = 'destination_ids';
   const END_TIME = 'end_time';
   const NUM_CURVE_POINTS = 'num_curve_points';
@@ -89,6 +92,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'campaign_time_start' => 'datetime',
       'campaign_time_stop' => 'datetime',
       'curve_budget_reach' => 'string',
+      'daily_impression_curve' => 'list<float>',
       'destination_id' => 'string',
       'expiration_time' => 'datetime',
       'external_budget' => 'int',
@@ -108,6 +112,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'interval_frequency_cap_reset_period' => 'unsigned int',
       'name' => 'string',
       'pause_periods' => 'string',
+      'placement_breakdown' => 'Object',
       'prediction_mode' => 'unsigned int',
       'prediction_progress' => 'unsigned int',
       'reservation_status' => 'unsigned int',
@@ -118,6 +123,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'time_created' => 'datetime',
       'time_updated' => 'datetime',
       'budget' => 'unsigned int',
+      'day_parting_schedule' => 'list<Object>',
       'destination_ids' => 'list<string>',
       'end_time' => 'unsigned int',
       'num_curve_points' => 'unsigned int',

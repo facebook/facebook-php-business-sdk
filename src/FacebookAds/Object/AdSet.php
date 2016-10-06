@@ -204,7 +204,7 @@ class AdSet extends AbstractArchivableCrudObject
       'date_preset' => 'date_preset_enum',
       'effective_status' => 'list<string>',
       'include_deleted' => 'bool',
-      'time_range' => 'map',
+      'time_range' => 'Object',
       'updated_since' => 'int',
     );
     $enums = array(
@@ -272,8 +272,8 @@ class AdSet extends AbstractArchivableCrudObject
       'summary' => 'list<summary_enum>',
       'summary_action_breakdowns' => 'list<summary_action_breakdowns_enum>',
       'time_increment' => 'string',
-      'time_range' => 'map',
-      'time_ranges' => 'list<map>',
+      'time_range' => 'Object',
+      'time_ranges' => 'list<Object>',
     );
     $enums = array(
       'action_attribution_windows_enum' => AdsInsightsActionAttributionWindowsValues::getInstance()->getValues(),
@@ -322,8 +322,8 @@ class AdSet extends AbstractArchivableCrudObject
       'summary' => 'list<summary_enum>',
       'summary_action_breakdowns' => 'list<summary_action_breakdowns_enum>',
       'time_increment' => 'string',
-      'time_range' => 'map',
-      'time_ranges' => 'list<map>',
+      'time_range' => 'Object',
+      'time_ranges' => 'list<Object>',
     );
     $enums = array(
       'action_attribution_windows_enum' => AdsInsightsActionAttributionWindowsValues::getInstance()->getValues(),

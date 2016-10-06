@@ -46,6 +46,7 @@ class HotelRoomFields extends AbstractEnum {
   const MARGIN_LEVEL = 'margin_level';
   const NAME = 'name';
   const ROOM_ID = 'room_id';
+  const SALE_PRICE = 'sale_price';
   const URL = 'url';
   const PRICING_VARIABLES = 'pricing_variables';
 
@@ -60,6 +61,7 @@ class HotelRoomFields extends AbstractEnum {
       'margin_level' => 'string',
       'name' => 'string',
       'room_id' => 'string',
+      'sale_price' => 'string',
       'url' => 'string',
       'pricing_variables' => 'list<Object>',
     );

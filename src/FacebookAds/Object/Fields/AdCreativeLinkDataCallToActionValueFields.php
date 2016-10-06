@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdCreativeLinkDataCallToActionValueFields extends AbstractEnum {
 
+  const APP_DESTINATION = 'app_destination';
   const APP_LINK = 'app_link';
   const APPLICATION = 'application';
   const EVENT_ID = 'event_id';
@@ -51,6 +52,7 @@ class AdCreativeLinkDataCallToActionValueFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'app_destination' => 'string',
       'app_link' => 'string',
       'application' => 'string',
       'event_id' => 'string',

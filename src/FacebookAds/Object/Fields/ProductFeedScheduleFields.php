@@ -42,6 +42,7 @@ class ProductFeedScheduleFields extends AbstractEnum {
   const HOUR = 'hour';
   const INTERVAL = 'interval';
   const MINUTE = 'minute';
+  const TIMEZONE = 'timezone';
   const URL = 'url';
   const USERNAME = 'username';
 
@@ -52,6 +53,7 @@ class ProductFeedScheduleFields extends AbstractEnum {
       'hour' => 'unsigned int',
       'interval' => 'Interval',
       'minute' => 'unsigned int',
+      'timezone' => 'string',
       'url' => 'string',
       'username' => 'string',
     );

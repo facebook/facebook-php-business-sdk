@@ -37,12 +37,14 @@ use FacebookAds\Enum\AbstractEnum;
 
 class EventSourceGroupFields extends AbstractEnum {
 
+  const BUSINESS = 'business';
   const EVENT_SOURCES = 'event_sources';
   const ID = 'id';
   const NAME = 'name';
 
   public function getFieldTypes() {
     return array(
+      'business' => 'Business',
       'event_sources' => 'list<ExternalEventSource>',
       'id' => 'string',
       'name' => 'string',

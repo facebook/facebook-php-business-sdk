@@ -48,6 +48,7 @@ class AdPromotedObjectCustomEventTypeValues extends AbstractEnum {
   const ADD_PAYMENT_INFO = 'ADD_PAYMENT_INFO';
   const PURCHASE = 'PURCHASE';
   const LEAD = 'LEAD';
+  const FLOW_COMPLETE = 'FLOW_COMPLETE';
   const LEVEL_ACHIEVED = 'LEVEL_ACHIEVED';
   const ACHIEVEMENT_UNLOCKED = 'ACHIEVEMENT_UNLOCKED';
   const SPENT_CREDITS = 'SPENT_CREDITS';

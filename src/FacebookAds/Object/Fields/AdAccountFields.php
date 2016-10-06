@@ -37,7 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdAccountFields extends AbstractEnum {
 
-  const ACCOUNT_GROUPS = 'account_groups';
   const ACCOUNT_ID = 'account_id';
   const ACCOUNT_STATUS = 'account_status';
   const AGE = 'age';
@@ -52,7 +51,6 @@ class AdAccountFields extends AbstractEnum {
   const BUSINESS_STREET = 'business_street';
   const BUSINESS_STREET2 = 'business_street2';
   const BUSINESS_ZIP = 'business_zip';
-  const CAN_CREATE_BRAND_LIFT_STUDY = 'can_create_brand_lift_study';
   const CAPABILITIES = 'capabilities';
   const CREATED_TIME = 'created_time';
   const CURRENCY = 'currency';
@@ -69,7 +67,6 @@ class AdAccountFields extends AbstractEnum {
   const IS_PERSONAL = 'is_personal';
   const IS_PREPAY_ACCOUNT = 'is_prepay_account';
   const IS_TAX_ID_REQUIRED = 'is_tax_id_required';
-  const LAST_USED_TIME = 'last_used_time';
   const LINE_NUMBERS = 'line_numbers';
   const MEDIA_AGENCY = 'media_agency';
   const MIN_CAMPAIGN_GROUP_SPEND_CAP = 'min_campaign_group_spend_cap';
@@ -77,7 +74,6 @@ class AdAccountFields extends AbstractEnum {
   const NAME = 'name';
   const OFFSITE_PIXELS_TOS_ACCEPTED = 'offsite_pixels_tos_accepted';
   const OWNER = 'owner';
-  const OWNER_BUSINESS = 'owner_business';
   const PARTNER = 'partner';
   const RF_SPEC = 'rf_spec';
   const SPEND_CAP = 'spend_cap';
@@ -92,7 +88,6 @@ class AdAccountFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'account_groups' => 'list<AdAccountGroupResult>',
       'account_id' => 'string',
       'account_status' => 'unsigned int',
       'age' => 'float',
@@ -107,7 +102,6 @@ class AdAccountFields extends AbstractEnum {
       'business_street' => 'string',
       'business_street2' => 'string',
       'business_zip' => 'string',
-      'can_create_brand_lift_study' => 'bool',
       'capabilities' => 'list<string>',
       'created_time' => 'datetime',
       'currency' => 'string',
@@ -124,7 +118,6 @@ class AdAccountFields extends AbstractEnum {
       'is_personal' => 'unsigned int',
       'is_prepay_account' => 'bool',
       'is_tax_id_required' => 'bool',
-      'last_used_time' => 'datetime',
       'line_numbers' => 'list<int>',
       'media_agency' => 'string',
       'min_campaign_group_spend_cap' => 'string',
@@ -132,7 +125,6 @@ class AdAccountFields extends AbstractEnum {
       'name' => 'string',
       'offsite_pixels_tos_accepted' => 'bool',
       'owner' => 'string',
-      'owner_business' => 'Business',
       'partner' => 'string',
       'rf_spec' => 'ReachFrequencySpec',
       'spend_cap' => 'string',

@@ -42,7 +42,6 @@ class AdCreativeLinkDataFields extends AbstractEnum {
   const ATTACHMENT_STYLE = 'attachment_style';
   const BRANDED_CONTENT_SPONSOR_PAGE_ID = 'branded_content_sponsor_page_id';
   const CALL_TO_ACTION = 'call_to_action';
-  const CANVAS_ENABLED = 'canvas_enabled';
   const CAPTION = 'caption';
   const CHILD_ATTACHMENTS = 'child_attachments';
   const DESCRIPTION = 'description';
@@ -65,7 +64,6 @@ class AdCreativeLinkDataFields extends AbstractEnum {
       'attachment_style' => 'AttachmentStyle',
       'branded_content_sponsor_page_id' => 'string',
       'call_to_action' => 'AdCreativeLinkDataCallToAction',
-      'canvas_enabled' => 'bool',
       'caption' => 'string',
       'child_attachments' => 'list<AdCreativeLinkDataChildAttachment>',
       'description' => 'string',

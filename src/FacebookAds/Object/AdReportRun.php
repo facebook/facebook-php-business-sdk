@@ -29,7 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdReportRunFields;
-use FacebookAds\Object\Values\AdsInsightsSummaryValues;
 
 /**
  * This class is auto-genereated.
@@ -63,14 +62,8 @@ class AdReportRun extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'default_summary' => 'bool',
-      'fields' => 'list<fields_enum>',
-      'filtering' => 'list<Object>',
-      'sort' => 'list<string>',
-      'summary' => 'list<summary_enum>',
     );
     $enums = array(
-      'summary_enum' => AdsInsightsSummaryValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

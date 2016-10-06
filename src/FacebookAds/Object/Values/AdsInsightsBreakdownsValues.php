@@ -46,6 +46,7 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
   const IMPRESSION_DEVICE = 'impression_device';
   const PLACE_PAGE_ID = 'place_page_id';
   const PLACEMENT = 'placement';
+  const DEVICE_PLATFORM = 'device_platform';
   const PRODUCT_ID = 'product_id';
   const REGION = 'region';
 }

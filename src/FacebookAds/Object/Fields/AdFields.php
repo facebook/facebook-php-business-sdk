@@ -91,7 +91,7 @@ class AdFields extends AbstractEnum {
       'updated_time' => 'datetime',
       'date_format' => 'string',
       'display_sequence' => 'unsigned int',
-      'execution_options' => 'ExecutionOptions',
+      'execution_options' => 'list<ExecutionOptions>',
       'redownload' => 'bool',
       'filename' => 'file',
     );

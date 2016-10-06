@@ -40,7 +40,6 @@ class UserFields extends AbstractEnum {
   const ABOUT = 'about';
   const ADMIN_NOTES = 'admin_notes';
   const AGE_RANGE = 'age_range';
-  const BIO = 'bio';
   const BIRTHDAY = 'birthday';
   const CONTEXT = 'context';
   const COVER = 'cover';
@@ -48,6 +47,7 @@ class UserFields extends AbstractEnum {
   const DEVICES = 'devices';
   const EDUCATION = 'education';
   const EMAIL = 'email';
+  const EMPLOYEE_NUMBER = 'employee_number';
   const FAVORITE_ATHLETES = 'favorite_athletes';
   const FAVORITE_TEAMS = 'favorite_teams';
   const FIRST_NAME = 'first_name';
@@ -96,7 +96,6 @@ class UserFields extends AbstractEnum {
       'about' => 'string',
       'admin_notes' => 'list<Object>',
       'age_range' => 'Object',
-      'bio' => 'string',
       'birthday' => 'string',
       'context' => 'Object',
       'cover' => 'Object',
@@ -104,6 +103,7 @@ class UserFields extends AbstractEnum {
       'devices' => 'list<Object>',
       'education' => 'list<Object>',
       'email' => 'string',
+      'employee_number' => 'string',
       'favorite_athletes' => 'list<Object>',
       'favorite_teams' => 'list<Object>',
       'first_name' => 'string',

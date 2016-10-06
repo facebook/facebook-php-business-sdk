@@ -136,6 +136,7 @@ class AdCreative extends AbstractCrudObject {
       'height' => 'unsigned int',
       'interactive' => 'bool',
       'locale' => 'string',
+      'place_page_id' => 'int',
       'post' => 'Object',
       'product_item_ids' => 'list<string>',
       'width' => 'unsigned int',

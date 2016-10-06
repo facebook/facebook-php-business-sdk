@@ -37,14 +37,11 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdCreativeFields extends AbstractEnum {
 
-  const ACTOR_ID = 'actor_id';
-  const ACTOR_IMAGE_HASH = 'actor_image_hash';
-  const ACTOR_IMAGE_URL = 'actor_image_url';
-  const ACTOR_NAME = 'actor_name';
   const ADLABELS = 'adlabels';
   const APPLINK_TREATMENT = 'applink_treatment';
   const BODY = 'body';
   const CALL_TO_ACTION_TYPE = 'call_to_action_type';
+  const EFFECTIVE_INSTAGRAM_STORY_ID = 'effective_instagram_story_id';
   const EFFECTIVE_OBJECT_STORY_ID = 'effective_object_story_id';
   const ID = 'id';
   const IMAGE_CROPS = 'image_crops';
@@ -75,19 +72,15 @@ class AdCreativeFields extends AbstractEnum {
   const FOLLOW_REDIRECT = 'follow_redirect';
   const IMAGE_FILE = 'image_file';
   const OBJECT_INSTAGRAM_ID = 'object_instagram_id';
-  const PLACE_PAGE_SET_ID = 'place_page_set_id';
   const VIDEO_ID = 'video_id';
 
   public function getFieldTypes() {
     return array(
-      'actor_id' => 'string',
-      'actor_image_hash' => 'string',
-      'actor_image_url' => 'string',
-      'actor_name' => 'string',
       'adlabels' => 'list<AdLabel>',
       'applink_treatment' => 'ApplinkTreatment',
       'body' => 'string',
       'call_to_action_type' => 'CallToActionType',
+      'effective_instagram_story_id' => 'string',
       'effective_object_story_id' => 'string',
       'id' => 'string',
       'image_crops' => 'AdsImageCrops',
@@ -118,7 +111,6 @@ class AdCreativeFields extends AbstractEnum {
       'follow_redirect' => 'bool',
       'image_file' => 'string',
       'object_instagram_id' => 'unsigned int',
-      'place_page_set_id' => 'string',
       'video_id' => 'unsigned int',
     );
   }

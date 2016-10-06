@@ -46,7 +46,7 @@ class AdgroupRelevanceScoreFields extends AbstractEnum {
     return array(
       'negative_feedback' => 'string',
       'positive_feedback' => 'string',
-      'score' => 'int',
+      'score' => 'string',
       'status' => 'string',
     );
   }

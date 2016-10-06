@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\LeadGenQuestionOptionFields;
 
 /**
  * This class is auto-genereated.
@@ -35,31 +39,19 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class BusinessFields extends AbstractEnum {
+class LeadGenQuestionOption extends AbstractObject {
 
-  const CREATED_BY = 'created_by';
-  const CREATED_TIME = 'created_time';
-  const ID = 'id';
-  const LINK = 'link';
-  const NAME = 'name';
-  const PRIMARY_PAGE = 'primary_page';
-  const TIMEZONE_ID = 'timezone_id';
-  const TWO_FACTOR_TYPE = 'two_factor_type';
-  const UPDATED_BY = 'updated_by';
-  const UPDATED_TIME = 'updated_time';
-
-  public function getFieldTypes() {
-    return array(
-      'created_by' => 'User',
-      'created_time' => 'datetime',
-      'id' => 'string',
-      'link' => 'string',
-      'name' => 'string',
-      'primary_page' => 'Object',
-      'timezone_id' => 'unsigned int',
-      'two_factor_type' => 'string',
-      'updated_by' => 'User',
-      'updated_time' => 'datetime',
-    );
+  /**
+   * @return LeadGenQuestionOptionFields
+   */
+  public static function getFieldsEnum() {
+    return LeadGenQuestionOptionFields::getInstance();
   }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
 }

@@ -38,5 +38,6 @@ use FacebookAds\Enum\AbstractEnum;
 class ProductCatalogVerticalValues extends AbstractEnum {
 
   const COMMERCE = 'commerce';
+  const DESTINATIONS = 'destinations';
   const HOTELS = 'hotels';
 }

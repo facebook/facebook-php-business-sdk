@@ -37,17 +37,23 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdgroupPlacementSpecificReviewFeedbackFields extends AbstractEnum {
 
+  const ACCOUNT_ADMIN = 'account_admin';
   const AD = 'ad';
   const FACEBOOK = 'facebook';
   const INSTAGRAM = 'instagram';
+  const PAGE_ADMIN = 'page_admin';
   const PRODUCT = 'product';
+  const SELLER = 'seller';
 
   public function getFieldTypes() {
     return array(
+      'account_admin' => 'map<string, string>',
       'ad' => 'map<string, string>',
       'facebook' => 'map<string, string>',
       'instagram' => 'map<string, string>',
+      'page_admin' => 'map<string, string>',
       'product' => 'map<string, string>',
+      'seller' => 'map<string, string>',
     );
   }
 }

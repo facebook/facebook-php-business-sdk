@@ -72,7 +72,6 @@ class CustomConversion extends AbstractCrudObject {
     );
     $enums = array(
       'event_type_enum' => array(
-        'conversion_archive',
         'conversion_create',
         'conversion_delete',
         'conversion_update',

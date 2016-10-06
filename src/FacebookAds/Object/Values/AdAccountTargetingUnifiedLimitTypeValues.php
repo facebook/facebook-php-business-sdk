@@ -87,6 +87,8 @@ class AdAccountTargetingUnifiedLimitTypeValues extends AbstractEnum {
   const EFFECTIVE_AUDIENCE_NETWORK_POSITIONS = 'effective_audience_network_positions';
   const EXCLUDED_PUBLISHER_CATEGORIES = 'excluded_publisher_categories';
   const EXCLUDED_PUBLISHER_LIST_IDS = 'excluded_publisher_list_ids';
+  const EXCLUDED_PUBLISHER_DOMAINS = 'excluded_publisher_domains';
+  const PUBLISHER_VISIBILITY_CATEGORIES = 'publisher_visibility_categories';
   const USER_DEVICE = 'user_device';
   const EXCLUDED_USER_DEVICE = 'excluded_user_device';
   const EXCLUDED_MOBILE_DEVICE_MODEL = 'excluded_mobile_device_model';
@@ -120,4 +122,5 @@ class AdAccountTargetingUnifiedLimitTypeValues extends AbstractEnum {
   const APP_INSTALL_STATE = 'app_install_state';
   const FB_DEAL_ID = 'fb_deal_id';
   const INTEREST_DEFAULTS_SOURCE = 'interest_defaults_source';
+  const ALTERNATE_AUTO_TARGETING_OPTION = 'alternate_auto_targeting_option';
 }

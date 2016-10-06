@@ -38,9 +38,11 @@ use FacebookAds\Enum\AbstractEnum;
 class LeadgenFormFields extends AbstractEnum {
 
   const ALLOW_ORGANIC_LEAD = 'allow_organic_lead';
+  const CONTEXT_CARD = 'context_card';
   const CONTINUED_FLOW_REQUEST_METHOD = 'continued_flow_request_method';
   const CREATED_TIME = 'created_time';
   const CREATOR = 'creator';
+  const CREATOR_ID = 'creator_id';
   const CUSOMIZED_TCPA_CONTENT = 'cusomized_tcpa_content';
   const EXPIRED_LEADS_COUNT = 'expired_leads_count';
   const FOLLOW_UP_ACTION_TEXT = 'follow_up_action_text';
@@ -49,21 +51,26 @@ class LeadgenFormFields extends AbstractEnum {
   const IS_CONTINUED_FLOW = 'is_continued_flow';
   const LEADGEN_EXPORT_CSV_URL = 'leadgen_export_csv_url';
   const LEADS_COUNT = 'leads_count';
+  const LEGAL_CONTENT = 'legal_content';
   const LOCALE = 'locale';
+  const MESSENGER_WELCOME_MESSAGE = 'messenger_welcome_message';
   const NAME = 'name';
   const PAGE = 'page';
   const PAGE_ID = 'page_id';
   const PRIVACY_POLICY_URL = 'privacy_policy_url';
   const QUALIFIERS = 'qualifiers';
+  const QUESTIONS = 'questions';
   const STATUS = 'status';
   const TCPA_COMPLIANCE = 'tcpa_compliance';
 
   public function getFieldTypes() {
     return array(
       'allow_organic_lead' => 'bool',
+      'context_card' => 'Object',
       'continued_flow_request_method' => 'string',
       'created_time' => 'datetime',
       'creator' => 'User',
+      'creator_id' => 'int',
       'cusomized_tcpa_content' => 'string',
       'expired_leads_count' => 'unsigned int',
       'follow_up_action_text' => 'string',
@@ -72,12 +79,15 @@ class LeadgenFormFields extends AbstractEnum {
       'is_continued_flow' => 'bool',
       'leadgen_export_csv_url' => 'string',
       'leads_count' => 'unsigned int',
+      'legal_content' => 'Object',
       'locale' => 'string',
+      'messenger_welcome_message' => 'string',
       'name' => 'string',
       'page' => 'Object',
       'page_id' => 'string',
       'privacy_policy_url' => 'string',
       'qualifiers' => 'list<LeadGenQualifier>',
+      'questions' => 'list<LeadGenQuestion>',
       'status' => 'string',
       'tcpa_compliance' => 'bool',
     );

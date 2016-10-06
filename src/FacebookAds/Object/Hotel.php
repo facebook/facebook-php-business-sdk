@@ -71,6 +71,7 @@ class Hotel extends AbstractCrudObject {
       'name' => 'string',
       'pricing_variables' => 'list<Object>',
       'room_id' => 'string',
+      'sale_price' => 'float',
       'url' => 'string',
     );
     $enums = array(

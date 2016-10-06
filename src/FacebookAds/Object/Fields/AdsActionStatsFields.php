@@ -47,31 +47,31 @@ class AdsActionStatsFields extends AbstractEnum {
   const ACTION_CAROUSEL_CARD_NAME = 'action_carousel_card_name';
   const ACTION_DESTINATION = 'action_destination';
   const ACTION_DEVICE = 'action_device';
+  const ACTION_REACTION = 'action_reaction';
   const ACTION_TARGET_ID = 'action_target_id';
   const ACTION_TYPE = 'action_type';
   const ACTION_VIDEO_SOUND = 'action_video_sound';
   const ACTION_VIDEO_TYPE = 'action_video_type';
-  const CANVAS_COMPONENT_ID = 'canvas_component_id';
   const VALUE = 'value';
 
   public function getFieldTypes() {
     return array(
-      '1d_click' => 'float',
-      '1d_view' => 'float',
-      '28d_click' => 'float',
-      '28d_view' => 'float',
-      '7d_click' => 'float',
-      '7d_view' => 'float',
+      '1d_click' => 'string',
+      '1d_view' => 'string',
+      '28d_click' => 'string',
+      '28d_view' => 'string',
+      '7d_click' => 'string',
+      '7d_view' => 'string',
       'action_carousel_card_id' => 'string',
       'action_carousel_card_name' => 'string',
       'action_destination' => 'string',
       'action_device' => 'string',
+      'action_reaction' => 'string',
       'action_target_id' => 'string',
       'action_type' => 'string',
       'action_video_sound' => 'string',
       'action_video_type' => 'string',
-      'canvas_component_id' => 'string',
-      'value' => 'float',
+      'value' => 'string',
     );
   }
 }

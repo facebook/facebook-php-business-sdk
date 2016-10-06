@@ -43,11 +43,9 @@ class AdImageFields extends AbstractEnum {
   const HASH = 'hash';
   const HEIGHT = 'height';
   const ID = 'id';
-  const LAST_USED_TIME = 'last_used_time';
   const NAME = 'name';
   const ORIGINAL_HEIGHT = 'original_height';
   const ORIGINAL_WIDTH = 'original_width';
-  const OWNER_BUSINESS = 'owner_business';
   const PERMALINK_URL = 'permalink_url';
   const STATUS = 'status';
   const UPDATED_TIME = 'updated_time';
@@ -67,11 +65,9 @@ class AdImageFields extends AbstractEnum {
       'hash' => 'string',
       'height' => 'unsigned int',
       'id' => 'string',
-      'last_used_time' => 'datetime',
       'name' => 'string',
       'original_height' => 'unsigned int',
       'original_width' => 'unsigned int',
-      'owner_business' => 'Business',
       'permalink_url' => 'string',
       'status' => 'Status',
       'updated_time' => 'datetime',

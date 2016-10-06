@@ -47,7 +47,6 @@ class AdCreativeCallToActionTypeValues extends AbstractEnum {
   const USE_MOBILE_APP = 'USE_MOBILE_APP';
   const BOOK_TRAVEL = 'BOOK_TRAVEL';
   const LISTEN_MUSIC = 'LISTEN_MUSIC';
-  const WATCH_VIDEO = 'WATCH_VIDEO';
   const LEARN_MORE = 'LEARN_MORE';
   const SIGN_UP = 'SIGN_UP';
   const DOWNLOAD = 'DOWNLOAD';
@@ -66,5 +65,6 @@ class AdCreativeCallToActionTypeValues extends AbstractEnum {
   const CONTACT_US = 'CONTACT_US';
   const RECORD_NOW = 'RECORD_NOW';
   const VOTE_NOW = 'VOTE_NOW';
+  const REGISTER_NOW = 'REGISTER_NOW';
   const OPEN_MOVIES = 'OPEN_MOVIES';
 }

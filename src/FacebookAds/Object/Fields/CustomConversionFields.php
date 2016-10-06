@@ -48,7 +48,9 @@ class CustomConversionFields extends AbstractEnum {
   const LAST_FIRED_TIME = 'last_fired_time';
   const NAME = 'name';
   const PIXEL = 'pixel';
+  const PIXEL_AGGREGATION_RULE = 'pixel_aggregation_rule';
   const PIXEL_RULE = 'pixel_rule';
+  const RETENTION_DAYS = 'retention_days';
   const PIXEL_ID = 'pixel_id';
 
   public function getFieldTypes() {
@@ -64,7 +66,9 @@ class CustomConversionFields extends AbstractEnum {
       'last_fired_time' => 'datetime',
       'name' => 'string',
       'pixel' => 'AdsPixel',
+      'pixel_aggregation_rule' => 'string',
       'pixel_rule' => 'string',
+      'retention_days' => 'unsigned int',
       'pixel_id' => 'string',
     );
   }
