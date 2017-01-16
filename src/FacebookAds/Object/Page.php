@@ -26,6 +26,7 @@ namespace FacebookAds\Object;
 
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
+use FacebookAds\Object\SystemUser;
 
 class Page extends AbstractCrudObject {
 
@@ -56,6 +57,22 @@ class Page extends AbstractCrudObject {
     array $fields = array(), array $params = array()) {
     return $this->getManyByConnection(
       Agency::className(), $fields, $params, 'agencies');
+  }
+  
+  /**
+   * @param int $business_id
+   * @param int $user_id
+   * @param array $fields
+   * @return Cursor
+   */
+  public function getUsers($business_id, $user_id = null, $fields = array()) {
+      $params = array(
+          'business' => $business_id,
+          'user' => $user_id
+      );
+
+      return $this->getManyByConnection(
+          SystemUser::className(), $fields, $params, 'userpermissions');
   }
 
   /**
