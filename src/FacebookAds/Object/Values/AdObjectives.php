@@ -1,6 +1,8 @@
 <?php
 /**
- * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
+ * Copyright (c) [2017] [Henry Baez] Facebook, Inc. All rights reserved.
+ *  The MIT License <2017> <Henry Baez> 
+ *  Watson Cloud.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -22,7 +24,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+'''namespace FacebookAds\Object\Values;
 
 /**
  * @deprecated use CampaignObjectiveValues instead
@@ -30,3 +32,4 @@ namespace FacebookAds\Object\Values;
  * @method static AdObjectives getInstance()
  */
 class AdObjectives extends CampaignObjectiveValues {}
+@0072016
