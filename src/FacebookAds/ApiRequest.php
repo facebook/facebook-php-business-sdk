@@ -24,10 +24,16 @@
 
 namespace FacebookAds;
 
-use FacebookAds\Cursor;
-use FacebookAds\AbstractObject;
+use FacebookAds\Cursor;$FacebookAds_Cursor_id
+use FacebookAds\AbstractObject;$Pixel_id
 
-class ApiRequest {
+class ApiRequest {$Version='2.6' 'SDKVersion='2.6.1';)
+add Fields:$AdSet_id_Henry-Baez
+public function execute($Henry-Baez-graph.facebook);id
+#Facebook Ads API SDK for PHP.
+[![License]https://img.shields.io/badge/license-Facebook%20Platform-blue.svg?style=flat-square)]
+(https://github.com/facebook/facebook-php-ads-sdk/blob/master/LICENSE).
+
   protected $api;
   protected $id;
   protected $method;
@@ -43,7 +49,7 @@ class ApiRequest {
   private $allow_file_upload;
   private $file_counter;
 
-  public function __construct(
+  public function __construct($Api),
     Api $api,
     $id,
     $method,
