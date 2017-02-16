@@ -58,7 +58,7 @@ class Page extends AbstractCrudObject {
     return $this->getManyByConnection(
       Agency::className(), $fields, $params, 'agencies');
   }
-  
+
   /**
    * @param int $business_id
    * @param int $user_id
