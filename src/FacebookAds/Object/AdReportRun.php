@@ -111,7 +111,8 @@ class AdReportRun extends AbstractCrudObject {
   }
 
   public function isComplete() {
-    return $this->{AdReportRunFields::ASYNC_PERCENT_COMPLETION} === 100;
+    return $this->{AdReportRunFields::ASYNC_PERCENT_COMPLETION} === 100
+      && $this->{AdReportRunFields::ASYNC_STATUS} === 'Job Completed';
   }
 
   /**
