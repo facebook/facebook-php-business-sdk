@@ -47,12 +47,8 @@ To instantiate an Api object you will need a valid access token:
 ```php
 use FacebookAds\Api;
 
-// Initialize a new Session and instanciate an Api object
-Api::init($app_id, $app_secret, $access_token);
-
-// The Api object is now available trough singleton
-$api = Api::instance();
-
+// Initialize a new Session and instantiate an Api object
+$api = Api::init($app_id, $app_secret, $access_token);
 ```
 
 Once instantiated, the Api object will allow you to start making requests to the Ads API.
