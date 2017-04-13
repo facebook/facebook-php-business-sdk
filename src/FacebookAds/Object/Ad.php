@@ -63,6 +63,9 @@ class Ad extends AbstractArchivableCrudObject
 
   use AdLabelAwareCrudObjectTrait;
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'ads';
   }
@@ -314,13 +317,13 @@ class Ad extends AbstractArchivableCrudObject
 
     $param_types = array(
       'ad_format' => 'ad_format_enum',
-      'dynamic_creative_spec' => 'Object',
+      'end_date' => 'datetime',
       'height' => 'unsigned int',
-      'interactive' => 'bool',
       'locale' => 'string',
       'place_page_id' => 'int',
       'post' => 'Object',
       'product_item_ids' => 'list<string>',
+      'start_date' => 'datetime',
       'width' => 'unsigned int',
     );
     $enums = array(
@@ -473,19 +476,4 @@ class Ad extends AbstractArchivableCrudObject
     return $pending ? $request : $request->execute();
   }
 
-  /**
-   * @deprecated use getPreviews instead
-   */
-  public function getAdPreviews(
-    array $fields = array(), array $params = array(), $pending = false) {
-    return $this->getPreviews($fields, $params, $pending);
-  }
-
-  /**
-   * @deprecated use getTargetingSentenceLines instead
-   */
-  public function getTargetingDescription(
-    array $fields = array(), array $params = array(), $pending = false) {
-    return $this->getTargetingSentenceLines($fields, $params, $pending);
-  }
 }

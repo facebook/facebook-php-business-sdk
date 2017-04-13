@@ -42,6 +42,7 @@ class LookalikeSpecFields extends AbstractEnum {
   const ORIGIN = 'origin';
   const RATIO = 'ratio';
   const STARTING_RATIO = 'starting_ratio';
+  const TARGET_COUNTRIES = 'target_countries';
   const TYPE = 'type';
 
   public function getFieldTypes() {
@@ -51,6 +52,7 @@ class LookalikeSpecFields extends AbstractEnum {
       'origin' => 'list<Object>',
       'ratio' => 'float',
       'starting_ratio' => 'float',
+      'target_countries' => 'list<string>',
       'type' => 'string',
     );
   }

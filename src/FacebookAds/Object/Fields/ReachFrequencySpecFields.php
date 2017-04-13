@@ -40,6 +40,7 @@ class ReachFrequencySpecFields extends AbstractEnum {
   const COUNTRIES = 'countries';
   const MAX_CAMPAIGN_DURATION = 'max_campaign_duration';
   const MAX_DAYS_TO_FINISH = 'max_days_to_finish';
+  const MAX_PAUSE_WITHOUT_PREDICTION_RERUN = 'max_pause_without_prediction_rerun';
   const MIN_CAMPAIGN_DURATION = 'min_campaign_duration';
   const MIN_REACH_LIMITS = 'min_reach_limits';
 
@@ -48,6 +49,7 @@ class ReachFrequencySpecFields extends AbstractEnum {
       'countries' => 'list<string>',
       'max_campaign_duration' => 'Object',
       'max_days_to_finish' => 'Object',
+      'max_pause_without_prediction_rerun' => 'Object',
       'min_campaign_duration' => 'Object',
       'min_reach_limits' => 'Object',
     );

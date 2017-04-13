@@ -41,6 +41,9 @@ use FacebookAds\Object\Fields\LeadgenFormFields;
 
 class LeadgenForm extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'leadgen_forms';
   }

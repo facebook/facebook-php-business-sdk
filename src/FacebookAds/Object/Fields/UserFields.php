@@ -41,6 +41,7 @@ class UserFields extends AbstractEnum {
   const ADMIN_NOTES = 'admin_notes';
   const AGE_RANGE = 'age_range';
   const BIRTHDAY = 'birthday';
+  const CAN_REVIEW_MEASUREMENT_REQUEST = 'can_review_measurement_request';
   const CONTEXT = 'context';
   const COVER = 'cover';
   const CURRENCY = 'currency';
@@ -97,6 +98,7 @@ class UserFields extends AbstractEnum {
       'admin_notes' => 'list<Object>',
       'age_range' => 'Object',
       'birthday' => 'string',
+      'can_review_measurement_request' => 'bool',
       'context' => 'Object',
       'cover' => 'Object',
       'currency' => 'Object',

@@ -41,6 +41,9 @@ use FacebookAds\Object\Fields\EventSourceGroupFields;
 
 class EventSourceGroup extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'event_source_groups';
   }

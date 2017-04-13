@@ -45,4 +45,5 @@ class AdSetBillingEventValues extends AbstractEnum {
   const PAGE_LIKES = 'PAGE_LIKES';
   const POST_ENGAGEMENT = 'POST_ENGAGEMENT';
   const VIDEO_VIEWS = 'VIDEO_VIEWS';
+  const MRC_VIDEO_VIEWS = 'MRC_VIDEO_VIEWS';
 }

@@ -39,7 +39,6 @@ class AdCreativeObjectStorySpecFields extends AbstractEnum {
 
   const INSTAGRAM_ACTOR_ID = 'instagram_actor_id';
   const LINK_DATA = 'link_data';
-  const OFFER_DATA = 'offer_data';
   const PAGE_ID = 'page_id';
   const PHOTO_DATA = 'photo_data';
   const TEMPLATE_DATA = 'template_data';
@@ -50,7 +49,6 @@ class AdCreativeObjectStorySpecFields extends AbstractEnum {
     return array(
       'instagram_actor_id' => 'string',
       'link_data' => 'AdCreativeLinkData',
-      'offer_data' => 'AdCreativeOfferData',
       'page_id' => 'string',
       'photo_data' => 'AdCreativePhotoData',
       'template_data' => 'AdCreativeLinkData',

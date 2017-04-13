@@ -29,9 +29,8 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\CustomConversionFields;
-use FacebookAds\Object\Values\AdsPixelStatsResultAggregationValues;
-use FacebookAds\Object\Values\CustomConversionActivitiesEventTypeValues;
 use FacebookAds\Object\Values\CustomConversionCustomEventTypeValues;
+use FacebookAds\Object\Values\CustomConversionStatsResultAggregationValues;
 
 /**
  * This class is auto-genereated.
@@ -44,6 +43,9 @@ use FacebookAds\Object\Values\CustomConversionCustomEventTypeValues;
 
 class CustomConversion extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'customconversions';
   }
@@ -102,7 +104,7 @@ class CustomConversion extends AbstractCrudObject {
       'start_time' => 'datetime',
     );
     $enums = array(
-      'aggregation_enum' => AdsPixelStatsResultAggregationValues::getInstance()->getValues(),
+      'aggregation_enum' => CustomConversionStatsResultAggregationValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -110,9 +112,9 @@ class CustomConversion extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/stats',
-      new AdsPixelStatsResult(),
+      new CustomConversionStatsResult(),
       'EDGE',
-      AdsPixelStatsResult::getFieldsEnum()->getValues(),
+      CustomConversionStatsResult::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

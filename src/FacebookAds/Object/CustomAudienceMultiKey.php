@@ -43,6 +43,7 @@ class CustomAudienceMultiKey extends AbstractCrudObject {
   protected $normalizers;
 
   /**
+   * @deprecated getEndpoint function is deprecated
    * @return string
    */
   protected function getEndpoint() {

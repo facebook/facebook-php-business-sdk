@@ -42,6 +42,9 @@ use FacebookAds\Object\Values\OffsitePixelTagValues;
 
 class OffsitePixel extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'offsitepixels';
   }

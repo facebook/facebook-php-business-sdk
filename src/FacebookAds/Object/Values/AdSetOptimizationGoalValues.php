@@ -42,7 +42,6 @@ class AdSetOptimizationGoalValues extends AbstractEnum {
   const BRAND_AWARENESS = 'BRAND_AWARENESS';
   const CLICKS = 'CLICKS';
   const ENGAGED_USERS = 'ENGAGED_USERS';
-  const EXTERNAL = 'EXTERNAL';
   const EVENT_RESPONSES = 'EVENT_RESPONSES';
   const IMPRESSIONS = 'IMPRESSIONS';
   const LEAD_GENERATION = 'LEAD_GENERATION';
@@ -55,4 +54,5 @@ class AdSetOptimizationGoalValues extends AbstractEnum {
   const REACH = 'REACH';
   const SOCIAL_IMPRESSIONS = 'SOCIAL_IMPRESSIONS';
   const VIDEO_VIEWS = 'VIDEO_VIEWS';
+  const APP_DOWNLOADS = 'APP_DOWNLOADS';
 }

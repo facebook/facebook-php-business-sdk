@@ -42,6 +42,9 @@ use FacebookAds\Object\Values\AdLabelExecutionOptionsValues;
 
 class AdLabel extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'adlabels';
   }

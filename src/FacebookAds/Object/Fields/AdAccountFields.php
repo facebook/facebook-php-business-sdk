@@ -76,6 +76,8 @@ class AdAccountFields extends AbstractEnum {
   const OWNER = 'owner';
   const PARTNER = 'partner';
   const RF_SPEC = 'rf_spec';
+  const SALESFORCE_INVOICE_GROUP_ID = 'salesforce_invoice_group_id';
+  const SHOW_CHECKOUT_EXPERIENCE = 'show_checkout_experience';
   const SPEND_CAP = 'spend_cap';
   const TAX_ID = 'tax_id';
   const TAX_ID_STATUS = 'tax_id_status';
@@ -127,6 +129,8 @@ class AdAccountFields extends AbstractEnum {
       'owner' => 'string',
       'partner' => 'string',
       'rf_spec' => 'ReachFrequencySpec',
+      'salesforce_invoice_group_id' => 'string',
+      'show_checkout_experience' => 'bool',
       'spend_cap' => 'string',
       'tax_id' => 'string',
       'tax_id_status' => 'unsigned int',

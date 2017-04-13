@@ -42,6 +42,9 @@ use FacebookAds\Object\Values\ProductCatalogHotelRoomsBatchStandardValues;
 
 class ProductCatalogHotelRoomsBatch extends AbstractObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'hotel_rooms_batch';
   }

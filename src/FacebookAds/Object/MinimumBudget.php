@@ -41,6 +41,9 @@ use FacebookAds\Object\Fields\MinimumBudgetFields;
 
 class MinimumBudget extends AbstractObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'minimum_budgets';
   }

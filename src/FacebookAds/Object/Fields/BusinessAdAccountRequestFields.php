@@ -39,13 +39,11 @@ class BusinessAdAccountRequestFields extends AbstractEnum {
 
   const AD_ACCOUNT = 'ad_account';
   const ID = 'id';
-  const PERMITTED_ROLES = 'permitted_roles';
 
   public function getFieldTypes() {
     return array(
       'ad_account' => 'AdAccount',
       'id' => 'string',
-      'permitted_roles' => 'list<string>',
     );
   }
 }

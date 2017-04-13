@@ -29,10 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProductCatalogFields;
-use FacebookAds\Object\Values\AdVideoContentCategoryValues;
-use FacebookAds\Object\Values\AdVideoSwapModeValues;
-use FacebookAds\Object\Values\AdVideoUnpublishedContentTypeValues;
-use FacebookAds\Object\Values\AdVideoUploadPhaseValues;
 use FacebookAds\Object\Values\ProductCatalogHotelRoomsBatchStandardValues;
 use FacebookAds\Object\Values\ProductCatalogPricingVariablesBatchStandardValues;
 use FacebookAds\Object\Values\ProductCatalogVerticalValues;
@@ -55,6 +51,9 @@ use FacebookAds\Object\Values\ProductItemVisibilityValues;
 
 class ProductCatalog extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'product_catalogs';
   }
@@ -185,6 +184,31 @@ class ProductCatalog extends AbstractCrudObject {
       new ExternalEventSource(),
       'EDGE',
       ExternalEventSource::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getFlights(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'bulk_pagination' => 'bool',
+      'filter' => 'Object',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/flights',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -604,6 +628,7 @@ class ProductCatalog extends AbstractCrudObject {
       'iphone_app_store_id' => 'unsigned int',
       'iphone_url' => 'string',
       'manufacturer_part_number' => 'string',
+      'material' => 'string',
       'name' => 'string',
       'ordering_index' => 'unsigned int',
       'pattern' => 'string',
@@ -654,10 +679,15 @@ class ProductCatalog extends AbstractCrudObject {
       'embeddable' => 'bool',
       'file_size' => 'unsigned int',
       'file_url' => 'string',
+      'fov' => 'unsigned int',
+      'initial_heading' => 'unsigned int',
+      'initial_pitch' => 'unsigned int',
+      'original_projection_type' => 'original_projection_type_enum',
       'referenced_sticker_id' => 'string',
       'replace_video_id' => 'string',
       'slideshow_spec' => 'map',
       'source' => 'string',
+      'spherical' => 'bool',
       'start_offset' => 'unsigned int',
       'swap_mode' => 'swap_mode_enum',
       'thumb' => 'file',
@@ -687,6 +717,10 @@ class ProductCatalog extends AbstractCrudObject {
         'TECHNOLOGY',
         'VIDEO_GAMING',
         'OTHER',
+      ),
+      'original_projection_type_enum' => array(
+        'equirectangular',
+        'cubemap',
       ),
       'swap_mode_enum' => array(
         'replace',
@@ -769,6 +803,8 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'default_image_url' => 'string',
+      'fallback_image_url' => 'string',
       'name' => 'string',
     );
     $enums = array(
@@ -787,26 +823,6 @@ class ProductCatalog extends AbstractCrudObject {
     $request->addParams($params);
     $request->addFields($fields);
     return $pending ? $request : $request->execute();
-  }
-
-  /**
-   * @deprecated use createExternalEventSource instead
-   */
-  public function setExternalEventSources(array $pixel_ids, $pending = false) {
-    $params = array(
-      'external_event_sources' => $pixel_ids,
-    );
-    return $this->createExternalEventSource(array(), $params, $pending);
-  }
-
-  /**
-   * @deprecated use deleteExternalEventSources instead
-   */
-  public function removeExternalEventSources(array $pixel_ids, $pending = false) {
-    $params = array(
-      'external_event_sources' => $pixel_ids,
-    );
-    return $this->deleteExternalEventSources(array(), $params, $pending);
   }
 
   /**

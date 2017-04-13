@@ -30,6 +30,7 @@ use FacebookAds\Http\RequestInterface;
 class ClickTrackingTag extends AbstractCrudObject {
 
   /**
+   * @deprecated getEndpoint function is deprecated
    * @return string
    */
   protected function getEndpoint() {
@@ -43,7 +44,7 @@ class ClickTrackingTag extends AbstractCrudObject {
     return ClickTrackingTagFields::getInstance();
   }
 
-  public function delete(array $params = array()) {
+  public function deleteSelf(array $params = array()) {
     $this->getApi()->call(
       '/'.$this->parentId.'/'.$this->getEndpoint(),
       RequestInterface::METHOD_DELETE,

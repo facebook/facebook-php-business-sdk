@@ -43,6 +43,7 @@ class AdImageFields extends AbstractEnum {
   const HASH = 'hash';
   const HEIGHT = 'height';
   const ID = 'id';
+  const IS_ASSOCIATED_CREATIVES_IN_ADGROUPS = 'is_associated_creatives_in_adgroups';
   const NAME = 'name';
   const ORIGINAL_HEIGHT = 'original_height';
   const ORIGINAL_WIDTH = 'original_width';
@@ -65,6 +66,7 @@ class AdImageFields extends AbstractEnum {
       'hash' => 'string',
       'height' => 'unsigned int',
       'id' => 'string',
+      'is_associated_creatives_in_adgroups' => 'bool',
       'name' => 'string',
       'original_height' => 'unsigned int',
       'original_width' => 'unsigned int',

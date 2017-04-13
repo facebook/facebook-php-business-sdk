@@ -41,6 +41,9 @@ use FacebookAds\Object\Fields\BroadTargetingCategoriesFields;
 
 class BroadTargetingCategories extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'broadtargetingcategories';
   }

@@ -51,6 +51,9 @@ class AdCreative extends AbstractCrudObject {
 
   use AdLabelAwareCrudObjectTrait;
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'adcreatives';
   }
@@ -132,13 +135,13 @@ class AdCreative extends AbstractCrudObject {
 
     $param_types = array(
       'ad_format' => 'ad_format_enum',
-      'dynamic_creative_spec' => 'Object',
+      'end_date' => 'datetime',
       'height' => 'unsigned int',
-      'interactive' => 'bool',
       'locale' => 'string',
       'place_page_id' => 'int',
       'post' => 'Object',
       'product_item_ids' => 'list<string>',
+      'start_date' => 'datetime',
       'width' => 'unsigned int',
     );
     $enums = array(
@@ -239,11 +242,4 @@ class AdCreative extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  /**
-   * @deprecated use getPreviews instead
-   */
-  public function getAdPreviews(
-    array $fields = array(), array $params = array(), $pending = false) {
-    return $this->getPreviews($fields, $params, $pending);
-  }
 }

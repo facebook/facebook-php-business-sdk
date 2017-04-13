@@ -29,7 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\EventFields;
-use FacebookAds\Object\Values\EventCategoryValues;
 use FacebookAds\Object\Values\EventTypeValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
 
@@ -53,7 +52,6 @@ class Event extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Category'] = EventCategoryValues::getInstance()->getValues();
     $ref_enums['Type'] = EventTypeValues::getInstance()->getValues();
     return $ref_enums;
   }

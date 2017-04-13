@@ -38,12 +38,14 @@ use FacebookAds\Enum\AbstractEnum;
 class ProductGroupFields extends AbstractEnum {
 
   const ID = 'id';
+  const PRODUCT_CATALOG = 'product_catalog';
   const RETAILER_ID = 'retailer_id';
   const VARIANTS = 'variants';
 
   public function getFieldTypes() {
     return array(
       'id' => 'string',
+      'product_catalog' => 'ProductCatalog',
       'retailer_id' => 'string',
       'variants' => 'list<ProductVariant>',
     );

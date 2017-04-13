@@ -43,6 +43,8 @@ class TransactionFields extends AbstractEnum {
   const BILLING_REASON = 'billing_reason';
   const BILLING_START_TIME = 'billing_start_time';
   const CHARGE_TYPE = 'charge_type';
+  const CHECKOUT_CAMPAIGN_GROUP_ID = 'checkout_campaign_group_id';
+  const CREDENTIAL_ID = 'credential_id';
   const FATURA_ID = 'fatura_id';
   const ID = 'id';
   const PAYMENT_OPTION = 'payment_option';
@@ -60,6 +62,8 @@ class TransactionFields extends AbstractEnum {
       'billing_reason' => 'string',
       'billing_start_time' => 'unsigned int',
       'charge_type' => 'string',
+      'checkout_campaign_group_id' => 'string',
+      'credential_id' => 'string',
       'fatura_id' => 'unsigned int',
       'id' => 'string',
       'payment_option' => 'string',

@@ -55,6 +55,7 @@ class LeadgenFormFields extends AbstractEnum {
   const LOCALE = 'locale';
   const MESSENGER_WELCOME_MESSAGE = 'messenger_welcome_message';
   const NAME = 'name';
+  const ORGANIC_LEADS_COUNT = 'organic_leads_count';
   const PAGE = 'page';
   const PAGE_ID = 'page_id';
   const PRIVACY_POLICY_URL = 'privacy_policy_url';
@@ -83,6 +84,7 @@ class LeadgenFormFields extends AbstractEnum {
       'locale' => 'string',
       'messenger_welcome_message' => 'string',
       'name' => 'string',
+      'organic_leads_count' => 'unsigned int',
       'page' => 'Object',
       'page_id' => 'string',
       'privacy_policy_url' => 'string',

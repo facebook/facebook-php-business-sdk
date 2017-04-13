@@ -66,6 +66,9 @@ class Campaign extends AbstractArchivableCrudObject {
   use AdLabelAwareCrudObjectTrait;
   use ObjectValidation;
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'campaigns';
   }

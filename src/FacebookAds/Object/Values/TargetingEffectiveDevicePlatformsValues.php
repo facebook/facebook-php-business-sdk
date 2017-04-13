@@ -39,4 +39,5 @@ class TargetingEffectiveDevicePlatformsValues extends AbstractEnum {
 
   const MOBILE = 'mobile';
   const DESKTOP = 'desktop';
+  const CONNECTED_TV = 'connected_tv';
 }

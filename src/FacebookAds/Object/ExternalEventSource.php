@@ -41,6 +41,9 @@ use FacebookAds\Object\Fields\ExternalEventSourceFields;
 
 class ExternalEventSource extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'external_event_sources';
   }

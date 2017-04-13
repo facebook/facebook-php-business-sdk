@@ -47,7 +47,9 @@ class AbstractCrudObject extends AbstractObject {
    * @var string ID of the adaccount this object belongs to
    */
   protected $parentId;
+
   /**
+   * @deprecated deprecate constructor with null and parent_id
    * @param string $id Optional (do not set for new objects)
    * @param string $parent_id Optional, needed for creating new objects.
    * @param Api $api The Api instance this object should use to make calls
@@ -55,9 +57,17 @@ class AbstractCrudObject extends AbstractObject {
   public function __construct($id = null, $parent_id = null, Api $api = null) {
     parent::__construct();
     $this->data[static::FIELD_ID] = $id;
+
+    if (!is_null($parent_id)) {
+      $warning_message = "\$parent_id as a parameter of constructor is being " .
+        "deprecated, please try not to use this in new code.\n";
+      error_log($warning_message);
+    }
     $this->parentId = $parent_id;
+
     $this->api = static::assureApi($api);
   }
+
   /**
    * @param string $id
    */
@@ -79,6 +89,7 @@ class AbstractCrudObject extends AbstractObject {
     return $this;
   }
   /**
+   * @deprecated getEndpoint function is deprecated
    * @return string
    */
   protected function getEndpoint() {
@@ -263,7 +274,7 @@ class AbstractCrudObject extends AbstractObject {
    * @param array $params
    * @return void
    */
-  public function delete(array $params = array()) {
+  public function deleteSelf(array $params = array()) {
     $this->getApi()->call(
       $this->getNodePath(),
       RequestInterface::METHOD_DELETE,

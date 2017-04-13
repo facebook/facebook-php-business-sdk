@@ -42,6 +42,9 @@ use FacebookAds\Object\Values\TransactionProductTypeValues;
 
 class Transaction extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'transactions';
   }

@@ -41,7 +41,6 @@ class AdCreativePlaceDataFields extends AbstractEnum {
   const LABEL = 'label';
   const LATITUDE = 'latitude';
   const LONGITUDE = 'longitude';
-  const PHONE_NUMBER = 'phone_number';
   const TYPE = 'type';
 
   public function getFieldTypes() {
@@ -50,7 +49,6 @@ class AdCreativePlaceDataFields extends AbstractEnum {
       'label' => 'string',
       'latitude' => 'float',
       'longitude' => 'float',
-      'phone_number' => 'string',
       'type' => 'string',
     );
   }

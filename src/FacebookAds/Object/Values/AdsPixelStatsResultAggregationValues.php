@@ -43,7 +43,6 @@ class AdsPixelStatsResultAggregationValues extends AbstractEnum {
   const DEVICE_TYPE = 'device_type';
   const EVENT = 'event';
   const HOST = 'host';
-  const USER_MATCH = 'user_match';
   const PIXEL_FIRE = 'pixel_fire';
   const URL = 'url';
 }

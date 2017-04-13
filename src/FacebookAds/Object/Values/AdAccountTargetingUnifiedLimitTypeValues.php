@@ -90,6 +90,7 @@ class AdAccountTargetingUnifiedLimitTypeValues extends AbstractEnum {
   const EXCLUDED_PUBLISHER_DOMAINS = 'excluded_publisher_domains';
   const PUBLISHER_VISIBILITY_CATEGORIES = 'publisher_visibility_categories';
   const USER_DEVICE = 'user_device';
+  const MOBILE_DEVICE_MODEL = 'mobile_device_model';
   const EXCLUDED_USER_DEVICE = 'excluded_user_device';
   const EXCLUDED_MOBILE_DEVICE_MODEL = 'excluded_mobile_device_model';
   const USER_OS = 'user_os';

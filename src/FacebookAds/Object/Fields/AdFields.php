@@ -59,6 +59,7 @@ class AdFields extends AbstractEnum {
   const STATUS = 'status';
   const TRACKING_SPECS = 'tracking_specs';
   const UPDATED_TIME = 'updated_time';
+  const ADSET_SPEC = 'adset_spec';
   const DATE_FORMAT = 'date_format';
   const DISPLAY_SEQUENCE = 'display_sequence';
   const EXECUTION_OPTIONS = 'execution_options';
@@ -89,6 +90,7 @@ class AdFields extends AbstractEnum {
       'status' => 'Status',
       'tracking_specs' => 'list<ConversionActionQuery>',
       'updated_time' => 'datetime',
+      'adset_spec' => 'AdSet',
       'date_format' => 'string',
       'display_sequence' => 'unsigned int',
       'execution_options' => 'list<ExecutionOptions>',

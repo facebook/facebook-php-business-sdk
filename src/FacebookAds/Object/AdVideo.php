@@ -34,6 +34,7 @@ class AdVideo extends AbstractCrudObject {
   use FieldValidation;
 
   /**
+   * @deprecated getEndpoint function is deprecated
    * @return string
    */
   protected function getEndpoint() {

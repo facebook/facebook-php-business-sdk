@@ -41,6 +41,9 @@ use FacebookAds\Object\Fields\VideoThumbnailFields;
 
 class VideoThumbnail extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'thumbnails';
   }

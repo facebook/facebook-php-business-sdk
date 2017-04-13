@@ -53,11 +53,13 @@ class AdCreativeCallToActionTypeValues extends AbstractEnum {
   const WATCH_MORE = 'WATCH_MORE';
   const NO_BUTTON = 'NO_BUTTON';
   const CALL_NOW = 'CALL_NOW';
+  const APPLY_NOW = 'APPLY_NOW';
   const BUY_NOW = 'BUY_NOW';
   const GET_OFFER = 'GET_OFFER';
   const GET_OFFER_VIEW = 'GET_OFFER_VIEW';
   const GET_DIRECTIONS = 'GET_DIRECTIONS';
   const MESSAGE_PAGE = 'MESSAGE_PAGE';
+  const MESSAGE_USER = 'MESSAGE_USER';
   const SUBSCRIBE = 'SUBSCRIBE';
   const SELL_NOW = 'SELL_NOW';
   const DONATE_NOW = 'DONATE_NOW';
@@ -66,5 +68,7 @@ class AdCreativeCallToActionTypeValues extends AbstractEnum {
   const RECORD_NOW = 'RECORD_NOW';
   const VOTE_NOW = 'VOTE_NOW';
   const REGISTER_NOW = 'REGISTER_NOW';
+  const REQUEST_TIME = 'REQUEST_TIME';
+  const SEE_MENU = 'SEE_MENU';
   const OPEN_MOVIES = 'OPEN_MOVIES';
 }

@@ -42,6 +42,9 @@ use FacebookAds\Object\Values\ProductFeedUploadErrorSeverityValues;
 
 class ProductFeedUploadError extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'errors';
   }

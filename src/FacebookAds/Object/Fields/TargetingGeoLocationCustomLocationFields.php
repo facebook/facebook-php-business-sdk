@@ -39,10 +39,14 @@ class TargetingGeoLocationCustomLocationFields extends AbstractEnum {
 
   const ADDRESS_STRING = 'address_string';
   const COUNTRY = 'country';
+  const COUNTRY_GROUP = 'country_group';
+  const CUSTOM_TYPE = 'custom_type';
   const DISTANCE_UNIT = 'distance_unit';
   const KEY = 'key';
   const LATITUDE = 'latitude';
   const LONGITUDE = 'longitude';
+  const MAX_POPULATION = 'max_population';
+  const MIN_POPULATION = 'min_population';
   const NAME = 'name';
   const PRIMARY_CITY_ID = 'primary_city_id';
   const RADIUS = 'radius';
@@ -52,10 +56,14 @@ class TargetingGeoLocationCustomLocationFields extends AbstractEnum {
     return array(
       'address_string' => 'string',
       'country' => 'string',
+      'country_group' => 'string',
+      'custom_type' => 'string',
       'distance_unit' => 'string',
       'key' => 'string',
       'latitude' => 'float',
       'longitude' => 'float',
+      'max_population' => 'int',
+      'min_population' => 'int',
       'name' => 'string',
       'primary_city_id' => 'int',
       'radius' => 'float',

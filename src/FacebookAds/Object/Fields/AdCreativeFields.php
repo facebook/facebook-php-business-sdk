@@ -37,6 +37,8 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdCreativeFields extends AbstractEnum {
 
+  const ACCOUNT_ID = 'account_id';
+  const ACTOR_ID = 'actor_id';
   const ADLABELS = 'adlabels';
   const APPLINK_TREATMENT = 'applink_treatment';
   const BODY = 'body';
@@ -62,20 +64,23 @@ class AdCreativeFields extends AbstractEnum {
   const PRODUCT_SET_ID = 'product_set_id';
   const RUN_STATUS = 'run_status';
   const TEMPLATE_URL = 'template_url';
+  const TEMPLATE_URL_SPEC = 'template_url_spec';
   const THUMBNAIL_URL = 'thumbnail_url';
   const TITLE = 'title';
   const URL_TAGS = 'url_tags';
   const USE_PAGE_ACTOR_OVERRIDE = 'use_page_actor_override';
+  const VIDEO_ID = 'video_id';
   const ACTION_SPEC = 'action_spec';
   const CALL_TO_ACTION = 'call_to_action';
   const DYNAMIC_AD_VOICE = 'dynamic_ad_voice';
   const FOLLOW_REDIRECT = 'follow_redirect';
   const IMAGE_FILE = 'image_file';
   const OBJECT_INSTAGRAM_ID = 'object_instagram_id';
-  const VIDEO_ID = 'video_id';
 
   public function getFieldTypes() {
     return array(
+      'account_id' => 'string',
+      'actor_id' => 'string',
       'adlabels' => 'list<AdLabel>',
       'applink_treatment' => 'ApplinkTreatment',
       'body' => 'string',
@@ -101,17 +106,18 @@ class AdCreativeFields extends AbstractEnum {
       'product_set_id' => 'string',
       'run_status' => 'RunStatus',
       'template_url' => 'string',
+      'template_url_spec' => 'Object',
       'thumbnail_url' => 'string',
       'title' => 'string',
       'url_tags' => 'string',
       'use_page_actor_override' => 'bool',
+      'video_id' => 'string',
       'action_spec' => 'list<unsigned int>',
       'call_to_action' => 'Object',
       'dynamic_ad_voice' => 'DynamicAdVoice',
       'follow_redirect' => 'bool',
       'image_file' => 'string',
       'object_instagram_id' => 'unsigned int',
-      'video_id' => 'unsigned int',
     );
   }
 }

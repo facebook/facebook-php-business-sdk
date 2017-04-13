@@ -41,6 +41,9 @@ use FacebookAds\Object\Fields\RateCardFields;
 
 class RateCard extends AbstractObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'ratecard';
   }

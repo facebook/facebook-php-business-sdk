@@ -41,6 +41,9 @@ use FacebookAds\Object\Fields\AdAccountUserFields;
 
 class AdAccountUser extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'users';
   }

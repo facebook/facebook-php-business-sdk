@@ -29,6 +29,7 @@ use FacebookAds\Object\Fields\ProductAudienceFields;
 class ProductAudience extends AbstractCrudObject {
 
   /**
+   * @deprecated getEndpoint function is deprecated
    * @return string
    */
   protected function getEndpoint() {

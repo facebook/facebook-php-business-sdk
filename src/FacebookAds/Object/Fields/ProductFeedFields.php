@@ -58,7 +58,7 @@ class ProductFeedFields extends AbstractEnum {
       'default_currency' => 'string',
       'deletion_enabled' => 'bool',
       'delimiter' => 'Delimiter',
-      'encoding' => 'Encoding',
+      'encoding' => 'string',
       'file_name' => 'string',
       'id' => 'string',
       'latest_upload' => 'ProductFeedUpload',

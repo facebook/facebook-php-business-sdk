@@ -48,6 +48,9 @@ use FacebookAds\Object\Values\ProductItemVisibilityValues;
 
 class ProductItem extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'products';
   }
@@ -181,6 +184,7 @@ class ProductItem extends AbstractCrudObject {
       'iphone_app_store_id' => 'unsigned int',
       'iphone_url' => 'string',
       'manufacturer_part_number' => 'string',
+      'material' => 'string',
       'name' => 'string',
       'ordering_index' => 'unsigned int',
       'pattern' => 'string',

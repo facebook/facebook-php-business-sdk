@@ -41,6 +41,9 @@ use FacebookAds\Object\Fields\TargetingSentenceLineFields;
 
 class TargetingSentenceLine extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'targetingsentencelines';
   }

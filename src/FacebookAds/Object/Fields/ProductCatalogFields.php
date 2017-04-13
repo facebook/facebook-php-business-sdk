@@ -38,6 +38,8 @@ use FacebookAds\Enum\AbstractEnum;
 class ProductCatalogFields extends AbstractEnum {
 
   const BUSINESS = 'business';
+  const DEFAULT_IMAGE_URL = 'default_image_url';
+  const FALLBACK_IMAGE_URL = 'fallback_image_url';
   const FEED_COUNT = 'feed_count';
   const ID = 'id';
   const IMAGE_PADDING_LANDSCAPE = 'image_padding_landscape';
@@ -49,6 +51,8 @@ class ProductCatalogFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'business' => 'Business',
+      'default_image_url' => 'string',
+      'fallback_image_url' => 'list<string>',
       'feed_count' => 'int',
       'id' => 'string',
       'image_padding_landscape' => 'bool',

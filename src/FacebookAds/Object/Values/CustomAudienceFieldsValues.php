@@ -44,6 +44,7 @@ class CustomAudienceFieldsValues extends AbstractEnum {
   const DELIVERY_STATUS = 'delivery_status';
   const DESCRIPTION = 'description';
   const EXTERNAL_EVENT_SOURCE = 'external_event_source';
+  const IS_VALUE_BASED = 'is_value_based';
   const LOOKALIKE_AUDIENCE_IDS = 'lookalike_audience_ids';
   const LOOKALIKE_SPEC = 'lookalike_spec';
   const NAME = 'name';

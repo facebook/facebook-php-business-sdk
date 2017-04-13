@@ -42,6 +42,9 @@ use FacebookAds\Object\Values\AdImageStatusValues;
 
 class AdImage extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'adimages';
   }

@@ -49,6 +49,9 @@ use FacebookAds\Object\Values\AdsInsightsSummaryValues;
 
 class AdsInsights extends AbstractObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'insights';
   }

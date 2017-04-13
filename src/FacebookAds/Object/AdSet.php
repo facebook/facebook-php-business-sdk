@@ -67,6 +67,9 @@ class AdSet extends AbstractArchivableCrudObject
   use AdLabelAwareCrudObjectTrait;
   use ObjectValidation;
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'adsets';
   }
@@ -450,6 +453,7 @@ class AdSet extends AbstractArchivableCrudObject
       'targeting' => 'Targeting',
       'time_based_ad_rotation_id_blocks' => 'list<list<unsigned int>>',
       'time_based_ad_rotation_intervals' => 'list<unsigned int>',
+      'view_through_attribution_window_days' => 'unsigned int',
     );
     $enums = array(
       'billing_event_enum' => AdSetBillingEventValues::getInstance()->getValues(),

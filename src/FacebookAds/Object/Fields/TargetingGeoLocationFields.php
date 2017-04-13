@@ -45,6 +45,7 @@ class TargetingGeoLocationFields extends AbstractEnum {
   const GEO_MARKETS = 'geo_markets';
   const LOCATION_TYPES = 'location_types';
   const PLACES = 'places';
+  const POLITICAL_DISTRICTS = 'political_districts';
   const REGIONS = 'regions';
   const ZIPS = 'zips';
 
@@ -58,6 +59,7 @@ class TargetingGeoLocationFields extends AbstractEnum {
       'geo_markets' => 'list<TargetingGeoLocationMarket>',
       'location_types' => 'list<string>',
       'places' => 'list<TargetingGeoLocationPlace>',
+      'political_districts' => 'list<TargetingGeoLocationPoliticalDistrict>',
       'regions' => 'list<TargetingGeoLocationRegion>',
       'zips' => 'list<TargetingGeoLocationZip>',
     );

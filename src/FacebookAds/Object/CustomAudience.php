@@ -48,6 +48,9 @@ use FacebookAds\Object\CustomAudienceNormalizers\HashNormalizer;
 
 class CustomAudience extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'customaudiences';
   }
@@ -349,34 +352,6 @@ class CustomAudience extends AbstractCrudObject {
   }
 
   /**
-   * @deprecated use createUser instead
-   */
-  public function addUsers(
-    array $users,
-    $type,
-    array $app_ids = array(),
-    $is_hashed = false,
-    $pending = false) {
-
-    $params = $this->formatParams($users, $type, $app_ids, $is_hashed);
-    return $this->createUser(array(), $params, $pending);
-  }
-
-  /**
-   * @deprecated use deleteUsers instead
-   */
-  public function removeUsers(
-    array $users,
-    $type,
-    array $app_ids = array(),
-    $is_hashed = false,
-    $pending = false) {
-
-    $params = $this->formatParams($users, $type, $app_ids, $is_hashed);
-    return $this->deleteUsers(array(), $params, $pending);
-  }
-
-  /**
    * Take users and format them correctly for the request
    *
    * @param array $users
@@ -393,13 +368,13 @@ class CustomAudience extends AbstractCrudObject {
 
     if ($type == CustomAudienceTypes::EMAIL
       || $type == CustomAudienceTypes::PHONE) {
+      $normalizer = new EmailNormalizer();
+      $hash_normalizer = new HashNormalizer();
       foreach ($users as &$user) {
         if ($type == CustomAudienceTypes::EMAIL) {
-          $normalizer = new EmailNormalizer();
           $user = $normalizer->normalize(CustomAudienceTypes::EMAIL, $user);
         }
         if (!$is_hashed) {
-          $hash_normalizer = new HashNormalizer();
           $user = $hash_normalizer->normalize(
             CustomAudienceTypes::EMAIL, $user);
         }

@@ -43,6 +43,13 @@ use FacebookAds\Object\Values\ProductFeedUploadInputMethodValues;
 class ProductFeedUpload extends AbstractCrudObject {
 
   /**
+   * @deprecated getEndpoint function is deprecated
+   */
+  protected function getEndpoint() {
+    return 'uploads';
+  }
+
+  /**
    * @return ProductFeedUploadFields
    */
   public static function getFieldsEnum() {

@@ -42,6 +42,9 @@ use FacebookAds\Object\Values\ReachFrequencyPredictionStatusValues;
 
 class ReachFrequencyPrediction extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'reachfrequencypredictions';
   }

@@ -41,6 +41,9 @@ use FacebookAds\Object\Fields\LeadFields;
 
 class Lead extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'leads';
   }

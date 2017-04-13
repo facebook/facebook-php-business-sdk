@@ -41,6 +41,9 @@ use FacebookAds\Object\Fields\HotelRoomFields;
 
 class HotelRoom extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'hotel_rooms';
   }

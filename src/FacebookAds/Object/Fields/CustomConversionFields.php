@@ -38,37 +38,47 @@ use FacebookAds\Enum\AbstractEnum;
 class CustomConversionFields extends AbstractEnum {
 
   const ACCOUNT_ID = 'account_id';
+  const AGGREGATION_RULE = 'aggregation_rule';
   const CREATION_TIME = 'creation_time';
   const CUSTOM_EVENT_TYPE = 'custom_event_type';
   const DEFAULT_CONVERSION_VALUE = 'default_conversion_value';
   const DESCRIPTION = 'description';
+  const EVENT_SOURCE_TYPE = 'event_source_type';
   const FIRST_FIRED_TIME = 'first_fired_time';
   const ID = 'id';
   const IS_ARCHIVED = 'is_archived';
   const LAST_FIRED_TIME = 'last_fired_time';
   const NAME = 'name';
+  const OFFLINE_CONVERSION_DATA_SET = 'offline_conversion_data_set';
   const PIXEL = 'pixel';
   const PIXEL_AGGREGATION_RULE = 'pixel_aggregation_rule';
   const PIXEL_RULE = 'pixel_rule';
   const RETENTION_DAYS = 'retention_days';
+  const RULE = 'rule';
+  const EVENT_SOURCE_ID = 'event_source_id';
   const PIXEL_ID = 'pixel_id';
 
   public function getFieldTypes() {
     return array(
       'account_id' => 'string',
+      'aggregation_rule' => 'string',
       'creation_time' => 'datetime',
       'custom_event_type' => 'CustomEventType',
       'default_conversion_value' => 'int',
       'description' => 'string',
+      'event_source_type' => 'string',
       'first_fired_time' => 'datetime',
       'id' => 'string',
       'is_archived' => 'bool',
       'last_fired_time' => 'datetime',
       'name' => 'string',
+      'offline_conversion_data_set' => 'Object',
       'pixel' => 'AdsPixel',
       'pixel_aggregation_rule' => 'string',
       'pixel_rule' => 'string',
       'retention_days' => 'unsigned int',
+      'rule' => 'string',
+      'event_source_id' => 'string',
       'pixel_id' => 'string',
     );
   }

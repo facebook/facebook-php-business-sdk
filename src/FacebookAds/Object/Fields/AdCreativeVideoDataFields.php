@@ -42,6 +42,7 @@ class AdCreativeVideoDataFields extends AbstractEnum {
   const DESCRIPTION = 'description';
   const IMAGE_HASH = 'image_hash';
   const IMAGE_URL = 'image_url';
+  const OFFER_ID = 'offer_id';
   const TARGETING = 'targeting';
   const TITLE = 'title';
   const VIDEO_ID = 'video_id';
@@ -53,6 +54,7 @@ class AdCreativeVideoDataFields extends AbstractEnum {
       'description' => 'string',
       'image_hash' => 'string',
       'image_url' => 'string',
+      'offer_id' => 'string',
       'targeting' => 'Targeting',
       'title' => 'string',
       'video_id' => 'string',

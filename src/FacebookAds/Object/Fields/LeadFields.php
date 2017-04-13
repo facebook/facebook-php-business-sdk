@@ -50,6 +50,7 @@ class LeadFields extends AbstractEnum {
   const ID = 'id';
   const IS_ORGANIC = 'is_organic';
   const POST = 'post';
+  const RETAILER_ITEM_ID = 'retailer_item_id';
 
   public function getFieldTypes() {
     return array(
@@ -66,6 +67,7 @@ class LeadFields extends AbstractEnum {
       'id' => 'string',
       'is_organic' => 'bool',
       'post' => 'Object',
+      'retailer_item_id' => 'string',
     );
   }
 }

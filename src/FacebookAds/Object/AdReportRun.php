@@ -41,6 +41,9 @@ use FacebookAds\Object\Fields\AdReportRunFields;
 
 class AdReportRun extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'insights';
   }
@@ -112,12 +115,5 @@ class AdReportRun extends AbstractCrudObject {
 
   public function isComplete() {
     return $this->{AdReportRunFields::ASYNC_PERCENT_COMPLETION} === 100;
-  }
-
-  /**
-   * @deprecated use getResult instead
-   */
-  public function getResult(array $fields = array(), array $params = array(), $pending = false) {
-    return $this->getInsights($fields, $params, $pending);
   }
 }

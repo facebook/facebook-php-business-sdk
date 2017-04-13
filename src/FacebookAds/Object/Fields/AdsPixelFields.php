@@ -40,6 +40,7 @@ class AdsPixelFields extends AbstractEnum {
   const CODE = 'code';
   const CREATION_TIME = 'creation_time';
   const ID = 'id';
+  const IS_CREATED_BY_BUSINESS = 'is_created_by_business';
   const LAST_FIRED_TIME = 'last_fired_time';
   const NAME = 'name';
   const OWNER_AD_ACCOUNT = 'owner_ad_account';
@@ -50,6 +51,7 @@ class AdsPixelFields extends AbstractEnum {
       'code' => 'string',
       'creation_time' => 'datetime',
       'id' => 'string',
+      'is_created_by_business' => 'bool',
       'last_fired_time' => 'datetime',
       'name' => 'string',
       'owner_ad_account' => 'AdAccount',

@@ -41,6 +41,9 @@ use FacebookAds\Object\Fields\AdKeywordStatsFields;
 
 class AdKeywordStats extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'keywordstats';
   }

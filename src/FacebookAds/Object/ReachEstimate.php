@@ -42,6 +42,9 @@ use FacebookAds\Object\Values\ReachEstimateOptimizeForValues;
 
 class ReachEstimate extends AbstractObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'reachestimate';
   }

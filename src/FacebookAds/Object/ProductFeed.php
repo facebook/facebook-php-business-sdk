@@ -44,6 +44,9 @@ use FacebookAds\Object\Values\ProductFeedQuotedFieldsModeValues;
 
 class ProductFeed extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'product_feeds';
   }
@@ -58,8 +61,8 @@ class ProductFeed extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['Delimiter'] = ProductFeedDelimiterValues::getInstance()->getValues();
-    $ref_enums['Encoding'] = ProductFeedEncodingValues::getInstance()->getValues();
     $ref_enums['QuotedFieldsMode'] = ProductFeedQuotedFieldsModeValues::getInstance()->getValues();
+    $ref_enums['Encoding'] = ProductFeedEncodingValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -196,11 +199,13 @@ class ProductFeed extends AbstractCrudObject {
       'encoding' => 'encoding_enum',
       'name' => 'string',
       'quoted_fields' => 'bool',
+      'quoted_fields_mode' => 'quoted_fields_mode_enum',
       'schedule' => 'string',
     );
     $enums = array(
       'delimiter_enum' => ProductFeedDelimiterValues::getInstance()->getValues(),
       'encoding_enum' => ProductFeedEncodingValues::getInstance()->getValues(),
+      'quoted_fields_mode_enum' => ProductFeedQuotedFieldsModeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

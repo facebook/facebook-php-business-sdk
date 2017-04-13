@@ -38,11 +38,13 @@ use FacebookAds\Enum\AbstractEnum;
 class AdsPixelStatsFields extends AbstractEnum {
 
   const COUNT = 'count';
+  const DIAGNOSTICS_HOURLY_LAST_TIMESTAMP = 'diagnostics_hourly_last_timestamp';
   const VALUE = 'value';
 
   public function getFieldTypes() {
     return array(
       'count' => 'int',
+      'diagnostics_hourly_last_timestamp' => 'datetime',
       'value' => 'string',
     );
   }

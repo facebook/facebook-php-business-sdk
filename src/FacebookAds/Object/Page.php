@@ -30,6 +30,7 @@ use FacebookAds\Http\RequestInterface;
 class Page extends AbstractCrudObject {
 
   /**
+   * @deprecated getEndpoint function is deprecated
    * @return string
    */
   public function getEndpoint() {

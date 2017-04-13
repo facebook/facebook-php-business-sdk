@@ -41,6 +41,9 @@ use FacebookAds\Object\Fields\ProductSetFields;
 
 class ProductSet extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'product_sets';
   }
@@ -86,6 +89,7 @@ class ProductSet extends AbstractCrudObject {
 
     $param_types = array(
       'bulk_pagination' => 'bool',
+      'filter' => 'Object',
     );
     $enums = array(
     );

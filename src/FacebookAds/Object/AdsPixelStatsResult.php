@@ -42,6 +42,9 @@ use FacebookAds\Object\Values\AdsPixelStatsResultAggregationValues;
 
 class AdsPixelStatsResult extends AbstractObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'stats';
   }

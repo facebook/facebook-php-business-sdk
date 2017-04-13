@@ -39,6 +39,7 @@ class AdPlacePageSetFields extends AbstractEnum {
 
   const ACCOUNT_ID = 'account_id';
   const ID = 'id';
+  const LOCATION_TYPES = 'location_types';
   const NAME = 'name';
   const PAGES_COUNT = 'pages_count';
   const PARENT_PAGE = 'parent_page';
@@ -47,6 +48,7 @@ class AdPlacePageSetFields extends AbstractEnum {
     return array(
       'account_id' => 'string',
       'id' => 'string',
+      'location_types' => 'list<string>',
       'name' => 'string',
       'pages_count' => 'int',
       'parent_page' => 'Object',

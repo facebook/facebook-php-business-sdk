@@ -42,6 +42,9 @@ use FacebookAds\Object\Values\ProductCatalogPricingVariablesBatchStandardValues;
 
 class ProductCatalogPricingVariablesBatch extends AbstractObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'pricing_variables_batch';
   }

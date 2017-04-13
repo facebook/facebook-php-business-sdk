@@ -30,6 +30,7 @@ use FacebookAds\Object\Fields\SystemUserFields;
 class SystemUser extends AbstractCrudObject {
 
   /**
+   * @deprecated getEndpoint function is deprecated
    * @return string
    */
   protected function getEndpoint() {

@@ -45,6 +45,9 @@ use FacebookAds\Object\Values\ProductItemVisibilityValues;
 
 class ProductGroup extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'product_groups';
   }
@@ -146,6 +149,7 @@ class ProductGroup extends AbstractCrudObject {
       'iphone_app_store_id' => 'unsigned int',
       'iphone_url' => 'string',
       'manufacturer_part_number' => 'string',
+      'material' => 'string',
       'name' => 'string',
       'ordering_index' => 'unsigned int',
       'pattern' => 'string',
@@ -179,6 +183,29 @@ class ProductGroup extends AbstractCrudObject {
       new ProductItem(),
       'EDGE',
       ProductItem::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function deleteSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/',
+      new AbstractCrudObject(),
+      'NODE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

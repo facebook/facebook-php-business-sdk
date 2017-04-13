@@ -39,6 +39,7 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
 
   const AGE = 'age';
   const COUNTRY = 'country';
+  const DMA = 'dma';
   const GENDER = 'gender';
   const FREQUENCY_VALUE = 'frequency_value';
   const HOURLY_STATS_AGGREGATED_BY_ADVERTISER_TIME_ZONE = 'hourly_stats_aggregated_by_advertiser_time_zone';
@@ -46,6 +47,8 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
   const IMPRESSION_DEVICE = 'impression_device';
   const PLACE_PAGE_ID = 'place_page_id';
   const PLACEMENT = 'placement';
+  const PUBLISHER_PLATFORM = 'publisher_platform';
+  const PLATFORM_POSITION = 'platform_position';
   const DEVICE_PLATFORM = 'device_platform';
   const PRODUCT_ID = 'product_id';
   const REGION = 'region';

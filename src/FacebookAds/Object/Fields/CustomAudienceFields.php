@@ -44,6 +44,7 @@ class CustomAudienceFields extends AbstractEnum {
   const DESCRIPTION = 'description';
   const EXTERNAL_EVENT_SOURCE = 'external_event_source';
   const ID = 'id';
+  const IS_VALUE_BASED = 'is_value_based';
   const LOOKALIKE_AUDIENCE_IDS = 'lookalike_audience_ids';
   const LOOKALIKE_SPEC = 'lookalike_spec';
   const NAME = 'name';
@@ -81,6 +82,7 @@ class CustomAudienceFields extends AbstractEnum {
       'description' => 'string',
       'external_event_source' => 'AdsPixel',
       'id' => 'string',
+      'is_value_based' => 'bool',
       'lookalike_audience_ids' => 'list<string>',
       'lookalike_spec' => 'LookalikeSpec',
       'name' => 'string',

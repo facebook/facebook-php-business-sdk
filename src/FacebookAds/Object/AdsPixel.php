@@ -42,6 +42,9 @@ use FacebookAds\Object\Values\AdsPixelStatsResultAggregationValues;
 
 class AdsPixel extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'adspixels';
   }
@@ -258,23 +261,5 @@ class AdsPixel extends AbstractCrudObject {
         'business' => $business_id,
         'agency_id' => $agency_id,
       ));
-  }
-
-  /**
-   * @deprecated use getSharedAccounts instead
-   */
-  public function getAdAccounts(
-    array $fields = array(), array $params = array(), $pending = false) {
-
-    return $this->getSharedAccounts($fields, $params, $pending);
-  }
-
-  /**
-   * @deprecated use getSharedAgencies instead
-   */
-  public function getAgencies(
-    array $fields = array(), array $params = array(), $pending = false) {
-
-    return $this->getSharedAgencies($fields, $params, $pending);
   }
 }

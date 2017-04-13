@@ -42,6 +42,9 @@ use FacebookAds\Object\Values\AdPreviewAdFormatValues;
 
 class AdPreview extends AbstractObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'previews';
   }

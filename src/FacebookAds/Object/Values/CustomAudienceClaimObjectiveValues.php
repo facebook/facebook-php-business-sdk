@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class CustomAudienceClaimObjectiveValues extends AbstractEnum {
 
+  const HOME_LISTING = 'HOME_LISTING';
   const PRODUCT = 'PRODUCT';
   const TRAVEL = 'TRAVEL';
 }

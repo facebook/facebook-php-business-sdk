@@ -31,11 +31,10 @@ use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\BusinessFields;
 use FacebookAds\Object\Values\AdAccountAccessTypeValues;
 use FacebookAds\Object\Values\AdAccountPermittedRolesValues;
-use FacebookAds\Object\Values\MeasurementReportReportTypeValues;
+use FacebookAds\Object\Values\AdStudyTypeValues;
 use FacebookAds\Object\Values\ProductCatalogVerticalValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
 use FacebookAds\Object\Values\ReachFrequencyPredictionStatusValues;
-use FacebookAds\Object\Values\undefinedRoleValues;
 
 /**
  * This class is auto-genereated.
@@ -61,12 +60,47 @@ class Business extends AbstractCrudObject {
   }
 
 
+  public function createAdStudy(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'cells' => 'list<Object>',
+      'confidence_level' => 'float',
+      'cooldown_start_time' => 'int',
+      'description' => 'string',
+      'end_time' => 'int',
+      'name' => 'string',
+      'objectives' => 'list<Object>',
+      'observation_end_time' => 'int',
+      'start_time' => 'int',
+      'type' => 'type_enum',
+      'viewers' => 'list<int>',
+    );
+    $enums = array(
+      'type_enum' => AdStudyTypeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/ad_studies',
+      new AdStudy(),
+      'EDGE',
+      AdStudy::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createAdAccount(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
       'currency' => 'string',
-      'end_advertiser' => 'string',
+      'end_advertiser' => 'Object',
       'funding_id' => 'string',
       'invoice' => 'bool',
       'io' => 'bool',
@@ -126,6 +160,8 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'id_filter' => 'string',
+      'name_filter' => 'string',
     );
     $enums = array(
     );
@@ -545,7 +581,9 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'auto_assign_to_new_accounts_only' => 'bool',
       'description' => 'string',
+      'enable_auto_assign_to_accounts' => 'bool',
       'name' => 'string',
     );
     $enums = array(
@@ -579,9 +617,9 @@ class Business extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/owned_ad_account_requests',
-      new BusinessAdAccountRequest(),
+      new LegacyBusinessAdAccountRequest(),
       'EDGE',
-      BusinessAdAccountRequest::getFieldsEnum()->getValues(),
+      LegacyBusinessAdAccountRequest::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

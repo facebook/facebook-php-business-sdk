@@ -24,16 +24,19 @@
 
 namespace FacebookAds\Object;
 
-use FacebookAds\Object\Fields\ObjectStorySpecFields;
+use FacebookAds\Object\Fields\AdCreativeObjectStorySpecFields;
 use FacebookAds\Object\Traits\FieldValidation;
 
+/**
+ * @deprecated use AdCreativeObjectStorySpec instead
+ */
 class ObjectStorySpec extends AdCreativeObjectStorySpec {
   use FieldValidation;
 
   /**
-   * @return ObjectStorySpecFields
+   * @return AdCreativeObjectStorySpecFields
    */
   public static function getFieldsEnum() {
-    return ObjectStorySpecFields::getInstance();
+    return AdCreativeObjectStorySpecFields::getInstance();
   }
 }

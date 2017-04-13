@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\PartnerCategoryFields;
+use FacebookAds\Object\Values\PartnerCategoryPrivateOrPublicValues;
 
 /**
  * This class is auto-genereated.
@@ -41,6 +42,9 @@ use FacebookAds\Object\Fields\PartnerCategoryFields;
 
 class PartnerCategory extends AbstractCrudObject {
 
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
   protected function getEndpoint() {
     return 'partnercategories';
   }
@@ -54,6 +58,7 @@ class PartnerCategory extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['PrivateOrPublic'] = PartnerCategoryPrivateOrPublicValues::getInstance()->getValues();
     return $ref_enums;
   }
 

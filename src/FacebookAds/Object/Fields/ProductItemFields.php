@@ -65,7 +65,9 @@ class ProductItemFields extends AbstractEnum {
   const ORDERING_INDEX = 'ordering_index';
   const PATTERN = 'pattern';
   const PRICE = 'price';
+  const PRODUCT_CATALOG = 'product_catalog';
   const PRODUCT_FEED = 'product_feed';
+  const PRODUCT_GROUP = 'product_group';
   const PRODUCT_TYPE = 'product_type';
   const RETAILER_ID = 'retailer_id';
   const RETAILER_PRODUCT_GROUP_ID = 'retailer_product_group_id';
@@ -130,7 +132,9 @@ class ProductItemFields extends AbstractEnum {
       'ordering_index' => 'int',
       'pattern' => 'string',
       'price' => 'string',
+      'product_catalog' => 'ProductCatalog',
       'product_feed' => 'ProductFeed',
+      'product_group' => 'ProductGroup',
       'product_type' => 'string',
       'retailer_id' => 'string',
       'retailer_product_group_id' => 'string',
