@@ -37,8 +37,8 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ProductItemShippingWeightUnitValues extends AbstractEnum {
 
-  const LB = 'lb';
-  const OZ = 'oz';
   const VALUE_G = 'g';
   const KG = 'kg';
+  const OZ = 'oz';
+  const LB = 'lb';
 }

@@ -797,6 +797,7 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'da_display_settings' => 'Object',
       'name' => 'string',
       'vertical' => 'vertical_enum',
     );

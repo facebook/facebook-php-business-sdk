@@ -803,6 +803,7 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'da_display_settings' => 'Object',
       'default_image_url' => 'string',
       'fallback_image_url' => 'string',
       'name' => 'string',

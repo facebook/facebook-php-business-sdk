@@ -34,7 +34,7 @@ use FacebookAds\Object\Values\AdCreativeCallToActionTypeValues;
 use FacebookAds\Object\Values\AdCreativeDynamicAdVoiceValues;
 use FacebookAds\Object\Values\AdCreativeObjectTypeValues;
 use FacebookAds\Object\Values\AdCreativeOperatorValues;
-use FacebookAds\Object\Values\AdCreativeRunStatusValues;
+use FacebookAds\Object\Values\AdCreativeStatusValues;
 use FacebookAds\Object\Values\AdPreviewAdFormatValues;
 use FacebookAds\Object\Traits\AdLabelAwareCrudObjectTrait;
 
@@ -70,7 +70,7 @@ class AdCreative extends AbstractCrudObject {
     $ref_enums['ApplinkTreatment'] = AdCreativeApplinkTreatmentValues::getInstance()->getValues();
     $ref_enums['CallToActionType'] = AdCreativeCallToActionTypeValues::getInstance()->getValues();
     $ref_enums['ObjectType'] = AdCreativeObjectTypeValues::getInstance()->getValues();
-    $ref_enums['RunStatus'] = AdCreativeRunStatusValues::getInstance()->getValues();
+    $ref_enums['Status'] = AdCreativeStatusValues::getInstance()->getValues();
     $ref_enums['DynamicAdVoice'] = AdCreativeDynamicAdVoiceValues::getInstance()->getValues();
     $ref_enums['Operator'] = AdCreativeOperatorValues::getInstance()->getValues();
     return $ref_enums;
@@ -170,9 +170,10 @@ class AdCreative extends AbstractCrudObject {
       'account_id' => 'string',
       'adlabels' => 'list<Object>',
       'name' => 'string',
-      'run_status' => 'unsigned int',
+      'status' => 'status_enum',
     );
     $enums = array(
+      'status_enum' => AdCreativeStatusValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -222,9 +223,10 @@ class AdCreative extends AbstractCrudObject {
       'account_id' => 'string',
       'adlabels' => 'list<Object>',
       'name' => 'string',
-      'run_status' => 'unsigned int',
+      'status' => 'status_enum',
     );
     $enums = array(
+      'status_enum' => AdCreativeStatusValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

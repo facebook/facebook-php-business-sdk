@@ -216,14 +216,12 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'action_spec' => 'list<unsigned int>',
       'actor_id' => 'unsigned int',
       'adlabels' => 'list<Object>',
       'applink_treatment' => 'applink_treatment_enum',
       'body' => 'string',
       'call_to_action' => 'Object',
       'dynamic_ad_voice' => 'dynamic_ad_voice_enum',
-      'follow_redirect' => 'bool',
       'image_crops' => 'map',
       'image_file' => 'string',
       'image_hash' => 'string',
@@ -235,7 +233,6 @@ class AdAccount extends AbstractCrudObject {
       'link_url' => 'string',
       'name' => 'string',
       'object_id' => 'unsigned int',
-      'object_instagram_id' => 'unsigned int',
       'object_story_id' => 'string',
       'object_story_spec' => 'AdCreativeObjectStorySpec',
       'object_type' => 'string',
@@ -599,7 +596,7 @@ class AdAccount extends AbstractCrudObject {
     $param_types = array(
       'adlabels' => 'list<Object>',
       'adset_schedule' => 'list<Object>',
-      'attribution_window_days' => 'unsigned int',
+      'attribution_spec' => 'list<map>',
       'bid_amount' => 'int',
       'billing_event' => 'billing_event_enum',
       'campaign_id' => 'string',
@@ -610,7 +607,6 @@ class AdAccount extends AbstractCrudObject {
       'end_time' => 'datetime',
       'execution_options' => 'list<execution_options_enum>',
       'frequency_control_specs' => 'list<Object>',
-      'instagram_actor_id' => 'string',
       'is_autobid' => 'bool',
       'is_average_price_pacing' => 'bool',
       'lifetime_budget' => 'unsigned int',
@@ -627,7 +623,6 @@ class AdAccount extends AbstractCrudObject {
       'targeting' => 'Targeting',
       'time_based_ad_rotation_id_blocks' => 'list<list<unsigned int>>',
       'time_based_ad_rotation_intervals' => 'list<unsigned int>',
-      'view_through_attribution_window_days' => 'unsigned int',
     );
     $enums = array(
       'billing_event_enum' => AdSetBillingEventValues::getInstance()->getValues(),
@@ -1158,9 +1153,6 @@ class AdAccount extends AbstractCrudObject {
       'description' => 'string',
       'event_source_id' => 'string',
       'name' => 'string',
-      'pixel_aggregation_rule' => 'string',
-      'pixel_id' => 'string',
-      'pixel_rule' => 'string',
       'retention_days' => 'int',
       'rule' => 'string',
     );

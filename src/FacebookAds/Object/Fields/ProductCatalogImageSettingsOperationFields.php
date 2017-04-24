@@ -35,33 +35,13 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class ProductCatalogFields extends AbstractEnum {
+class ProductCatalogImageSettingsOperationFields extends AbstractEnum {
 
-  const BUSINESS = 'business';
-  const DA_DISPLAY_SETTINGS = 'da_display_settings';
-  const DEFAULT_IMAGE_URL = 'default_image_url';
-  const FALLBACK_IMAGE_URL = 'fallback_image_url';
-  const FEED_COUNT = 'feed_count';
-  const ID = 'id';
-  const IMAGE_PADDING_LANDSCAPE = 'image_padding_landscape';
-  const IMAGE_PADDING_SQUARE = 'image_padding_square';
-  const NAME = 'name';
-  const PRODUCT_COUNT = 'product_count';
-  const VERTICAL = 'vertical';
+  const TRANSFORMATION_TYPE = 'transformation_type';
 
   public function getFieldTypes() {
     return array(
-      'business' => 'Business',
-      'da_display_settings' => 'ProductCatalogImageSettings',
-      'default_image_url' => 'string',
-      'fallback_image_url' => 'list<string>',
-      'feed_count' => 'int',
-      'id' => 'string',
-      'image_padding_landscape' => 'bool',
-      'image_padding_square' => 'bool',
-      'name' => 'string',
-      'product_count' => 'int',
-      'vertical' => 'string',
+      'transformation_type' => 'string',
     );
   }
 }

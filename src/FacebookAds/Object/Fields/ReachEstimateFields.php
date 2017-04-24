@@ -37,14 +37,12 @@ use FacebookAds\Enum\AbstractEnum;
 
 class ReachEstimateFields extends AbstractEnum {
 
-  const BID_ESTIMATIONS = 'bid_estimations';
   const ESTIMATE_READY = 'estimate_ready';
   const UNSUPPORTED = 'unsupported';
   const USERS = 'users';
 
   public function getFieldTypes() {
     return array(
-      'bid_estimations' => 'list',
       'estimate_ready' => 'bool',
       'unsupported' => 'bool',
       'users' => 'unsigned int',

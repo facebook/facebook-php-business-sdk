@@ -40,7 +40,7 @@ class AdSetFields extends AbstractEnum {
   const ACCOUNT_ID = 'account_id';
   const ADLABELS = 'adlabels';
   const ADSET_SCHEDULE = 'adset_schedule';
-  const ATTRIBUTION_WINDOW_DAYS = 'attribution_window_days';
+  const ATTRIBUTION_SPEC = 'attribution_spec';
   const BID_AMOUNT = 'bid_amount';
   const BID_INFO = 'bid_info';
   const BILLING_EVENT = 'billing_event';
@@ -57,7 +57,6 @@ class AdSetFields extends AbstractEnum {
   const FREQUENCY_CAP_RESET_PERIOD = 'frequency_cap_reset_period';
   const FREQUENCY_CONTROL_SPECS = 'frequency_control_specs';
   const ID = 'id';
-  const INSTAGRAM_ACTOR_ID = 'instagram_actor_id';
   const IS_AUTOBID = 'is_autobid';
   const IS_AVERAGE_PRICE_PACING = 'is_average_price_pacing';
   const LIFETIME_BUDGET = 'lifetime_budget';
@@ -78,7 +77,6 @@ class AdSetFields extends AbstractEnum {
   const TIME_BASED_AD_ROTATION_INTERVALS = 'time_based_ad_rotation_intervals';
   const UPDATED_TIME = 'updated_time';
   const USE_NEW_APP_CLICK = 'use_new_app_click';
-  const VIEW_THROUGH_ATTRIBUTION_WINDOW_DAYS = 'view_through_attribution_window_days';
   const CAMPAIGN_SPEC = 'campaign_spec';
   const DAILY_IMPS = 'daily_imps';
   const EXECUTION_OPTIONS = 'execution_options';
@@ -89,7 +87,7 @@ class AdSetFields extends AbstractEnum {
       'account_id' => 'string',
       'adlabels' => 'list<AdLabel>',
       'adset_schedule' => 'list<DayPart>',
-      'attribution_window_days' => 'unsigned int',
+      'attribution_spec' => 'list<Object>',
       'bid_amount' => 'unsigned int',
       'bid_info' => 'map<string, unsigned int>',
       'billing_event' => 'BillingEvent',
@@ -106,7 +104,6 @@ class AdSetFields extends AbstractEnum {
       'frequency_cap_reset_period' => 'unsigned int',
       'frequency_control_specs' => 'list<Object>',
       'id' => 'string',
-      'instagram_actor_id' => 'string',
       'is_autobid' => 'bool',
       'is_average_price_pacing' => 'bool',
       'lifetime_budget' => 'string',
@@ -127,7 +124,6 @@ class AdSetFields extends AbstractEnum {
       'time_based_ad_rotation_intervals' => 'list<unsigned int>',
       'updated_time' => 'datetime',
       'use_new_app_click' => 'bool',
-      'view_through_attribution_window_days' => 'unsigned int',
       'campaign_spec' => 'Object',
       'daily_imps' => 'unsigned int',
       'execution_options' => 'list<ExecutionOptions>',

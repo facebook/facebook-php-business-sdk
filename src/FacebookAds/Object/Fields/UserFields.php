@@ -79,6 +79,7 @@ class UserFields extends AbstractEnum {
   const RELIGION = 'religion';
   const SECURITY_SETTINGS = 'security_settings';
   const SHARED_LOGIN_UPGRADE_REQUIRED_BY = 'shared_login_upgrade_required_by';
+  const SHORT_NAME = 'short_name';
   const SIGNIFICANT_OTHER = 'significant_other';
   const SPORTS = 'sports';
   const TEST_GROUP = 'test_group';
@@ -136,6 +137,7 @@ class UserFields extends AbstractEnum {
       'religion' => 'string',
       'security_settings' => 'Object',
       'shared_login_upgrade_required_by' => 'datetime',
+      'short_name' => 'string',
       'significant_other' => 'User',
       'sports' => 'list<Object>',
       'test_group' => 'unsigned int',

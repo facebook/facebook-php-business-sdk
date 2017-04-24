@@ -51,12 +51,9 @@ class CustomConversionFields extends AbstractEnum {
   const NAME = 'name';
   const OFFLINE_CONVERSION_DATA_SET = 'offline_conversion_data_set';
   const PIXEL = 'pixel';
-  const PIXEL_AGGREGATION_RULE = 'pixel_aggregation_rule';
-  const PIXEL_RULE = 'pixel_rule';
   const RETENTION_DAYS = 'retention_days';
   const RULE = 'rule';
   const EVENT_SOURCE_ID = 'event_source_id';
-  const PIXEL_ID = 'pixel_id';
 
   public function getFieldTypes() {
     return array(
@@ -74,12 +71,9 @@ class CustomConversionFields extends AbstractEnum {
       'name' => 'string',
       'offline_conversion_data_set' => 'Object',
       'pixel' => 'AdsPixel',
-      'pixel_aggregation_rule' => 'string',
-      'pixel_rule' => 'string',
       'retention_days' => 'unsigned int',
       'rule' => 'string',
       'event_source_id' => 'string',
-      'pixel_id' => 'string',
     );
   }
 }

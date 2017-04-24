@@ -41,6 +41,7 @@ class AdCreativeLinkDataFields extends AbstractEnum {
   const APP_LINK_SPEC = 'app_link_spec';
   const ATTACHMENT_STYLE = 'attachment_style';
   const BRANDED_CONTENT_SPONSOR_PAGE_ID = 'branded_content_sponsor_page_id';
+  const BRANDED_CONTENT_SPONSOR_RELATIONSHIP = 'branded_content_sponsor_relationship';
   const CALL_TO_ACTION = 'call_to_action';
   const CAPTION = 'caption';
   const CHILD_ATTACHMENTS = 'child_attachments';
@@ -55,6 +56,7 @@ class AdCreativeLinkDataFields extends AbstractEnum {
   const MULTI_SHARE_OPTIMIZED = 'multi_share_optimized';
   const NAME = 'name';
   const OFFER_ID = 'offer_id';
+  const PAGE_WELCOME_MESSAGE = 'page_welcome_message';
   const PICTURE = 'picture';
 
   public function getFieldTypes() {
@@ -63,6 +65,7 @@ class AdCreativeLinkDataFields extends AbstractEnum {
       'app_link_spec' => 'AdCreativeLinkDataAppLinkSpec',
       'attachment_style' => 'AttachmentStyle',
       'branded_content_sponsor_page_id' => 'string',
+      'branded_content_sponsor_relationship' => 'string',
       'call_to_action' => 'AdCreativeLinkDataCallToAction',
       'caption' => 'string',
       'child_attachments' => 'list<AdCreativeLinkDataChildAttachment>',
@@ -77,6 +80,7 @@ class AdCreativeLinkDataFields extends AbstractEnum {
       'multi_share_optimized' => 'bool',
       'name' => 'string',
       'offer_id' => 'string',
+      'page_welcome_message' => 'string',
       'picture' => 'string',
     );
   }

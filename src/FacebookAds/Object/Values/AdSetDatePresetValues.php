@@ -39,17 +39,21 @@ class AdSetDatePresetValues extends AbstractEnum {
 
   const TODAY = 'today';
   const YESTERDAY = 'yesterday';
-  const LAST_3_DAYS = 'last_3_days';
-  const THIS_WEEK = 'this_week';
-  const LAST_WEEK = 'last_week';
-  const LAST_7_DAYS = 'last_7_days';
-  const LAST_14_DAYS = 'last_14_days';
-  const LAST_28_DAYS = 'last_28_days';
-  const LAST_30_DAYS = 'last_30_days';
-  const LAST_90_DAYS = 'last_90_days';
   const THIS_MONTH = 'this_month';
   const LAST_MONTH = 'last_month';
   const THIS_QUARTER = 'this_quarter';
-  const LAST_3_MONTHS = 'last_3_months';
   const LIFETIME = 'lifetime';
+  const LAST_3D = 'last_3d';
+  const LAST_7D = 'last_7d';
+  const LAST_14D = 'last_14d';
+  const LAST_28D = 'last_28d';
+  const LAST_30D = 'last_30d';
+  const LAST_90D = 'last_90d';
+  const LAST_WEEK_MON_SUN = 'last_week_mon_sun';
+  const LAST_WEEK_SUN_SAT = 'last_week_sun_sat';
+  const LAST_QUARTER = 'last_quarter';
+  const LAST_YEAR = 'last_year';
+  const THIS_WEEK_MON_TODAY = 'this_week_mon_today';
+  const THIS_WEEK_SUN_TODAY = 'this_week_sun_today';
+  const THIS_YEAR = 'this_year';
 }

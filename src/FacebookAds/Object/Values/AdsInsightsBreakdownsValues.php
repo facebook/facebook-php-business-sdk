@@ -46,7 +46,6 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
   const HOURLY_STATS_AGGREGATED_BY_AUDIENCE_TIME_ZONE = 'hourly_stats_aggregated_by_audience_time_zone';
   const IMPRESSION_DEVICE = 'impression_device';
   const PLACE_PAGE_ID = 'place_page_id';
-  const PLACEMENT = 'placement';
   const PUBLISHER_PLATFORM = 'publisher_platform';
   const PLATFORM_POSITION = 'platform_position';
   const DEVICE_PLATFORM = 'device_platform';

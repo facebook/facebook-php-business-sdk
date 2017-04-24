@@ -91,6 +91,9 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const UNSHARE_AUDIENCE = 'unshare_audience';
   const REMOVE_SHARED_AUDIENCE = 'remove_shared_audience';
   const UNKNOWN = 'unknown';
+  const ACCOUNT_SPENDING_LIMIT_REACHED = 'account_spending_limit_reached';
+  const CAMPAIGN_SPENDING_LIMIT_REACHED = 'campaign_spending_limit_reached';
+  const LIFETIME_BUDGET_SPENT = 'lifetime_budget_spent';
   const FUNDING_EVENT_INITIATED = 'funding_event_initiated';
   const FUNDING_EVENT_SUCCESSFUL = 'funding_event_successful';
   const UPDATE_AD_LABELS = 'update_ad_labels';

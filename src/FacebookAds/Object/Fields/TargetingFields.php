@@ -41,6 +41,7 @@ class TargetingFields extends AbstractEnum {
   const AGE_MAX = 'age_max';
   const AGE_MIN = 'age_min';
   const APP_INSTALL_STATE = 'app_install_state';
+  const AUDIENCE_NETWORK_POSITIONS = 'audience_network_positions';
   const BEHAVIORS = 'behaviors';
   const CITIES = 'cities';
   const COLLEGE_YEARS = 'college_years';
@@ -54,8 +55,11 @@ class TargetingFields extends AbstractEnum {
   const EDUCATION_MAJORS = 'education_majors';
   const EDUCATION_SCHOOLS = 'education_schools';
   const EDUCATION_STATUSES = 'education_statuses';
+  const EFFECTIVE_AUDIENCE_NETWORK_POSITIONS = 'effective_audience_network_positions';
   const EFFECTIVE_DEVICE_PLATFORMS = 'effective_device_platforms';
   const EFFECTIVE_FACEBOOK_POSITIONS = 'effective_facebook_positions';
+  const EFFECTIVE_INSTAGRAM_POSITIONS = 'effective_instagram_positions';
+  const EFFECTIVE_MESSENGER_POSITIONS = 'effective_messenger_positions';
   const EFFECTIVE_PUBLISHER_PLATFORMS = 'effective_publisher_platforms';
   const ENGAGEMENT_SPECS = 'engagement_specs';
   const ETHNIC_AFFINITY = 'ethnic_affinity';
@@ -86,11 +90,13 @@ class TargetingFields extends AbstractEnum {
   const HOUSEHOLD_COMPOSITION = 'household_composition';
   const INCOME = 'income';
   const INDUSTRIES = 'industries';
+  const INSTAGRAM_POSITIONS = 'instagram_positions';
   const INTERESTED_IN = 'interested_in';
   const INTERESTS = 'interests';
   const KEYWORDS = 'keywords';
   const LIFE_EVENTS = 'life_events';
   const LOCALES = 'locales';
+  const MESSENGER_POSITIONS = 'messenger_positions';
   const MOMS = 'moms';
   const NET_WORTH = 'net_worth';
   const OFFICE_TYPE = 'office_type';
@@ -122,6 +128,7 @@ class TargetingFields extends AbstractEnum {
       'age_max' => 'unsigned int',
       'age_min' => 'unsigned int',
       'app_install_state' => 'string',
+      'audience_network_positions' => 'list<string>',
       'behaviors' => 'list<IDName>',
       'cities' => 'list<IDName>',
       'college_years' => 'list<unsigned int>',
@@ -135,8 +142,11 @@ class TargetingFields extends AbstractEnum {
       'education_majors' => 'list<IDName>',
       'education_schools' => 'list<IDName>',
       'education_statuses' => 'list<unsigned int>',
+      'effective_audience_network_positions' => 'list<string>',
       'effective_device_platforms' => 'list<EffectiveDevicePlatforms>',
       'effective_facebook_positions' => 'list<string>',
+      'effective_instagram_positions' => 'list<string>',
+      'effective_messenger_positions' => 'list<string>',
       'effective_publisher_platforms' => 'list<string>',
       'engagement_specs' => 'list<TargetingDynamicRule>',
       'ethnic_affinity' => 'list<IDName>',
@@ -167,11 +177,13 @@ class TargetingFields extends AbstractEnum {
       'household_composition' => 'list<IDName>',
       'income' => 'list<IDName>',
       'industries' => 'list<IDName>',
+      'instagram_positions' => 'list<string>',
       'interested_in' => 'list<unsigned int>',
       'interests' => 'list<IDName>',
       'keywords' => 'list<string>',
       'life_events' => 'list<IDName>',
       'locales' => 'list<unsigned int>',
+      'messenger_positions' => 'list<string>',
       'moms' => 'list<IDName>',
       'net_worth' => 'list<IDName>',
       'office_type' => 'list<IDName>',

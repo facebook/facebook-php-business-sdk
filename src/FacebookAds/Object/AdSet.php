@@ -430,7 +430,7 @@ class AdSet extends AbstractArchivableCrudObject
       'account_id' => 'string',
       'adlabels' => 'list<Object>',
       'adset_schedule' => 'list<Object>',
-      'attribution_window_days' => 'unsigned int',
+      'attribution_spec' => 'list<map>',
       'bid_amount' => 'int',
       'billing_event' => 'billing_event_enum',
       'creative_sequence' => 'list<string>',
@@ -453,7 +453,6 @@ class AdSet extends AbstractArchivableCrudObject
       'targeting' => 'Targeting',
       'time_based_ad_rotation_id_blocks' => 'list<list<unsigned int>>',
       'time_based_ad_rotation_intervals' => 'list<unsigned int>',
-      'view_through_attribution_window_days' => 'unsigned int',
     );
     $enums = array(
       'billing_event_enum' => AdSetBillingEventValues::getInstance()->getValues(),

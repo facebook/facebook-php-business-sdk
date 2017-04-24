@@ -44,9 +44,7 @@ class AdCreativeLinkDataCallToActionValueFields extends AbstractEnum {
   const LEAD_GEN_FORM_ID = 'lead_gen_form_id';
   const LINK = 'link';
   const LINK_CAPTION = 'link_caption';
-  const LINK_DESCRIPTION = 'link_description';
   const LINK_FORMAT = 'link_format';
-  const LINK_TITLE = 'link_title';
   const PAGE = 'page';
   const PRODUCT_LINK = 'product_link';
 
@@ -59,9 +57,7 @@ class AdCreativeLinkDataCallToActionValueFields extends AbstractEnum {
       'lead_gen_form_id' => 'string',
       'link' => 'string',
       'link_caption' => 'string',
-      'link_description' => 'string',
       'link_format' => 'string',
-      'link_title' => 'string',
       'page' => 'string',
       'product_link' => 'string',
     );

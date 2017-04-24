@@ -38,11 +38,14 @@ use FacebookAds\Enum\AbstractEnum;
 class AdCreativeVideoDataFields extends AbstractEnum {
 
   const BRANDED_CONTENT_SPONSOR_PAGE_ID = 'branded_content_sponsor_page_id';
+  const BRANDED_CONTENT_SPONSOR_RELATIONSHIP = 'branded_content_sponsor_relationship';
   const CALL_TO_ACTION = 'call_to_action';
-  const DESCRIPTION = 'description';
   const IMAGE_HASH = 'image_hash';
   const IMAGE_URL = 'image_url';
+  const LINK_DESCRIPTION = 'link_description';
+  const MESSAGE = 'message';
   const OFFER_ID = 'offer_id';
+  const PAGE_WELCOME_MESSAGE = 'page_welcome_message';
   const TARGETING = 'targeting';
   const TITLE = 'title';
   const VIDEO_ID = 'video_id';
@@ -50,11 +53,14 @@ class AdCreativeVideoDataFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'branded_content_sponsor_page_id' => 'string',
+      'branded_content_sponsor_relationship' => 'string',
       'call_to_action' => 'AdCreativeLinkDataCallToAction',
-      'description' => 'string',
       'image_hash' => 'string',
       'image_url' => 'string',
+      'link_description' => 'string',
+      'message' => 'string',
       'offer_id' => 'string',
+      'page_welcome_message' => 'string',
       'targeting' => 'Targeting',
       'title' => 'string',
       'video_id' => 'string',

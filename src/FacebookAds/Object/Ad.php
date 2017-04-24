@@ -46,7 +46,6 @@ use FacebookAds\Object\Values\AdsInsightsDatePresetValues;
 use FacebookAds\Object\Values\AdsInsightsLevelValues;
 use FacebookAds\Object\Values\AdsInsightsSummaryActionBreakdownsValues;
 use FacebookAds\Object\Values\AdsInsightsSummaryValues;
-use FacebookAds\Object\Values\ReachEstimateOptimizeForValues;
 use FacebookAds\Object\Traits\AdLabelAwareCrudObjectTrait;
 
 /**
@@ -338,33 +337,6 @@ class Ad extends AbstractArchivableCrudObject
       new AdPreview(),
       'EDGE',
       AdPreview::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getReachEstimate(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'currency' => 'string',
-      'daily_budget' => 'float',
-      'optimize_for' => 'optimize_for_enum',
-    );
-    $enums = array(
-      'optimize_for_enum' => ReachEstimateOptimizeForValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/reachestimate',
-      new ReachEstimate(),
-      'EDGE',
-      ReachEstimate::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

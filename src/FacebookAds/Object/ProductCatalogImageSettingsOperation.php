@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\ProductCatalogImageSettingsOperationFields;
 
 /**
  * This class is auto-genereated.
@@ -35,33 +39,19 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class ProductCatalogFields extends AbstractEnum {
+class ProductCatalogImageSettingsOperation extends AbstractObject {
 
-  const BUSINESS = 'business';
-  const DA_DISPLAY_SETTINGS = 'da_display_settings';
-  const DEFAULT_IMAGE_URL = 'default_image_url';
-  const FALLBACK_IMAGE_URL = 'fallback_image_url';
-  const FEED_COUNT = 'feed_count';
-  const ID = 'id';
-  const IMAGE_PADDING_LANDSCAPE = 'image_padding_landscape';
-  const IMAGE_PADDING_SQUARE = 'image_padding_square';
-  const NAME = 'name';
-  const PRODUCT_COUNT = 'product_count';
-  const VERTICAL = 'vertical';
-
-  public function getFieldTypes() {
-    return array(
-      'business' => 'Business',
-      'da_display_settings' => 'ProductCatalogImageSettings',
-      'default_image_url' => 'string',
-      'fallback_image_url' => 'list<string>',
-      'feed_count' => 'int',
-      'id' => 'string',
-      'image_padding_landscape' => 'bool',
-      'image_padding_square' => 'bool',
-      'name' => 'string',
-      'product_count' => 'int',
-      'vertical' => 'string',
-    );
+  /**
+   * @return ProductCatalogImageSettingsOperationFields
+   */
+  public static function getFieldsEnum() {
+    return ProductCatalogImageSettingsOperationFields::getInstance();
   }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
 }
