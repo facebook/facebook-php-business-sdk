@@ -80,6 +80,8 @@ class AbstractObject {
   public function __get($name) {
     if (array_key_exists($name, $this->data)) {
       return $this->data[$name];
+    } elseif (in_array($name, static::getFieldsEnum()->getValues())) {
+      return null;
     } else {
       throw new \InvalidArgumentException(
         $name.' is not a field of '.get_class($this));
