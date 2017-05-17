@@ -330,6 +330,7 @@ class CustomAudience extends AbstractCrudObject {
       'product_set_id' => 'string',
       'retention_days' => 'unsigned int',
       'rule' => 'string',
+      'rule_aggregation' => 'string',
     );
     $enums = array(
       'claim_objective_enum' => CustomAudienceClaimObjectiveValues::getInstance()->getValues(),
@@ -350,6 +351,29 @@ class CustomAudience extends AbstractCrudObject {
     $request->addFields($fields);
     return $pending ? $request : $request->execute();
   }
+
+  public function addUsers(
+    array $users,
+    $type,
+    array $app_ids = array(),
+    $is_hashed = false,
+    $pending = false) {
+
+    $params = $this->formatParams($users, $type, $app_ids, $is_hashed);
+    return $this->createUser(array(), $params, $pending);
+  }
+
+  public function removeUsers(
+    array $users,
+    $type,
+    array $app_ids = array(),
+    $is_hashed = false,
+    $pending = false) {
+
+    $params = $this->formatParams($users, $type, $app_ids, $is_hashed);
+    return $this->deleteUsers(array(), $params, $pending);
+  }
+
 
   /**
    * Take users and format them correctly for the request

@@ -1097,6 +1097,7 @@ class AdAccount extends AbstractCrudObject {
       'product_set_id' => 'string',
       'retention_days' => 'unsigned int',
       'rule' => 'string',
+      'rule_aggregation' => 'string',
       'subtype' => 'subtype_enum',
     );
     $enums = array(
@@ -1168,6 +1169,32 @@ class AdAccount extends AbstractCrudObject {
       new CustomConversion(),
       'EDGE',
       CustomConversion::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getDeliveryEstimate(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'optimization_goal' => 'adaccountdelivery_estimate_optimization_goal_enum_param',
+      'promoted_object' => 'Object',
+      'targeting_spec' => 'Targeting',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/delivery_estimate',
+      new DeliveryEstimate(),
+      'EDGE',
+      DeliveryEstimate::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
