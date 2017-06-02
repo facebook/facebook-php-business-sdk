@@ -122,11 +122,12 @@ class CurlAdapter extends AbstractAdapter {
 
     $header_components = explode("\n", $raw_headers);
     foreach ($header_components as $line) {
-      if (strpos($line, ': ') === false) {
+      if (($delimeterPos = strpos($line, ': ')) === false) {
         $headers['http_code'] = $line;
       } else {
-        list ($key, $value) = explode(': ', $line);
-        $headers[$key] = $value;
+        $key = substr($line, 0, $delimeterPos);
+        $value = substr($line, $delimeterPos + 1, strlen($line));
+        $headers[$key] = trim($value);
       }
     }
   }
