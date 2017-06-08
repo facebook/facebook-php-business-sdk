@@ -89,8 +89,10 @@ try{
     echo "Campaign ID:" . $campaign->id . "\n";
 }
 catch (Exception $e) {
-    echo 'Error message: ' .$e->getMessage() ."\n" . "<br/>";
-    echo 'Error Code: ' .$e->getCode() ."<br/>";
+    echo 'Error message for new Campaign(): ' .$e->getMessage() ."\n" . "<br/>";
+    echo 'Error Code for new Campaign(): ' .$e->getCode() ."<br/>";
+    echo 'Error User Title for new Campaign(): ' .$e->getErrorUserTitle() ."<br/>";
+    echo 'Error User Message for new Campaign(): ' .$e->getErrorUserMessage() ."<br/>";
 }
 /**
  * Step 3 Search Targeting
@@ -146,8 +148,10 @@ try{
     echo 'AdSet  ID: '. $adset->id . "\n";
 }
 catch (Exception $e) {
-    echo 'Error message: ' .$e->getMessage() ."\n" . "<br/>";
-    echo 'Error Code: ' .$e->getCode() ."<br/>";
+    echo 'Error message for new AdSet(): ' .$e->getMessage() ."\n" . "<br/>";
+    echo 'Error Code new AdSet(): ' .$e->getCode() ."<br/>";
+    echo 'Error User Title for new AdSet(): ' .$e->getErrorUserTitle() ."<br/>";
+    echo 'Error User Message for new AdSet(): ' .$e->getErrorUserMessage() ."<br/>";
 }
 /**
  * Step 5 Create an AdImage
@@ -163,8 +167,10 @@ try {
     echo 'Image Hash: '.$image->hash . "\n";
 }
 catch (Exception $e) {
-    echo 'Error message: ' .$e->getMessage() ."\n" . "<br/>";
-    echo 'Error Code: ' .$e->getCode() ."<br/>";
+    echo 'Error message for new AdImage(): ' .$e->getMessage() ."\n" . "<br/>";
+    echo 'Error Code for new AdImage(): ' .$e->getCode() ."<br/>";
+    echo 'Error User Title for new AdImage(): ' .$e->getErrorUserTitle() ."<br/>";
+    echo 'Error User Message for new AdImage(): ' .$e->getErrorUserMessage() ."<br/>";
 }
 /**
  * Step 6 Create an AdCreative
@@ -186,8 +192,10 @@ try{
     echo 'Creative ID: '.$creative->id . "\n";
 }
 catch (Exception $e) {
-    echo 'Error message: ' .$e->getMessage() ."\n" . "<br/>";
-    echo 'Error Code: ' .$e->getCode() ."<br/>";
+    echo 'Error message for new AdCreative(): ' .$e->getMessage() ."\n" . "<br/>";
+    echo 'Error Code for new AdCreative(): ' .$e->getCode() ."<br/>";
+    echo 'Error User Title for new AdCreative(): ' .$e->getErrorUserTitle() ."<br/>";
+    echo 'Error User Message for new AdCreative(): ' .$e->getErrorUserMessage() ."<br/>";
 }
 /**
  * Step 7 Create an Ad
@@ -204,10 +212,14 @@ try {
         AdFields::ADSET_ID => $adset->id,
     ));
 
-    $ad->create();
+    $ad->create(
+        array(Ad::STATUS_PARAM_NAME => Ad::STATUS_PAUSED)
+    );
     echo 'Ad ID:' . $ad->id . "\n";
 }
 catch (Exception $e) {
-    echo 'Error message: ' .$e->getMessage() ."\n" . "<br/>";
-    echo 'Error Code: ' .$e->getCode() ."<br/>";
+    echo 'Error message for new Ad(): ' .$e->getMessage() . "<br/>";
+    echo 'Error Code for new Ad(): ' .$e->getCode() ."<br/>";
+    echo 'Error User Title for new Ad(): ' .$e->getErrorUserTitle() ."<br/>";
+    echo 'Error User Message for new Ad(): ' .$e->getErrorUserMessage() ."<br/>";
 }
