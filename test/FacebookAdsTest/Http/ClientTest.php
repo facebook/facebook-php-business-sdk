@@ -41,9 +41,16 @@ use \PHPUnit_Framework_MockObject_Builder_InvocationMocker as Mock;
 class ClientTest extends AbstractUnitTestCase {
 
   /**
-   * @param mixed $response_content
    * @return Mock|AdapterInterface
    */
+  protected function createMockAdapterWithEmptyResponse() {
+    $adapter = $this->createAdapterMock();
+    $response = new Response();
+    $adapter->method('sendRequest')->willReturn($response);
+
+    return $adapter;
+  }
+
   protected function createMockChain($response_content) {
     $adapter = $this->createAdapterMock();
     $response = $this->createResponseMock();
@@ -133,7 +140,7 @@ class ClientTest extends AbstractUnitTestCase {
     $client = new Client();
 
     // Empty response > json_decode('') = null
-    $client->setAdapter($this->createMockChain(null));
+    $client->setAdapter($this->createMockAdapterWithEmptyResponse());
 
     $exception_catched = false;
     try {
