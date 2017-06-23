@@ -24,6 +24,8 @@
 
 namespace FacebookAds\Http\Adapter\Curl;
 
+use FacebookAds\Http\FileParameter;
+
 class Curl extends AbstractCurl {
 
   /**
@@ -53,11 +55,24 @@ class Curl extends AbstractCurl {
   }
 
   /**
-   * @param string $filepath
+   * FIXME should introduce v2.10 breaking change:
+   * implement abstract support for FileParameter in AdapterInterface
+   *
+   * @param string|FileParameter $filepath
    * @return string
    */
   public function preparePostFileField($filepath) {
-    return "@".$filepath;
+    $mime_type = $name = '';
+    if ($filepath instanceof FileParameter) {
+      $mime_type = $filepath->getMimeType() !== null
+        ? sprintf(';type=%s', $filepath->getMimeType())
+        : '';
+      $name = $filepath->getName() !== null
+        ? sprintf(';filename=%s', $filepath->getName())
+        : '';
+      $filepath = $filepath->getPath();
+    }
+    return sprintf('@%s%s%s', $filepath, $mime_type, $name);
   }
 
   /**

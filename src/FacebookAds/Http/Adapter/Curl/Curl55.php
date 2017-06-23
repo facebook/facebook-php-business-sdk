@@ -24,6 +24,8 @@
 
 namespace FacebookAds\Http\Adapter\Curl;
 
+use FacebookAds\Http\FileParameter;
+
 class Curl55 extends AbstractCurl {
 
   /**
@@ -53,11 +55,20 @@ class Curl55 extends AbstractCurl {
   }
 
   /**
-   * @param string $filepath
+   * FIXME should introduce v2.10 breaking change:
+   * implement abstract support for FileParameter in AdapterInterface
+   *
+   * @param string|FileParameter $filepath
    * @return \CURLFile
    */
   public function preparePostFileField($filepath) {
-    return new \CURLFile($filepath);
+    $mime_type = $name = ''; // can't be null in HHVM
+    if ($filepath instanceof FileParameter) {
+      $mime_type = $filepath->getMimeType() ?: '';
+      $name = $filepath->getName() ?: '';
+      $filepath = $filepath->getPath();
+    }
+    return new \CURLFile($filepath, $mime_type, $name);
   }
 
   /**

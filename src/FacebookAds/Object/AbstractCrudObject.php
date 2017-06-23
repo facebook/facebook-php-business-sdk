@@ -163,7 +163,7 @@ class AbstractCrudObject extends AbstractObject {
   public function exportData() {
     $data = array();
     foreach ($this->changedFields as $key => $val) {
-      $data[$key] = $val instanceof AbstractObject ? $val->exportData() : $val;
+      $data[$key] = parent::exportValue($val);
     }
     return $data;
   }
