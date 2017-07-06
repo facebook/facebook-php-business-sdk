@@ -29,6 +29,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\Http\ResponseInterface;
 use FacebookAds\Logger\LoggerInterface;
 use FacebookAds\Logger\NullLogger;
+use FacebookAds\Http\Exception\RequestException;
 
 class Api {
 
@@ -148,7 +149,12 @@ class Api {
    */
   public function executeRequest(RequestInterface $request) {
     $this->getLogger()->logRequest('debug', $request);
-    $response = $request->execute();
+    try {
+      $response = $request->execute();
+    } catch (RequestException $e) {
+      $this->getLogger()->logResponse('debug', @$e->getResponse());
+      throw $e;
+    }
     $this->getLogger()->logResponse('debug', $response);
 
     return $response;
