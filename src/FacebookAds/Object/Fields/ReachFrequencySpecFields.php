@@ -38,6 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class ReachFrequencySpecFields extends AbstractEnum {
 
   const COUNTRIES = 'countries';
+  const DEFAULT_CREATION_DATA = 'default_creation_data';
   const MAX_CAMPAIGN_DURATION = 'max_campaign_duration';
   const MAX_DAYS_TO_FINISH = 'max_days_to_finish';
   const MAX_PAUSE_WITHOUT_PREDICTION_RERUN = 'max_pause_without_prediction_rerun';
@@ -47,6 +48,7 @@ class ReachFrequencySpecFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'countries' => 'list<string>',
+      'default_creation_data' => 'Object',
       'max_campaign_duration' => 'Object',
       'max_days_to_finish' => 'Object',
       'max_pause_without_prediction_rerun' => 'Object',

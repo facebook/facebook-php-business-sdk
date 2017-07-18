@@ -99,6 +99,7 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'billing_address_id' => 'string',
       'currency' => 'string',
       'end_advertiser' => 'Object',
       'funding_id' => 'string',
@@ -798,6 +799,7 @@ class Business extends AbstractCrudObject {
 
     $param_types = array(
       'da_display_settings' => 'Object',
+      'flight_catalog_settings' => 'map',
       'name' => 'string',
       'vertical' => 'vertical_enum',
     );
@@ -901,13 +903,11 @@ class Business extends AbstractCrudObject {
     );
     $enums = array(
       'role_enum' => array(
+        'FINANCE_EDITOR',
+        'FINANCE_ANALYST',
+        'ADS_RIGHTS_REVIEWER',
         'ADMIN',
         'EMPLOYEE',
-        'SYSTEM_USER',
-        'ADMIN_SYSTEM_USER',
-        'INSTAGRAM_ADMIN',
-        'INSTAGRAM_EMPLOYEE',
-        'FB_EMPLOYEE_ACCOUNT_MANAGER',
         'FB_EMPLOYEE_SALES_REP',
       ),
     );

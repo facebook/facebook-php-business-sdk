@@ -39,12 +39,14 @@ class AdsPixelStatsFields extends AbstractEnum {
 
   const COUNT = 'count';
   const DIAGNOSTICS_HOURLY_LAST_TIMESTAMP = 'diagnostics_hourly_last_timestamp';
+  const EVENT = 'event';
   const VALUE = 'value';
 
   public function getFieldTypes() {
     return array(
       'count' => 'int',
       'diagnostics_hourly_last_timestamp' => 'datetime',
+      'event' => 'string',
       'value' => 'string',
     );
   }

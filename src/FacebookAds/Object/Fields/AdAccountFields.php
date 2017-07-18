@@ -42,6 +42,7 @@ class AdAccountFields extends AbstractEnum {
   const AGE = 'age';
   const AGENCY_CLIENT_DECLARATION = 'agency_client_declaration';
   const AMOUNT_SPENT = 'amount_spent';
+  const ATTRIBUTION_SPEC = 'attribution_spec';
   const BALANCE = 'balance';
   const BUSINESS = 'business';
   const BUSINESS_CITY = 'business_city';
@@ -63,6 +64,7 @@ class AdAccountFields extends AbstractEnum {
   const HAS_MIGRATED_PERMISSIONS = 'has_migrated_permissions';
   const ID = 'id';
   const IO_NUMBER = 'io_number';
+  const IS_ATTRIBUTION_SPEC_SYSTEM_DEFAULT = 'is_attribution_spec_system_default';
   const IS_NOTIFICATIONS_ENABLED = 'is_notifications_enabled';
   const IS_PERSONAL = 'is_personal';
   const IS_PREPAY_ACCOUNT = 'is_prepay_account';
@@ -95,6 +97,7 @@ class AdAccountFields extends AbstractEnum {
       'age' => 'float',
       'agency_client_declaration' => 'AgencyClientDeclaration',
       'amount_spent' => 'string',
+      'attribution_spec' => 'list<Object>',
       'balance' => 'string',
       'business' => 'Business',
       'business_city' => 'string',
@@ -116,6 +119,7 @@ class AdAccountFields extends AbstractEnum {
       'has_migrated_permissions' => 'bool',
       'id' => 'string',
       'io_number' => 'string',
+      'is_attribution_spec_system_default' => 'bool',
       'is_notifications_enabled' => 'bool',
       'is_personal' => 'unsigned int',
       'is_prepay_account' => 'bool',

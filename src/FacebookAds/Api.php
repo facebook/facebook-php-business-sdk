@@ -43,7 +43,7 @@ class Api {
   protected static $instance;
 
   /**
-   * @var Session
+   * @var SessionInterface
    */
   private $session;
 
@@ -64,11 +64,11 @@ class Api {
 
   /**
    * @param Client $http_client
-   * @param Session $session A Facebook API session
+   * @param SessionInterface $session A Facebook API session
    */
   public function __construct(
     Client $http_client,
-    Session $session) {
+    SessionInterface $session) {
     $this->httpClient = $http_client;
     $this->session = $session;
   }
@@ -99,6 +99,17 @@ class Api {
    */
   public static function setInstance(Api $instance) {
     static::$instance = $instance;
+  }
+
+  /**
+   * @param SessionInterface $session
+   * @return Api
+   */
+  public function getCopyWithSession(SessionInterface $session) {
+    $api = new self($this->getHttpClient(), $session);
+    $api->setDefaultGraphVersion($this->getDefaultGraphVersion());
+    $api->setLogger($this->getLogger());
+    return $api;
   }
 
   /**
@@ -136,8 +147,8 @@ class Api {
     if (!empty($params)) {
       $params_ref->enhance($params);
     }
-    $params_ref['access_token'] = $this->getSession()->getAccessToken();
-    $params_ref['appsecret_proof'] = $this->getSession()->getAppSecretProof();
+
+    $params_ref->enhance($this->getSession()->getRequestParameters());
 
     return $request;
   }
@@ -194,7 +205,7 @@ class Api {
   }
 
   /**
-   * @return Session
+   * @return SessionInterface
    */
   public function getSession() {
     return $this->session;

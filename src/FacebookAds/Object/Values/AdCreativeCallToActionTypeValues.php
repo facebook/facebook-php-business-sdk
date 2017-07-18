@@ -70,5 +70,6 @@ class AdCreativeCallToActionTypeValues extends AbstractEnum {
   const REGISTER_NOW = 'REGISTER_NOW';
   const REQUEST_TIME = 'REQUEST_TIME';
   const SEE_MENU = 'SEE_MENU';
+  const EMAIL_NOW = 'EMAIL_NOW';
   const OPEN_MOVIES = 'OPEN_MOVIES';
 }

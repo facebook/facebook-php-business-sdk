@@ -40,4 +40,5 @@ class ProductItemReviewStatusValues extends AbstractEnum {
   const PENDING = 'pending';
   const REJECTED = 'rejected';
   const APPROVED = 'approved';
+  const OUTDATED = 'outdated';
 }

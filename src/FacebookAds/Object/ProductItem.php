@@ -198,7 +198,7 @@ class ProductItem extends AbstractCrudObject {
       'start_date' => 'string',
       'url' => 'string',
       'visibility' => 'visibility_enum',
-      'windows_phone_app_id' => 'unsigned int',
+      'windows_phone_app_id' => 'string',
       'windows_phone_app_name' => 'string',
       'windows_phone_url' => 'string',
     );

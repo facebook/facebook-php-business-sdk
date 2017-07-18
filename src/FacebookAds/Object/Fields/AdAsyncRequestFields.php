@@ -44,6 +44,7 @@ class AdAsyncRequestFields extends AbstractEnum {
   const RESULT = 'result';
   const SCOPE_OBJECT_ID = 'scope_object_id';
   const STATUS = 'status';
+  const TYPE = 'type';
   const UPDATED_TIME = 'updated_time';
 
   public function getFieldTypes() {
@@ -55,6 +56,7 @@ class AdAsyncRequestFields extends AbstractEnum {
       'result' => 'map',
       'scope_object_id' => 'string',
       'status' => 'Status',
+      'type' => 'string',
       'updated_time' => 'datetime',
     );
   }

@@ -95,6 +95,30 @@ class ProductCatalog extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getCheckBatchRequestStatus(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'handle' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/check_batch_request_status',
+      new CheckBatchRequestStatus(),
+      'EDGE',
+      CheckBatchRequestStatus::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getDestinations(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -418,6 +442,7 @@ class ProductCatalog extends AbstractCrudObject {
       'file_name' => 'string',
       'name' => 'string',
       'quoted_fields_mode' => 'quoted_fields_mode_enum',
+      'rules' => 'list<string>',
       'schedule' => 'string',
     );
     $enums = array(
@@ -644,7 +669,7 @@ class ProductCatalog extends AbstractCrudObject {
       'start_date' => 'string',
       'url' => 'string',
       'visibility' => 'visibility_enum',
-      'windows_phone_app_id' => 'unsigned int',
+      'windows_phone_app_id' => 'string',
       'windows_phone_app_name' => 'string',
       'windows_phone_url' => 'string',
     );
@@ -680,8 +705,11 @@ class ProductCatalog extends AbstractCrudObject {
       'file_size' => 'unsigned int',
       'file_url' => 'string',
       'fov' => 'unsigned int',
+      'guide' => 'list<list<unsigned int>>',
+      'guide_enabled' => 'bool',
       'initial_heading' => 'unsigned int',
       'initial_pitch' => 'unsigned int',
+      'original_fov' => 'unsigned int',
       'original_projection_type' => 'original_projection_type_enum',
       'referenced_sticker_id' => 'string',
       'replace_video_id' => 'string',
@@ -806,6 +834,7 @@ class ProductCatalog extends AbstractCrudObject {
       'da_display_settings' => 'Object',
       'default_image_url' => 'string',
       'fallback_image_url' => 'string',
+      'flight_catalog_settings' => 'map',
       'name' => 'string',
     );
     $enums = array(

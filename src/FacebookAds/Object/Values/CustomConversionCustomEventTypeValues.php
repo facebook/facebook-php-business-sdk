@@ -44,7 +44,7 @@ class CustomConversionCustomEventTypeValues extends AbstractEnum {
   const CONTENT_VIEW = 'CONTENT_VIEW';
   const INITIATED_CHECKOUT = 'INITIATED_CHECKOUT';
   const LEAD = 'LEAD';
-  const OTHER = 'OTHER';
   const PURCHASE = 'PURCHASE';
   const SEARCH = 'SEARCH';
+  const OTHER = 'OTHER';
 }

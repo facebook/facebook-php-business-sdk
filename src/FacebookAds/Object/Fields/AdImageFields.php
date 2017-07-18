@@ -76,9 +76,9 @@ class AdImageFields extends AbstractEnum {
       'url' => 'string',
       'url_128' => 'string',
       'width' => 'unsigned int',
-      'bytes' => 'string',
+      'bytes' => 'Object',
       'copy_from' => 'Object',
-      'zipbytes' => 'string',
+      'zipbytes' => 'Object',
       'filename' => 'file',
     );
   }

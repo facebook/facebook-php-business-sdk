@@ -37,6 +37,9 @@ use FacebookAds\Enum\AbstractEnum;
 
 class LeadGenQuestionFields extends AbstractEnum {
 
+  const CONDITIONAL_QUESTIONS_CHOICES = 'conditional_questions_choices';
+  const CONDITIONAL_QUESTIONS_GROUP_ID = 'conditional_questions_group_id';
+  const DEPENDENT_CONDITIONAL_QUESTIONS = 'dependent_conditional_questions';
   const KEY = 'key';
   const LABEL = 'label';
   const OPTIONS = 'options';
@@ -44,6 +47,9 @@ class LeadGenQuestionFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'conditional_questions_choices' => 'list<Object>',
+      'conditional_questions_group_id' => 'string',
+      'dependent_conditional_questions' => 'list<Object>',
       'key' => 'string',
       'label' => 'string',
       'options' => 'list<LeadGenQuestionOption>',

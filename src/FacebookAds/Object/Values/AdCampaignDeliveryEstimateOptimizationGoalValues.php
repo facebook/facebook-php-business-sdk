@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,31 +33,27 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static AdCampaignDeliveryEstimateOptimizationGoalValues getInstance()
  */
+class AdCampaignDeliveryEstimateOptimizationGoalValues extends AbstractEnum {
 
-class ProductFeedScheduleFields extends AbstractEnum {
-
-  const DAY_OF_MONTH = 'day_of_month';
-  const DAY_OF_WEEK = 'day_of_week';
-  const HOUR = 'hour';
-  const INTERVAL = 'interval';
-  const INTERVAL_COUNT = 'interval_count';
-  const MINUTE = 'minute';
-  const TIMEZONE = 'timezone';
-  const URL = 'url';
-  const USERNAME = 'username';
-
-  public function getFieldTypes() {
-    return array(
-      'day_of_month' => 'unsigned int',
-      'day_of_week' => 'DayOfWeek',
-      'hour' => 'unsigned int',
-      'interval' => 'Interval',
-      'interval_count' => 'unsigned int',
-      'minute' => 'unsigned int',
-      'timezone' => 'string',
-      'url' => 'string',
-      'username' => 'string',
-    );
-  }
+  const NONE = 'NONE';
+  const APP_INSTALLS = 'APP_INSTALLS';
+  const BRAND_AWARENESS = 'BRAND_AWARENESS';
+  const CLICKS = 'CLICKS';
+  const ENGAGED_USERS = 'ENGAGED_USERS';
+  const EVENT_RESPONSES = 'EVENT_RESPONSES';
+  const IMPRESSIONS = 'IMPRESSIONS';
+  const LEAD_GENERATION = 'LEAD_GENERATION';
+  const LINK_CLICKS = 'LINK_CLICKS';
+  const OFFER_CLAIMS = 'OFFER_CLAIMS';
+  const OFFSITE_CONVERSIONS = 'OFFSITE_CONVERSIONS';
+  const PAGE_ENGAGEMENT = 'PAGE_ENGAGEMENT';
+  const PAGE_LIKES = 'PAGE_LIKES';
+  const POST_ENGAGEMENT = 'POST_ENGAGEMENT';
+  const REACH = 'REACH';
+  const SOCIAL_IMPRESSIONS = 'SOCIAL_IMPRESSIONS';
+  const VIDEO_VIEWS = 'VIDEO_VIEWS';
+  const APP_DOWNLOADS = 'APP_DOWNLOADS';
+  const LANDING_PAGE_VIEWS = 'LANDING_PAGE_VIEWS';
 }

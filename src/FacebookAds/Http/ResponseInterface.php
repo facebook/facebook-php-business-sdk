@@ -67,7 +67,7 @@ interface ResponseInterface {
   public function setBody($body);
 
   /**
-   * @return array
+   * @return array|null
    */
   public function getContent();
 }

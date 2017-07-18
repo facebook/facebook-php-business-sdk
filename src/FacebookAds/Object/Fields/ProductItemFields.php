@@ -165,7 +165,7 @@ class ProductItemFields extends AbstractEnum {
       'iphone_app_name' => 'string',
       'iphone_app_store_id' => 'unsigned int',
       'iphone_url' => 'string',
-      'windows_phone_app_id' => 'unsigned int',
+      'windows_phone_app_id' => 'string',
       'windows_phone_app_name' => 'string',
       'windows_phone_url' => 'string',
     );

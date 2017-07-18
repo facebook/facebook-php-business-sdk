@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -21,9 +21,13 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
+
 namespace FacebookAds;
-class ApiConfig {
-  const APIVersion = '2.10';
-  const SDKVersion = '2.10.1';
-  const TYPE_CHECKER_STRICT_MODE = false;
+
+interface SessionInterface {
+
+  /**
+   * @return array
+   */
+  public function getRequestParameters();
 }

@@ -21,9 +21,39 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
-namespace FacebookAds;
-class ApiConfig {
-  const APIVersion = '2.10';
-  const SDKVersion = '2.10.1';
-  const TYPE_CHECKER_STRICT_MODE = false;
+
+namespace FacebookAds\Object;
+
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\AdCampaignDeliveryEstimateFields;
+use FacebookAds\Object\Values\AdCampaignDeliveryEstimateOptimizationGoalValues;
+
+/**
+ * This class is auto-genereated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
+ */
+
+class AdCampaignDeliveryEstimate extends AbstractObject {
+
+  /**
+   * @return AdCampaignDeliveryEstimateFields
+   */
+  public static function getFieldsEnum() {
+    return AdCampaignDeliveryEstimateFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    $ref_enums['OptimizationGoal'] = AdCampaignDeliveryEstimateOptimizationGoalValues::getInstance()->getValues();
+    return $ref_enums;
+  }
+
+
 }

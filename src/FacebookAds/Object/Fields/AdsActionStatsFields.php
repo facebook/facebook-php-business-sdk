@@ -48,6 +48,7 @@ class AdsActionStatsFields extends AbstractEnum {
   const ACTION_CAROUSEL_CARD_NAME = 'action_carousel_card_name';
   const ACTION_DESTINATION = 'action_destination';
   const ACTION_DEVICE = 'action_device';
+  const ACTION_LINK_CLICK_DESTINATION = 'action_link_click_destination';
   const ACTION_REACTION = 'action_reaction';
   const ACTION_TARGET_ID = 'action_target_id';
   const ACTION_TYPE = 'action_type';
@@ -68,6 +69,7 @@ class AdsActionStatsFields extends AbstractEnum {
       'action_carousel_card_name' => 'string',
       'action_destination' => 'string',
       'action_device' => 'string',
+      'action_link_click_destination' => 'string',
       'action_reaction' => 'string',
       'action_target_id' => 'string',
       'action_type' => 'string',

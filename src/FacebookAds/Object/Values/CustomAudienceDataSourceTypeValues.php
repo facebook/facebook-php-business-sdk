@@ -44,4 +44,5 @@ class CustomAudienceDataSourceTypeValues extends AbstractEnum {
   const THIRD_PARTY_IMPORTED = 'THIRD_PARTY_IMPORTED';
   const COPY_PASTE = 'COPY_PASTE';
   const CONTACT_IMPORTER = 'CONTACT_IMPORTER';
+  const HOUSEHOLD_AUDIENCE = 'HOUSEHOLD_AUDIENCE';
 }

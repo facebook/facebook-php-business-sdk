@@ -70,6 +70,8 @@ class AdSetFields extends AbstractEnum {
   const RECURRING_BUDGET_SEMANTICS = 'recurring_budget_semantics';
   const RF_PREDICTION_ID = 'rf_prediction_id';
   const RTB_FLAG = 'rtb_flag';
+  const SOURCE_ADSET = 'source_adset';
+  const SOURCE_ADSET_ID = 'source_adset_id';
   const START_TIME = 'start_time';
   const STATUS = 'status';
   const TARGETING = 'targeting';
@@ -117,6 +119,8 @@ class AdSetFields extends AbstractEnum {
       'recurring_budget_semantics' => 'bool',
       'rf_prediction_id' => 'string',
       'rtb_flag' => 'bool',
+      'source_adset' => 'AdSet',
+      'source_adset_id' => 'string',
       'start_time' => 'datetime',
       'status' => 'Status',
       'targeting' => 'Targeting',

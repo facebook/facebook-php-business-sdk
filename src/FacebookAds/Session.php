@@ -24,7 +24,7 @@
 
 namespace FacebookAds;
 
-class Session {
+class Session implements SessionInterface {
 
   /**
    * @var string
@@ -87,5 +87,15 @@ class Session {
         = hash_hmac('sha256', $this->getAccessToken(), $this->getAppSecret());
     }
     return $this->appSecretProof;
+  }
+
+  /**
+   * @return array
+   */
+  public function getRequestParameters() {
+    return array(
+      'access_token' => $this->getAccessToken(),
+      'appsecret_proof' => $this->getAppSecretProof(),
+    );
   }
 }

@@ -21,9 +21,35 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
-namespace FacebookAds;
-class ApiConfig {
-  const APIVersion = '2.10';
-  const SDKVersion = '2.10.1';
-  const TYPE_CHECKER_STRICT_MODE = false;
+
+namespace FacebookAds\Object\Fields;
+
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * This class is auto-genereated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
+ */
+
+class AdCampaignDeliveryEstimateFields extends AbstractEnum {
+
+  const BID_ESTIMATE = 'bid_estimate';
+  const DAILY_OUTCOMES_CURVE = 'daily_outcomes_curve';
+  const ESTIMATE_DAU = 'estimate_dau';
+  const ESTIMATE_MAU = 'estimate_mau';
+  const ESTIMATE_READY = 'estimate_ready';
+
+  public function getFieldTypes() {
+    return array(
+      'bid_estimate' => 'Object',
+      'daily_outcomes_curve' => 'list<OutcomePredictionPoint>',
+      'estimate_dau' => 'Object',
+      'estimate_mau' => 'Object',
+      'estimate_ready' => 'bool',
+    );
+  }
 }

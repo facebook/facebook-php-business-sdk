@@ -58,6 +58,8 @@ class AdCreativeLinkDataFields extends AbstractEnum {
   const OFFER_ID = 'offer_id';
   const PAGE_WELCOME_MESSAGE = 'page_welcome_message';
   const PICTURE = 'picture';
+  const RETAILER_ITEM_IDS = 'retailer_item_ids';
+  const SHOW_MULTIPLE_IMAGES = 'show_multiple_images';
 
   public function getFieldTypes() {
     return array(
@@ -82,6 +84,8 @@ class AdCreativeLinkDataFields extends AbstractEnum {
       'offer_id' => 'string',
       'page_welcome_message' => 'string',
       'picture' => 'string',
+      'retailer_item_ids' => 'list<string>',
+      'show_multiple_images' => 'bool',
     );
   }
 }

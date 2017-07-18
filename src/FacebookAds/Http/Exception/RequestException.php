@@ -74,7 +74,7 @@ class RequestException extends Exception {
    */
   public function __construct(ResponseInterface $response) {
     $this->response = $response;
-    $error_data = static::getErrorData($response->getContent());
+    $error_data = static::getErrorData($response);
 
     parent::__construct($error_data['message'], $error_data['code']);
 
@@ -104,10 +104,14 @@ class RequestException extends Exception {
   }
 
   /**
-   * @param array $response_data
+   * @param ResponseInterface $response
    * @return array
    */
-  protected static function getErrorData(array $response_data) {
+  protected static function getErrorData(ResponseInterface $response) {
+    $response_data = $response->getContent();
+    if (is_null($response_data)) {
+      $response_data = array();
+    }
     $error_data = static::idx($response_data, 'error', array());
 
     return array(
@@ -131,7 +135,7 @@ class RequestException extends Exception {
    * @return RequestException
    */
   public static function create(ResponseInterface $response) {
-    $error_data = static::getErrorData($response->getContent());
+    $error_data = static::getErrorData($response);
     if (in_array(
       $error_data['error_subcode'], array(458, 459, 460, 463, 464, 467))
       || in_array($error_data['code'], array(100, 102, 190))

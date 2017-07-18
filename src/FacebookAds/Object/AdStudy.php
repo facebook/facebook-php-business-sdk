@@ -70,9 +70,10 @@ class AdStudy extends AbstractCrudObject {
     $param_types = array(
       'adspixels' => 'list<Object>',
       'applications' => 'list<Object>',
+      'customconversions' => 'list<Object>',
       'is_primary' => 'bool',
       'name' => 'string',
-      'offlinefeeds' => 'list<Object>',
+      'offline_conversion_data_sets' => 'list<Object>',
       'offsitepixels' => 'list<Object>',
       'type' => 'type_enum',
     );

@@ -69,6 +69,7 @@ class AdReportRunFields extends AbstractEnum {
   const TIME_INCREMENT = 'time_increment';
   const TIME_RANGE = 'time_range';
   const TIME_RANGES = 'time_ranges';
+  const USE_ACCOUNT_ATTRIBUTION_SETTING = 'use_account_attribution_setting';
 
   public function getFieldTypes() {
     return array(
@@ -104,6 +105,7 @@ class AdReportRunFields extends AbstractEnum {
       'time_increment' => 'string',
       'time_range' => 'Object',
       'time_ranges' => 'list<Object>',
+      'use_account_attribution_setting' => 'bool',
     );
   }
 }

@@ -121,7 +121,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'status' => 'unsigned int',
       'story_event_type' => 'unsigned int',
       'target_audience_size' => 'unsigned int',
-      'target_spec' => 'string',
+      'target_spec' => 'Targeting',
       'time_created' => 'datetime',
       'time_updated' => 'datetime',
       'budget' => 'unsigned int',

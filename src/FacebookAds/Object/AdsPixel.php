@@ -66,6 +66,7 @@ class AdsPixel extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'ad_account' => 'string',
     );
     $enums = array(
     );

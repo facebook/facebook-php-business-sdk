@@ -109,6 +109,7 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'page_id' => 'string',
       'query' => 'string',
     );
     $enums = array(
@@ -184,7 +185,9 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'include_past_events' => 'bool',
       'is_page_event' => 'bool',
+      'page_id' => 'unsigned int',
     );
     $enums = array(
     );

@@ -56,6 +56,8 @@ class AdFields extends AbstractEnum {
   const LAST_UPDATED_BY_APP_ID = 'last_updated_by_app_id';
   const NAME = 'name';
   const RECOMMENDATIONS = 'recommendations';
+  const SOURCE_AD = 'source_ad';
+  const SOURCE_AD_ID = 'source_ad_id';
   const STATUS = 'status';
   const TRACKING_SPECS = 'tracking_specs';
   const UPDATED_TIME = 'updated_time';
@@ -87,6 +89,8 @@ class AdFields extends AbstractEnum {
       'last_updated_by_app_id' => 'string',
       'name' => 'string',
       'recommendations' => 'list<AdRecommendation>',
+      'source_ad' => 'Ad',
+      'source_ad_id' => 'string',
       'status' => 'Status',
       'tracking_specs' => 'list<ConversionActionQuery>',
       'updated_time' => 'datetime',

@@ -51,6 +51,8 @@ class CampaignFields extends AbstractEnum {
   const NAME = 'name';
   const OBJECTIVE = 'objective';
   const RECOMMENDATIONS = 'recommendations';
+  const SOURCE_CAMPAIGN = 'source_campaign';
+  const SOURCE_CAMPAIGN_ID = 'source_campaign_id';
   const SPEND_CAP = 'spend_cap';
   const START_TIME = 'start_time';
   const STATUS = 'status';
@@ -75,6 +77,8 @@ class CampaignFields extends AbstractEnum {
       'name' => 'string',
       'objective' => 'string',
       'recommendations' => 'list<AdRecommendation>',
+      'source_campaign' => 'Campaign',
+      'source_campaign_id' => 'string',
       'spend_cap' => 'string',
       'start_time' => 'datetime',
       'status' => 'Status',

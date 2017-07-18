@@ -50,4 +50,5 @@ class CustomAudienceSubtypeValues extends AbstractEnum {
   const DATA_SET = 'DATA_SET';
   const BAG_OF_ACCOUNTS = 'BAG_OF_ACCOUNTS';
   const STUDY_RULE_AUDIENCE = 'STUDY_RULE_AUDIENCE';
+  const FOX = 'FOX';
 }

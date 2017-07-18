@@ -46,6 +46,7 @@ class TargetingFields extends AbstractEnum {
   const CITIES = 'cities';
   const COLLEGE_YEARS = 'college_years';
   const CONNECTIONS = 'connections';
+  const CONTEXTUAL_TARGETING_CATEGORIES = 'contextual_targeting_categories';
   const COUNTRIES = 'countries';
   const COUNTRY = 'country';
   const COUNTRY_GROUPS = 'country_groups';
@@ -72,7 +73,6 @@ class TargetingFields extends AbstractEnum {
   const EXCLUDED_MOBILE_DEVICE_MODEL = 'excluded_mobile_device_model';
   const EXCLUDED_PRODUCT_AUDIENCE_SPECS = 'excluded_product_audience_specs';
   const EXCLUDED_PUBLISHER_CATEGORIES = 'excluded_publisher_categories';
-  const EXCLUDED_PUBLISHER_DOMAINS = 'excluded_publisher_domains';
   const EXCLUDED_PUBLISHER_LIST_IDS = 'excluded_publisher_list_ids';
   const EXCLUDED_USER_DEVICE = 'excluded_user_device';
   const EXCLUSIONS = 'exclusions';
@@ -133,6 +133,7 @@ class TargetingFields extends AbstractEnum {
       'cities' => 'list<IDName>',
       'college_years' => 'list<unsigned int>',
       'connections' => 'list<IDName>',
+      'contextual_targeting_categories' => 'list<IDName>',
       'countries' => 'list<string>',
       'country' => 'list<string>',
       'country_groups' => 'list<string>',
@@ -159,7 +160,6 @@ class TargetingFields extends AbstractEnum {
       'excluded_mobile_device_model' => 'list<string>',
       'excluded_product_audience_specs' => 'list<TargetingProductAudienceSpec>',
       'excluded_publisher_categories' => 'list<string>',
-      'excluded_publisher_domains' => 'list<string>',
       'excluded_publisher_list_ids' => 'list<string>',
       'excluded_user_device' => 'list<string>',
       'exclusions' => 'FlexibleTargeting',

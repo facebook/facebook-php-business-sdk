@@ -55,4 +55,5 @@ class ReachEstimateOptimizeForValues extends AbstractEnum {
   const SOCIAL_IMPRESSIONS = 'SOCIAL_IMPRESSIONS';
   const VIDEO_VIEWS = 'VIDEO_VIEWS';
   const APP_DOWNLOADS = 'APP_DOWNLOADS';
+  const LANDING_PAGE_VIEWS = 'LANDING_PAGE_VIEWS';
 }

@@ -43,10 +43,12 @@ class BusinessFields extends AbstractEnum {
   const LINK = 'link';
   const NAME = 'name';
   const PRIMARY_PAGE = 'primary_page';
+  const PROFILE_PICTURE_URI = 'profile_picture_uri';
   const TIMEZONE_ID = 'timezone_id';
   const TWO_FACTOR_TYPE = 'two_factor_type';
   const UPDATED_BY = 'updated_by';
   const UPDATED_TIME = 'updated_time';
+  const VERTICAL = 'vertical';
 
   public function getFieldTypes() {
     return array(
@@ -56,10 +58,12 @@ class BusinessFields extends AbstractEnum {
       'link' => 'string',
       'name' => 'string',
       'primary_page' => 'Object',
+      'profile_picture_uri' => 'string',
       'timezone_id' => 'unsigned int',
       'two_factor_type' => 'string',
       'updated_by' => 'User',
       'updated_time' => 'datetime',
+      'vertical' => 'string',
     );
   }
 }
