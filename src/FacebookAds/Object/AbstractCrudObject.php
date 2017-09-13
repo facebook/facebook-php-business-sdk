@@ -61,7 +61,7 @@ class AbstractCrudObject extends AbstractObject {
     if (!is_null($parent_id)) {
       $warning_message = "\$parent_id as a parameter of constructor is being " .
         "deprecated, please try not to use this in new code.\n";
-      error_log($warning_message);
+      trigger_error($warning_message, E_USER_DEPRECATED);
     }
     $this->parentId = $parent_id;
 
