@@ -22,23 +22,38 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\AdRuleHistoryResultFields;
+use FacebookAds\Object\Values\AdRuleHistoryResultObjectTypeValues;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static ProductCatalogVerticalValues getInstance()
  */
-class ProductCatalogVerticalValues extends AbstractEnum {
 
-  const COMMERCE = 'commerce';
-  const DESTINATIONS = 'destinations';
-  const FLIGHTS = 'flights';
-  const HOTELS = 'hotels';
+class AdRuleHistoryResult extends AbstractObject {
+
+  /**
+   * @return AdRuleHistoryResultFields
+   */
+  public static function getFieldsEnum() {
+    return AdRuleHistoryResultFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    $ref_enums['ObjectType'] = AdRuleHistoryResultObjectTypeValues::getInstance()->getValues();
+    return $ref_enums;
+  }
+
+
 }

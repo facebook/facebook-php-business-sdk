@@ -27,7 +27,7 @@ namespace FacebookAds\Object\Fields;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
@@ -113,7 +113,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'interval_frequency_cap' => 'unsigned int',
       'interval_frequency_cap_reset_period' => 'unsigned int',
       'name' => 'string',
-      'pause_periods' => 'string',
+      'pause_periods' => 'list<Object>',
       'placement_breakdown' => 'Object',
       'prediction_mode' => 'unsigned int',
       'prediction_progress' => 'unsigned int',

@@ -27,7 +27,7 @@ namespace FacebookAds\Object\Fields;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
@@ -59,7 +59,6 @@ class ConversionActionQueryFields extends AbstractEnum {
   const FIELD_POST_OBJECT = 'post.object';
   const FIELD_POST_OBJECT_WALL = 'post.object.wall';
   const FIELD_POST_WALL = 'post.wall';
-  const PRODUCT_SET_ID = 'product_set_id';
   const QUESTION = 'question';
   const FIELD_QUESTION_CREATOR = 'question.creator';
   const RESPONSE = 'response';
@@ -89,7 +88,6 @@ class ConversionActionQueryFields extends AbstractEnum {
       'post.object' => 'list<string>',
       'post.object.wall' => 'list<string>',
       'post.wall' => 'list<string>',
-      'product_set_id' => 'list<string>',
       'question' => 'list<string>',
       'question.creator' => 'list<string>',
       'response' => 'list<string>',

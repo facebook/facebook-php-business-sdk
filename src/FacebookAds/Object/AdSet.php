@@ -37,8 +37,10 @@ use FacebookAds\Object\Values\AdLabelExecutionOptionsValues;
 use FacebookAds\Object\Values\AdSetBillingEventValues;
 use FacebookAds\Object\Values\AdSetConfiguredStatusValues;
 use FacebookAds\Object\Values\AdSetDatePresetValues;
+use FacebookAds\Object\Values\AdSetDestinationTypeValues;
 use FacebookAds\Object\Values\AdSetEffectiveStatusValues;
 use FacebookAds\Object\Values\AdSetExecutionOptionsValues;
+use FacebookAds\Object\Values\AdSetFullFunnelExplorationModeValues;
 use FacebookAds\Object\Values\AdSetOperatorValues;
 use FacebookAds\Object\Values\AdSetOptimizationGoalValues;
 use FacebookAds\Object\Values\AdSetStatusValues;
@@ -54,7 +56,7 @@ use FacebookAds\Object\Traits\AdLabelAwareCrudObjectTrait;
 use FacebookAds\Object\Traits\ObjectValidation;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
@@ -90,8 +92,10 @@ class AdSet extends AbstractArchivableCrudObject
     $ref_enums['OptimizationGoal'] = AdSetOptimizationGoalValues::getInstance()->getValues();
     $ref_enums['Status'] = AdSetStatusValues::getInstance()->getValues();
     $ref_enums['DatePreset'] = AdSetDatePresetValues::getInstance()->getValues();
+    $ref_enums['DestinationType'] = AdSetDestinationTypeValues::getInstance()->getValues();
     $ref_enums['ExecutionOptions'] = AdSetExecutionOptionsValues::getInstance()->getValues();
     $ref_enums['Operator'] = AdSetOperatorValues::getInstance()->getValues();
+    $ref_enums['FullFunnelExplorationMode'] = AdSetFullFunnelExplorationModeValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -495,6 +499,7 @@ class AdSet extends AbstractArchivableCrudObject
       'creative_sequence' => 'list<string>',
       'daily_budget' => 'unsigned int',
       'daily_imps' => 'unsigned int',
+      'destination_type' => 'destination_type_enum',
       'end_time' => 'datetime',
       'execution_options' => 'list<execution_options_enum>',
       'is_autobid' => 'bool',
@@ -515,6 +520,7 @@ class AdSet extends AbstractArchivableCrudObject
     );
     $enums = array(
       'billing_event_enum' => AdSetBillingEventValues::getInstance()->getValues(),
+      'destination_type_enum' => AdSetDestinationTypeValues::getInstance()->getValues(),
       'execution_options_enum' => AdSetExecutionOptionsValues::getInstance()->getValues(),
       'optimization_goal_enum' => AdSetOptimizationGoalValues::getInstance()->getValues(),
       'status_enum' => AdSetStatusValues::getInstance()->getValues(),

@@ -27,7 +27,7 @@ namespace FacebookAds\Object\Fields;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdCreativePhotoDataFields extends AbstractEnum {
 
+  const BRANDED_CONTENT_SHARED_TO_SPONSOR_STATUS = 'branded_content_shared_to_sponsor_status';
   const BRANDED_CONTENT_SPONSOR_PAGE_ID = 'branded_content_sponsor_page_id';
   const BRANDED_CONTENT_SPONSOR_RELATIONSHIP = 'branded_content_sponsor_relationship';
   const CAPTION = 'caption';
@@ -46,6 +47,7 @@ class AdCreativePhotoDataFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'branded_content_shared_to_sponsor_status' => 'string',
       'branded_content_sponsor_page_id' => 'string',
       'branded_content_sponsor_relationship' => 'string',
       'caption' => 'string',

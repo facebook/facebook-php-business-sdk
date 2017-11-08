@@ -27,7 +27,7 @@ namespace FacebookAds\Object\Fields;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
@@ -41,6 +41,7 @@ class CustomConversionFields extends AbstractEnum {
   const AGGREGATION_RULE = 'aggregation_rule';
   const CREATION_TIME = 'creation_time';
   const CUSTOM_EVENT_TYPE = 'custom_event_type';
+  const DATA_SOURCES = 'data_sources';
   const DEFAULT_CONVERSION_VALUE = 'default_conversion_value';
   const DESCRIPTION = 'description';
   const EVENT_SOURCE_TYPE = 'event_source_type';
@@ -61,6 +62,7 @@ class CustomConversionFields extends AbstractEnum {
       'aggregation_rule' => 'string',
       'creation_time' => 'datetime',
       'custom_event_type' => 'CustomEventType',
+      'data_sources' => 'list<ExternalEventSource>',
       'default_conversion_value' => 'int',
       'description' => 'string',
       'event_source_type' => 'string',
@@ -69,7 +71,7 @@ class CustomConversionFields extends AbstractEnum {
       'is_archived' => 'bool',
       'last_fired_time' => 'datetime',
       'name' => 'string',
-      'offline_conversion_data_set' => 'Object',
+      'offline_conversion_data_set' => 'OfflineConversionDataSet',
       'pixel' => 'AdsPixel',
       'retention_days' => 'unsigned int',
       'rule' => 'string',

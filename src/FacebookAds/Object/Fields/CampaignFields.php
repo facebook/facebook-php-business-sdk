@@ -27,7 +27,7 @@ namespace FacebookAds\Object\Fields;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
@@ -39,6 +39,7 @@ class CampaignFields extends AbstractEnum {
 
   const ACCOUNT_ID = 'account_id';
   const ADLABELS = 'adlabels';
+  const BOOSTED_OBJECT_ID = 'boosted_object_id';
   const BRAND_LIFT_STUDIES = 'brand_lift_studies';
   const BUDGET_REBALANCE_FLAG = 'budget_rebalance_flag';
   const BUYING_TYPE = 'buying_type';
@@ -48,6 +49,8 @@ class CampaignFields extends AbstractEnum {
   const CREATED_TIME = 'created_time';
   const EFFECTIVE_STATUS = 'effective_status';
   const ID = 'id';
+  const KPI_CUSTOM_CONVERSION_ID = 'kpi_custom_conversion_id';
+  const KPI_TYPE = 'kpi_type';
   const NAME = 'name';
   const OBJECTIVE = 'objective';
   const RECOMMENDATIONS = 'recommendations';
@@ -65,6 +68,7 @@ class CampaignFields extends AbstractEnum {
     return array(
       'account_id' => 'string',
       'adlabels' => 'list<AdLabel>',
+      'boosted_object_id' => 'string',
       'brand_lift_studies' => 'list<AdStudy>',
       'budget_rebalance_flag' => 'bool',
       'buying_type' => 'string',
@@ -74,6 +78,8 @@ class CampaignFields extends AbstractEnum {
       'created_time' => 'datetime',
       'effective_status' => 'EffectiveStatus',
       'id' => 'string',
+      'kpi_custom_conversion_id' => 'string',
+      'kpi_type' => 'string',
       'name' => 'string',
       'objective' => 'string',
       'recommendations' => 'list<AdRecommendation>',

@@ -27,7 +27,7 @@ namespace FacebookAds\Object\Values;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
@@ -60,6 +60,7 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const UPDATE_CAMPAIGN_NAME = 'update_campaign_name';
   const UPDATE_CAMPAIGN_RUN_STATUS = 'update_campaign_run_status';
   const UPDATE_CAMPAIGN_GROUP_SPEND_CAP = 'update_campaign_group_spend_cap';
+  const CAMPAIGN_ENDED = 'campaign_ended';
   const CREATE_CAMPAIGN = 'create_campaign';
   const CREATE_CAMPAIGN_LEGACY = 'create_campaign_legacy';
   const UPDATE_CAMPAIGN_BUDGET = 'update_campaign_budget';

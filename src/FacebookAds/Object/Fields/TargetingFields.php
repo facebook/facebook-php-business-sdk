@@ -27,7 +27,7 @@ namespace FacebookAds\Object\Fields;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
@@ -52,6 +52,7 @@ class TargetingFields extends AbstractEnum {
   const COUNTRY_GROUPS = 'country_groups';
   const CUSTOM_AUDIENCES = 'custom_audiences';
   const DEVICE_PLATFORMS = 'device_platforms';
+  const DIRECT_INSTALL_DEVICES = 'direct_install_devices';
   const DYNAMIC_AUDIENCE_IDS = 'dynamic_audience_ids';
   const EDUCATION_MAJORS = 'education_majors';
   const EDUCATION_SCHOOLS = 'education_schools';
@@ -100,7 +101,6 @@ class TargetingFields extends AbstractEnum {
   const MOMS = 'moms';
   const NET_WORTH = 'net_worth';
   const OFFICE_TYPE = 'office_type';
-  const PAGE_TYPES = 'page_types';
   const PLACE_PAGE_SET_IDS = 'place_page_set_ids';
   const POLITICAL_VIEWS = 'political_views';
   const POLITICS = 'politics';
@@ -139,6 +139,7 @@ class TargetingFields extends AbstractEnum {
       'country_groups' => 'list<string>',
       'custom_audiences' => 'list<IDName>',
       'device_platforms' => 'list<DevicePlatforms>',
+      'direct_install_devices' => 'bool',
       'dynamic_audience_ids' => 'list<string>',
       'education_majors' => 'list<IDName>',
       'education_schools' => 'list<IDName>',
@@ -187,7 +188,6 @@ class TargetingFields extends AbstractEnum {
       'moms' => 'list<IDName>',
       'net_worth' => 'list<IDName>',
       'office_type' => 'list<IDName>',
-      'page_types' => 'list<string>',
       'place_page_set_ids' => 'list<string>',
       'political_views' => 'list<unsigned int>',
       'politics' => 'list<IDName>',

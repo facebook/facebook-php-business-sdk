@@ -27,7 +27,7 @@ namespace FacebookAds\Object\Fields;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
@@ -41,7 +41,9 @@ class AdCreativeFields extends AbstractEnum {
   const ACTOR_ID = 'actor_id';
   const ADLABELS = 'adlabels';
   const APPLINK_TREATMENT = 'applink_treatment';
+  const ASSET_FEED_SPEC = 'asset_feed_spec';
   const BODY = 'body';
+  const BRANDED_CONTENT_SPONSOR_PAGE_ID = 'branded_content_sponsor_page_id';
   const CALL_TO_ACTION_TYPE = 'call_to_action_type';
   const EFFECTIVE_INSTAGRAM_STORY_ID = 'effective_instagram_story_id';
   const EFFECTIVE_OBJECT_STORY_ID = 'effective_object_story_id';
@@ -62,6 +64,7 @@ class AdCreativeFields extends AbstractEnum {
   const OBJECT_URL = 'object_url';
   const PLATFORM_CUSTOMIZATIONS = 'platform_customizations';
   const PRODUCT_SET_ID = 'product_set_id';
+  const RECOMMENDER_SETTINGS = 'recommender_settings';
   const STATUS = 'status';
   const TEMPLATE_URL = 'template_url';
   const TEMPLATE_URL_SPEC = 'template_url_spec';
@@ -80,7 +83,9 @@ class AdCreativeFields extends AbstractEnum {
       'actor_id' => 'string',
       'adlabels' => 'list<AdLabel>',
       'applink_treatment' => 'ApplinkTreatment',
+      'asset_feed_spec' => 'AdAssetFeedSpec',
       'body' => 'string',
+      'branded_content_sponsor_page_id' => 'string',
       'call_to_action_type' => 'CallToActionType',
       'effective_instagram_story_id' => 'string',
       'effective_object_story_id' => 'string',
@@ -101,6 +106,7 @@ class AdCreativeFields extends AbstractEnum {
       'object_url' => 'string',
       'platform_customizations' => 'Object',
       'product_set_id' => 'string',
+      'recommender_settings' => 'Object',
       'status' => 'Status',
       'template_url' => 'string',
       'template_url_spec' => 'Object',

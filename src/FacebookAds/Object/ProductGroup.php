@@ -35,7 +35,7 @@ use FacebookAds\Object\Values\ProductItemGenderValues;
 use FacebookAds\Object\Values\ProductItemVisibilityValues;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
@@ -64,29 +64,6 @@ class ProductGroup extends AbstractCrudObject {
     return $ref_enums;
   }
 
-
-  public function getProductSets(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/product_sets',
-      new ProductSet(),
-      'EDGE',
-      ProductSet::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
 
   public function getProducts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();

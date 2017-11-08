@@ -56,6 +56,22 @@ class AbstractCrudObject extends AbstractObject {
    */
   public function __construct($id = null, $parent_id = null, Api $api = null) {
     parent::__construct();
+
+    // check that $id is an integer or a string integer
+    $int_id = $id;
+    if (strpos($id, 'act_') === 0) {
+      $int_id = substr($id, 4);
+    }
+    if (!is_null($int_id) && !ctype_digit((string) $int_id)) {
+      $extra_message = '';
+      if (is_numeric($int_id)) {
+        $extra_message = ' Please use an integer string'
+        .' to prevent integer overflow.';
+      }
+      throw new \InvalidArgumentException(
+        'Object ID must be an integer or integer string but was passed "'
+        .(string)$id.'" ('.gettype($id).').'.(string)$extra_message);
+    }
     $this->data[static::FIELD_ID] = $id;
 
     if (!is_null($parent_id)) {

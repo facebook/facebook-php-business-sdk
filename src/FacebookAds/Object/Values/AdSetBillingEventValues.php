@@ -27,7 +27,7 @@ namespace FacebookAds\Object\Values;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
@@ -47,4 +47,5 @@ class AdSetBillingEventValues extends AbstractEnum {
   const VIDEO_VIEWS = 'VIDEO_VIEWS';
   const MRC_VIDEO_VIEWS = 'MRC_VIDEO_VIEWS';
   const COMPLETED_VIDEO_VIEWS = 'COMPLETED_VIDEO_VIEWS';
+  const VIDEO_VIEWS_15S = 'VIDEO_VIEWS_15S';
 }

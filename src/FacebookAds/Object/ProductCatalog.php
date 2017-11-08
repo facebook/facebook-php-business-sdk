@@ -31,7 +31,6 @@ use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProductCatalogFields;
 use FacebookAds\Object\Values\ProductCatalogHotelRoomsBatchStandardValues;
 use FacebookAds\Object\Values\ProductCatalogPricingVariablesBatchStandardValues;
-use FacebookAds\Object\Values\ProductCatalogVerticalValues;
 use FacebookAds\Object\Values\ProductFeedDelimiterValues;
 use FacebookAds\Object\Values\ProductFeedEncodingValues;
 use FacebookAds\Object\Values\ProductFeedQuotedFieldsModeValues;
@@ -41,7 +40,7 @@ use FacebookAds\Object\Values\ProductItemGenderValues;
 use FacebookAds\Object\Values\ProductItemVisibilityValues;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
@@ -67,7 +66,6 @@ class ProductCatalog extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Vertical'] = ProductCatalogVerticalValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -230,6 +228,69 @@ class ProductCatalog extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/flights',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getHomeListings(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'bulk_pagination' => 'bool',
+      'filter' => 'Object',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/home_listings',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createHomeListing(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'address' => 'Object',
+      'availability' => 'string',
+      'currency' => 'string',
+      'description' => 'string',
+      'home_listing_id' => 'string',
+      'images' => 'list<Object>',
+      'listing_type' => 'string',
+      'name' => 'string',
+      'num_baths' => 'float',
+      'num_beds' => 'float',
+      'num_units' => 'float',
+      'price' => 'float',
+      'property_type' => 'string',
+      'url' => 'string',
+      'year_built' => 'unsigned int',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/home_listings',
       new AbstractCrudObject(),
       'EDGE',
       array(),
@@ -444,6 +505,7 @@ class ProductCatalog extends AbstractCrudObject {
       'quoted_fields_mode' => 'quoted_fields_mode_enum',
       'rules' => 'list<string>',
       'schedule' => 'string',
+      'update_schedule' => 'string',
     );
     $enums = array(
       'delimiter_enum' => ProductFeedDelimiterValues::getInstance()->getValues(),
@@ -749,6 +811,7 @@ class ProductCatalog extends AbstractCrudObject {
       'original_projection_type_enum' => array(
         'equirectangular',
         'cubemap',
+        'equiangular_cubemap',
       ),
       'swap_mode_enum' => array(
         'replace',

@@ -27,7 +27,7 @@ namespace FacebookAds\Object\Values;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
@@ -39,4 +39,6 @@ class ProductFeedUploadInputMethodValues extends AbstractEnum {
 
   const MANUAL_UPLOAD = 'Manual Upload';
   const SERVER_FETCH = 'Server Fetch';
+  const REUPLOAD_LAST_FILE = 'Reupload Last File';
+  const USER_INITIATED_SERVER_FETCH = 'User initiated server fetch';
 }

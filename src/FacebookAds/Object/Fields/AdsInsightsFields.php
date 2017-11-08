@@ -27,7 +27,7 @@ namespace FacebookAds\Object\Fields;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdsInsightsFields extends AbstractEnum {
 
+  const ACCOUNT_CURRENCY = 'account_currency';
   const ACCOUNT_ID = 'account_id';
   const ACCOUNT_NAME = 'account_name';
   const ACTION_VALUES = 'action_values';
@@ -102,7 +103,6 @@ class AdsInsightsFields extends AbstractEnum {
   const UNIQUE_OUTBOUND_CLICKS_CTR = 'unique_outbound_clicks_ctr';
   const UNIQUE_SOCIAL_CLICKS = 'unique_social_clicks';
   const VIDEO_10_SEC_WATCHED_ACTIONS = 'video_10_sec_watched_actions';
-  const VIDEO_15_SEC_WATCHED_ACTIONS = 'video_15_sec_watched_actions';
   const VIDEO_30_SEC_WATCHED_ACTIONS = 'video_30_sec_watched_actions';
   const VIDEO_AVG_PERCENT_WATCHED_ACTIONS = 'video_avg_percent_watched_actions';
   const VIDEO_AVG_TIME_WATCHED_ACTIONS = 'video_avg_time_watched_actions';
@@ -116,6 +116,7 @@ class AdsInsightsFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'account_currency' => 'string',
       'account_id' => 'string',
       'account_name' => 'string',
       'action_values' => 'list<AdsActionStats>',
@@ -181,7 +182,6 @@ class AdsInsightsFields extends AbstractEnum {
       'unique_outbound_clicks_ctr' => 'list<AdsActionStats>',
       'unique_social_clicks' => 'string',
       'video_10_sec_watched_actions' => 'list<AdsActionStats>',
-      'video_15_sec_watched_actions' => 'list<AdsActionStats>',
       'video_30_sec_watched_actions' => 'list<AdsActionStats>',
       'video_avg_percent_watched_actions' => 'list<AdsActionStats>',
       'video_avg_time_watched_actions' => 'list<AdsActionStats>',

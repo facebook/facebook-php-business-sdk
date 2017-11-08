@@ -27,7 +27,7 @@ namespace FacebookAds\Object\Values;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
@@ -133,4 +133,9 @@ class AdAccountTargetingUnifiedLimitTypeValues extends AbstractEnum {
   const FORMAT = 'format';
   const TRENDING = 'trending';
   const GATEKEEPERS = 'gatekeepers';
+  const FOLLOW_PROFILES = 'follow_profiles';
+  const FOLLOW_PROFILES_NEGATIVE = 'follow_profiles_negative';
+  const LOCATION_CATEGORIES = 'location_categories';
+  const USER_PAGE_THREADS = 'user_page_threads';
+  const USER_PAGE_THREADS_EXCLUDED = 'user_page_threads_excluded';
 }

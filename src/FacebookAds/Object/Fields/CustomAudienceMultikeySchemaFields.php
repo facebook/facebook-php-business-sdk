@@ -47,4 +47,5 @@ class CustomAudienceMultikeySchemaFields extends AbstractEnum {
   const MADID = 'MADID';
   const COUNTRY = 'COUNTRY';
   const FB_USER_ID = 'APPUID';
+  const LOOKALIKE_VALUE = 'LOOKALIKE_VALUE';
 }
