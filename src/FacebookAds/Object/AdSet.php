@@ -40,7 +40,6 @@ use FacebookAds\Object\Values\AdSetDatePresetValues;
 use FacebookAds\Object\Values\AdSetDestinationTypeValues;
 use FacebookAds\Object\Values\AdSetEffectiveStatusValues;
 use FacebookAds\Object\Values\AdSetExecutionOptionsValues;
-use FacebookAds\Object\Values\AdSetFullFunnelExplorationModeValues;
 use FacebookAds\Object\Values\AdSetOperatorValues;
 use FacebookAds\Object\Values\AdSetOptimizationGoalValues;
 use FacebookAds\Object\Values\AdSetStatusValues;
@@ -95,7 +94,6 @@ class AdSet extends AbstractArchivableCrudObject
     $ref_enums['DestinationType'] = AdSetDestinationTypeValues::getInstance()->getValues();
     $ref_enums['ExecutionOptions'] = AdSetExecutionOptionsValues::getInstance()->getValues();
     $ref_enums['Operator'] = AdSetOperatorValues::getInstance()->getValues();
-    $ref_enums['FullFunnelExplorationMode'] = AdSetFullFunnelExplorationModeValues::getInstance()->getValues();
     return $ref_enums;
   }
 

@@ -55,7 +55,6 @@ class AdSetFields extends AbstractEnum {
   const EFFECTIVE_STATUS = 'effective_status';
   const END_TIME = 'end_time';
   const FREQUENCY_CONTROL_SPECS = 'frequency_control_specs';
-  const FULL_FUNNEL_EXPLORATION_MODE = 'full_funnel_exploration_mode';
   const ID = 'id';
   const INSTAGRAM_ACTOR_ID = 'instagram_actor_id';
   const IS_AUTOBID = 'is_autobid';
@@ -104,7 +103,6 @@ class AdSetFields extends AbstractEnum {
       'effective_status' => 'EffectiveStatus',
       'end_time' => 'datetime',
       'frequency_control_specs' => 'list<Object>',
-      'full_funnel_exploration_mode' => 'string',
       'id' => 'string',
       'instagram_actor_id' => 'string',
       'is_autobid' => 'bool',
