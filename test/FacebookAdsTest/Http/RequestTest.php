@@ -46,8 +46,8 @@ class RequestTest extends AbstractUnitTestCase {
     $client = $this->createClientMock();
     $request = new Request($client);
 
-    $this->assertTrue($request->getClient() instanceof Client);
-    $this->assertTrue($client === $request->getClient());
+    $this->assertInstanceOf('FacebookAds\Http\Client', $request->getClient());
+    $this->assertSame($client, $request->getClient());
   }
 
   public function testProtocol() {
@@ -90,8 +90,8 @@ class RequestTest extends AbstractUnitTestCase {
     $client->setDefaultRequestHeaders($headers);
     $request->setHeaders($headers);
     $headers_mirror = $request->getHeaders();
-    $this->assertTrue($headers_mirror instanceof Headers);
-    $this->assertTrue($headers_mirror === $request->getHeaders());
+    $this->assertInstanceOf('FacebookAds\Http\Headers', $headers_mirror);
+    $this->assertSame($headers_mirror, $request->getHeaders());
 
     // Default initialization
     $headers = new Headers();
@@ -99,9 +99,9 @@ class RequestTest extends AbstractUnitTestCase {
     $client->method('getDefaultRequestHeaderds')->willReturn($headers);
     $request = new Request($client);
     $headers_mirror = $request->getHeaders();
-    $this->assertTrue($headers_mirror instanceof Headers);
-    $this->assertFalse($headers === $request->getHeaders());
-    $this->assertTrue($headers_mirror === $request->getHeaders());
+    $this->assertInstanceOf('FacebookAds\Http\Headers', $headers_mirror);
+    $this->assertNotSame($headers, $request->getHeaders());
+    $this->assertSame($headers_mirror, $request->getHeaders());
   }
 
   public function testMethod() {
@@ -129,42 +129,60 @@ class RequestTest extends AbstractUnitTestCase {
     $request = $this->createRequest();
     $parameters = $this->createParametersMock();
     $request->setQueryParams($parameters);
-    $this->assertTrue($request->getQueryParams() instanceof Parameters);
-    $this->assertTrue($parameters === $request->getQueryParams());
+    $this->assertInstanceOf(
+        'FacebookAds\Http\Parameters',
+        $request->getQueryParams()
+    );
+    $this->assertSame($parameters, $request->getQueryParams());
 
     // Default initialization
     $request = $this->createRequest();
     $parameters = $request->getQueryParams();
-    $this->assertTrue($parameters instanceof Parameters);
-    $this->assertTrue($parameters === $request->getQueryParams());
+    $this->assertInstanceOf(
+        'FacebookAds\Http\Parameters',
+        $parameters
+    );
+    $this->assertSame($parameters, $request->getQueryParams());
   }
 
   public function testBodyParams() {
     $request = $this->createRequest();
     $parameters = $this->createParametersMock();
     $request->setBodyParams($parameters);
-    $this->assertTrue($request->getBodyParams() instanceof Parameters);
-    $this->assertTrue($parameters === $request->getBodyParams());
+    $this->assertInstanceOf(
+        'FacebookAds\Http\Parameters',
+        $request->getBodyParams()
+    );
+    $this->assertSame($parameters, $request->getBodyParams());
 
     // Default initialization
     $request = $this->createRequest();
     $parameters = $request->getBodyParams();
-    $this->assertTrue($parameters instanceof Parameters);
-    $this->assertTrue($parameters === $request->getBodyParams());
+    $this->assertInstanceOf(
+        'FacebookAds\Http\Parameters',
+        $parameters
+    );
+    $this->assertSame($parameters, $request->getBodyParams());
   }
 
   public function testFileParams() {
     $request = $this->createRequest();
     $parameters = $this->createParametersMock();
     $request->setFileParams($parameters);
-    $this->assertTrue($request->getFileParams() instanceof Parameters);
-    $this->assertTrue($parameters === $request->getFileParams());
+    $this->assertInstanceOf(
+        'FacebookAds\Http\Parameters',
+        $request->getFileParams()
+    );
+    $this->assertSame($parameters, $request->getFileParams());
 
     // Default initialization
     $request = $this->createRequest();
     $parameters = $request->getFileParams();
-    $this->assertTrue($parameters instanceof Parameters);
-    $this->assertTrue($parameters === $request->getFileParams());
+    $this->assertInstanceOf(
+        'FacebookAds\Http\Parameters',
+        $parameters
+    );
+    $this->assertSame($parameters, $request->getFileParams());
   }
 
   public function testClone() {
@@ -177,9 +195,9 @@ class RequestTest extends AbstractUnitTestCase {
     $request->setFileParams($file_params);
 
     $clone = $request->createClone();
-    $this->assertFalse($query_params === $clone->getQueryParams());
-    $this->assertFalse($body_params === $clone->getBodyParams());
-    $this->assertFalse($file_params === $clone->getFileParams());
+    $this->assertNotSame($query_params, $clone->getQueryParams());
+    $this->assertNotSame($body_params, $clone->getBodyParams());
+    $this->assertNotSame($file_params, $clone->getFileParams());
   }
 
   /**
@@ -223,7 +241,10 @@ class RequestTest extends AbstractUnitTestCase {
     $client->method('sendRequest')->willReturn($response);
     $request = new Request($client);
     $response_mirror = $request->execute();
-    $this->assertTrue($response_mirror instanceof ResponseInterface);
-    $this->assertTrue($response_mirror === $response);
+    $this->assertInstanceOf(
+        'FacebookAds\Http\ResponseInterface',
+        $response_mirror
+    );
+    $this->assertSame($response_mirror, $response);
   }
 }

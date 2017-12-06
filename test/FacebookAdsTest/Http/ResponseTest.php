@@ -43,8 +43,11 @@ class ResponseTest extends AbstractUnitTestCase {
     $request = $this->createRequestMock();
     $response->setRequest($request);
     $request_mirror = $response->getRequest();
-    $this->assertTrue($request_mirror instanceof RequestInterface);
-    $this->assertTrue($request_mirror === $request);
+    $this->assertInstanceOf(
+        'FacebookAds\Http\RequestInterface',
+        $request_mirror
+    );
+    $this->assertSame($request_mirror, $request);
   }
 
   public function testStatusCode() {
@@ -58,14 +61,14 @@ class ResponseTest extends AbstractUnitTestCase {
     $headers = $this->createHeadersMock();
     $response->setHeaders($headers);
     $headers_mirror = $response->getHeaders();
-    $this->assertTrue($headers_mirror instanceof Headers);
-    $this->assertTrue($headers_mirror === $response->getHeaders());
+    $this->assertInstanceOf('FacebookAds\Http\Headers', $headers_mirror);
+    $this->assertSame($headers_mirror, $response->getHeaders());
 
     // Default initialization
     $response = $this->createResponse();
     $headers_mirror = $response->getHeaders();
-    $this->assertTrue($headers instanceof Headers);
-    $this->assertTrue($headers_mirror === $response->getHeaders());
+    $this->assertInstanceOf('FacebookAds\Http\Headers', $headers);
+    $this->assertSame($headers_mirror, $response->getHeaders());
   }
 
   public function testBodyContent() {

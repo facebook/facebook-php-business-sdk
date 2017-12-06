@@ -31,11 +31,11 @@ class ParametersTest extends AbstractUnitTestCase {
 
   public function testInterfaces() {
     $parameters = new Parameters();
-    $this->assertTrue($parameters instanceof \IteratorAggregate);
-    $this->assertTrue($parameters instanceof \Traversable);
-    $this->assertTrue($parameters instanceof \ArrayAccess);
-    $this->assertTrue($parameters instanceof \Serializable);
-    $this->assertTrue($parameters instanceof \Countable);
+    $this->assertInstanceOf('\IteratorAggregate', $parameters);
+    $this->assertInstanceOf('\Traversable', $parameters);
+    $this->assertInstanceOf('\ArrayAccess', $parameters);
+    $this->assertInstanceOf('\Serializable', $parameters);
+    $this->assertInstanceOf('\Countable', $parameters);
   }
 
   public function testEnhance() {

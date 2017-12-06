@@ -158,10 +158,10 @@ class CursorTest extends AbstractUnitTestCase {
     $response = $this->createResponseChainMock(1);
     $cursor = new Cursor($response, $this->objectPrototype);
 
-    $this->assertTrue($response === $cursor->getResponse());
-    $this->assertTrue($response === $cursor->getLastResponse());
-    $this->assertTrue(is_string($cursor->getAfter()));
-    $this->assertTrue(is_string($cursor->getBefore()));
+    $this->assertSame($response, $cursor->getResponse());
+    $this->assertSame($response, $cursor->getLastResponse());
+    $this->assertInternalType('string', $cursor->getAfter());
+    $this->assertInternalType('string', $cursor->getBefore());
     $this->assertNotEquals($cursor->getBefore(), $cursor->getAfter());
   }
 
@@ -192,7 +192,7 @@ class CursorTest extends AbstractUnitTestCase {
     $cursor = new Cursor(
       $this->createResponseChainMock(1), $this->objectPrototype);
 
-    $this->assertTrue($cursor instanceof \Iterator);
+    $this->assertInstanceOf('\Iterator', $cursor);
 
     $k = 0;
 
@@ -203,7 +203,7 @@ class CursorTest extends AbstractUnitTestCase {
       ++$k;
     }
 
-    $this->assertEquals($k, count($cursor));
+    $this->assertCount($k, $cursor);
 
     $cursor->rewind();
 
@@ -221,10 +221,10 @@ class CursorTest extends AbstractUnitTestCase {
     $response = $this->createResponseChainMock(1);
     $cursor = new Cursor($response, $this->objectPrototype);
 
-    $this->assertTrue($cursor instanceof \Countable);
-    $this->assertEquals($cursor->count(), count($cursor));
-    $this->assertEquals(
-      $cursor->count(), count($response->getContent()['data']));
+    $this->assertInstanceOf('\Countable', $cursor);
+    $this->assertCount($cursor->count(), $cursor);
+    $this->assertCount(
+      $cursor->count(), $response->getContent()['data']);
   }
 
   public function testArrayAccess() {
@@ -233,7 +233,7 @@ class CursorTest extends AbstractUnitTestCase {
 
     $cursor = new Cursor($response, $this->objectPrototype);
 
-    $this->assertTrue($cursor instanceof \arrayaccess);
+    $this->assertInstanceOf('\arrayaccess', $cursor);
 
     $subject = new EmptyObject();
     $subject->setData($response->getContent()['data'][$test_index]);
@@ -288,7 +288,7 @@ class CursorTest extends AbstractUnitTestCase {
     // Fetch after
     $cursor = new Cursor($response, $this->objectPrototype);
     $cursor->fetchAfter();
-    $this->assertFalse($response === $cursor->getLastResponse());
+    $this->assertNotSame($response, $cursor->getLastResponse());
   }
 
   public function testRequestParamReset() {
@@ -360,10 +360,10 @@ class CursorTest extends AbstractUnitTestCase {
     $cursor = new Cursor($response, $this->objectPrototype);
     $array_copy = $cursor->getArrayCopy();
 
-    $this->assertTrue(is_array($array_copy));
+    $this->assertInternalType('array', $array_copy);
     $this->assertEquals($cursor->getArrayCopy(), $cursor->getObjects());
-    $this->assertEquals(
-      count($array_copy), count($response->getContent()['data']));
+    $this->assertCount(
+      count($array_copy), $response->getContent()['data']);
 
     foreach ($array_copy as $object) {
       if (!$object instanceof AbstractObject) {

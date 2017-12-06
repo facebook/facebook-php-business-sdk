@@ -34,7 +34,7 @@ class AsyncJobInsightsTest extends AbstractAsyncJobTestCase {
   public function testCrud() {
     $account = new AdAccount($this->getConfig()->accountId);
     $job = $account->getInsightsAsync();
-    $this->assertTrue($job instanceof AsyncJobInsights);
+    $this->assertInstanceOf('AsyncJobInsights', $job);
     $this->waitTillJobComplete($job);
     $job->getResult();
   }
@@ -45,7 +45,7 @@ class AsyncJobInsightsTest extends AbstractAsyncJobTestCase {
     $account->read($fields);
     $fields = array(InsightsFields::ACCOUNT_NAME);
     $job = $account->getInsightsAsync($fields);
-    $this->assertTrue($job instanceof AsyncJobInsights);
+    $this->assertInstanceOf('AsyncJobInsights', $job);
     $this->waitTillJobComplete($job);
     $result = $job->getResult();
     $this->assertEquals(

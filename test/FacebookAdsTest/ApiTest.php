@@ -43,12 +43,12 @@ class ApiTest extends AbstractUnitTestCase {
 
     $api = $this->createApi();
     Api::setInstance($api);
-    $this->assertTrue($api === Api::instance());
+    $this->assertSame($api, Api::instance());
 
     $newApi = $this->createApi();
     Api::setInstance($newApi);
-    $this->assertTrue($newApi === Api::instance());
-    $this->assertFalse($api === Api::instance());
+    $this->assertSame($newApi, Api::instance());
+    $this->assertNotSame($api, Api::instance());
   }
 
   public function testInit() {
@@ -56,8 +56,8 @@ class ApiTest extends AbstractUnitTestCase {
       static::VALUE_SESSION_APP_ID,
       static::VALUE_SESSION_APP_SECRET,
       static::VALUE_SESSION_ACCESS_TOKEN);
-    $this->assertTrue($api instanceof Api);
-    $this->assertTrue($api === Api::instance());
+    $this->assertInstanceOf('FacebookAds\Api', $api);
+    $this->assertSame($api, Api::instance());
     $this->assertEquals(
       static::VALUE_SESSION_APP_ID, $api->getSession()->getAppId());
     $this->assertEquals(
@@ -70,19 +70,19 @@ class ApiTest extends AbstractUnitTestCase {
     $client = $this->createClientMock();
     $session = $this->createSessionMock();
     $api = new Api($client, $session);
-    $this->assertTrue($api->getHttpClient() === $client);
-    $this->assertTrue($api->getSession() === $session);
+    $this->assertSame($api->getHttpClient(), $client);
+    $this->assertSame($api->getSession(), $session);
   }
 
   public function testLogger() {
     $api = $this->createApi();
     $logger = $this->createLoggerMock();
     $api->setLogger($logger);
-    $this->assertTrue($logger === $api->getLogger());
+    $this->assertSame($logger, $api->getLogger());
 
     // Test default
     $api = $this->createApi();
-    $this->assertTrue($api->getLogger() instanceof NullLogger);
+    $this->assertInstanceOf('FacebookAds\Logger\NullLogger', $api->getLogger());
   }
 
   public function testDefaultGraphVersion() {
@@ -92,7 +92,7 @@ class ApiTest extends AbstractUnitTestCase {
 
     // Test default
     $api = $this->createApi();
-    $this->assertTrue(is_string($api->getDefaultGraphVersion()));
+    $this->assertInternalType('string', $api->getDefaultGraphVersion());
     $this->assertRegExp('/^\d+\.\d+$/', $api->getDefaultGraphVersion());
   }
 
@@ -130,14 +130,14 @@ class ApiTest extends AbstractUnitTestCase {
     $request->expects($this->exactly(1))->method('getQueryParams');
 
     $response = $api->call('/<PATH>');
-    $this->assertTrue($response instanceof ResponseInterface);
+    $this->assertInstanceOf('FacebookAds\Http\ResponseInterface', $response);
 
     // HTTP POST request
     $request->expects($this->exactly(1))->method('getBodyParams');
 
     $api->call(
       '/<PATH>', RequestInterface::METHOD_POST, array('param' => 'value'));
-    $this->assertTrue($response instanceof ResponseInterface);
+    $this->assertInstanceOf('FacebookAds\Http\ResponseInterface', $response);
   }
 
   public function testBase64UrlEncode() {
