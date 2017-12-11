@@ -16,19 +16,8 @@ The Facebook Ads API SDK requires PHP 5.4 or greater.
 
 Facebook Ads API SDK uses composer to manage dependencies. You can follow this [document](https://getcomposer.org/download/) to install composer.
 
-Add the following to your `composer.json` file:
-
-```json
-{
-    "require": {
-        "facebook/php-ads-sdk": "2.8.*"
-    }
-}
-```
-then install it through composer:
-
 ```shell
-php composer.phar install --no-dev
+composer require facebook/php-ads-sdk
 ```
 
 This SDK and its dependencies will be installed under `./vendor`.
