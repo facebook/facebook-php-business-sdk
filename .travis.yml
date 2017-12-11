@@ -14,7 +14,7 @@ install:
   - composer install --dev --prefer-source
 
 script:
- - vendor/bin/phpunit -v -c $PWD/test/phpunit-travis.xml --coverage-clover=coverage.clover
+ - vendor/bin/phpunit -v -c $PWD/tests/phpunit-travis.xml --coverage-clover=coverage.clover
 
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
