@@ -1,0 +1,8 @@
+linter:
+  rubocop:
+    root_dir: 'sideci_demo'
+
+  phpmd:
+    root_dir: 'sideci_demo'
+    options:
+      rule: 'phpmd.xml'
