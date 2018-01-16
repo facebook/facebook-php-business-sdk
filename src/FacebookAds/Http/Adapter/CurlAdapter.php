@@ -125,7 +125,7 @@ class CurlAdapter extends AbstractAdapter {
       if (strpos($line, ': ') === false) {
         $headers['http_code'] = $line;
       } else {
-        list ($key, $value) = explode(': ', $line);
+        list ($key, $value) = explode(': ', $line, 2);
         $headers[$key] = $value;
       }
     }

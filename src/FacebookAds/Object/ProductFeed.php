@@ -34,7 +34,7 @@ use FacebookAds\Object\Values\ProductFeedEncodingValues;
 use FacebookAds\Object\Values\ProductFeedQuotedFieldsModeValues;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
@@ -200,6 +200,7 @@ class ProductFeed extends AbstractCrudObject {
       'name' => 'string',
       'quoted_fields_mode' => 'quoted_fields_mode_enum',
       'schedule' => 'string',
+      'update_schedule' => 'string',
     );
     $enums = array(
       'delimiter_enum' => ProductFeedDelimiterValues::getInstance()->getValues(),

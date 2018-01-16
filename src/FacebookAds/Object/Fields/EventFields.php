@@ -27,7 +27,7 @@ namespace FacebookAds\Object\Fields;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
@@ -45,6 +45,7 @@ class EventFields extends AbstractEnum {
   const DECLINED_COUNT = 'declined_count';
   const DESCRIPTION = 'description';
   const END_TIME = 'end_time';
+  const EVENT_TIMES = 'event_times';
   const GUEST_LIST_ENABLED = 'guest_list_enabled';
   const ID = 'id';
   const INTERESTED_COUNT = 'interested_count';
@@ -58,6 +59,7 @@ class EventFields extends AbstractEnum {
   const OWNER = 'owner';
   const PARENT_GROUP = 'parent_group';
   const PLACE = 'place';
+  const SCHEDULED_PUBLISH_TIME = 'scheduled_publish_time';
   const START_TIME = 'start_time';
   const TICKET_URI = 'ticket_uri';
   const TICKETING_PRIVACY_URI = 'ticketing_privacy_uri';
@@ -76,6 +78,7 @@ class EventFields extends AbstractEnum {
       'declined_count' => 'int',
       'description' => 'string',
       'end_time' => 'string',
+      'event_times' => 'list<Object>',
       'guest_list_enabled' => 'bool',
       'id' => 'string',
       'interested_count' => 'int',
@@ -89,6 +92,7 @@ class EventFields extends AbstractEnum {
       'owner' => 'Object',
       'parent_group' => 'Object',
       'place' => 'Object',
+      'scheduled_publish_time' => 'string',
       'start_time' => 'string',
       'ticket_uri' => 'string',
       'ticketing_privacy_uri' => 'string',

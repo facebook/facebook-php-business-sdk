@@ -38,7 +38,7 @@ use FacebookAds\Object\CustomAudienceNormalizers\EmailNormalizer;
 use FacebookAds\Object\CustomAudienceNormalizers\HashNormalizer;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
@@ -320,6 +320,7 @@ class CustomAudience extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'allowed_domains' => 'list<string>',
       'claim_objective' => 'claim_objective_enum',
       'content_type' => 'content_type_enum',
       'description' => 'string',

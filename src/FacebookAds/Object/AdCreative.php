@@ -39,7 +39,7 @@ use FacebookAds\Object\Values\AdPreviewAdFormatValues;
 use FacebookAds\Object\Traits\AdLabelAwareCrudObjectTrait;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
@@ -135,6 +135,7 @@ class AdCreative extends AbstractCrudObject {
 
     $param_types = array(
       'ad_format' => 'ad_format_enum',
+      'dynamic_creative_spec' => 'Object',
       'end_date' => 'datetime',
       'height' => 'unsigned int',
       'locale' => 'string',

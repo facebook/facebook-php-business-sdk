@@ -22,25 +22,30 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdAccountPermittedRolesValues getInstance()
  */
-class AdAccountPermittedRolesValues extends AbstractEnum {
 
-  const ADMIN = 'ADMIN';
-  const GENERAL_USER = 'GENERAL_USER';
-  const REPORTS_ONLY = 'REPORTS_ONLY';
-  const INSTAGRAM_ADVERTISER = 'INSTAGRAM_ADVERTISER';
-  const INSTAGRAM_MANAGER = 'INSTAGRAM_MANAGER';
-  const FB_EMPLOYEE_DSO_ADVERTISER = 'FB_EMPLOYEE_DSO_ADVERTISER';
+class AdAssetFeedSpecTitleFields extends AbstractEnum {
+
+  const ADLABELS = 'adlabels';
+  const TEXT = 'text';
+  const URL_TAGS = 'url_tags';
+
+  public function getFieldTypes() {
+    return array(
+      'adlabels' => 'list<AdAssetFeedSpecAssetLabel>',
+      'text' => 'string',
+      'url_tags' => 'string',
+    );
+  }
 }

@@ -27,7 +27,7 @@ namespace FacebookAds\Object\Values;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
@@ -65,11 +65,15 @@ class AdCreativeCallToActionTypeValues extends AbstractEnum {
   const DONATE_NOW = 'DONATE_NOW';
   const GET_QUOTE = 'GET_QUOTE';
   const CONTACT_US = 'CONTACT_US';
+  const START_ORDER = 'START_ORDER';
   const RECORD_NOW = 'RECORD_NOW';
   const VOTE_NOW = 'VOTE_NOW';
   const REGISTER_NOW = 'REGISTER_NOW';
   const REQUEST_TIME = 'REQUEST_TIME';
   const SEE_MENU = 'SEE_MENU';
   const EMAIL_NOW = 'EMAIL_NOW';
+  const GET_SHOWTIMES = 'GET_SHOWTIMES';
+  const TRY_IT = 'TRY_IT';
+  const LISTEN_NOW = 'LISTEN_NOW';
   const OPEN_MOVIES = 'OPEN_MOVIES';
 }

@@ -27,7 +27,7 @@ namespace FacebookAds\Object\Fields;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
@@ -59,6 +59,7 @@ class CustomAudienceFields extends AbstractEnum {
   const TIME_CONTENT_UPDATED = 'time_content_updated';
   const TIME_CREATED = 'time_created';
   const TIME_UPDATED = 'time_updated';
+  const ALLOWED_DOMAINS = 'allowed_domains';
   const CLAIM_OBJECTIVE = 'claim_objective';
   const CONTENT_TYPE = 'content_type';
   const DATASET_ID = 'dataset_id';
@@ -98,6 +99,7 @@ class CustomAudienceFields extends AbstractEnum {
       'time_content_updated' => 'unsigned int',
       'time_created' => 'unsigned int',
       'time_updated' => 'unsigned int',
+      'allowed_domains' => 'list<string>',
       'claim_objective' => 'ClaimObjective',
       'content_type' => 'ContentType',
       'dataset_id' => 'string',

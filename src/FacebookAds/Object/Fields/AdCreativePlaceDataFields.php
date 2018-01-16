@@ -27,7 +27,7 @@ namespace FacebookAds\Object\Fields;
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
@@ -40,6 +40,7 @@ class AdCreativePlaceDataFields extends AbstractEnum {
   const ADDRESS_STRING = 'address_string';
   const LABEL = 'label';
   const LATITUDE = 'latitude';
+  const LOCATION_SOURCE_ID = 'location_source_id';
   const LONGITUDE = 'longitude';
   const TYPE = 'type';
 
@@ -48,6 +49,7 @@ class AdCreativePlaceDataFields extends AbstractEnum {
       'address_string' => 'string',
       'label' => 'string',
       'latitude' => 'float',
+      'location_source_id' => 'string',
       'longitude' => 'float',
       'type' => 'string',
     );

@@ -30,9 +30,10 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdCreativeLinkDataFields;
 use FacebookAds\Object\Values\AdCreativeLinkDataAttachmentStyleValues;
+use FacebookAds\Object\Values\AdCreativeLinkDataFormatOptionValues;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
@@ -52,6 +53,7 @@ class AdCreativeLinkData extends AbstractObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['AttachmentStyle'] = AdCreativeLinkDataAttachmentStyleValues::getInstance()->getValues();
+    $ref_enums['FormatOption'] = AdCreativeLinkDataFormatOptionValues::getInstance()->getValues();
     return $ref_enums;
   }
 

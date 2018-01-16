@@ -22,21 +22,40 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
 /**
- * This class is auto-genereated.
+ * This class is auto-generated.
  *
  * For any issues or feature requests related to this class, please let us know
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdAccountAccessTypeValues getInstance()
  */
-class AdAccountAccessTypeValues extends AbstractEnum {
 
-  const OWNER = 'OWNER';
-  const AGENCY = 'AGENCY';
+class AdRuleHistoryFields extends AbstractEnum {
+
+  const EVALUATION_SPEC = 'evaluation_spec';
+  const EXCEPTION_CODE = 'exception_code';
+  const EXCEPTION_MESSAGE = 'exception_message';
+  const EXECUTION_SPEC = 'execution_spec';
+  const IS_MANUAL = 'is_manual';
+  const RESULTS = 'results';
+  const SCHEDULE_SPEC = 'schedule_spec';
+  const TIMESTAMP = 'timestamp';
+
+  public function getFieldTypes() {
+    return array(
+      'evaluation_spec' => 'AdRuleEvaluationSpec',
+      'exception_code' => 'int',
+      'exception_message' => 'string',
+      'execution_spec' => 'AdRuleExecutionSpec',
+      'is_manual' => 'bool',
+      'results' => 'list<AdRuleHistoryResult>',
+      'schedule_spec' => 'AdRuleScheduleSpec',
+      'timestamp' => 'datetime',
+    );
+  }
 }
