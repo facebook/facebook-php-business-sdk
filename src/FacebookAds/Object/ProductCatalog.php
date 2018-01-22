@@ -31,6 +31,7 @@ use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProductCatalogFields;
 use FacebookAds\Object\Values\ProductCatalogHotelRoomsBatchStandardValues;
 use FacebookAds\Object\Values\ProductCatalogPricingVariablesBatchStandardValues;
+use FacebookAds\Object\Values\ProductCatalogVerticalValues;
 use FacebookAds\Object\Values\ProductFeedDelimiterValues;
 use FacebookAds\Object\Values\ProductFeedEncodingValues;
 use FacebookAds\Object\Values\ProductFeedQuotedFieldsModeValues;
@@ -66,6 +67,7 @@ class ProductCatalog extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['Vertical'] = ProductCatalogVerticalValues::getInstance()->getValues();
     return $ref_enums;
   }
 
