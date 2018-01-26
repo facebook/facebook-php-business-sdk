@@ -21,7 +21,7 @@ Add the following to your `composer.json` file:
 ```json
 {
     "require": {
-        "facebook/php-ads-sdk": "2.8.*"
+        "facebook/php-ads-sdk": "2.11.*"
     }
 }
 ```
