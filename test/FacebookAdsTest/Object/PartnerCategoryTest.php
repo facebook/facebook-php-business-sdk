@@ -49,7 +49,7 @@ class PartnerCategoryTest extends AbstractCrudObjectTestCase
     /* @var $category AbstractCrudObject */
     $category = $cursor->current();
 
-    $this->assertTrue($category instanceof PartnerCategory);
+    $this->assertInstanceOf('PartnerCategory', $category);
     $this->assertCanRead($category);
     $this->assertCannotUpdate($category);
     $this->assertCannotDelete($category);

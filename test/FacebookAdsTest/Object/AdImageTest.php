@@ -52,7 +52,7 @@ class AdImageTest extends AbstractCrudObjectTestCase {
     $images = AdImage::createFromZip(
        $this->getConfig()->testZippedImagesPath,
        $this->getConfig()->accountId);
-    $this->assertTrue(is_array($images));
+       $this->assertInternalType('array', $images);
 
     foreach ($images as $image) {
       $this->assertCanDelete($image);

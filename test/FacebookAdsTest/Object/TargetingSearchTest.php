@@ -36,7 +36,7 @@ class TargetingSearchTest extends AbstractCrudObjectTestCase {
 
     /* @var $category AbstractCrudObject */
     $result = $cursor->current();
-    $this->assertTrue($result instanceof TargetingSearch);
+    $this->assertInstanceOf('TargetingSearch', $result);
     $this->assertNotEmpty($result->key);
   }
 }

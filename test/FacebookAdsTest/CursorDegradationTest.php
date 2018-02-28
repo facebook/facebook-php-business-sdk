@@ -68,8 +68,8 @@ class CursorDegradationTest extends CursorTest {
     $response = $this->createResponseChainMock(1);
     $cursor = new Cursor($response, $this->objectPrototype);
 
-    $this->assertTrue($response === $cursor->getResponse());
-    $this->assertTrue($response === $cursor->getLastResponse());
+    $this->assertSame($response, $cursor->getResponse());
+    $this->assertSame($response, $cursor->getLastResponse());
     $this->assertNull($cursor->getAfter());
     $this->assertNull($cursor->getBefore());
   }

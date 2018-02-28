@@ -59,37 +59,46 @@ class ClientTest extends AbstractUnitTestCase {
     $request_proto = $this->createRequestMock();
     $request_proto->method('createClone')->willReturnSelf();
     $client->setRequestPrototype($request_proto);
-    $this->assertTrue($request_proto === $client->getRequestPrototype());
-    $this->assertTrue($client->createRequest() instanceof RequestInterface);
+    $this->assertSame($request_proto, $client->getRequestPrototype());
+    $this->assertInstanceOf(
+        'FacebookAds\Http\RequestInterface',
+        $client->createRequest()
+    );
 
     $response_proto = $this->createResponseMock();
     $client->setResponsePrototype($response_proto);
-    $this->assertTrue($response_proto === $client->getResponsePrototype());
-    $this->assertTrue($client->createResponse() instanceof ResponseInterface);
+    $this->assertSame($response_proto, $client->getResponsePrototype());
+    $this->assertInstanceOf('FacebookAds\Http\ResponseInterface', $client->createResponse());
 
     // Default initialization
     $client = new Client();
-    $this->assertTrue($client->getRequestPrototype() instanceof Request);
-    $this->assertTrue($client->getResponsePrototype() instanceof Response);
+    $this->assertInstanceOf(
+        'FacebookAds\Http\Request',
+        $client->getRequestPrototype()
+    );
+    $this->assertInstanceOf(
+        'FacebookAds\Http\Response',
+        $client->getResponsePrototype()
+    );
   }
 
   public function testHeaders() {
     $headers = new Headers();
-    $this->assertTrue($headers instanceof \IteratorAggregate);
-    $this->assertTrue($headers instanceof \Traversable);
-    $this->assertTrue($headers instanceof \ArrayAccess);
-    $this->assertTrue($headers instanceof \Serializable);
-    $this->assertTrue($headers instanceof \Countable);
+    $this->assertInstanceOf('IteratorAggregate', $headers);
+    $this->assertInstanceOf('Traversable', $headers);
+    $this->assertInstanceOf('ArrayAccess', $headers);
+    $this->assertInstanceOf('Serializable', $headers);
+    $this->assertInstanceOf('Countable', $headers);
 
     $client = new Client();
     $client->setDefaultRequestHeaders($headers);
-    $this->assertTrue($headers === $client->getDefaultRequestHeaderds());
+    $this->assertSame($headers, $client->getDefaultRequestHeaderds());
 
     // Default initialization
     $client = new Client();
     $headers = $client->getDefaultRequestHeaderds();
-    $this->assertTrue($headers instanceof Headers);
-    $this->assertTrue($headers === $client->getDefaultRequestHeaderds());
+    $this->assertInstanceOf('FacebookAds\Http\Headers', $headers);
+    $this->assertSame($headers, $client->getDefaultRequestHeaderds());
     $this->assertArrayHasKey('User-Agent', $headers);
     $this->assertEquals('fb-php-ads-'.Api::VERSION, $headers['User-Agent']);
   }
@@ -109,12 +118,18 @@ class ClientTest extends AbstractUnitTestCase {
 
     $adapter = $this->createAdapterMock();
     $client->setAdapter($adapter);
-    $this->assertTrue($client->getAdapter() instanceof AdapterInterface);
-    $this->assertTrue($adapter === $client->getAdapter());
+    $this->assertInstanceOf(
+        'FacebookAds\Http\Adapter\AdapterInterface',
+         $client->getAdapter()
+     );
+    $this->assertSame($adapter, $client->getAdapter());
 
     // Default initialization
     $client = new Client();
-    $this->assertTrue($client->getAdapter() instanceof CurlAdapter);
+    $this->assertInstanceOf(
+        'FacebookAds\Http\Adapter\CurlAdapter',
+        $client->getAdapter()
+    );
   }
 
   public function testCaBundlePath() {
@@ -125,7 +140,7 @@ class ClientTest extends AbstractUnitTestCase {
 
     // Default initialization
     $client = new Client();
-    $this->assertFalse(!$client->getCaBundlePath());
+    $this->assertNotFalse($client->getCaBundlePath());
     $this->assertFileExists($client->getCaBundlePath());
   }
 
@@ -168,7 +183,7 @@ class ClientTest extends AbstractUnitTestCase {
     )));
 
     $response = $client->sendRequest($this->createRequestMock());
-    $this->assertTrue($response instanceof ResponseInterface);
+    $this->assertInstanceOf('FacebookAds\Http\ResponseInterface', $response);
     $content = $response->getContent();
     $this->assertArrayHasKey('id', $content);
     $this->assertEquals($content['id'], 4);

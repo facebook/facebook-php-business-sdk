@@ -30,7 +30,7 @@ use FacebookAdsTest\AbstractUnitTestCase;
 class EnumTest extends AbstractUnitTestCase {
 
   public function testSingleton() {
-    $this->assertTrue(DummyEnum::getInstance() === DummyEnum::getInstance());
+    $this->assertSame(DummyEnum::getInstance(), DummyEnum::getInstance());
   }
 
   public function testAccess() {
@@ -42,17 +42,17 @@ class EnumTest extends AbstractUnitTestCase {
     $values = $enum->getValues();
     $values_map = $enum->getValuesMap();
 
-    $this->assertEquals(2, count($copy));
+    $this->assertCount(2, $copy);
     $this->assertArrayHasKey('NAME_1', $copy);
     $this->assertEquals(DummyEnum::NAME_1, $copy['NAME_1']);
 
-    $this->assertEquals(2, count($names));
+    $this->assertCount(2, $names);
     $this->assertTrue(in_array('NAME_1', $names));
 
-    $this->assertEquals(2, count($values));
+    $this->assertCount(2, $values);
     $this->assertTrue(in_array(DummyEnum::NAME_1, $values));
 
-    $this->assertEquals(2, count($values_map));
+    $this->assertCount(2, $values_map);
     $this->assertArrayHasKey(DummyEnum::NAME_1, $values_map);
 
     $this->assertEquals(DummyEnum::NAME_1, $enum->getValueForName('NAME_1'));
@@ -61,10 +61,10 @@ class EnumTest extends AbstractUnitTestCase {
   public function testLazyLoading() {
     $enum = DummyEnum::getInstance();
 
-    $this->assertTrue($enum->getArrayCopy() === $enum->getArrayCopy());
-    $this->assertTrue($enum->getNames() === $enum->getNames());
-    $this->assertTrue($enum->getValues() === $enum->getValues());
-    $this->assertTrue($enum->getValuesMap() === $enum->getValuesMap());
+    $this->assertSame($enum->getArrayCopy(), $enum->getArrayCopy());
+    $this->assertSame($enum->getNames(), $enum->getNames());
+    $this->assertSame($enum->getValues(), $enum->getValues());
+    $this->assertSame($enum->getValuesMap(), $enum->getValuesMap());
   }
 
   public function testValidation() {

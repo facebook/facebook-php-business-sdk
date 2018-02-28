@@ -79,7 +79,7 @@ class CurlAdapterTest extends AbstractAdapterTest {
     $request->method('getBodyParams')->willReturn($body);
     $request->method('getFileParams')->willReturn($files);
     $response = $adapter->sendRequest($request);
-    $this->assertTrue($response instanceof ResponseInterface);
+    $this->assertInstanceOf('FacebookAds\Http\ResponseInterface', $response);
 
     // HTTP_POST with files
     $body = $this->createParametersMock();
@@ -100,7 +100,7 @@ class CurlAdapterTest extends AbstractAdapterTest {
     $request->method('getFileParams')->willReturn($files);
 
     $response = $adapter->sendRequest($request);
-    $this->assertTrue($response instanceof ResponseInterface);
+    $this->assertInstanceOf('FacebookAds\Http\ResponseInterface', $response);
 
     // HTTP_DELETE
     $body = $this->createParametersMock();
@@ -117,7 +117,7 @@ class CurlAdapterTest extends AbstractAdapterTest {
     $request->method('getFileParams')->willReturn($files);
 
     $response = $adapter->sendRequest($request);
-    $this->assertTrue($response instanceof ResponseInterface);
+    $this->assertInstanceOf('FacebookAds\Http\ResponseInterface', $response);
 
     // Force Curl Error
     /** @var CurlInterface|Mock $curl */
@@ -141,6 +141,6 @@ class CurlAdapterTest extends AbstractAdapterTest {
     try {
       $adapter->sendRequest($request);
     } catch (Exception $e) {}
-    $this->assertTrue($e !== null);
+    $this->assertNotNull($e);
   }
 }

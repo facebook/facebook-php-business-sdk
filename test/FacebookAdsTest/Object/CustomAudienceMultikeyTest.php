@@ -65,13 +65,13 @@ class CustomAudienceMultikeyTest extends AbstractCrudObjectTestCase {
   protected function assertClusterChangesResponse(
     CustomAudienceMultiKey $ca, array $users, $response) {
 
-    $this->assertTrue(is_array($response));
+    $this->assertInternalType('array', $response);
 
     $this->assertArrayHasKey('audience_id', $response);
     $this->assertEquals(
       $response['audience_id'], $ca->{CustomAudienceFields::ID});
     $this->assertArrayHasKey('num_received', $response);
-    $this->assertEquals($response['num_received'], count($users));
+    $this->assertCount($response['num_received'], $users);
     $this->assertArrayHasKey('num_invalid_entries', $response);
     $this->assertEquals($response['num_invalid_entries'], 0);
   }

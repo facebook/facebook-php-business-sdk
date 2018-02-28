@@ -39,7 +39,7 @@ abstract class AbstractAdapterTest extends AbstractUnitTestCase {
   public function testGetters() {
     $client = new Client();
     $adapter = $this->createAdapter($client);
-    $this->assertTrue($client === $adapter->getClient());
+    $this->assertSame($client, $adapter->getClient());
     $this->assertEquals(
       $client->getCaBundlePath(), $adapter->getCaBundlePath());
   }
@@ -48,11 +48,11 @@ abstract class AbstractAdapterTest extends AbstractUnitTestCase {
     $adapter = $this->createAdapter();
     $opts = new \ArrayObject();
     $adapter->setOpts($opts);
-    $this->assertTrue($opts === $adapter->getOpts());
+    $this->assertSame($opts, $adapter->getOpts());
 
     // Default initialization
     $adapter = $this->createAdapter();
-    $this->assertTrue($adapter->getOpts() instanceof \ArrayObject);
+    $this->assertInstanceOf('\ArrayObject', $adapter->getOpts());
   }
 
   abstract public function testRequest();
