@@ -208,9 +208,13 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
     }
 
     $this->indexRight += count($data);
-
+    if ($this->getUseImplicitFetch()) {
+        $this->objects = [];
+    }
+    $count = $this->position;
     foreach ($data as $object_data) {
-      $this->objects[] = $this->createObject($object_data);
+        $this->objects[$count] = $this->createObject($object_data);
+        $count++;
     }
   }
 
