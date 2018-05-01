@@ -45,4 +45,5 @@ class AdsPixelStatsResultAggregationValues extends AbstractEnum {
   const HOST = 'host';
   const PIXEL_FIRE = 'pixel_fire';
   const URL = 'url';
+  const EVENT_TOTAL_COUNTS = 'event_total_counts';
 }

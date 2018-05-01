@@ -46,5 +46,14 @@ class CustomConversionCustomEventTypeValues extends AbstractEnum {
   const LEAD = 'LEAD';
   const PURCHASE = 'PURCHASE';
   const SEARCH = 'SEARCH';
+  const CONTACT = 'CONTACT';
+  const CUSTOMIZE_PRODUCT = 'CUSTOMIZE_PRODUCT';
+  const DONATE = 'DONATE';
+  const FIND_LOCATION = 'FIND_LOCATION';
+  const SCHEDULE = 'SCHEDULE';
+  const START_TRIAL = 'START_TRIAL';
+  const SUBMIT_APPLICATION = 'SUBMIT_APPLICATION';
+  const SUBSCRIBE = 'SUBSCRIBE';
+  const TAKE_SURVEY = 'TAKE_SURVEY';
   const OTHER = 'OTHER';
 }

@@ -39,20 +39,34 @@ class AdgroupPlacementSpecificReviewFeedbackFields extends AbstractEnum {
 
   const ACCOUNT_ADMIN = 'account_admin';
   const AD = 'ad';
+  const B2C = 'b2c';
+  const BSG = 'bsg';
+  const CITY_COMMUNITY = 'city_community';
+  const DPA = 'dpa';
   const FACEBOOK = 'facebook';
   const INSTAGRAM = 'instagram';
+  const INSTAGRAM_SHOP = 'instagram_shop';
+  const MARKETPLACE = 'marketplace';
   const PAGE_ADMIN = 'page_admin';
   const PRODUCT = 'product';
+  const PRODUCT_SERVICE = 'product_service';
   const SELLER = 'seller';
 
   public function getFieldTypes() {
     return array(
       'account_admin' => 'map<string, string>',
       'ad' => 'map<string, string>',
+      'b2c' => 'map<string, string>',
+      'bsg' => 'map<string, string>',
+      'city_community' => 'map<string, string>',
+      'dpa' => 'map<string, string>',
       'facebook' => 'map<string, string>',
       'instagram' => 'map<string, string>',
+      'instagram_shop' => 'map<string, string>',
+      'marketplace' => 'map<string, string>',
       'page_admin' => 'map<string, string>',
       'product' => 'map<string, string>',
+      'product_service' => 'map<string, string>',
       'seller' => 'map<string, string>',
     );
   }

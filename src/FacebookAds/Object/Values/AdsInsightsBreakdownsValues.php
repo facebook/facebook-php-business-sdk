@@ -51,4 +51,12 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
   const DEVICE_PLATFORM = 'device_platform';
   const PRODUCT_ID = 'product_id';
   const REGION = 'region';
+  const AD_FORMAT_ASSET = 'ad_format_asset';
+  const BODY_ASSET = 'body_asset';
+  const CALL_TO_ACTION_ASSET = 'call_to_action_asset';
+  const DESCRIPTION_ASSET = 'description_asset';
+  const IMAGE_ASSET = 'image_asset';
+  const LINK_URL_ASSET = 'link_url_asset';
+  const TITLE_ASSET = 'title_asset';
+  const VIDEO_ASSET = 'video_asset';
 }

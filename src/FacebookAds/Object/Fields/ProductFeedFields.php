@@ -52,6 +52,7 @@ class ProductFeedFields extends AbstractEnum {
   const QUOTED_FIELDS_MODE = 'quoted_fields_mode';
   const SCHEDULE = 'schedule';
   const UPDATE_SCHEDULE = 'update_schedule';
+  const FEED_TYPE = 'feed_type';
   const RULES = 'rules';
 
   public function getFieldTypes() {
@@ -71,6 +72,7 @@ class ProductFeedFields extends AbstractEnum {
       'quoted_fields_mode' => 'QuotedFieldsMode',
       'schedule' => 'ProductFeedSchedule',
       'update_schedule' => 'ProductFeedSchedule',
+      'feed_type' => 'FeedType',
       'rules' => 'list<string>',
     );
   }

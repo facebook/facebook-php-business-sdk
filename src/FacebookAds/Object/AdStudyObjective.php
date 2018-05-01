@@ -58,6 +58,29 @@ class AdStudyObjective extends AbstractCrudObject {
   }
 
 
+  public function deleteSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/',
+      new AbstractCrudObject(),
+      'NODE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -72,6 +95,38 @@ class AdStudyObjective extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
+      '/',
+      new AdStudyObjective(),
+      'NODE',
+      AdStudyObjective::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'adspixels' => 'list<Object>',
+      'applications' => 'list<Object>',
+      'customconversions' => 'list<Object>',
+      'is_primary' => 'bool',
+      'name' => 'string',
+      'offline_conversion_data_sets' => 'list<Object>',
+      'offsitepixels' => 'list<Object>',
+      'type' => 'type_enum',
+    );
+    $enums = array(
+      'type_enum' => AdStudyObjectiveTypeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
       '/',
       new AdStudyObjective(),
       'NODE',

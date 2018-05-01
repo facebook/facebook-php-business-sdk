@@ -39,6 +39,7 @@ class AdAssetFeedSpecVideoFields extends AbstractEnum {
 
   const ADLABELS = 'adlabels';
   const CAPTION_IDS = 'caption_ids';
+  const THUMBNAIL_HASH = 'thumbnail_hash';
   const THUMBNAIL_URL = 'thumbnail_url';
   const URL_TAGS = 'url_tags';
   const VIDEO_ID = 'video_id';
@@ -47,6 +48,7 @@ class AdAssetFeedSpecVideoFields extends AbstractEnum {
     return array(
       'adlabels' => 'list<AdAssetFeedSpecAssetLabel>',
       'caption_ids' => 'list<string>',
+      'thumbnail_hash' => 'string',
       'thumbnail_url' => 'string',
       'url_tags' => 'string',
       'video_id' => 'string',

@@ -56,6 +56,9 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const EXTERNAL_MINIMUM_REACH = 'external_minimum_reach';
   const EXTERNAL_REACH = 'external_reach';
   const FREQUENCY_CAP = 'frequency_cap';
+  const FREQUENCY_DISTRIBUTION = 'frequency_distribution';
+  const FREQUENCY_DISTRIBUTION_MAP = 'frequency_distribution_map';
+  const FREQUENCY_DISTRIBUTION_MAP_AGG = 'frequency_distribution_map_agg';
   const GRP_DMAS_AUDIENCE_SIZE = 'grp_dmas_audience_size';
   const HOLDOUT_PERCENTAGE = 'holdout_percentage';
   const ID = 'id';
@@ -78,6 +81,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const DAY_PARTING_SCHEDULE = 'day_parting_schedule';
   const DESTINATION_IDS = 'destination_ids';
   const END_TIME = 'end_time';
+  const INSTREAM_PACKAGES = 'instream_packages';
   const NUM_CURVE_POINTS = 'num_curve_points';
   const OBJECTIVE = 'objective';
   const REACH = 'reach';
@@ -92,7 +96,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'campaign_id' => 'string',
       'campaign_time_start' => 'datetime',
       'campaign_time_stop' => 'datetime',
-      'curve_budget_reach' => 'string',
+      'curve_budget_reach' => 'Object',
       'daily_impression_curve' => 'list<float>',
       'destination_id' => 'string',
       'expiration_time' => 'datetime',
@@ -106,6 +110,9 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'external_minimum_reach' => 'unsigned int',
       'external_reach' => 'unsigned int',
       'frequency_cap' => 'unsigned int',
+      'frequency_distribution' => 'list<float>',
+      'frequency_distribution_map' => 'list<Object>',
+      'frequency_distribution_map_agg' => 'list<Object>',
       'grp_dmas_audience_size' => 'float',
       'holdout_percentage' => 'unsigned int',
       'id' => 'string',
@@ -128,6 +135,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'day_parting_schedule' => 'list<Object>',
       'destination_ids' => 'list<string>',
       'end_time' => 'unsigned int',
+      'instream_packages' => 'list<InstreamPackages>',
       'num_curve_points' => 'unsigned int',
       'objective' => 'string',
       'reach' => 'unsigned int',

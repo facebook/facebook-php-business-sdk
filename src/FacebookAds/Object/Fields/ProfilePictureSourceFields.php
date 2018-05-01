@@ -38,6 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class ProfilePictureSourceFields extends AbstractEnum {
 
   const BOTTOM = 'bottom';
+  const CACHE_KEY = 'cache_key';
   const HEIGHT = 'height';
   const IS_SILHOUETTE = 'is_silhouette';
   const LEFT = 'left';
@@ -49,6 +50,7 @@ class ProfilePictureSourceFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'bottom' => 'unsigned int',
+      'cache_key' => 'string',
       'height' => 'unsigned int',
       'is_silhouette' => 'bool',
       'left' => 'unsigned int',

@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdCreativeLinkDataImageOverlaySpecFields extends AbstractEnum {
 
+  const CUSTOM_TEXT_TYPE = 'custom_text_type';
   const FLOAT_WITH_MARGIN = 'float_with_margin';
   const OVERLAY_TEMPLATE = 'overlay_template';
   const POSITION = 'position';
@@ -47,6 +48,7 @@ class AdCreativeLinkDataImageOverlaySpecFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'custom_text_type' => 'CustomTextType',
       'float_with_margin' => 'bool',
       'overlay_template' => 'OverlayTemplate',
       'position' => 'Position',

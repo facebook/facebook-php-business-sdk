@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ReachFrequencyPredictionFields;
+use FacebookAds\Object\Values\ReachFrequencyPredictionInstreamPackagesValues;
 use FacebookAds\Object\Values\ReachFrequencyPredictionStatusValues;
 
 /**
@@ -58,6 +59,7 @@ class ReachFrequencyPrediction extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['InstreamPackages'] = ReachFrequencyPredictionInstreamPackagesValues::getInstance()->getValues();
     $ref_enums['Status'] = ReachFrequencyPredictionStatusValues::getInstance()->getValues();
     return $ref_enums;
   }

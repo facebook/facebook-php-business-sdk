@@ -49,7 +49,7 @@ class LeadgenFormFields extends AbstractEnum {
   const FOLLOW_UP_ACTION_TEXT = 'follow_up_action_text';
   const FOLLOW_UP_ACTION_URL = 'follow_up_action_url';
   const ID = 'id';
-  const IS_CONTINUED_FLOW = 'is_continued_flow';
+  const IS_OPTIMIZED_FOR_QUALITY = 'is_optimized_for_quality';
   const LEADGEN_EXPORT_CSV_URL = 'leadgen_export_csv_url';
   const LEADS_COUNT = 'leads_count';
   const LEGAL_CONTENT = 'legal_content';
@@ -81,15 +81,15 @@ class LeadgenFormFields extends AbstractEnum {
       'follow_up_action_text' => 'string',
       'follow_up_action_url' => 'string',
       'id' => 'string',
-      'is_continued_flow' => 'bool',
+      'is_optimized_for_quality' => 'bool',
       'leadgen_export_csv_url' => 'string',
       'leads_count' => 'unsigned int',
-      'legal_content' => 'Object',
+      'legal_content' => 'LeadGenLegalContent',
       'locale' => 'string',
       'messenger_welcome_message' => 'string',
       'name' => 'string',
       'organic_leads_count' => 'unsigned int',
-      'page' => 'Object',
+      'page' => 'Page',
       'page_id' => 'string',
       'privacy_policy_url' => 'string',
       'qualifiers' => 'list<LeadGenQualifier>',

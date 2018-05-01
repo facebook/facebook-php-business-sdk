@@ -52,7 +52,6 @@ class AdsInsightsFields extends AbstractEnum {
   const CAMPAIGN_NAME = 'campaign_name';
   const CANVAS_AVG_VIEW_PERCENT = 'canvas_avg_view_percent';
   const CANVAS_AVG_VIEW_TIME = 'canvas_avg_view_time';
-  const CANVAS_COMPONENT_AVG_PCT_VIEW = 'canvas_component_avg_pct_view';
   const CLICKS = 'clicks';
   const COST_PER_10_SEC_VIDEO_VIEW = 'cost_per_10_sec_video_view';
   const COST_PER_ACTION_TYPE = 'cost_per_action_type';
@@ -131,7 +130,6 @@ class AdsInsightsFields extends AbstractEnum {
       'campaign_name' => 'string',
       'canvas_avg_view_percent' => 'string',
       'canvas_avg_view_time' => 'string',
-      'canvas_component_avg_pct_view' => 'list<AdsActionStats>',
       'clicks' => 'string',
       'cost_per_10_sec_video_view' => 'list<AdsActionStats>',
       'cost_per_action_type' => 'list<AdsActionStats>',

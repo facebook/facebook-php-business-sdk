@@ -49,7 +49,6 @@ class TransactionFields extends AbstractEnum {
   const ID = 'id';
   const IS_BUSINESS_EC_CHARGE = 'is_business_ec_charge';
   const PAYMENT_OPTION = 'payment_option';
-  const PRODUCT_TYPE = 'product_type';
   const PROVIDER_AMOUNT = 'provider_amount';
   const STATUS = 'status';
   const TIME = 'time';
@@ -69,7 +68,6 @@ class TransactionFields extends AbstractEnum {
       'id' => 'string',
       'is_business_ec_charge' => 'bool',
       'payment_option' => 'string',
-      'product_type' => 'ProductType',
       'provider_amount' => 'TransactionCurrencyAmount',
       'status' => 'string',
       'time' => 'unsigned int',

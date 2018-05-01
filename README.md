@@ -1,4 +1,4 @@
-# Facebook Ads API SDK for PHP
+# Facebook Business SDK for PHP
 
 [![Packagist](https://img.shields.io/packagist/v/facebook/php-ads-sdk.svg?style=flat-square)](https://packagist.org/packages/facebook/php-ads-sdk)
 [![License](https://img.shields.io/badge/license-Facebook%20Platform-blue.svg?style=flat-square)](https://github.com/facebook/facebook-php-ads-sdk/blob/master/LICENSE)
@@ -6,22 +6,62 @@
 [![Scrutinizer](https://img.shields.io/scrutinizer/g/facebook/facebook-php-ads-sdk.svg?style=flat-square)](https://scrutinizer-ci.com/g/facebook/facebook-php-ads-sdk)
 [![Scrutinizer Coverage](https://img.shields.io/scrutinizer/coverage/g/facebook/facebook-php-ads-sdk.svg?style=flat-square)](https://scrutinizer-ci.com/g/facebook/facebook-php-ads-sdk)
 
-This Ads API SDK is built to facilitate application development for [Facebook Ads API](https://developers.facebook.com/docs/ads-api).
+## Introduction
+
+The Facebook <a href="https://developers.facebook.com/docs/business-sdk" target="_blank">Business SDK</a> is a one-stop shop to help our partners better serve their businesses. Partners are using multiple Facebook API's to server the needs of their clients. Adopting all these API's and keeping them up to date across the various platforms can be time consuming and ultimately prohibitive. For this reason Facebook has developed the Business SDK bundling many of its APIs into one SDK to ease implementation and upkeep. The Business SDK is an upgraded version of the Marketing API SDK that includes the Marketing API as well as many Facebook APIs from different platforms such as Pages, Business Manager, Instagram, etc.
+
+## Quick Start
+
+Business SDK <a href="https://developers.facebook.com/docs/business-sdk/getting-started" target="_blank">Getting Started Guide</a>
+
+## Pre-requisites
+
+### Register An App
+
+To get started with the SDK, you must have an app
+registered on <a href="https://developers.facebook.com/" target="_blank">developers.facebook.com</a>.
+
+To manage the Marketing API, please visit your
+<a href="https://developers.facebook.com/apps/<YOUR APP ID>/dashboard"> App Dashboard </a>
+and add the <b>Marketing API</b> product to your app.
+
+**IMPORTANT**: For security, it is recommended that you turn on 'App Secret
+Proof for Server API calls' in your app's Settings->Advanced page.
+
+### Obtain An Access Token
+
+When someone connects with an app using Facebook Login and approves the request
+for permissions, the app obtains an access token that provides temporary, secure
+access to Facebook APIs.
+
+An access token is an opaque string that identifies a User, app, or Page.
+
+For example, to access the Marketing API, you need to generate a User access token
+for your app and ask for the ``ads_management`` permission; to access Pages API,
+you need to generate a Page access token for your app and ask for the ``manage_page`` permission.
+
+Refer to our
+<a href="https://developers.facebook.com/docs/facebook-login/access-tokens" target="_blank">
+Access Token Guide</a> to learn more.
+
+For now, we can use the
+<a href="https://developers.facebook.com/tools/explorer" target="_blank">Graph Explorer</a>
+to get an access token.
 
 ## Installation
 
-The Facebook Ads API SDK requires PHP 5.4 or greater.
+The Facebook Business SDK requires PHP 5.4 or greater.
 
 ### Composer
 
-Facebook Ads API SDK uses composer to manage dependencies. You can follow this [document](https://getcomposer.org/download/) to install composer.
+The Facebook Business SDK uses composer to manage dependencies. Visit the <a href="https://getcomposer.org/download/" target="_blank">composer documentation</a> to learn how to install composer.
 
 Add the following to your `composer.json` file:
 
 ```json
 {
     "require": {
-        "facebook/php-ads-sdk": "2.11.*"
+        "facebook/php-business-sdk": "2.5.*"
     }
 }
 ```
@@ -41,13 +81,13 @@ This repository is written following the [psr-4 autoloading standard](http://www
 
 ### Api main class
 
-The `FacebookAds\Api` object is the foundation of the Ads SDK which encapsulates a `FacebookAds\Session` and is used to execute requests against the Graph API.
+The `FacebookAds\Api` object is the foundation of the Business SDK which encapsulates a `FacebookAds\Session` and is used to execute requests against the Graph API.
 
 To instantiate an Api object you will need a valid access token:
 ```php
 use FacebookAds\Api;
 
-// Initialize a new Session and instanciate an Api object
+// Initialize a new Session and instantiate an Api object
 Api::init($app_id, $app_secret, $access_token);
 
 // The Api object is now available trough singleton
@@ -55,11 +95,11 @@ $api = Api::instance();
 
 ```
 
-Once instantiated, the Api object will allow you to start making requests to the Ads API.
+Once instantiated, the Api object will allow you to start making requests to the Graph API.
 
 ### Fields names
 
-Due to the high number of field names in the Ads API existing objects, in order to facilitate your code maintainability, enum-like classes are provided.
+Due to the high number of field names in the Graph API existing objects, in order to facilitate your code maintainability, enum-like classes are provided.
 These files are stored under the `FacebookAds/Object/Fields` directory.
 You can access object properties in the same manner you would usually do in php:
 
@@ -84,7 +124,7 @@ echo $account->{AdAccountFields::NAME};
 
 ### Object classes
 
-Facebook Ads entities are defined as classes under the `FacebookAds/Object` directory. 
+Facebook Ads entities are defined as classes under the `FacebookAds/Object` directory.
 
 #### Read Objects
 

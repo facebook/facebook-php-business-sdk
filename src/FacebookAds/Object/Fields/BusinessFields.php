@@ -57,7 +57,7 @@ class BusinessFields extends AbstractEnum {
       'id' => 'string',
       'link' => 'string',
       'name' => 'string',
-      'primary_page' => 'Object',
+      'primary_page' => 'Page',
       'profile_picture_uri' => 'string',
       'timezone_id' => 'unsigned int',
       'two_factor_type' => 'string',

@@ -29,6 +29,8 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\LeadgenFormFields;
+use FacebookAds\Object\Values\LeadgenFormLocaleValues;
+use FacebookAds\Object\Values\LeadgenFormStatusValues;
 
 /**
  * This class is auto-generated.
@@ -57,6 +59,8 @@ class LeadgenForm extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['Locale'] = LeadgenFormLocaleValues::getInstance()->getValues();
+    $ref_enums['Status'] = LeadgenFormStatusValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -77,6 +81,32 @@ class LeadgenForm extends AbstractCrudObject {
       new Lead(),
       'EDGE',
       Lead::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createLead(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'end_time' => 'datetime',
+      'session_id' => 'string',
+      'start_time' => 'datetime',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/leads',
+      new LeadgenForm(),
+      'EDGE',
+      LeadgenForm::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -144,6 +174,38 @@ class LeadgenForm extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
+      '/',
+      new LeadgenForm(),
+      'NODE',
+      LeadgenForm::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'context_card_id' => 'string',
+      'legal_content_id' => 'string',
+      'locale' => 'locale_enum',
+      'name' => 'string',
+      'questions' => 'list<Object>',
+      'status' => 'status_enum',
+      'thank_you_page_id' => 'string',
+    );
+    $enums = array(
+      'locale_enum' => LeadgenFormLocaleValues::getInstance()->getValues(),
+      'status_enum' => LeadgenFormStatusValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
       '/',
       new LeadgenForm(),
       'NODE',

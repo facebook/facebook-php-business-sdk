@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdsPixelFields extends AbstractEnum {
 
+  const CAN_PROXY = 'can_proxy';
   const CODE = 'code';
   const CREATION_TIME = 'creation_time';
   const CREATOR = 'creator';
@@ -49,6 +50,7 @@ class AdsPixelFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'can_proxy' => 'bool',
       'code' => 'string',
       'creation_time' => 'datetime',
       'creator' => 'User',

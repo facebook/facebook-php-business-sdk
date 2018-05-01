@@ -51,7 +51,7 @@ class AdPlacePageSetFields extends AbstractEnum {
       'location_types' => 'list<string>',
       'name' => 'string',
       'pages_count' => 'int',
-      'parent_page' => 'Object',
+      'parent_page' => 'Page',
     );
   }
 }

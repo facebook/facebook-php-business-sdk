@@ -39,5 +39,6 @@ class AdCreativeLinkDataFormatOptionValues extends AbstractEnum {
 
   const CAROUSEL_IMAGES_MULTI_ITEMS = 'carousel_images_multi_items';
   const CAROUSEL_IMAGES_SINGLE_ITEM = 'carousel_images_single_item';
+  const CAROUSEL_SLIDESHOWS = 'carousel_slideshows';
   const SINGLE_IMAGE = 'single_image';
 }

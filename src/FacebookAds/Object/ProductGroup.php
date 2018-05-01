@@ -93,6 +93,7 @@ class ProductGroup extends AbstractCrudObject {
 
     $param_types = array(
       'additional_image_urls' => 'list<string>',
+      'additional_variant_attributes' => 'Object',
       'android_app_name' => 'string',
       'android_class' => 'string',
       'android_package' => 'string',
@@ -114,7 +115,7 @@ class ProductGroup extends AbstractCrudObject {
       'expiration_date' => 'string',
       'gender' => 'gender_enum',
       'gtin' => 'string',
-      'image_url' => 'string',
+      'image_url' => 'Object',
       'inventory' => 'unsigned int',
       'ios_app_name' => 'string',
       'ios_app_store_id' => 'unsigned int',
@@ -128,6 +129,9 @@ class ProductGroup extends AbstractCrudObject {
       'manufacturer_part_number' => 'string',
       'material' => 'string',
       'name' => 'string',
+      'offer_price_amount' => 'unsigned int',
+      'offer_price_end_date' => 'Object',
+      'offer_price_start_date' => 'Object',
       'ordering_index' => 'unsigned int',
       'pattern' => 'string',
       'price' => 'unsigned int',
@@ -139,7 +143,7 @@ class ProductGroup extends AbstractCrudObject {
       'short_description' => 'string',
       'size' => 'string',
       'start_date' => 'string',
-      'url' => 'string',
+      'url' => 'Object',
       'visibility' => 'visibility_enum',
       'windows_phone_app_id' => 'string',
       'windows_phone_app_name' => 'string',
@@ -217,6 +221,7 @@ class ProductGroup extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'default_product_id' => 'string',
       'variants' => 'list<Object>',
     );
     $enums = array(

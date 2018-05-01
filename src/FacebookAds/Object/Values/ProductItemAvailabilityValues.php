@@ -42,4 +42,5 @@ class ProductItemAvailabilityValues extends AbstractEnum {
   const PREORDER = 'preorder';
   const AVAILABLE_FOR_ORDER = 'available for order';
   const DISCONTINUED = 'discontinued';
+  const PENDING = 'pending';
 }

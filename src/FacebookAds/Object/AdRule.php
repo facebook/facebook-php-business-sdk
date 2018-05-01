@@ -144,7 +144,6 @@ class AdRule extends AbstractCrudObject {
       'evaluation_spec' => 'Object',
       'execution_spec' => 'Object',
       'name' => 'string',
-      'reset_period' => 'int',
       'schedule_spec' => 'Object',
       'status' => 'status_enum',
     );

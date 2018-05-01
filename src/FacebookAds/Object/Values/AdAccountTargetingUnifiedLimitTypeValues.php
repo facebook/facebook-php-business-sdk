@@ -138,4 +138,6 @@ class AdAccountTargetingUnifiedLimitTypeValues extends AbstractEnum {
   const LOCATION_CATEGORIES = 'location_categories';
   const USER_PAGE_THREADS = 'user_page_threads';
   const USER_PAGE_THREADS_EXCLUDED = 'user_page_threads_excluded';
+  const IS_WHATSAPP_DESTINATION_AD = 'is_whatsapp_destination_ad';
+  const MARKETPLACE_PRODUCT_CATEGORIES = 'marketplace_product_categories';
 }

@@ -44,6 +44,7 @@ class CampaignObjectiveValues extends AbstractEnum {
   const LEAD_GENERATION = 'LEAD_GENERATION';
   const LINK_CLICKS = 'LINK_CLICKS';
   const LOCAL_AWARENESS = 'LOCAL_AWARENESS';
+  const MESSAGES = 'MESSAGES';
   const OFFER_CLAIMS = 'OFFER_CLAIMS';
   const PAGE_LIKES = 'PAGE_LIKES';
   const POST_ENGAGEMENT = 'POST_ENGAGEMENT';

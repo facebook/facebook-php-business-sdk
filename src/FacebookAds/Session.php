@@ -82,6 +82,9 @@ class Session implements SessionInterface {
    * @return string
    */
   public function getAppSecretProof() {
+    if ($this->getAppSecret() === null) {
+      return null;
+    }
     if ($this->appSecretProof === null) {
       $this->appSecretProof
         = hash_hmac('sha256', $this->getAccessToken(), $this->getAppSecret());
@@ -93,9 +96,15 @@ class Session implements SessionInterface {
    * @return array
    */
   public function getRequestParameters() {
-    return array(
-      'access_token' => $this->getAccessToken(),
-      'appsecret_proof' => $this->getAppSecretProof(),
-    );
+    if ($this->getAppSecretProof() !== null) {
+      return array(
+        'access_token' => $this->getAccessToken(),
+        'appsecret_proof' => $this->getAppSecretProof(),
+      );
+    } else {
+      return array(
+        'access_token' => $this->getAccessToken(),
+      );
+    }
   }
 }

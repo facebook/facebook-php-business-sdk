@@ -49,8 +49,6 @@ class CampaignFields extends AbstractEnum {
   const CREATED_TIME = 'created_time';
   const EFFECTIVE_STATUS = 'effective_status';
   const ID = 'id';
-  const KPI_CUSTOM_CONVERSION_ID = 'kpi_custom_conversion_id';
-  const KPI_TYPE = 'kpi_type';
   const NAME = 'name';
   const OBJECTIVE = 'objective';
   const RECOMMENDATIONS = 'recommendations';
@@ -61,7 +59,9 @@ class CampaignFields extends AbstractEnum {
   const STATUS = 'status';
   const STOP_TIME = 'stop_time';
   const UPDATED_TIME = 'updated_time';
+  const ADBATCH = 'adbatch';
   const EXECUTION_OPTIONS = 'execution_options';
+  const ITERATIVE_SPLIT_TEST_CONFIGS = 'iterative_split_test_configs';
   const PROMOTED_OBJECT = 'promoted_object';
 
   public function getFieldTypes() {
@@ -78,8 +78,6 @@ class CampaignFields extends AbstractEnum {
       'created_time' => 'datetime',
       'effective_status' => 'EffectiveStatus',
       'id' => 'string',
-      'kpi_custom_conversion_id' => 'string',
-      'kpi_type' => 'string',
       'name' => 'string',
       'objective' => 'string',
       'recommendations' => 'list<AdRecommendation>',
@@ -90,7 +88,9 @@ class CampaignFields extends AbstractEnum {
       'status' => 'Status',
       'stop_time' => 'datetime',
       'updated_time' => 'datetime',
+      'adbatch' => 'list<Object>',
       'execution_options' => 'list<ExecutionOptions>',
+      'iterative_split_test_configs' => 'list<Object>',
       'promoted_object' => 'Object',
     );
   }

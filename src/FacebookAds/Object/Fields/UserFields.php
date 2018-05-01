@@ -38,6 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class UserFields extends AbstractEnum {
 
   const ABOUT = 'about';
+  const ADDRESS = 'address';
   const ADMIN_NOTES = 'admin_notes';
   const AGE_RANGE = 'age_range';
   const BIRTHDAY = 'birthday';
@@ -59,12 +60,16 @@ class UserFields extends AbstractEnum {
   const INSTALL_TYPE = 'install_type';
   const INSTALLED = 'installed';
   const INTERESTED_IN = 'interested_in';
+  const IS_PAYMENT_ENABLED = 'is_payment_enabled';
   const IS_SHARED_LOGIN = 'is_shared_login';
   const IS_VERIFIED = 'is_verified';
   const LABELS = 'labels';
   const LANGUAGES = 'languages';
+  const LAST_AD_REFERRAL = 'last_ad_referral';
   const LAST_NAME = 'last_name';
   const LINK = 'link';
+  const LOCAL_NEWS_MEGAPHONE_DISMISS_STATUS = 'local_news_megaphone_dismiss_status';
+  const LOCAL_NEWS_SUBSCRIPTION_STATUS = 'local_news_subscription_status';
   const LOCALE = 'locale';
   const LOCATION = 'location';
   const MEETING_FOR = 'meeting_for';
@@ -73,6 +78,7 @@ class UserFields extends AbstractEnum {
   const NAME_FORMAT = 'name_format';
   const PAYMENT_PRICEPOINTS = 'payment_pricepoints';
   const POLITICAL = 'political';
+  const PROFILE_PIC = 'profile_pic';
   const PUBLIC_KEY = 'public_key';
   const QUOTES = 'quotes';
   const RELATIONSHIP_STATUS = 'relationship_status';
@@ -96,7 +102,8 @@ class UserFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'about' => 'string',
-      'admin_notes' => 'list<Object>',
+      'address' => 'Location',
+      'admin_notes' => 'list<PageAdminNote>',
       'age_range' => 'Object',
       'birthday' => 'string',
       'can_review_measurement_request' => 'bool',
@@ -111,26 +118,31 @@ class UserFields extends AbstractEnum {
       'favorite_teams' => 'list<Object>',
       'first_name' => 'string',
       'gender' => 'string',
-      'hometown' => 'Object',
+      'hometown' => 'Page',
       'id' => 'string',
       'inspirational_people' => 'list<Object>',
       'install_type' => 'string',
       'installed' => 'bool',
       'interested_in' => 'list<string>',
+      'is_payment_enabled' => 'bool',
       'is_shared_login' => 'bool',
       'is_verified' => 'bool',
-      'labels' => 'list<Object>',
+      'labels' => 'list<PageLabel>',
       'languages' => 'list<Object>',
+      'last_ad_referral' => 'Object',
       'last_name' => 'string',
       'link' => 'string',
+      'local_news_megaphone_dismiss_status' => 'bool',
+      'local_news_subscription_status' => 'bool',
       'locale' => 'string',
-      'location' => 'Object',
+      'location' => 'Page',
       'meeting_for' => 'list<string>',
       'middle_name' => 'string',
       'name' => 'string',
       'name_format' => 'string',
       'payment_pricepoints' => 'Object',
       'political' => 'string',
+      'profile_pic' => 'string',
       'public_key' => 'string',
       'quotes' => 'string',
       'relationship_status' => 'string',

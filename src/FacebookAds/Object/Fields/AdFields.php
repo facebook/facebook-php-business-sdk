@@ -65,7 +65,6 @@ class AdFields extends AbstractEnum {
   const DATE_FORMAT = 'date_format';
   const DISPLAY_SEQUENCE = 'display_sequence';
   const EXECUTION_OPTIONS = 'execution_options';
-  const REDOWNLOAD = 'redownload';
   const FILENAME = 'filename';
 
   public function getFieldTypes() {
@@ -98,7 +97,6 @@ class AdFields extends AbstractEnum {
       'date_format' => 'string',
       'display_sequence' => 'unsigned int',
       'execution_options' => 'list<ExecutionOptions>',
-      'redownload' => 'bool',
       'filename' => 'file',
     );
   }

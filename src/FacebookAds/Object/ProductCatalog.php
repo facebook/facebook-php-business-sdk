@@ -32,8 +32,12 @@ use FacebookAds\Object\Fields\ProductCatalogFields;
 use FacebookAds\Object\Values\ProductCatalogHotelRoomsBatchStandardValues;
 use FacebookAds\Object\Values\ProductCatalogPricingVariablesBatchStandardValues;
 use FacebookAds\Object\Values\ProductCatalogVerticalValues;
+use FacebookAds\Object\Values\ProductDaEventSamplesBatchAggregationTypeValues;
+use FacebookAds\Object\Values\ProductDaEventSamplesBatchEventValues;
+use FacebookAds\Object\Values\ProductEventStatBreakdownsValues;
 use FacebookAds\Object\Values\ProductFeedDelimiterValues;
 use FacebookAds\Object\Values\ProductFeedEncodingValues;
+use FacebookAds\Object\Values\ProductFeedFeedTypeValues;
 use FacebookAds\Object\Values\ProductFeedQuotedFieldsModeValues;
 use FacebookAds\Object\Values\ProductItemAvailabilityValues;
 use FacebookAds\Object\Values\ProductItemConditionValues;
@@ -55,7 +59,7 @@ class ProductCatalog extends AbstractCrudObject {
    * @deprecated getEndpoint function is deprecated
    */
   protected function getEndpoint() {
-    return 'product_catalogs';
+    return 'owned_product_catalogs';
   }
 
   /**
@@ -95,6 +99,30 @@ class ProductCatalog extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createBatch(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'requests' => 'list<map>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/batch',
+      new ProductItem(),
+      'EDGE',
+      ProductItem::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getCheckBatchRequestStatus(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -112,6 +140,34 @@ class ProductCatalog extends AbstractCrudObject {
       new CheckBatchRequestStatus(),
       'EDGE',
       CheckBatchRequestStatus::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getDaEventSamples(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'aggregation_type' => 'aggregation_type_enum',
+      'event' => 'event_enum',
+      'source_id' => 'string',
+    );
+    $enums = array(
+      'aggregation_type_enum' => ProductDaEventSamplesBatchAggregationTypeValues::getInstance()->getValues(),
+      'event_enum' => ProductDaEventSamplesBatchEventValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/da_event_samples',
+      new ProductDaEventSamplesBatch(),
+      'EDGE',
+      ProductDaEventSamplesBatch::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -137,6 +193,31 @@ class ProductCatalog extends AbstractCrudObject {
       new AbstractCrudObject(),
       'EDGE',
       array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getEventStats(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'breakdowns' => 'list<breakdowns_enum>',
+    );
+    $enums = array(
+      'breakdowns_enum' => ProductEventStatBreakdownsValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/event_stats',
+      new ProductEventStat(),
+      'EDGE',
+      ProductEventStat::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -372,9 +453,9 @@ class ProductCatalog extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/hotels',
-      new Hotel(),
+      new AbstractCrudObject(),
       'EDGE',
-      Hotel::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -406,9 +487,9 @@ class ProductCatalog extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/hotels',
-      new Hotel(),
+      new AbstractCrudObject(),
       'EDGE',
-      Hotel::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -502,6 +583,7 @@ class ProductCatalog extends AbstractCrudObject {
       'deletion_enabled' => 'bool',
       'delimiter' => 'delimiter_enum',
       'encoding' => 'encoding_enum',
+      'feed_type' => 'feed_type_enum',
       'file_name' => 'string',
       'name' => 'string',
       'quoted_fields_mode' => 'quoted_fields_mode_enum',
@@ -512,6 +594,7 @@ class ProductCatalog extends AbstractCrudObject {
     $enums = array(
       'delimiter_enum' => ProductFeedDelimiterValues::getInstance()->getValues(),
       'encoding_enum' => ProductFeedEncodingValues::getInstance()->getValues(),
+      'feed_type_enum' => ProductFeedFeedTypeValues::getInstance()->getValues(),
       'quoted_fields_mode_enum' => ProductFeedQuotedFieldsModeValues::getInstance()->getValues(),
     );
 
@@ -644,9 +727,9 @@ class ProductCatalog extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/product_sets_batch',
-      new AbstractCrudObject(),
+      new ProductCatalogProductSetsBatch(),
       'EDGE',
-      array(),
+      ProductCatalogProductSetsBatch::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -684,6 +767,7 @@ class ProductCatalog extends AbstractCrudObject {
 
     $param_types = array(
       'additional_image_urls' => 'list<string>',
+      'additional_variant_attributes' => 'Object',
       'android_app_name' => 'string',
       'android_class' => 'string',
       'android_package' => 'string',
@@ -705,7 +789,7 @@ class ProductCatalog extends AbstractCrudObject {
       'expiration_date' => 'string',
       'gender' => 'gender_enum',
       'gtin' => 'string',
-      'image_url' => 'string',
+      'image_url' => 'Object',
       'inventory' => 'unsigned int',
       'ios_app_name' => 'string',
       'ios_app_store_id' => 'unsigned int',
@@ -719,6 +803,9 @@ class ProductCatalog extends AbstractCrudObject {
       'manufacturer_part_number' => 'string',
       'material' => 'string',
       'name' => 'string',
+      'offer_price_amount' => 'unsigned int',
+      'offer_price_end_date' => 'Object',
+      'offer_price_start_date' => 'Object',
       'ordering_index' => 'unsigned int',
       'pattern' => 'string',
       'price' => 'unsigned int',
@@ -731,7 +818,7 @@ class ProductCatalog extends AbstractCrudObject {
       'short_description' => 'string',
       'size' => 'string',
       'start_date' => 'string',
-      'url' => 'string',
+      'url' => 'Object',
       'visibility' => 'visibility_enum',
       'windows_phone_app_id' => 'string',
       'windows_phone_app_name' => 'string',
@@ -759,6 +846,54 @@ class ProductCatalog extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getQualityIssues(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/quality_issues',
+      new ProductsQualityIssue(),
+      'EDGE',
+      ProductsQualityIssue::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getVehicles(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'bulk_pagination' => 'bool',
+      'filter' => 'Object',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/vehicles',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createVideo(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -766,9 +901,12 @@ class ProductCatalog extends AbstractCrudObject {
       'content_category' => 'content_category_enum',
       'description' => 'string',
       'embeddable' => 'bool',
+      'end_offset' => 'unsigned int',
       'file_size' => 'unsigned int',
       'file_url' => 'string',
+      'fisheye_video_cropped' => 'bool',
       'fov' => 'unsigned int',
+      'front_z_rotation' => 'float',
       'guide' => 'list<list<unsigned int>>',
       'guide_enabled' => 'bool',
       'initial_heading' => 'unsigned int',
@@ -814,6 +952,7 @@ class ProductCatalog extends AbstractCrudObject {
         'equirectangular',
         'cubemap',
         'equiangular_cubemap',
+        'half_equirectangular',
       ),
       'swap_mode_enum' => array(
         'replace',
@@ -822,6 +961,8 @@ class ProductCatalog extends AbstractCrudObject {
         'SCHEDULED',
         'DRAFT',
         'ADS_POST',
+        'INLINE_CREATED',
+        'PUBLISHED',
       ),
       'upload_phase_enum' => array(
         'start',
@@ -898,6 +1039,7 @@ class ProductCatalog extends AbstractCrudObject {
     $param_types = array(
       'da_display_settings' => 'Object',
       'default_image_url' => 'string',
+      'destination_catalog_settings' => 'map',
       'fallback_image_url' => 'string',
       'flight_catalog_settings' => 'map',
       'name' => 'string',

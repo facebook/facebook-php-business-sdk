@@ -94,6 +94,7 @@ class TargetingFields extends AbstractEnum {
   const INSTAGRAM_POSITIONS = 'instagram_positions';
   const INTERESTED_IN = 'interested_in';
   const INTERESTS = 'interests';
+  const IS_WHATSAPP_DESTINATION_AD = 'is_whatsapp_destination_ad';
   const KEYWORDS = 'keywords';
   const LIFE_EVENTS = 'life_events';
   const LOCALES = 'locales';
@@ -181,6 +182,7 @@ class TargetingFields extends AbstractEnum {
       'instagram_positions' => 'list<string>',
       'interested_in' => 'list<unsigned int>',
       'interests' => 'list<IDName>',
+      'is_whatsapp_destination_ad' => 'bool',
       'keywords' => 'list<string>',
       'life_events' => 'list<IDName>',
       'locales' => 'list<unsigned int>',

@@ -56,6 +56,7 @@ class AdCreativeFields extends AbstractEnum {
   const INSTAGRAM_STORY_ID = 'instagram_story_id';
   const LINK_OG_ID = 'link_og_id';
   const LINK_URL = 'link_url';
+  const MESSENGER_SPONSORED_MESSAGE = 'messenger_sponsored_message';
   const NAME = 'name';
   const OBJECT_ID = 'object_id';
   const OBJECT_STORY_ID = 'object_story_id';
@@ -73,7 +74,6 @@ class AdCreativeFields extends AbstractEnum {
   const URL_TAGS = 'url_tags';
   const USE_PAGE_ACTOR_OVERRIDE = 'use_page_actor_override';
   const VIDEO_ID = 'video_id';
-  const CALL_TO_ACTION = 'call_to_action';
   const DYNAMIC_AD_VOICE = 'dynamic_ad_voice';
   const IMAGE_FILE = 'image_file';
 
@@ -98,6 +98,7 @@ class AdCreativeFields extends AbstractEnum {
       'instagram_story_id' => 'string',
       'link_og_id' => 'string',
       'link_url' => 'string',
+      'messenger_sponsored_message' => 'string',
       'name' => 'string',
       'object_id' => 'string',
       'object_story_id' => 'string',
@@ -115,7 +116,6 @@ class AdCreativeFields extends AbstractEnum {
       'url_tags' => 'string',
       'use_page_actor_override' => 'bool',
       'video_id' => 'string',
-      'call_to_action' => 'Object',
       'dynamic_ad_voice' => 'DynamicAdVoice',
       'image_file' => 'string',
     );

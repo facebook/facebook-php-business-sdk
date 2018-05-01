@@ -38,6 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class AdAssetFeedSpecLinkURLFields extends AbstractEnum {
 
   const ADLABELS = 'adlabels';
+  const CAROUSEL_SEE_MORE_URL = 'carousel_see_more_url';
   const DEEPLINK_URL = 'deeplink_url';
   const DISPLAY_URL = 'display_url';
   const URL_TAGS = 'url_tags';
@@ -46,6 +47,7 @@ class AdAssetFeedSpecLinkURLFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'adlabels' => 'list<AdAssetFeedSpecAssetLabel>',
+      'carousel_see_more_url' => 'string',
       'deeplink_url' => 'string',
       'display_url' => 'string',
       'url_tags' => 'string',

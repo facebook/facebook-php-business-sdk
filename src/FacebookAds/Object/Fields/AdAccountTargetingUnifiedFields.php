@@ -40,8 +40,11 @@ class AdAccountTargetingUnifiedFields extends AbstractEnum {
   const AUDIENCE_SIZE = 'audience_size';
   const DESCRIPTION = 'description';
   const ID = 'id';
+  const IS_RECOMMENDATION = 'is_recommendation';
   const NAME = 'name';
   const PATH = 'path';
+  const RECOMMENDATION_MODEL = 'recommendation_model';
+  const SEARCH_INTEREST_ID = 'search_interest_id';
   const TYPE = 'type';
   const VALID = 'valid';
 
@@ -50,8 +53,11 @@ class AdAccountTargetingUnifiedFields extends AbstractEnum {
       'audience_size' => 'unsigned int',
       'description' => 'string',
       'id' => 'string',
+      'is_recommendation' => 'bool',
       'name' => 'string',
       'path' => 'list<string>',
+      'recommendation_model' => 'string',
+      'search_interest_id' => 'string',
       'type' => 'string',
       'valid' => 'bool',
     );

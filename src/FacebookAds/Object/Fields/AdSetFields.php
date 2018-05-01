@@ -43,6 +43,7 @@ class AdSetFields extends AbstractEnum {
   const ATTRIBUTION_SPEC = 'attribution_spec';
   const BID_AMOUNT = 'bid_amount';
   const BID_INFO = 'bid_info';
+  const BID_STRATEGY = 'bid_strategy';
   const BILLING_EVENT = 'billing_event';
   const BUDGET_REMAINING = 'budget_remaining';
   const CAMPAIGN = 'campaign';
@@ -57,8 +58,6 @@ class AdSetFields extends AbstractEnum {
   const FREQUENCY_CONTROL_SPECS = 'frequency_control_specs';
   const ID = 'id';
   const INSTAGRAM_ACTOR_ID = 'instagram_actor_id';
-  const IS_AUTOBID = 'is_autobid';
-  const IS_AVERAGE_PRICE_PACING = 'is_average_price_pacing';
   const LIFETIME_BUDGET = 'lifetime_budget';
   const LIFETIME_IMPS = 'lifetime_imps';
   const NAME = 'name';
@@ -81,16 +80,16 @@ class AdSetFields extends AbstractEnum {
   const CAMPAIGN_SPEC = 'campaign_spec';
   const DAILY_IMPS = 'daily_imps';
   const EXECUTION_OPTIONS = 'execution_options';
-  const REDOWNLOAD = 'redownload';
 
   public function getFieldTypes() {
     return array(
       'account_id' => 'string',
       'adlabels' => 'list<AdLabel>',
       'adset_schedule' => 'list<DayPart>',
-      'attribution_spec' => 'list<Object>',
+      'attribution_spec' => 'list<AttributionSpec>',
       'bid_amount' => 'unsigned int',
       'bid_info' => 'map<string, unsigned int>',
+      'bid_strategy' => 'BidStrategy',
       'billing_event' => 'BillingEvent',
       'budget_remaining' => 'string',
       'campaign' => 'Campaign',
@@ -102,11 +101,9 @@ class AdSetFields extends AbstractEnum {
       'destination_type' => 'string',
       'effective_status' => 'EffectiveStatus',
       'end_time' => 'datetime',
-      'frequency_control_specs' => 'list<Object>',
+      'frequency_control_specs' => 'list<AdCampaignFrequencyControlSpecs>',
       'id' => 'string',
       'instagram_actor_id' => 'string',
-      'is_autobid' => 'bool',
-      'is_average_price_pacing' => 'bool',
       'lifetime_budget' => 'string',
       'lifetime_imps' => 'int',
       'name' => 'string',
@@ -129,7 +126,6 @@ class AdSetFields extends AbstractEnum {
       'campaign_spec' => 'Object',
       'daily_imps' => 'unsigned int',
       'execution_options' => 'list<ExecutionOptions>',
-      'redownload' => 'bool',
     );
   }
 }

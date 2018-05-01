@@ -55,7 +55,6 @@ class AdImageFields extends AbstractEnum {
   const WIDTH = 'width';
   const BYTES = 'bytes';
   const COPY_FROM = 'copy_from';
-  const ZIPBYTES = 'zipbytes';
   const FILENAME = 'filename';
 
   public function getFieldTypes() {
@@ -78,7 +77,6 @@ class AdImageFields extends AbstractEnum {
       'width' => 'unsigned int',
       'bytes' => 'Object',
       'copy_from' => 'Object',
-      'zipbytes' => 'Object',
       'filename' => 'file',
     );
   }

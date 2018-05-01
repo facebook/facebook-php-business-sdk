@@ -29,6 +29,14 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\UserFields;
+use FacebookAds\Object\Values\EventPromotableEventTypesValues;
+use FacebookAds\Object\Values\LiveVideoBroadcastStatusValues;
+use FacebookAds\Object\Values\LiveVideoProjectionValues;
+use FacebookAds\Object\Values\LiveVideoSpatialAudioFormatValues;
+use FacebookAds\Object\Values\LiveVideoStatusValues;
+use FacebookAds\Object\Values\LiveVideoStreamTypeValues;
+use FacebookAds\Object\Values\LiveVideoTypeValues;
+use FacebookAds\Object\Values\PhotoBackdatedTimeGranularityValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
 
 /**
@@ -72,6 +80,44 @@ class User extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/accounts',
+      new Page(),
+      'EDGE',
+      Page::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createAccount(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'about' => 'string',
+      'address' => 'string',
+      'category_enum' => 'string',
+      'category_list' => 'list<string>',
+      'city_id' => 'Object',
+      'coordinates' => 'Object',
+      'cover_photo' => 'Object',
+      'description' => 'string',
+      'ignore_coordinate_warnings' => 'bool',
+      'location' => 'Object',
+      'name' => 'string',
+      'phone' => 'string',
+      'picture' => 'string',
+      'website' => 'string',
+      'zip' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/accounts',
       new AbstractCrudObject(),
       'EDGE',
       array(),
@@ -105,6 +151,65 @@ class User extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createAlbum(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'contributors' => 'list<int>',
+      'description' => 'string',
+      'is_default' => 'bool',
+      'location' => 'string',
+      'make_shared_album' => 'bool',
+      'message' => 'string',
+      'name' => 'string',
+      'place' => 'Object',
+      'privacy' => 'Object',
+      'tags' => 'list<int>',
+      'visible' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/albums',
+      new Album(),
+      'EDGE',
+      Album::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getConversations(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'folder' => 'string',
+      'tags' => 'list<string>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/conversations',
+      new UnifiedThread(),
+      'EDGE',
+      UnifiedThread::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getLeadGenForms(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -123,6 +228,172 @@ class User extends AbstractCrudObject {
       new LeadgenForm(),
       'EDGE',
       LeadgenForm::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createLiveEncoder(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'brand' => 'string',
+      'device_id' => 'string',
+      'model' => 'string',
+      'name' => 'string',
+      'version' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/live_encoders',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getLiveVideos(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'broadcast_status' => 'list<broadcast_status_enum>',
+      'type' => 'type_enum',
+    );
+    $enums = array(
+      'broadcast_status_enum' => LiveVideoBroadcastStatusValues::getInstance()->getValues(),
+      'type_enum' => LiveVideoTypeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/live_videos',
+      new LiveVideo(),
+      'EDGE',
+      LiveVideo::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createLiveVideo(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'attribution_app_id' => 'string',
+      'content_tags' => 'list<string>',
+      'description' => 'string',
+      'encoding_settings' => 'string',
+      'fisheye_video_cropped' => 'bool',
+      'front_z_rotation' => 'float',
+      'is_spherical' => 'bool',
+      'live_encoders' => 'list<string>',
+      'original_fov' => 'unsigned int',
+      'planned_start_time' => 'int',
+      'privacy' => 'Object',
+      'projection' => 'projection_enum',
+      'published' => 'bool',
+      'save_vod' => 'bool',
+      'schedule_custom_profile_image' => 'file',
+      'spatial_audio_format' => 'spatial_audio_format_enum',
+      'status' => 'status_enum',
+      'stop_on_delete_stream' => 'bool',
+      'stream_type' => 'stream_type_enum',
+      'title' => 'string',
+    );
+    $enums = array(
+      'projection_enum' => LiveVideoProjectionValues::getInstance()->getValues(),
+      'spatial_audio_format_enum' => LiveVideoSpatialAudioFormatValues::getInstance()->getValues(),
+      'status_enum' => LiveVideoStatusValues::getInstance()->getValues(),
+      'stream_type_enum' => LiveVideoStreamTypeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/live_videos',
+      new LiveVideo(),
+      'EDGE',
+      LiveVideo::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createPhoto(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'aid' => 'string',
+      'allow_spherical_photo' => 'bool',
+      'application_id' => 'string',
+      'audience_exp' => 'bool',
+      'backdated_time' => 'datetime',
+      'backdated_time_granularity' => 'backdated_time_granularity_enum',
+      'caption' => 'string',
+      'composer_session_id' => 'string',
+      'direct_share_status' => 'unsigned int',
+      'feed_targeting' => 'Object',
+      'full_res_is_coming_later' => 'bool',
+      'initial_view_heading_override_degrees' => 'unsigned int',
+      'initial_view_pitch_override_degrees' => 'unsigned int',
+      'initial_view_vertical_fov_override_degrees' => 'unsigned int',
+      'is_explicit_location' => 'bool',
+      'is_explicit_place' => 'bool',
+      'manual_privacy' => 'bool',
+      'message' => 'string',
+      'name' => 'string',
+      'no_story' => 'bool',
+      'offline_id' => 'unsigned int',
+      'og_action_type_id' => 'string',
+      'og_icon_id' => 'string',
+      'og_object_id' => 'string',
+      'og_phrase' => 'string',
+      'og_set_profile_badge' => 'bool',
+      'og_suggestion_mechanism' => 'string',
+      'place' => 'Object',
+      'privacy' => 'Object',
+      'profile_id' => 'int',
+      'published' => 'bool',
+      'qn' => 'string',
+      'scheduled_publish_time' => 'unsigned int',
+      'spherical_metadata' => 'map',
+      'sponsor_id' => 'string',
+      'sponsor_relationship' => 'unsigned int',
+      'tags' => 'list<Object>',
+      'target_id' => 'int',
+      'targeting' => 'Object',
+      'url' => 'string',
+    );
+    $enums = array(
+      'backdated_time_granularity_enum' => PhotoBackdatedTimeGranularityValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/photos',
+      new Photo(),
+      'EDGE',
+      Photo::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -188,8 +459,10 @@ class User extends AbstractCrudObject {
       'include_past_events' => 'bool',
       'is_page_event' => 'bool',
       'page_id' => 'unsigned int',
+      'promotable_event_types' => 'list<promotable_event_types_enum>',
     );
     $enums = array(
+      'promotable_event_types_enum' => EventPromotableEventTypesValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -200,6 +473,31 @@ class User extends AbstractCrudObject {
       new Event(),
       'EDGE',
       Event::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getThreads(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'folder' => 'string',
+      'tags' => 'list<string>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/threads',
+      new UnifiedThread(),
+      'EDGE',
+      UnifiedThread::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

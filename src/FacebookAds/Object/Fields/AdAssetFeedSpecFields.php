@@ -38,6 +38,8 @@ use FacebookAds\Enum\AbstractEnum;
 class AdAssetFeedSpecFields extends AbstractEnum {
 
   const AD_FORMATS = 'ad_formats';
+  const ASSET_CUSTOMIZATION_RULES = 'asset_customization_rules';
+  const AUTOTRANSLATE = 'autotranslate';
   const BODIES = 'bodies';
   const CALL_TO_ACTION_TYPES = 'call_to_action_types';
   const CAPTIONS = 'captions';
@@ -46,13 +48,14 @@ class AdAssetFeedSpecFields extends AbstractEnum {
   const IMAGES = 'images';
   const LINK_URLS = 'link_urls';
   const OPTIMIZATION_TYPE = 'optimization_type';
-  const TARGET_RULES = 'target_rules';
   const TITLES = 'titles';
   const VIDEOS = 'videos';
 
   public function getFieldTypes() {
     return array(
       'ad_formats' => 'list<string>',
+      'asset_customization_rules' => 'list<Object>',
+      'autotranslate' => 'list<string>',
       'bodies' => 'list<AdAssetFeedSpecBody>',
       'call_to_action_types' => 'list<CallToActionTypes>',
       'captions' => 'list<AdAssetFeedSpecCaption>',
@@ -61,7 +64,6 @@ class AdAssetFeedSpecFields extends AbstractEnum {
       'images' => 'list<AdAssetFeedSpecImage>',
       'link_urls' => 'list<AdAssetFeedSpecLinkURL>',
       'optimization_type' => 'string',
-      'target_rules' => 'list<AdAssetFeedSpecTargetRule>',
       'titles' => 'list<AdAssetFeedSpecTitle>',
       'videos' => 'list<AdAssetFeedSpecVideo>',
     );

@@ -29,7 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\TransactionFields;
-use FacebookAds\Object\Values\TransactionProductTypeValues;
 
 /**
  * This class is auto-generated.
@@ -58,7 +57,6 @@ class Transaction extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['ProductType'] = TransactionProductTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 

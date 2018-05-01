@@ -57,12 +57,18 @@ class AbstractCrudObject extends AbstractObject {
   public function __construct($id = null, $parent_id = null, Api $api = null) {
     parent::__construct();
 
-    // check that $id is an integer or a string integer
+    // check that $id is an integer or a string integer or a string of
+    // two integer connected by an underscore, like "123_456"
+
     $int_id = $id;
     if (strpos($id, 'act_') === 0) {
       $int_id = substr($id, 4);
     }
-    if (!is_null($int_id) && !ctype_digit((string) $int_id)) {
+    $split_by_underscore = explode('_', (string) $id);
+    $is_regular_id = sizeof($split_by_underscore) == 2 &&
+                     ctype_digit($split_by_underscore[0]) &&
+                     ctype_digit($split_by_underscore[1]);
+    if (!is_null($int_id) && !ctype_digit((string) $int_id) && !$is_regular_id) {
       $extra_message = '';
       if (is_numeric($int_id)) {
         $extra_message = ' Please use an integer string'

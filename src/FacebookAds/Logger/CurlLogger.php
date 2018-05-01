@@ -82,7 +82,7 @@ class CurlLogger implements LoggerInterface {
    */
   public function __construct($handle = null) {
     if (!defined('STDOUT')) {
-        define('STDOUT', fopen('php://stdout', 'w'));
+      define('STDOUT', fopen('php://stdout', 'w'));
     }
     $this->handle = is_resource($handle) ? $handle : STDOUT;
   }

@@ -37,6 +37,7 @@ use FacebookAds\Object\Values\AdExecutionOptionsValues;
 use FacebookAds\Object\Values\AdLabelExecutionOptionsValues;
 use FacebookAds\Object\Values\AdOperatorValues;
 use FacebookAds\Object\Values\AdPreviewAdFormatValues;
+use FacebookAds\Object\Values\AdStatusOptionValues;
 use FacebookAds\Object\Values\AdStatusValues;
 use FacebookAds\Object\Values\AdsInsightsActionAttributionWindowsValues;
 use FacebookAds\Object\Values\AdsInsightsActionBreakdownsValues;
@@ -85,6 +86,7 @@ class Ad extends AbstractArchivableCrudObject
     $ref_enums['DatePreset'] = AdDatePresetValues::getInstance()->getValues();
     $ref_enums['ExecutionOptions'] = AdExecutionOptionsValues::getInstance()->getValues();
     $ref_enums['Operator'] = AdOperatorValues::getInstance()->getValues();
+    $ref_enums['StatusOption'] = AdStatusOptionValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -157,6 +159,57 @@ class Ad extends AbstractArchivableCrudObject
       new AdLabel(),
       'EDGE',
       AdLabel::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getAdRulesGoverned(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'pass_evaluation' => 'bool',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/adrules_governed',
+      new AdRule(),
+      'EDGE',
+      AdRule::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createCopy(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'adset_id' => 'string',
+      'rename_options' => 'Object',
+      'status_option' => 'status_option_enum',
+    );
+    $enums = array(
+      'status_option_enum' => AdStatusOptionValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/copies',
+      new Ad(),
+      'EDGE',
+      Ad::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -313,6 +366,32 @@ class Ad extends AbstractArchivableCrudObject
     return $pending ? $request : $request->execute();
   }
 
+  public function createLead(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'end_time' => 'datetime',
+      'session_id' => 'string',
+      'start_time' => 'datetime',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/leads',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getPreviews(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -321,7 +400,6 @@ class Ad extends AbstractArchivableCrudObject
       'dynamic_creative_spec' => 'Object',
       'end_date' => 'datetime',
       'height' => 'unsigned int',
-      'locale' => 'string',
       'place_page_id' => 'int',
       'post' => 'Object',
       'product_item_ids' => 'list<string>',
@@ -421,13 +499,11 @@ class Ad extends AbstractArchivableCrudObject
 
     $param_types = array(
       'adlabels' => 'list<Object>',
-      'adset_id' => 'unsigned int',
       'bid_amount' => 'int',
       'creative' => 'AdCreative',
       'display_sequence' => 'unsigned int',
       'execution_options' => 'list<execution_options_enum>',
       'name' => 'string',
-      'redownload' => 'bool',
       'status' => 'status_enum',
       'tracking_specs' => 'Object',
     );

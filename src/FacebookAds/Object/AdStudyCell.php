@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdStudyCellFields;
+use FacebookAds\Object\Values\AdStudyCellCreationTemplateValues;
 
 /**
  * This class is auto-generated.
@@ -50,6 +51,7 @@ class AdStudyCell extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['CreationTemplate'] = AdStudyCellCreationTemplateValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -66,6 +68,36 @@ class AdStudyCell extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
+      '/',
+      new AdStudyCell(),
+      'NODE',
+      AdStudyCell::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'adaccounts' => 'list<unsigned int>',
+      'adsets' => 'list<string>',
+      'campaigns' => 'list<string>',
+      'creation_template' => 'creation_template_enum',
+      'description' => 'string',
+      'name' => 'string',
+    );
+    $enums = array(
+      'creation_template_enum' => AdStudyCellCreationTemplateValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
       '/',
       new AdStudyCell(),
       'NODE',

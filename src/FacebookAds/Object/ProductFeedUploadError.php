@@ -76,9 +76,9 @@ class ProductFeedUploadError extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/samples',
-      new ProductFeedUploadErrorSample(),
+      new AbstractCrudObject(),
       'EDGE',
-      ProductFeedUploadErrorSample::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

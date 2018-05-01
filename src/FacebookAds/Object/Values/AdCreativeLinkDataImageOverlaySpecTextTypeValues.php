@@ -40,4 +40,6 @@ class AdCreativeLinkDataImageOverlaySpecTextTypeValues extends AbstractEnum {
   const PRICE = 'price';
   const STRIKETHROUGH_PRICE = 'strikethrough_price';
   const PERCENTAGE_OFF = 'percentage_off';
+  const CUSTOM = 'custom';
+  const FROM_PRICE = 'from_price';
 }

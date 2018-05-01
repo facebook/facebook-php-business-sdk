@@ -58,6 +58,7 @@ class AdAccountFields extends AbstractEnum {
   const DISABLE_REASON = 'disable_reason';
   const END_ADVERTISER = 'end_advertiser';
   const END_ADVERTISER_NAME = 'end_advertiser_name';
+  const EXTENDED_CREDIT_INVOICE_GROUP = 'extended_credit_invoice_group';
   const FAILED_DELIVERY_CHECKS = 'failed_delivery_checks';
   const FUNDING_SOURCE = 'funding_source';
   const FUNDING_SOURCE_DETAILS = 'funding_source_details';
@@ -75,12 +76,10 @@ class AdAccountFields extends AbstractEnum {
   const MIN_CAMPAIGN_GROUP_SPEND_CAP = 'min_campaign_group_spend_cap';
   const MIN_DAILY_BUDGET = 'min_daily_budget';
   const NAME = 'name';
-  const NEXT_BILL_DATE = 'next_bill_date';
   const OFFSITE_PIXELS_TOS_ACCEPTED = 'offsite_pixels_tos_accepted';
   const OWNER = 'owner';
   const PARTNER = 'partner';
   const RF_SPEC = 'rf_spec';
-  const SALESFORCE_INVOICE_GROUP_ID = 'salesforce_invoice_group_id';
   const SHOW_CHECKOUT_EXPERIENCE = 'show_checkout_experience';
   const SPEND_CAP = 'spend_cap';
   const TAX_ID = 'tax_id';
@@ -99,7 +98,7 @@ class AdAccountFields extends AbstractEnum {
       'age' => 'float',
       'agency_client_declaration' => 'AgencyClientDeclaration',
       'amount_spent' => 'string',
-      'attribution_spec' => 'list<Object>',
+      'attribution_spec' => 'list<AttributionSpec>',
       'balance' => 'string',
       'business' => 'Business',
       'business_city' => 'string',
@@ -115,6 +114,7 @@ class AdAccountFields extends AbstractEnum {
       'disable_reason' => 'unsigned int',
       'end_advertiser' => 'string',
       'end_advertiser_name' => 'string',
+      'extended_credit_invoice_group' => 'ExtendedCreditInvoiceGroup',
       'failed_delivery_checks' => 'list<DeliveryCheck>',
       'funding_source' => 'string',
       'funding_source_details' => 'FundingSourceDetails',
@@ -132,12 +132,10 @@ class AdAccountFields extends AbstractEnum {
       'min_campaign_group_spend_cap' => 'string',
       'min_daily_budget' => 'unsigned int',
       'name' => 'string',
-      'next_bill_date' => 'datetime',
       'offsite_pixels_tos_accepted' => 'bool',
       'owner' => 'string',
       'partner' => 'string',
       'rf_spec' => 'ReachFrequencySpec',
-      'salesforce_invoice_group_id' => 'string',
       'show_checkout_experience' => 'bool',
       'spend_cap' => 'string',
       'tax_id' => 'string',
