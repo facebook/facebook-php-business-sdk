@@ -1,10 +1,10 @@
 # Facebook Business SDK for PHP
 
-[![Packagist](https://img.shields.io/packagist/v/facebook/php-ads-sdk.svg?style=flat-square)](https://packagist.org/packages/facebook/php-ads-sdk)
-[![License](https://img.shields.io/badge/license-Facebook%20Platform-blue.svg?style=flat-square)](https://github.com/facebook/facebook-php-ads-sdk/blob/master/LICENSE)
-[![Travis](https://img.shields.io/travis/facebook/facebook-php-ads-sdk.svg?style=flat-square)](https://travis-ci.org/facebook/facebook-php-ads-sdk)
-[![Scrutinizer](https://img.shields.io/scrutinizer/g/facebook/facebook-php-ads-sdk.svg?style=flat-square)](https://scrutinizer-ci.com/g/facebook/facebook-php-ads-sdk)
-[![Scrutinizer Coverage](https://img.shields.io/scrutinizer/coverage/g/facebook/facebook-php-ads-sdk.svg?style=flat-square)](https://scrutinizer-ci.com/g/facebook/facebook-php-ads-sdk)
+[![Packagist](https://img.shields.io/packagist/v/facebook/php-business-sdk.svg?style=flat-square)](https://packagist.org/packages/facebook/php-business-sdk)
+[![License](https://img.shields.io/badge/license-Facebook%20Platform-blue.svg?style=flat-square)](https://github.com/facebook/facebook-php-business-sdk/blob/master/LICENSE)
+[![Travis](https://img.shields.io/travis/facebook/facebook-php-business-sdk.svg?style=flat-square)](https://travis-ci.org/facebook/facebook-php-business-sdk)
+[![Scrutinizer](https://img.shields.io/scrutinizer/g/facebook/facebook-php-business-sdk.svg?style=flat-square)](https://scrutinizer-ci.com/g/facebook/facebook-php-business-sdk)
+[![Scrutinizer Coverage](https://img.shields.io/scrutinizer/coverage/g/facebook/facebook-php-business-sdk.svg?style=flat-square)](https://scrutinizer-ci.com/g/facebook/facebook-php-business-sdk)
 
 ## Introduction
 
