@@ -45,7 +45,7 @@ abstract class AbstractCurl implements CurlInterface {
   }
 
   public function __destruct() {
-    if ($this->handle !== null) {
+    if (is_resource($this->handle)) {
       curl_close($this->handle);
     }
   }
