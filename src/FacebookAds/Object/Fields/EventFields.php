@@ -43,6 +43,7 @@ class EventFields extends AbstractEnum {
   const COVER = 'cover';
   const DECLINED_COUNT = 'declined_count';
   const DESCRIPTION = 'description';
+  const DISCOUNT_CODE_ENABLED = 'discount_code_enabled';
   const END_TIME = 'end_time';
   const EVENT_TIMES = 'event_times';
   const GUEST_LIST_ENABLED = 'guest_list_enabled';
@@ -75,6 +76,7 @@ class EventFields extends AbstractEnum {
       'cover' => 'CoverPhoto',
       'declined_count' => 'int',
       'description' => 'string',
+      'discount_code_enabled' => 'bool',
       'end_time' => 'string',
       'event_times' => 'list<Object>',
       'guest_list_enabled' => 'bool',

@@ -34,9 +34,11 @@ use FacebookAds\Object\Values\AdAccountDeliveryEstimateOptimizationGoalValues;
 use FacebookAds\Object\Values\AdAccountPermittedRolesValues;
 use FacebookAds\Object\Values\AdAccountRoasFieldsValues;
 use FacebookAds\Object\Values\AdAccountRoleValues;
+use FacebookAds\Object\Values\AdAccountSubtypeValues;
 use FacebookAds\Object\Values\AdAccountTargetingUnifiedLimitTypeValues;
 use FacebookAds\Object\Values\AdActivityCategoryValues;
 use FacebookAds\Object\Values\AdCreativeApplinkTreatmentValues;
+use FacebookAds\Object\Values\AdCreativeAuthorizationCategoryValues;
 use FacebookAds\Object\Values\AdCreativeDynamicAdVoiceValues;
 use FacebookAds\Object\Values\AdCreativeOperatorValues;
 use FacebookAds\Object\Values\AdDatePresetValues;
@@ -72,10 +74,10 @@ use FacebookAds\Object\Values\CampaignOperatorValues;
 use FacebookAds\Object\Values\CampaignStatusValues;
 use FacebookAds\Object\Values\CustomAudienceClaimObjectiveValues;
 use FacebookAds\Object\Values\CustomAudienceContentTypeValues;
+use FacebookAds\Object\Values\CustomAudienceCustomerFileSourceValues;
 use FacebookAds\Object\Values\CustomAudienceFieldsValues;
 use FacebookAds\Object\Values\CustomAudienceSubtypeValues;
 use FacebookAds\Object\Values\CustomConversionCustomEventTypeValues;
-use FacebookAds\Object\Values\OffsitePixelTagValues;
 use FacebookAds\Object\Values\PartnerCategoryPrivateOrPublicValues;
 use FacebookAds\Object\Values\ReachFrequencyPredictionInstreamPackagesValues;
 
@@ -106,8 +108,9 @@ class AdAccount extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Role'] = AdAccountRoleValues::getInstance()->getValues();
     $ref_enums['PermittedRoles'] = AdAccountPermittedRolesValues::getInstance()->getValues();
+    $ref_enums['Role'] = AdAccountRoleValues::getInstance()->getValues();
+    $ref_enums['Subtype'] = AdAccountSubtypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -246,6 +249,7 @@ class AdAccount extends AbstractCrudObject {
     $param_types = array(
       'adlabels' => 'list<Object>',
       'applink_treatment' => 'applink_treatment_enum',
+      'authorization_category' => 'authorization_category_enum',
       'body' => 'string',
       'branded_content_sponsor_page_id' => 'string',
       'dynamic_ad_voice' => 'dynamic_ad_voice_enum',
@@ -274,6 +278,7 @@ class AdAccount extends AbstractCrudObject {
     );
     $enums = array(
       'applink_treatment_enum' => AdCreativeApplinkTreatmentValues::getInstance()->getValues(),
+      'authorization_category_enum' => AdCreativeAuthorizationCategoryValues::getInstance()->getValues(),
       'dynamic_ad_voice_enum' => AdCreativeDynamicAdVoiceValues::getInstance()->getValues(),
     );
 
@@ -505,6 +510,7 @@ class AdAccount extends AbstractCrudObject {
         'LISTEN_NOW',
         'EVENT_RSVP',
         'WHATSAPP_MESSAGE',
+        'FOLLOW_NEWS_STORYLINE',
       ),
     );
 
@@ -938,6 +944,7 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'audio_story_wave_animation_handle' => 'string',
       'composer_session_id' => 'string',
       'description' => 'string',
       'end_offset' => 'unsigned int',
@@ -1036,15 +1043,7 @@ class AdAccount extends AbstractCrudObject {
       'permitted_roles' => 'list<permitted_roles_enum>',
     );
     $enums = array(
-      'permitted_roles_enum' => array(
-        'ADMIN',
-        'GENERAL_USER',
-        'REPORTS_ONLY',
-        'INSTAGRAM_ADVERTISER',
-        'INSTAGRAM_MANAGER',
-        'CREATIVE',
-        'FB_EMPLOYEE_DSO_ADVERTISER',
-      ),
+      'permitted_roles_enum' => AdAccountPermittedRolesValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1052,9 +1051,9 @@ class AdAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/agencies',
-      new AbstractCrudObject(),
+      new AdAccount(),
       'EDGE',
-      array(),
+      AdAccount::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1440,9 +1439,11 @@ class AdAccount extends AbstractCrudObject {
       'allowed_domains' => 'list<string>',
       'claim_objective' => 'claim_objective_enum',
       'content_type' => 'content_type_enum',
+      'customer_file_source' => 'customer_file_source_enum',
       'dataset_id' => 'string',
       'description' => 'string',
       'event_source_group' => 'string',
+      'event_sources' => 'list<map>',
       'is_value_based' => 'bool',
       'list_of_accounts' => 'list<unsigned int>',
       'lookalike_spec' => 'string',
@@ -1460,6 +1461,7 @@ class AdAccount extends AbstractCrudObject {
     $enums = array(
       'claim_objective_enum' => CustomAudienceClaimObjectiveValues::getInstance()->getValues(),
       'content_type_enum' => CustomAudienceContentTypeValues::getInstance()->getValues(),
+      'customer_file_source_enum' => CustomAudienceCustomerFileSourceValues::getInstance()->getValues(),
       'subtype_enum' => CustomAudienceSubtypeValues::getInstance()->getValues(),
     );
 
@@ -1812,32 +1814,6 @@ class AdAccount extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createOffsitePixel(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'name' => 'string',
-      'tag' => 'tag_enum',
-    );
-    $enums = array(
-      'tag_enum' => OffsitePixelTagValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/offsitepixels',
-      new OffsitePixel(),
-      'EDGE',
-      OffsitePixel::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getPartnerCategories(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1946,6 +1922,7 @@ class AdAccount extends AbstractCrudObject {
       'associated_audience_id' => 'unsigned int',
       'creation_params' => 'map',
       'description' => 'string',
+      'event_sources' => 'list<map>',
       'exclusions' => 'list<Object>',
       'inclusions' => 'list<Object>',
       'name' => 'string',
@@ -1956,7 +1933,7 @@ class AdAccount extends AbstractCrudObject {
       'tags' => 'list<string>',
     );
     $enums = array(
-      'subtype_enum' => CustomAudienceSubtypeValues::getInstance()->getValues(),
+      'subtype_enum' => AdAccountSubtypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -2001,8 +1978,6 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'block_list_id' => 'Object',
-      'draft_id' => 'Object',
       'name' => 'string',
     );
     $enums = array(

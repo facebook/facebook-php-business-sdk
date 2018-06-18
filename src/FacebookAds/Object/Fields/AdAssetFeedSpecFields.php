@@ -38,6 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class AdAssetFeedSpecFields extends AbstractEnum {
 
   const AD_FORMATS = 'ad_formats';
+  const ADDITIONAL_DATA = 'additional_data';
   const ASSET_CUSTOMIZATION_RULES = 'asset_customization_rules';
   const AUTOTRANSLATE = 'autotranslate';
   const BODIES = 'bodies';
@@ -54,6 +55,7 @@ class AdAssetFeedSpecFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'ad_formats' => 'list<string>',
+      'additional_data' => 'Object',
       'asset_customization_rules' => 'list<Object>',
       'autotranslate' => 'list<string>',
       'bodies' => 'list<AdAssetFeedSpecBody>',

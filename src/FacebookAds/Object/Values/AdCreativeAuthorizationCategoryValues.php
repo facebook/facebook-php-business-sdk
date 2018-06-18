@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,19 +33,10 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static AdCreativeAuthorizationCategoryValues getInstance()
  */
+class AdCreativeAuthorizationCategoryValues extends AbstractEnum {
 
-class PersonaFields extends AbstractEnum {
-
-  const ID = 'id';
-  const NAME = 'name';
-  const PROFILE_PICTURE_URL = 'profile_picture_url';
-
-  public function getFieldTypes() {
-    return array(
-      'id' => 'string',
-      'name' => 'string',
-      'profile_picture_url' => 'string',
-    );
-  }
+  const NONE = 'NONE';
+  const POLITICAL = 'POLITICAL';
 }

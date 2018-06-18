@@ -63,10 +63,12 @@ class AdAccountFields extends AbstractEnum {
   const FUNDING_SOURCE = 'funding_source';
   const FUNDING_SOURCE_DETAILS = 'funding_source_details';
   const HAS_MIGRATED_PERMISSIONS = 'has_migrated_permissions';
+  const HAS_PAGE_AUTHORIZED_ADACCOUNT = 'has_page_authorized_adaccount';
   const ID = 'id';
   const IO_NUMBER = 'io_number';
   const IS_ATTRIBUTION_SPEC_SYSTEM_DEFAULT = 'is_attribution_spec_system_default';
   const IS_DIRECT_DEALS_ENABLED = 'is_direct_deals_enabled';
+  const IS_IN_MIDDLE_OF_LOCAL_ENTITY_MIGRATION = 'is_in_middle_of_local_entity_migration';
   const IS_NOTIFICATIONS_ENABLED = 'is_notifications_enabled';
   const IS_PERSONAL = 'is_personal';
   const IS_PREPAY_ACCOUNT = 'is_prepay_account';
@@ -90,6 +92,7 @@ class AdAccountFields extends AbstractEnum {
   const TIMEZONE_OFFSET_HOURS_UTC = 'timezone_offset_hours_utc';
   const TOS_ACCEPTED = 'tos_accepted';
   const USER_ROLE = 'user_role';
+  const USER_TOS_ACCEPTED = 'user_tos_accepted';
 
   public function getFieldTypes() {
     return array(
@@ -119,10 +122,12 @@ class AdAccountFields extends AbstractEnum {
       'funding_source' => 'string',
       'funding_source_details' => 'FundingSourceDetails',
       'has_migrated_permissions' => 'bool',
+      'has_page_authorized_adaccount' => 'bool',
       'id' => 'string',
       'io_number' => 'string',
       'is_attribution_spec_system_default' => 'bool',
       'is_direct_deals_enabled' => 'bool',
+      'is_in_middle_of_local_entity_migration' => 'bool',
       'is_notifications_enabled' => 'bool',
       'is_personal' => 'unsigned int',
       'is_prepay_account' => 'bool',
@@ -146,6 +151,7 @@ class AdAccountFields extends AbstractEnum {
       'timezone_offset_hours_utc' => 'float',
       'tos_accepted' => 'map<string, int>',
       'user_role' => 'string',
+      'user_tos_accepted' => 'map<string, int>',
     );
   }
 }

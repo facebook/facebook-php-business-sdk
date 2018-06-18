@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,21 +33,11 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static CustomAudienceCustomerFileSourceValues getInstance()
  */
+class CustomAudienceCustomerFileSourceValues extends AbstractEnum {
 
-class EntWithSponsorFields extends AbstractEnum {
-
-  const ID = 'id';
-  const OWNER_PICTURE = 'owner_picture';
-  const POST_ID = 'post_id';
-  const POST_INFO = 'post_info';
-
-  public function getFieldTypes() {
-    return array(
-      'id' => 'string',
-      'owner_picture' => 'string',
-      'post_id' => 'string',
-      'post_info' => 'Object',
-    );
-  }
+  const USER_PROVIDED_ONLY = 'USER_PROVIDED_ONLY';
+  const PARTNER_PROVIDED_ONLY = 'PARTNER_PROVIDED_ONLY';
+  const BOTH_USER_AND_PARTNER_PROVIDED = 'BOTH_USER_AND_PARTNER_PROVIDED';
 }

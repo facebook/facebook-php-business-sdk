@@ -213,7 +213,7 @@ class Business extends AbstractCrudObject {
       'chinese_legal_entity_name' => 'string',
       'contact' => 'Object',
       'english_legal_entity_name' => 'string',
-      'extended_credit_id' => 'string',
+      'extended_credit_id' => 'Object',
       'is_smb' => 'bool',
       'is_test' => 'bool',
       'official_website_url' => 'Object',
@@ -336,6 +336,7 @@ class Business extends AbstractCrudObject {
       'ordering_column_enum' => array(
         'TIME',
         'VALUE',
+        'METRIC',
       ),
       'ordering_type_enum' => array(
         'ASCENDING',
@@ -425,6 +426,7 @@ class Business extends AbstractCrudObject {
       'ordering_column_enum' => array(
         'TIME',
         'VALUE',
+        'METRIC',
       ),
       'ordering_type_enum' => array(
         'ASCENDING',
@@ -1503,6 +1505,7 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'ig_password' => 'string',
       'page_id' => 'int',
     );
     $enums = array(

@@ -62,7 +62,7 @@ class AudioCopyrightFields extends AbstractEnum {
       'reference_file_status' => 'string',
       'ridge_monitoring_status' => 'string',
       'update_time' => 'datetime',
-      'whitelisted_fb_users' => 'list<User>',
+      'whitelisted_fb_users' => 'list<Object>',
       'whitelisted_ig_users' => 'list<string>',
     );
   }

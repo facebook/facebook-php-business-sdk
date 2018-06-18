@@ -39,4 +39,5 @@ class EventPromotableEventTypesValues extends AbstractEnum {
 
   const OFFSITE_TICKET = 'OFFSITE_TICKET';
   const ONSITE_TICKET = 'ONSITE_TICKET';
+  const RSVP = 'RSVP';
 }

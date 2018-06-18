@@ -71,6 +71,7 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const UPDATE_AD_SET_DURATION = 'update_ad_set_duration';
   const UPDATE_AD_SET_RUN_STATUS = 'update_ad_set_run_status';
   const UPDATE_AD_SET_NAME = 'update_ad_set_name';
+  const UPDATE_AD_SET_OPTIMIZATION_GOAL = 'update_ad_set_optimization_goal';
   const UPDATE_AD_SET_TARGET_SPEC = 'update_ad_set_target_spec';
   const UPDATE_AD_SET_BID_ADJUSTMENTS = 'update_ad_set_bid_adjustments';
   const CREATE_AD = 'create_ad';
@@ -99,4 +100,5 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const FUNDING_EVENT_INITIATED = 'funding_event_initiated';
   const FUNDING_EVENT_SUCCESSFUL = 'funding_event_successful';
   const UPDATE_AD_LABELS = 'update_ad_labels';
+  const DI_AD_SET_LEARNING_STAGE_EXIT = 'di_ad_set_learning_stage_exit';
 }

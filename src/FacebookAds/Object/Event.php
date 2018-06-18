@@ -92,7 +92,6 @@ class Event extends AbstractCrudObject {
       'projection_enum' => array(
         'EQUIRECTANGULAR',
         'CUBEMAP',
-        'SINGLE_FISH_EYE',
       ),
       'spatial_audio_format_enum' => array(
         'ambiX_4',
@@ -193,6 +192,7 @@ class Event extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'audio_story_wave_animation_handle' => 'string',
       'content_category' => 'content_category_enum',
       'description' => 'string',
       'embeddable' => 'bool',

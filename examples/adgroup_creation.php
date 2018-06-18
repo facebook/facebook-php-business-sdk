@@ -76,138 +76,120 @@ if($account->{AdAccountFields::ACCOUNT_STATUS} !== 1) {
  */
 use FacebookAds\Object\Campaign;
 use FacebookAds\Object\Fields\CampaignFields;
-try{
-    $campaign  = new Campaign(null, $account->id);
-    $campaign->setData(array(
-        CampaignFields::NAME => 'My First Campaign',
-        CampaignFields::OBJECTIVE => 'LINK_CLICKS',
-    ));
+use FacebookAds\Object\Values\AdObjectives;
 
-    $campaign->validate()->create(array(
-        Campaign::STATUS_PARAM_NAME => Campaign::STATUS_PAUSED,
-    ));
-    echo "Campaign ID:" . $campaign->id . "\n";
-}
-catch (Exception $e) {
-    echo 'Error message: ' .$e->getMessage() ."\n" . "<br/>";
-    echo 'Error Code: ' .$e->getCode() ."<br/>";
-}
+$campaign  = new Campaign(null, $account->id);
+$campaign->setData(array(
+  CampaignFields::NAME => 'My First Campaign',
+  CampaignFields::OBJECTIVE => AdObjectives::LINK_CLICKS,
+));
+
+$campaign->validate()->create(array(
+  Campaign::STATUS_PARAM_NAME => Campaign::STATUS_PAUSED,
+));
+echo "Campaign ID:" . $campaign->id . "\n";
+
 /**
  * Step 3 Search Targeting
  */
-use FacebookAds\Object\Targeting;
-use FacebookAds\Object\Fields\TargetingFields;
+use FacebookAds\Object\TargetingSearch;
+use FacebookAds\Object\Search\TargetingSearchTypes;
+use FacebookAds\Object\TargetingSpecs;
+use FacebookAds\Object\Fields\TargetingSpecsFields;
 
+$results = TargetingSearch::search(
+  $type = TargetingSearchTypes::INTEREST,
+  $class = null,
+  $query = 'facebook');
 
-$targeting = new Targeting();
-$targeting->setData(array(
-    TargetingFields::GEO_LOCATIONS => array(
-        'countries' => array('JP'),
-        'regions' => array(array('key' => '3886')),
-        'cities' => array(
-            array(
-                'key' => '2420605',
-                'radius' => 10,
-                'distance_unit' => 'mile',
-            ),
-        ),
+// we'll take the top result for now
+$target = (count($results)) ? $results->current() : null;
+
+echo "Using target: ".$target->name."\n";
+
+$targeting = new TargetingSpecs();
+$targeting->{TargetingSpecsFields::GEO_LOCATIONS}
+  = array('countries' => array('GB'));
+$targeting->{TargetingSpecsFields::INTERESTS} = array(
+    array(
+        'id' => $target->id,
+        'name' => $target->name,
     ),
-));
-
+);
 
 /**
  * Step 4 Create the AdSet
  */
 use FacebookAds\Object\AdSet;
 use FacebookAds\Object\Fields\AdSetFields;
-use FacebookAds\Object\Values\AdSetBillingEventValues;
-use FacebookAds\Object\Values\AdSetOptimizationGoalValues;
+use FacebookAds\Object\Values\OptimizationGoals;
+use FacebookAds\Object\Values\BillingEvents;
 
-try{
-    $adset = new AdSet(null, $account->id);
-    $adset->setData(array(
-        AdSetFields::NAME => 'My First AdSet',
-        AdSetFields::CAMPAIGN_ID => $campaign->id,
-        AdSetFields::DAILY_BUDGET => '150',
-        AdSetFields::TARGETING => $targeting,
-        AdSetFields::OPTIMIZATION_GOAL => AdSetOptimizationGoalValues::REACH,
-        AdSetFields::BILLING_EVENT => AdSetBillingEventValues::IMPRESSIONS,
-        AdSetFields::BID_AMOUNT => 100,
-        AdSetFields::START_TIME =>
-            (new \DateTime("+1 week"))->format(\DateTime::ISO8601),
-        AdSetFields::END_TIME =>
-            (new \DateTime("+2 week"))->format(\DateTime::ISO8601),
-    ));
+$adset = new AdSet(null, $account->id);
+$adset->setData(array(
+  AdSetFields::NAME => 'My First AdSet',
+  AdSetFields::CAMPAIGN_ID => $campaign->id,
+  AdSetFields::DAILY_BUDGET => '150',
+  AdSetFields::TARGETING => $targeting,
+  AdSetFields::OPTIMIZATION_GOAL => OptimizationGoals::REACH,
+  AdSetFields::BILLING_EVENT => BillingEvents::IMPRESSIONS,
+  AdSetFields::BID_AMOUNT => 100,
+  AdSetFields::START_TIME =>
+    (new \DateTime("+1 week"))->format(\DateTime::ISO8601),
+  AdSetFields::END_TIME =>
+    (new \DateTime("+2 week"))->format(\DateTime::ISO8601),
+));
 
-    $adset->validate()->create(array(
-        AdSet::STATUS_PARAM_NAME => AdSet::STATUS_ACTIVE,
-    ));
+$adset->validate()->create(array(
+  AdSet::STATUS_PARAM_NAME => AdSet::STATUS_ACTIVE,
+));
 
-    echo 'AdSet  ID: '. $adset->id . "\n";
-}
-catch (Exception $e) {
-    echo 'Error message: ' .$e->getMessage() ."\n" . "<br/>";
-    echo 'Error Code: ' .$e->getCode() ."<br/>";
-}
+echo 'AdSet  ID: '. $adset->id . "\n";
+
 /**
  * Step 5 Create an AdImage
  */
 use FacebookAds\Object\AdImage;
 use FacebookAds\Object\Fields\AdImageFields;
-try {
-    $image = new AdImage(null, $account->id);
-    $image->{AdImageFields::FILENAME}
-        = SDK_DIR.'/test/misc/image.png';
 
-    $image->create();
-    echo 'Image Hash: '.$image->hash . "\n";
-}
-catch (Exception $e) {
-    echo 'Error message: ' .$e->getMessage() ."\n" . "<br/>";
-    echo 'Error Code: ' .$e->getCode() ."<br/>";
-}
+$image = new AdImage(null, $account->id);
+$image->{AdImageFields::FILENAME}
+  = SDK_DIR.'/test/misc/image.png';
+
+$image->create();
+echo 'Image Hash: '.$image->hash . "\n";
+
 /**
  * Step 6 Create an AdCreative
  */
 use FacebookAds\Object\AdCreative;
 use FacebookAds\Object\Fields\AdCreativeFields;
 
-try{
-    $creative = new AdCreative(null, $account->id);
-    $creative->setData(array(
-        AdCreativeFields::NAME => 'Sample Creative',
-        AdCreativeFields::TITLE => 'Welcome to the Jungle',
-        AdCreativeFields::BODY => 'We\'ve got fun \'n\' games',
-        AdCreativeFields::IMAGE_HASH => $image->hash,
-        AdCreativeFields::OBJECT_URL => 'http://www.example.com/',
-    ));
+$creative = new AdCreative(null, $account->id);
+$creative->setData(array(
+  AdCreativeFields::NAME => 'Sample Creative',
+  AdCreativeFields::TITLE => 'Welcome to the Jungle',
+  AdCreativeFields::BODY => 'We\'ve got fun \'n\' games',
+  AdCreativeFields::IMAGE_HASH => $image->hash,
+  AdCreativeFields::OBJECT_URL => 'http://www.example.com/',
+));
 
-    $creative->create();
-    echo 'Creative ID: '.$creative->id . "\n";
-}
-catch (Exception $e) {
-    echo 'Error message: ' .$e->getMessage() ."\n" . "<br/>";
-    echo 'Error Code: ' .$e->getCode() ."<br/>";
-}
+$creative->create();
+echo 'Creative ID: '.$creative->id . "\n";
+
 /**
  * Step 7 Create an Ad
  */
 use FacebookAds\Object\Ad;
 use FacebookAds\Object\Fields\AdFields;
 
-try {
-    $ad = new Ad(null, $account->id);
-    $ad->setData(array(
-        AdFields::CREATIVE =>
-            array('creative_id' => $creative->id),
-        AdFields::NAME => 'My First Ad',
-        AdFields::ADSET_ID => $adset->id,
-    ));
+$ad = new Ad(null, $account->id);
+$ad->setData(array(
+  AdFields::CREATIVE =>
+    array('creative_id' => $creative->id),
+  AdFields::NAME => 'My First Ad',
+  AdFields::ADSET_ID => $adset->id,
+));
 
-    $ad->create();
-    echo 'Ad ID:' . $ad->id . "\n";
-}
-catch (Exception $e) {
-    echo 'Error message: ' .$e->getMessage() ."\n" . "<br/>";
-    echo 'Error Code: ' .$e->getCode() ."<br/>";
-}
+$ad->create();
+echo 'Ad ID:' . $ad->id . "\n";

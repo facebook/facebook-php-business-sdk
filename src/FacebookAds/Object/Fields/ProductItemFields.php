@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class ProductItemFields extends AbstractEnum {
 
+  const ADDITIONAL_IMAGE_CDN_URLS = 'additional_image_cdn_urls';
   const ADDITIONAL_IMAGE_URLS = 'additional_image_urls';
   const ADDITIONAL_VARIANT_ATTRIBUTES = 'additional_variant_attributes';
   const AGE_GROUP = 'age_group';
@@ -59,10 +60,12 @@ class ProductItemFields extends AbstractEnum {
   const GENDER = 'gender';
   const GTIN = 'gtin';
   const ID = 'id';
+  const IMAGE_CDN_URLS = 'image_cdn_urls';
   const IMAGE_URL = 'image_url';
   const INVENTORY = 'inventory';
   const MANUFACTURER_PART_NUMBER = 'manufacturer_part_number';
   const MATERIAL = 'material';
+  const MOBILE_LINK = 'mobile_link';
   const NAME = 'name';
   const ORDERING_INDEX = 'ordering_index';
   const PATTERN = 'pattern';
@@ -109,6 +112,7 @@ class ProductItemFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'additional_image_cdn_urls' => 'list<list<Object>>',
       'additional_image_urls' => 'list<string>',
       'additional_variant_attributes' => 'list<Object>',
       'age_group' => 'AgeGroup',
@@ -131,10 +135,12 @@ class ProductItemFields extends AbstractEnum {
       'gender' => 'Gender',
       'gtin' => 'string',
       'id' => 'string',
+      'image_cdn_urls' => 'list<Object>',
       'image_url' => 'string',
       'inventory' => 'int',
       'manufacturer_part_number' => 'string',
       'material' => 'string',
+      'mobile_link' => 'string',
       'name' => 'string',
       'ordering_index' => 'int',
       'pattern' => 'string',

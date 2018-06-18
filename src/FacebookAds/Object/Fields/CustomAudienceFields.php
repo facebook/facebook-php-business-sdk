@@ -39,6 +39,7 @@ class CustomAudienceFields extends AbstractEnum {
 
   const ACCOUNT_ID = 'account_id';
   const APPROXIMATE_COUNT = 'approximate_count';
+  const CUSTOMER_FILE_SOURCE = 'customer_file_source';
   const DATA_SOURCE = 'data_source';
   const DELIVERY_STATUS = 'delivery_status';
   const DESCRIPTION = 'description';
@@ -64,6 +65,7 @@ class CustomAudienceFields extends AbstractEnum {
   const CONTENT_TYPE = 'content_type';
   const DATASET_ID = 'dataset_id';
   const EVENT_SOURCE_GROUP = 'event_source_group';
+  const EVENT_SOURCES = 'event_sources';
   const LIST_OF_ACCOUNTS = 'list_of_accounts';
   const ORIGIN_AUDIENCE_ID = 'origin_audience_id';
   const PREFILL = 'prefill';
@@ -79,6 +81,7 @@ class CustomAudienceFields extends AbstractEnum {
     return array(
       'account_id' => 'string',
       'approximate_count' => 'int',
+      'customer_file_source' => 'string',
       'data_source' => 'CustomAudienceDataSource',
       'delivery_status' => 'CustomAudienceStatus',
       'description' => 'string',
@@ -104,6 +107,7 @@ class CustomAudienceFields extends AbstractEnum {
       'content_type' => 'ContentType',
       'dataset_id' => 'string',
       'event_source_group' => 'string',
+      'event_sources' => 'list<map>',
       'list_of_accounts' => 'list<unsigned int>',
       'origin_audience_id' => 'string',
       'prefill' => 'bool',

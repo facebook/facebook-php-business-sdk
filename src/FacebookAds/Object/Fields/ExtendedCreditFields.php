@@ -42,6 +42,7 @@ class ExtendedCreditFields extends AbstractEnum {
   const CREDIT_AVAILABLE = 'credit_available';
   const CREDIT_TYPE = 'credit_type';
   const ID = 'id';
+  const IS_AUTOMATED_EXPERIENCE = 'is_automated_experience';
   const LAST_PAYMENT_TIME = 'last_payment_time';
   const LEGAL_ENTITY_NAME = 'legal_entity_name';
   const LIABLE_BIZ_NAME = 'liable_biz_name';
@@ -60,6 +61,7 @@ class ExtendedCreditFields extends AbstractEnum {
       'credit_available' => 'Object',
       'credit_type' => 'string',
       'id' => 'string',
+      'is_automated_experience' => 'bool',
       'last_payment_time' => 'datetime',
       'legal_entity_name' => 'string',
       'liable_biz_name' => 'string',

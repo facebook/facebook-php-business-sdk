@@ -64,6 +64,7 @@ class PageFields extends AbstractEnum {
   const CONTACT_ADDRESS = 'contact_address';
   const CONTEXT = 'context';
   const COPYRIGHT_ATTRIBUTION_INSIGHTS = 'copyright_attribution_insights';
+  const COPYRIGHT_WHITELISTED_IG_PARTNERS = 'copyright_whitelisted_ig_partners';
   const COUNTRY_PAGE_LIKES = 'country_page_likes';
   const COVER = 'cover';
   const CULINARY_TEAM = 'culinary_team';
@@ -161,6 +162,7 @@ class PageFields extends AbstractEnum {
   const SINGLE_LINE_ADDRESS = 'single_line_address';
   const STARRING = 'starring';
   const START_INFO = 'start_info';
+  const STORE_CODE = 'store_code';
   const STORE_LOCATION_DESCRIPTOR = 'store_location_descriptor';
   const STORE_NUMBER = 'store_number';
   const STUDIO = 'studio';
@@ -176,6 +178,7 @@ class PageFields extends AbstractEnum {
   const WERE_HERE_COUNT = 'were_here_count';
   const WHATSAPP_NUMBER = 'whatsapp_number';
   const WRITTEN_BY = 'written_by';
+  const IG_PASSWORD = 'ig_password';
   const PAGE_ID = 'page_id';
 
   public function getFieldTypes() {
@@ -207,6 +210,7 @@ class PageFields extends AbstractEnum {
       'contact_address' => 'MailingAddress',
       'context' => 'OpenGraphContext',
       'copyright_attribution_insights' => 'CopyrightAttributionInsights',
+      'copyright_whitelisted_ig_partners' => 'list<string>',
       'country_page_likes' => 'unsigned int',
       'cover' => 'CoverPhoto',
       'culinary_team' => 'string',
@@ -304,6 +308,7 @@ class PageFields extends AbstractEnum {
       'single_line_address' => 'string',
       'starring' => 'string',
       'start_info' => 'PageStartInfo',
+      'store_code' => 'string',
       'store_location_descriptor' => 'string',
       'store_number' => 'unsigned int',
       'studio' => 'string',
@@ -319,6 +324,7 @@ class PageFields extends AbstractEnum {
       'were_here_count' => 'unsigned int',
       'whatsapp_number' => 'string',
       'written_by' => 'string',
+      'ig_password' => 'string',
       'page_id' => 'int',
     );
   }

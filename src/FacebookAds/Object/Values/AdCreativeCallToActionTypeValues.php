@@ -83,4 +83,5 @@ class AdCreativeCallToActionTypeValues extends AbstractEnum {
   const LISTEN_NOW = 'LISTEN_NOW';
   const EVENT_RSVP = 'EVENT_RSVP';
   const WHATSAPP_MESSAGE = 'WHATSAPP_MESSAGE';
+  const FOLLOW_NEWS_STORYLINE = 'FOLLOW_NEWS_STORYLINE';
 }

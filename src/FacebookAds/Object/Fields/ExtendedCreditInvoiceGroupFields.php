@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class ExtendedCreditInvoiceGroupFields extends AbstractEnum {
 
+  const CUSTOMER_PO_NUMBER = 'customer_po_number';
   const EMAIL = 'email';
   const EMAILS = 'emails';
   const ID = 'id';
@@ -44,6 +45,7 @@ class ExtendedCreditInvoiceGroupFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'customer_po_number' => 'string',
       'email' => 'Object',
       'emails' => 'list<string>',
       'id' => 'string',

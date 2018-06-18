@@ -42,6 +42,7 @@ class CustomAudienceContentTypeValues extends AbstractEnum {
   const FLIGHT = 'FLIGHT';
   const HOME_LISTING = 'HOME_LISTING';
   const HOTEL = 'HOTEL';
+  const MEDIA_TITLE = 'MEDIA_TITLE';
   const VEHICLE = 'VEHICLE';
   const VEHICLE_OFFER = 'VEHICLE_OFFER';
 }

@@ -1,6 +1,7 @@
+#!/usr/bin/env php
 <?php
 /**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -22,36 +23,12 @@
  *
  */
 
-namespace FacebookAds\Object;
+use \FacebookAdsDocsmith\Bootstrap\IntegrationBootstrap;
+use FacebookAds\Api;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\DirectDebitFields;
+chdir(__DIR__);
 
-/**
- * This class is auto-generated.
- *
- * For any issues or feature requests related to this class, please let us know
- * on github and we'll fix in our codegen framework. We'll not be able to accept
- * pull request for this class.
- *
- */
+/** @var IntegrationBootstrap $bootstrap */
+$bootstrap = require_once __DIR__.'/../docsmith/init_stub.php';
 
-class DirectDebit extends AbstractCrudObject {
-
-  /**
-   * @return DirectDebitFields
-   */
-  public static function getFieldsEnum() {
-    return DirectDebitFields::getInstance();
-  }
-
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
-}
+echo sprintf('v%s', Api::init('', '', '')->getDefaultGraphVersion()).PHP_EOL;

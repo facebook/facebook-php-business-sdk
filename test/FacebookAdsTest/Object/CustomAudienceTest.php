@@ -96,6 +96,6 @@ class CustomAudienceTest extends AbstractCrudObjectTestCase {
       $users, CustomAudienceTypes::ID, array($this->getConfig()->appId));
     $this->assertSuccessResponse($optout);
 
-    $ca->delete();
+    $ca->deleteSelf();
   }
 }

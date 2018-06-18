@@ -233,7 +233,7 @@ class OfflineConversionDataSet extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'data' => 'list<Object>',
+      'data' => 'list<string>',
       'namespace_id' => 'string',
       'progress' => 'Object',
       'upload_id' => 'string',
@@ -420,7 +420,7 @@ class OfflineConversionDataSet extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'data' => 'list<Object>',
+      'data' => 'list<string>',
       'namespace_id' => 'string',
     );
     $enums = array(

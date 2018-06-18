@@ -74,6 +74,7 @@ class AdCreativeFields extends AbstractEnum {
   const URL_TAGS = 'url_tags';
   const USE_PAGE_ACTOR_OVERRIDE = 'use_page_actor_override';
   const VIDEO_ID = 'video_id';
+  const AUTHORIZATION_CATEGORY = 'authorization_category';
   const DYNAMIC_AD_VOICE = 'dynamic_ad_voice';
   const IMAGE_FILE = 'image_file';
 
@@ -116,6 +117,7 @@ class AdCreativeFields extends AbstractEnum {
       'url_tags' => 'string',
       'use_page_actor_override' => 'bool',
       'video_id' => 'string',
+      'authorization_category' => 'AuthorizationCategory',
       'dynamic_ad_voice' => 'DynamicAdVoice',
       'image_file' => 'string',
     );

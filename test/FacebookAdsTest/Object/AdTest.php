@@ -124,22 +124,22 @@ class AdTest extends AbstractCrudObjectTestCase
 
   public function tearDown() {
     if ($this->adSet) {
-      $this->adSet->delete();
+      $this->adSet->deleteSelf();
       $this->adSet = null;
     }
 
     if ($this->campaign) {
-      $this->campaign->delete();
+      $this->campaign->deleteSelf();
       $this->campaign = null;
     }
 
     if ($this->adCreative) {
-      $this->adCreative->delete();
+      $this->adCreative->deleteSelf();
       $this->adCreative = null;
     }
 
     if ($this->adImage) {
-      $this->adImage->delete();
+      $this->adImage->deleteSelf();
       $this->adImage = null;
     }
 

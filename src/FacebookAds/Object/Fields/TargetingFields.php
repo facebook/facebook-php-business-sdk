@@ -92,6 +92,7 @@ class TargetingFields extends AbstractEnum {
   const INCOME = 'income';
   const INDUSTRIES = 'industries';
   const INSTAGRAM_POSITIONS = 'instagram_positions';
+  const INSTREAM_VIDEO_SPONSORSHIP_PLACEMENTS = 'instream_video_sponsorship_placements';
   const INTERESTED_IN = 'interested_in';
   const INTERESTS = 'interests';
   const IS_WHATSAPP_DESTINATION_AD = 'is_whatsapp_destination_ad';
@@ -138,7 +139,7 @@ class TargetingFields extends AbstractEnum {
       'countries' => 'list<string>',
       'country' => 'list<string>',
       'country_groups' => 'list<string>',
-      'custom_audiences' => 'list<IDName>',
+      'custom_audiences' => 'list<Object>',
       'device_platforms' => 'list<DevicePlatforms>',
       'direct_install_devices' => 'bool',
       'dynamic_audience_ids' => 'list<string>',
@@ -180,6 +181,7 @@ class TargetingFields extends AbstractEnum {
       'income' => 'list<IDName>',
       'industries' => 'list<IDName>',
       'instagram_positions' => 'list<string>',
+      'instream_video_sponsorship_placements' => 'list<string>',
       'interested_in' => 'list<unsigned int>',
       'interests' => 'list<IDName>',
       'is_whatsapp_destination_ad' => 'bool',

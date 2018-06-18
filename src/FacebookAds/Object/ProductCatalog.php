@@ -802,6 +802,7 @@ class ProductCatalog extends AbstractCrudObject {
       'iphone_url' => 'string',
       'manufacturer_part_number' => 'string',
       'material' => 'string',
+      'mobile_link' => 'Object',
       'name' => 'string',
       'offer_price_amount' => 'unsigned int',
       'offer_price_end_date' => 'Object',
@@ -898,6 +899,7 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'audio_story_wave_animation_handle' => 'string',
       'content_category' => 'content_category_enum',
       'description' => 'string',
       'embeddable' => 'bool',

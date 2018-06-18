@@ -31,6 +31,7 @@ use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\CustomAudienceFields;
 use FacebookAds\Object\Values\CustomAudienceClaimObjectiveValues;
 use FacebookAds\Object\Values\CustomAudienceContentTypeValues;
+use FacebookAds\Object\Values\CustomAudienceCustomerFileSourceValues;
 use FacebookAds\Object\Values\CustomAudienceFieldsValues;
 use FacebookAds\Object\Values\CustomAudienceSubtypeValues;
 use FacebookAds\Object\Values\CustomAudienceTypes;
@@ -66,6 +67,7 @@ class CustomAudience extends AbstractCrudObject {
     $ref_enums = array();
     $ref_enums['ClaimObjective'] = CustomAudienceClaimObjectiveValues::getInstance()->getValues();
     $ref_enums['ContentType'] = CustomAudienceContentTypeValues::getInstance()->getValues();
+    $ref_enums['CustomerFileSource'] = CustomAudienceCustomerFileSourceValues::getInstance()->getValues();
     $ref_enums['Subtype'] = CustomAudienceSubtypeValues::getInstance()->getValues();
     $ref_enums['Fields'] = CustomAudienceFieldsValues::getInstance()->getValues();
     return $ref_enums;
@@ -323,8 +325,10 @@ class CustomAudience extends AbstractCrudObject {
       'allowed_domains' => 'list<string>',
       'claim_objective' => 'claim_objective_enum',
       'content_type' => 'content_type_enum',
+      'customer_file_source' => 'customer_file_source_enum',
       'description' => 'string',
       'event_source_group' => 'string',
+      'event_sources' => 'list<map>',
       'lookalike_spec' => 'string',
       'name' => 'string',
       'opt_out_link' => 'string',
@@ -336,6 +340,7 @@ class CustomAudience extends AbstractCrudObject {
     $enums = array(
       'claim_objective_enum' => CustomAudienceClaimObjectiveValues::getInstance()->getValues(),
       'content_type_enum' => CustomAudienceContentTypeValues::getInstance()->getValues(),
+      'customer_file_source_enum' => CustomAudienceCustomerFileSourceValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

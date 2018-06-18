@@ -1015,31 +1015,6 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createJoinThread(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'persona_id' => 'Object',
-      'recipient_id' => 'Object',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/join_threads',
-      new Page(),
-      'EDGE',
-      Page::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function createLabel(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1148,39 +1123,7 @@ class Page extends AbstractCrudObject {
       'thank_you_page' => 'Object',
     );
     $enums = array(
-      'locale_enum' => array(
-        'EN_US',
-        'IT_IT',
-        'FR_FR',
-        'ES_ES',
-        'ES_LA',
-        'DE_DE',
-        'EN_GB',
-        'PT_BR',
-        'ZH_TW',
-        'ZH_HK',
-        'TR_TR',
-        'AR_AR',
-        'CS_CZ',
-        'DA_DK',
-        'FI_FI',
-        'HE_IL',
-        'HI_IN',
-        'HU_HU',
-        'ID_ID',
-        'JA_JP',
-        'KO_KR',
-        'NB_NO',
-        'NL_NL',
-        'PL_PL',
-        'PT_PT',
-        'RO_RO',
-        'RU_RU',
-        'SV_SE',
-        'TH_TH',
-        'VI_VN',
-        'ZH_CN',
-      ),
+      'locale_enum' => PageLocaleValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1188,9 +1131,9 @@ class Page extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/leadgen_draft_forms',
-      new AbstractCrudObject(),
+      new Page(),
       'EDGE',
-      array(),
+      Page::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1403,11 +1346,13 @@ class Page extends AbstractCrudObject {
     $param_types = array(
       'attribution_app_id' => 'string',
       'content_tags' => 'list<string>',
+      'crossposting_actions' => 'list<map>',
       'custom_labels' => 'list<string>',
       'description' => 'string',
       'encoding_settings' => 'string',
       'fisheye_video_cropped' => 'bool',
       'front_z_rotation' => 'float',
+      'game_show' => 'map',
       'is_spherical' => 'bool',
       'live_encoders' => 'list<string>',
       'original_fov' => 'unsigned int',
@@ -1503,17 +1448,18 @@ class Page extends AbstractCrudObject {
       'hours' => 'map',
       'ignore_warnings' => 'bool',
       'location' => 'Object',
-      'location_page_id' => 'int',
+      'location_page_id' => 'Object',
       'old_store_number' => 'unsigned int',
       'page_username' => 'string',
       'permanently_closed' => 'bool',
       'phone' => 'string',
       'place_topics' => 'list<string>',
       'price_range' => 'string',
+      'store_code' => 'string',
       'store_location_descriptor' => 'string',
       'store_name' => 'string',
       'store_number' => 'unsigned int',
-      'website' => 'string',
+      'website' => 'Object',
     );
     $enums = array(
     );
@@ -2043,54 +1989,6 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getPersonas(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/personas',
-      new Persona(),
-      'EDGE',
-      Persona::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createPersona(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'name' => 'string',
-      'profile_picture_url' => 'Object',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/personas',
-      new Page(),
-      'EDGE',
-      Page::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getPhotos(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -2225,6 +2123,7 @@ class Page extends AbstractCrudObject {
       'android_key_hash' => 'string',
       'caption' => 'string',
       'composer_session_id' => 'string',
+      'has_umg' => 'bool',
       'height' => 'unsigned int',
       'ios_bundle_id' => 'string',
       'media_effect_ids' => 'list<int>',
@@ -3007,6 +2906,7 @@ class Page extends AbstractCrudObject {
 
     $param_types = array(
       'ad_breaks' => 'Object',
+      'audio_story_wave_animation_handle' => 'string',
       'backdated_post' => 'Object',
       'content_category' => 'content_category_enum',
       'content_tags' => 'list<string>',

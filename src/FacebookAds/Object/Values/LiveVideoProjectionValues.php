@@ -39,5 +39,4 @@ class LiveVideoProjectionValues extends AbstractEnum {
 
   const EQUIRECTANGULAR = 'EQUIRECTANGULAR';
   const CUBEMAP = 'CUBEMAP';
-  const SINGLE_FISH_EYE = 'SINGLE_FISH_EYE';
 }

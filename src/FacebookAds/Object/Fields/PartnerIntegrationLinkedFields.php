@@ -41,6 +41,7 @@ class PartnerIntegrationLinkedFields extends AbstractEnum {
   const EXTERNAL_ID = 'external_id';
   const HAS_OAUTH_TOKEN = 'has_oauth_token';
   const ID = 'id';
+  const NAME = 'name';
   const OFFLINE_CONVERSION_DATA_SET = 'offline_conversion_data_set';
   const PARTNER = 'partner';
   const PRODUCT_CATALOG = 'product_catalog';
@@ -52,6 +53,7 @@ class PartnerIntegrationLinkedFields extends AbstractEnum {
       'external_id' => 'string',
       'has_oauth_token' => 'bool',
       'id' => 'string',
+      'name' => 'string',
       'offline_conversion_data_set' => 'OfflineConversionDataSet',
       'partner' => 'string',
       'product_catalog' => 'ProductCatalog',

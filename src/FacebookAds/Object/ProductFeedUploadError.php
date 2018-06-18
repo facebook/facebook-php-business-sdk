@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProductFeedUploadErrorFields;
+use FacebookAds\Object\Values\ProductFeedUploadErrorAffectedSurfacesValues;
 use FacebookAds\Object\Values\ProductFeedUploadErrorSeverityValues;
 
 /**
@@ -58,6 +59,7 @@ class ProductFeedUploadError extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['AffectedSurfaces'] = ProductFeedUploadErrorAffectedSurfacesValues::getInstance()->getValues();
     $ref_enums['Severity'] = ProductFeedUploadErrorSeverityValues::getInstance()->getValues();
     return $ref_enums;
   }

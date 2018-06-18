@@ -128,6 +128,7 @@ class ProductGroup extends AbstractCrudObject {
       'iphone_url' => 'string',
       'manufacturer_part_number' => 'string',
       'material' => 'string',
+      'mobile_link' => 'Object',
       'name' => 'string',
       'offer_price_amount' => 'unsigned int',
       'offer_price_end_date' => 'Object',

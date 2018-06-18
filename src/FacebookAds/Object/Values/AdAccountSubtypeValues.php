@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,19 +33,22 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static AdAccountSubtypeValues getInstance()
  */
+class AdAccountSubtypeValues extends AbstractEnum {
 
-class TransactionCurrencyAmountFields extends AbstractEnum {
-
-  const AMOUNT = 'amount';
-  const CURRENCY = 'currency';
-  const TOTAL_AMOUNT = 'total_amount';
-
-  public function getFieldTypes() {
-    return array(
-      'amount' => 'string',
-      'currency' => 'string',
-      'total_amount' => 'string',
-    );
-  }
+  const CUSTOM = 'CUSTOM';
+  const WEBSITE = 'WEBSITE';
+  const APP = 'APP';
+  const OFFLINE_CONVERSION = 'OFFLINE_CONVERSION';
+  const CLAIM = 'CLAIM';
+  const PARTNER = 'PARTNER';
+  const MANAGED = 'MANAGED';
+  const VIDEO = 'VIDEO';
+  const LOOKALIKE = 'LOOKALIKE';
+  const ENGAGEMENT = 'ENGAGEMENT';
+  const DATA_SET = 'DATA_SET';
+  const BAG_OF_ACCOUNTS = 'BAG_OF_ACCOUNTS';
+  const STUDY_RULE_AUDIENCE = 'STUDY_RULE_AUDIENCE';
+  const FOX = 'FOX';
 }

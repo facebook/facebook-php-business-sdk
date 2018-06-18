@@ -41,4 +41,5 @@ class AdRuleTriggerTypeValues extends AbstractEnum {
   const METADATA_UPDATE = 'METADATA_UPDATE';
   const STATS_MILESTONE = 'STATS_MILESTONE';
   const STATS_CHANGE = 'STATS_CHANGE';
+  const DELIVERY_INSIGHTS_CHANGE = 'DELIVERY_INSIGHTS_CHANGE';
 }

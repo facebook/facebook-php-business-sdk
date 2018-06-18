@@ -40,4 +40,5 @@ class LiveVideoLiveCommentModerationSettingValues extends AbstractEnum {
   const FOLLOWER = 'FOLLOWER';
   const SLOW = 'SLOW';
   const DISCUSSION = 'DISCUSSION';
+  const RESTRICTED = 'RESTRICTED';
 }

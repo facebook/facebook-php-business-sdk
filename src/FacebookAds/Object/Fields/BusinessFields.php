@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class BusinessFields extends AbstractEnum {
 
+  const BLOCK_OFFLINE_ANALYTICS = 'block_offline_analytics';
   const CREATED_BY = 'created_by';
   const CREATED_TIME = 'created_time';
   const ID = 'id';
@@ -52,6 +53,7 @@ class BusinessFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'block_offline_analytics' => 'bool',
       'created_by' => 'User',
       'created_time' => 'datetime',
       'id' => 'string',

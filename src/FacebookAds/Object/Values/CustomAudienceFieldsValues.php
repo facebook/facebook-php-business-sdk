@@ -40,6 +40,7 @@ class CustomAudienceFieldsValues extends AbstractEnum {
   const ID = 'id';
   const ACCOUNT_ID = 'account_id';
   const APPROXIMATE_COUNT = 'approximate_count';
+  const CUSTOMER_FILE_SOURCE = 'customer_file_source';
   const DATA_SOURCE = 'data_source';
   const DELIVERY_STATUS = 'delivery_status';
   const DESCRIPTION = 'description';

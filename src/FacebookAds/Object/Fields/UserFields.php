@@ -60,6 +60,7 @@ class UserFields extends AbstractEnum {
   const INSTALL_TYPE = 'install_type';
   const INSTALLED = 'installed';
   const INTERESTED_IN = 'interested_in';
+  const IS_FAMEDEEPLINKINGUSER = 'is_famedeeplinkinguser';
   const IS_PAYMENT_ENABLED = 'is_payment_enabled';
   const IS_SHARED_LOGIN = 'is_shared_login';
   const IS_VERIFIED = 'is_verified';
@@ -124,6 +125,7 @@ class UserFields extends AbstractEnum {
       'install_type' => 'string',
       'installed' => 'bool',
       'interested_in' => 'list<string>',
+      'is_famedeeplinkinguser' => 'bool',
       'is_payment_enabled' => 'bool',
       'is_shared_login' => 'bool',
       'is_verified' => 'bool',

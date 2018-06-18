@@ -39,13 +39,11 @@ class OwnedDomainFields extends AbstractEnum {
 
   const DOMAIN_NAME = 'domain_name';
   const ID = 'id';
-  const PAGE_BLOCK_LIST = 'page_block_list';
 
   public function getFieldTypes() {
     return array(
       'domain_name' => 'string',
       'id' => 'string',
-      'page_block_list' => 'Object',
     );
   }
 }

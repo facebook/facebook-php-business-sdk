@@ -30,6 +30,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdCreativeFields;
 use FacebookAds\Object\Values\AdCreativeApplinkTreatmentValues;
+use FacebookAds\Object\Values\AdCreativeAuthorizationCategoryValues;
 use FacebookAds\Object\Values\AdCreativeCallToActionTypeValues;
 use FacebookAds\Object\Values\AdCreativeDynamicAdVoiceValues;
 use FacebookAds\Object\Values\AdCreativeObjectTypeValues;
@@ -71,6 +72,7 @@ class AdCreative extends AbstractCrudObject {
     $ref_enums['CallToActionType'] = AdCreativeCallToActionTypeValues::getInstance()->getValues();
     $ref_enums['ObjectType'] = AdCreativeObjectTypeValues::getInstance()->getValues();
     $ref_enums['Status'] = AdCreativeStatusValues::getInstance()->getValues();
+    $ref_enums['AuthorizationCategory'] = AdCreativeAuthorizationCategoryValues::getInstance()->getValues();
     $ref_enums['DynamicAdVoice'] = AdCreativeDynamicAdVoiceValues::getInstance()->getValues();
     $ref_enums['Operator'] = AdCreativeOperatorValues::getInstance()->getValues();
     return $ref_enums;

@@ -140,4 +140,5 @@ class AdAccountTargetingUnifiedLimitTypeValues extends AbstractEnum {
   const USER_PAGE_THREADS_EXCLUDED = 'user_page_threads_excluded';
   const IS_WHATSAPP_DESTINATION_AD = 'is_whatsapp_destination_ad';
   const MARKETPLACE_PRODUCT_CATEGORIES = 'marketplace_product_categories';
+  const INSTREAM_VIDEO_SPONSORSHIP_PLACEMENTS = 'instream_video_sponsorship_placements';
 }

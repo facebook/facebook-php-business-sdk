@@ -39,8 +39,10 @@ class BusinessUserFields extends AbstractEnum {
 
   const BUSINESS = 'business';
   const EMAIL = 'email';
+  const FINANCE_PERMISSION = 'finance_permission';
   const FIRST_NAME = 'first_name';
   const ID = 'id';
+  const IP_PERMISSION = 'ip_permission';
   const LAST_NAME = 'last_name';
   const MARKED_FOR_REMOVAL = 'marked_for_removal';
   const NAME = 'name';
@@ -53,8 +55,10 @@ class BusinessUserFields extends AbstractEnum {
     return array(
       'business' => 'Business',
       'email' => 'string',
+      'finance_permission' => 'string',
       'first_name' => 'string',
       'id' => 'string',
+      'ip_permission' => 'string',
       'last_name' => 'string',
       'marked_for_removal' => 'bool',
       'name' => 'string',
