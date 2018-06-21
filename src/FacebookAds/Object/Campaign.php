@@ -41,6 +41,7 @@ use FacebookAds\Object\Values\AdsInsightsDatePresetValues;
 use FacebookAds\Object\Values\AdsInsightsLevelValues;
 use FacebookAds\Object\Values\AdsInsightsSummaryActionBreakdownsValues;
 use FacebookAds\Object\Values\AdsInsightsSummaryValues;
+use FacebookAds\Object\Values\CampaignBidStrategyValues;
 use FacebookAds\Object\Values\CampaignConfiguredStatusValues;
 use FacebookAds\Object\Values\CampaignDatePresetValues;
 use FacebookAds\Object\Values\CampaignDeleteStrategyValues;
@@ -82,6 +83,7 @@ class Campaign extends AbstractArchivableCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['BidStrategy'] = CampaignBidStrategyValues::getInstance()->getValues();
     $ref_enums['ConfiguredStatus'] = CampaignConfiguredStatusValues::getInstance()->getValues();
     $ref_enums['EffectiveStatus'] = CampaignEffectiveStatusValues::getInstance()->getValues();
     $ref_enums['Status'] = CampaignStatusValues::getInstance()->getValues();
@@ -411,9 +413,12 @@ class Campaign extends AbstractArchivableCrudObject {
 
     $param_types = array(
       'adlabels' => 'list<Object>',
+      'bid_strategy' => 'bid_strategy_enum',
       'budget_rebalance_flag' => 'bool',
+      'daily_budget' => 'unsigned int',
       'execution_options' => 'list<execution_options_enum>',
       'iterative_split_test_configs' => 'list<Object>',
+      'lifetime_budget' => 'unsigned int',
       'name' => 'string',
       'objective' => 'objective_enum',
       'promoted_object' => 'Object',
@@ -421,6 +426,7 @@ class Campaign extends AbstractArchivableCrudObject {
       'status' => 'status_enum',
     );
     $enums = array(
+      'bid_strategy_enum' => CampaignBidStrategyValues::getInstance()->getValues(),
       'execution_options_enum' => CampaignExecutionOptionsValues::getInstance()->getValues(),
       'objective_enum' => CampaignObjectiveValues::getInstance()->getValues(),
       'status_enum' => CampaignStatusValues::getInstance()->getValues(),

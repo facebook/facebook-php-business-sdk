@@ -65,6 +65,7 @@ use FacebookAds\Object\Values\AdsInsightsDatePresetValues;
 use FacebookAds\Object\Values\AdsInsightsLevelValues;
 use FacebookAds\Object\Values\AdsInsightsSummaryActionBreakdownsValues;
 use FacebookAds\Object\Values\AdsInsightsSummaryValues;
+use FacebookAds\Object\Values\CampaignBidStrategyValues;
 use FacebookAds\Object\Values\CampaignDatePresetValues;
 use FacebookAds\Object\Values\CampaignDeleteStrategyValues;
 use FacebookAds\Object\Values\CampaignEffectiveStatusValues;
@@ -769,12 +770,16 @@ class AdAccount extends AbstractCrudObject {
       'creative_sequence' => 'list<string>',
       'daily_budget' => 'unsigned int',
       'daily_imps' => 'unsigned int',
+      'daily_min_spend_target' => 'unsigned int',
+      'daily_spend_cap' => 'unsigned int',
       'destination_type' => 'destination_type_enum',
       'end_time' => 'datetime',
       'execution_options' => 'list<execution_options_enum>',
       'frequency_control_specs' => 'list<Object>',
       'lifetime_budget' => 'unsigned int',
       'lifetime_imps' => 'unsigned int',
+      'lifetime_min_spend_target' => 'unsigned int',
+      'lifetime_spend_cap' => 'unsigned int',
       'name' => 'string',
       'optimization_goal' => 'optimization_goal_enum',
       'pacing_type' => 'list<string>',
@@ -962,6 +967,7 @@ class AdAccount extends AbstractCrudObject {
       'og_suggestion_mechanism' => 'string',
       'original_fov' => 'unsigned int',
       'original_projection_type' => 'original_projection_type_enum',
+      'react_mode_metadata' => 'string',
       'referenced_sticker_id' => 'string',
       'slideshow_spec' => 'map',
       'start_offset' => 'unsigned int',
@@ -1347,10 +1353,13 @@ class AdAccount extends AbstractCrudObject {
 
     $param_types = array(
       'adlabels' => 'list<Object>',
+      'bid_strategy' => 'bid_strategy_enum',
       'budget_rebalance_flag' => 'bool',
       'buying_type' => 'string',
+      'daily_budget' => 'unsigned int',
       'execution_options' => 'list<execution_options_enum>',
       'iterative_split_test_configs' => 'list<Object>',
+      'lifetime_budget' => 'unsigned int',
       'name' => 'string',
       'objective' => 'objective_enum',
       'promoted_object' => 'Object',
@@ -1358,6 +1367,7 @@ class AdAccount extends AbstractCrudObject {
       'status' => 'status_enum',
     );
     $enums = array(
+      'bid_strategy_enum' => CampaignBidStrategyValues::getInstance()->getValues(),
       'execution_options_enum' => CampaignExecutionOptionsValues::getInstance()->getValues(),
       'objective_enum' => CampaignObjectiveValues::getInstance()->getValues(),
       'status_enum' => CampaignStatusValues::getInstance()->getValues(),

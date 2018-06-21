@@ -38,6 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class PartnerIntegrationLinkedFields extends AbstractEnum {
 
   const ADS_PIXEL = 'ads_pixel';
+  const APPLICATION = 'application';
   const EXTERNAL_ID = 'external_id';
   const HAS_OAUTH_TOKEN = 'has_oauth_token';
   const ID = 'id';
@@ -50,6 +51,7 @@ class PartnerIntegrationLinkedFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'ads_pixel' => 'AdsPixel',
+      'application' => 'Object',
       'external_id' => 'string',
       'has_oauth_token' => 'bool',
       'id' => 'string',

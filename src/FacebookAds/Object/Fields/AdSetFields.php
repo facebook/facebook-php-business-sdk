@@ -52,6 +52,8 @@ class AdSetFields extends AbstractEnum {
   const CREATED_TIME = 'created_time';
   const CREATIVE_SEQUENCE = 'creative_sequence';
   const DAILY_BUDGET = 'daily_budget';
+  const DAILY_MIN_SPEND_TARGET = 'daily_min_spend_target';
+  const DAILY_SPEND_CAP = 'daily_spend_cap';
   const DESTINATION_TYPE = 'destination_type';
   const EFFECTIVE_STATUS = 'effective_status';
   const END_TIME = 'end_time';
@@ -60,6 +62,8 @@ class AdSetFields extends AbstractEnum {
   const INSTAGRAM_ACTOR_ID = 'instagram_actor_id';
   const LIFETIME_BUDGET = 'lifetime_budget';
   const LIFETIME_IMPS = 'lifetime_imps';
+  const LIFETIME_MIN_SPEND_TARGET = 'lifetime_min_spend_target';
+  const LIFETIME_SPEND_CAP = 'lifetime_spend_cap';
   const NAME = 'name';
   const OPTIMIZATION_GOAL = 'optimization_goal';
   const PACING_TYPE = 'pacing_type';
@@ -98,6 +102,8 @@ class AdSetFields extends AbstractEnum {
       'created_time' => 'datetime',
       'creative_sequence' => 'list<string>',
       'daily_budget' => 'string',
+      'daily_min_spend_target' => 'string',
+      'daily_spend_cap' => 'string',
       'destination_type' => 'string',
       'effective_status' => 'EffectiveStatus',
       'end_time' => 'datetime',
@@ -106,6 +112,8 @@ class AdSetFields extends AbstractEnum {
       'instagram_actor_id' => 'string',
       'lifetime_budget' => 'string',
       'lifetime_imps' => 'int',
+      'lifetime_min_spend_target' => 'string',
+      'lifetime_spend_cap' => 'string',
       'name' => 'string',
       'optimization_goal' => 'OptimizationGoal',
       'pacing_type' => 'list<string>',

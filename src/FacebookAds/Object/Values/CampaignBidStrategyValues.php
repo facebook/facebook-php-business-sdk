@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,37 +33,11 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static CampaignBidStrategyValues getInstance()
  */
+class CampaignBidStrategyValues extends AbstractEnum {
 
-class TargetingGeoLocationFields extends AbstractEnum {
-
-  const CITIES = 'cities';
-  const COUNTRIES = 'countries';
-  const COUNTRY_GROUPS = 'country_groups';
-  const CUSTOM_LOCATIONS = 'custom_locations';
-  const ELECTORAL_DISTRICTS = 'electoral_districts';
-  const GEO_MARKETS = 'geo_markets';
-  const LOCATION_SET_IDS = 'location_set_ids';
-  const LOCATION_TYPES = 'location_types';
-  const PLACES = 'places';
-  const POLITICAL_DISTRICTS = 'political_districts';
-  const REGIONS = 'regions';
-  const ZIPS = 'zips';
-
-  public function getFieldTypes() {
-    return array(
-      'cities' => 'list<TargetingGeoLocationCity>',
-      'countries' => 'list<string>',
-      'country_groups' => 'list<string>',
-      'custom_locations' => 'list<TargetingGeoLocationCustomLocation>',
-      'electoral_districts' => 'list<TargetingGeoLocationElectoralDistrict>',
-      'geo_markets' => 'list<TargetingGeoLocationMarket>',
-      'location_set_ids' => 'list<string>',
-      'location_types' => 'list<string>',
-      'places' => 'list<TargetingGeoLocationPlace>',
-      'political_districts' => 'list<TargetingGeoLocationPoliticalDistrict>',
-      'regions' => 'list<TargetingGeoLocationRegion>',
-      'zips' => 'list<TargetingGeoLocationZip>',
-    );
-  }
+  const LOWEST_COST_WITHOUT_CAP = 'LOWEST_COST_WITHOUT_CAP';
+  const LOWEST_COST_WITH_BID_CAP = 'LOWEST_COST_WITH_BID_CAP';
+  const TARGET_COST = 'TARGET_COST';
 }
