@@ -45,6 +45,7 @@ class PartnerIntegrationLinkedFields extends AbstractEnum {
   const NAME = 'name';
   const OFFLINE_CONVERSION_DATA_SET = 'offline_conversion_data_set';
   const PARTNER = 'partner';
+  const PARTNER_PROFILE = 'partner_profile';
   const PRODUCT_CATALOG = 'product_catalog';
   const SETUP_STATUS = 'setup_status';
 
@@ -58,6 +59,7 @@ class PartnerIntegrationLinkedFields extends AbstractEnum {
       'name' => 'string',
       'offline_conversion_data_set' => 'OfflineConversionDataSet',
       'partner' => 'string',
+      'partner_profile' => 'Object',
       'product_catalog' => 'ProductCatalog',
       'setup_status' => 'string',
     );

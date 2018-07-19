@@ -57,6 +57,7 @@ class AdAccountCreationRequestFields extends AbstractEnum {
   const IS_UNDER_AUTHORIZATION = 'is_under_authorization';
   const OFFICIAL_WEBSITE_URL = 'official_website_url';
   const PLANNING_AGENCY_BUSINESS = 'planning_agency_business';
+  const PLANNING_AGENCY_BUSINESS_ID = 'planning_agency_business_id';
   const PROMOTABLE_APP_IDS = 'promotable_app_ids';
   const PROMOTABLE_PAGE_IDS = 'promotable_page_ids';
   const PROMOTABLE_URLS = 'promotable_urls';
@@ -67,7 +68,6 @@ class AdAccountCreationRequestFields extends AbstractEnum {
   const VERTICAL = 'vertical';
   const ADVERTISER_BUSINESS_ID = 'advertiser_business_id';
   const BUSINESS_REGISTRATION = 'business_registration';
-  const PLANNING_AGENCY_BUSINESS_ID = 'planning_agency_business_id';
   const PROMOTABLE_PAGE_URLS = 'promotable_page_urls';
 
   public function getFieldTypes() {
@@ -92,6 +92,7 @@ class AdAccountCreationRequestFields extends AbstractEnum {
       'is_under_authorization' => 'bool',
       'official_website_url' => 'string',
       'planning_agency_business' => 'Business',
+      'planning_agency_business_id' => 'string',
       'promotable_app_ids' => 'list<string>',
       'promotable_page_ids' => 'list<string>',
       'promotable_urls' => 'list<string>',
@@ -102,7 +103,6 @@ class AdAccountCreationRequestFields extends AbstractEnum {
       'vertical' => 'string',
       'advertiser_business_id' => 'string',
       'business_registration' => 'file',
-      'planning_agency_business_id' => 'string',
       'promotable_page_urls' => 'list<Object>',
     );
   }

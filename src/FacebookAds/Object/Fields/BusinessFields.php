@@ -54,7 +54,7 @@ class BusinessFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'block_offline_analytics' => 'bool',
-      'created_by' => 'User',
+      'created_by' => 'Object',
       'created_time' => 'datetime',
       'id' => 'string',
       'link' => 'string',
@@ -63,7 +63,7 @@ class BusinessFields extends AbstractEnum {
       'profile_picture_uri' => 'string',
       'timezone_id' => 'unsigned int',
       'two_factor_type' => 'string',
-      'updated_by' => 'User',
+      'updated_by' => 'Object',
       'updated_time' => 'datetime',
       'vertical' => 'string',
     );

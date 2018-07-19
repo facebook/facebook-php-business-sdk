@@ -53,7 +53,7 @@ class BusinessRoleRequestFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'created_by' => 'User',
+      'created_by' => 'Object',
       'created_time' => 'datetime',
       'email' => 'string',
       'expiration_time' => 'datetime',
@@ -64,7 +64,7 @@ class BusinessRoleRequestFields extends AbstractEnum {
       'owner' => 'Business',
       'role' => 'string',
       'status' => 'string',
-      'updated_by' => 'User',
+      'updated_by' => 'Object',
       'updated_time' => 'datetime',
     );
   }

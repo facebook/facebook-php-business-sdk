@@ -47,7 +47,7 @@ class BusinessProjectFields extends AbstractEnum {
     return array(
       'business' => 'Business',
       'created_time' => 'datetime',
-      'creator' => 'User',
+      'creator' => 'Object',
       'id' => 'string',
       'name' => 'string',
     );

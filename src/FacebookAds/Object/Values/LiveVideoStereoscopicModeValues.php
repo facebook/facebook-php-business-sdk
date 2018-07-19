@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,25 +33,11 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static LiveVideoStereoscopicModeValues getInstance()
  */
+class LiveVideoStereoscopicModeValues extends AbstractEnum {
 
-class ExtendedCreditInvoiceGroupFields extends AbstractEnum {
-
-  const AUTO_ENROLL = 'auto_enroll';
-  const CUSTOMER_PO_NUMBER = 'customer_po_number';
-  const EMAIL = 'email';
-  const EMAILS = 'emails';
-  const ID = 'id';
-  const NAME = 'name';
-
-  public function getFieldTypes() {
-    return array(
-      'auto_enroll' => 'bool',
-      'customer_po_number' => 'string',
-      'email' => 'Object',
-      'emails' => 'list<string>',
-      'id' => 'string',
-      'name' => 'string',
-    );
-  }
+  const MONO = 'MONO';
+  const LEFT_RIGHT = 'LEFT_RIGHT';
+  const TOP_BOTTOM = 'TOP_BOTTOM';
 }

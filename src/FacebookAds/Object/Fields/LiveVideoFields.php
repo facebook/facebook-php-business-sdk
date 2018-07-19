@@ -42,6 +42,7 @@ class LiveVideoFields extends AbstractEnum {
   const BROADCAST_START_TIME = 'broadcast_start_time';
   const COPYRIGHT = 'copyright';
   const CREATION_TIME = 'creation_time';
+  const DASH_INGEST_URL = 'dash_ingest_url';
   const DASH_PREVIEW_URL = 'dash_preview_url';
   const DESCRIPTION = 'description';
   const EMBED_HTML = 'embed_html';
@@ -67,6 +68,7 @@ class LiveVideoFields extends AbstractEnum {
       'broadcast_start_time' => 'datetime',
       'copyright' => 'VideoCopyright',
       'creation_time' => 'datetime',
+      'dash_ingest_url' => 'string',
       'dash_preview_url' => 'string',
       'description' => 'string',
       'embed_html' => 'string',

@@ -742,7 +742,7 @@ class ProductCatalog extends AbstractCrudObject {
 
     $param_types = array(
       'bulk_pagination' => 'bool',
-      'filter' => 'Object',
+      'return_only_approved_products' => 'bool',
     );
     $enums = array(
     );

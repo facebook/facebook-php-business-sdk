@@ -43,6 +43,7 @@ use FacebookAds\Object\Values\BusinessSurveyBusinessTypeValues;
 use FacebookAds\Object\Values\BusinessVerticalValues;
 use FacebookAds\Object\Values\DirectDealStatusValues;
 use FacebookAds\Object\Values\MeasurementReportReportTypeValues;
+use FacebookAds\Object\Values\OfflineConversionDataSetDataOriginValues;
 use FacebookAds\Object\Values\ProductCatalogVerticalValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
 use FacebookAds\Object\Values\ReachFrequencyPredictionStatusValues;
@@ -147,6 +148,7 @@ class Business extends AbstractCrudObject {
       'end_advertiser' => 'Object',
       'funding_id' => 'string',
       'invoice' => 'bool',
+      'invoice_group_id' => 'Object',
       'io' => 'bool',
       'liable_address_id' => 'Object',
       'media_agency' => 'string',
@@ -864,29 +866,6 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getClientBusinesses(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/client_businesses',
-      new Business(),
-      'EDGE',
-      Business::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getClientPages(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1232,11 +1211,13 @@ class Business extends AbstractCrudObject {
 
     $param_types = array(
       'auto_assign_to_new_accounts_only' => 'bool',
+      'data_origin' => 'data_origin_enum',
       'description' => 'string',
       'enable_auto_assign_to_accounts' => 'bool',
       'name' => 'string',
     );
     $enums = array(
+      'data_origin_enum' => OfflineConversionDataSetDataOriginValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

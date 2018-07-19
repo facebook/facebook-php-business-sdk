@@ -38,10 +38,12 @@ use FacebookAds\Enum\AbstractEnum;
 class AdPromotedObjectFields extends AbstractEnum {
 
   const APPLICATION_ID = 'application_id';
+  const CUSTOM_CONVERSION_ID = 'custom_conversion_id';
   const CUSTOM_EVENT_TYPE = 'custom_event_type';
   const EVENT_ID = 'event_id';
   const OBJECT_STORE_URL = 'object_store_url';
   const OFFER_ID = 'offer_id';
+  const OFFLINE_CONVERSION_DATA_SET_ID = 'offline_conversion_data_set_id';
   const PAGE_ID = 'page_id';
   const PIXEL_ID = 'pixel_id';
   const PLACE_PAGE_SET_ID = 'place_page_set_id';
@@ -51,10 +53,12 @@ class AdPromotedObjectFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'application_id' => 'string',
+      'custom_conversion_id' => 'string',
       'custom_event_type' => 'CustomEventType',
       'event_id' => 'string',
       'object_store_url' => 'string',
       'offer_id' => 'string',
+      'offline_conversion_data_set_id' => 'string',
       'page_id' => 'string',
       'pixel_id' => 'string',
       'place_page_set_id' => 'string',

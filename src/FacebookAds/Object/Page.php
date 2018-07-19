@@ -40,6 +40,7 @@ use FacebookAds\Object\Values\LiveVideoBroadcastStatusValues;
 use FacebookAds\Object\Values\LiveVideoProjectionValues;
 use FacebookAds\Object\Values\LiveVideoSpatialAudioFormatValues;
 use FacebookAds\Object\Values\LiveVideoStatusValues;
+use FacebookAds\Object\Values\LiveVideoStereoscopicModeValues;
 use FacebookAds\Object\Values\LiveVideoStreamTypeValues;
 use FacebookAds\Object\Values\LiveVideoTypeValues;
 use FacebookAds\Object\Values\MediaFingerprintFingerprintContentTypeValues;
@@ -1366,6 +1367,7 @@ class Page extends AbstractCrudObject {
       'schedule_custom_profile_image' => 'file',
       'spatial_audio_format' => 'spatial_audio_format_enum',
       'status' => 'status_enum',
+      'stereoscopic_mode' => 'stereoscopic_mode_enum',
       'stop_on_delete_stream' => 'bool',
       'stream_type' => 'stream_type_enum',
       'targeting' => 'Object',
@@ -1375,6 +1377,7 @@ class Page extends AbstractCrudObject {
       'projection_enum' => LiveVideoProjectionValues::getInstance()->getValues(),
       'spatial_audio_format_enum' => LiveVideoSpatialAudioFormatValues::getInstance()->getValues(),
       'status_enum' => LiveVideoStatusValues::getInstance()->getValues(),
+      'stereoscopic_mode_enum' => LiveVideoStereoscopicModeValues::getInstance()->getValues(),
       'stream_type_enum' => LiveVideoStreamTypeValues::getInstance()->getValues(),
     );
 
@@ -1397,7 +1400,7 @@ class Page extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'location_page_id' => 'int',
+      'location_page_id' => 'Object',
       'store_number' => 'unsigned int',
     );
     $enums = array(
@@ -1550,7 +1553,6 @@ class Page extends AbstractCrudObject {
         'RESPONSE',
         'UPDATE',
         'MESSAGE_TAG',
-        'NON_PROMOTIONAL_SUBSCRIPTION',
       ),
       'notification_type_enum' => array(
         'REGULAR',
@@ -2774,6 +2776,7 @@ class Page extends AbstractCrudObject {
       'copyright_content_id' => 'string',
       'excluded_ownership_countries' => 'list<string>',
       'excluded_ownership_segments' => 'list<Object>',
+      'fingerprint_id' => 'string',
       'is_reference_disabled' => 'bool',
       'is_reference_video' => 'bool',
       'monitoring_type' => 'monitoring_type_enum',

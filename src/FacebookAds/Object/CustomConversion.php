@@ -68,9 +68,9 @@ class CustomConversion extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'end_time' => 'datetime',
+      'end_time' => 'Object',
       'event_type' => 'event_type_enum',
-      'start_time' => 'datetime',
+      'start_time' => 'Object',
     );
     $enums = array(
       'event_type_enum' => array(

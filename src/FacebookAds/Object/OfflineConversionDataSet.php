@@ -30,6 +30,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\OfflineConversionDataSetFields;
 use FacebookAds\Object\Values\BusinessPermittedRolesValues;
+use FacebookAds\Object\Values\OfflineConversionDataSetDataOriginValues;
 
 /**
  * This class is auto-generated.
@@ -58,6 +59,7 @@ class OfflineConversionDataSet extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['DataOrigin'] = OfflineConversionDataSetDataOriginValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -492,11 +494,13 @@ class OfflineConversionDataSet extends AbstractCrudObject {
 
     $param_types = array(
       'auto_assign_to_new_accounts_only' => 'bool',
+      'data_origin' => 'data_origin_enum',
       'description' => 'string',
       'enable_auto_assign_to_accounts' => 'bool',
       'name' => 'string',
     );
     $enums = array(
+      'data_origin_enum' => OfflineConversionDataSetDataOriginValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

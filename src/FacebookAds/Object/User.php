@@ -34,6 +34,7 @@ use FacebookAds\Object\Values\LiveVideoBroadcastStatusValues;
 use FacebookAds\Object\Values\LiveVideoProjectionValues;
 use FacebookAds\Object\Values\LiveVideoSpatialAudioFormatValues;
 use FacebookAds\Object\Values\LiveVideoStatusValues;
+use FacebookAds\Object\Values\LiveVideoStereoscopicModeValues;
 use FacebookAds\Object\Values\LiveVideoStreamTypeValues;
 use FacebookAds\Object\Values\LiveVideoTypeValues;
 use FacebookAds\Object\Values\PhotoBackdatedTimeGranularityValues;
@@ -311,6 +312,7 @@ class User extends AbstractCrudObject {
       'schedule_custom_profile_image' => 'file',
       'spatial_audio_format' => 'spatial_audio_format_enum',
       'status' => 'status_enum',
+      'stereoscopic_mode' => 'stereoscopic_mode_enum',
       'stop_on_delete_stream' => 'bool',
       'stream_type' => 'stream_type_enum',
       'title' => 'string',
@@ -319,6 +321,7 @@ class User extends AbstractCrudObject {
       'projection_enum' => LiveVideoProjectionValues::getInstance()->getValues(),
       'spatial_audio_format_enum' => LiveVideoSpatialAudioFormatValues::getInstance()->getValues(),
       'status_enum' => LiveVideoStatusValues::getInstance()->getValues(),
+      'stereoscopic_mode_enum' => LiveVideoStereoscopicModeValues::getInstance()->getValues(),
       'stream_type_enum' => LiveVideoStreamTypeValues::getInstance()->getValues(),
     );
 
