@@ -39,15 +39,13 @@ class AdAccountUserFields extends AbstractEnum {
 
   const ID = 'id';
   const NAME = 'name';
-  const PERMISSIONS = 'permissions';
-  const ROLE = 'role';
+  const TASKS = 'tasks';
 
   public function getFieldTypes() {
     return array(
       'id' => 'string',
       'name' => 'string',
-      'permissions' => 'list<unsigned int>',
-      'role' => 'unsigned int',
+      'tasks' => 'list<string>',
     );
   }
 }

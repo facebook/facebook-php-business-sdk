@@ -47,7 +47,6 @@ class AdsInsightsFields extends AbstractEnum {
   const ADSET_ID = 'adset_id';
   const ADSET_NAME = 'adset_name';
   const BUYING_TYPE = 'buying_type';
-  const CALL_TO_ACTION_CLICKS = 'call_to_action_clicks';
   const CAMPAIGN_ID = 'campaign_id';
   const CAMPAIGN_NAME = 'campaign_name';
   const CANVAS_AVG_VIEW_PERCENT = 'canvas_avg_view_percent';
@@ -59,7 +58,6 @@ class AdsInsightsFields extends AbstractEnum {
   const COST_PER_INLINE_LINK_CLICK = 'cost_per_inline_link_click';
   const COST_PER_INLINE_POST_ENGAGEMENT = 'cost_per_inline_post_engagement';
   const COST_PER_OUTBOUND_CLICK = 'cost_per_outbound_click';
-  const COST_PER_TOTAL_ACTION = 'cost_per_total_action';
   const COST_PER_UNIQUE_ACTION_TYPE = 'cost_per_unique_action_type';
   const COST_PER_UNIQUE_CLICK = 'cost_per_unique_click';
   const COST_PER_UNIQUE_INLINE_LINK_CLICK = 'cost_per_unique_inline_link_click';
@@ -84,14 +82,10 @@ class AdsInsightsFields extends AbstractEnum {
   const PLACE_PAGE_NAME = 'place_page_name';
   const REACH = 'reach';
   const RELEVANCE_SCORE = 'relevance_score';
-  const SOCIAL_CLICKS = 'social_clicks';
   const SOCIAL_IMPRESSIONS = 'social_impressions';
-  const SOCIAL_REACH = 'social_reach';
   const SOCIAL_SPEND = 'social_spend';
   const SPEND = 'spend';
   const TOTAL_ACTION_VALUE = 'total_action_value';
-  const TOTAL_ACTIONS = 'total_actions';
-  const TOTAL_UNIQUE_ACTIONS = 'total_unique_actions';
   const UNIQUE_ACTIONS = 'unique_actions';
   const UNIQUE_CLICKS = 'unique_clicks';
   const UNIQUE_CTR = 'unique_ctr';
@@ -100,7 +94,6 @@ class AdsInsightsFields extends AbstractEnum {
   const UNIQUE_LINK_CLICKS_CTR = 'unique_link_clicks_ctr';
   const UNIQUE_OUTBOUND_CLICKS = 'unique_outbound_clicks';
   const UNIQUE_OUTBOUND_CLICKS_CTR = 'unique_outbound_clicks_ctr';
-  const UNIQUE_SOCIAL_CLICKS = 'unique_social_clicks';
   const VIDEO_10_SEC_WATCHED_ACTIONS = 'video_10_sec_watched_actions';
   const VIDEO_30_SEC_WATCHED_ACTIONS = 'video_30_sec_watched_actions';
   const VIDEO_AVG_PERCENT_WATCHED_ACTIONS = 'video_avg_percent_watched_actions';
@@ -125,7 +118,6 @@ class AdsInsightsFields extends AbstractEnum {
       'adset_id' => 'string',
       'adset_name' => 'string',
       'buying_type' => 'string',
-      'call_to_action_clicks' => 'string',
       'campaign_id' => 'string',
       'campaign_name' => 'string',
       'canvas_avg_view_percent' => 'string',
@@ -137,7 +129,6 @@ class AdsInsightsFields extends AbstractEnum {
       'cost_per_inline_link_click' => 'string',
       'cost_per_inline_post_engagement' => 'string',
       'cost_per_outbound_click' => 'list<AdsActionStats>',
-      'cost_per_total_action' => 'string',
       'cost_per_unique_action_type' => 'list<AdsActionStats>',
       'cost_per_unique_click' => 'string',
       'cost_per_unique_inline_link_click' => 'string',
@@ -162,14 +153,10 @@ class AdsInsightsFields extends AbstractEnum {
       'place_page_name' => 'string',
       'reach' => 'string',
       'relevance_score' => 'AdgroupRelevanceScore',
-      'social_clicks' => 'string',
       'social_impressions' => 'string',
-      'social_reach' => 'string',
       'social_spend' => 'string',
       'spend' => 'string',
       'total_action_value' => 'string',
-      'total_actions' => 'string',
-      'total_unique_actions' => 'string',
       'unique_actions' => 'list<AdsActionStats>',
       'unique_clicks' => 'string',
       'unique_ctr' => 'string',
@@ -178,7 +165,6 @@ class AdsInsightsFields extends AbstractEnum {
       'unique_link_clicks_ctr' => 'string',
       'unique_outbound_clicks' => 'list<AdsActionStats>',
       'unique_outbound_clicks_ctr' => 'list<AdsActionStats>',
-      'unique_social_clicks' => 'string',
       'video_10_sec_watched_actions' => 'list<AdsActionStats>',
       'video_30_sec_watched_actions' => 'list<AdsActionStats>',
       'video_avg_percent_watched_actions' => 'list<AdsActionStats>',

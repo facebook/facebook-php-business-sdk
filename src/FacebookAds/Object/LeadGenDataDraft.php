@@ -96,11 +96,12 @@ class LeadGenDataDraft extends AbstractCrudObject {
       'legal_content_id' => 'string',
       'locale' => 'locale_enum',
       'name' => 'string',
-      'privacy_policy' => 'Object',
+      'privacy_policy' => 'map',
       'question_page_custom_headline' => 'string',
       'questions' => 'list<Object>',
       'status' => 'status_enum',
-      'thank_you_page' => 'Object',
+      'thank_you_page' => 'map',
+      'tracking_parameters' => 'Object',
     );
     $enums = array(
       'locale_enum' => LeadGenDataDraftLocaleValues::getInstance()->getValues(),

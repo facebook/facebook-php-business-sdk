@@ -33,10 +33,15 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static LiveVideoTypeValues getInstance()
+ * @method static PageTasksValues getInstance()
  */
-class LiveVideoTypeValues extends AbstractEnum {
+class PageTasksValues extends AbstractEnum {
 
-  const TAGGED = 'tagged';
-  const UPLOADED = 'uploaded';
+  const MANAGE = 'MANAGE';
+  const CREATE_CONTENT = 'CREATE_CONTENT';
+  const MODERATE = 'MODERATE';
+  const MODERATE_COMMUNITY = 'MODERATE_COMMUNITY';
+  const ADVERTISE = 'ADVERTISE';
+  const ANALYZE = 'ANALYZE';
+  const CREATE_LIVE_CONTENT = 'CREATE_LIVE_CONTENT';
 }

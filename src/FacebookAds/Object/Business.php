@@ -32,7 +32,7 @@ use FacebookAds\Object\Fields\BusinessFields;
 use FacebookAds\Object\Values\AdAccountCreationRequestStatusValues;
 use FacebookAds\Object\Values\AdAccountCreationRequestSubverticalValues;
 use FacebookAds\Object\Values\AdAccountCreationRequestVerticalValues;
-use FacebookAds\Object\Values\AdAccountPermittedRolesValues;
+use FacebookAds\Object\Values\AdAccountPermittedTasksValues;
 use FacebookAds\Object\Values\AdStudyTypeValues;
 use FacebookAds\Object\Values\BusinessMatchedSearchApplicationsEdgeDataAppStoreValues;
 use FacebookAds\Object\Values\BusinessPagePermittedRolesValues;
@@ -798,10 +798,10 @@ class Business extends AbstractCrudObject {
 
     $param_types = array(
       'adaccount_id' => 'string',
-      'permitted_roles' => 'list<permitted_roles_enum>',
+      'permitted_tasks' => 'list<permitted_tasks_enum>',
     );
     $enums = array(
-      'permitted_roles_enum' => AdAccountPermittedRolesValues::getInstance()->getValues(),
+      'permitted_tasks_enum' => AdAccountPermittedTasksValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

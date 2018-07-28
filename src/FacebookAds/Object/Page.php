@@ -38,11 +38,11 @@ use FacebookAds\Object\Values\InstantArticleInsightsQueryResultBreakdownValues;
 use FacebookAds\Object\Values\InstantArticleInsightsQueryResultPeriodValues;
 use FacebookAds\Object\Values\LiveVideoBroadcastStatusValues;
 use FacebookAds\Object\Values\LiveVideoProjectionValues;
+use FacebookAds\Object\Values\LiveVideoSourceValues;
 use FacebookAds\Object\Values\LiveVideoSpatialAudioFormatValues;
 use FacebookAds\Object\Values\LiveVideoStatusValues;
 use FacebookAds\Object\Values\LiveVideoStereoscopicModeValues;
 use FacebookAds\Object\Values\LiveVideoStreamTypeValues;
-use FacebookAds\Object\Values\LiveVideoTypeValues;
 use FacebookAds\Object\Values\MediaFingerprintFingerprintContentTypeValues;
 use FacebookAds\Object\Values\MessengerProfileFieldsValues;
 use FacebookAds\Object\Values\NativeOfferBarcodeTypeValues;
@@ -63,8 +63,8 @@ use FacebookAds\Object\Values\PagePostPostingToRedspaceValues;
 use FacebookAds\Object\Values\PagePostTargetSurfaceValues;
 use FacebookAds\Object\Values\PagePostUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\PagePostWithValues;
-use FacebookAds\Object\Values\PageRoleValues;
 use FacebookAds\Object\Values\PageSavedFilterSectionValues;
+use FacebookAds\Object\Values\PageTasksValues;
 use FacebookAds\Object\Values\PhotoBackdatedTimeGranularityValues;
 use FacebookAds\Object\Values\PhotoTypeValues;
 use FacebookAds\Object\Values\PhotoUnpublishedContentTypeValues;
@@ -103,7 +103,7 @@ class Page extends AbstractCrudObject {
     $ref_enums = array();
     $ref_enums['Attire'] = PageAttireValues::getInstance()->getValues();
     $ref_enums['FoodStyles'] = PageFoodStylesValues::getInstance()->getValues();
-    $ref_enums['Role'] = PageRoleValues::getInstance()->getValues();
+    $ref_enums['Tasks'] = PageTasksValues::getInstance()->getValues();
     $ref_enums['Locale'] = PageLocaleValues::getInstance()->getValues();
     return $ref_enums;
   }
@@ -220,11 +220,11 @@ class Page extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'role' => 'role_enum',
+      'tasks' => 'list<tasks_enum>',
       'user' => 'int',
     );
     $enums = array(
-      'role_enum' => PageRoleValues::getInstance()->getValues(),
+      'tasks_enum' => PageTasksValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1119,10 +1119,11 @@ class Page extends AbstractCrudObject {
       'legal_content_id' => 'string',
       'locale' => 'locale_enum',
       'name' => 'string',
-      'privacy_policy' => 'Object',
+      'privacy_policy' => 'map',
       'question_page_custom_headline' => 'string',
       'questions' => 'list<Object>',
-      'thank_you_page' => 'Object',
+      'thank_you_page' => 'map',
+      'tracking_parameters' => 'Object',
     );
     $enums = array(
       'locale_enum' => PageLocaleValues::getInstance()->getValues(),
@@ -1150,19 +1151,19 @@ class Page extends AbstractCrudObject {
       'allow_organic_lead_retrieval' => 'bool',
       'block_display_for_non_targeted_viewer' => 'bool',
       'context_card' => 'Object',
-      'context_card_id' => 'string',
+      'context_card_id' => 'Object',
       'cover_photo' => 'file',
       'custom_disclaimer' => 'Object',
-      'follow_up_action_url' => 'string',
+      'follow_up_action_url' => 'Object',
       'is_optimized_for_quality' => 'bool',
-      'legal_content_id' => 'string',
+      'legal_content_id' => 'Object',
       'locale' => 'locale_enum',
       'name' => 'string',
       'privacy_policy' => 'Object',
       'question_page_custom_headline' => 'string',
       'questions' => 'list<Object>',
       'thank_you_page' => 'Object',
-      'thank_you_page_id' => 'string',
+      'thank_you_page_id' => 'Object',
     );
     $enums = array(
       'locale_enum' => PageLocaleValues::getInstance()->getValues(),
@@ -1320,11 +1321,11 @@ class Page extends AbstractCrudObject {
 
     $param_types = array(
       'broadcast_status' => 'list<broadcast_status_enum>',
-      'type' => 'type_enum',
+      'source' => 'source_enum',
     );
     $enums = array(
       'broadcast_status_enum' => LiveVideoBroadcastStatusValues::getInstance()->getValues(),
-      'type_enum' => LiveVideoTypeValues::getInstance()->getValues(),
+      'source_enum' => LiveVideoSourceValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1829,46 +1830,6 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createOffersV3(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'availability_location' => 'availability_location_enum',
-      'description' => 'string',
-      'destination_uri' => 'string',
-      'discount_code' => 'string',
-      'expiration_time' => 'datetime',
-      'hidden' => 'bool',
-      'photo_uris' => 'list<string>',
-      'referrer' => 'string',
-      'schedule_time' => 'datetime',
-      'start_time' => 'datetime',
-      'terms_and_conditions' => 'string',
-      'video_ids' => 'list<string>',
-    );
-    $enums = array(
-      'availability_location_enum' => array(
-        'both',
-        'offline',
-        'online',
-      ),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/offers_v3',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function createPageBackedInstagramAccount(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1911,80 +1872,6 @@ class Page extends AbstractCrudObject {
       new AbstractCrudObject(),
       'EDGE',
       array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function deletePendingUsers(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'request_id' => 'int',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_DELETE,
-      '/pending_users',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getPendingUsers(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'business' => 'int',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/pending_users',
-      new BusinessRoleRequest(),
-      'EDGE',
-      BusinessRoleRequest::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createPendingUser(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'request_id' => 'int',
-      'role' => 'role_enum',
-    );
-    $enums = array(
-      'role_enum' => PageRoleValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/pending_users',
-      new Page(),
-      'EDGE',
-      Page::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

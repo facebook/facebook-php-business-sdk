@@ -66,6 +66,7 @@ class LeadgenFormFields extends AbstractEnum {
   const STATUS = 'status';
   const TCPA_COMPLIANCE = 'tcpa_compliance';
   const THANK_YOU_PAGE = 'thank_you_page';
+  const TRACKING_PARAMETERS = 'tracking_parameters';
 
   public function getFieldTypes() {
     return array(
@@ -98,6 +99,7 @@ class LeadgenFormFields extends AbstractEnum {
       'status' => 'string',
       'tcpa_compliance' => 'bool',
       'thank_you_page' => 'Object',
+      'tracking_parameters' => 'list<Object>',
     );
   }
 }

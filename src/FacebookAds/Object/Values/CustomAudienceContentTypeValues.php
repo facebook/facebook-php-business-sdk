@@ -37,12 +37,12 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class CustomAudienceContentTypeValues extends AbstractEnum {
 
-  const AUTO_OFFER = 'AUTO_OFFER';
   const DESTINATION = 'DESTINATION';
   const FLIGHT = 'FLIGHT';
   const HOME_LISTING = 'HOME_LISTING';
   const HOTEL = 'HOTEL';
   const MEDIA_TITLE = 'MEDIA_TITLE';
+  const PRODUCT = 'PRODUCT';
   const VEHICLE = 'VEHICLE';
   const VEHICLE_OFFER = 'VEHICLE_OFFER';
 }

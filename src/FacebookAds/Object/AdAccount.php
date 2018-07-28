@@ -31,11 +31,11 @@ use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdAccountFields;
 use FacebookAds\Object\Values\AdAccountAdRulesHistoryActionValues;
 use FacebookAds\Object\Values\AdAccountDeliveryEstimateOptimizationGoalValues;
-use FacebookAds\Object\Values\AdAccountPermittedRolesValues;
+use FacebookAds\Object\Values\AdAccountPermittedTasksValues;
 use FacebookAds\Object\Values\AdAccountRoasFieldsValues;
-use FacebookAds\Object\Values\AdAccountRoleValues;
 use FacebookAds\Object\Values\AdAccountSubtypeValues;
 use FacebookAds\Object\Values\AdAccountTargetingUnifiedLimitTypeValues;
+use FacebookAds\Object\Values\AdAccountTasksValues;
 use FacebookAds\Object\Values\AdActivityCategoryValues;
 use FacebookAds\Object\Values\AdCreativeApplinkTreatmentValues;
 use FacebookAds\Object\Values\AdCreativeAuthorizationCategoryValues;
@@ -109,8 +109,8 @@ class AdAccount extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['PermittedRoles'] = AdAccountPermittedRolesValues::getInstance()->getValues();
-    $ref_enums['Role'] = AdAccountRoleValues::getInstance()->getValues();
+    $ref_enums['PermittedTasks'] = AdAccountPermittedTasksValues::getInstance()->getValues();
+    $ref_enums['Tasks'] = AdAccountTasksValues::getInstance()->getValues();
     $ref_enums['Subtype'] = AdAccountSubtypeValues::getInstance()->getValues();
     return $ref_enums;
   }
@@ -1046,10 +1046,10 @@ class AdAccount extends AbstractCrudObject {
 
     $param_types = array(
       'business' => 'string',
-      'permitted_roles' => 'list<permitted_roles_enum>',
+      'permitted_tasks' => 'list<permitted_tasks_enum>',
     );
     $enums = array(
-      'permitted_roles_enum' => AdAccountPermittedRolesValues::getInstance()->getValues(),
+      'permitted_tasks_enum' => AdAccountPermittedTasksValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1142,11 +1142,11 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'role' => 'role_enum',
+      'tasks' => 'list<tasks_enum>',
       'user' => 'int',
     );
     $enums = array(
-      'role_enum' => AdAccountRoleValues::getInstance()->getValues(),
+      'tasks_enum' => AdAccountTasksValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1868,56 +1868,6 @@ class AdAccount extends AbstractCrudObject {
       new AdsDataPartner(),
       'EDGE',
       AdsDataPartner::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function deletePendingUsers(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'request_id' => 'int',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_DELETE,
-      '/pending_users',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createPendingUser(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'request_id' => 'int',
-      'role' => 'role_enum',
-    );
-    $enums = array(
-      'role_enum' => AdAccountRoleValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/pending_users',
-      new AdAccount(),
-      'EDGE',
-      AdAccount::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

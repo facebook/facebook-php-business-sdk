@@ -32,11 +32,11 @@ use FacebookAds\Object\Fields\UserFields;
 use FacebookAds\Object\Values\EventPromotableEventTypesValues;
 use FacebookAds\Object\Values\LiveVideoBroadcastStatusValues;
 use FacebookAds\Object\Values\LiveVideoProjectionValues;
+use FacebookAds\Object\Values\LiveVideoSourceValues;
 use FacebookAds\Object\Values\LiveVideoSpatialAudioFormatValues;
 use FacebookAds\Object\Values\LiveVideoStatusValues;
 use FacebookAds\Object\Values\LiveVideoStereoscopicModeValues;
 use FacebookAds\Object\Values\LiveVideoStreamTypeValues;
-use FacebookAds\Object\Values\LiveVideoTypeValues;
 use FacebookAds\Object\Values\PhotoBackdatedTimeGranularityValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
 
@@ -269,11 +269,11 @@ class User extends AbstractCrudObject {
 
     $param_types = array(
       'broadcast_status' => 'list<broadcast_status_enum>',
-      'type' => 'type_enum',
+      'source' => 'source_enum',
     );
     $enums = array(
       'broadcast_status_enum' => LiveVideoBroadcastStatusValues::getInstance()->getValues(),
-      'type_enum' => LiveVideoTypeValues::getInstance()->getValues(),
+      'source_enum' => LiveVideoSourceValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

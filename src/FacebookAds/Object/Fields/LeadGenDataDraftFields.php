@@ -57,6 +57,7 @@ class LeadGenDataDraftFields extends AbstractEnum {
   const QUESTIONS = 'questions';
   const STATUS = 'status';
   const THANK_YOU_PAGE = 'thank_you_page';
+  const TRACKING_PARAMETERS = 'tracking_parameters';
 
   public function getFieldTypes() {
     return array(
@@ -80,6 +81,7 @@ class LeadGenDataDraftFields extends AbstractEnum {
       'questions' => 'list<LeadGenDraftQuestion>',
       'status' => 'string',
       'thank_you_page' => 'Object',
+      'tracking_parameters' => 'list<Object>',
     );
   }
 }

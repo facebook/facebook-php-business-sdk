@@ -81,6 +81,7 @@ class AdAccountFields extends AbstractEnum {
   const OFFSITE_PIXELS_TOS_ACCEPTED = 'offsite_pixels_tos_accepted';
   const OWNER = 'owner';
   const PARTNER = 'partner';
+  const RATE_LIMIT_RESET_TIME = 'rate_limit_reset_time';
   const RF_SPEC = 'rf_spec';
   const SHOW_CHECKOUT_EXPERIENCE = 'show_checkout_experience';
   const SPEND_CAP = 'spend_cap';
@@ -140,6 +141,7 @@ class AdAccountFields extends AbstractEnum {
       'offsite_pixels_tos_accepted' => 'bool',
       'owner' => 'string',
       'partner' => 'string',
+      'rate_limit_reset_time' => 'string',
       'rf_spec' => 'ReachFrequencySpec',
       'show_checkout_experience' => 'bool',
       'spend_cap' => 'string',

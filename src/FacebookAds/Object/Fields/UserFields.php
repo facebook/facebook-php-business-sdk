@@ -61,12 +61,10 @@ class UserFields extends AbstractEnum {
   const INSTALLED = 'installed';
   const INTERESTED_IN = 'interested_in';
   const IS_FAMEDEEPLINKINGUSER = 'is_famedeeplinkinguser';
-  const IS_PAYMENT_ENABLED = 'is_payment_enabled';
   const IS_SHARED_LOGIN = 'is_shared_login';
   const IS_VERIFIED = 'is_verified';
   const LABELS = 'labels';
   const LANGUAGES = 'languages';
-  const LAST_AD_REFERRAL = 'last_ad_referral';
   const LAST_NAME = 'last_name';
   const LINK = 'link';
   const LOCAL_NEWS_MEGAPHONE_DISMISS_STATUS = 'local_news_megaphone_dismiss_status';
@@ -126,12 +124,10 @@ class UserFields extends AbstractEnum {
       'installed' => 'bool',
       'interested_in' => 'list<string>',
       'is_famedeeplinkinguser' => 'bool',
-      'is_payment_enabled' => 'bool',
       'is_shared_login' => 'bool',
       'is_verified' => 'bool',
       'labels' => 'list<PageLabel>',
       'languages' => 'list<Object>',
-      'last_ad_referral' => 'Object',
       'last_name' => 'string',
       'link' => 'string',
       'local_news_megaphone_dismiss_status' => 'bool',
