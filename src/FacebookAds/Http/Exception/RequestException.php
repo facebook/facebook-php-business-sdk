@@ -92,12 +92,15 @@ class RequestException extends Exception {
   }
 
   /**
-   * @param array $array
+   * @param array|string $array
    * @param string|int $key
    * @param mixed $default
    * @return mixed
    */
-  protected static function idx(array $array, $key, $default = null) {
+  protected static function idx($array, $key, $default = null) {
+    if (is_string($array)) {
+      $array = json_decode($array, true);
+    }
     return array_key_exists($key, $array)
       ? $array[$key]
       : $default;
