@@ -48,7 +48,7 @@ class TypeChecker {
     } elseif (in_array($primitive_type, array("unsigned int", "int"))) {
       return intval($value);
     } elseif ($primitive_type === "bool") {
-      return boolval($value);
+      return (bool) $value;
     } elseif ($primitive_type === "float") {
       return floatval($value);
     } elseif ($primitive_type === "datetime") {
