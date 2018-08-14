@@ -44,4 +44,7 @@ class AdCreativeLinkDataCustomOverlaySpecOptionValues extends AbstractEnum {
   const HOME_DELIVERY = 'home_delivery';
   const FREE_SHIPPING = 'free_shipping';
   const INVENTORY = 'inventory';
+  const PAY_ON_ARRIVAL = 'pay_on_arrival';
+  const PAY_AT_HOTEL = 'pay_at_hotel';
+  const FAST_DELIVERY = 'fast_delivery';
 }

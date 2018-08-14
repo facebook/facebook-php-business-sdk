@@ -60,4 +60,5 @@ class PageCallToActionTypeValues extends AbstractEnum {
   const BUY_TICKETS = 'BUY_TICKETS';
   const PLAY_MUSIC = 'PLAY_MUSIC';
   const VISIT_GROUP = 'VISIT_GROUP';
+  const SHOP_ON_FACEBOOK = 'SHOP_ON_FACEBOOK';
 }

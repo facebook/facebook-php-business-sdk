@@ -56,6 +56,7 @@ class CustomAudienceFields extends AbstractEnum {
   const RETENTION_DAYS = 'retention_days';
   const RULE = 'rule';
   const RULE_AGGREGATION = 'rule_aggregation';
+  const SHARING_STATUS = 'sharing_status';
   const SUBTYPE = 'subtype';
   const TIME_CONTENT_UPDATED = 'time_content_updated';
   const TIME_CREATED = 'time_created';
@@ -93,11 +94,12 @@ class CustomAudienceFields extends AbstractEnum {
       'name' => 'string',
       'operation_status' => 'CustomAudienceStatus',
       'opt_out_link' => 'string',
-      'permission_for_actions' => 'CustomAudiencePermission',
+      'permission_for_actions' => 'Object',
       'pixel_id' => 'string',
       'retention_days' => 'int',
       'rule' => 'string',
       'rule_aggregation' => 'string',
+      'sharing_status' => 'CustomAudienceSharingStatus',
       'subtype' => 'string',
       'time_content_updated' => 'unsigned int',
       'time_created' => 'unsigned int',

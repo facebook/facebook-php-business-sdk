@@ -38,13 +38,13 @@ use FacebookAds\Enum\AbstractEnum;
 class CustomAudienceFieldsValues extends AbstractEnum {
 
   const ACCOUNT_ID = 'account_id';
-  const APPROXIMATE_COUNT = 'approximate_count';
   const CUSTOMER_FILE_SOURCE = 'customer_file_source';
   const DATA_SOURCE = 'data_source';
   const DELIVERY_STATUS = 'delivery_status';
   const DESCRIPTION = 'description';
   const EXTERNAL_EVENT_SOURCE = 'external_event_source';
   const ID = 'id';
+  const APPROXIMATE_COUNT = 'approximate_count';
   const IS_VALUE_BASED = 'is_value_based';
   const LOOKALIKE_AUDIENCE_IDS = 'lookalike_audience_ids';
   const LOOKALIKE_SPEC = 'lookalike_spec';
@@ -56,6 +56,7 @@ class CustomAudienceFieldsValues extends AbstractEnum {
   const RETENTION_DAYS = 'retention_days';
   const RULE = 'rule';
   const RULE_AGGREGATION = 'rule_aggregation';
+  const SHARING_STATUS = 'sharing_status';
   const SUBTYPE = 'subtype';
   const TIME_CONTENT_UPDATED = 'time_content_updated';
   const TIME_CREATED = 'time_created';

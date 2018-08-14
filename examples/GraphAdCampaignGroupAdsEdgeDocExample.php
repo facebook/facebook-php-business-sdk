@@ -19,37 +19,29 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
- *
  */
 
-namespace FacebookAds\Object\Fields;
+require __DIR__ . '/vendor/autoload.php';
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\Object\Campaign;
+use FacebookAds\Object\Ad;
+use FacebookAds\Api;
+use FacebookAds\Logger\CurlLogger;
 
-/**
- * This class is auto-generated.
- *
- * For any issues or feature requests related to this class, please let us know
- * on github and we'll fix in our codegen framework. We'll not be able to accept
- * pull request for this class.
- *
- */
+$access_token = '<ACCESS_TOKEN>';
+$app_secret = '<APP_SECRET>';
+$app_id = '<APP_ID>';
+$id = '<ID>';
 
-class CustomAudiencePermissionFields extends AbstractEnum {
+$api = Api::init($app_id, $app_secret, $access_token);
+$api->setLogger(new CurlLogger());
 
-  const CAN_EDIT = 'can_edit';
-  const CAN_SEE_INSIGHT = 'can_see_insight';
-  const CAN_SHARE = 'can_share';
-  const SUBTYPE_SUPPORTS_LOOKALIKE = 'subtype_supports_lookalike';
-  const SUPPORTS_RECIPIENT_LOOKALIKE = 'supports_recipient_lookalike';
-
-  public function getFieldTypes() {
-    return array(
-      'can_edit' => 'bool',
-      'can_see_insight' => 'bool',
-      'can_share' => 'bool',
-      'subtype_supports_lookalike' => 'bool',
-      'supports_recipient_lookalike' => 'bool',
-    );
-  }
-}
+$fields = array(
+  'name',
+);
+$params = array(
+);
+echo json_encode((new Campaign($id))->getAds(
+  $fields,
+  $params
+)->getResponse()->getContent(), JSON_PRETTY_PRINT);

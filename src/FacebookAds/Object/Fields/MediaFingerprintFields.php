@@ -41,6 +41,7 @@ class MediaFingerprintFields extends AbstractEnum {
   const EXPIRATION_TIME = 'expiration_time';
   const FINGERPRINT_CONTENT_TYPE = 'fingerprint_content_type';
   const FINGERPRINT_TYPE = 'fingerprint_type';
+  const FINGERPRINT_VALIDITY = 'fingerprint_validity';
   const ID = 'id';
   const METADATA = 'metadata';
   const TITLE = 'title';
@@ -52,6 +53,7 @@ class MediaFingerprintFields extends AbstractEnum {
       'expiration_time' => 'datetime',
       'fingerprint_content_type' => 'string',
       'fingerprint_type' => 'string',
+      'fingerprint_validity' => 'string',
       'id' => 'string',
       'metadata' => 'Object',
       'title' => 'string',

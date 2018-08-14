@@ -743,6 +743,7 @@ class ProductCatalog extends AbstractCrudObject {
     $param_types = array(
       'bulk_pagination' => 'bool',
       'filter' => 'Object',
+      'return_only_approved_products' => 'bool',
     );
     $enums = array(
     );
@@ -929,6 +930,7 @@ class ProductCatalog extends AbstractCrudObject {
       'upload_phase' => 'upload_phase_enum',
       'upload_session_id' => 'string',
       'video_file_chunk' => 'string',
+      'xpost_everstore_handle' => 'string',
     );
     $enums = array(
       'content_category_enum' => array(

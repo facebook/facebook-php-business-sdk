@@ -44,6 +44,7 @@ class ProductItemFields extends AbstractEnum {
   const APPLINKS = 'applinks';
   const AVAILABILITY = 'availability';
   const BRAND = 'brand';
+  const CAPABILITY_TO_REVIEW_STATUS = 'capability_to_review_status';
   const CATEGORY = 'category';
   const COLOR = 'color';
   const COMMERCE_INSIGHTS = 'commerce_insights';
@@ -119,6 +120,7 @@ class ProductItemFields extends AbstractEnum {
       'applinks' => 'AppLinks',
       'availability' => 'Availability',
       'brand' => 'string',
+      'capability_to_review_status' => 'list<Object>',
       'category' => 'string',
       'color' => 'string',
       'commerce_insights' => 'ProductItemCommerceInsights',

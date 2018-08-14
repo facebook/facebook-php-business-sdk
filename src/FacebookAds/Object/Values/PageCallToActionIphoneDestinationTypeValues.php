@@ -43,5 +43,6 @@ class PageCallToActionIphoneDestinationTypeValues extends AbstractEnum {
   const PHONE_CALL = 'PHONE_CALL';
   const MESSENGER = 'MESSENGER';
   const EMAIL = 'EMAIL';
+  const SHOP_ON_FACEBOOK = 'SHOP_ON_FACEBOOK';
   const NONE = 'NONE';
 }

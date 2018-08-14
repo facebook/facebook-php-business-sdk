@@ -19,39 +19,27 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
- *
  */
 
-namespace FacebookAds\Object;
+require __DIR__ . '/vendor/autoload.php';
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\CustomAudiencePermissionFields;
+use FacebookAds\Object\Lead;
+use FacebookAds\Api;
+use FacebookAds\Logger\CurlLogger;
 
-/**
- * This class is auto-generated.
- *
- * For any issues or feature requests related to this class, please let us know
- * on github and we'll fix in our codegen framework. We'll not be able to accept
- * pull request for this class.
- *
- */
+$access_token = '<ACCESS_TOKEN>';
+$app_secret = '<APP_SECRET>';
+$app_id = '<APP_ID>';
+$id = '<ID>';
 
-class CustomAudiencePermission extends AbstractObject {
+$api = Api::init($app_id, $app_secret, $access_token);
+$api->setLogger(new CurlLogger());
 
-  /**
-   * @return CustomAudiencePermissionFields
-   */
-  public static function getFieldsEnum() {
-    return CustomAudiencePermissionFields::getInstance();
-  }
-
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
-}
+$fields = array(
+);
+$params = array(
+);
+echo json_encode((new Lead($id))->getSelf(
+  $fields,
+  $params
+)->getResponse()->getContent(), JSON_PRETTY_PRINT);

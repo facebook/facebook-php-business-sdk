@@ -1164,6 +1164,7 @@ class Page extends AbstractCrudObject {
       'questions' => 'list<Object>',
       'thank_you_page' => 'Object',
       'thank_you_page_id' => 'Object',
+      'tracking_parameters' => 'Object',
     );
     $enums = array(
       'locale_enum' => PageLocaleValues::getInstance()->getValues(),
@@ -1544,7 +1545,6 @@ class Page extends AbstractCrudObject {
       'message' => 'Object',
       'messaging_type' => 'messaging_type_enum',
       'notification_type' => 'notification_type_enum',
-      'persona_id' => 'Object',
       'recipient' => 'Object',
       'sender_action' => 'sender_action_enum',
       'tag' => 'Object',
@@ -2819,6 +2819,7 @@ class Page extends AbstractCrudObject {
       'initial_heading' => 'unsigned int',
       'initial_pitch' => 'unsigned int',
       'is_voice_clip' => 'bool',
+      'multilingual_data' => 'list<Object>',
       'no_story' => 'bool',
       'original_fov' => 'unsigned int',
       'original_projection_type' => 'original_projection_type_enum',
@@ -2832,6 +2833,7 @@ class Page extends AbstractCrudObject {
       'slideshow_spec' => 'map',
       'social_actions' => 'bool',
       'source' => 'string',
+      'specified_dialect' => 'string',
       'spherical' => 'bool',
       'sponsor_id' => 'string',
       'sponsor_relationship' => 'unsigned int',
@@ -2845,6 +2847,7 @@ class Page extends AbstractCrudObject {
       'upload_phase' => 'upload_phase_enum',
       'upload_session_id' => 'string',
       'video_file_chunk' => 'string',
+      'xpost_everstore_handle' => 'string',
     );
     $enums = array(
       'content_category_enum' => array(
@@ -2959,8 +2962,10 @@ class Page extends AbstractCrudObject {
 
     $param_types = array(
       'about' => 'string',
+      'accept_crossposting_handshake' => 'list<map>',
       'allow_spherical_photo' => 'bool',
       'attire' => 'attire_enum',
+      'begin_crossposting_handshake' => 'list<map>',
       'bio' => 'string',
       'category_list' => 'list<string>',
       'company_overview' => 'string',

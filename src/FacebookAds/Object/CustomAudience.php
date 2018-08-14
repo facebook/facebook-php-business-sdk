@@ -300,6 +300,7 @@ class CustomAudience extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'ad_account_id' => 'string',
     );
     $enums = array(
     );

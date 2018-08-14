@@ -307,6 +307,8 @@ class Business extends AbstractCrudObject {
       'metrics_enum' => array(
         'FB_AD_NETWORK_BIDDING_REQUEST',
         'FB_AD_NETWORK_BIDDING_RESPONSE',
+        'FB_AD_NETWORK_BIDDING_BID_RATE',
+        'FB_AD_NETWORK_BIDDING_WIN_RATE',
         'FB_AD_NETWORK_REQUEST',
         'FB_AD_NETWORK_FILLED_REQUEST',
         'FB_AD_NETWORK_FILL_RATE',
@@ -397,6 +399,8 @@ class Business extends AbstractCrudObject {
       'metrics_enum' => array(
         'FB_AD_NETWORK_BIDDING_REQUEST',
         'FB_AD_NETWORK_BIDDING_RESPONSE',
+        'FB_AD_NETWORK_BIDDING_BID_RATE',
+        'FB_AD_NETWORK_BIDDING_WIN_RATE',
         'FB_AD_NETWORK_REQUEST',
         'FB_AD_NETWORK_FILLED_REQUEST',
         'FB_AD_NETWORK_FILL_RATE',
@@ -1883,7 +1887,7 @@ class Business extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_POST,
-      '/systemusers',
+      '/system_users',
       new SystemUser(),
       'EDGE',
       SystemUser::getFieldsEnum()->getValues(),

@@ -39,6 +39,7 @@ class PartnerIntegrationLinkedFields extends AbstractEnum {
 
   const ADS_PIXEL = 'ads_pixel';
   const APPLICATION = 'application';
+  const COMPLETED_INTEGRATION_TYPES = 'completed_integration_types';
   const EXTERNAL_ID = 'external_id';
   const HAS_OAUTH_TOKEN = 'has_oauth_token';
   const ID = 'id';
@@ -53,6 +54,7 @@ class PartnerIntegrationLinkedFields extends AbstractEnum {
     return array(
       'ads_pixel' => 'AdsPixel',
       'application' => 'Object',
+      'completed_integration_types' => 'list<string>',
       'external_id' => 'string',
       'has_oauth_token' => 'bool',
       'id' => 'string',

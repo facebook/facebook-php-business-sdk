@@ -41,6 +41,7 @@ class BusinessRoleRequestFields extends AbstractEnum {
   const CREATED_TIME = 'created_time';
   const EMAIL = 'email';
   const EXPIRATION_TIME = 'expiration_time';
+  const EXPIRY_TIME = 'expiry_time';
   const FINANCE_ROLE = 'finance_role';
   const ID = 'id';
   const INVITE_LINK = 'invite_link';
@@ -57,6 +58,7 @@ class BusinessRoleRequestFields extends AbstractEnum {
       'created_time' => 'datetime',
       'email' => 'string',
       'expiration_time' => 'datetime',
+      'expiry_time' => 'datetime',
       'finance_role' => 'string',
       'id' => 'string',
       'invite_link' => 'string',

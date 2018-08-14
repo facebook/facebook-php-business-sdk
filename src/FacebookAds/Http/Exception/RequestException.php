@@ -92,12 +92,15 @@ class RequestException extends Exception {
   }
 
   /**
-   * @param array $array
+   * @param array|string $array
    * @param string|int $key
    * @param mixed $default
    * @return mixed
    */
-  protected static function idx(array $array, $key, $default = null) {
+  protected static function idx($array, $key, $default = null) {
+    if (is_string($array)) {
+      $array = json_decode($array, true);
+    }
     return array_key_exists($key, $array)
       ? $array[$key]
       : $default;
@@ -113,6 +116,11 @@ class RequestException extends Exception {
       $response_data = array();
     }
     $error_data = static::idx($response_data, 'error', array());
+
+    if (is_string(static::idx($error_data, 'error_data'))) {
+      $error_data["error_data"] =
+        json_decode(stripslashes(static::idx($error_data, 'error_data')), true);
+    }
 
     return array(
       'code' =>

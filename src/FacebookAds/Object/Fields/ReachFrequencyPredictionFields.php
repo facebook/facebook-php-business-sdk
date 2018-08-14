@@ -65,6 +65,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const INSTAGRAM_DESTINATION_ID = 'instagram_destination_id';
   const INTERVAL_FREQUENCY_CAP = 'interval_frequency_cap';
   const INTERVAL_FREQUENCY_CAP_RESET_PERIOD = 'interval_frequency_cap_reset_period';
+  const IS_IO = 'is_io';
   const NAME = 'name';
   const PAUSE_PERIODS = 'pause_periods';
   const PLACEMENT_BREAKDOWN = 'placement_breakdown';
@@ -119,6 +120,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'instagram_destination_id' => 'string',
       'interval_frequency_cap' => 'unsigned int',
       'interval_frequency_cap_reset_period' => 'unsigned int',
+      'is_io' => 'bool',
       'name' => 'string',
       'pause_periods' => 'list<Object>',
       'placement_breakdown' => 'Object',

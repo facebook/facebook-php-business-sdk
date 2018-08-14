@@ -228,6 +228,7 @@ class Event extends AbstractCrudObject {
       'upload_phase' => 'upload_phase_enum',
       'upload_session_id' => 'string',
       'video_file_chunk' => 'string',
+      'xpost_everstore_handle' => 'string',
     );
     $enums = array(
       'content_category_enum' => array(

@@ -89,6 +89,8 @@ class AdAccountTargetingUnifiedLimitTypeValues extends AbstractEnum {
   const EFFECTIVE_DEVICE_PLATFORMS = 'effective_device_platforms';
   const AUDIENCE_NETWORK_POSITIONS = 'audience_network_positions';
   const EFFECTIVE_AUDIENCE_NETWORK_POSITIONS = 'effective_audience_network_positions';
+  const WHATSAPP_POSITIONS = 'whatsapp_positions';
+  const EFFECTIVE_WHATSAPP_POSITIONS = 'effective_whatsapp_positions';
   const EXCLUDED_PUBLISHER_CATEGORIES = 'excluded_publisher_categories';
   const EXCLUDED_PUBLISHER_LIST_IDS = 'excluded_publisher_list_ids';
   const PUBLISHER_VISIBILITY_CATEGORIES = 'publisher_visibility_categories';

@@ -60,6 +60,7 @@ class AdSetFields extends AbstractEnum {
   const FREQUENCY_CONTROL_SPECS = 'frequency_control_specs';
   const ID = 'id';
   const INSTAGRAM_ACTOR_ID = 'instagram_actor_id';
+  const IS_DYNAMIC_CREATIVE_OPTIMIZATION = 'is_dynamic_creative_optimization';
   const LIFETIME_BUDGET = 'lifetime_budget';
   const LIFETIME_IMPS = 'lifetime_imps';
   const LIFETIME_MIN_SPEND_TARGET = 'lifetime_min_spend_target';
@@ -110,6 +111,7 @@ class AdSetFields extends AbstractEnum {
       'frequency_control_specs' => 'list<AdCampaignFrequencyControlSpecs>',
       'id' => 'string',
       'instagram_actor_id' => 'string',
+      'is_dynamic_creative_optimization' => 'bool',
       'lifetime_budget' => 'string',
       'lifetime_imps' => 'int',
       'lifetime_min_spend_target' => 'string',
