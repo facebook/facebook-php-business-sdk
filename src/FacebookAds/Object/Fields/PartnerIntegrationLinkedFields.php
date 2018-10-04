@@ -49,11 +49,13 @@ class PartnerIntegrationLinkedFields extends AbstractEnum {
   const PARTNER_PROFILE = 'partner_profile';
   const PRODUCT_CATALOG = 'product_catalog';
   const SETUP_STATUS = 'setup_status';
+  const GTM_ACCOUNT_ID = 'gtm_account_id';
+  const GTM_CONTAINER_ID = 'gtm_container_id';
 
   public function getFieldTypes() {
     return array(
       'ads_pixel' => 'AdsPixel',
-      'application' => 'Object',
+      'application' => 'Application',
       'completed_integration_types' => 'list<string>',
       'external_id' => 'string',
       'has_oauth_token' => 'bool',
@@ -64,6 +66,8 @@ class PartnerIntegrationLinkedFields extends AbstractEnum {
       'partner_profile' => 'Object',
       'product_catalog' => 'ProductCatalog',
       'setup_status' => 'string',
+      'gtm_account_id' => 'string',
+      'gtm_container_id' => 'string',
     );
   }
 }

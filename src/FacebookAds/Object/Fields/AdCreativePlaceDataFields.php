@@ -43,6 +43,7 @@ class AdCreativePlaceDataFields extends AbstractEnum {
   const LOCATION_SOURCE_ID = 'location_source_id';
   const LONGITUDE = 'longitude';
   const TYPE = 'type';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -52,6 +53,7 @@ class AdCreativePlaceDataFields extends AbstractEnum {
       'location_source_id' => 'string',
       'longitude' => 'float',
       'type' => 'string',
+      'id' => 'string',
     );
   }
 }

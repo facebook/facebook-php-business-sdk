@@ -45,6 +45,7 @@ class CustomAudienceSessionFields extends AbstractEnum {
   const SESSION_ID = 'session_id';
   const STAGE = 'stage';
   const START_TIME = 'start_time';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -56,6 +57,7 @@ class CustomAudienceSessionFields extends AbstractEnum {
       'session_id' => 'string',
       'stage' => 'string',
       'start_time' => 'string',
+      'id' => 'string',
     );
   }
 }

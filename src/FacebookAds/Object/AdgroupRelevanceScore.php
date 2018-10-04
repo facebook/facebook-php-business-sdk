@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdgroupRelevanceScoreFields;
  *
  */
 
-class AdgroupRelevanceScore extends AbstractObject {
+class AdgroupRelevanceScore extends AbstractCrudObject {
 
   /**
    * @return AdgroupRelevanceScoreFields
@@ -53,5 +53,28 @@ class AdgroupRelevanceScore extends AbstractObject {
     return $ref_enums;
   }
 
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new AdgroupRelevanceScore(),
+      'NODE',
+      AdgroupRelevanceScore::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
 }

@@ -46,8 +46,10 @@ class AdCreativeLinkDataChildAttachmentFields extends AbstractEnum {
   const NAME = 'name';
   const PICTURE = 'picture';
   const PLACE_DATA = 'place_data';
+  const REFERRAL_ID = 'referral_id';
   const STATIC_CARD = 'static_card';
   const VIDEO_ID = 'video_id';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -60,8 +62,10 @@ class AdCreativeLinkDataChildAttachmentFields extends AbstractEnum {
       'name' => 'string',
       'picture' => 'string',
       'place_data' => 'AdCreativePlaceData',
+      'referral_id' => 'string',
       'static_card' => 'bool',
       'video_id' => 'string',
+      'id' => 'string',
     );
   }
 }

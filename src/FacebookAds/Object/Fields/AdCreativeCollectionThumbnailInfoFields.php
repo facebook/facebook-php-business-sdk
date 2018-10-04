@@ -40,12 +40,14 @@ class AdCreativeCollectionThumbnailInfoFields extends AbstractEnum {
   const ELEMENT_CHILD_INDEX = 'element_child_index';
   const ELEMENT_CROPS = 'element_crops';
   const ELEMENT_ID = 'element_id';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'element_child_index' => 'int',
       'element_crops' => 'AdsImageCrops',
       'element_id' => 'string',
+      'id' => 'string',
     );
   }
 }

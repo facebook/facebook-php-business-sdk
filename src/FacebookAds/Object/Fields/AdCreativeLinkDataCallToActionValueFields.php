@@ -47,6 +47,8 @@ class AdCreativeLinkDataCallToActionValueFields extends AbstractEnum {
   const LINK_FORMAT = 'link_format';
   const PAGE = 'page';
   const PRODUCT_LINK = 'product_link';
+  const WHATSAPP_NUMBER = 'whatsapp_number';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -60,6 +62,8 @@ class AdCreativeLinkDataCallToActionValueFields extends AbstractEnum {
       'link_format' => 'string',
       'page' => 'string',
       'product_link' => 'string',
+      'whatsapp_number' => 'string',
+      'id' => 'string',
     );
   }
 }

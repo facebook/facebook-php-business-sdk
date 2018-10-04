@@ -29,6 +29,8 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\InstantArticleFields;
+use FacebookAds\Object\Values\InstantArticleInsightsQueryResultBreakdownValues;
+use FacebookAds\Object\Values\InstantArticleInsightsQueryResultPeriodValues;
 
 /**
  * This class is auto-generated.
@@ -54,7 +56,37 @@ class InstantArticle extends AbstractCrudObject {
   }
 
 
-  public function deleteInstantArticles(array $fields = array(), array $params = array(), $pending = false) {
+  public function getInsights(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'metric' => 'list<Object>',
+      'period' => 'period_enum',
+      'since' => 'datetime',
+      'until' => 'datetime',
+      'breakdown' => 'breakdown_enum',
+    );
+    $enums = array(
+      'period_enum' => InstantArticleInsightsQueryResultPeriodValues::getInstance()->getValues(),
+      'breakdown_enum' => InstantArticleInsightsQueryResultBreakdownValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/insights',
+      new InstantArticleInsightsQueryResult(),
+      'EDGE',
+      InstantArticleInsightsQueryResult::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function deleteSelf(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -66,9 +98,9 @@ class InstantArticle extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_DELETE,
-      '/instant_articles',
+      '/',
       new AbstractCrudObject(),
-      'EDGE',
+      'NODE',
       array(),
       new TypeChecker($param_types, $enums)
     );

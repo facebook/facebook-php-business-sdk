@@ -40,12 +40,14 @@ class PageParkingFields extends AbstractEnum {
   const LOT = 'lot';
   const STREET = 'street';
   const VALET = 'valet';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'lot' => 'unsigned int',
       'street' => 'unsigned int',
       'valet' => 'unsigned int',
+      'id' => 'string',
     );
   }
 }

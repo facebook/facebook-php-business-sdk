@@ -40,7 +40,7 @@ use FacebookAds\Object\Values\BusinessMatchedSearchApplicationsEdgeDataAppStoreV
  *
  */
 
-class BusinessMatchedSearchApplicationsEdgeData extends AbstractObject {
+class BusinessMatchedSearchApplicationsEdgeData extends AbstractCrudObject {
 
   /**
    * @return BusinessMatchedSearchApplicationsEdgeDataFields
@@ -55,5 +55,28 @@ class BusinessMatchedSearchApplicationsEdgeData extends AbstractObject {
     return $ref_enums;
   }
 
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new BusinessMatchedSearchApplicationsEdgeData(),
+      'NODE',
+      BusinessMatchedSearchApplicationsEdgeData::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
 }

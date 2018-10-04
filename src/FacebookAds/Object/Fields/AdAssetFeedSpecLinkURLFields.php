@@ -43,6 +43,7 @@ class AdAssetFeedSpecLinkURLFields extends AbstractEnum {
   const DISPLAY_URL = 'display_url';
   const URL_TAGS = 'url_tags';
   const WEBSITE_URL = 'website_url';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -52,6 +53,7 @@ class AdAssetFeedSpecLinkURLFields extends AbstractEnum {
       'display_url' => 'string',
       'url_tags' => 'string',
       'website_url' => 'string',
+      'id' => 'string',
     );
   }
 }

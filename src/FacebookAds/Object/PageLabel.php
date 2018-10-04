@@ -78,6 +78,29 @@ class PageLabel extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getUsers(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/users',
+      new User(),
+      'EDGE',
+      User::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createUser(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -92,9 +115,9 @@ class PageLabel extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/users',
-      new User(),
+      new PageLabel(),
       'EDGE',
-      User::getFieldsEnum()->getValues(),
+      PageLabel::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

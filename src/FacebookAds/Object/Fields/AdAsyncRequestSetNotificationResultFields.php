@@ -39,11 +39,13 @@ class AdAsyncRequestSetNotificationResultFields extends AbstractEnum {
 
   const RESPONSE = 'response';
   const STATUS = 'status';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'response' => 'string',
       'status' => 'string',
+      'id' => 'string',
     );
   }
 }

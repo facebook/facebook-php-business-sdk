@@ -48,6 +48,7 @@ class LeadGenFormPreviewDetailsFields extends AbstractEnum {
   const REVIEW_YOUR_INFO_TEXT = 'review_your_info_text';
   const SLIDE_TO_SUBMIT_TEXT = 'slide_to_submit_text';
   const SUBMIT_BUTTON_TEXT = 'submit_button_text';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -62,6 +63,7 @@ class LeadGenFormPreviewDetailsFields extends AbstractEnum {
       'review_your_info_text' => 'string',
       'slide_to_submit_text' => 'string',
       'submit_button_text' => 'string',
+      'id' => 'string',
     );
   }
 }

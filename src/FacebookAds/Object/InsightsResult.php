@@ -30,6 +30,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\InsightsResultFields;
 use FacebookAds\Object\Values\InsightsResultDatePresetValues;
+use FacebookAds\Object\Values\InsightsResultMetricValues;
 use FacebookAds\Object\Values\InsightsResultPeriodValues;
 
 /**
@@ -52,10 +53,34 @@ class InsightsResult extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['Metric'] = InsightsResultMetricValues::getInstance()->getValues();
     $ref_enums['DatePreset'] = InsightsResultDatePresetValues::getInstance()->getValues();
     $ref_enums['Period'] = InsightsResultPeriodValues::getInstance()->getValues();
     return $ref_enums;
   }
 
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new InsightsResult(),
+      'NODE',
+      InsightsResult::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
 }

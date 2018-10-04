@@ -42,6 +42,7 @@ class TargetingGeoLocationZipFields extends AbstractEnum {
   const NAME = 'name';
   const PRIMARY_CITY_ID = 'primary_city_id';
   const REGION_ID = 'region_id';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -50,6 +51,7 @@ class TargetingGeoLocationZipFields extends AbstractEnum {
       'name' => 'string',
       'primary_city_id' => 'int',
       'region_id' => 'int',
+      'id' => 'string',
     );
   }
 }

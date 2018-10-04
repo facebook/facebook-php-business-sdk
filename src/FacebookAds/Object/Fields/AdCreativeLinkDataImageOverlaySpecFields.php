@@ -45,6 +45,7 @@ class AdCreativeLinkDataImageOverlaySpecFields extends AbstractEnum {
   const TEXT_TEMPLATE_TAGS = 'text_template_tags';
   const TEXT_TYPE = 'text_type';
   const THEME_COLOR = 'theme_color';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -56,6 +57,7 @@ class AdCreativeLinkDataImageOverlaySpecFields extends AbstractEnum {
       'text_template_tags' => 'list<string>',
       'text_type' => 'TextType',
       'theme_color' => 'ThemeColor',
+      'id' => 'string',
     );
   }
 }

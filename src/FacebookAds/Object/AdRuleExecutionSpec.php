@@ -40,7 +40,7 @@ use FacebookAds\Object\Values\AdRuleExecutionSpecExecutionTypeValues;
  *
  */
 
-class AdRuleExecutionSpec extends AbstractObject {
+class AdRuleExecutionSpec extends AbstractCrudObject {
 
   /**
    * @return AdRuleExecutionSpecFields
@@ -55,5 +55,28 @@ class AdRuleExecutionSpec extends AbstractObject {
     return $ref_enums;
   }
 
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new AdRuleExecutionSpec(),
+      'NODE',
+      AdRuleExecutionSpec::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
 }

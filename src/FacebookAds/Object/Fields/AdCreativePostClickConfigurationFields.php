@@ -39,11 +39,13 @@ class AdCreativePostClickConfigurationFields extends AbstractEnum {
 
   const POST_CLICK_ITEM_DESCRIPTION = 'post_click_item_description';
   const POST_CLICK_ITEM_HEADLINE = 'post_click_item_headline';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'post_click_item_description' => 'string',
       'post_click_item_headline' => 'string',
+      'id' => 'string',
     );
   }
 }

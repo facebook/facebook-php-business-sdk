@@ -44,6 +44,7 @@ class URLFields extends AbstractEnum {
   const INSTANT_ARTICLE = 'instant_article';
   const OG_OBJECT = 'og_object';
   const OWNERSHIP_PERMISSIONS = 'ownership_permissions';
+  const SHARE = 'share';
 
   public function getFieldTypes() {
     return array(
@@ -54,6 +55,7 @@ class URLFields extends AbstractEnum {
       'instant_article' => 'InstantArticle',
       'og_object' => 'Object',
       'ownership_permissions' => 'Object',
+      'share' => 'Object',
     );
   }
 }

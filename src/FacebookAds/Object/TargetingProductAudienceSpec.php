@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\TargetingProductAudienceSpecFields;
  *
  */
 
-class TargetingProductAudienceSpec extends AbstractObject {
+class TargetingProductAudienceSpec extends AbstractCrudObject {
 
   /**
    * @return TargetingProductAudienceSpecFields
@@ -53,5 +53,28 @@ class TargetingProductAudienceSpec extends AbstractObject {
     return $ref_enums;
   }
 
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new TargetingProductAudienceSpec(),
+      'NODE',
+      TargetingProductAudienceSpec::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
 }

@@ -39,6 +39,7 @@ class CustomConversionFields extends AbstractEnum {
 
   const ACCOUNT_ID = 'account_id';
   const AGGREGATION_RULE = 'aggregation_rule';
+  const BUSINESS = 'business';
   const CREATION_TIME = 'creation_time';
   const CUSTOM_EVENT_TYPE = 'custom_event_type';
   const DATA_SOURCES = 'data_sources';
@@ -54,13 +55,15 @@ class CustomConversionFields extends AbstractEnum {
   const PIXEL = 'pixel';
   const RETENTION_DAYS = 'retention_days';
   const RULE = 'rule';
-  const ADVANCED_RULE = 'advanced_rule';
   const EVENT_SOURCE_ID = 'event_source_id';
+  const ADVANCED_RULE = 'advanced_rule';
+  const CUSTOM_CONVERSION_ID = 'custom_conversion_id';
 
   public function getFieldTypes() {
     return array(
       'account_id' => 'string',
       'aggregation_rule' => 'string',
+      'business' => 'Business',
       'creation_time' => 'datetime',
       'custom_event_type' => 'CustomEventType',
       'data_sources' => 'list<ExternalEventSource>',
@@ -76,8 +79,9 @@ class CustomConversionFields extends AbstractEnum {
       'pixel' => 'AdsPixel',
       'retention_days' => 'unsigned int',
       'rule' => 'string',
-      'advanced_rule' => 'string',
       'event_source_id' => 'string',
+      'advanced_rule' => 'string',
+      'custom_conversion_id' => 'string',
     );
   }
 }

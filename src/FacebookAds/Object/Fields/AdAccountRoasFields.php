@@ -66,6 +66,7 @@ class AdAccountRoasFields extends AbstractEnum {
   const YIELD_3D = 'yield_3d';
   const YIELD_7D = 'yield_7d';
   const YIELD_90D = 'yield_90d';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -98,6 +99,7 @@ class AdAccountRoasFields extends AbstractEnum {
       'yield_3d' => 'float',
       'yield_7d' => 'float',
       'yield_90d' => 'float',
+      'id' => 'string',
     );
   }
 }

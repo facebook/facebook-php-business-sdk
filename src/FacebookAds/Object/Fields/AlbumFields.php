@@ -81,7 +81,7 @@ class AlbumFields extends AbstractEnum {
       'modified_major' => 'datetime',
       'name' => 'string',
       'photo_count' => 'unsigned int',
-      'place' => 'Object',
+      'place' => 'Place',
       'privacy' => 'string',
       'type' => 'string',
       'updated_time' => 'datetime',

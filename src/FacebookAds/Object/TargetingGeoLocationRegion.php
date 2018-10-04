@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\TargetingGeoLocationRegionFields;
  *
  */
 
-class TargetingGeoLocationRegion extends AbstractObject {
+class TargetingGeoLocationRegion extends AbstractCrudObject {
 
   /**
    * @return TargetingGeoLocationRegionFields
@@ -53,5 +53,28 @@ class TargetingGeoLocationRegion extends AbstractObject {
     return $ref_enums;
   }
 
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new TargetingGeoLocationRegion(),
+      'NODE',
+      TargetingGeoLocationRegion::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
 }

@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\EventSourceGroupFields;
+use FacebookAds\Object\Values\EventSourceGroupRoleValues;
 
 /**
  * This class is auto-generated.
@@ -57,11 +58,35 @@ class EventSourceGroup extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['Role'] = EventSourceGroupRoleValues::getInstance()->getValues();
     return $ref_enums;
   }
 
 
-  public function createSharedAccount(array $fields = array(), array $params = array(), $pending = false) {
+  public function getShareDAccounts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/shared_accounts',
+      new AdAccount(),
+      'EDGE',
+      AdAccount::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createShareDAccount(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -109,18 +134,39 @@ class EventSourceGroup extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getUserPermissions(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'user' => 'int',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/userpermissions',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createUserPermission(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
-      'role' => 'role_enum',
       'user' => 'int',
+      'role' => 'role_enum',
     );
     $enums = array(
-      'role_enum' => array(
-        'ANALYST',
-        'LIMITED_ANALYST',
-      ),
+      'role_enum' => EventSourceGroupRoleValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -128,9 +174,9 @@ class EventSourceGroup extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/userpermissions',
-      new AbstractCrudObject(),
+      new EventSourceGroup(),
       'EDGE',
-      array(),
+      EventSourceGroup::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

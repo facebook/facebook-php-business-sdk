@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\OwnedDomainFields;
+use FacebookAds\Object\Values\OwnedDomainPermittedRolesValues;
 
 /**
  * This class is auto-generated.
@@ -57,9 +58,36 @@ class OwnedDomain extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['PermittedRoles'] = OwnedDomainPermittedRolesValues::getInstance()->getValues();
     return $ref_enums;
   }
 
+
+  public function createAgency(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'business' => 'string',
+      'permitted_roles' => 'list<permitted_roles_enum>',
+    );
+    $enums = array(
+      'permitted_roles_enum' => OwnedDomainPermittedRolesValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/Agencies',
+      new OwnedDomain(),
+      'EDGE',
+      OwnedDomain::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
   public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();

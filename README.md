@@ -61,7 +61,7 @@ Add the following to your `composer.json` file:
 ```json
 {
     "require": {
-        "facebook/php-business-sdk": "2.5.*"
+        "facebook/php-business-sdk": "3.1.*"
     }
 }
 ```
@@ -209,7 +209,7 @@ use FacebookAds\Object\AdAccount;
 use FacebookAds\Object\Fields\CampaignFields;
 
 $account = new AdAccount('<ACT_ID>');
-$cursor = $account->getCampaigns();
+$cursor = $account->getCampaigns(['id','name']);
 
 // Loop over objects
 foreach ($cursor as $campaign) {
@@ -315,3 +315,37 @@ To run tests individually:
 ```shell
 ./vendor/bin/phpunit -c test/ path/to/class/file
 ```
+
+
+## Debug
+
+If this SDK is not working as expected, it may be either a SDK issue or API issue.
+
+This can be identified by constructing a raw cURL request and seeing if the response is as expected
+
+for example:
+
+```php
+require __DIR__ . '/vendor/autoload.php';
+use FacebookAds\Api;
+use FacebookAds\Object\AdAccount;
+
+Api::init($app_id, $app_secret, $access_token);
+$api = Api::instance();
+
+use FacebookAds\Logger\CurlLogger;
+$api->setLogger(new CurlLogger());
+$account = new AdAccount($account_id);
+$account->read(array('id'));
+```
+
+When running this code, this cURL request will be printed to the console as:
+```
+curl -G \
+  -d 'fields=id' \
+  -d 'access_token=<access_token>' \
+  https://graph.facebook.com/v3.1/<act_accountid>
+```
+## Issue
+Since we want to handle bugs more efficiently, we've decided to close issue reporting in Github and move to our dedicated bug reporting channel.
+If you encounter a bug with Business SDK (PHP), please report the issue at [our developer bug reporting channel](https://developers.facebook.com/support/bugs/).

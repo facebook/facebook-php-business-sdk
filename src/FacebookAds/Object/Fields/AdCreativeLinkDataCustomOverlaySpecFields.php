@@ -45,6 +45,7 @@ class AdCreativeLinkDataCustomOverlaySpecFields extends AbstractEnum {
   const RENDER_WITH_ICON = 'render_with_icon';
   const TEMPLATE = 'template';
   const TEXT_COLOR = 'text_color';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -56,6 +57,7 @@ class AdCreativeLinkDataCustomOverlaySpecFields extends AbstractEnum {
       'render_with_icon' => 'bool',
       'template' => 'Template',
       'text_color' => 'TextColor',
+      'id' => 'string',
     );
   }
 }

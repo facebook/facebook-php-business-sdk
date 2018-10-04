@@ -1,0 +1,71 @@
+<?php
+/**
+ * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ *
+ * You are hereby granted a non-exclusive, worldwide, royalty-free license to
+ * use, copy, modify, and distribute this software in source code or binary
+ * form for use in connection with the web services and APIs provided by
+ * Facebook.
+ *
+ * As with any software that integrates with the Facebook platform, your use
+ * of this software is subject to the Facebook Developer Principles and
+ * Policies [http://developers.facebook.com/policy/]. This copyright notice
+ * shall be included in all copies or substantial portions of the software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ *
+ */
+
+namespace FacebookAds\Object\Fields;
+
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * This class is auto-generated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
+ */
+
+class ReachFrequencyActivityFields extends AbstractEnum {
+
+  const ACCOUNT_ID = 'account_id';
+  const CAMPAIGN_ACTIVE = 'campaign_active';
+  const CAMPAIGN_STARTED = 'campaign_started';
+  const CREATIVE_UPLOADED = 'creative_uploaded';
+  const DELIVERED_BUDGET = 'delivered_budget';
+  const DELIVERED_DAILY_GRP = 'delivered_daily_grp';
+  const DELIVERED_DAILY_IMPRESSION = 'delivered_daily_impression';
+  const DELIVERED_IMPRESSION = 'delivered_impression';
+  const DELIVERED_REACH = 'delivered_reach';
+  const DELIVERED_TOTAL_IMPRESSION = 'delivered_total_impression';
+  const IO_APPROVED = 'io_approved';
+  const SF_LINK = 'sf_link';
+  const ID = 'id';
+
+  public function getFieldTypes() {
+    return array(
+      'account_id' => 'string',
+      'campaign_active' => 'bool',
+      'campaign_started' => 'bool',
+      'creative_uploaded' => 'bool',
+      'delivered_budget' => 'int',
+      'delivered_daily_grp' => 'list<float>',
+      'delivered_daily_impression' => 'list<float>',
+      'delivered_impression' => 'unsigned int',
+      'delivered_reach' => 'unsigned int',
+      'delivered_total_impression' => 'unsigned int',
+      'io_approved' => 'bool',
+      'sf_link' => 'string',
+      'id' => 'string',
+    );
+  }
+}

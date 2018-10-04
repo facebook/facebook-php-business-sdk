@@ -51,7 +51,7 @@ class RTBDynamicPostFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'child_attachments' => 'list<Object>',
+      'child_attachments' => 'list<DynamicPostChildAttachment>',
       'created' => 'datetime',
       'description' => 'string',
       'id' => 'string',

@@ -40,12 +40,14 @@ class ProductVariantFields extends AbstractEnum {
   const LABEL = 'label';
   const OPTIONS = 'options';
   const PRODUCT_FIELD = 'product_field';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'label' => 'string',
       'options' => 'list<string>',
       'product_field' => 'string',
+      'id' => 'string',
     );
   }
 }

@@ -42,6 +42,7 @@ class AdNetworkAnalyticsAsyncQueryResultFields extends AbstractEnum {
   const QUERY_ID = 'query_id';
   const RESULTS = 'results';
   const STATUS = 'status';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -50,6 +51,7 @@ class AdNetworkAnalyticsAsyncQueryResultFields extends AbstractEnum {
       'query_id' => 'string',
       'results' => 'list<Object>',
       'status' => 'string',
+      'id' => 'string',
     );
   }
 }

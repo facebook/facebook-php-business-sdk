@@ -42,6 +42,7 @@ class AdAssetFeedSpecImageFields extends AbstractEnum {
   const IMAGE_CROPS = 'image_crops';
   const URL = 'url';
   const URL_TAGS = 'url_tags';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -50,6 +51,7 @@ class AdAssetFeedSpecImageFields extends AbstractEnum {
       'image_crops' => 'AdsImageCrops',
       'url' => 'string',
       'url_tags' => 'string',
+      'id' => 'string',
     );
   }
 }

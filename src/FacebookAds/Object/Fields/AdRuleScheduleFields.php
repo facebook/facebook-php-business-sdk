@@ -40,12 +40,14 @@ class AdRuleScheduleFields extends AbstractEnum {
   const DAYS = 'days';
   const END_MINUTE = 'end_minute';
   const START_MINUTE = 'start_minute';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'days' => 'list<int>',
       'end_minute' => 'int',
       'start_minute' => 'int',
+      'id' => 'string',
     );
   }
 }

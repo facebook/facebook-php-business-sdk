@@ -41,6 +41,7 @@ class AdsPixelStatsFields extends AbstractEnum {
   const DIAGNOSTICS_HOURLY_LAST_TIMESTAMP = 'diagnostics_hourly_last_timestamp';
   const EVENT = 'event';
   const VALUE = 'value';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -48,6 +49,7 @@ class AdsPixelStatsFields extends AbstractEnum {
       'diagnostics_hourly_last_timestamp' => 'datetime',
       'event' => 'string',
       'value' => 'string',
+      'id' => 'string',
     );
   }
 }

@@ -81,6 +81,7 @@ class AdCreativeLinkDataCallToActionTypeValues extends AbstractEnum {
   const RECORD_NOW = 'RECORD_NOW';
   const GET_SHOWTIMES = 'GET_SHOWTIMES';
   const LISTEN_NOW = 'LISTEN_NOW';
+  const WOODHENGE_SUPPORT = 'WOODHENGE_SUPPORT';
   const EVENT_RSVP = 'EVENT_RSVP';
   const WHATSAPP_MESSAGE = 'WHATSAPP_MESSAGE';
   const FOLLOW_NEWS_STORYLINE = 'FOLLOW_NEWS_STORYLINE';

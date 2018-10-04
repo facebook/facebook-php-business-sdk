@@ -30,6 +30,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdPreviewFields;
 use FacebookAds\Object\Values\AdPreviewAdFormatValues;
+use FacebookAds\Object\Values\AdPreviewRenderTypeValues;
 
 /**
  * This class is auto-generated.
@@ -40,7 +41,7 @@ use FacebookAds\Object\Values\AdPreviewAdFormatValues;
  *
  */
 
-class AdPreview extends AbstractObject {
+class AdPreview extends AbstractCrudObject {
 
   /**
    * @deprecated getEndpoint function is deprecated
@@ -59,8 +60,32 @@ class AdPreview extends AbstractObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['AdFormat'] = AdPreviewAdFormatValues::getInstance()->getValues();
+    $ref_enums['RenderType'] = AdPreviewRenderTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new AdPreview(),
+      'NODE',
+      AdPreview::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
 }

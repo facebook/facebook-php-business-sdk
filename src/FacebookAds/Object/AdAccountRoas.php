@@ -29,7 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdAccountRoasFields;
-use FacebookAds\Object\Values\AdAccountRoasFieldsValues;
 
 /**
  * This class is auto-generated.
@@ -40,7 +39,7 @@ use FacebookAds\Object\Values\AdAccountRoasFieldsValues;
  *
  */
 
-class AdAccountRoas extends AbstractObject {
+class AdAccountRoas extends AbstractCrudObject {
 
   /**
    * @return AdAccountRoasFields
@@ -51,9 +50,31 @@ class AdAccountRoas extends AbstractObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Fields'] = AdAccountRoasFieldsValues::getInstance()->getValues();
     return $ref_enums;
   }
 
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new AdAccountRoas(),
+      'NODE',
+      AdAccountRoas::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
 }

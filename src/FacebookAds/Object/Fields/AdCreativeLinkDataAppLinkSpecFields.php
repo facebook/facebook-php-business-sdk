@@ -41,6 +41,7 @@ class AdCreativeLinkDataAppLinkSpecFields extends AbstractEnum {
   const IOS = 'ios';
   const IPAD = 'ipad';
   const IPHONE = 'iphone';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -48,6 +49,7 @@ class AdCreativeLinkDataAppLinkSpecFields extends AbstractEnum {
       'ios' => 'list<IosAppLink>',
       'ipad' => 'list<IosAppLink>',
       'iphone' => 'list<IosAppLink>',
+      'id' => 'string',
     );
   }
 }

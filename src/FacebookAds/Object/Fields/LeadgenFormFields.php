@@ -72,7 +72,7 @@ class LeadgenFormFields extends AbstractEnum {
     return array(
       'allow_organic_lead' => 'bool',
       'block_display_for_non_targeted_viewer' => 'bool',
-      'context_card' => 'Object',
+      'context_card' => 'LeadGenContextCard',
       'created_time' => 'datetime',
       'creator' => 'User',
       'creator_id' => 'int',

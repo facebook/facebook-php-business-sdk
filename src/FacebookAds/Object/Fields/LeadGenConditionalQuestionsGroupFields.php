@@ -43,8 +43,8 @@ class LeadGenConditionalQuestionsGroupFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'choices' => 'list<Object>',
-      'questions' => 'list<Object>',
+      'choices' => 'list<LeadGenConditionalQuestionsGroupChoices>',
+      'questions' => 'list<LeadGenConditionalQuestionsGroupQuestions>',
       'id' => 'string',
     );
   }

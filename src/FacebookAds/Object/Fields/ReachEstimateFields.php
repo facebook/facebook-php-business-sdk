@@ -40,12 +40,14 @@ class ReachEstimateFields extends AbstractEnum {
   const ESTIMATE_READY = 'estimate_ready';
   const UNSUPPORTED = 'unsupported';
   const USERS = 'users';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'estimate_ready' => 'bool',
       'unsupported' => 'bool',
       'users' => 'int',
+      'id' => 'string',
     );
   }
 }

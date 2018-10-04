@@ -47,6 +47,7 @@ class AdStudyAdsAssetUserPermissionsFields extends AbstractEnum {
   const UPDATED_BY = 'updated_by';
   const UPDATED_TIME = 'updated_time';
   const USER = 'user';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -60,6 +61,7 @@ class AdStudyAdsAssetUserPermissionsFields extends AbstractEnum {
       'updated_by' => 'User',
       'updated_time' => 'datetime',
       'user' => 'User',
+      'id' => 'string',
     );
   }
 }

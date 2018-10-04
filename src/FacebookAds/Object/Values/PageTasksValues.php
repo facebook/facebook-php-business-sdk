@@ -43,5 +43,4 @@ class PageTasksValues extends AbstractEnum {
   const MODERATE_COMMUNITY = 'MODERATE_COMMUNITY';
   const ADVERTISE = 'ADVERTISE';
   const ANALYZE = 'ANALYZE';
-  const CREATE_LIVE_CONTENT = 'CREATE_LIVE_CONTENT';
 }

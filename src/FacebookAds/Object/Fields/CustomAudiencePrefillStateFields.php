@@ -40,12 +40,14 @@ class CustomAudiencePrefillStateFields extends AbstractEnum {
   const DESCRIPTION = 'description';
   const NUM_ADDED = 'num_added';
   const STATUS = 'status';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'description' => 'string',
       'num_added' => 'unsigned int',
       'status' => 'string',
+      'id' => 'string',
     );
   }
 }

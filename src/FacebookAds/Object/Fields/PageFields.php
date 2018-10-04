@@ -85,8 +85,10 @@ class PageFields extends AbstractEnum {
   const GENERAL_MANAGER = 'general_manager';
   const GENRE = 'genre';
   const GLOBAL_BRAND_PAGE_NAME = 'global_brand_page_name';
+  const GLOBAL_BRAND_PARENT_PAGE = 'global_brand_parent_page';
   const GLOBAL_BRAND_ROOT_ID = 'global_brand_root_id';
   const HAS_ADDED_APP = 'has_added_app';
+  const HAS_WHATSAPP_BUSINESS_NUMBER = 'has_whatsapp_business_number';
   const HAS_WHATSAPP_NUMBER = 'has_whatsapp_number';
   const HOMETOWN = 'hometown';
   const HOURS = 'hours';
@@ -178,8 +180,6 @@ class PageFields extends AbstractEnum {
   const WERE_HERE_COUNT = 'were_here_count';
   const WHATSAPP_NUMBER = 'whatsapp_number';
   const WRITTEN_BY = 'written_by';
-  const IG_PASSWORD = 'ig_password';
-  const PAGE_ID = 'page_id';
 
   public function getFieldTypes() {
     return array(
@@ -223,7 +223,7 @@ class PageFields extends AbstractEnum {
       'emails' => 'list<string>',
       'engagement' => 'Engagement',
       'fan_count' => 'unsigned int',
-      'featured_video' => 'Object',
+      'featured_video' => 'AdVideo',
       'features' => 'string',
       'food_styles' => 'list<string>',
       'founded' => 'string',
@@ -231,8 +231,10 @@ class PageFields extends AbstractEnum {
       'general_manager' => 'string',
       'genre' => 'string',
       'global_brand_page_name' => 'string',
+      'global_brand_parent_page' => 'Page',
       'global_brand_root_id' => 'string',
       'has_added_app' => 'bool',
+      'has_whatsapp_business_number' => 'bool',
       'has_whatsapp_number' => 'bool',
       'hometown' => 'string',
       'hours' => 'map<string, string>',
@@ -266,7 +268,7 @@ class PageFields extends AbstractEnum {
       'merchant_id' => 'string',
       'merchant_review_status' => 'string',
       'messenger_ads_default_icebreakers' => 'list<string>',
-      'messenger_ads_default_page_welcome_message' => 'Object',
+      'messenger_ads_default_page_welcome_message' => 'MessengerDestinationPageWelcomeMessage',
       'messenger_ads_default_quick_replies' => 'list<string>',
       'messenger_ads_quick_replies_type' => 'string',
       'mission' => 'string',
@@ -324,8 +326,6 @@ class PageFields extends AbstractEnum {
       'were_here_count' => 'unsigned int',
       'whatsapp_number' => 'string',
       'written_by' => 'string',
-      'ig_password' => 'string',
-      'page_id' => 'int',
     );
   }
 }

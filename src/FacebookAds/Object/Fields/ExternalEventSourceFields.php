@@ -40,14 +40,12 @@ class ExternalEventSourceFields extends AbstractEnum {
   const ID = 'id';
   const NAME = 'name';
   const SOURCE_TYPE = 'source_type';
-  const EXTERNAL_EVENT_SOURCES = 'external_event_sources';
 
   public function getFieldTypes() {
     return array(
       'id' => 'string',
       'name' => 'string',
       'source_type' => 'string',
-      'external_event_sources' => 'list<string>',
     );
   }
 }

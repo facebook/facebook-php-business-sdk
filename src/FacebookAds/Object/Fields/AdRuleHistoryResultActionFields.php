@@ -41,6 +41,7 @@ class AdRuleHistoryResultActionFields extends AbstractEnum {
   const FIELD = 'field';
   const NEW_VALUE = 'new_value';
   const OLD_VALUE = 'old_value';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -48,6 +49,7 @@ class AdRuleHistoryResultActionFields extends AbstractEnum {
       'field' => 'string',
       'new_value' => 'string',
       'old_value' => 'string',
+      'id' => 'string',
     );
   }
 }

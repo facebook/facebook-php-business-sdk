@@ -52,9 +52,16 @@ class CampaignFields extends AbstractEnum {
   const DAILY_BUDGET = 'daily_budget';
   const EFFECTIVE_STATUS = 'effective_status';
   const ID = 'id';
+  const IS_AUTOBID = 'is_autobid';
+  const IS_AVERAGE_PRICE_PACING = 'is_average_price_pacing';
+  const KPI_CUSTOM_CONVERSION_ID = 'kpi_custom_conversion_id';
+  const KPI_TYPE = 'kpi_type';
+  const LAST_BUDGET_TOGGLING_TIME = 'last_budget_toggling_time';
   const LIFETIME_BUDGET = 'lifetime_budget';
   const NAME = 'name';
   const OBJECTIVE = 'objective';
+  const PACING_TYPE = 'pacing_type';
+  const PROMOTED_OBJECT = 'promoted_object';
   const RECOMMENDATIONS = 'recommendations';
   const SOURCE_CAMPAIGN = 'source_campaign';
   const SOURCE_CAMPAIGN_ID = 'source_campaign_id';
@@ -62,11 +69,12 @@ class CampaignFields extends AbstractEnum {
   const START_TIME = 'start_time';
   const STATUS = 'status';
   const STOP_TIME = 'stop_time';
+  const TOPLINE_ID = 'topline_id';
   const UPDATED_TIME = 'updated_time';
   const ADBATCH = 'adbatch';
   const EXECUTION_OPTIONS = 'execution_options';
+  const UPSTREAM_EVENTS = 'upstream_events';
   const ITERATIVE_SPLIT_TEST_CONFIGS = 'iterative_split_test_configs';
-  const PROMOTED_OBJECT = 'promoted_object';
 
   public function getFieldTypes() {
     return array(
@@ -85,9 +93,16 @@ class CampaignFields extends AbstractEnum {
       'daily_budget' => 'string',
       'effective_status' => 'EffectiveStatus',
       'id' => 'string',
+      'is_autobid' => 'bool',
+      'is_average_price_pacing' => 'bool',
+      'kpi_custom_conversion_id' => 'string',
+      'kpi_type' => 'string',
+      'last_budget_toggling_time' => 'datetime',
       'lifetime_budget' => 'string',
       'name' => 'string',
       'objective' => 'string',
+      'pacing_type' => 'list<string>',
+      'promoted_object' => 'AdPromotedObject',
       'recommendations' => 'list<AdRecommendation>',
       'source_campaign' => 'Campaign',
       'source_campaign_id' => 'string',
@@ -95,11 +110,12 @@ class CampaignFields extends AbstractEnum {
       'start_time' => 'datetime',
       'status' => 'Status',
       'stop_time' => 'datetime',
+      'topline_id' => 'string',
       'updated_time' => 'datetime',
       'adbatch' => 'list<Object>',
       'execution_options' => 'list<ExecutionOptions>',
+      'upstream_events' => 'map',
       'iterative_split_test_configs' => 'list<Object>',
-      'promoted_object' => 'Object',
     );
   }
 }

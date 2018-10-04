@@ -29,6 +29,10 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\LifeEventFields;
+use FacebookAds\Object\Values\CommentCommentPrivacyValueValues;
+use FacebookAds\Object\Values\CommentFilterValues;
+use FacebookAds\Object\Values\CommentLiveFilterValues;
+use FacebookAds\Object\Values\CommentOrderValues;
 
 /**
  * This class is auto-generated.
@@ -54,18 +58,56 @@ class LifeEvent extends AbstractCrudObject {
   }
 
 
+  public function getComments(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'filter' => 'filter_enum',
+      'order' => 'order_enum',
+      'live_filter' => 'live_filter_enum',
+      'since' => 'datetime',
+    );
+    $enums = array(
+      'filter_enum' => CommentFilterValues::getInstance()->getValues(),
+      'order_enum' => CommentOrderValues::getInstance()->getValues(),
+      'live_filter_enum' => CommentLiveFilterValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/comments',
+      new Comment(),
+      'EDGE',
+      Comment::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createComment(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
+      'object_id' => 'string',
+      'parent_comment_id' => 'Object',
+      'nectar_module' => 'string',
       'attachment_id' => 'string',
-      'attachment_share_url' => 'string',
       'attachment_url' => 'string',
+      'attachment_share_url' => 'string',
+      'feedback_source' => 'string',
+      'facepile_mentioned_ids' => 'list<string>',
       'is_offline' => 'bool',
+      'comment_privacy_value' => 'comment_privacy_value_enum',
       'message' => 'string',
       'text' => 'string',
+      'tracking' => 'string',
     );
     $enums = array(
+      'comment_privacy_value_enum' => CommentCommentPrivacyValueValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -73,8 +115,101 @@ class LifeEvent extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/comments',
-      new AbstractCrudObject(),
+      new Comment(),
       'EDGE',
+      Comment::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getLikes(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/likes',
+      new Profile(),
+      'EDGE',
+      Profile::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getPhotos(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/photos',
+      new Photo(),
+      'EDGE',
+      Photo::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getShareDPosts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/sharedposts',
+      new Post(),
+      'EDGE',
+      Post::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function deleteSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'ref' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/',
+      new AbstractCrudObject(),
+      'NODE',
       array(),
       new TypeChecker($param_types, $enums)
     );
@@ -95,6 +230,32 @@ class LifeEvent extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
+      '/',
+      new LifeEvent(),
+      'NODE',
+      LifeEvent::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'title' => 'string',
+      'description' => 'string',
+      'start_time' => 'datetime',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
       '/',
       new LifeEvent(),
       'NODE',

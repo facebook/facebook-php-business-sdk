@@ -67,6 +67,72 @@ class AdAccountCreationRequest extends AbstractCrudObject {
   }
 
 
+  public function getAdAccounts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/adaccounts',
+      new AdAccount(),
+      'EDGE',
+      AdAccount::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createVietnam(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'ad_accounts_info' => 'list<Object>',
+      'business_registration' => 'file',
+      'planning_agency_business_id' => 'Object',
+      'english_legal_entity_name' => 'string',
+      'address_in_english' => 'Object',
+      'official_website_url' => 'Object',
+      'business_registration_id' => 'string',
+      'vertical' => 'vertical_enum',
+      'subvertical' => 'subvertical_enum',
+      'promotable_page_urls' => 'list<Object>',
+      'promotable_page_ids' => 'list<int>',
+      'promotable_app_ids' => 'list<Object>',
+      'promotable_urls' => 'list<Object>',
+      'contact' => 'Object',
+      'additional_comment' => 'string',
+      'advertiser_business_id' => 'Object',
+      'address_in_local_language' => 'string',
+      'legal_entity_name_in_local_language' => 'string',
+    );
+    $enums = array(
+      'vertical_enum' => AdAccountCreationRequestVerticalValues::getInstance()->getValues(),
+      'subvertical_enum' => AdAccountCreationRequestSubverticalValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/vietnam',
+      new AdAccountCreationRequest(),
+      'EDGE',
+      AdAccountCreationRequest::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function deleteSelf(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -117,31 +183,33 @@ class AdAccountCreationRequest extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'extended_credit_id' => 'string',
       'ad_accounts_info' => 'list<Object>',
-      'additional_comment' => 'string',
+      'business_registration' => 'file',
+      'planning_agency_business_id' => 'string',
+      'english_legal_entity_name' => 'string',
+      'legal_entity_name_in_local_language' => 'string',
+      'address_in_local_language' => 'string',
+      'chinese_legal_entity_name' => 'string',
       'address_in_chinese' => 'string',
       'address_in_english' => 'Object',
-      'advertiser_business_id' => 'string',
-      'business_registration' => 'file',
-      'business_registration_id' => 'string',
-      'chinese_legal_entity_name' => 'string',
-      'contact' => 'Object',
-      'disapprove_appeal_comment' => 'string',
-      'english_legal_entity_name' => 'string',
-      'extended_credit_id' => 'string',
-      'is_smb' => 'bool',
       'official_website_url' => 'Object',
-      'planning_agency_business_id' => 'string',
-      'promotable_app_ids' => 'list<string>',
-      'promotable_page_ids' => 'list<string>',
-      'promotable_page_urls' => 'list<Object>',
-      'promotable_urls' => 'list<Object>',
-      'subvertical' => 'subvertical_enum',
+      'business_registration_id' => 'string',
       'vertical' => 'vertical_enum',
+      'subvertical' => 'subvertical_enum',
+      'promotable_page_urls' => 'list<Object>',
+      'promotable_page_ids' => 'list<string>',
+      'promotable_app_ids' => 'list<string>',
+      'promotable_urls' => 'list<Object>',
+      'contact' => 'Object',
+      'additional_comment' => 'string',
+      'is_smb' => 'bool',
+      'advertiser_business_id' => 'string',
+      'disapprove_appeal_comment' => 'string',
     );
     $enums = array(
-      'subvertical_enum' => AdAccountCreationRequestSubverticalValues::getInstance()->getValues(),
       'vertical_enum' => AdAccountCreationRequestVerticalValues::getInstance()->getValues(),
+      'subvertical_enum' => AdAccountCreationRequestSubverticalValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

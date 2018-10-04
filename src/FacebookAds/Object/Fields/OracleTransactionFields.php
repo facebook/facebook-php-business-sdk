@@ -59,8 +59,8 @@ class OracleTransactionFields extends AbstractEnum {
     return array(
       'ad_account_ids' => 'list<string>',
       'amount' => 'string',
-      'amount_due' => 'Object',
-      'billed_amount_details' => 'Object',
+      'amount_due' => 'CurrencyAmount',
+      'billed_amount_details' => 'BilledAmountDetails',
       'billing_period' => 'string',
       'currency' => 'string',
       'download_uri' => 'string',

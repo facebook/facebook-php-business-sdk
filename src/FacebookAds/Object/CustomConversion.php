@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\CustomConversionFields;
+use FacebookAds\Object\Values\CustomConversionActivitiesEventTypeValues;
 use FacebookAds\Object\Values\CustomConversionCustomEventTypeValues;
 use FacebookAds\Object\Values\CustomConversionStatsResultAggregationValues;
 
@@ -68,16 +69,12 @@ class CustomConversion extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'start_time' => 'Object',
       'end_time' => 'Object',
       'event_type' => 'event_type_enum',
-      'start_time' => 'Object',
     );
     $enums = array(
-      'event_type_enum' => array(
-        'conversion_create',
-        'conversion_delete',
-        'conversion_update',
-      ),
+      'event_type_enum' => CustomConversionActivitiesEventTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -85,9 +82,9 @@ class CustomConversion extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/activities',
-      new AbstractCrudObject(),
+      new CustomConversionActivities(),
       'EDGE',
-      array(),
+      CustomConversionActivities::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -120,6 +117,30 @@ class CustomConversion extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getAdAccounts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'business' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/adaccounts',
+      new AdAccount(),
+      'EDGE',
+      AdAccount::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createAdAccount(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -145,61 +166,13 @@ class CustomConversion extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function deleteSharedAgencies(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'business' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_DELETE,
-      '/shared_agencies',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createSharedAgency(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'business' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/shared_agencies',
-      new CustomConversion(),
-      'EDGE',
-      CustomConversion::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getStats(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
-      'aggregation' => 'aggregation_enum',
-      'end_time' => 'datetime',
       'start_time' => 'datetime',
+      'end_time' => 'datetime',
+      'aggregation' => 'aggregation_enum',
     );
     $enums = array(
       'aggregation_enum' => CustomConversionStatsResultAggregationValues::getInstance()->getValues(),
@@ -270,9 +243,9 @@ class CustomConversion extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'name' => 'string',
       'default_conversion_value' => 'float',
       'description' => 'string',
-      'name' => 'string',
     );
     $enums = array(
     );

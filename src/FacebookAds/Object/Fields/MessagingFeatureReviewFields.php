@@ -39,11 +39,13 @@ class MessagingFeatureReviewFields extends AbstractEnum {
 
   const FEATURE = 'feature';
   const STATUS = 'status';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'feature' => 'string',
       'status' => 'string',
+      'id' => 'string',
     );
   }
 }

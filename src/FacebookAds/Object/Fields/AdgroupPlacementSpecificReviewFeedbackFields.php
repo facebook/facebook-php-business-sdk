@@ -42,15 +42,25 @@ class AdgroupPlacementSpecificReviewFeedbackFields extends AbstractEnum {
   const B2C = 'b2c';
   const BSG = 'bsg';
   const CITY_COMMUNITY = 'city_community';
+  const DAILY_DEALS = 'daily_deals';
+  const DAILY_DEALS_LEGACY = 'daily_deals_legacy';
   const DPA = 'dpa';
   const FACEBOOK = 'facebook';
   const INSTAGRAM = 'instagram';
   const INSTAGRAM_SHOP = 'instagram_shop';
   const MARKETPLACE = 'marketplace';
+  const MARKETPLACE_HOME_RENTALS = 'marketplace_home_rentals';
+  const MARKETPLACE_HOME_SALES = 'marketplace_home_sales';
+  const MARKETPLACE_MOTORS = 'marketplace_motors';
+  const MAX_REVIEW_PLACEMENTS = 'max_review_placements';
   const PAGE_ADMIN = 'page_admin';
   const PRODUCT = 'product';
   const PRODUCT_SERVICE = 'product_service';
+  const PROFILE = 'profile';
   const SELLER = 'seller';
+  const SHOPS = 'shops';
+  const WHATSAPP = 'whatsapp';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -59,15 +69,25 @@ class AdgroupPlacementSpecificReviewFeedbackFields extends AbstractEnum {
       'b2c' => 'map<string, string>',
       'bsg' => 'map<string, string>',
       'city_community' => 'map<string, string>',
+      'daily_deals' => 'map<string, string>',
+      'daily_deals_legacy' => 'map<string, string>',
       'dpa' => 'map<string, string>',
       'facebook' => 'map<string, string>',
       'instagram' => 'map<string, string>',
       'instagram_shop' => 'map<string, string>',
       'marketplace' => 'map<string, string>',
+      'marketplace_home_rentals' => 'map<string, string>',
+      'marketplace_home_sales' => 'map<string, string>',
+      'marketplace_motors' => 'map<string, string>',
+      'max_review_placements' => 'map<string, string>',
       'page_admin' => 'map<string, string>',
       'product' => 'map<string, string>',
       'product_service' => 'map<string, string>',
+      'profile' => 'map<string, string>',
       'seller' => 'map<string, string>',
+      'shops' => 'map<string, string>',
+      'whatsapp' => 'map<string, string>',
+      'id' => 'string',
     );
   }
 }

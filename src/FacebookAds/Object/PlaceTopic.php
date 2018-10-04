@@ -29,7 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\PlaceTopicFields;
-use FacebookAds\Object\Values\PlaceTopicIconSizeValues;
 
 /**
  * This class is auto-generated.
@@ -51,7 +50,6 @@ class PlaceTopic extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['IconSize'] = PlaceTopicIconSizeValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -63,7 +61,12 @@ class PlaceTopic extends AbstractCrudObject {
       'icon_size' => 'icon_size_enum',
     );
     $enums = array(
-      'icon_size_enum' => PlaceTopicIconSizeValues::getInstance()->getValues(),
+      'icon_size_enum' => array(
+        '24',
+        '36',
+        '48',
+        '72',
+      ),
     );
 
     $request = new ApiRequest(

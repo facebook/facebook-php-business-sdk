@@ -29,7 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProductCatalogPricingVariablesBatchFields;
-use FacebookAds\Object\Values\ProductCatalogPricingVariablesBatchStandardValues;
 
 /**
  * This class is auto-generated.
@@ -40,14 +39,7 @@ use FacebookAds\Object\Values\ProductCatalogPricingVariablesBatchStandardValues;
  *
  */
 
-class ProductCatalogPricingVariablesBatch extends AbstractObject {
-
-  /**
-   * @deprecated getEndpoint function is deprecated
-   */
-  protected function getEndpoint() {
-    return 'pricing_variables_batch';
-  }
+class ProductCatalogPricingVariablesBatch extends AbstractCrudObject {
 
   /**
    * @return ProductCatalogPricingVariablesBatchFields
@@ -58,9 +50,31 @@ class ProductCatalogPricingVariablesBatch extends AbstractObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Standard'] = ProductCatalogPricingVariablesBatchStandardValues::getInstance()->getValues();
     return $ref_enums;
   }
 
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new ProductCatalogPricingVariablesBatch(),
+      'NODE',
+      ProductCatalogPricingVariablesBatch::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
 }

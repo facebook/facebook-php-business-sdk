@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class OfflineConversionDataSetFields extends AbstractEnum {
 
+  const ATTRIBUTE_STATS = 'attribute_stats';
   const BUSINESS = 'business';
   const CONFIG = 'config';
   const CREATION_TIME = 'creation_time';
@@ -52,6 +53,7 @@ class OfflineConversionDataSetFields extends AbstractEnum {
   const LAST_UPLOAD_APP = 'last_upload_app';
   const MATCH_RATE_APPROX = 'match_rate_approx';
   const MATCHED_ENTRIES = 'matched_entries';
+  const MATCHED_UNIQUE_USERS = 'matched_unique_users';
   const NAME = 'name';
   const USAGE = 'usage';
   const VALID_ENTRIES = 'valid_entries';
@@ -59,6 +61,7 @@ class OfflineConversionDataSetFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'attribute_stats' => 'string',
       'business' => 'Business',
       'config' => 'string',
       'creation_time' => 'datetime',
@@ -74,6 +77,7 @@ class OfflineConversionDataSetFields extends AbstractEnum {
       'last_upload_app' => 'string',
       'match_rate_approx' => 'int',
       'matched_entries' => 'int',
+      'matched_unique_users' => 'int',
       'name' => 'string',
       'usage' => 'Object',
       'valid_entries' => 'int',

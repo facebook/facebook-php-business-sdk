@@ -37,9 +37,25 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdAccountContextualTargetingFields extends AbstractEnum {
 
+  const DESCRIPTION = 'description';
+  const ENABLED_IN_UI = 'enabled_in_ui';
+  const ID = 'id';
+  const KEY = 'key';
+  const NAME = 'name';
+  const PARENT = 'parent';
+  const PATH = 'path';
+  const TYPE = 'type';
 
   public function getFieldTypes() {
     return array(
+      'description' => 'string',
+      'enabled_in_ui' => 'bool',
+      'id' => 'string',
+      'key' => 'string',
+      'name' => 'string',
+      'parent' => 'string',
+      'path' => 'list<string>',
+      'type' => 'string',
     );
   }
 }

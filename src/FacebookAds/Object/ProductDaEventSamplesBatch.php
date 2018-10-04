@@ -41,7 +41,7 @@ use FacebookAds\Object\Values\ProductDaEventSamplesBatchEventValues;
  *
  */
 
-class ProductDaEventSamplesBatch extends AbstractObject {
+class ProductDaEventSamplesBatch extends AbstractCrudObject {
 
   /**
    * @return ProductDaEventSamplesBatchFields
@@ -57,5 +57,28 @@ class ProductDaEventSamplesBatch extends AbstractObject {
     return $ref_enums;
   }
 
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new ProductDaEventSamplesBatch(),
+      'NODE',
+      ProductDaEventSamplesBatch::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
 }

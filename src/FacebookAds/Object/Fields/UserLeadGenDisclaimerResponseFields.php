@@ -39,11 +39,13 @@ class UserLeadGenDisclaimerResponseFields extends AbstractEnum {
 
   const CHECKBOX_KEY = 'checkbox_key';
   const IS_CHECKED = 'is_checked';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'checkbox_key' => 'string',
       'is_checked' => 'string',
+      'id' => 'string',
     );
   }
 }

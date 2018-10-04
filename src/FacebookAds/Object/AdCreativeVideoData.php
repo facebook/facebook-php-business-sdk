@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdCreativeVideoDataFields;
  *
  */
 
-class AdCreativeVideoData extends AbstractObject {
+class AdCreativeVideoData extends AbstractCrudObject {
 
   /**
    * @return AdCreativeVideoDataFields
@@ -53,5 +53,28 @@ class AdCreativeVideoData extends AbstractObject {
     return $ref_enums;
   }
 
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new AdCreativeVideoData(),
+      'NODE',
+      AdCreativeVideoData::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
 }

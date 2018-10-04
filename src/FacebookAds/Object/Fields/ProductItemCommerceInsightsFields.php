@@ -40,12 +40,14 @@ class ProductItemCommerceInsightsFields extends AbstractEnum {
   const MESSAGE_SENDS = 'message_sends';
   const ORGANIC_IMPRESSIONS = 'organic_impressions';
   const PAID_IMPRESSIONS = 'paid_impressions';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'message_sends' => 'unsigned int',
       'organic_impressions' => 'unsigned int',
       'paid_impressions' => 'unsigned int',
+      'id' => 'string',
     );
   }
 }

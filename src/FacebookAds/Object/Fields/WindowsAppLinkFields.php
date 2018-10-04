@@ -41,6 +41,7 @@ class WindowsAppLinkFields extends AbstractEnum {
   const APP_NAME = 'app_name';
   const PACKAGE_FAMILY_NAME = 'package_family_name';
   const URL = 'url';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -48,6 +49,7 @@ class WindowsAppLinkFields extends AbstractEnum {
       'app_name' => 'string',
       'package_family_name' => 'string',
       'url' => 'string',
+      'id' => 'string',
     );
   }
 }

@@ -49,6 +49,7 @@ class AdActivityFields extends AbstractEnum {
   const OBJECT_NAME = 'object_name';
   const OBJECT_TYPE = 'object_type';
   const TRANSLATED_EVENT_TYPE = 'translated_event_type';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -64,6 +65,7 @@ class AdActivityFields extends AbstractEnum {
       'object_name' => 'string',
       'object_type' => 'string',
       'translated_event_type' => 'string',
+      'id' => 'string',
     );
   }
 }

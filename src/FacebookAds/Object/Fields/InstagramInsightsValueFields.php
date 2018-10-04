@@ -39,11 +39,13 @@ class InstagramInsightsValueFields extends AbstractEnum {
 
   const END_TIME = 'end_time';
   const VALUE = 'value';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'end_time' => 'datetime',
       'value' => 'Object',
+      'id' => 'string',
     );
   }
 }

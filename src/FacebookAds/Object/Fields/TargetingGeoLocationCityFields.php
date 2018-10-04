@@ -44,6 +44,7 @@ class TargetingGeoLocationCityFields extends AbstractEnum {
   const RADIUS = 'radius';
   const REGION = 'region';
   const REGION_ID = 'region_id';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -54,6 +55,7 @@ class TargetingGeoLocationCityFields extends AbstractEnum {
       'radius' => 'unsigned int',
       'region' => 'string',
       'region_id' => 'string',
+      'id' => 'string',
     );
   }
 }

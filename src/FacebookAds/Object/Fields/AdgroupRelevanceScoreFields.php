@@ -41,6 +41,7 @@ class AdgroupRelevanceScoreFields extends AbstractEnum {
   const POSITIVE_FEEDBACK = 'positive_feedback';
   const SCORE = 'score';
   const STATUS = 'status';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -48,6 +49,7 @@ class AdgroupRelevanceScoreFields extends AbstractEnum {
       'positive_feedback' => 'string',
       'score' => 'string',
       'status' => 'string',
+      'id' => 'string',
     );
   }
 }

@@ -30,6 +30,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\MediaFingerprintFields;
 use FacebookAds\Object\Values\MediaFingerprintFingerprintContentTypeValues;
+use FacebookAds\Object\Values\MediaFingerprintFingerprintValidityValues;
 
 /**
  * This class is auto-generated.
@@ -52,6 +53,7 @@ class MediaFingerprint extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['FingerprintContentType'] = MediaFingerprintFingerprintContentTypeValues::getInstance()->getValues();
+    $ref_enums['FingerprintValidity'] = MediaFingerprintFingerprintValidityValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -106,8 +108,8 @@ class MediaFingerprint extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'metadata' => 'Object',
       'title' => 'string',
+      'metadata' => 'Object',
       'universal_content_id' => 'string',
     );
     $enums = array(

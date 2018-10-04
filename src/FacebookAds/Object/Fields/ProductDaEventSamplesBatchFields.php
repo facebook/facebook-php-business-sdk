@@ -40,12 +40,14 @@ class ProductDaEventSamplesBatchFields extends AbstractEnum {
   const SAMPLES = 'samples';
   const TIME_START = 'time_start';
   const TIME_STOP = 'time_stop';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'samples' => 'list<Object>',
       'time_start' => 'unsigned int',
       'time_stop' => 'unsigned int',
+      'id' => 'string',
     );
   }
 }

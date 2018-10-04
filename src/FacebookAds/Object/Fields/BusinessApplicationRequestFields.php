@@ -42,7 +42,7 @@ class BusinessApplicationRequestFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'application' => 'Object',
+      'application' => 'Application',
       'id' => 'string',
     );
   }

@@ -39,11 +39,13 @@ class PageSettingsFields extends AbstractEnum {
 
   const SETTING = 'setting';
   const VALUE = 'value';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'setting' => 'string',
       'value' => 'Object',
+      'id' => 'string',
     );
   }
 }

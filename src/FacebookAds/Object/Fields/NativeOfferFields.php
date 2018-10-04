@@ -41,6 +41,7 @@ class NativeOfferFields extends AbstractEnum {
   const BARCODE_PHOTO_URI = 'barcode_photo_uri';
   const BARCODE_TYPE = 'barcode_type';
   const BARCODE_VALUE = 'barcode_value';
+  const BLOCK_RESHARES = 'block_reshares';
   const DETAILS = 'details';
   const DISABLE_LOCATION = 'disable_location';
   const DISCOUNTS = 'discounts';
@@ -52,6 +53,7 @@ class NativeOfferFields extends AbstractEnum {
   const ONLINE_CODE = 'online_code';
   const PAGE = 'page';
   const PAGE_SET_ID = 'page_set_id';
+  const REDEMPTION_CODE = 'redemption_code';
   const REDEMPTION_LINK = 'redemption_link';
   const SAVE_COUNT = 'save_count';
   const TERMS = 'terms';
@@ -68,9 +70,10 @@ class NativeOfferFields extends AbstractEnum {
       'barcode_photo_uri' => 'string',
       'barcode_type' => 'string',
       'barcode_value' => 'string',
+      'block_reshares' => 'bool',
       'details' => 'string',
       'disable_location' => 'bool',
-      'discounts' => 'list<Object>',
+      'discounts' => 'list<NativeOfferDiscount>',
       'expiration_time' => 'datetime',
       'id' => 'string',
       'instore_code' => 'string',
@@ -79,6 +82,7 @@ class NativeOfferFields extends AbstractEnum {
       'online_code' => 'string',
       'page' => 'Page',
       'page_set_id' => 'string',
+      'redemption_code' => 'string',
       'redemption_link' => 'string',
       'save_count' => 'int',
       'terms' => 'string',

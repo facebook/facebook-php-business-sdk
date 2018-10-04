@@ -108,21 +108,21 @@ class VideoCopyright extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'append_excluded_ownership_segments' => 'bool',
-      'attribution_id' => 'string',
-      'content_category' => 'content_category_enum',
-      'excluded_ownership_countries' => 'list<string>',
-      'excluded_ownership_segments' => 'list<Object>',
-      'is_reference_disabled' => 'bool',
       'monitoring_type' => 'monitoring_type_enum',
-      'ownership_countries' => 'list<string>',
       'rule_id' => 'string',
       'whitelisted_ids' => 'list<string>',
       'whitelisted_ig_user_ids' => 'list<string>',
+      'ownership_countries' => 'list<string>',
+      'excluded_ownership_countries' => 'list<string>',
+      'excluded_ownership_segments' => 'list<Object>',
+      'is_reference_disabled' => 'bool',
+      'content_category' => 'content_category_enum',
+      'attribution_id' => 'string',
+      'append_excluded_ownership_segments' => 'bool',
     );
     $enums = array(
-      'content_category_enum' => VideoCopyrightContentCategoryValues::getInstance()->getValues(),
       'monitoring_type_enum' => VideoCopyrightMonitoringTypeValues::getInstance()->getValues(),
+      'content_category_enum' => VideoCopyrightContentCategoryValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

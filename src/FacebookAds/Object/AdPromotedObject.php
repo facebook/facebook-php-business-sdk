@@ -40,7 +40,7 @@ use FacebookAds\Object\Values\AdPromotedObjectCustomEventTypeValues;
  *
  */
 
-class AdPromotedObject extends AbstractObject {
+class AdPromotedObject extends AbstractCrudObject {
 
   /**
    * @return AdPromotedObjectFields
@@ -55,5 +55,28 @@ class AdPromotedObject extends AbstractObject {
     return $ref_enums;
   }
 
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new AdPromotedObject(),
+      'NODE',
+      AdPromotedObject::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
 }

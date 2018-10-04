@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\DeliveryCheckExtraInfoFields;
  *
  */
 
-class DeliveryCheckExtraInfo extends AbstractObject {
+class DeliveryCheckExtraInfo extends AbstractCrudObject {
 
   /**
    * @return DeliveryCheckExtraInfoFields
@@ -53,5 +53,28 @@ class DeliveryCheckExtraInfo extends AbstractObject {
     return $ref_enums;
   }
 
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new DeliveryCheckExtraInfo(),
+      'NODE',
+      DeliveryCheckExtraInfo::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
 }

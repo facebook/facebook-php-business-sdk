@@ -39,6 +39,8 @@ class AdAccountFields extends AbstractEnum {
 
   const ACCOUNT_ID = 'account_id';
   const ACCOUNT_STATUS = 'account_status';
+  const AD_ACCOUNT_CREATION_REQUEST = 'ad_account_creation_request';
+  const AD_ACCOUNT_PROMOTABLE_OBJECTS = 'ad_account_promotable_objects';
   const AGE = 'age';
   const AGENCY_CLIENT_DECLARATION = 'agency_client_declaration';
   const AMOUNT_SPENT = 'amount_spent';
@@ -55,6 +57,8 @@ class AdAccountFields extends AbstractEnum {
   const CAPABILITIES = 'capabilities';
   const CREATED_TIME = 'created_time';
   const CURRENCY = 'currency';
+  const DAILY_SPEND_LIMIT = 'daily_spend_limit';
+  const DIRECT_DEALS_TOS_ACCEPTED = 'direct_deals_tos_accepted';
   const DISABLE_REASON = 'disable_reason';
   const END_ADVERTISER = 'end_advertiser';
   const END_ADVERTISER_NAME = 'end_advertiser_name';
@@ -68,6 +72,7 @@ class AdAccountFields extends AbstractEnum {
   const IO_NUMBER = 'io_number';
   const IS_ATTRIBUTION_SPEC_SYSTEM_DEFAULT = 'is_attribution_spec_system_default';
   const IS_DIRECT_DEALS_ENABLED = 'is_direct_deals_enabled';
+  const IS_IN_3DS_AUTHORIZATION_ENABLED_MARKET = 'is_in_3ds_authorization_enabled_market';
   const IS_IN_MIDDLE_OF_LOCAL_ENTITY_MIGRATION = 'is_in_middle_of_local_entity_migration';
   const IS_NOTIFICATIONS_ENABLED = 'is_notifications_enabled';
   const IS_PERSONAL = 'is_personal';
@@ -99,6 +104,8 @@ class AdAccountFields extends AbstractEnum {
     return array(
       'account_id' => 'string',
       'account_status' => 'unsigned int',
+      'ad_account_creation_request' => 'AdAccountCreationRequest',
+      'ad_account_promotable_objects' => 'AdAccountPromotableObjects',
       'age' => 'float',
       'agency_client_declaration' => 'AgencyClientDeclaration',
       'amount_spent' => 'string',
@@ -115,6 +122,8 @@ class AdAccountFields extends AbstractEnum {
       'capabilities' => 'list<string>',
       'created_time' => 'datetime',
       'currency' => 'string',
+      'daily_spend_limit' => 'string',
+      'direct_deals_tos_accepted' => 'bool',
       'disable_reason' => 'unsigned int',
       'end_advertiser' => 'string',
       'end_advertiser_name' => 'string',
@@ -128,6 +137,7 @@ class AdAccountFields extends AbstractEnum {
       'io_number' => 'string',
       'is_attribution_spec_system_default' => 'bool',
       'is_direct_deals_enabled' => 'bool',
+      'is_in_3ds_authorization_enabled_market' => 'bool',
       'is_in_middle_of_local_entity_migration' => 'bool',
       'is_notifications_enabled' => 'bool',
       'is_personal' => 'unsigned int',

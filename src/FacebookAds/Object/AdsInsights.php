@@ -36,7 +36,6 @@ use FacebookAds\Object\Values\AdsInsightsBreakdownsValues;
 use FacebookAds\Object\Values\AdsInsightsDatePresetValues;
 use FacebookAds\Object\Values\AdsInsightsLevelValues;
 use FacebookAds\Object\Values\AdsInsightsSummaryActionBreakdownsValues;
-use FacebookAds\Object\Values\AdsInsightsSummaryValues;
 
 /**
  * This class is auto-generated.
@@ -47,7 +46,7 @@ use FacebookAds\Object\Values\AdsInsightsSummaryValues;
  *
  */
 
-class AdsInsights extends AbstractObject {
+class AdsInsights extends AbstractCrudObject {
 
   /**
    * @deprecated getEndpoint function is deprecated
@@ -72,9 +71,31 @@ class AdsInsights extends AbstractObject {
     $ref_enums['DatePreset'] = AdsInsightsDatePresetValues::getInstance()->getValues();
     $ref_enums['Level'] = AdsInsightsLevelValues::getInstance()->getValues();
     $ref_enums['SummaryActionBreakdowns'] = AdsInsightsSummaryActionBreakdownsValues::getInstance()->getValues();
-    $ref_enums['Summary'] = AdsInsightsSummaryValues::getInstance()->getValues();
     return $ref_enums;
   }
 
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new AdsInsights(),
+      'NODE',
+      AdsInsights::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
 }

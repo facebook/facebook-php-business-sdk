@@ -45,7 +45,7 @@ use FacebookAds\Object\Values\AdCreativeLinkDataCustomOverlaySpecTextColorValues
  *
  */
 
-class AdCreativeLinkDataCustomOverlaySpec extends AbstractObject {
+class AdCreativeLinkDataCustomOverlaySpec extends AbstractCrudObject {
 
   /**
    * @return AdCreativeLinkDataCustomOverlaySpecFields
@@ -65,5 +65,28 @@ class AdCreativeLinkDataCustomOverlaySpec extends AbstractObject {
     return $ref_enums;
   }
 
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new AdCreativeLinkDataCustomOverlaySpec(),
+      'NODE',
+      AdCreativeLinkDataCustomOverlaySpec::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
 }

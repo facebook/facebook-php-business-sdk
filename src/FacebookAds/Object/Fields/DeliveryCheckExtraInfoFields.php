@@ -40,12 +40,14 @@ class DeliveryCheckExtraInfoFields extends AbstractEnum {
   const ADGROUP_IDS = 'adgroup_ids';
   const CAMPAIGN_IDS = 'campaign_ids';
   const COUNTRIES = 'countries';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'adgroup_ids' => 'list<string>',
       'campaign_ids' => 'list<string>',
       'countries' => 'list<string>',
+      'id' => 'string',
     );
   }
 }

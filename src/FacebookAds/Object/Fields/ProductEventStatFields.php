@@ -48,6 +48,7 @@ class ProductEventStatFields extends AbstractEnum {
   const UNIQUE_CONTENT_IDS_MATCHED_OTHER_CATALOGS = 'unique_content_ids_matched_other_catalogs';
   const UNIQUE_MATCHED_CONTENT_IDS = 'unique_matched_content_ids';
   const UNIQUE_UNMATCHED_CONTENT_IDS = 'unique_unmatched_content_ids';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -62,6 +63,7 @@ class ProductEventStatFields extends AbstractEnum {
       'unique_content_ids_matched_other_catalogs' => 'int',
       'unique_matched_content_ids' => 'int',
       'unique_unmatched_content_ids' => 'int',
+      'id' => 'string',
     );
   }
 }

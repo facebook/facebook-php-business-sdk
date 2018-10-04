@@ -41,6 +41,7 @@ class AdRuleTriggerFields extends AbstractEnum {
   const OPERATOR = 'operator';
   const TYPE = 'type';
   const VALUE = 'value';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -48,6 +49,7 @@ class AdRuleTriggerFields extends AbstractEnum {
       'operator' => 'Operator',
       'type' => 'Type',
       'value' => 'Object',
+      'id' => 'string',
     );
   }
 }

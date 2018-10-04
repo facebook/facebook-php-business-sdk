@@ -40,12 +40,14 @@ class CustomConversionStatsResultFields extends AbstractEnum {
   const AGGREGATION = 'aggregation';
   const DATA = 'data';
   const TIMESTAMP = 'timestamp';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'aggregation' => 'Aggregation',
       'data' => 'list<Object>',
       'timestamp' => 'datetime',
+      'id' => 'string',
     );
   }
 }

@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdAssetFeedSpecGroupRuleFields;
  *
  */
 
-class AdAssetFeedSpecGroupRule extends AbstractObject {
+class AdAssetFeedSpecGroupRule extends AbstractCrudObject {
 
   /**
    * @return AdAssetFeedSpecGroupRuleFields
@@ -53,5 +53,28 @@ class AdAssetFeedSpecGroupRule extends AbstractObject {
     return $ref_enums;
   }
 
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new AdAssetFeedSpecGroupRule(),
+      'NODE',
+      AdAssetFeedSpecGroupRule::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
 }

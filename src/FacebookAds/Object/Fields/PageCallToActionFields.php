@@ -59,7 +59,7 @@ class PageCallToActionFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'android_app' => 'Object',
+      'android_app' => 'Application',
       'android_deeplink' => 'string',
       'android_destination_type' => 'string',
       'android_package_name' => 'string',
@@ -69,7 +69,7 @@ class PageCallToActionFields extends AbstractEnum {
       'from' => 'Page',
       'id' => 'string',
       'intl_number_with_plus' => 'string',
-      'iphone_app' => 'Object',
+      'iphone_app' => 'Application',
       'iphone_deeplink' => 'string',
       'iphone_destination_type' => 'string',
       'iphone_url' => 'string',

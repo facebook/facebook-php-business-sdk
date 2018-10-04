@@ -29,7 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdStudyObjectiveFields;
-use FacebookAds\Object\Values\AdStudyObjectiveBreakdownsValues;
 use FacebookAds\Object\Values\AdStudyObjectiveTypeValues;
 
 /**
@@ -52,7 +51,6 @@ class AdStudyObjective extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Breakdowns'] = AdStudyObjectiveBreakdownsValues::getInstance()->getValues();
     $ref_enums['Type'] = AdStudyObjectiveTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
@@ -88,7 +86,12 @@ class AdStudyObjective extends AbstractCrudObject {
       'breakdowns' => 'list<breakdowns_enum>',
     );
     $enums = array(
-      'breakdowns_enum' => AdStudyObjectiveBreakdownsValues::getInstance()->getValues(),
+      'breakdowns_enum' => array(
+        'age',
+        'cell_id',
+        'gender',
+        'country',
+      ),
     );
 
     $request = new ApiRequest(
@@ -110,14 +113,14 @@ class AdStudyObjective extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'adspixels' => 'list<Object>',
-      'applications' => 'list<Object>',
-      'customconversions' => 'list<Object>',
       'is_primary' => 'bool',
       'name' => 'string',
-      'offline_conversion_data_sets' => 'list<Object>',
-      'offsitepixels' => 'list<Object>',
       'type' => 'type_enum',
+      'adspixels' => 'list<Object>',
+      'customconversions' => 'list<Object>',
+      'applications' => 'list<Object>',
+      'offsitepixels' => 'list<Object>',
+      'offline_conversion_data_sets' => 'list<Object>',
     );
     $enums = array(
       'type_enum' => AdStudyObjectiveTypeValues::getInstance()->getValues(),

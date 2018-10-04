@@ -43,6 +43,7 @@ class ProductsQualityIssueFields extends AbstractEnum {
   const PROPERTY_NAMES = 'property_names';
   const SAMPLES = 'samples';
   const SUMMARY = 'summary';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -52,6 +53,7 @@ class ProductsQualityIssueFields extends AbstractEnum {
       'property_names' => 'list<string>',
       'samples' => 'list<ProductItem>',
       'summary' => 'string',
+      'id' => 'string',
     );
   }
 }

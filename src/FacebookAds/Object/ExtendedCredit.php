@@ -57,6 +57,29 @@ class ExtendedCredit extends AbstractCrudObject {
   }
 
 
+  public function getExtendedCreditEmails(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/extended_credit_emails',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getExtendedCreditInvoiceGroups(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -84,8 +107,8 @@ class ExtendedCredit extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'emails' => 'list<string>',
       'name' => 'string',
+      'emails' => 'list<string>',
     );
     $enums = array(
     );
@@ -95,9 +118,9 @@ class ExtendedCredit extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/extended_credit_invoice_groups',
-      new ExtendedCredit(),
+      new ExtendedCreditInvoiceGroup(),
       'EDGE',
-      ExtendedCredit::getFieldsEnum()->getValues(),
+      ExtendedCreditInvoiceGroup::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -133,16 +156,16 @@ class ExtendedCredit extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'receiving_business_id' => 'string',
       'amount' => 'Object',
       'liability_type' => 'liability_type_enum',
-      'partition_type' => 'partition_type_enum',
-      'receiving_business_id' => 'string',
       'send_bill_to' => 'send_bill_to_enum',
+      'partition_type' => 'partition_type_enum',
     );
     $enums = array(
       'liability_type_enum' => ExtendedCreditAllocationConfigLiabilityTypeValues::getInstance()->getValues(),
-      'partition_type_enum' => ExtendedCreditAllocationConfigPartitionTypeValues::getInstance()->getValues(),
       'send_bill_to_enum' => ExtendedCreditAllocationConfigSendBillToValues::getInstance()->getValues(),
+      'partition_type_enum' => ExtendedCreditAllocationConfigPartitionTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

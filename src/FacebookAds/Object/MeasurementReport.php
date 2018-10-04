@@ -113,8 +113,8 @@ class MeasurementReport extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'is_last_batch' => 'bool',
       'payload' => 'file',
+      'is_last_batch' => 'bool',
       'url' => 'string',
     );
     $enums = array(

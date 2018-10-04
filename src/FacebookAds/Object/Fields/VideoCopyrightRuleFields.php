@@ -47,7 +47,7 @@ class VideoCopyrightRuleFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'condition_groups' => 'list<Object>',
+      'condition_groups' => 'list<VideoCopyrightConditionGroup>',
       'copyrights' => 'list<string>',
       'created_date' => 'datetime',
       'creator' => 'User',

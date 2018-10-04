@@ -40,12 +40,14 @@ class BusinessAdvertisableApplicationsResultFields extends AbstractEnum {
   const HAS_INSIGHT_PERMISSION = 'has_insight_permission';
   const ID = 'id';
   const NAME = 'name';
+  const PHOTO_URL = 'photo_url';
 
   public function getFieldTypes() {
     return array(
       'has_insight_permission' => 'bool',
       'id' => 'string',
       'name' => 'string',
+      'photo_url' => 'string',
     );
   }
 }

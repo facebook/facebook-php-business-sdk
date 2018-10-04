@@ -42,6 +42,13 @@ use FacebookAds\Object\Fields\HotelRoomFields;
 class HotelRoom extends AbstractCrudObject {
 
   /**
+   * @deprecated getEndpoint function is deprecated
+   */
+  protected function getEndpoint() {
+    return 'hotel_rooms';
+  }
+
+  /**
    * @return HotelRoomFields
    */
   public static function getFieldsEnum() {
@@ -53,6 +60,29 @@ class HotelRoom extends AbstractCrudObject {
     return $ref_enums;
   }
 
+
+  public function getPricingVariables(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/pricing_variables',
+      new DynamicPriceConfigByDate(),
+      'EDGE',
+      DynamicPriceConfigByDate::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
   public function deleteSelf(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
@@ -104,16 +134,16 @@ class HotelRoom extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'applinks' => 'Object',
-      'base_price' => 'float',
-      'currency' => 'string',
       'description' => 'string',
+      'name' => 'string',
+      'url' => 'string',
+      'currency' => 'string',
+      'base_price' => 'float',
+      'applinks' => 'Object',
       'images' => 'list<Object>',
       'margin_level' => 'unsigned int',
-      'name' => 'string',
       'pricing_variables' => 'list<Object>',
       'sale_price' => 'float',
-      'url' => 'string',
     );
     $enums = array(
     );

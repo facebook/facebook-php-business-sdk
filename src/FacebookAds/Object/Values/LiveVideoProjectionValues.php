@@ -39,4 +39,5 @@ class LiveVideoProjectionValues extends AbstractEnum {
 
   const EQUIRECTANGULAR = 'EQUIRECTANGULAR';
   const CUBEMAP = 'CUBEMAP';
+  const HALF_EQUIRECTANGULAR = 'HALF_EQUIRECTANGULAR';
 }

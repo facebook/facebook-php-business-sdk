@@ -42,6 +42,7 @@ class OffsitePixelFields extends AbstractEnum {
   const JS_PIXEL = 'js_pixel';
   const LAST_FIRING_TIME = 'last_firing_time';
   const NAME = 'name';
+  const STATUS = 'status';
   const TAG = 'tag';
 
   public function getFieldTypes() {
@@ -51,6 +52,7 @@ class OffsitePixelFields extends AbstractEnum {
       'js_pixel' => 'string',
       'last_firing_time' => 'datetime',
       'name' => 'string',
+      'status' => 'string',
       'tag' => 'string',
     );
   }

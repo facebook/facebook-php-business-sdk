@@ -66,7 +66,7 @@ class LeadGenDataDraftFields extends AbstractEnum {
       'context_card' => 'Object',
       'continued_flow_request_method' => 'string',
       'created_time' => 'datetime',
-      'creator_id' => 'unsigned int',
+      'creator_id' => 'string',
       'expired_leads_count' => 'unsigned int',
       'follow_up_action_url' => 'string',
       'id' => 'string',

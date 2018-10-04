@@ -43,12 +43,21 @@ class TargetingGeoLocationFields extends AbstractEnum {
   const CUSTOM_LOCATIONS = 'custom_locations';
   const ELECTORAL_DISTRICTS = 'electoral_districts';
   const GEO_MARKETS = 'geo_markets';
+  const LARGE_GEO_AREAS = 'large_geo_areas';
+  const LOCATION_CLUSTER_IDS = 'location_cluster_ids';
   const LOCATION_SET_IDS = 'location_set_ids';
   const LOCATION_TYPES = 'location_types';
+  const MEDIUM_GEO_AREAS = 'medium_geo_areas';
+  const METRO_AREAS = 'metro_areas';
+  const NEIGHBORHOODS = 'neighborhoods';
   const PLACES = 'places';
   const POLITICAL_DISTRICTS = 'political_districts';
   const REGIONS = 'regions';
+  const SMALL_GEO_AREAS = 'small_geo_areas';
+  const SUBCITIES = 'subcities';
+  const SUBNEIGHBORHOODS = 'subneighborhoods';
   const ZIPS = 'zips';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -58,12 +67,21 @@ class TargetingGeoLocationFields extends AbstractEnum {
       'custom_locations' => 'list<TargetingGeoLocationCustomLocation>',
       'electoral_districts' => 'list<TargetingGeoLocationElectoralDistrict>',
       'geo_markets' => 'list<TargetingGeoLocationMarket>',
+      'large_geo_areas' => 'list<TargetingGeoLocationGeoEntities>',
+      'location_cluster_ids' => 'list<TargetingGeoLocationLocationCluster>',
       'location_set_ids' => 'list<string>',
       'location_types' => 'list<string>',
+      'medium_geo_areas' => 'list<TargetingGeoLocationGeoEntities>',
+      'metro_areas' => 'list<TargetingGeoLocationGeoEntities>',
+      'neighborhoods' => 'list<TargetingGeoLocationGeoEntities>',
       'places' => 'list<TargetingGeoLocationPlace>',
       'political_districts' => 'list<TargetingGeoLocationPoliticalDistrict>',
       'regions' => 'list<TargetingGeoLocationRegion>',
+      'small_geo_areas' => 'list<TargetingGeoLocationGeoEntities>',
+      'subcities' => 'list<TargetingGeoLocationGeoEntities>',
+      'subneighborhoods' => 'list<TargetingGeoLocationGeoEntities>',
       'zips' => 'list<TargetingGeoLocationZip>',
+      'id' => 'string',
     );
   }
 }

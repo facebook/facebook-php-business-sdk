@@ -38,9 +38,11 @@ use FacebookAds\Enum\AbstractEnum;
 class ProductFeedUploadErrorFields extends AbstractEnum {
 
   const AFFECTED_SURFACES = 'affected_surfaces';
+  const COLUMN_NUMBER = 'column_number';
   const DESCRIPTION = 'description';
   const ERROR_TYPE = 'error_type';
   const ID = 'id';
+  const ROW_NUMBER = 'row_number';
   const SEVERITY = 'severity';
   const SUMMARY = 'summary';
   const TOTAL_COUNT = 'total_count';
@@ -48,9 +50,11 @@ class ProductFeedUploadErrorFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'affected_surfaces' => 'list<AffectedSurfaces>',
+      'column_number' => 'unsigned int',
       'description' => 'string',
       'error_type' => 'string',
       'id' => 'string',
+      'row_number' => 'unsigned int',
       'severity' => 'Severity',
       'summary' => 'string',
       'total_count' => 'unsigned int',

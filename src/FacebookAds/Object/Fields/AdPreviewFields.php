@@ -38,6 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class AdPreviewFields extends AbstractEnum {
 
   const BODY = 'body';
+  const ID = 'id';
   const CREATIVE = 'creative';
   const POST = 'post';
   const AD_FORMAT = 'ad_format';
@@ -46,6 +47,7 @@ class AdPreviewFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'body' => 'string',
+      'id' => 'string',
     );
   }
 }

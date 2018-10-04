@@ -39,11 +39,13 @@ class CustomAudienceSharingStatusFields extends AbstractEnum {
 
   const SHARING_RELATIONSHIP_ID = 'sharing_relationship_id';
   const STATUS = 'status';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'sharing_relationship_id' => 'Object',
       'status' => 'string',
+      'id' => 'string',
     );
   }
 }

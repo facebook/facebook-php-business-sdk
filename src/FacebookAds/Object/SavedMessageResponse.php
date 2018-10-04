@@ -56,6 +56,29 @@ class SavedMessageResponse extends AbstractCrudObject {
   }
 
 
+  public function getMacros(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/macros',
+      new SavedMessageResponseMacro(),
+      'EDGE',
+      SavedMessageResponseMacro::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function deleteSelf(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -106,10 +129,10 @@ class SavedMessageResponse extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'image' => 'string',
       'message' => 'string',
-      'remove_image' => 'bool',
       'title' => 'string',
+      'image' => 'string',
+      'remove_image' => 'bool',
     );
     $enums = array(
     );

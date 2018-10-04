@@ -47,6 +47,7 @@ class PageRestaurantServicesFields extends AbstractEnum {
   const TAKEOUT = 'takeout';
   const WAITER = 'waiter';
   const WALKINS = 'walkins';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -60,6 +61,7 @@ class PageRestaurantServicesFields extends AbstractEnum {
       'takeout' => 'bool',
       'waiter' => 'bool',
       'walkins' => 'bool',
+      'id' => 'string',
     );
   }
 }

@@ -60,10 +60,10 @@ class ShadowIGUser extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'metric' => 'list<metric_enum>',
-      'period' => 'list<period_enum>',
       'since' => 'datetime',
       'until' => 'datetime',
+      'metric' => 'list<metric_enum>',
+      'period' => 'list<period_enum>',
     );
     $enums = array(
       'metric_enum' => InstagramInsightsResultMetricValues::getInstance()->getValues(),
@@ -85,36 +85,14 @@ class ShadowIGUser extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getMedia(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/media',
-      new ShadowIGMedia(),
-      'EDGE',
-      ShadowIGMedia::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function createMedia(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
+      'media_type' => 'string',
       'caption' => 'string',
       'image_url' => 'string',
-      'media_type' => 'string',
+      'children' => 'list<unsigned int>',
     );
     $enums = array(
     );
@@ -124,9 +102,9 @@ class ShadowIGUser extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/media',
-      new ShadowIGUser(),
+      new ShadowIGMedia(),
       'EDGE',
-      ShadowIGUser::getFieldsEnum()->getValues(),
+      ShadowIGMedia::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -148,29 +126,6 @@ class ShadowIGUser extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/media_publish',
-      new ShadowIGMedia(),
-      'EDGE',
-      ShadowIGMedia::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getTags(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/tags',
       new ShadowIGMedia(),
       'EDGE',
       ShadowIGMedia::getFieldsEnum()->getValues(),

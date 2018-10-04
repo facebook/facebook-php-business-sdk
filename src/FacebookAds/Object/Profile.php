@@ -31,6 +31,7 @@ use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProfileFields;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
 use FacebookAds\Object\Values\ProfileProfileTypeValues;
+use FacebookAds\Object\Values\ProfileTypeValues;
 
 /**
  * This class is auto-generated.
@@ -53,6 +54,7 @@ class Profile extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['ProfileType'] = ProfileProfileTypeValues::getInstance()->getValues();
+    $ref_enums['Type'] = ProfileTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -62,9 +64,9 @@ class Profile extends AbstractCrudObject {
 
     $param_types = array(
       'height' => 'int',
-      'redirect' => 'bool',
-      'type' => 'type_enum',
       'width' => 'int',
+      'type' => 'type_enum',
+      'redirect' => 'bool',
     );
     $enums = array(
       'type_enum' => ProfilePictureSourceTypeValues::getInstance()->getValues(),

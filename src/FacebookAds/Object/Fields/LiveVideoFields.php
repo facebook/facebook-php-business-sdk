@@ -48,22 +48,26 @@ class LiveVideoFields extends AbstractEnum {
   const EMBED_HTML = 'embed_html';
   const FROM = 'from';
   const ID = 'id';
+  const INGEST_STREAMS = 'ingest_streams';
   const IS_MANUAL_MODE = 'is_manual_mode';
   const IS_REFERENCE_ONLY = 'is_reference_only';
   const LIVE_ENCODERS = 'live_encoders';
   const LIVE_VIEWS = 'live_views';
   const PERMALINK_URL = 'permalink_url';
   const PLANNED_START_TIME = 'planned_start_time';
+  const PREVIEW_URL = 'preview_url';
   const SECONDS_LEFT = 'seconds_left';
   const SECURE_STREAM_URL = 'secure_stream_url';
   const STATUS = 'status';
   const STREAM_URL = 'stream_url';
+  const TARGETING = 'targeting';
   const TITLE = 'title';
+  const TOTAL_VIEWS = 'total_views';
   const VIDEO = 'video';
 
   public function getFieldTypes() {
     return array(
-      'ad_break_config' => 'Object',
+      'ad_break_config' => 'LiveVideoAdBreakConfig',
       'ad_break_failure_reason' => 'string',
       'broadcast_start_time' => 'datetime',
       'copyright' => 'VideoCopyright',
@@ -74,18 +78,22 @@ class LiveVideoFields extends AbstractEnum {
       'embed_html' => 'string',
       'from' => 'Object',
       'id' => 'string',
+      'ingest_streams' => 'list<LiveVideoInputStream>',
       'is_manual_mode' => 'bool',
       'is_reference_only' => 'bool',
-      'live_encoders' => 'list<Object>',
+      'live_encoders' => 'list<LiveEncoder>',
       'live_views' => 'unsigned int',
       'permalink_url' => 'string',
       'planned_start_time' => 'datetime',
+      'preview_url' => 'string',
       'seconds_left' => 'int',
       'secure_stream_url' => 'string',
       'status' => 'string',
       'stream_url' => 'string',
+      'targeting' => 'LiveVideoTargeting',
       'title' => 'string',
-      'video' => 'Object',
+      'total_views' => 'string',
+      'video' => 'AdVideo',
     );
   }
 }

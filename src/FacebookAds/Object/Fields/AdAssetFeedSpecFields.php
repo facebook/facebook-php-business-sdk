@@ -51,6 +51,7 @@ class AdAssetFeedSpecFields extends AbstractEnum {
   const OPTIMIZATION_TYPE = 'optimization_type';
   const TITLES = 'titles';
   const VIDEOS = 'videos';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -68,6 +69,7 @@ class AdAssetFeedSpecFields extends AbstractEnum {
       'optimization_type' => 'string',
       'titles' => 'list<AdAssetFeedSpecTitle>',
       'videos' => 'list<AdAssetFeedSpecVideo>',
+      'id' => 'string',
     );
   }
 }

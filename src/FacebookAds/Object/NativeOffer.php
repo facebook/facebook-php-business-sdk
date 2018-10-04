@@ -64,8 +64,8 @@ class NativeOffer extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'file' => 'file',
       'unique_codes_file_code_type' => 'unique_codes_file_code_type_enum',
+      'file' => 'file',
     );
     $enums = array(
       'unique_codes_file_code_type_enum' => NativeOfferUniqueCodesFileCodeTypeValues::getInstance()->getValues(),
@@ -90,16 +90,19 @@ class NativeOffer extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'urls' => 'list<string>',
+      'photos' => 'list<string>',
       'ad_account' => 'string',
       'ad_image_hashes' => 'list<string>',
+      'image_crops' => 'list<map>',
+      'published_ads' => 'bool',
+      'published' => 'bool',
+      'message' => 'string',
+      'place_data' => 'Object',
+      'deeplinks' => 'list<string>',
       'carousel_captions' => 'list<string>',
       'carousel_links' => 'list<string>',
-      'image_crops' => 'list<map>',
-      'message' => 'string',
-      'photos' => 'list<string>',
-      'published' => 'bool',
-      'published_ads' => 'bool',
-      'urls' => 'list<string>',
+      'carousel_data' => 'list<Object>',
       'videos' => 'list<string>',
     );
     $enums = array(
@@ -113,6 +116,29 @@ class NativeOffer extends AbstractCrudObject {
       new NativeOffer(),
       'EDGE',
       NativeOffer::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getViews(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/views',
+      new NativeOfferView(),
+      'EDGE',
+      NativeOfferView::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

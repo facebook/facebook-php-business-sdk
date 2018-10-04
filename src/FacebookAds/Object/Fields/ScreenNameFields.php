@@ -40,12 +40,14 @@ class ScreenNameFields extends AbstractEnum {
   const SERVICE_NAME = 'service_name';
   const SERVICE_TYPE = 'service_type';
   const VALUE = 'value';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'service_name' => 'string',
       'service_type' => 'string',
       'value' => 'string',
+      'id' => 'string',
     );
   }
 }

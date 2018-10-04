@@ -89,27 +89,26 @@ class ProductItemFields extends AbstractEnum {
   const START_DATE = 'start_date';
   const URL = 'url';
   const VISIBILITY = 'visibility';
-  const REQUESTS = 'requests';
-  const ANDROID_APP_NAME = 'android_app_name';
-  const ANDROID_CLASS = 'android_class';
-  const ANDROID_PACKAGE = 'android_package';
-  const ANDROID_URL = 'android_url';
   const CHECKOUT_URL = 'checkout_url';
-  const IOS_APP_NAME = 'ios_app_name';
-  const IOS_APP_STORE_ID = 'ios_app_store_id';
-  const IOS_URL = 'ios_url';
-  const IPAD_APP_NAME = 'ipad_app_name';
-  const IPAD_APP_STORE_ID = 'ipad_app_store_id';
-  const IPAD_URL = 'ipad_url';
-  const IPHONE_APP_NAME = 'iphone_app_name';
-  const IPHONE_APP_STORE_ID = 'iphone_app_store_id';
-  const IPHONE_URL = 'iphone_url';
   const OFFER_PRICE_AMOUNT = 'offer_price_amount';
   const OFFER_PRICE_END_DATE = 'offer_price_end_date';
   const OFFER_PRICE_START_DATE = 'offer_price_start_date';
+  const IOS_URL = 'ios_url';
+  const IOS_APP_STORE_ID = 'ios_app_store_id';
+  const IOS_APP_NAME = 'ios_app_name';
+  const IPHONE_URL = 'iphone_url';
+  const IPHONE_APP_STORE_ID = 'iphone_app_store_id';
+  const IPHONE_APP_NAME = 'iphone_app_name';
+  const IPAD_URL = 'ipad_url';
+  const IPAD_APP_STORE_ID = 'ipad_app_store_id';
+  const IPAD_APP_NAME = 'ipad_app_name';
+  const ANDROID_URL = 'android_url';
+  const ANDROID_PACKAGE = 'android_package';
+  const ANDROID_CLASS = 'android_class';
+  const ANDROID_APP_NAME = 'android_app_name';
+  const WINDOWS_PHONE_URL = 'windows_phone_url';
   const WINDOWS_PHONE_APP_ID = 'windows_phone_app_id';
   const WINDOWS_PHONE_APP_NAME = 'windows_phone_app_name';
-  const WINDOWS_PHONE_URL = 'windows_phone_url';
 
   public function getFieldTypes() {
     return array(
@@ -165,27 +164,26 @@ class ProductItemFields extends AbstractEnum {
       'start_date' => 'string',
       'url' => 'string',
       'visibility' => 'Visibility',
-      'requests' => 'list<map>',
-      'android_app_name' => 'string',
-      'android_class' => 'string',
-      'android_package' => 'string',
-      'android_url' => 'string',
       'checkout_url' => 'string',
-      'ios_app_name' => 'string',
-      'ios_app_store_id' => 'unsigned int',
-      'ios_url' => 'string',
-      'ipad_app_name' => 'string',
-      'ipad_app_store_id' => 'unsigned int',
-      'ipad_url' => 'string',
-      'iphone_app_name' => 'string',
-      'iphone_app_store_id' => 'unsigned int',
-      'iphone_url' => 'string',
       'offer_price_amount' => 'unsigned int',
       'offer_price_end_date' => 'Object',
       'offer_price_start_date' => 'Object',
+      'ios_url' => 'string',
+      'ios_app_store_id' => 'unsigned int',
+      'ios_app_name' => 'string',
+      'iphone_url' => 'string',
+      'iphone_app_store_id' => 'unsigned int',
+      'iphone_app_name' => 'string',
+      'ipad_url' => 'string',
+      'ipad_app_store_id' => 'unsigned int',
+      'ipad_app_name' => 'string',
+      'android_url' => 'string',
+      'android_package' => 'string',
+      'android_class' => 'string',
+      'android_app_name' => 'string',
+      'windows_phone_url' => 'string',
       'windows_phone_app_id' => 'string',
       'windows_phone_app_name' => 'string',
-      'windows_phone_url' => 'string',
     );
   }
 }

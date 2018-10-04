@@ -44,8 +44,10 @@ class ProfilePictureSourceFields extends AbstractEnum {
   const LEFT = 'left';
   const RIGHT = 'right';
   const TOP = 'top';
+  const URI = 'uri';
   const URL = 'url';
   const WIDTH = 'width';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -56,8 +58,10 @@ class ProfilePictureSourceFields extends AbstractEnum {
       'left' => 'unsigned int',
       'right' => 'unsigned int',
       'top' => 'unsigned int',
+      'uri' => 'string',
       'url' => 'string',
       'width' => 'unsigned int',
+      'id' => 'string',
     );
   }
 }

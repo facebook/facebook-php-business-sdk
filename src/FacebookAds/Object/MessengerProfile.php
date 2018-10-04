@@ -29,7 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\MessengerProfileFields;
-use FacebookAds\Object\Values\MessengerProfileFieldsValues;
 
 /**
  * This class is auto-generated.
@@ -40,7 +39,7 @@ use FacebookAds\Object\Values\MessengerProfileFieldsValues;
  *
  */
 
-class MessengerProfile extends AbstractObject {
+class MessengerProfile extends AbstractCrudObject {
 
   /**
    * @return MessengerProfileFields
@@ -51,9 +50,31 @@ class MessengerProfile extends AbstractObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Fields'] = MessengerProfileFieldsValues::getInstance()->getValues();
     return $ref_enums;
   }
 
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new MessengerProfile(),
+      'NODE',
+      MessengerProfile::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
 }

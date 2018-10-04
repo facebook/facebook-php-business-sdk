@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\ProductCatalogImageSettingsFields;
  *
  */
 
-class ProductCatalogImageSettings extends AbstractObject {
+class ProductCatalogImageSettings extends AbstractCrudObject {
 
   /**
    * @return ProductCatalogImageSettingsFields
@@ -53,5 +53,28 @@ class ProductCatalogImageSettings extends AbstractObject {
     return $ref_enums;
   }
 
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new ProductCatalogImageSettings(),
+      'NODE',
+      ProductCatalogImageSettings::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
 }

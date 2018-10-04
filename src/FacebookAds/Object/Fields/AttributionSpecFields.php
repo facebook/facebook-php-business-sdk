@@ -39,11 +39,13 @@ class AttributionSpecFields extends AbstractEnum {
 
   const EVENT_TYPE = 'event_type';
   const WINDOW_DAYS = 'window_days';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'event_type' => 'string',
       'window_days' => 'int',
+      'id' => 'string',
     );
   }
 }

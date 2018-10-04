@@ -50,7 +50,7 @@ class TabFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'application' => 'Object',
+      'application' => 'Application',
       'custom_image_url' => 'string',
       'custom_name' => 'string',
       'id' => 'string',

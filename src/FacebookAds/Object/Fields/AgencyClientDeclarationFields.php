@@ -49,6 +49,7 @@ class AgencyClientDeclarationFields extends AbstractEnum {
   const CLIENT_STREET2 = 'client_street2';
   const HAS_WRITTEN_MANDATE_FROM_ADVERTISER = 'has_written_mandate_from_advertiser';
   const IS_CLIENT_PAYING_INVOICES = 'is_client_paying_invoices';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -64,6 +65,7 @@ class AgencyClientDeclarationFields extends AbstractEnum {
       'client_street2' => 'string',
       'has_written_mandate_from_advertiser' => 'unsigned int',
       'is_client_paying_invoices' => 'unsigned int',
+      'id' => 'string',
     );
   }
 }

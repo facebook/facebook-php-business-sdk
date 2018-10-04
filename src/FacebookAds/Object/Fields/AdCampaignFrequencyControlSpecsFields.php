@@ -40,12 +40,14 @@ class AdCampaignFrequencyControlSpecsFields extends AbstractEnum {
   const EVENT = 'event';
   const INTERVAL_DAYS = 'interval_days';
   const MAX_FREQUENCY = 'max_frequency';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'event' => 'string',
       'interval_days' => 'unsigned int',
       'max_frequency' => 'unsigned int',
+      'id' => 'string',
     );
   }
 }

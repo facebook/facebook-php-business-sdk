@@ -41,6 +41,7 @@ class TargetingGeoLocationPoliticalDistrictFields extends AbstractEnum {
   const KEY = 'key';
   const NAME = 'name';
   const POLITICAL_DISTRICT = 'political_district';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -48,6 +49,7 @@ class TargetingGeoLocationPoliticalDistrictFields extends AbstractEnum {
       'key' => 'string',
       'name' => 'string',
       'political_district' => 'string',
+      'id' => 'string',
     );
   }
 }

@@ -103,10 +103,12 @@ class TargetingFields extends AbstractEnum {
   const MOMS = 'moms';
   const NET_WORTH = 'net_worth';
   const OFFICE_TYPE = 'office_type';
+  const PAGE_TYPES = 'page_types';
   const PLACE_PAGE_SET_IDS = 'place_page_set_ids';
   const POLITICAL_VIEWS = 'political_views';
   const POLITICS = 'politics';
   const PRODUCT_AUDIENCE_SPECS = 'product_audience_specs';
+  const PROSPECTING_AUDIENCE = 'prospecting_audience';
   const PUBLISHER_PLATFORMS = 'publisher_platforms';
   const PUBLISHER_VISIBILITY_CATEGORIES = 'publisher_visibility_categories';
   const RADIUS = 'radius';
@@ -123,6 +125,7 @@ class TargetingFields extends AbstractEnum {
   const WORK_EMPLOYERS = 'work_employers';
   const WORK_POSITIONS = 'work_positions';
   const ZIPS = 'zips';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -139,7 +142,7 @@ class TargetingFields extends AbstractEnum {
       'countries' => 'list<string>',
       'country' => 'list<string>',
       'country_groups' => 'list<string>',
-      'custom_audiences' => 'list<Object>',
+      'custom_audiences' => 'list<RawCustomAudience>',
       'device_platforms' => 'list<DevicePlatforms>',
       'direct_install_devices' => 'bool',
       'dynamic_audience_ids' => 'list<string>',
@@ -192,10 +195,12 @@ class TargetingFields extends AbstractEnum {
       'moms' => 'list<IDName>',
       'net_worth' => 'list<IDName>',
       'office_type' => 'list<IDName>',
+      'page_types' => 'list<string>',
       'place_page_set_ids' => 'list<string>',
       'political_views' => 'list<unsigned int>',
       'politics' => 'list<IDName>',
       'product_audience_specs' => 'list<TargetingProductAudienceSpec>',
+      'prospecting_audience' => 'TargetingProspectingAudience',
       'publisher_platforms' => 'list<string>',
       'publisher_visibility_categories' => 'list<string>',
       'radius' => 'string',
@@ -212,6 +217,7 @@ class TargetingFields extends AbstractEnum {
       'work_employers' => 'list<IDName>',
       'work_positions' => 'list<IDName>',
       'zips' => 'list<string>',
+      'id' => 'string',
     );
   }
 }

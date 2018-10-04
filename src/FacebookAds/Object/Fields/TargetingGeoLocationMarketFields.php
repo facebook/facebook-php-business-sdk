@@ -41,6 +41,7 @@ class TargetingGeoLocationMarketFields extends AbstractEnum {
   const KEY = 'key';
   const MARKET_TYPE = 'market_type';
   const NAME = 'name';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -48,6 +49,7 @@ class TargetingGeoLocationMarketFields extends AbstractEnum {
       'key' => 'string',
       'market_type' => 'string',
       'name' => 'string',
+      'id' => 'string',
     );
   }
 }

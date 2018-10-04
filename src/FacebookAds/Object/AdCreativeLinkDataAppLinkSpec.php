@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdCreativeLinkDataAppLinkSpecFields;
  *
  */
 
-class AdCreativeLinkDataAppLinkSpec extends AbstractObject {
+class AdCreativeLinkDataAppLinkSpec extends AbstractCrudObject {
 
   /**
    * @return AdCreativeLinkDataAppLinkSpecFields
@@ -53,5 +53,28 @@ class AdCreativeLinkDataAppLinkSpec extends AbstractObject {
     return $ref_enums;
   }
 
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new AdCreativeLinkDataAppLinkSpec(),
+      'NODE',
+      AdCreativeLinkDataAppLinkSpec::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
 }
