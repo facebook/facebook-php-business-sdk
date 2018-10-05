@@ -150,7 +150,7 @@ class ApiRequest {
 
   public function clearFields() {
     $this->fields = [];
-    return this;
+    return $this;
   }
 
   public function getFields() {
