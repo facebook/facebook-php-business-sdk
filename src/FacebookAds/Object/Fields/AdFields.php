@@ -58,6 +58,7 @@ class AdFields extends AbstractEnum {
   const FAILED_DELIVERY_CHECKS = 'failed_delivery_checks';
   const ID = 'id';
   const IMPRESSION_CONTROL_MAP = 'impression_control_map';
+  const ISSUES_INFO = 'issues_info';
   const LAST_UPDATED_BY_APP_ID = 'last_updated_by_app_id';
   const LOCATIONS = 'locations';
   const NAME = 'name';
@@ -80,7 +81,6 @@ class AdFields extends AbstractEnum {
   const ADSET_SPEC = 'adset_spec';
   const DRAFT_ADGROUP_ID = 'draft_adgroup_id';
   const EXECUTION_OPTIONS = 'execution_options';
-  const REDOWNLOAD = 'redownload';
   const FILENAME = 'filename';
 
   public function getFieldTypes() {
@@ -106,6 +106,7 @@ class AdFields extends AbstractEnum {
       'failed_delivery_checks' => 'list<DeliveryCheck>',
       'id' => 'string',
       'impression_control_map' => 'list<string>',
+      'issues_info' => 'list<AdgroupIssuesInfo>',
       'last_updated_by_app_id' => 'string',
       'locations' => 'list<int>',
       'name' => 'string',
@@ -128,7 +129,6 @@ class AdFields extends AbstractEnum {
       'adset_spec' => 'AdSet',
       'draft_adgroup_id' => 'string',
       'execution_options' => 'list<ExecutionOptions>',
-      'redownload' => 'bool',
       'filename' => 'file',
     );
   }

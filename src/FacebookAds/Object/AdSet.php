@@ -187,7 +187,9 @@ class AdSet extends AbstractArchivableCrudObject
       'execution_options' => 'list<execution_options_enum>',
     );
     $enums = array(
-      'execution_options_enum' => AdSetExecutionOptionsValues::getInstance()->getValues(),
+      'execution_options_enum' => array(
+        'validate_only',
+      ),
     );
 
     $request = new ApiRequest(
@@ -213,7 +215,9 @@ class AdSet extends AbstractArchivableCrudObject
       'execution_options' => 'list<execution_options_enum>',
     );
     $enums = array(
-      'execution_options_enum' => AdSetExecutionOptionsValues::getInstance()->getValues(),
+      'execution_options_enum' => array(
+        'validate_only',
+      ),
     );
 
     $request = new ApiRequest(
@@ -571,7 +575,7 @@ class AdSet extends AbstractArchivableCrudObject
 
     $param_types = array(
       'account_id' => 'string',
-      'ad_keywords' => 'map',
+      'ad_keywords' => 'Object',
       'adlabels' => 'list<Object>',
       'bid_amount' => 'int',
       'bid_adjustments' => 'Object',
@@ -603,7 +607,6 @@ class AdSet extends AbstractArchivableCrudObject
       'pacing_type' => 'list<string>',
       'promoted_object' => 'Object',
       'rb_prediction_id' => 'string',
-      'redownload' => 'bool',
       'rf_prediction_id' => 'string',
       'start_time' => 'datetime',
       'targeting' => 'Targeting',

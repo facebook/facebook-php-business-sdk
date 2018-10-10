@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,33 +33,10 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static ApplicationOrderingTypeValues getInstance()
  */
+class ApplicationOrderingTypeValues extends AbstractEnum {
 
-class AudienceInsightsRuleFields extends AbstractEnum {
-
-  const ARCHIVED = 'archived';
-  const CAN_BE_UPDATED = 'can_be_updated';
-  const CREATED_BY = 'created_by';
-  const CREATION_TIME = 'creation_time';
-  const DESCRIPTION = 'description';
-  const ID = 'id';
-  const LANGUAGE = 'language';
-  const NAME = 'name';
-  const RULE_COMPONENTS = 'rule_components';
-  const STUDIES = 'studies';
-
-  public function getFieldTypes() {
-    return array(
-      'archived' => 'bool',
-      'can_be_updated' => 'bool',
-      'created_by' => 'User',
-      'creation_time' => 'datetime',
-      'description' => 'string',
-      'id' => 'string',
-      'language' => 'string',
-      'name' => 'string',
-      'rule_components' => 'list<Object>',
-      'studies' => 'list<Object>',
-    );
-  }
+  const ASCENDING = 'ASCENDING';
+  const DESCENDING = 'DESCENDING';
 }

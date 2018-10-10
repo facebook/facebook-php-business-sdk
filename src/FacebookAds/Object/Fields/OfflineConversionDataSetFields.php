@@ -51,6 +51,7 @@ class OfflineConversionDataSetFields extends AbstractEnum {
   const ID = 'id';
   const IS_RESTRICTED_USE = 'is_restricted_use';
   const LAST_UPLOAD_APP = 'last_upload_app';
+  const LAST_UPLOAD_APP_CHANGED_TIME = 'last_upload_app_changed_time';
   const MATCH_RATE_APPROX = 'match_rate_approx';
   const MATCHED_ENTRIES = 'matched_entries';
   const MATCHED_UNIQUE_USERS = 'matched_unique_users';
@@ -75,6 +76,7 @@ class OfflineConversionDataSetFields extends AbstractEnum {
       'id' => 'string',
       'is_restricted_use' => 'bool',
       'last_upload_app' => 'string',
+      'last_upload_app_changed_time' => 'int',
       'match_rate_approx' => 'int',
       'matched_entries' => 'int',
       'matched_unique_users' => 'int',

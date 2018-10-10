@@ -37,7 +37,9 @@ use FacebookAds\Enum\AbstractEnum;
 
 class ExternalEventSourceDebuggingFields extends AbstractEnum {
 
+  const APP_VERSION = 'app_version';
   const CONTENT_URL = 'content_url';
+  const DEVICE_OS = 'device_os';
   const DIAGNOSTIC = 'diagnostic';
   const EVENT_NAME = 'event_name';
   const EVENT_TIME = 'event_time';
@@ -47,7 +49,9 @@ class ExternalEventSourceDebuggingFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'app_version' => 'string',
       'content_url' => 'string',
+      'device_os' => 'string',
       'diagnostic' => 'string',
       'event_name' => 'string',
       'event_time' => 'int',

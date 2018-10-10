@@ -1123,7 +1123,6 @@ class AdAccount extends AbstractCrudObject {
       'execution_options' => 'list<execution_options_enum>',
       'adlabels' => 'list<Object>',
       'bid_amount' => 'int',
-      'redownload' => 'bool',
       'source_ad_id' => 'string',
     );
     $enums = array(
@@ -1239,7 +1238,7 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'ad_keywords' => 'map',
+      'ad_keywords' => 'Object',
       'adlabels' => 'list<Object>',
       'bid_amount' => 'int',
       'bid_adjustments' => 'Object',
@@ -1276,7 +1275,6 @@ class AdAccount extends AbstractCrudObject {
       'pacing_type' => 'list<string>',
       'promoted_object' => 'Object',
       'rb_prediction_id' => 'string',
-      'redownload' => 'bool',
       'rf_prediction_id' => 'string',
       'source_adset_id' => 'string',
       'start_time' => 'datetime',
@@ -3162,29 +3160,6 @@ class AdAccount extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getRateCard(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/ratecard',
-      new RateCard(),
-      'EDGE',
-      RateCard::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getReachEstimate(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -3909,7 +3884,6 @@ class AdAccount extends AbstractCrudObject {
       'agency_client_declaration' => 'map',
       'business_info' => 'map',
       'tos_accepted' => 'map',
-      'redownload' => 'bool',
       'currency' => 'currency_enum',
       'timezone_id' => 'unsigned int',
       'end_advertiser' => 'string',

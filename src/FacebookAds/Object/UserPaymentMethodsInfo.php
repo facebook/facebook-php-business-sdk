@@ -99,6 +99,7 @@ class UserPaymentMethodsInfo extends AbstractCrudObject {
         'ppgf_donation',
         'advertiser_subscription',
         'whatsapp_p2m',
+        'movie_ticketing',
       ),
       'payment_type_enum' => array(
         'none',

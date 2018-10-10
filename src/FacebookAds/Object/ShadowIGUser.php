@@ -92,6 +92,7 @@ class ShadowIGUser extends AbstractCrudObject {
       'media_type' => 'string',
       'caption' => 'string',
       'image_url' => 'string',
+      'thumb_offset' => 'string',
       'children' => 'list<unsigned int>',
     );
     $enums = array(

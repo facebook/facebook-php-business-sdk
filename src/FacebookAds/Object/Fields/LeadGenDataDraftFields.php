@@ -37,18 +37,13 @@ use FacebookAds\Enum\AbstractEnum;
 
 class LeadGenDataDraftFields extends AbstractEnum {
 
-  const ALLOW_ORGANIC_LEAD = 'allow_organic_lead';
   const BLOCK_DISPLAY_FOR_NON_TARGETED_VIEWER = 'block_display_for_non_targeted_viewer';
   const CONTEXT_CARD = 'context_card';
-  const CONTINUED_FLOW_REQUEST_METHOD = 'continued_flow_request_method';
   const CREATED_TIME = 'created_time';
   const CREATOR_ID = 'creator_id';
-  const EXPIRED_LEADS_COUNT = 'expired_leads_count';
   const FOLLOW_UP_ACTION_URL = 'follow_up_action_url';
   const ID = 'id';
-  const IS_CONTINUED_FLOW = 'is_continued_flow';
   const IS_OPTIMIZED_FOR_QUALITY = 'is_optimized_for_quality';
-  const LEADGEN_EXPORT_CSV_URL = 'leadgen_export_csv_url';
   const LEGAL_CONTENT = 'legal_content';
   const LOCALE = 'locale';
   const NAME = 'name';
@@ -61,18 +56,13 @@ class LeadGenDataDraftFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'allow_organic_lead' => 'bool',
       'block_display_for_non_targeted_viewer' => 'bool',
       'context_card' => 'Object',
-      'continued_flow_request_method' => 'string',
       'created_time' => 'datetime',
       'creator_id' => 'string',
-      'expired_leads_count' => 'unsigned int',
       'follow_up_action_url' => 'string',
       'id' => 'string',
-      'is_continued_flow' => 'bool',
       'is_optimized_for_quality' => 'bool',
-      'leadgen_export_csv_url' => 'string',
       'legal_content' => 'Object',
       'locale' => 'string',
       'name' => 'string',

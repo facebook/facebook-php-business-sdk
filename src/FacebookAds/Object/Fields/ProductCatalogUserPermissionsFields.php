@@ -52,7 +52,7 @@ class ProductCatalogUserPermissionsFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'business' => 'Business',
-      'business_persona' => 'BusinessPersona',
+      'business_persona' => 'Object',
       'created_by' => 'User',
       'created_time' => 'datetime',
       'email' => 'string',

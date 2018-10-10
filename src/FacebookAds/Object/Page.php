@@ -89,11 +89,9 @@ use FacebookAds\Object\Values\PagePostWithValues;
 use FacebookAds\Object\Values\PagePublishStatusValues;
 use FacebookAds\Object\Values\PageSavedFilterSectionValues;
 use FacebookAds\Object\Values\PageSenderActionValues;
-use FacebookAds\Object\Values\PageSettingTypeValues;
 use FacebookAds\Object\Values\PageSettingValues;
 use FacebookAds\Object\Values\PageSubscribedFieldsValues;
 use FacebookAds\Object\Values\PageTasksValues;
-use FacebookAds\Object\Values\PageThreadStateValues;
 use FacebookAds\Object\Values\PageTypeValues;
 use FacebookAds\Object\Values\PhotoBackdatedTimeGranularityValues;
 use FacebookAds\Object\Values\PhotoTypeValues;
@@ -102,8 +100,6 @@ use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
 use FacebookAds\Object\Values\SavedMessageResponseCategoryValues;
 use FacebookAds\Object\Values\UserTasksValues;
 use FacebookAds\Object\Values\VideoCopyrightContentCategoryValues;
-use FacebookAds\Object\Values\VideoCopyrightMatchActionValues;
-use FacebookAds\Object\Values\VideoCopyrightMatchMatchContentTypeValues;
 use FacebookAds\Object\Values\VideoCopyrightMonitoringTypeValues;
 use FacebookAds\Object\Values\VideoCopyrightRuleSourceValues;
 
@@ -150,8 +146,6 @@ class Page extends AbstractCrudObject {
     $ref_enums['SubscribedFields'] = PageSubscribedFieldsValues::getInstance()->getValues();
     $ref_enums['DomainActionType'] = PageDomainActionTypeValues::getInstance()->getValues();
     $ref_enums['PaymentDevModeAction'] = PagePaymentDevModeActionValues::getInstance()->getValues();
-    $ref_enums['SettingType'] = PageSettingTypeValues::getInstance()->getValues();
-    $ref_enums['ThreadState'] = PageThreadStateValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -232,7 +226,7 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createAdMInSetting(array $fields = array(), array $params = array(), $pending = false) {
+  public function createAdminSetting(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -310,7 +304,7 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createAdMInStickySetting(array $fields = array(), array $params = array(), $pending = false) {
+  public function createAdminStickySetting(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -1069,6 +1063,7 @@ class Page extends AbstractCrudObject {
     $param_types = array(
       'tags' => 'list<string>',
       'folder' => 'string',
+      'psid' => 'Object',
     );
     $enums = array(
     );
@@ -1099,8 +1094,18 @@ class Page extends AbstractCrudObject {
       'countries' => 'Object',
     );
     $enums = array(
-      'match_content_type_enum' => VideoCopyrightMatchMatchContentTypeValues::getInstance()->getValues(),
-      'action_enum' => VideoCopyrightMatchActionValues::getInstance()->getValues(),
+      'match_content_type_enum' => array(
+        'VIDEO_AND_AUDIO',
+        'VIDEO_ONLY',
+        'AUDIO_ONLY',
+      ),
+      'action_enum' => array(
+        'MANUAL_REVIEW',
+        'MONITOR',
+        'BLOCK',
+        'CLAIM_AD_EARNINGS',
+        'REQUEST_TAKEDOWN',
+      ),
     );
 
     $request = new ApiRequest(
@@ -1108,9 +1113,9 @@ class Page extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/copyright_manual_claims',
-      new VideoCopyrightMatch(),
+      new AbstractCrudObject(),
       'EDGE',
-      VideoCopyrightMatch::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2038,7 +2043,7 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getLeadGenDraftForMs(array $fields = array(), array $params = array(), $pending = false) {
+  public function getLeadGenDraftForms(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -2061,13 +2066,12 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createLeadGenDraftForM(array $fields = array(), array $params = array(), $pending = false) {
+  public function createLeadGenDraftForm(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
       'name' => 'string',
       'locale' => 'locale_enum',
-      'allow_organic_lead_retrieval' => 'bool',
       'block_display_for_non_targeted_viewer' => 'bool',
       'follow_up_action_url' => 'string',
       'legal_content_id' => 'string',
@@ -3139,9 +3143,9 @@ class Page extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/page_backed_instagram_accounts',
-      new InstagramUser(),
+      new AbstractCrudObject(),
       'EDGE',
-      InstagramUser::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -4236,8 +4240,17 @@ class Page extends AbstractCrudObject {
       'thread_state' => 'thread_state_enum',
     );
     $enums = array(
-      'setting_type_enum' => PageSettingTypeValues::getInstance()->getValues(),
-      'thread_state_enum' => PageThreadStateValues::getInstance()->getValues(),
+      'setting_type_enum' => array(
+        'ACCOUNT_LINKING',
+        'CALL_TO_ACTIONS',
+        'GREETING',
+        'DOMAIN_WHITELISTING',
+        'PAYMENT',
+      ),
+      'thread_state_enum' => array(
+        'NEW_THREAD',
+        'EXISTING_THREAD',
+      ),
     );
 
     $request = new ApiRequest(
@@ -4295,8 +4308,17 @@ class Page extends AbstractCrudObject {
       'payment_testers' => 'list<string>',
     );
     $enums = array(
-      'setting_type_enum' => PageSettingTypeValues::getInstance()->getValues(),
-      'thread_state_enum' => PageThreadStateValues::getInstance()->getValues(),
+      'setting_type_enum' => array(
+        'ACCOUNT_LINKING',
+        'CALL_TO_ACTIONS',
+        'GREETING',
+        'DOMAIN_WHITELISTING',
+        'PAYMENT',
+      ),
+      'thread_state_enum' => array(
+        'NEW_THREAD',
+        'EXISTING_THREAD',
+      ),
       'domain_action_type_enum' => PageDomainActionTypeValues::getInstance()->getValues(),
       'payment_dev_mode_action_enum' => PagePaymentDevModeActionValues::getInstance()->getValues(),
     );
@@ -4322,6 +4344,7 @@ class Page extends AbstractCrudObject {
     $param_types = array(
       'tags' => 'list<string>',
       'folder' => 'string',
+      'psid' => 'Object',
     );
     $enums = array(
     );

@@ -229,8 +229,8 @@ $cursor->fetchAfter();
 #### Implicit Fetching
 
 Whenever all object connected to a parent are required (carelessly from the number of HTTP requests) implicit fetching can help reducing the amount of code required.
-If cursor has Implicit Fetching enabled, while iterating (foreach, Cursor::next(), Cursor::prev()) the page end is reached, the SDK will automatically fetch and append a new page, until cursor end.
-Implicit Fetching will make you lose control of the number of HTTP request that will be sent and, for this reason, is disabled by default.
+If cursor has Implicit Fetching enabled, while iterating (foreach, Cursor::next(), Cursor::prev()) the page end is reached, the SDK will automatically fetch and append a new page, untill cursor end.
+Implicit Fetching will make you lose controll of the number of HTTP request that will be sent and, for this reason, is disabled by default.
 Implicit Fetching can be enabled for a specific cursor:
 
 ```php

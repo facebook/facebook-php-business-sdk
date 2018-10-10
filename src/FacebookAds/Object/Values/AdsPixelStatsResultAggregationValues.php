@@ -43,7 +43,14 @@ class AdsPixelStatsResultAggregationValues extends AbstractEnum {
   const DEVICE_TYPE = 'device_type';
   const EVENT = 'event';
   const HOST = 'host';
+  const PEOPLE_REACHED = 'people_reached';
+  const PII_KEYS = 'pii_keys';
+  const PII_LIFT = 'pii_lift';
   const PIXEL_FIRE = 'pixel_fire';
+  const EVENT_DETECTION_METHOD = 'event_detection_method';
   const URL = 'url';
+  const EVENT_VALUE_COUNT = 'event_value_count';
+  const URL_BY_RULE = 'url_by_rule';
   const EVENT_TOTAL_COUNTS = 'event_total_counts';
+  const EVENT_SOURCE = 'event_source';
 }

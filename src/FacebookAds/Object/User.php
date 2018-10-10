@@ -42,8 +42,6 @@ use FacebookAds\Object\Values\EventTypeValues;
 use FacebookAds\Object\Values\FavoriteRequestApiVersionValues;
 use FacebookAds\Object\Values\FavoriteRequestHttpMethodValues;
 use FacebookAds\Object\Values\FriendListListTypeValues;
-use FacebookAds\Object\Values\GameItemActionValues;
-use FacebookAds\Object\Values\GameTimeActionValues;
 use FacebookAds\Object\Values\LinkUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\LiveVideoBroadcastStatusValues;
 use FacebookAds\Object\Values\LiveVideoProjectionValues;
@@ -859,6 +857,7 @@ class User extends AbstractCrudObject {
     $param_types = array(
       'tags' => 'list<string>',
       'folder' => 'string',
+      'psid' => 'Object',
     );
     $enums = array(
     );
@@ -1318,7 +1317,11 @@ class User extends AbstractCrudObject {
       'app_id' => 'Object',
     );
     $enums = array(
-      'action_enum' => GameItemActionValues::getInstance()->getValues(),
+      'action_enum' => array(
+        'MARK',
+        'CONSUME',
+        'DROP',
+      ),
     );
 
     $request = new ApiRequest(
@@ -1326,9 +1329,9 @@ class User extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/game_items',
-      new GameItem(),
+      new AbstractCrudObject(),
       'EDGE',
-      GameItem::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1343,7 +1346,11 @@ class User extends AbstractCrudObject {
       'action' => 'action_enum',
     );
     $enums = array(
-      'action_enum' => GameTimeActionValues::getInstance()->getValues(),
+      'action_enum' => array(
+        'START',
+        'HEARTBEAT',
+        'END',
+      ),
     );
 
     $request = new ApiRequest(
@@ -1351,9 +1358,9 @@ class User extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/game_times',
-      new GameTime(),
+      new AbstractCrudObject(),
       'EDGE',
-      GameTime::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1401,9 +1408,9 @@ class User extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/games_stats',
-      new GamesStat(),
+      new AbstractCrudObject(),
       'EDGE',
-      GamesStat::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1795,9 +1802,9 @@ class User extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/live_encoders',
-      new LiveEncoder(),
+      new AbstractCrudObject(),
       'EDGE',
-      LiveEncoder::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2330,6 +2337,7 @@ class User extends AbstractCrudObject {
         'NMOR_PPGF_DONATION',
         'NMOR_ADVERTISER_SUBSCRIPTION',
         'NMOR_WHATSAPP_P2M',
+        'NMOR_MOVIE_TICKETING',
         'IG_NMOR_P2B',
         'NMOR_INSTAGRAM_P2B',
       ),
@@ -2425,6 +2433,7 @@ class User extends AbstractCrudObject {
         'NMOR_PPGF_DONATION',
         'NMOR_ADVERTISER_SUBSCRIPTION',
         'NMOR_WHATSAPP_P2M',
+        'NMOR_MOVIE_TICKETING',
         'IG_NMOR_P2B',
         'NMOR_INSTAGRAM_P2B',
       ),
@@ -3019,6 +3028,7 @@ class User extends AbstractCrudObject {
     $param_types = array(
       'tags' => 'list<string>',
       'folder' => 'string',
+      'psid' => 'Object',
     );
     $enums = array(
     );

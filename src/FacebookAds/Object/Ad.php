@@ -596,7 +596,6 @@ class Ad extends AbstractArchivableCrudObject
       'execution_options' => 'list<execution_options_enum>',
       'adlabels' => 'list<Object>',
       'bid_amount' => 'int',
-      'redownload' => 'bool',
     );
     $enums = array(
       'status_enum' => AdStatusValues::getInstance()->getValues(),

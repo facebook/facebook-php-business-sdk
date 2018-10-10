@@ -102,7 +102,6 @@ class AdSetFields extends AbstractEnum {
   const EXECUTION_OPTIONS = 'execution_options';
   const LINE_NUMBER = 'line_number';
   const RB_PREDICTION_ID = 'rb_prediction_id';
-  const REDOWNLOAD = 'redownload';
   const TIME_START = 'time_start';
   const TIME_STOP = 'time_stop';
   const TOPLINE_ID = 'topline_id';
@@ -175,7 +174,6 @@ class AdSetFields extends AbstractEnum {
       'execution_options' => 'list<ExecutionOptions>',
       'line_number' => 'unsigned int',
       'rb_prediction_id' => 'string',
-      'redownload' => 'bool',
       'time_start' => 'datetime',
       'time_stop' => 'datetime',
       'topline_id' => 'string',

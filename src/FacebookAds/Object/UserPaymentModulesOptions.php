@@ -131,6 +131,7 @@ class UserPaymentModulesOptions extends AbstractCrudObject {
         'NMOR_PPGF_DONATION',
         'NMOR_ADVERTISER_SUBSCRIPTION',
         'NMOR_WHATSAPP_P2M',
+        'NMOR_MOVIE_TICKETING',
         'IG_NMOR_P2B',
         'NMOR_INSTAGRAM_P2B',
       ),

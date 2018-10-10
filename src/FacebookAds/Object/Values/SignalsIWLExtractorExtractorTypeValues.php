@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class SignalsIWLExtractorExtractorTypeValues extends AbstractEnum {
 
+  const CONSTANT_VALUE = 'CONSTANT_VALUE';
   const CSS = 'CSS';
   const GLOBAL_VARIABLE = 'GLOBAL_VARIABLE';
   const GTM = 'GTM';

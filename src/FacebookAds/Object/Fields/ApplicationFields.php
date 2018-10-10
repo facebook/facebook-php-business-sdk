@@ -82,6 +82,7 @@ class ApplicationFields extends AbstractEnum {
   const GDPV4_ENABLED = 'gdpv4_enabled';
   const GDPV4_NUX_CONTENT = 'gdpv4_nux_content';
   const GDPV4_NUX_ENABLED = 'gdpv4_nux_enabled';
+  const GROUPS_APP_SETTINGS = 'groups_app_settings';
   const HAS_MESSENGER_PRODUCT = 'has_messenger_product';
   const HOSTING_URL = 'hosting_url';
   const ICON_URL = 'icon_url';
@@ -184,6 +185,7 @@ class ApplicationFields extends AbstractEnum {
       'gdpv4_enabled' => 'bool',
       'gdpv4_nux_content' => 'string',
       'gdpv4_nux_enabled' => 'bool',
+      'groups_app_settings' => 'Object',
       'has_messenger_product' => 'bool',
       'hosting_url' => 'string',
       'icon_url' => 'string',

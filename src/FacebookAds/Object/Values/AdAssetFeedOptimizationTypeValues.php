@@ -44,4 +44,5 @@ class AdAssetFeedOptimizationTypeValues extends AbstractEnum {
   const BRAND = 'BRAND';
   const ASSET_CUSTOMIZATION = 'ASSET_CUSTOMIZATION';
   const DCO_PARITY = 'DCO_PARITY';
+  const PREVIEW_DYNAMIC_RENDERING = 'PREVIEW_DYNAMIC_RENDERING';
 }

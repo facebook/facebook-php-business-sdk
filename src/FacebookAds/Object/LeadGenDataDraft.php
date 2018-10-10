@@ -87,7 +87,6 @@ class LeadGenDataDraft extends AbstractCrudObject {
     $param_types = array(
       'name' => 'string',
       'locale' => 'locale_enum',
-      'allow_organic_lead_retrieval' => 'bool',
       'block_display_for_non_targeted_viewer' => 'bool',
       'follow_up_action_url' => 'string',
       'legal_content_id' => 'string',

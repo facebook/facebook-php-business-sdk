@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\AdgroupIssuesInfoFields;
 
 /**
  * This class is auto-generated.
@@ -35,31 +39,42 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class AudienceInsightsRuleFields extends AbstractEnum {
+class AdgroupIssuesInfo extends AbstractCrudObject {
 
-  const ARCHIVED = 'archived';
-  const CAN_BE_UPDATED = 'can_be_updated';
-  const CREATED_BY = 'created_by';
-  const CREATION_TIME = 'creation_time';
-  const DESCRIPTION = 'description';
-  const ID = 'id';
-  const LANGUAGE = 'language';
-  const NAME = 'name';
-  const RULE_COMPONENTS = 'rule_components';
-  const STUDIES = 'studies';
-
-  public function getFieldTypes() {
-    return array(
-      'archived' => 'bool',
-      'can_be_updated' => 'bool',
-      'created_by' => 'User',
-      'creation_time' => 'datetime',
-      'description' => 'string',
-      'id' => 'string',
-      'language' => 'string',
-      'name' => 'string',
-      'rule_components' => 'list<Object>',
-      'studies' => 'list<Object>',
-    );
+  /**
+   * @return AdgroupIssuesInfoFields
+   */
+  public static function getFieldsEnum() {
+    return AdgroupIssuesInfoFields::getInstance();
   }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new AdgroupIssuesInfo(),
+      'NODE',
+      AdgroupIssuesInfo::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
 }

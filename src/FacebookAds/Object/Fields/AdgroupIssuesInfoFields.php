@@ -35,31 +35,19 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class AudienceInsightsRuleFields extends AbstractEnum {
+class AdgroupIssuesInfoFields extends AbstractEnum {
 
-  const ARCHIVED = 'archived';
-  const CAN_BE_UPDATED = 'can_be_updated';
-  const CREATED_BY = 'created_by';
-  const CREATION_TIME = 'creation_time';
-  const DESCRIPTION = 'description';
+  const ERROR_CODE = 'error_code';
+  const ERROR_MESSAGE = 'error_message';
+  const ERROR_SUMMARY = 'error_summary';
   const ID = 'id';
-  const LANGUAGE = 'language';
-  const NAME = 'name';
-  const RULE_COMPONENTS = 'rule_components';
-  const STUDIES = 'studies';
 
   public function getFieldTypes() {
     return array(
-      'archived' => 'bool',
-      'can_be_updated' => 'bool',
-      'created_by' => 'User',
-      'creation_time' => 'datetime',
-      'description' => 'string',
+      'error_code' => 'int',
+      'error_message' => 'string',
+      'error_summary' => 'string',
       'id' => 'string',
-      'language' => 'string',
-      'name' => 'string',
-      'rule_components' => 'list<Object>',
-      'studies' => 'list<Object>',
     );
   }
 }

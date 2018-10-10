@@ -100,9 +100,9 @@ class RTBDynamicPost extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/instagram_comments',
-      new InstagramComment(),
+      new AbstractCrudObject(),
       'EDGE',
-      InstagramComment::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
