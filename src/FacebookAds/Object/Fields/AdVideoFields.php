@@ -35,6 +35,7 @@ class AdVideoFields extends AbstractEnum {
   const DESCRIPTION = 'description';
   const EMBED_HTML = 'embed_html';
   const EMBEDDABLE = 'embeddable';
+  const FILE_URL = 'file_url';
   const FORMAT = 'format';
   const FROM = 'from';
   const ICON = 'icon';
