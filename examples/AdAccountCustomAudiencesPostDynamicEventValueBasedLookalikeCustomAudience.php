@@ -39,7 +39,7 @@ $api->setLogger(new CurlLogger());
 $fields = array(
 );
 $params = array(
-  'name' => 'Dynamic Event Value-Based lookalike',
+  'name' => 'Test Value-Based lookalike from Pixel',
   'subtype' => 'LOOKALIKE',
   'lookalike_spec' => array('origin_event_sources' => array(array('id' => '<sourceID>','event_names' => array('AddToCart'))),'type' => 'custom_ratio','ratio' => 0.01,'country' => 'US'),
 );

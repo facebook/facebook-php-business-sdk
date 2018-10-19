@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,22 +33,17 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdNetworkAnalyticsSyncQueryResultBreakdownsValues getInstance()
  */
-class AdNetworkAnalyticsSyncQueryResultBreakdownsValues extends AbstractEnum {
 
-  const AGE = 'AGE';
-  const APP = 'APP';
-  const COUNTRY = 'COUNTRY';
-  const DELIVERY_METHOD = 'DELIVERY_METHOD';
-  const DISPLAY_FORMAT = 'DISPLAY_FORMAT';
-  const DEAL = 'DEAL';
-  const DEAL_AD = 'DEAL_AD';
-  const DEAL_PAGE = 'DEAL_PAGE';
-  const GENDER = 'GENDER';
-  const PLACEMENT = 'PLACEMENT';
-  const PLATFORM = 'PLATFORM';
-  const PROPERTY = 'PROPERTY';
-  const CLICKED_VIEW_TAG = 'CLICKED_VIEW_TAG';
-  const NO_FILL_REASON = 'NO_FILL_REASON';
+class AdAccountMaxBidFields extends AbstractEnum {
+
+  const MAX_BID = 'max_bid';
+  const ID = 'id';
+
+  public function getFieldTypes() {
+    return array(
+      'max_bid' => 'int',
+      'id' => 'string',
+    );
+  }
 }

@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\AdAccountMaxBidFields;
 
 /**
  * This class is auto-generated.
@@ -33,22 +37,44 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdNetworkAnalyticsSyncQueryResultBreakdownsValues getInstance()
  */
-class AdNetworkAnalyticsSyncQueryResultBreakdownsValues extends AbstractEnum {
 
-  const AGE = 'AGE';
-  const APP = 'APP';
-  const COUNTRY = 'COUNTRY';
-  const DELIVERY_METHOD = 'DELIVERY_METHOD';
-  const DISPLAY_FORMAT = 'DISPLAY_FORMAT';
-  const DEAL = 'DEAL';
-  const DEAL_AD = 'DEAL_AD';
-  const DEAL_PAGE = 'DEAL_PAGE';
-  const GENDER = 'GENDER';
-  const PLACEMENT = 'PLACEMENT';
-  const PLATFORM = 'PLATFORM';
-  const PROPERTY = 'PROPERTY';
-  const CLICKED_VIEW_TAG = 'CLICKED_VIEW_TAG';
-  const NO_FILL_REASON = 'NO_FILL_REASON';
+class AdAccountMaxBid extends AbstractCrudObject {
+
+  /**
+   * @return AdAccountMaxBidFields
+   */
+  public static function getFieldsEnum() {
+    return AdAccountMaxBidFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new AdAccountMaxBid(),
+      'NODE',
+      AdAccountMaxBid::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
 }

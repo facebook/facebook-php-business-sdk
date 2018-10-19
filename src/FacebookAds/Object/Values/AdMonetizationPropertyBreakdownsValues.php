@@ -50,4 +50,5 @@ class AdMonetizationPropertyBreakdownsValues extends AbstractEnum {
   const PLATFORM = 'PLATFORM';
   const PROPERTY = 'PROPERTY';
   const CLICKED_VIEW_TAG = 'CLICKED_VIEW_TAG';
+  const NO_FILL_REASON = 'NO_FILL_REASON';
 }

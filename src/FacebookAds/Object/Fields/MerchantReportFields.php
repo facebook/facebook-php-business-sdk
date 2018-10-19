@@ -38,8 +38,10 @@ use FacebookAds\Enum\AbstractEnum;
 class MerchantReportFields extends AbstractEnum {
 
   const ADD_TO_CART = 'add_to_cart';
+  const BRAND = 'brand';
   const CATALOG_SEGMENT_ID = 'catalog_segment_id';
   const CATALOG_SEGMENT_PURCHASE_VALUE = 'catalog_segment_purchase_value';
+  const CATEGORY = 'category';
   const DATE = 'date';
   const LINK_CLICKS = 'link_clicks';
   const PAGE_ID = 'page_id';
@@ -53,8 +55,10 @@ class MerchantReportFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'add_to_cart' => 'int',
+      'brand' => 'string',
       'catalog_segment_id' => 'string',
       'catalog_segment_purchase_value' => 'float',
+      'category' => 'string',
       'date' => 'string',
       'link_clicks' => 'int',
       'page_id' => 'string',

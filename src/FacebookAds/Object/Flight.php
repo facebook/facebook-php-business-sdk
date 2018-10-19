@@ -42,6 +42,13 @@ use FacebookAds\Object\Fields\FlightFields;
 class Flight extends AbstractCrudObject {
 
   /**
+   * @deprecated getEndpoint function is deprecated
+   */
+  protected function getEndpoint() {
+    return 'flights';
+  }
+
+  /**
    * @return FlightFields
    */
   public static function getFieldsEnum() {

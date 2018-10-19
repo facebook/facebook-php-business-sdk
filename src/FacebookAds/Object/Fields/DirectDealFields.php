@@ -59,6 +59,7 @@ class DirectDealFields extends AbstractEnum {
   const START_TIME = 'start_time';
   const STATUS = 'status';
   const TARGETING = 'targeting';
+  const THIRD_PARTY_INTEGRATED_DEAL = 'third_party_integrated_deal';
 
   public function getFieldTypes() {
     return array(
@@ -84,6 +85,7 @@ class DirectDealFields extends AbstractEnum {
       'start_time' => 'int',
       'status' => 'string',
       'targeting' => 'Targeting',
+      'third_party_integrated_deal' => 'bool',
     );
   }
 }

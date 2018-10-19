@@ -63,6 +63,7 @@ class AdsInsightsFields extends AbstractEnum {
   const CANVAS_COMPONENT_AVG_PCT_VIEW = 'canvas_component_avg_pct_view';
   const CLICKS = 'clicks';
   const COST_PER_10_SEC_VIDEO_VIEW = 'cost_per_10_sec_video_view';
+  const COST_PER_15_SEC_VIDEO_VIEW = 'cost_per_15_sec_video_view';
   const COST_PER_2_SEC_CONTINUOUS_VIDEO_VIEW = 'cost_per_2_sec_continuous_video_view';
   const COST_PER_ACTION_TYPE = 'cost_per_action_type';
   const COST_PER_AD_CLICK = 'cost_per_ad_click';
@@ -72,6 +73,7 @@ class AdsInsightsFields extends AbstractEnum {
   const COST_PER_INLINE_POST_ENGAGEMENT = 'cost_per_inline_post_engagement';
   const COST_PER_ONE_THOUSAND_AD_IMPRESSION = 'cost_per_one_thousand_ad_impression';
   const COST_PER_OUTBOUND_CLICK = 'cost_per_outbound_click';
+  const COST_PER_THRUPLAY = 'cost_per_thruplay';
   const COST_PER_UNIQUE_ACTION_TYPE = 'cost_per_unique_action_type';
   const COST_PER_UNIQUE_CLICK = 'cost_per_unique_click';
   const COST_PER_UNIQUE_INLINE_LINK_CLICK = 'cost_per_unique_inline_link_click';
@@ -111,6 +113,7 @@ class AdsInsightsFields extends AbstractEnum {
   const LABELS = 'labels';
   const LINK_URL_ASSET = 'link_url_asset';
   const LOCATION = 'location';
+  const MEDIA_ASSET = 'media_asset';
   const MOBILE_APP_PURCHASE_ROAS = 'mobile_app_purchase_roas';
   const OBJECTIVE = 'objective';
   const OUTBOUND_CLICKS = 'outbound_clicks';
@@ -140,8 +143,10 @@ class AdsInsightsFields extends AbstractEnum {
   const UNIQUE_OUTBOUND_CLICKS_CTR = 'unique_outbound_clicks_ctr';
   const UNIQUE_VIDEO_CONTINUOUS_2_SEC_WATCHED_ACTIONS = 'unique_video_continuous_2_sec_watched_actions';
   const UNIQUE_VIDEO_VIEW_10_SEC = 'unique_video_view_10_sec';
+  const UNIQUE_VIDEO_VIEW_15_SEC = 'unique_video_view_15_sec';
   const UPDATED_TIME = 'updated_time';
   const VIDEO_10_SEC_WATCHED_ACTIONS = 'video_10_sec_watched_actions';
+  const VIDEO_15_SEC_WATCHED_ACTIONS = 'video_15_sec_watched_actions';
   const VIDEO_30_SEC_WATCHED_ACTIONS = 'video_30_sec_watched_actions';
   const VIDEO_ASSET = 'video_asset';
   const VIDEO_AVG_PERCENT_WATCHED_ACTIONS = 'video_avg_percent_watched_actions';
@@ -156,6 +161,7 @@ class AdsInsightsFields extends AbstractEnum {
   const VIDEO_PLAY_RETENTION_0_TO_15S_ACTIONS = 'video_play_retention_0_to_15s_actions';
   const VIDEO_PLAY_RETENTION_20_TO_60S_ACTIONS = 'video_play_retention_20_to_60s_actions';
   const VIDEO_PLAY_RETENTION_GRAPH_ACTIONS = 'video_play_retention_graph_actions';
+  const VIDEO_THRUPLAY_WATCHED_ACTIONS = 'video_thruplay_watched_actions';
   const VIDEO_TIME_WATCHED_ACTIONS = 'video_time_watched_actions';
   const WEBSITE_CTR = 'website_ctr';
   const WEBSITE_PURCHASE_ROAS = 'website_purchase_roas';
@@ -189,6 +195,7 @@ class AdsInsightsFields extends AbstractEnum {
       'canvas_component_avg_pct_view' => 'list<AdsActionStats>',
       'clicks' => 'string',
       'cost_per_10_sec_video_view' => 'list<AdsActionStats>',
+      'cost_per_15_sec_video_view' => 'list<AdsActionStats>',
       'cost_per_2_sec_continuous_video_view' => 'list<AdsActionStats>',
       'cost_per_action_type' => 'list<AdsActionStats>',
       'cost_per_ad_click' => 'list<AdsActionStats>',
@@ -198,6 +205,7 @@ class AdsInsightsFields extends AbstractEnum {
       'cost_per_inline_post_engagement' => 'string',
       'cost_per_one_thousand_ad_impression' => 'list<AdsActionStats>',
       'cost_per_outbound_click' => 'list<AdsActionStats>',
+      'cost_per_thruplay' => 'list<AdsActionStats>',
       'cost_per_unique_action_type' => 'list<AdsActionStats>',
       'cost_per_unique_click' => 'string',
       'cost_per_unique_inline_link_click' => 'string',
@@ -237,6 +245,7 @@ class AdsInsightsFields extends AbstractEnum {
       'labels' => 'string',
       'link_url_asset' => 'Object',
       'location' => 'string',
+      'media_asset' => 'Object',
       'mobile_app_purchase_roas' => 'list<AdsActionStats>',
       'objective' => 'string',
       'outbound_clicks' => 'list<AdsActionStats>',
@@ -266,8 +275,10 @@ class AdsInsightsFields extends AbstractEnum {
       'unique_outbound_clicks_ctr' => 'list<AdsActionStats>',
       'unique_video_continuous_2_sec_watched_actions' => 'list<AdsActionStats>',
       'unique_video_view_10_sec' => 'list<AdsActionStats>',
+      'unique_video_view_15_sec' => 'list<AdsActionStats>',
       'updated_time' => 'string',
       'video_10_sec_watched_actions' => 'list<AdsActionStats>',
+      'video_15_sec_watched_actions' => 'list<AdsActionStats>',
       'video_30_sec_watched_actions' => 'list<AdsActionStats>',
       'video_asset' => 'Object',
       'video_avg_percent_watched_actions' => 'list<AdsActionStats>',
@@ -282,6 +293,7 @@ class AdsInsightsFields extends AbstractEnum {
       'video_play_retention_0_to_15s_actions' => 'list<Object>',
       'video_play_retention_20_to_60s_actions' => 'list<Object>',
       'video_play_retention_graph_actions' => 'list<Object>',
+      'video_thruplay_watched_actions' => 'list<AdsActionStats>',
       'video_time_watched_actions' => 'list<AdsActionStats>',
       'website_ctr' => 'list<AdsActionStats>',
       'website_purchase_roas' => 'list<AdsActionStats>',

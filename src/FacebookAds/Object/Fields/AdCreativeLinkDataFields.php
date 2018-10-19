@@ -55,6 +55,7 @@ class AdCreativeLinkDataFields extends AbstractEnum {
   const FORMAT_OPTION = 'format_option';
   const IMAGE_CROPS = 'image_crops';
   const IMAGE_HASH = 'image_hash';
+  const IMAGE_LAYER_SPECS = 'image_layer_specs';
   const IMAGE_OVERLAY_SPEC = 'image_overlay_spec';
   const LINK = 'link';
   const MESSAGE = 'message';
@@ -92,6 +93,7 @@ class AdCreativeLinkDataFields extends AbstractEnum {
       'format_option' => 'FormatOption',
       'image_crops' => 'AdsImageCrops',
       'image_hash' => 'string',
+      'image_layer_specs' => 'list<AdCreativeLinkDataImageLayerSpec>',
       'image_overlay_spec' => 'AdCreativeLinkDataImageOverlaySpec',
       'link' => 'string',
       'message' => 'string',

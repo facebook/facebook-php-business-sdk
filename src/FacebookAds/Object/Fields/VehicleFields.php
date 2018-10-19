@@ -59,6 +59,7 @@ class VehicleFields extends AbstractEnum {
   const ID = 'id';
   const IMAGES = 'images';
   const INTERIOR_COLOR = 'interior_color';
+  const LEGAL_DISCLOSURE_IMPRESSUM_URL = 'legal_disclosure_impressum_url';
   const MAKE = 'make';
   const MILEAGE = 'mileage';
   const MODEL = 'model';
@@ -104,6 +105,7 @@ class VehicleFields extends AbstractEnum {
       'id' => 'string',
       'images' => 'list<string>',
       'interior_color' => 'string',
+      'legal_disclosure_impressum_url' => 'string',
       'make' => 'string',
       'mileage' => 'Object',
       'model' => 'string',

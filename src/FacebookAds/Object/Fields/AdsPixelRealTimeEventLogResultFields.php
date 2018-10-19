@@ -41,7 +41,8 @@ class AdsPixelRealTimeEventLogResultFields extends AbstractEnum {
   const DEVICE_TYPE = 'device_type';
   const EVENT = 'event';
   const EVENT_DETECTION_METHOD = 'event_detection_method';
-  const RULE_CONDITIONS = 'rule_conditions';
+  const MATCHED_RULE_CONDITIONS = 'matched_rule_conditions';
+  const SOURCE_RULE_CONDITION = 'source_rule_condition';
   const TIMESTAMP = 'timestamp';
   const URL = 'url';
   const ID = 'id';
@@ -52,7 +53,8 @@ class AdsPixelRealTimeEventLogResultFields extends AbstractEnum {
       'device_type' => 'string',
       'event' => 'string',
       'event_detection_method' => 'string',
-      'rule_conditions' => 'string',
+      'matched_rule_conditions' => 'string',
+      'source_rule_condition' => 'string',
       'timestamp' => 'string',
       'url' => 'string',
       'id' => 'string',

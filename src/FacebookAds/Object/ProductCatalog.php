@@ -411,6 +411,32 @@ class ProductCatalog extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createFlight(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'images' => 'list<Object>',
+      'origin_airport' => 'string',
+      'destination_airport' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/flights',
+      new Flight(),
+      'EDGE',
+      Flight::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getHomeListings(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
