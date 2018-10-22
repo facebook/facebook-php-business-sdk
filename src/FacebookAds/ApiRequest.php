@@ -113,7 +113,7 @@ class ApiRequest {
   public function clearParams() {
     $this->params = [];
     $this->file_params = [];
-    return this;
+    return $this;
   }
 
   public function getParams() {
