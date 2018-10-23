@@ -33,11 +33,11 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdMonetizationPropertyOrderingColumnValues getInstance()
+ * @method static AdPlacePageSetTargetedAreaTypeValues getInstance()
  */
-class AdMonetizationPropertyOrderingColumnValues extends AbstractEnum {
+class AdPlacePageSetTargetedAreaTypeValues extends AbstractEnum {
 
-  const TIME = 'TIME';
-  const VALUE = 'VALUE';
-  const METRIC = 'METRIC';
+  const CUSTOM_RADIUS = 'CUSTOM_RADIUS';
+  const MARKETING_AREA = 'MARKETING_AREA';
+  const NONE = 'NONE';
 }

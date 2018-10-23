@@ -38,6 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class HomeListingFields extends AbstractEnum {
 
   const AC_TYPE = 'ac_type';
+  const ADDITIONAL_FEES_DESCRIPTION = 'additional_fees_description';
   const ADDRESS = 'address';
   const AGENT_COMPANY = 'agent_company';
   const AGENT_EMAIL = 'agent_email';
@@ -82,6 +83,7 @@ class HomeListingFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'ac_type' => 'string',
+      'additional_fees_description' => 'string',
       'address' => 'Object',
       'agent_company' => 'string',
       'agent_email' => 'string',

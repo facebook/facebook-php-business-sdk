@@ -39,11 +39,14 @@ class MerchantReportFields extends AbstractEnum {
 
   const ADD_TO_CART = 'add_to_cart';
   const BRAND = 'brand';
+  const CATALOG_SEGMENT = 'catalog_segment';
   const CATALOG_SEGMENT_ID = 'catalog_segment_id';
   const CATALOG_SEGMENT_PURCHASE_VALUE = 'catalog_segment_purchase_value';
   const CATEGORY = 'category';
   const DATE = 'date';
   const LINK_CLICKS = 'link_clicks';
+  const MERCHANT_CURRENCY = 'merchant_currency';
+  const PAGE = 'page';
   const PAGE_ID = 'page_id';
   const PRODUCT_ID = 'product_id';
   const PRODUCT_QUANTITY = 'product_quantity';
@@ -56,11 +59,14 @@ class MerchantReportFields extends AbstractEnum {
     return array(
       'add_to_cart' => 'int',
       'brand' => 'string',
+      'catalog_segment' => 'ProductCatalog',
       'catalog_segment_id' => 'string',
       'catalog_segment_purchase_value' => 'float',
       'category' => 'string',
       'date' => 'string',
       'link_clicks' => 'int',
+      'merchant_currency' => 'string',
+      'page' => 'Page',
       'page_id' => 'string',
       'product_id' => 'string',
       'product_quantity' => 'int',

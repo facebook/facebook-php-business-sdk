@@ -42,7 +42,7 @@ class TargetingProspectingAudienceFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'sources' => 'string',
+      'sources' => 'list<Object>',
       'id' => 'string',
     );
   }

@@ -103,7 +103,6 @@ class TargetingFields extends AbstractEnum {
   const MOMS = 'moms';
   const NET_WORTH = 'net_worth';
   const OFFICE_TYPE = 'office_type';
-  const PAGE_TYPES = 'page_types';
   const PLACE_PAGE_SET_IDS = 'place_page_set_ids';
   const POLITICAL_VIEWS = 'political_views';
   const POLITICS = 'politics';
@@ -195,7 +194,6 @@ class TargetingFields extends AbstractEnum {
       'moms' => 'list<IDName>',
       'net_worth' => 'list<IDName>',
       'office_type' => 'list<IDName>',
-      'page_types' => 'list<string>',
       'place_page_set_ids' => 'list<string>',
       'political_views' => 'list<unsigned int>',
       'politics' => 'list<IDName>',

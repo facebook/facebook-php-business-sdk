@@ -86,8 +86,8 @@ class Business extends AbstractCrudObject {
     $ref_enums['Vertical'] = BusinessVerticalValues::getInstance()->getValues();
     $ref_enums['AccessType'] = BusinessAccessTypeValues::getInstance()->getValues();
     $ref_enums['PermittedTasks'] = BusinessPermittedTasksValues::getInstance()->getValues();
-    $ref_enums['PagePermittedRoles'] = BusinessPagePermittedRolesValues::getInstance()->getValues();
     $ref_enums['SurveyBusinessType'] = BusinessSurveyBusinessTypeValues::getInstance()->getValues();
+    $ref_enums['PagePermittedRoles'] = BusinessPagePermittedRolesValues::getInstance()->getValues();
     $ref_enums['PermittedRoles'] = BusinessPermittedRolesValues::getInstance()->getValues();
     $ref_enums['Role'] = BusinessRoleValues::getInstance()->getValues();
     return $ref_enums;
@@ -1337,6 +1337,39 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createManagedBusiness(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'name' => 'string',
+      'vertical' => 'vertical_enum',
+      'timezone_id' => 'unsigned int',
+      'survey_business_type' => 'survey_business_type_enum',
+      'survey_num_people' => 'unsigned int',
+      'survey_num_assets' => 'unsigned int',
+      'sales_rep_email' => 'string',
+      'existing_client_business_id' => 'Object',
+    );
+    $enums = array(
+      'vertical_enum' => BusinessVerticalValues::getInstance()->getValues(),
+      'survey_business_type_enum' => BusinessSurveyBusinessTypeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/managed_businesses',
+      new Business(),
+      'EDGE',
+      Business::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getMatchedSearchApplications(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1448,6 +1481,7 @@ class Business extends AbstractCrudObject {
       'description' => 'string',
       'data_origin' => 'data_origin_enum',
       'enable_auto_assign_to_accounts' => 'bool',
+      'is_mta_use' => 'bool',
       'auto_assign_to_new_accounts_only' => 'bool',
     );
     $enums = array(

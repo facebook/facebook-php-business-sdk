@@ -90,6 +90,9 @@ class Flight extends AbstractCrudObject {
     $param_types = array(
       'destination_airport' => 'string',
       'origin_airport' => 'string',
+      'description' => 'string',
+      'url' => 'Object',
+      'images' => 'list<Object>',
     );
     $enums = array(
     );

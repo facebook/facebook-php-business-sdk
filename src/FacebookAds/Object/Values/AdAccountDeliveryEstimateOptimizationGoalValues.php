@@ -59,4 +59,5 @@ class AdAccountDeliveryEstimateOptimizationGoalValues extends AbstractEnum {
   const LANDING_PAGE_VIEWS = 'LANDING_PAGE_VIEWS';
   const VALUE = 'VALUE';
   const REPLIES = 'REPLIES';
+  const DERIVED_EVENTS = 'DERIVED_EVENTS';
 }

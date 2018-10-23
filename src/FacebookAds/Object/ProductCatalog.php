@@ -418,6 +418,8 @@ class ProductCatalog extends AbstractCrudObject {
       'images' => 'list<Object>',
       'origin_airport' => 'string',
       'destination_airport' => 'string',
+      'description' => 'string',
+      'url' => 'Object',
     );
     $enums = array(
     );

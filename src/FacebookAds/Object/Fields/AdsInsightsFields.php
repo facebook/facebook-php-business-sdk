@@ -52,6 +52,9 @@ class AdsInsightsFields extends AbstractEnum {
   const ADSET_NAME = 'adset_name';
   const AGE = 'age';
   const AGE_TARGETING = 'age_targeting';
+  const AUCTION_BID = 'auction_bid';
+  const AUCTION_COMPETITIVENESS = 'auction_competitiveness';
+  const AUCTION_MAX_COMPETITOR_BID = 'auction_max_competitor_bid';
   const BID_TYPE = 'bid_type';
   const BODY_ASSET = 'body_asset';
   const BUYING_TYPE = 'buying_type';
@@ -129,10 +132,10 @@ class AdsInsightsFields extends AbstractEnum {
   const REACH = 'reach';
   const REGION = 'region';
   const RELEVANCE_SCORE = 'relevance_score';
+  const RULE_ASSET = 'rule_asset';
   const SOCIAL_SPEND = 'social_spend';
   const SPEND = 'spend';
   const TITLE_ASSET = 'title_asset';
-  const TOTAL_ACTION_VALUE = 'total_action_value';
   const UNIQUE_ACTIONS = 'unique_actions';
   const UNIQUE_CLICKS = 'unique_clicks';
   const UNIQUE_CTR = 'unique_ctr';
@@ -165,6 +168,7 @@ class AdsInsightsFields extends AbstractEnum {
   const VIDEO_TIME_WATCHED_ACTIONS = 'video_time_watched_actions';
   const WEBSITE_CTR = 'website_ctr';
   const WEBSITE_PURCHASE_ROAS = 'website_purchase_roas';
+  const WISH_BID = 'wish_bid';
   const ID = 'id';
 
   public function getFieldTypes() {
@@ -184,6 +188,9 @@ class AdsInsightsFields extends AbstractEnum {
       'adset_name' => 'string',
       'age' => 'string',
       'age_targeting' => 'string',
+      'auction_bid' => 'string',
+      'auction_competitiveness' => 'string',
+      'auction_max_competitor_bid' => 'string',
       'bid_type' => 'string',
       'body_asset' => 'Object',
       'buying_type' => 'string',
@@ -261,10 +268,10 @@ class AdsInsightsFields extends AbstractEnum {
       'reach' => 'string',
       'region' => 'string',
       'relevance_score' => 'AdgroupRelevanceScore',
+      'rule_asset' => 'Object',
       'social_spend' => 'string',
       'spend' => 'string',
       'title_asset' => 'Object',
-      'total_action_value' => 'string',
       'unique_actions' => 'list<AdsActionStats>',
       'unique_clicks' => 'string',
       'unique_ctr' => 'string',
@@ -297,6 +304,7 @@ class AdsInsightsFields extends AbstractEnum {
       'video_time_watched_actions' => 'list<AdsActionStats>',
       'website_ctr' => 'list<AdsActionStats>',
       'website_purchase_roas' => 'list<AdsActionStats>',
+      'wish_bid' => 'string',
       'id' => 'string',
     );
   }

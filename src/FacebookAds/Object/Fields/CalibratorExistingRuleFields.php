@@ -44,6 +44,7 @@ class CalibratorExistingRuleFields extends AbstractEnum {
   const EVENT_TYPE = 'event_type';
   const ID = 'id';
   const RULE = 'rule';
+  const RULE_TYPE = 'rule_type';
   const SAMPLE_URLS = 'sample_urls';
   const STATUS = 'status';
 
@@ -56,6 +57,7 @@ class CalibratorExistingRuleFields extends AbstractEnum {
       'event_type' => 'string',
       'id' => 'string',
       'rule' => 'string',
+      'rule_type' => 'string',
       'sample_urls' => 'list<string>',
       'status' => 'string',
     );

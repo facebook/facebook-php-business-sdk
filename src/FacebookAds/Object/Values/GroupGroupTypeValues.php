@@ -72,6 +72,7 @@ class GroupGroupTypeValues extends AbstractEnum {
   const CASUAL = 'CASUAL';
   const GAME = 'GAME';
   const HIGH_SCHOOL_FORUM = 'HIGH_SCHOOL_FORUM';
+  const JOBS = 'JOBS';
   const REAL_WORLD_AT_WORK = 'REAL_WORLD_AT_WORK';
   const FOR_WORK = 'FOR_WORK';
   const MENTORSHIP = 'MENTORSHIP';

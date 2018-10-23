@@ -49,6 +49,7 @@ class OfflineConversionDataSetFields extends AbstractEnum {
   const EVENT_TIME_MAX = 'event_time_max';
   const EVENT_TIME_MIN = 'event_time_min';
   const ID = 'id';
+  const IS_MTA_USE = 'is_mta_use';
   const IS_RESTRICTED_USE = 'is_restricted_use';
   const LAST_UPLOAD_APP = 'last_upload_app';
   const LAST_UPLOAD_APP_CHANGED_TIME = 'last_upload_app_changed_time';
@@ -74,6 +75,7 @@ class OfflineConversionDataSetFields extends AbstractEnum {
       'event_time_max' => 'int',
       'event_time_min' => 'int',
       'id' => 'string',
+      'is_mta_use' => 'bool',
       'is_restricted_use' => 'bool',
       'last_upload_app' => 'string',
       'last_upload_app_changed_time' => 'int',

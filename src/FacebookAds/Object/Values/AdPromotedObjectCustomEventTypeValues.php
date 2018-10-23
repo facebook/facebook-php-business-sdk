@@ -61,5 +61,7 @@ class AdPromotedObjectCustomEventTypeValues extends AbstractEnum {
   const LEVEL_ACHIEVED = 'LEVEL_ACHIEVED';
   const ACHIEVEMENT_UNLOCKED = 'ACHIEVEMENT_UNLOCKED';
   const SPENT_CREDITS = 'SPENT_CREDITS';
+  const D2_RETENTION = 'D2_RETENTION';
+  const D7_RETENTION = 'D7_RETENTION';
   const OTHER = 'OTHER';
 }

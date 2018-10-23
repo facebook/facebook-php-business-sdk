@@ -43,7 +43,6 @@ class PostFields extends AbstractEnum {
   const APPLICATION = 'application';
   const BACKDATED_TIME = 'backdated_time';
   const CALL_TO_ACTION = 'call_to_action';
-  const CAN_REPLY_PRIVATELY = 'can_reply_privately';
   const CAPTION = 'caption';
   const CHILD_ATTACHMENTS = 'child_attachments';
   const COMMENTS_MIRRORING_DOMAIN = 'comments_mirroring_domain';
@@ -106,7 +105,6 @@ class PostFields extends AbstractEnum {
       'application' => 'Application',
       'backdated_time' => 'datetime',
       'call_to_action' => 'Object',
-      'can_reply_privately' => 'bool',
       'caption' => 'string',
       'child_attachments' => 'list',
       'comments_mirroring_domain' => 'string',

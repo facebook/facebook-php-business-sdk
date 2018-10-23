@@ -28,7 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\NullFields;
+use FacebookAds\Object\Fields\AdCampaignDeliveryStatsUnsupportedReasonsFields;
 
 /**
  * This class is auto-generated.
@@ -39,13 +39,13 @@ use FacebookAds\Object\Fields\NullFields;
  *
  */
 
-class Null extends AbstractCrudObject {
+class AdCampaignDeliveryStatsUnsupportedReasons extends AbstractCrudObject {
 
   /**
-   * @return NullFields
+   * @return AdCampaignDeliveryStatsUnsupportedReasonsFields
    */
   public static function getFieldsEnum() {
-    return NullFields::getInstance();
+    return AdCampaignDeliveryStatsUnsupportedReasonsFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -67,9 +67,9 @@ class Null extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new Null(),
+      new AdCampaignDeliveryStatsUnsupportedReasons(),
       'NODE',
-      Null::getFieldsEnum()->getValues(),
+      AdCampaignDeliveryStatsUnsupportedReasons::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

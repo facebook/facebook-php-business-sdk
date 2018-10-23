@@ -42,6 +42,7 @@ class CustomAudienceFields extends AbstractEnum {
   const CUSTOMER_FILE_SOURCE = 'customer_file_source';
   const DATA_SOURCE = 'data_source';
   const DATA_SOURCE_TYPES = 'data_source_types';
+  const DATAFILE_CUSTOM_AUDIENCE_UPLOADING_STATUS = 'datafile_custom_audience_uploading_status';
   const DELIVERY_STATUS = 'delivery_status';
   const DESCRIPTION = 'description';
   const EXCLUDED_CUSTOM_AUDIENCES = 'excluded_custom_audiences';
@@ -110,6 +111,7 @@ class CustomAudienceFields extends AbstractEnum {
       'customer_file_source' => 'string',
       'data_source' => 'CustomAudienceDataSource',
       'data_source_types' => 'string',
+      'datafile_custom_audience_uploading_status' => 'string',
       'delivery_status' => 'CustomAudienceStatus',
       'description' => 'string',
       'excluded_custom_audiences' => 'list<CustomAudience>',

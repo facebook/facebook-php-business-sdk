@@ -822,35 +822,6 @@ class User extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createContactsPhoto(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'published' => 'bool',
-      'target_id' => 'int',
-      'url' => 'string',
-      'full_res_is_coming_later' => 'bool',
-      'manual_privacy' => 'bool',
-      'audience_exp' => 'bool',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/contacts_photos',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getConversations(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1866,6 +1837,35 @@ class User extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createLocationupdate(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'locations' => 'list<Object>',
+      'deviceid' => 'string',
+      'trace_ids' => 'list<string>',
+      'dynamic_collection_checksum' => 'string',
+      'android_config_checksum' => 'string',
+      'skip_pvd' => 'bool',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/locationupdates',
+      new User(),
+      'EDGE',
+      User::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createLoggedOutPushSetNonce(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -2256,6 +2256,7 @@ class User extends AbstractCrudObject {
         'IAP_FAN_FUNDING',
         'IAP_GROUP_SUBSCRIPTION',
         'MOR_NONE',
+        'MOR_ADS_CONSENT',
         'MOR_ADS_INVOICE',
         'MOR_DONATIONS',
         'MOR_DONATIONS_MATCHING_CONFIRMATION',
@@ -2352,6 +2353,7 @@ class User extends AbstractCrudObject {
         'IAP_FAN_FUNDING',
         'IAP_GROUP_SUBSCRIPTION',
         'MOR_NONE',
+        'MOR_ADS_CONSENT',
         'MOR_ADS_INVOICE',
         'MOR_DONATIONS',
         'MOR_DONATIONS_MATCHING_CONFIRMATION',

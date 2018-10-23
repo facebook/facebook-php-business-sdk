@@ -41,4 +41,5 @@ class ProductItemConditionValues extends AbstractEnum {
   const REFURBISHED = 'refurbished';
   const USED = 'used';
   const CPO = 'cpo';
+  const OPEN_BOX_NEW = 'open_box_new';
 }

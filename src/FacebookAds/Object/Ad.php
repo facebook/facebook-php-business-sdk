@@ -121,7 +121,9 @@ class Ad extends AbstractArchivableCrudObject
       'execution_options' => 'list<execution_options_enum>',
     );
     $enums = array(
-      'execution_options_enum' => AdExecutionOptionsValues::getInstance()->getValues(),
+      'execution_options_enum' => array(
+        'validate_only',
+      ),
     );
 
     $request = new ApiRequest(
@@ -147,7 +149,9 @@ class Ad extends AbstractArchivableCrudObject
       'execution_options' => 'list<execution_options_enum>',
     );
     $enums = array(
-      'execution_options_enum' => AdExecutionOptionsValues::getInstance()->getValues(),
+      'execution_options_enum' => array(
+        'validate_only',
+      ),
     );
 
     $request = new ApiRequest(
@@ -586,7 +590,6 @@ class Ad extends AbstractArchivableCrudObject
       'tracking_specs' => 'Object',
       'display_sequence' => 'unsigned int',
       'engagement_audience' => 'bool',
-      'social_required' => 'bool',
       'adset_spec' => 'AdSet',
       'draft_adgroup_id' => 'string',
       'execution_options' => 'list<execution_options_enum>',

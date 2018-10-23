@@ -54,6 +54,7 @@ use FacebookAds\Object\Values\AdDatePresetValues;
 use FacebookAds\Object\Values\AdExecutionOptionsValues;
 use FacebookAds\Object\Values\AdOperatorValues;
 use FacebookAds\Object\Values\AdPlacePageSetLocationTypesValues;
+use FacebookAds\Object\Values\AdPlacePageSetTargetedAreaTypeValues;
 use FacebookAds\Object\Values\AdPreviewAdFormatValues;
 use FacebookAds\Object\Values\AdPreviewRenderTypeValues;
 use FacebookAds\Object\Values\AdReportSpecActionsGroupByValues;
@@ -210,9 +211,11 @@ class AdAccount extends AbstractCrudObject {
       'name' => 'string',
       'location_types' => 'list<location_types_enum>',
       'parent_page' => 'string',
+      'targeted_area_type' => 'targeted_area_type_enum',
     );
     $enums = array(
       'location_types_enum' => AdPlacePageSetLocationTypesValues::getInstance()->getValues(),
+      'targeted_area_type_enum' => AdPlacePageSetTargetedAreaTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1114,10 +1117,8 @@ class AdAccount extends AbstractCrudObject {
       'status' => 'status_enum',
       'priority' => 'unsigned int',
       'tracking_specs' => 'Object',
-      'social_prefs' => 'list<string>',
       'display_sequence' => 'unsigned int',
       'engagement_audience' => 'bool',
-      'social_required' => 'bool',
       'adset_spec' => 'AdSet',
       'draft_adgroup_id' => 'string',
       'execution_options' => 'list<execution_options_enum>',

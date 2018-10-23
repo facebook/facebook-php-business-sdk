@@ -132,9 +132,9 @@ class Event extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/comments',
-      new Null(),
+      new NullNode(),
       'EDGE',
-      Null::getFieldsEnum()->getValues(),
+      NullNode::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -216,9 +216,9 @@ class Event extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/feed',
-      new Null(),
+      new NullNode(),
       'EDGE',
-      Null::getFieldsEnum()->getValues(),
+      NullNode::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -442,9 +442,9 @@ class Event extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/live_videos',
-      new Null(),
+      new NullNode(),
       'EDGE',
-      Null::getFieldsEnum()->getValues(),
+      NullNode::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -582,9 +582,9 @@ class Event extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/photos',
-      new Null(),
+      new NullNode(),
       'EDGE',
-      Null::getFieldsEnum()->getValues(),
+      NullNode::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -681,9 +681,9 @@ class Event extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/picture',
-      new Null(),
+      new NullNode(),
       'EDGE',
-      Null::getFieldsEnum()->getValues(),
+      NullNode::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -704,9 +704,9 @@ class Event extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/posts',
-      new Null(),
+      new NullNode(),
       'EDGE',
-      Null::getFieldsEnum()->getValues(),
+      NullNode::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -750,9 +750,9 @@ class Event extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/videos',
-      new Null(),
+      new NullNode(),
       'EDGE',
-      Null::getFieldsEnum()->getValues(),
+      NullNode::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
