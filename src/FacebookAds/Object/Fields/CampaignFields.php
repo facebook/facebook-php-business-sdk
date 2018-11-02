@@ -58,6 +58,7 @@ class CampaignFields extends AbstractEnum {
   const KPI_TYPE = 'kpi_type';
   const LAST_BUDGET_TOGGLING_TIME = 'last_budget_toggling_time';
   const LIFETIME_BUDGET = 'lifetime_budget';
+  const METRICS_METADATA = 'metrics_metadata';
   const NAME = 'name';
   const OBJECTIVE = 'objective';
   const PACING_TYPE = 'pacing_type';
@@ -99,6 +100,7 @@ class CampaignFields extends AbstractEnum {
       'kpi_type' => 'string',
       'last_budget_toggling_time' => 'datetime',
       'lifetime_budget' => 'string',
+      'metrics_metadata' => 'AdCampaignGroupMetricsMetadata',
       'name' => 'string',
       'objective' => 'string',
       'pacing_type' => 'list<string>',

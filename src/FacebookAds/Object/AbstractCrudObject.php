@@ -102,6 +102,7 @@ class AbstractCrudObject extends AbstractObject {
    */
   public function setParentId($parent_id) {
     $this->parentId = $parent_id;
+    return $this;
   }
   /**
    * @param Api $api The Api instance this object should use to make calls

@@ -85,6 +85,29 @@ class ShadowIGUser extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getMedia(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/media',
+      new ShadowIGMedia(),
+      'EDGE',
+      ShadowIGMedia::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createMedia(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -126,6 +149,29 @@ class ShadowIGUser extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/media_publish',
+      new ShadowIGMedia(),
+      'EDGE',
+      ShadowIGMedia::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getStories(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/stories',
       new ShadowIGMedia(),
       'EDGE',
       ShadowIGMedia::getFieldsEnum()->getValues(),

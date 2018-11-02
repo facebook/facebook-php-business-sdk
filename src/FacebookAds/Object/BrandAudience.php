@@ -42,6 +42,13 @@ use FacebookAds\Object\Fields\BrandAudienceFields;
 class BrandAudience extends AbstractCrudObject {
 
   /**
+   * @deprecated getEndpoint function is deprecated
+   */
+  protected function getEndpoint() {
+    return 'brand_audiences';
+  }
+
+  /**
    * @return BrandAudienceFields
    */
   public static function getFieldsEnum() {

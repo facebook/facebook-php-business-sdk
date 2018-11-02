@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class PagePublisherFields extends AbstractEnum {
 
+  const GLOBAL_PARENT_ID = 'global_parent_id';
   const ICON = 'icon';
   const ID = 'id';
   const NAME = 'name';
@@ -44,6 +45,7 @@ class PagePublisherFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'global_parent_id' => 'string',
       'icon' => 'string',
       'id' => 'string',
       'name' => 'string',

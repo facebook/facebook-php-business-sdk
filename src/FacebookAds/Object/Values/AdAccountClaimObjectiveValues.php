@@ -39,6 +39,7 @@ class AdAccountClaimObjectiveValues extends AbstractEnum {
 
   const AUTOMOTIVE_MODEL = 'AUTOMOTIVE_MODEL';
   const HOME_LISTING = 'HOME_LISTING';
+  const MEDIA_TITLE = 'MEDIA_TITLE';
   const PRODUCT = 'PRODUCT';
   const TRAVEL = 'TRAVEL';
   const VEHICLE = 'VEHICLE';

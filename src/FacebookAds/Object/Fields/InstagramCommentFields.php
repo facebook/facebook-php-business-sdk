@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,11 +33,27 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdPlacePageSetTargetedAreaTypeValues getInstance()
  */
-class AdPlacePageSetTargetedAreaTypeValues extends AbstractEnum {
 
-  const CUSTOM_RADIUS = 'CUSTOM_RADIUS';
-  const MARKETING_AREA = 'MARKETING_AREA';
-  const NONE = 'NONE';
+class InstagramCommentFields extends AbstractEnum {
+
+  const COMMENT_TYPE = 'comment_type';
+  const CREATED_AT = 'created_at';
+  const ID = 'id';
+  const INSTAGRAM_COMMENT_ID = 'instagram_comment_id';
+  const INSTAGRAM_USER = 'instagram_user';
+  const MENTIONED_INSTAGRAM_USERS = 'mentioned_instagram_users';
+  const MESSAGE = 'message';
+
+  public function getFieldTypes() {
+    return array(
+      'comment_type' => 'string',
+      'created_at' => 'datetime',
+      'id' => 'string',
+      'instagram_comment_id' => 'string',
+      'instagram_user' => 'InstagramUser',
+      'mentioned_instagram_users' => 'list<InstagramUser>',
+      'message' => 'string',
+    );
+  }
 }

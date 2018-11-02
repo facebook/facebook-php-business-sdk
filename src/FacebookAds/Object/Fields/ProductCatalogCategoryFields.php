@@ -45,6 +45,7 @@ class ProductCatalogCategoryFields extends AbstractEnum {
   const NUM_ITEMS = 'num_items';
   const TOKENS = 'tokens';
   const ID = 'id';
+  const DATA = 'data';
 
   public function getFieldTypes() {
     return array(
@@ -56,6 +57,7 @@ class ProductCatalogCategoryFields extends AbstractEnum {
       'num_items' => 'int',
       'tokens' => 'list<Object>',
       'id' => 'string',
+      'data' => 'list<map>',
     );
   }
 }

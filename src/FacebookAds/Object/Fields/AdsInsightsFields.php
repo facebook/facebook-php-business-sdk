@@ -71,6 +71,10 @@ class AdsInsightsFields extends AbstractEnum {
   const COST_PER_ACTION_TYPE = 'cost_per_action_type';
   const COST_PER_AD_CLICK = 'cost_per_ad_click';
   const COST_PER_DDA_COUNTBY_CONVS = 'cost_per_dda_countby_convs';
+  const COST_PER_DWELL = 'cost_per_dwell';
+  const COST_PER_DWELL_3_SEC = 'cost_per_dwell_3_sec';
+  const COST_PER_DWELL_5_SEC = 'cost_per_dwell_5_sec';
+  const COST_PER_DWELL_7_SEC = 'cost_per_dwell_7_sec';
   const COST_PER_ESTIMATED_AD_RECALLERS = 'cost_per_estimated_ad_recallers';
   const COST_PER_INLINE_LINK_CLICK = 'cost_per_inline_link_click';
   const COST_PER_INLINE_POST_ENGAGEMENT = 'cost_per_inline_post_engagement';
@@ -94,6 +98,10 @@ class AdsInsightsFields extends AbstractEnum {
   const DESCRIPTION_ASSET = 'description_asset';
   const DEVICE_PLATFORM = 'device_platform';
   const DMA = 'dma';
+  const DWELL_3_SEC = 'dwell_3_sec';
+  const DWELL_5_SEC = 'dwell_5_sec';
+  const DWELL_7_SEC = 'dwell_7_sec';
+  const DWELL_RATE = 'dwell_rate';
   const ESTIMATED_AD_RECALL_RATE = 'estimated_ad_recall_rate';
   const ESTIMATED_AD_RECALL_RATE_LOWER_BOUND = 'estimated_ad_recall_rate_lower_bound';
   const ESTIMATED_AD_RECALL_RATE_UPPER_BOUND = 'estimated_ad_recall_rate_upper_bound';
@@ -135,6 +143,7 @@ class AdsInsightsFields extends AbstractEnum {
   const RULE_ASSET = 'rule_asset';
   const SOCIAL_SPEND = 'social_spend';
   const SPEND = 'spend';
+  const THUMB_STOPS = 'thumb_stops';
   const TITLE_ASSET = 'title_asset';
   const UNIQUE_ACTIONS = 'unique_actions';
   const UNIQUE_CLICKS = 'unique_clicks';
@@ -207,6 +216,10 @@ class AdsInsightsFields extends AbstractEnum {
       'cost_per_action_type' => 'list<AdsActionStats>',
       'cost_per_ad_click' => 'list<AdsActionStats>',
       'cost_per_dda_countby_convs' => 'string',
+      'cost_per_dwell' => 'string',
+      'cost_per_dwell_3_sec' => 'string',
+      'cost_per_dwell_5_sec' => 'string',
+      'cost_per_dwell_7_sec' => 'string',
       'cost_per_estimated_ad_recallers' => 'string',
       'cost_per_inline_link_click' => 'string',
       'cost_per_inline_post_engagement' => 'string',
@@ -230,6 +243,10 @@ class AdsInsightsFields extends AbstractEnum {
       'description_asset' => 'Object',
       'device_platform' => 'string',
       'dma' => 'string',
+      'dwell_3_sec' => 'string',
+      'dwell_5_sec' => 'string',
+      'dwell_7_sec' => 'string',
+      'dwell_rate' => 'string',
       'estimated_ad_recall_rate' => 'string',
       'estimated_ad_recall_rate_lower_bound' => 'string',
       'estimated_ad_recall_rate_upper_bound' => 'string',
@@ -271,6 +288,7 @@ class AdsInsightsFields extends AbstractEnum {
       'rule_asset' => 'Object',
       'social_spend' => 'string',
       'spend' => 'string',
+      'thumb_stops' => 'string',
       'title_asset' => 'Object',
       'unique_actions' => 'list<AdsActionStats>',
       'unique_clicks' => 'string',

@@ -33,10 +33,22 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdPlacePageSetLocationTypesValues getInstance()
+ * @method static AdAccountTargetingUnifiedObjectiveValues getInstance()
  */
-class AdPlacePageSetLocationTypesValues extends AbstractEnum {
+class AdAccountTargetingUnifiedObjectiveValues extends AbstractEnum {
 
-  const RECENT = 'recent';
-  const HOME = 'home';
+  const APP_INSTALLS = 'APP_INSTALLS';
+  const BRAND_AWARENESS = 'BRAND_AWARENESS';
+  const CONVERSIONS = 'CONVERSIONS';
+  const EVENT_RESPONSES = 'EVENT_RESPONSES';
+  const LEAD_GENERATION = 'LEAD_GENERATION';
+  const LINK_CLICKS = 'LINK_CLICKS';
+  const LOCAL_AWARENESS = 'LOCAL_AWARENESS';
+  const MESSAGES = 'MESSAGES';
+  const OFFER_CLAIMS = 'OFFER_CLAIMS';
+  const PAGE_LIKES = 'PAGE_LIKES';
+  const POST_ENGAGEMENT = 'POST_ENGAGEMENT';
+  const PRODUCT_CATALOG_SALES = 'PRODUCT_CATALOG_SALES';
+  const REACH = 'REACH';
+  const VIDEO_VIEWS = 'VIDEO_VIEWS';
 }

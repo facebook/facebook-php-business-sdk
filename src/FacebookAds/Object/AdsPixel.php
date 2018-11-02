@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdsPixelFields;
+use FacebookAds\Object\Values\AdsPixelAutomaticMatchingFieldsValues;
 use FacebookAds\Object\Values\AdsPixelDataUseSettingValues;
 use FacebookAds\Object\Values\AdsPixelFirstPartyCookieStatusValues;
 use FacebookAds\Object\Values\AdsPixelRelationshipTypeValues;
@@ -67,6 +68,7 @@ class AdsPixel extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['SortBy'] = AdsPixelSortByValues::getInstance()->getValues();
+    $ref_enums['AutomaticMatchingFields'] = AdsPixelAutomaticMatchingFieldsValues::getInstance()->getValues();
     $ref_enums['DataUseSetting'] = AdsPixelDataUseSettingValues::getInstance()->getValues();
     $ref_enums['FirstPartyCookieStatus'] = AdsPixelFirstPartyCookieStatusValues::getInstance()->getValues();
     $ref_enums['Tasks'] = AdsPixelTasksValues::getInstance()->getValues();
@@ -530,10 +532,13 @@ class AdsPixel extends AbstractCrudObject {
 
     $param_types = array(
       'name' => 'string',
+      'enable_automatic_matching' => 'bool',
+      'automatic_matching_fields' => 'list<automatic_matching_fields_enum>',
       'first_party_cookie_status' => 'first_party_cookie_status_enum',
       'data_use_setting' => 'data_use_setting_enum',
     );
     $enums = array(
+      'automatic_matching_fields_enum' => AdsPixelAutomaticMatchingFieldsValues::getInstance()->getValues(),
       'first_party_cookie_status_enum' => AdsPixelFirstPartyCookieStatusValues::getInstance()->getValues(),
       'data_use_setting_enum' => AdsPixelDataUseSettingValues::getInstance()->getValues(),
     );

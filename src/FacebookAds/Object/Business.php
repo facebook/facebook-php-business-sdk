@@ -32,17 +32,17 @@ use FacebookAds\Object\Fields\BusinessFields;
 use FacebookAds\Object\Values\AdAccountCreationRequestStatusValues;
 use FacebookAds\Object\Values\AdAccountCreationRequestSubverticalValues;
 use FacebookAds\Object\Values\AdAccountCreationRequestVerticalValues;
-use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultAggregationPeriodValues;
-use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultBreakdownsValues;
-use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultMetricsValues;
-use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultOrderingColumnValues;
-use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultOrderingTypeValues;
 use FacebookAds\Object\Values\AdStudyTypeValues;
 use FacebookAds\Object\Values\AdsPixelSortByValues;
 use FacebookAds\Object\Values\BusinessAccessTypeValues;
+use FacebookAds\Object\Values\BusinessAggregationPeriodValues;
 use FacebookAds\Object\Values\BusinessAgreementRequestStatusValues;
 use FacebookAds\Object\Values\BusinessAssetSharingAgreementRequestStatusValues;
+use FacebookAds\Object\Values\BusinessBreakdownsValues;
 use FacebookAds\Object\Values\BusinessMatchedSearchApplicationsEdgeDataAppStoreValues;
+use FacebookAds\Object\Values\BusinessMetricsValues;
+use FacebookAds\Object\Values\BusinessOrderingColumnValues;
+use FacebookAds\Object\Values\BusinessOrderingTypeValues;
 use FacebookAds\Object\Values\BusinessPagePermittedRolesValues;
 use FacebookAds\Object\Values\BusinessPermittedRolesValues;
 use FacebookAds\Object\Values\BusinessPermittedTasksValues;
@@ -84,6 +84,11 @@ class Business extends AbstractCrudObject {
     $ref_enums = array();
     $ref_enums['TwoFactorType'] = BusinessTwoFactorTypeValues::getInstance()->getValues();
     $ref_enums['Vertical'] = BusinessVerticalValues::getInstance()->getValues();
+    $ref_enums['AggregationPeriod'] = BusinessAggregationPeriodValues::getInstance()->getValues();
+    $ref_enums['Breakdowns'] = BusinessBreakdownsValues::getInstance()->getValues();
+    $ref_enums['Metrics'] = BusinessMetricsValues::getInstance()->getValues();
+    $ref_enums['OrderingColumn'] = BusinessOrderingColumnValues::getInstance()->getValues();
+    $ref_enums['OrderingType'] = BusinessOrderingTypeValues::getInstance()->getValues();
     $ref_enums['AccessType'] = BusinessAccessTypeValues::getInstance()->getValues();
     $ref_enums['PermittedTasks'] = BusinessPermittedTasksValues::getInstance()->getValues();
     $ref_enums['SurveyBusinessType'] = BusinessSurveyBusinessTypeValues::getInstance()->getValues();
@@ -327,11 +332,11 @@ class Business extends AbstractCrudObject {
       'until' => 'Object',
     );
     $enums = array(
-      'aggregation_period_enum' => AdNetworkAnalyticsSyncQueryResultAggregationPeriodValues::getInstance()->getValues(),
-      'breakdowns_enum' => AdNetworkAnalyticsSyncQueryResultBreakdownsValues::getInstance()->getValues(),
-      'metrics_enum' => AdNetworkAnalyticsSyncQueryResultMetricsValues::getInstance()->getValues(),
-      'ordering_column_enum' => AdNetworkAnalyticsSyncQueryResultOrderingColumnValues::getInstance()->getValues(),
-      'ordering_type_enum' => AdNetworkAnalyticsSyncQueryResultOrderingTypeValues::getInstance()->getValues(),
+      'aggregation_period_enum' => BusinessAggregationPeriodValues::getInstance()->getValues(),
+      'breakdowns_enum' => BusinessBreakdownsValues::getInstance()->getValues(),
+      'metrics_enum' => BusinessMetricsValues::getInstance()->getValues(),
+      'ordering_column_enum' => BusinessOrderingColumnValues::getInstance()->getValues(),
+      'ordering_type_enum' => BusinessOrderingTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -364,11 +369,11 @@ class Business extends AbstractCrudObject {
       'until' => 'Object',
     );
     $enums = array(
-      'aggregation_period_enum' => AdNetworkAnalyticsSyncQueryResultAggregationPeriodValues::getInstance()->getValues(),
-      'breakdowns_enum' => AdNetworkAnalyticsSyncQueryResultBreakdownsValues::getInstance()->getValues(),
-      'metrics_enum' => AdNetworkAnalyticsSyncQueryResultMetricsValues::getInstance()->getValues(),
-      'ordering_column_enum' => AdNetworkAnalyticsSyncQueryResultOrderingColumnValues::getInstance()->getValues(),
-      'ordering_type_enum' => AdNetworkAnalyticsSyncQueryResultOrderingTypeValues::getInstance()->getValues(),
+      'aggregation_period_enum' => BusinessAggregationPeriodValues::getInstance()->getValues(),
+      'breakdowns_enum' => BusinessBreakdownsValues::getInstance()->getValues(),
+      'metrics_enum' => BusinessMetricsValues::getInstance()->getValues(),
+      'ordering_column_enum' => BusinessOrderingColumnValues::getInstance()->getValues(),
+      'ordering_type_enum' => BusinessOrderingTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1337,6 +1342,29 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getInstagramAccounts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/instagram_accounts',
+      new InstagramUser(),
+      'EDGE',
+      InstagramUser::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createManagedBusiness(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1766,6 +1794,29 @@ class Business extends AbstractCrudObject {
       new OwnedDomain(),
       'EDGE',
       OwnedDomain::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getOwnedInstagramAccounts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/owned_instagram_accounts',
+      new InstagramUser(),
+      'EDGE',
+      InstagramUser::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

@@ -46,6 +46,7 @@ class VehicleFields extends AbstractEnum {
   const CUSTOM_LABEL_0 = 'custom_label_0';
   const DATE_FIRST_ON_LOT = 'date_first_on_lot';
   const DEALER_COMMUNICATION_CHANNEL = 'dealer_communication_channel';
+  const DEALER_EMAIL = 'dealer_email';
   const DEALER_ID = 'dealer_id';
   const DEALER_NAME = 'dealer_name';
   const DEALER_PHONE = 'dealer_phone';
@@ -92,6 +93,7 @@ class VehicleFields extends AbstractEnum {
       'custom_label_0' => 'string',
       'date_first_on_lot' => 'string',
       'dealer_communication_channel' => 'string',
+      'dealer_email' => 'string',
       'dealer_id' => 'string',
       'dealer_name' => 'string',
       'dealer_phone' => 'string',

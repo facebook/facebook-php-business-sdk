@@ -33,9 +33,9 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdNetworkAnalyticsSyncQueryResultMetricsValues getInstance()
+ * @method static AdMonetizationPropertyMetricsValues getInstance()
  */
-class AdNetworkAnalyticsSyncQueryResultMetricsValues extends AbstractEnum {
+class AdMonetizationPropertyMetricsValues extends AbstractEnum {
 
   const FB_AD_NETWORK_BIDDING_REQUEST = 'FB_AD_NETWORK_BIDDING_REQUEST';
   const FB_AD_NETWORK_BIDDING_RESPONSE = 'FB_AD_NETWORK_BIDDING_RESPONSE';
@@ -69,4 +69,5 @@ class AdNetworkAnalyticsSyncQueryResultMetricsValues extends AbstractEnum {
   const FB_AD_NETWORK_CLICK_VALUE_SCORE_NUMERATOR = 'FB_AD_NETWORK_CLICK_VALUE_SCORE_NUMERATOR';
   const FB_AD_NETWORK_CLICK_VALUE_SCORE_DENOMINATOR = 'FB_AD_NETWORK_CLICK_VALUE_SCORE_DENOMINATOR';
   const FB_AD_NETWORK_NO_FILL = 'FB_AD_NETWORK_NO_FILL';
+  const FB_AD_NETWORK_NO_BID = 'FB_AD_NETWORK_NO_BID';
 }

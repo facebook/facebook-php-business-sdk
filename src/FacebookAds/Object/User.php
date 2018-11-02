@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\UserFields;
+use FacebookAds\Object\Values\AdStudyTypeValues;
 use FacebookAds\Object\Values\AdVideoContainerTypeValues;
 use FacebookAds\Object\Values\AdVideoContentCategoryValues;
 use FacebookAds\Object\Values\AdVideoFormattingValues;
@@ -336,6 +337,42 @@ class User extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createAdStudy(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'cells' => 'list<Object>',
+      'objectives' => 'list<Object>',
+      'end_time' => 'int',
+      'description' => 'string',
+      'name' => 'string',
+      'start_time' => 'int',
+      'viewers' => 'list<int>',
+      'cooldown_start_time' => 'int',
+      'observation_end_time' => 'int',
+      'confidence_level' => 'float',
+      'client_business' => 'string',
+      'type' => 'type_enum',
+    );
+    $enums = array(
+      'type_enum' => AdStudyTypeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/ad_studies',
+      new AdStudy(),
+      'EDGE',
+      AdStudy::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getAdAccounts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -521,6 +558,33 @@ class User extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
+      '/asset3ds',
+      new WithAsset3D(),
+      'EDGE',
+      WithAsset3D::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createAsset3D(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'file' => 'file',
+      'file_url' => 'Object',
+      'fallback_image' => 'file',
+      'fallback_image_url' => 'Object',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
       '/asset3ds',
       new WithAsset3D(),
       'EDGE',
@@ -1730,6 +1794,29 @@ class User extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getLiveEncoders(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/live_encoders',
+      new LiveEncoder(),
+      'EDGE',
+      LiveEncoder::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createLiveEncoder(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1748,9 +1835,9 @@ class User extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/live_encoders',
-      new AbstractCrudObject(),
+      new LiveEncoder(),
       'EDGE',
-      array(),
+      LiveEncoder::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1830,35 +1917,6 @@ class User extends AbstractCrudObject {
       new LiveVideo(),
       'EDGE',
       LiveVideo::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createLocationupdate(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'locations' => 'list<Object>',
-      'deviceid' => 'string',
-      'trace_ids' => 'list<string>',
-      'dynamic_collection_checksum' => 'string',
-      'android_config_checksum' => 'string',
-      'skip_pvd' => 'bool',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/locationupdates',
-      new User(),
-      'EDGE',
-      User::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

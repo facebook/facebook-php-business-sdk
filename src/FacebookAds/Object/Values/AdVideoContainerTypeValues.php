@@ -122,4 +122,5 @@ class AdVideoContainerTypeValues extends AbstractEnum {
   const PROTON = 'PROTON';
   const BELL_POLL = 'BELL_POLL';
   const CIVIC_PROPOSAL_COVER_VIDEO = 'CIVIC_PROPOSAL_COVER_VIDEO';
+  const HEURISTIC_CLUSTER_VIDEO = 'HEURISTIC_CLUSTER_VIDEO';
 }

@@ -33,12 +33,16 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static LeadGenContextCardStatusValues getInstance()
+ * @method static AdsPixelAutomaticMatchingFieldsValues getInstance()
  */
-class LeadGenContextCardStatusValues extends AbstractEnum {
+class AdsPixelAutomaticMatchingFieldsValues extends AbstractEnum {
 
-  const ACTIVE = 'ACTIVE';
-  const ARCHIVED = 'ARCHIVED';
-  const DELETED = 'DELETED';
-  const DRAFT = 'DRAFT';
+  const EM = 'em';
+  const FN = 'fn';
+  const LN = 'ln';
+  const PH = 'ph';
+  const GE = 'ge';
+  const ZP = 'zp';
+  const CT = 'ct';
+  const ST = 'st';
 }

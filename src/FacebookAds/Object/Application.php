@@ -29,13 +29,13 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ApplicationFields;
-use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultAggregationPeriodValues;
-use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultBreakdownsValues;
-use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultMetricsValues;
-use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultOrderingColumnValues;
-use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultOrderingTypeValues;
+use FacebookAds\Object\Values\ApplicationAggregationPeriodValues;
 use FacebookAds\Object\Values\ApplicationAnPlatformsValues;
+use FacebookAds\Object\Values\ApplicationBreakdownsValues;
+use FacebookAds\Object\Values\ApplicationMetricsValues;
 use FacebookAds\Object\Values\ApplicationMutationMethodValues;
+use FacebookAds\Object\Values\ApplicationOrderingColumnValues;
+use FacebookAds\Object\Values\ApplicationOrderingTypeValues;
 use FacebookAds\Object\Values\ApplicationPlatformValues;
 use FacebookAds\Object\Values\ApplicationRequestTypeValues;
 use FacebookAds\Object\Values\ApplicationRoleValues;
@@ -69,6 +69,11 @@ class Application extends AbstractCrudObject {
     $ref_enums = array();
     $ref_enums['SupportedPlatforms'] = ApplicationSupportedPlatformsValues::getInstance()->getValues();
     $ref_enums['AnPlatforms'] = ApplicationAnPlatformsValues::getInstance()->getValues();
+    $ref_enums['AggregationPeriod'] = ApplicationAggregationPeriodValues::getInstance()->getValues();
+    $ref_enums['Breakdowns'] = ApplicationBreakdownsValues::getInstance()->getValues();
+    $ref_enums['Metrics'] = ApplicationMetricsValues::getInstance()->getValues();
+    $ref_enums['OrderingColumn'] = ApplicationOrderingColumnValues::getInstance()->getValues();
+    $ref_enums['OrderingType'] = ApplicationOrderingTypeValues::getInstance()->getValues();
     $ref_enums['Platform'] = ApplicationPlatformValues::getInstance()->getValues();
     $ref_enums['RequestType'] = ApplicationRequestTypeValues::getInstance()->getValues();
     $ref_enums['MutationMethod'] = ApplicationMutationMethodValues::getInstance()->getValues();
@@ -292,11 +297,11 @@ class Application extends AbstractCrudObject {
       'until' => 'Object',
     );
     $enums = array(
-      'aggregation_period_enum' => AdNetworkAnalyticsSyncQueryResultAggregationPeriodValues::getInstance()->getValues(),
-      'breakdowns_enum' => AdNetworkAnalyticsSyncQueryResultBreakdownsValues::getInstance()->getValues(),
-      'metrics_enum' => AdNetworkAnalyticsSyncQueryResultMetricsValues::getInstance()->getValues(),
-      'ordering_column_enum' => AdNetworkAnalyticsSyncQueryResultOrderingColumnValues::getInstance()->getValues(),
-      'ordering_type_enum' => AdNetworkAnalyticsSyncQueryResultOrderingTypeValues::getInstance()->getValues(),
+      'aggregation_period_enum' => ApplicationAggregationPeriodValues::getInstance()->getValues(),
+      'breakdowns_enum' => ApplicationBreakdownsValues::getInstance()->getValues(),
+      'metrics_enum' => ApplicationMetricsValues::getInstance()->getValues(),
+      'ordering_column_enum' => ApplicationOrderingColumnValues::getInstance()->getValues(),
+      'ordering_type_enum' => ApplicationOrderingTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -329,11 +334,11 @@ class Application extends AbstractCrudObject {
       'until' => 'Object',
     );
     $enums = array(
-      'aggregation_period_enum' => AdNetworkAnalyticsSyncQueryResultAggregationPeriodValues::getInstance()->getValues(),
-      'breakdowns_enum' => AdNetworkAnalyticsSyncQueryResultBreakdownsValues::getInstance()->getValues(),
-      'metrics_enum' => AdNetworkAnalyticsSyncQueryResultMetricsValues::getInstance()->getValues(),
-      'ordering_column_enum' => AdNetworkAnalyticsSyncQueryResultOrderingColumnValues::getInstance()->getValues(),
-      'ordering_type_enum' => AdNetworkAnalyticsSyncQueryResultOrderingTypeValues::getInstance()->getValues(),
+      'aggregation_period_enum' => ApplicationAggregationPeriodValues::getInstance()->getValues(),
+      'breakdowns_enum' => ApplicationBreakdownsValues::getInstance()->getValues(),
+      'metrics_enum' => ApplicationMetricsValues::getInstance()->getValues(),
+      'ordering_column_enum' => ApplicationOrderingColumnValues::getInstance()->getValues(),
+      'ordering_type_enum' => ApplicationOrderingTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -2356,6 +2361,34 @@ class Application extends AbstractCrudObject {
       new AbstractCrudObject(),
       'EDGE',
       array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createSubscriptionsSample(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'object_id' => 'string',
+      'object' => 'string',
+      'field' => 'string',
+      'stress_run' => 'unsigned int',
+      'custom_fields' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/subscriptions_sample',
+      new Application(),
+      'EDGE',
+      Application::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

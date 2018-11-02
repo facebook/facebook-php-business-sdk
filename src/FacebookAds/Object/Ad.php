@@ -121,9 +121,7 @@ class Ad extends AbstractArchivableCrudObject
       'execution_options' => 'list<execution_options_enum>',
     );
     $enums = array(
-      'execution_options_enum' => array(
-        'validate_only',
-      ),
+      'execution_options_enum' => AdExecutionOptionsValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -149,9 +147,7 @@ class Ad extends AbstractArchivableCrudObject
       'execution_options' => 'list<execution_options_enum>',
     );
     $enums = array(
-      'execution_options_enum' => array(
-        'validate_only',
-      ),
+      'execution_options_enum' => AdExecutionOptionsValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -162,6 +158,30 @@ class Ad extends AbstractArchivableCrudObject
       new Ad(),
       'EDGE',
       Ad::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getAdRulesGoverned(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'pass_evaluation' => 'bool',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/adrules_governed',
+      new AdRule(),
+      'EDGE',
+      AdRule::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

@@ -33,10 +33,11 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdNetworkAnalyticsSyncQueryResultOrderingTypeValues getInstance()
+ * @method static BusinessAggregationPeriodValues getInstance()
  */
-class AdNetworkAnalyticsSyncQueryResultOrderingTypeValues extends AbstractEnum {
+class BusinessAggregationPeriodValues extends AbstractEnum {
 
-  const ASCENDING = 'ASCENDING';
-  const DESCENDING = 'DESCENDING';
+  const HOUR = 'HOUR';
+  const DAY = 'DAY';
+  const TOTAL = 'TOTAL';
 }

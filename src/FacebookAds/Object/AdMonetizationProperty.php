@@ -29,11 +29,11 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdMonetizationPropertyFields;
-use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultAggregationPeriodValues;
-use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultBreakdownsValues;
-use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultMetricsValues;
-use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultOrderingColumnValues;
-use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultOrderingTypeValues;
+use FacebookAds\Object\Values\AdMonetizationPropertyAggregationPeriodValues;
+use FacebookAds\Object\Values\AdMonetizationPropertyBreakdownsValues;
+use FacebookAds\Object\Values\AdMonetizationPropertyMetricsValues;
+use FacebookAds\Object\Values\AdMonetizationPropertyOrderingColumnValues;
+use FacebookAds\Object\Values\AdMonetizationPropertyOrderingTypeValues;
 
 /**
  * This class is auto-generated.
@@ -55,6 +55,11 @@ class AdMonetizationProperty extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['AggregationPeriod'] = AdMonetizationPropertyAggregationPeriodValues::getInstance()->getValues();
+    $ref_enums['Breakdowns'] = AdMonetizationPropertyBreakdownsValues::getInstance()->getValues();
+    $ref_enums['Metrics'] = AdMonetizationPropertyMetricsValues::getInstance()->getValues();
+    $ref_enums['OrderingColumn'] = AdMonetizationPropertyOrderingColumnValues::getInstance()->getValues();
+    $ref_enums['OrderingType'] = AdMonetizationPropertyOrderingTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -74,11 +79,11 @@ class AdMonetizationProperty extends AbstractCrudObject {
       'until' => 'Object',
     );
     $enums = array(
-      'aggregation_period_enum' => AdNetworkAnalyticsSyncQueryResultAggregationPeriodValues::getInstance()->getValues(),
-      'breakdowns_enum' => AdNetworkAnalyticsSyncQueryResultBreakdownsValues::getInstance()->getValues(),
-      'metrics_enum' => AdNetworkAnalyticsSyncQueryResultMetricsValues::getInstance()->getValues(),
-      'ordering_column_enum' => AdNetworkAnalyticsSyncQueryResultOrderingColumnValues::getInstance()->getValues(),
-      'ordering_type_enum' => AdNetworkAnalyticsSyncQueryResultOrderingTypeValues::getInstance()->getValues(),
+      'aggregation_period_enum' => AdMonetizationPropertyAggregationPeriodValues::getInstance()->getValues(),
+      'breakdowns_enum' => AdMonetizationPropertyBreakdownsValues::getInstance()->getValues(),
+      'metrics_enum' => AdMonetizationPropertyMetricsValues::getInstance()->getValues(),
+      'ordering_column_enum' => AdMonetizationPropertyOrderingColumnValues::getInstance()->getValues(),
+      'ordering_type_enum' => AdMonetizationPropertyOrderingTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -111,11 +116,11 @@ class AdMonetizationProperty extends AbstractCrudObject {
       'until' => 'Object',
     );
     $enums = array(
-      'aggregation_period_enum' => AdNetworkAnalyticsSyncQueryResultAggregationPeriodValues::getInstance()->getValues(),
-      'breakdowns_enum' => AdNetworkAnalyticsSyncQueryResultBreakdownsValues::getInstance()->getValues(),
-      'metrics_enum' => AdNetworkAnalyticsSyncQueryResultMetricsValues::getInstance()->getValues(),
-      'ordering_column_enum' => AdNetworkAnalyticsSyncQueryResultOrderingColumnValues::getInstance()->getValues(),
-      'ordering_type_enum' => AdNetworkAnalyticsSyncQueryResultOrderingTypeValues::getInstance()->getValues(),
+      'aggregation_period_enum' => AdMonetizationPropertyAggregationPeriodValues::getInstance()->getValues(),
+      'breakdowns_enum' => AdMonetizationPropertyBreakdownsValues::getInstance()->getValues(),
+      'metrics_enum' => AdMonetizationPropertyMetricsValues::getInstance()->getValues(),
+      'ordering_column_enum' => AdMonetizationPropertyOrderingColumnValues::getInstance()->getValues(),
+      'ordering_type_enum' => AdMonetizationPropertyOrderingTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

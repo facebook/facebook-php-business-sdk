@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,11 +33,17 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdNetworkAnalyticsSyncQueryResultAggregationPeriodValues getInstance()
  */
-class AdNetworkAnalyticsSyncQueryResultAggregationPeriodValues extends AbstractEnum {
 
-  const HOUR = 'HOUR';
-  const DAY = 'DAY';
-  const TOTAL = 'TOTAL';
+class AdCampaignGroupMetricsMetadataFields extends AbstractEnum {
+
+  const BUDGET_OPTIMIZATION = 'budget_optimization';
+  const ID = 'id';
+
+  public function getFieldTypes() {
+    return array(
+      'budget_optimization' => 'list<string>',
+      'id' => 'string',
+    );
+  }
 }

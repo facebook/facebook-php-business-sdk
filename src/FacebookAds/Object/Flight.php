@@ -93,6 +93,8 @@ class Flight extends AbstractCrudObject {
       'description' => 'string',
       'url' => 'Object',
       'images' => 'list<Object>',
+      'currency' => 'string',
+      'price' => 'unsigned int',
     );
     $enums = array(
     );

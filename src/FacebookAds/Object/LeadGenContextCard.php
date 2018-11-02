@@ -29,8 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\LeadGenContextCardFields;
-use FacebookAds\Object\Values\LeadGenContextCardStatusValues;
-use FacebookAds\Object\Values\LeadGenContextCardStyleValues;
 
 /**
  * This class is auto-generated.
@@ -52,8 +50,6 @@ class LeadGenContextCard extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Status'] = LeadGenContextCardStatusValues::getInstance()->getValues();
-    $ref_enums['Style'] = LeadGenContextCardStyleValues::getInstance()->getValues();
     return $ref_enums;
   }
 

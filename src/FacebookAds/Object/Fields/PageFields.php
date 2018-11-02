@@ -146,6 +146,7 @@ class PageFields extends AbstractEnum {
   const PREFERRED_AUDIENCE = 'preferred_audience';
   const PRESS_CONTACT = 'press_contact';
   const PRICE_RANGE = 'price_range';
+  const PRIVACY_INFO_URL = 'privacy_info_url';
   const PRODUCED_BY = 'produced_by';
   const PRODUCTS = 'products';
   const PROMOTION_ELIGIBLE = 'promotion_eligible';
@@ -292,6 +293,7 @@ class PageFields extends AbstractEnum {
       'preferred_audience' => 'Targeting',
       'press_contact' => 'string',
       'price_range' => 'string',
+      'privacy_info_url' => 'string',
       'produced_by' => 'string',
       'products' => 'string',
       'promotion_eligible' => 'bool',

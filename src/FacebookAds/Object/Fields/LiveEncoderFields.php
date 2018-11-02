@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,22 +33,35 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdNetworkAnalyticsSyncQueryResultBreakdownsValues getInstance()
  */
-class AdNetworkAnalyticsSyncQueryResultBreakdownsValues extends AbstractEnum {
 
-  const AGE = 'AGE';
-  const APP = 'APP';
-  const COUNTRY = 'COUNTRY';
-  const DELIVERY_METHOD = 'DELIVERY_METHOD';
-  const DISPLAY_FORMAT = 'DISPLAY_FORMAT';
-  const DEAL = 'DEAL';
-  const DEAL_AD = 'DEAL_AD';
-  const DEAL_PAGE = 'DEAL_PAGE';
-  const GENDER = 'GENDER';
-  const PLACEMENT = 'PLACEMENT';
-  const PLATFORM = 'PLATFORM';
-  const PROPERTY = 'PROPERTY';
-  const CLICKED_VIEW_TAG = 'CLICKED_VIEW_TAG';
-  const NO_FILL_REASON = 'NO_FILL_REASON';
+class LiveEncoderFields extends AbstractEnum {
+
+  const BRAND = 'brand';
+  const CREATION_TIME = 'creation_time';
+  const CURRENT_BROADCAST = 'current_broadcast';
+  const CURRENT_INPUT_STREAM = 'current_input_stream';
+  const DEVICE_ID = 'device_id';
+  const ID = 'id';
+  const LAST_HEARTBEAT_TIME = 'last_heartbeat_time';
+  const MODEL = 'model';
+  const NAME = 'name';
+  const STATUS = 'status';
+  const VERSION = 'version';
+
+  public function getFieldTypes() {
+    return array(
+      'brand' => 'string',
+      'creation_time' => 'datetime',
+      'current_broadcast' => 'LiveVideo',
+      'current_input_stream' => 'LiveVideoInputStream',
+      'device_id' => 'string',
+      'id' => 'string',
+      'last_heartbeat_time' => 'datetime',
+      'model' => 'string',
+      'name' => 'string',
+      'status' => 'string',
+      'version' => 'string',
+    );
+  }
 }

@@ -47,6 +47,7 @@ class BrandAudienceFields extends AbstractEnum {
   const TARGETING = 'targeting';
   const TIME_CREATED = 'time_created';
   const TIME_UPDATED = 'time_updated';
+  const TARGET_SIZE = 'target_size';
 
   public function getFieldTypes() {
     return array(
@@ -60,6 +61,7 @@ class BrandAudienceFields extends AbstractEnum {
       'targeting' => 'Targeting',
       'time_created' => 'datetime',
       'time_updated' => 'datetime',
+      'target_size' => 'int',
     );
   }
 }

@@ -47,6 +47,7 @@ class AdSetFields extends AbstractEnum {
   const BEST_CREATIVE = 'best_creative';
   const BID_ADJUSTMENTS = 'bid_adjustments';
   const BID_AMOUNT = 'bid_amount';
+  const BID_CONSTRAINTS = 'bid_constraints';
   const BID_INFO = 'bid_info';
   const BID_STRATEGY = 'bid_strategy';
   const BILLING_EVENT = 'billing_event';
@@ -72,6 +73,7 @@ class AdSetFields extends AbstractEnum {
   const IS_AVERAGE_PRICE_PACING = 'is_average_price_pacing';
   const IS_DYNAMIC_CREATIVE = 'is_dynamic_creative';
   const IS_DYNAMIC_CREATIVE_OPTIMIZATION = 'is_dynamic_creative_optimization';
+  const ISSUES_INFO = 'issues_info';
   const LIFETIME_BUDGET = 'lifetime_budget';
   const LIFETIME_FREQUENCY_CAP = 'lifetime_frequency_cap';
   const LIFETIME_IMPS = 'lifetime_imps';
@@ -119,6 +121,7 @@ class AdSetFields extends AbstractEnum {
       'best_creative' => 'AdDynamicCreative',
       'bid_adjustments' => 'AdBidAdjustments',
       'bid_amount' => 'unsigned int',
+      'bid_constraints' => 'AdCampaignBidConstraint',
       'bid_info' => 'map<string, unsigned int>',
       'bid_strategy' => 'BidStrategy',
       'billing_event' => 'BillingEvent',
@@ -144,6 +147,7 @@ class AdSetFields extends AbstractEnum {
       'is_average_price_pacing' => 'bool',
       'is_dynamic_creative' => 'bool',
       'is_dynamic_creative_optimization' => 'bool',
+      'issues_info' => 'list<AdCampaignIssuesInfo>',
       'lifetime_budget' => 'string',
       'lifetime_frequency_cap' => 'unsigned int',
       'lifetime_imps' => 'int',

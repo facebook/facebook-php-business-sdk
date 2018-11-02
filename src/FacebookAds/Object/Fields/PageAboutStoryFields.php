@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,10 +33,23 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static LeadGenContextCardStyleValues getInstance()
  */
-class LeadGenContextCardStyleValues extends AbstractEnum {
 
-  const LIST_STYLE = 'LIST_STYLE';
-  const PARAGRAPH_STYLE = 'PARAGRAPH_STYLE';
+class PageAboutStoryFields extends AbstractEnum {
+
+  const COMPOSED_TEXT = 'composed_text';
+  const COVER_PHOTO = 'cover_photo';
+  const ID = 'id';
+  const PAGE_ID = 'page_id';
+  const TITLE = 'title';
+
+  public function getFieldTypes() {
+    return array(
+      'composed_text' => 'list<Object>',
+      'cover_photo' => 'Photo',
+      'id' => 'string',
+      'page_id' => 'string',
+      'title' => 'string',
+    );
+  }
 }

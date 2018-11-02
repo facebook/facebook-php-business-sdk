@@ -43,6 +43,7 @@ class TargetingFields extends AbstractEnum {
   const APP_INSTALL_STATE = 'app_install_state';
   const AUDIENCE_NETWORK_POSITIONS = 'audience_network_positions';
   const BEHAVIORS = 'behaviors';
+  const BRAND_SAFETY_CONTENT_SEVERITY_LEVELS = 'brand_safety_content_severity_levels';
   const CITIES = 'cities';
   const COLLEGE_YEARS = 'college_years';
   const CONNECTIONS = 'connections';
@@ -134,6 +135,7 @@ class TargetingFields extends AbstractEnum {
       'app_install_state' => 'string',
       'audience_network_positions' => 'list<string>',
       'behaviors' => 'list<IDName>',
+      'brand_safety_content_severity_levels' => 'list<string>',
       'cities' => 'list<IDName>',
       'college_years' => 'list<unsigned int>',
       'connections' => 'list<IDName>',

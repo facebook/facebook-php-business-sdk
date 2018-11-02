@@ -119,6 +119,34 @@ class Event extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createAttending(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'eid' => 'string',
+      'action_context' => 'Object',
+      'app_context' => 'Object',
+      'tracking' => 'string',
+      'uid' => 'int',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/attending',
+      new Event(),
+      'EDGE',
+      Event::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getComments(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -196,6 +224,34 @@ class Event extends AbstractCrudObject {
       new User(),
       'EDGE',
       User::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createDeclined(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'eid' => 'string',
+      'action_context' => 'Object',
+      'app_context' => 'Object',
+      'tracking' => 'string',
+      'uid' => 'int',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/declined',
+      new Event(),
+      'EDGE',
+      Event::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -538,6 +594,34 @@ class Event extends AbstractCrudObject {
       new User(),
       'EDGE',
       User::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createMaybe(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'eid' => 'string',
+      'action_context' => 'Object',
+      'app_context' => 'Object',
+      'tracking' => 'string',
+      'uid' => 'int',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/maybe',
+      new Event(),
+      'EDGE',
+      Event::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

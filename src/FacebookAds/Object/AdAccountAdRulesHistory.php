@@ -56,43 +56,4 @@ class AdAccountAdRulesHistory extends AbstractCrudObject {
   }
 
 
-  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'action' => 'action_enum',
-      'hide_no_changes' => 'bool',
-      'object_id' => 'string',
-    );
-    $enums = array(
-      'action_enum' => array(
-        'BUDGET_NOT_REDISTRIBUTED',
-        'CHANGED_BID',
-        'CHANGED_BUDGET',
-        'EMAIL',
-        'ENDPOINT_PINGED',
-        'ERROR',
-        'FACEBOOK_NOTIFICATION_SENT',
-        'MESSAGE_SENT',
-        'NOT_CHANGED',
-        'PAUSED',
-        'UNPAUSED',
-      ),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/',
-      new AdAccountAdRulesHistory(),
-      'NODE',
-      AdAccountAdRulesHistory::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
 }

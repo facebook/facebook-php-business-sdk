@@ -47,7 +47,7 @@ class AdKpiShiftFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'ad_set' => 'AdSet',
+      'ad_set' => 'AdCampaign',
       'cost_per_result_shift' => 'float',
       'enough_effective_days' => 'bool',
       'result_indicator' => 'string',

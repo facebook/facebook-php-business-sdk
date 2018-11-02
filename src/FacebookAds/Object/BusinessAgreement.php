@@ -84,6 +84,7 @@ class BusinessAgreement extends AbstractCrudObject {
 
     $param_types = array(
       'request_status' => 'request_status_enum',
+      'asset_id' => 'unsigned int',
     );
     $enums = array(
       'request_status_enum' => BusinessAgreementRequestStatusValues::getInstance()->getValues(),
