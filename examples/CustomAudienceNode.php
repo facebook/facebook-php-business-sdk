@@ -23,7 +23,7 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-use FacebookAds\Object\AdSet;
+use FacebookAds\Object\CustomAudience;
 use FacebookAds\Api;
 use FacebookAds\Logger\CurlLogger;
 
@@ -36,11 +36,10 @@ $api = Api::init($app_id, $app_secret, $access_token);
 $api->setLogger(new CurlLogger());
 
 $fields = array(
-  'created_time',
 );
 $params = array(
 );
-echo json_encode((new AdSet($id))->getSelf(
+echo json_encode((new CustomAudience($id))->getSelf(
   $fields,
   $params
 )->exportAllData(), JSON_PRETTY_PRINT);

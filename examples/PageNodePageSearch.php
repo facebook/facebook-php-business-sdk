@@ -45,4 +45,4 @@ $params = array(
 echo json_encode((new Page($id))->getSelf(
   $fields,
   $params
-)->getResponse()->getContent(), JSON_PRETTY_PRINT);
+)->exportAllData(), JSON_PRETTY_PRINT);

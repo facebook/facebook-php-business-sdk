@@ -46,4 +46,4 @@ $params = array(
 echo json_encode((new Business($id))->createOfflineConversionDataSet(
   $fields,
   $params
-)->getResponse()->getContent(), JSON_PRETTY_PRINT);
+)->exportAllData(), JSON_PRETTY_PRINT);
