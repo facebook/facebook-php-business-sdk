@@ -58,7 +58,6 @@ class OpenGraphObjectFields extends AbstractEnum {
   const TITLE = 'title';
   const TYPE = 'type';
   const UPDATED_TIME = 'updated_time';
-  const URL = 'url';
   const VIDEO = 'video';
 
   public function getFieldTypes() {
@@ -84,7 +83,6 @@ class OpenGraphObjectFields extends AbstractEnum {
       'title' => 'string',
       'type' => 'string',
       'updated_time' => 'datetime',
-      'url' => 'string',
       'video' => 'list<Object>',
     );
   }

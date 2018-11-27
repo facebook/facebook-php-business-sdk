@@ -146,4 +146,5 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const INSTREAM_VIDEO_SPONSORSHIP_PLACEMENTS = 'instream_video_sponsorship_placements';
   const PROSPECTING_AUDIENCE = 'prospecting_audience';
   const BRAND_SAFETY_CONTENT_SEVERITY_LEVELS = 'brand_safety_content_severity_levels';
+  const CATALOG_BASED_TARGETING = 'catalog_based_targeting';
 }

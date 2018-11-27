@@ -41,7 +41,6 @@ class UserFields extends AbstractEnum {
   const ADDRESS = 'address';
   const ADMIN_NOTES = 'admin_notes';
   const AGE_RANGE = 'age_range';
-  const BIO = 'bio';
   const BIRTHDAY = 'birthday';
   const CAN_REVIEW_MEASUREMENT_REQUEST = 'can_review_measurement_request';
   const CONTEXT = 'context';
@@ -62,12 +61,10 @@ class UserFields extends AbstractEnum {
   const INSTALLED = 'installed';
   const INTERESTED_IN = 'interested_in';
   const IS_FAMEDEEPLINKINGUSER = 'is_famedeeplinkinguser';
-  const IS_PAYMENT_ENABLED = 'is_payment_enabled';
   const IS_SHARED_LOGIN = 'is_shared_login';
   const IS_VERIFIED = 'is_verified';
   const LABELS = 'labels';
   const LANGUAGES = 'languages';
-  const LAST_AD_REFERRAL = 'last_ad_referral';
   const LAST_NAME = 'last_name';
   const LINK = 'link';
   const LOCAL_NEWS_MEGAPHONE_DISMISS_STATUS = 'local_news_megaphone_dismiss_status';
@@ -95,7 +92,6 @@ class UserFields extends AbstractEnum {
   const TIMEZONE = 'timezone';
   const TOKEN_FOR_BUSINESS = 'token_for_business';
   const UPDATED_TIME = 'updated_time';
-  const USERNAME = 'username';
   const VERIFIED = 'verified';
   const VIDEO_UPLOAD_LIMITS = 'video_upload_limits';
   const VIEWER_CAN_SEND_GIFT = 'viewer_can_send_gift';
@@ -108,7 +104,6 @@ class UserFields extends AbstractEnum {
       'address' => 'Location',
       'admin_notes' => 'list<PageAdminNote>',
       'age_range' => 'AgeRange',
-      'bio' => 'string',
       'birthday' => 'string',
       'can_review_measurement_request' => 'bool',
       'context' => 'UserContext',
@@ -129,12 +124,10 @@ class UserFields extends AbstractEnum {
       'installed' => 'bool',
       'interested_in' => 'list<string>',
       'is_famedeeplinkinguser' => 'bool',
-      'is_payment_enabled' => 'bool',
       'is_shared_login' => 'bool',
       'is_verified' => 'bool',
       'labels' => 'list<PageLabel>',
       'languages' => 'list<Experience>',
-      'last_ad_referral' => 'MessengerPlatformReferral',
       'last_name' => 'string',
       'link' => 'string',
       'local_news_megaphone_dismiss_status' => 'bool',
@@ -162,7 +155,6 @@ class UserFields extends AbstractEnum {
       'timezone' => 'float',
       'token_for_business' => 'string',
       'updated_time' => 'datetime',
-      'username' => 'string',
       'verified' => 'bool',
       'video_upload_limits' => 'VideoUploadLimits',
       'viewer_can_send_gift' => 'bool',

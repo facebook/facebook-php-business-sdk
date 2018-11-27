@@ -22,13 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Fields;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\PublisherSpaceFields;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-generated.
@@ -39,42 +35,19 @@ use FacebookAds\Object\Fields\PublisherSpaceFields;
  *
  */
 
-class PublisherSpace extends AbstractCrudObject {
+class LiveWithGuestSessionFields extends AbstractEnum {
 
-  /**
-   * @return PublisherSpaceFields
-   */
-  public static function getFieldsEnum() {
-    return PublisherSpaceFields::getInstance();
-  }
+  const CONFERENCE_NAME = 'conference_name';
+  const ID = 'id';
+  const PARTICIPANT_CALL_STATES = 'participant_call_states';
+  const SERVER_SDP = 'server_sdp';
 
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
-  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
+  public function getFieldTypes() {
+    return array(
+      'conference_name' => 'string',
+      'id' => 'string',
+      'participant_call_states' => 'list<Object>',
+      'server_sdp' => 'string',
     );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/',
-      new PublisherSpace(),
-      'NODE',
-      PublisherSpace::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
   }
-
 }

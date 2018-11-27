@@ -121,7 +121,9 @@ class Ad extends AbstractArchivableCrudObject
       'execution_options' => 'list<execution_options_enum>',
     );
     $enums = array(
-      'execution_options_enum' => AdExecutionOptionsValues::getInstance()->getValues(),
+      'execution_options_enum' => array(
+        'validate_only',
+      ),
     );
 
     $request = new ApiRequest(
@@ -147,7 +149,9 @@ class Ad extends AbstractArchivableCrudObject
       'execution_options' => 'list<execution_options_enum>',
     );
     $enums = array(
-      'execution_options_enum' => AdExecutionOptionsValues::getInstance()->getValues(),
+      'execution_options_enum' => array(
+        'validate_only',
+      ),
     );
 
     $request = new ApiRequest(
@@ -424,6 +428,7 @@ class Ad extends AbstractArchivableCrudObject
     $param_types = array(
       'ad_format' => 'ad_format_enum',
       'dynamic_creative_spec' => 'Object',
+      'dynamic_asset_label' => 'string',
       'interactive' => 'bool',
       'post' => 'Object',
       'height' => 'unsigned int',
@@ -553,6 +558,7 @@ class Ad extends AbstractArchivableCrudObject
     $this->assureId();
 
     $param_types = array(
+      'am_call_tags' => 'Object',
       'date_preset' => 'date_preset_enum',
       'from_adtable' => 'bool',
       'review_feedback_breakdown' => 'bool',

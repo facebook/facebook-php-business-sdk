@@ -39,7 +39,6 @@ class EventFields extends AbstractEnum {
 
   const ATTENDING_COUNT = 'attending_count';
   const CAN_GUESTS_INVITE = 'can_guests_invite';
-  const CAN_VIEWER_POST = 'can_viewer_post';
   const CATEGORY = 'category';
   const COVER = 'cover';
   const DECLINED_COUNT = 'declined_count';
@@ -50,19 +49,15 @@ class EventFields extends AbstractEnum {
   const GUEST_LIST_ENABLED = 'guest_list_enabled';
   const ID = 'id';
   const INTERESTED_COUNT = 'interested_count';
-  const INVITED_COUNT = 'invited_count';
   const IS_CANCELED = 'is_canceled';
-  const IS_DATE_ONLY = 'is_date_only';
   const IS_DRAFT = 'is_draft';
   const IS_PAGE_OWNED = 'is_page_owned';
-  const LOCATION = 'location';
   const MAYBE_COUNT = 'maybe_count';
   const NAME = 'name';
   const NOREPLY_COUNT = 'noreply_count';
   const OWNER = 'owner';
   const PARENT_GROUP = 'parent_group';
   const PLACE = 'place';
-  const PRIVACY = 'privacy';
   const SCHEDULED_PUBLISH_TIME = 'scheduled_publish_time';
   const START_TIME = 'start_time';
   const TICKET_URI = 'ticket_uri';
@@ -72,13 +67,11 @@ class EventFields extends AbstractEnum {
   const TIMEZONE = 'timezone';
   const TYPE = 'type';
   const UPDATED_TIME = 'updated_time';
-  const VENUE = 'venue';
 
   public function getFieldTypes() {
     return array(
       'attending_count' => 'int',
       'can_guests_invite' => 'bool',
-      'can_viewer_post' => 'bool',
       'category' => 'string',
       'cover' => 'CoverPhoto',
       'declined_count' => 'int',
@@ -89,19 +82,15 @@ class EventFields extends AbstractEnum {
       'guest_list_enabled' => 'bool',
       'id' => 'string',
       'interested_count' => 'int',
-      'invited_count' => 'int',
       'is_canceled' => 'bool',
-      'is_date_only' => 'bool',
       'is_draft' => 'bool',
       'is_page_owned' => 'bool',
-      'location' => 'string',
       'maybe_count' => 'int',
       'name' => 'string',
       'noreply_count' => 'int',
       'owner' => 'Object',
       'parent_group' => 'Group',
       'place' => 'Place',
-      'privacy' => 'string',
       'scheduled_publish_time' => 'string',
       'start_time' => 'string',
       'ticket_uri' => 'string',
@@ -111,7 +100,6 @@ class EventFields extends AbstractEnum {
       'timezone' => 'string',
       'type' => 'Type',
       'updated_time' => 'datetime',
-      'venue' => 'Location',
     );
   }
 }

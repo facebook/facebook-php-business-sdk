@@ -37,8 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
 
 class CurrencyFields extends AbstractEnum {
 
-  const CURRENCY_EXCHANGE = 'currency_exchange';
-  const CURRENCY_EXCHANGE_INVERSE = 'currency_exchange_inverse';
   const CURRENCY_OFFSET = 'currency_offset';
   const USD_EXCHANGE = 'usd_exchange';
   const USD_EXCHANGE_INVERSE = 'usd_exchange_inverse';
@@ -47,8 +45,6 @@ class CurrencyFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'currency_exchange' => 'float',
-      'currency_exchange_inverse' => 'float',
       'currency_offset' => 'unsigned int',
       'usd_exchange' => 'float',
       'usd_exchange_inverse' => 'float',

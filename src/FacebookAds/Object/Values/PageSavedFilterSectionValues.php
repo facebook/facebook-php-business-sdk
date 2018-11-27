@@ -37,7 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class PageSavedFilterSectionValues extends AbstractEnum {
 
-  const AUDIENCE_ALERTS = 'AUDIENCE_ALERTS';
   const CANDIDATE_VIDEOS = 'CANDIDATE_VIDEOS';
   const CHEX_PENDING_ORDERS = 'CHEX_PENDING_ORDERS';
   const CHEX_COMPLETED_ORDERS = 'CHEX_COMPLETED_ORDERS';

@@ -85,7 +85,6 @@ class PageFields extends AbstractEnum {
   const GENERAL_MANAGER = 'general_manager';
   const GENRE = 'genre';
   const GLOBAL_BRAND_PAGE_NAME = 'global_brand_page_name';
-  const GLOBAL_BRAND_PARENT_PAGE = 'global_brand_parent_page';
   const GLOBAL_BRAND_ROOT_ID = 'global_brand_root_id';
   const HAS_ADDED_APP = 'has_added_app';
   const HAS_WHATSAPP_BUSINESS_NUMBER = 'has_whatsapp_business_number';
@@ -152,7 +151,6 @@ class PageFields extends AbstractEnum {
   const PROMOTION_ELIGIBLE = 'promotion_eligible';
   const PROMOTION_INELIGIBLE_REASON = 'promotion_ineligible_reason';
   const PUBLIC_TRANSIT = 'public_transit';
-  const PUBLISHER_SPACE = 'publisher_space';
   const RATING_COUNT = 'rating_count';
   const RECIPIENT = 'recipient';
   const RECORD_LABEL = 'record_label';
@@ -232,7 +230,6 @@ class PageFields extends AbstractEnum {
       'general_manager' => 'string',
       'genre' => 'string',
       'global_brand_page_name' => 'string',
-      'global_brand_parent_page' => 'Page',
       'global_brand_root_id' => 'string',
       'has_added_app' => 'bool',
       'has_whatsapp_business_number' => 'bool',
@@ -299,7 +296,6 @@ class PageFields extends AbstractEnum {
       'promotion_eligible' => 'bool',
       'promotion_ineligible_reason' => 'string',
       'public_transit' => 'string',
-      'publisher_space' => 'PublisherSpace',
       'rating_count' => 'unsigned int',
       'recipient' => 'string',
       'record_label' => 'string',

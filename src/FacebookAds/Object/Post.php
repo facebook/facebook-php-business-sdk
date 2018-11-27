@@ -419,6 +419,7 @@ class Post extends AbstractCrudObject {
         'AUTO_LOOKALIKE',
         'MULT_CUSTOM_AUDIENCES',
         'EVENT_CUSTOM_AUDIENCES',
+        'AUTO_PAGE_LOOKALIKE',
       ),
       'cta_type_enum' => array(
         'OPEN_LINK',
@@ -469,6 +470,7 @@ class Post extends AbstractCrudObject {
         'EVENT_RSVP',
         'WHATSAPP_MESSAGE',
         'FOLLOW_NEWS_STORYLINE',
+        'SEE_MORE',
       ),
     );
 

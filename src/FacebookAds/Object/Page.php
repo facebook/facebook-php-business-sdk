@@ -46,7 +46,6 @@ use FacebookAds\Object\Values\InsightsResultPeriodValues;
 use FacebookAds\Object\Values\InstantArticleInsightsQueryResultBreakdownValues;
 use FacebookAds\Object\Values\InstantArticleInsightsQueryResultPeriodValues;
 use FacebookAds\Object\Values\LeadGenDataDraftLocaleValues;
-use FacebookAds\Object\Values\LeadGenLegalContentStatusValues;
 use FacebookAds\Object\Values\LeadgenFormLocaleValues;
 use FacebookAds\Object\Values\LinkUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\LiveVideoBroadcastStatusValues;
@@ -1113,7 +1112,7 @@ class Page extends AbstractCrudObject {
     $param_types = array(
       'tags' => 'list<string>',
       'folder' => 'string',
-      'psid' => 'Object',
+      'user_id' => 'string',
     );
     $enums = array(
     );
@@ -2243,33 +2242,6 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createLeadGenLegalContent(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'privacy_policy' => 'Object',
-      'custom_disclaimer' => 'Object',
-      'status' => 'status_enum',
-    );
-    $enums = array(
-      'status_enum' => LeadGenLegalContentStatusValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/leadgen_legal_content',
-      new LeadGenLegalContent(),
-      'EDGE',
-      LeadGenLegalContent::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getLeadGenQualifiers(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -2286,43 +2258,6 @@ class Page extends AbstractCrudObject {
       new LeadGenQualifier(),
       'EDGE',
       LeadGenQualifier::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createLeadGenThankYouPage(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'body' => 'string',
-      'business_phone_number' => 'string',
-      'button_text' => 'string',
-      'button_type' => 'button_type_enum',
-      'country_code' => 'string',
-      'enable_messenger' => 'bool',
-      'title' => 'string',
-      'website_url' => 'string',
-    );
-    $enums = array(
-      'button_type_enum' => array(
-        'VIEW_WEBSITE',
-        'CALL_BUSINESS',
-        'MESSAGE_BUSINESS',
-        'DOWNLOAD',
-      ),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/leadgen_thank_you_page',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -4451,7 +4386,7 @@ class Page extends AbstractCrudObject {
     $param_types = array(
       'tags' => 'list<string>',
       'folder' => 'string',
-      'psid' => 'Object',
+      'user_id' => 'string',
     );
     $enums = array(
     );
@@ -5097,6 +5032,7 @@ class Page extends AbstractCrudObject {
       'instant_articles_submit_for_review' => 'bool',
       'is_permanently_closed' => 'bool',
       'ignore_coordinate_warnings' => 'bool',
+      'livechat_wit_validate' => 'bool',
       'crossposting_pages' => 'list<Object>',
       'begin_crossposting_handshake' => 'list<map>',
       'accept_crossposting_handshake' => 'list<map>',

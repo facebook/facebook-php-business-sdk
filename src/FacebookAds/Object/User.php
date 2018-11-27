@@ -892,7 +892,7 @@ class User extends AbstractCrudObject {
     $param_types = array(
       'tags' => 'list<string>',
       'folder' => 'string',
-      'psid' => 'Object',
+      'user_id' => 'string',
     );
     $enums = array(
     );
@@ -3063,7 +3063,7 @@ class User extends AbstractCrudObject {
     $param_types = array(
       'tags' => 'list<string>',
       'folder' => 'string',
-      'psid' => 'Object',
+      'user_id' => 'string',
     );
     $enums = array(
     );

@@ -33,16 +33,10 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdAssetFeedOptimizationTypeValues getInstance()
+ * @method static EventStreamTypeValues getInstance()
  */
-class AdAssetFeedOptimizationTypeValues extends AbstractEnum {
+class EventStreamTypeValues extends AbstractEnum {
 
   const REGULAR = 'REGULAR';
-  const LANGUAGE = 'LANGUAGE';
-  const PLACEMENT = 'PLACEMENT';
-  const VIDEO_BANDWIDTH = 'VIDEO_BANDWIDTH';
-  const BRAND = 'BRAND';
-  const ASSET_CUSTOMIZATION = 'ASSET_CUSTOMIZATION';
-  const DCO_PARITY = 'DCO_PARITY';
-  const PREVIEW_DYNAMIC_RENDERING = 'PREVIEW_DYNAMIC_RENDERING';
+  const AMBIENT = 'AMBIENT';
 }

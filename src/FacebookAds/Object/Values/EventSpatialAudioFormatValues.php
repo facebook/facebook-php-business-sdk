@@ -33,13 +33,9 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdAssetFeedAdFormatsValues getInstance()
+ * @method static EventSpatialAudioFormatValues getInstance()
  */
-class AdAssetFeedAdFormatsValues extends AbstractEnum {
+class EventSpatialAudioFormatValues extends AbstractEnum {
 
-  const AUTOMATIC_FORMAT = 'AUTOMATIC_FORMAT';
-  const CAROUSEL_IMAGE = 'CAROUSEL_IMAGE';
-  const CAROUSEL_VIDEO = 'CAROUSEL_VIDEO';
-  const SINGLE_IMAGE = 'SINGLE_IMAGE';
-  const SINGLE_VIDEO = 'SINGLE_VIDEO';
+  const AMBIX_4 = 'ambiX_4';
 }

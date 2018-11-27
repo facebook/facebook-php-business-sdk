@@ -37,9 +37,9 @@ use FacebookAds\Object\Values\AdVideoSwapModeValues;
 use FacebookAds\Object\Values\AdVideoUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\AdVideoUploadPhaseValues;
 use FacebookAds\Object\Values\ProductCatalogCategoryCategorizationCriteriaValues;
+use FacebookAds\Object\Values\ProductCatalogItemTypeValues;
 use FacebookAds\Object\Values\ProductCatalogPermittedRolesValues;
 use FacebookAds\Object\Values\ProductCatalogPermittedTasksValues;
-use FacebookAds\Object\Values\ProductCatalogProductTypeValues;
 use FacebookAds\Object\Values\ProductCatalogRoleValues;
 use FacebookAds\Object\Values\ProductCatalogStandardValues;
 use FacebookAds\Object\Values\ProductCatalogVerticalValues;
@@ -86,7 +86,7 @@ class ProductCatalog extends AbstractCrudObject {
     $ref_enums['PermittedRoles'] = ProductCatalogPermittedRolesValues::getInstance()->getValues();
     $ref_enums['PermittedTasks'] = ProductCatalogPermittedTasksValues::getInstance()->getValues();
     $ref_enums['Standard'] = ProductCatalogStandardValues::getInstance()->getValues();
-    $ref_enums['ProductType'] = ProductCatalogProductTypeValues::getInstance()->getValues();
+    $ref_enums['ItemType'] = ProductCatalogItemTypeValues::getInstance()->getValues();
     $ref_enums['Role'] = ProductCatalogRoleValues::getInstance()->getValues();
     return $ref_enums;
   }
@@ -443,6 +443,38 @@ class ProductCatalog extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createDestination(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'destination_id' => 'string',
+      'images' => 'list<Object>',
+      'types' => 'string',
+      'url' => 'Object',
+      'name' => 'string',
+      'address' => 'Object',
+      'currency' => 'string',
+      'price' => 'unsigned int',
+      'description' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/destinations',
+      new Destination(),
+      'EDGE',
+      Destination::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getEventStats(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -765,6 +797,32 @@ class ProductCatalog extends AbstractCrudObject {
       new Hotel(),
       'EDGE',
       Hotel::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createItemsBatch(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'requests' => 'map',
+      'item_type' => 'item_type_enum',
+    );
+    $enums = array(
+      'item_type_enum' => ProductCatalogItemTypeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/items_batch',
+      new ProductCatalog(),
+      'EDGE',
+      ProductCatalog::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1147,32 +1205,6 @@ class ProductCatalog extends AbstractCrudObject {
       new ProductItem(),
       'EDGE',
       ProductItem::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createProductsBatch(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'requests' => 'map',
-      'product_type' => 'product_type_enum',
-    );
-    $enums = array(
-      'product_type_enum' => ProductCatalogProductTypeValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/products_batch',
-      new ProductCatalog(),
-      'EDGE',
-      ProductCatalog::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

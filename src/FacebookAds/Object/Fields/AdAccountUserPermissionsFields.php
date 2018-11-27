@@ -38,7 +38,6 @@ use FacebookAds\Enum\AbstractEnum;
 class AdAccountUserPermissionsFields extends AbstractEnum {
 
   const BUSINESS = 'business';
-  const BUSINESS_PERSONA = 'business_persona';
   const CREATED_BY = 'created_by';
   const CREATED_TIME = 'created_time';
   const EMAIL = 'email';
@@ -52,7 +51,6 @@ class AdAccountUserPermissionsFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'business' => 'Business',
-      'business_persona' => 'Object',
       'created_by' => 'User',
       'created_time' => 'datetime',
       'email' => 'string',

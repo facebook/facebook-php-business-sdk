@@ -85,4 +85,5 @@ class AdCreativeLinkDataCallToActionTypeValues extends AbstractEnum {
   const EVENT_RSVP = 'EVENT_RSVP';
   const WHATSAPP_MESSAGE = 'WHATSAPP_MESSAGE';
   const FOLLOW_NEWS_STORYLINE = 'FOLLOW_NEWS_STORYLINE';
+  const SEE_MORE = 'SEE_MORE';
 }

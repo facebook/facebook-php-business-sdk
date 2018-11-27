@@ -59,8 +59,8 @@ class LeadgenForm extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Locale'] = LeadgenFormLocaleValues::getInstance()->getValues();
     $ref_enums['Status'] = LeadgenFormStatusValues::getInstance()->getValues();
+    $ref_enums['Locale'] = LeadgenFormLocaleValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -212,16 +212,9 @@ class LeadgenForm extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'context_card_id' => 'string',
-      'legal_content_id' => 'string',
-      'locale' => 'locale_enum',
-      'name' => 'string',
-      'questions' => 'list<Object>',
       'status' => 'status_enum',
-      'thank_you_page_id' => 'string',
     );
     $enums = array(
-      'locale_enum' => LeadgenFormLocaleValues::getInstance()->getValues(),
       'status_enum' => LeadgenFormStatusValues::getInstance()->getValues(),
     );
 

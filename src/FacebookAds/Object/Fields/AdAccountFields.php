@@ -57,7 +57,6 @@ class AdAccountFields extends AbstractEnum {
   const CAPABILITIES = 'capabilities';
   const CREATED_TIME = 'created_time';
   const CURRENCY = 'currency';
-  const DAILY_SPEND_LIMIT = 'daily_spend_limit';
   const DIRECT_DEALS_TOS_ACCEPTED = 'direct_deals_tos_accepted';
   const DISABLE_REASON = 'disable_reason';
   const END_ADVERTISER = 'end_advertiser';
@@ -86,7 +85,6 @@ class AdAccountFields extends AbstractEnum {
   const OFFSITE_PIXELS_TOS_ACCEPTED = 'offsite_pixels_tos_accepted';
   const OWNER = 'owner';
   const PARTNER = 'partner';
-  const RATE_LIMIT_RESET_TIME = 'rate_limit_reset_time';
   const RF_SPEC = 'rf_spec';
   const SHOW_CHECKOUT_EXPERIENCE = 'show_checkout_experience';
   const SPEND_CAP = 'spend_cap';
@@ -122,7 +120,6 @@ class AdAccountFields extends AbstractEnum {
       'capabilities' => 'list<string>',
       'created_time' => 'datetime',
       'currency' => 'string',
-      'daily_spend_limit' => 'string',
       'direct_deals_tos_accepted' => 'bool',
       'disable_reason' => 'unsigned int',
       'end_advertiser' => 'string',
@@ -151,7 +148,6 @@ class AdAccountFields extends AbstractEnum {
       'offsite_pixels_tos_accepted' => 'bool',
       'owner' => 'string',
       'partner' => 'string',
-      'rate_limit_reset_time' => 'string',
       'rf_spec' => 'ReachFrequencySpec',
       'show_checkout_experience' => 'bool',
       'spend_cap' => 'string',

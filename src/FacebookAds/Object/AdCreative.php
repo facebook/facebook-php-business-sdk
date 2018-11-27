@@ -143,6 +143,7 @@ class AdCreative extends AbstractCrudObject {
     $param_types = array(
       'ad_format' => 'ad_format_enum',
       'dynamic_creative_spec' => 'Object',
+      'dynamic_asset_label' => 'string',
       'interactive' => 'bool',
       'post' => 'Object',
       'height' => 'unsigned int',

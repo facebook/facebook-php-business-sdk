@@ -28,7 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\UserContextFields;
+use FacebookAds\Object\Fields\MerchantComplianceFields;
 
 /**
  * This class is auto-generated.
@@ -39,13 +39,13 @@ use FacebookAds\Object\Fields\UserContextFields;
  *
  */
 
-class UserContext extends AbstractCrudObject {
+class MerchantCompliance extends AbstractCrudObject {
 
   /**
-   * @return UserContextFields
+   * @return MerchantComplianceFields
    */
   public static function getFieldsEnum() {
-    return UserContextFields::getInstance();
+    return MerchantComplianceFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -53,51 +53,5 @@ class UserContext extends AbstractCrudObject {
     return $ref_enums;
   }
 
-
-  public function getMutualLikes(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/mutual_likes',
-      new Page(),
-      'EDGE',
-      Page::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/',
-      new UserContext(),
-      'NODE',
-      UserContext::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
 
 }

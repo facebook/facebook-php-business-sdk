@@ -187,7 +187,9 @@ class AdSet extends AbstractArchivableCrudObject
       'execution_options' => 'list<execution_options_enum>',
     );
     $enums = array(
-      'execution_options_enum' => AdSetExecutionOptionsValues::getInstance()->getValues(),
+      'execution_options_enum' => array(
+        'validate_only',
+      ),
     );
 
     $request = new ApiRequest(
@@ -213,7 +215,9 @@ class AdSet extends AbstractArchivableCrudObject
       'execution_options' => 'list<execution_options_enum>',
     );
     $enums = array(
-      'execution_options_enum' => AdSetExecutionOptionsValues::getInstance()->getValues(),
+      'execution_options_enum' => array(
+        'validate_only',
+      ),
     );
 
     $request = new ApiRequest(
@@ -547,6 +551,7 @@ class AdSet extends AbstractArchivableCrudObject
     $this->assureId();
 
     $param_types = array(
+      'am_call_tags' => 'Object',
       'date_preset' => 'date_preset_enum',
       'from_adtable' => 'bool',
       'time_range' => 'Object',
@@ -599,6 +604,7 @@ class AdSet extends AbstractArchivableCrudObject
       'adlabels' => 'list<Object>',
       'bid_amount' => 'int',
       'bid_adjustments' => 'Object',
+      'bid_constraints' => 'Object',
       'bid_strategy' => 'bid_strategy_enum',
       'billing_event' => 'billing_event_enum',
       'campaign_spec' => 'Object',

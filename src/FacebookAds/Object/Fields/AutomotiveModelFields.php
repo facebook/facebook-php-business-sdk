@@ -46,6 +46,8 @@ class AutomotiveModelFields extends AbstractEnum {
   const DESCRIPTION = 'description';
   const DRIVETRAIN = 'drivetrain';
   const EXTERIOR_COLOR = 'exterior_color';
+  const FINANCE_DESCRIPTION = 'finance_description';
+  const FINANCE_TYPE = 'finance_type';
   const FUEL_TYPE = 'fuel_type';
   const GENERATION = 'generation';
   const ID = 'id';
@@ -73,6 +75,8 @@ class AutomotiveModelFields extends AbstractEnum {
       'description' => 'string',
       'drivetrain' => 'string',
       'exterior_color' => 'string',
+      'finance_description' => 'string',
+      'finance_type' => 'string',
       'fuel_type' => 'string',
       'generation' => 'string',
       'id' => 'string',

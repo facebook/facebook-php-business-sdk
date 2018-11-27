@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\PageLocationsHealthSummaryFields;
 
 /**
  * This class is auto-generated.
@@ -33,28 +37,21 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static ProductCatalogProductTypeValues getInstance()
  */
-class ProductCatalogProductTypeValues extends AbstractEnum {
 
-  const AUTO = 'AUTO';
-  const AUTO_MARKET = 'AUTO_MARKET';
-  const AUTO_OFFER = 'AUTO_OFFER';
-  const AUTOMOTIVE_MODEL = 'AUTOMOTIVE_MODEL';
-  const DESTINATION = 'DESTINATION';
-  const FLIGHT = 'FLIGHT';
-  const GEO_BASED_ITEM = 'GEO_BASED_ITEM';
-  const HOME_LISTING = 'HOME_LISTING';
-  const HOME_SERVICE_PROVIDER = 'HOME_SERVICE_PROVIDER';
-  const HOME_SERVICE_REVIEW = 'HOME_SERVICE_REVIEW';
-  const HOTEL = 'HOTEL';
-  const HOTEL_ROOM = 'HOTEL_ROOM';
-  const MEDIA_TITLE = 'MEDIA_TITLE';
-  const OTHER_TEST_DYNAMIC_ITEM = 'OTHER_TEST_DYNAMIC_ITEM';
-  const PRODUCT_GROUP = 'PRODUCT_GROUP';
-  const PRODUCT_ITEM = 'PRODUCT_ITEM';
-  const STORE_PRODUCT_ITEM = 'STORE_PRODUCT_ITEM';
-  const TEST_DYNAMIC_ITEM = 'TEST_DYNAMIC_ITEM';
-  const VEHICLE = 'VEHICLE';
-  const VEHICLE_OFFER = 'VEHICLE_OFFER';
+class PageLocationsHealthSummary extends AbstractCrudObject {
+
+  /**
+   * @return PageLocationsHealthSummaryFields
+   */
+  public static function getFieldsEnum() {
+    return PageLocationsHealthSummaryFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
 }

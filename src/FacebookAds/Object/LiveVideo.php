@@ -222,6 +222,52 @@ class LiveVideo extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getGuestSessions(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/guest_sessions',
+      new LiveWithGuestSession(),
+      'EDGE',
+      LiveWithGuestSession::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createGuestSession(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/guest_sessions',
+      new LiveWithGuestSession(),
+      'EDGE',
+      LiveWithGuestSession::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createInputStream(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -373,6 +419,7 @@ class LiveVideo extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'target_token' => 'string',
     );
     $enums = array(
     );

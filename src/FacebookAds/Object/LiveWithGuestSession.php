@@ -28,7 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\UserContextFields;
+use FacebookAds\Object\Fields\LiveWithGuestSessionFields;
 
 /**
  * This class is auto-generated.
@@ -39,13 +39,13 @@ use FacebookAds\Object\Fields\UserContextFields;
  *
  */
 
-class UserContext extends AbstractCrudObject {
+class LiveWithGuestSession extends AbstractCrudObject {
 
   /**
-   * @return UserContextFields
+   * @return LiveWithGuestSessionFields
    */
   public static function getFieldsEnum() {
-    return UserContextFields::getInstance();
+    return LiveWithGuestSessionFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -54,7 +54,7 @@ class UserContext extends AbstractCrudObject {
   }
 
 
-  public function getMutualLikes(array $fields = array(), array $params = array(), $pending = false) {
+  public function createHangup(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -65,11 +65,59 @@ class UserContext extends AbstractCrudObject {
     $request = new ApiRequest(
       $this->api,
       $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/mutual_likes',
-      new Page(),
+      RequestInterface::METHOD_POST,
+      '/hangup',
+      new LiveWithGuestSession(),
       'EDGE',
-      Page::getFieldsEnum()->getValues(),
+      LiveWithGuestSession::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createJoin(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'offer_sdp' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/join',
+      new LiveWithGuestSession(),
+      'EDGE',
+      LiveWithGuestSession::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createRingUser(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'user_ids' => 'list<unsigned int>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/ring_users',
+      new LiveWithGuestSession(),
+      'EDGE',
+      LiveWithGuestSession::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -90,9 +138,9 @@ class UserContext extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new UserContext(),
+      new LiveWithGuestSession(),
       'NODE',
-      UserContext::getFieldsEnum()->getValues(),
+      LiveWithGuestSession::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

@@ -44,8 +44,6 @@ class ProductCatalogFields extends AbstractEnum {
   const FEED_COUNT = 'feed_count';
   const FLIGHT_CATALOG_SETTINGS = 'flight_catalog_settings';
   const ID = 'id';
-  const IMAGE_PADDING_LANDSCAPE = 'image_padding_landscape';
-  const IMAGE_PADDING_SQUARE = 'image_padding_square';
   const NAME = 'name';
   const PRODUCT_COUNT = 'product_count';
   const QUALIFIED_PRODUCT_COUNT = 'qualified_product_count';
@@ -61,8 +59,6 @@ class ProductCatalogFields extends AbstractEnum {
       'feed_count' => 'int',
       'flight_catalog_settings' => 'FlightCatalogSettings',
       'id' => 'string',
-      'image_padding_landscape' => 'bool',
-      'image_padding_square' => 'bool',
       'name' => 'string',
       'product_count' => 'int',
       'qualified_product_count' => 'unsigned int',

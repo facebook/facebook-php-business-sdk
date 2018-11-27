@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,12 +33,21 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static LeadGenLegalContentStatusValues getInstance()
  */
-class LeadGenLegalContentStatusValues extends AbstractEnum {
 
-  const ACTIVE = 'ACTIVE';
-  const ARCHIVED = 'ARCHIVED';
-  const DELETED = 'DELETED';
-  const DRAFT = 'DRAFT';
+class PageLocationsHealthSummaryFields extends AbstractEnum {
+
+  const CHECKED_COUNT = 'checked_count';
+  const HEALTH_CHECK = 'health_check';
+  const UNHEALTHY_COUNT = 'unhealthy_count';
+  const ID = 'id';
+
+  public function getFieldTypes() {
+    return array(
+      'checked_count' => 'int',
+      'health_check' => 'string',
+      'unhealthy_count' => 'int',
+      'id' => 'string',
+    );
+  }
 }

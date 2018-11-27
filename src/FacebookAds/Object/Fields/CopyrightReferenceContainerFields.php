@@ -43,11 +43,13 @@ class CopyrightReferenceContainerFields extends AbstractEnum {
   const DURATION_IN_SEC = 'duration_in_sec';
   const FINGERPRINT_VALIDITY = 'fingerprint_validity';
   const ID = 'id';
+  const ISWC = 'iswc';
   const METADATA = 'metadata';
   const PUBLISHED_TIME = 'published_time';
   const THUMBNAIL_URL = 'thumbnail_url';
   const TITLE = 'title';
   const UNIVERSAL_CONTENT_ID = 'universal_content_id';
+  const WRITER_NAMES = 'writer_names';
 
   public function getFieldTypes() {
     return array(
@@ -57,11 +59,13 @@ class CopyrightReferenceContainerFields extends AbstractEnum {
       'duration_in_sec' => 'float',
       'fingerprint_validity' => 'string',
       'id' => 'string',
+      'iswc' => 'string',
       'metadata' => 'Object',
       'published_time' => 'datetime',
       'thumbnail_url' => 'string',
       'title' => 'string',
       'universal_content_id' => 'string',
+      'writer_names' => 'list<string>',
     );
   }
 }

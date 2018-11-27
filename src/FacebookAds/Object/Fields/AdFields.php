@@ -60,7 +60,6 @@ class AdFields extends AbstractEnum {
   const ISSUES_INFO = 'issues_info';
   const LAST_UPDATED_BY_APP_ID = 'last_updated_by_app_id';
   const NAME = 'name';
-  const OBJECTIVE_SOURCE = 'objective_source';
   const PRIORITY = 'priority';
   const RECOMMENDATIONS = 'recommendations';
   const SOURCE_AD = 'source_ad';
@@ -103,7 +102,6 @@ class AdFields extends AbstractEnum {
       'issues_info' => 'list<AdgroupIssuesInfo>',
       'last_updated_by_app_id' => 'string',
       'name' => 'string',
-      'objective_source' => 'string',
       'priority' => 'unsigned int',
       'recommendations' => 'list<AdRecommendation>',
       'source_ad' => 'Ad',

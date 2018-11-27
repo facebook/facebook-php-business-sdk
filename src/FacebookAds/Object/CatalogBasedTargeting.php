@@ -28,7 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AdgroupMetadataFields;
+use FacebookAds\Object\Fields\CatalogBasedTargetingFields;
 
 /**
  * This class is auto-generated.
@@ -39,13 +39,13 @@ use FacebookAds\Object\Fields\AdgroupMetadataFields;
  *
  */
 
-class AdgroupMetadata extends AbstractCrudObject {
+class CatalogBasedTargeting extends AbstractCrudObject {
 
   /**
-   * @return AdgroupMetadataFields
+   * @return CatalogBasedTargetingFields
    */
   public static function getFieldsEnum() {
-    return AdgroupMetadataFields::getInstance();
+    return CatalogBasedTargetingFields::getInstance();
   }
 
   protected static function getReferencedEnums() {

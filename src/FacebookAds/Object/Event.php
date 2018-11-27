@@ -38,7 +38,12 @@ use FacebookAds\Object\Values\AdVideoUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\AdVideoUploadPhaseValues;
 use FacebookAds\Object\Values\CommentCommentPrivacyValueValues;
 use FacebookAds\Object\Values\EventEventStateFilterValues;
+use FacebookAds\Object\Values\EventProjectionValues;
 use FacebookAds\Object\Values\EventPromotableEventTypesValues;
+use FacebookAds\Object\Values\EventSpatialAudioFormatValues;
+use FacebookAds\Object\Values\EventStatusValues;
+use FacebookAds\Object\Values\EventStereoscopicModeValues;
+use FacebookAds\Object\Values\EventStreamTypeValues;
 use FacebookAds\Object\Values\EventTimeFilterValues;
 use FacebookAds\Object\Values\EventTypeValues;
 use FacebookAds\Object\Values\PhotoBackdatedTimeGranularityValues;
@@ -65,6 +70,11 @@ class Event extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['Type'] = EventTypeValues::getInstance()->getValues();
+    $ref_enums['Projection'] = EventProjectionValues::getInstance()->getValues();
+    $ref_enums['SpatialAudioFormat'] = EventSpatialAudioFormatValues::getInstance()->getValues();
+    $ref_enums['Status'] = EventStatusValues::getInstance()->getValues();
+    $ref_enums['StereoscopicMode'] = EventStereoscopicModeValues::getInstance()->getValues();
+    $ref_enums['StreamType'] = EventStreamTypeValues::getInstance()->getValues();
     $ref_enums['EventStateFilter'] = EventEventStateFilterValues::getInstance()->getValues();
     $ref_enums['TimeFilter'] = EventTimeFilterValues::getInstance()->getValues();
     $ref_enums['PromotableEventTypes'] = EventPromotableEventTypesValues::getInstance()->getValues();
@@ -536,30 +546,11 @@ class Event extends AbstractCrudObject {
       'stereoscopic_mode' => 'stereoscopic_mode_enum',
     );
     $enums = array(
-      'status_enum' => array(
-        'UNPUBLISHED',
-        'LIVE_NOW',
-        'SCHEDULED_UNPUBLISHED',
-        'SCHEDULED_LIVE',
-        'SCHEDULED_CANCELED',
-      ),
-      'stream_type_enum' => array(
-        'REGULAR',
-        'AMBIENT',
-      ),
-      'projection_enum' => array(
-        'EQUIRECTANGULAR',
-        'CUBEMAP',
-        'HALF_EQUIRECTANGULAR',
-      ),
-      'spatial_audio_format_enum' => array(
-        'ambiX_4',
-      ),
-      'stereoscopic_mode_enum' => array(
-        'MONO',
-        'LEFT_RIGHT',
-        'TOP_BOTTOM',
-      ),
+      'status_enum' => EventStatusValues::getInstance()->getValues(),
+      'stream_type_enum' => EventStreamTypeValues::getInstance()->getValues(),
+      'projection_enum' => EventProjectionValues::getInstance()->getValues(),
+      'spatial_audio_format_enum' => EventSpatialAudioFormatValues::getInstance()->getValues(),
+      'stereoscopic_mode_enum' => EventStereoscopicModeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -567,9 +558,9 @@ class Event extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/live_videos',
-      new AbstractCrudObject(),
+      new Event(),
       'EDGE',
-      array(),
+      Event::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

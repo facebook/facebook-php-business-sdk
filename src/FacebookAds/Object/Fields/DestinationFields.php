@@ -53,7 +53,7 @@ class DestinationFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'address' => 'Object',
+      'address' => 'string',
       'applinks' => 'AppLinks',
       'currency' => 'string',
       'description' => 'string',
