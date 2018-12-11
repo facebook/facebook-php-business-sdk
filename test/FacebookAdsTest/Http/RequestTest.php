@@ -182,6 +182,13 @@ class RequestTest extends AbstractUnitTestCase {
     $this->assertFalse($file_params === $clone->getFileParams());
   }
 
+  public function testUrlCustomArgSeparator(){
+      $separator = ini_get('arg_separator.output');
+      ini_set('arg_separator.output', '&amp;');
+      $this->testUrl();
+      ini_set('arg_separator.output', $separator);
+  }
+
   /**
    * @depends testProtocol
    * @depends testDomain
