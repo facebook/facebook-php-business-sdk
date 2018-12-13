@@ -356,7 +356,7 @@ class Album extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getShareDPosts(array $fields = array(), array $params = array(), $pending = false) {
+  public function getSharedPosts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(

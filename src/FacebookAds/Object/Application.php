@@ -37,6 +37,7 @@ use FacebookAds\Object\Values\ApplicationMutationMethodValues;
 use FacebookAds\Object\Values\ApplicationOrderingColumnValues;
 use FacebookAds\Object\Values\ApplicationOrderingTypeValues;
 use FacebookAds\Object\Values\ApplicationPlatformValues;
+use FacebookAds\Object\Values\ApplicationPostMethodValues;
 use FacebookAds\Object\Values\ApplicationRequestTypeValues;
 use FacebookAds\Object\Values\ApplicationRoleValues;
 use FacebookAds\Object\Values\ApplicationScoreTypeValues;
@@ -77,6 +78,7 @@ class Application extends AbstractCrudObject {
     $ref_enums['Platform'] = ApplicationPlatformValues::getInstance()->getValues();
     $ref_enums['RequestType'] = ApplicationRequestTypeValues::getInstance()->getValues();
     $ref_enums['MutationMethod'] = ApplicationMutationMethodValues::getInstance()->getValues();
+    $ref_enums['PostMethod'] = ApplicationPostMethodValues::getInstance()->getValues();
     $ref_enums['ScoreType'] = ApplicationScoreTypeValues::getInstance()->getValues();
     $ref_enums['SortOrder'] = ApplicationSortOrderValues::getInstance()->getValues();
     $ref_enums['Role'] = ApplicationRoleValues::getInstance()->getValues();
@@ -373,90 +375,6 @@ class Application extends AbstractCrudObject {
       new AdNetworkAnalyticsAsyncQueryResult(),
       'EDGE',
       AdNetworkAnalyticsAsyncQueryResult::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getAdsAppInsights(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'metric' => 'metric_enum',
-      'since' => 'datetime',
-      'until' => 'datetime',
-      'details' => 'details_enum',
-      'filters' => 'Object',
-      'breakdowns' => 'list<breakdowns_enum>',
-      'limit' => 'unsigned int',
-      'timeseries' => 'bool',
-    );
-    $enums = array(
-      'metric_enum' => array(
-        'ads_api_call',
-        'ads_api_error',
-        'ads_api_error_rate',
-      ),
-      'details_enum' => array(
-        'daily',
-        'hourly',
-      ),
-      'breakdowns_enum' => array(
-        'none',
-        'ad_account_id',
-        'method',
-        'version',
-        'error',
-      ),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/ads_app_insights',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getAdsAppInsightsDimensions(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'dimension' => 'dimension_enum',
-      'since' => 'datetime',
-      'until' => 'datetime',
-      'details' => 'details_enum',
-      'limit' => 'unsigned int',
-    );
-    $enums = array(
-      'dimension_enum' => array(
-        'ad_account_id',
-        'method',
-        'version',
-      ),
-      'details_enum' => array(
-        'daily',
-        'hourly',
-      ),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/ads_app_insights_dimensions',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1058,11 +976,13 @@ class Application extends AbstractCrudObject {
     $param_types = array(
       'mutation_method' => 'mutation_method_enum',
       'platform' => 'platform_enum',
+      'post_method' => 'post_method_enum',
       'mappings' => 'list<map>',
     );
     $enums = array(
       'mutation_method_enum' => ApplicationMutationMethodValues::getInstance()->getValues(),
       'platform_enum' => ApplicationPlatformValues::getInstance()->getValues(),
+      'post_method_enum' => ApplicationPostMethodValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -2026,29 +1946,6 @@ class Application extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getPixelHelperDebuggingInfo(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/pixel_helper_debugging_info',
-      new ExternalEventSourcePixelHelperDebuggingInfo(),
-      'EDGE',
-      ExternalEventSourcePixelHelperDebuggingInfo::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getProducts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -2090,31 +1987,6 @@ class Application extends AbstractCrudObject {
       new AbstractCrudObject(),
       'EDGE',
       array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getRecentDebuggings(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'event_name' => 'string',
-      'diagnostic' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/recent_debuggings',
-      new ExternalEventSourceDebugging(),
-      'EDGE',
-      ExternalEventSourceDebugging::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

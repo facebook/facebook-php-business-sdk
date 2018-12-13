@@ -75,9 +75,9 @@ class PublisherBlockList extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/paged_app_publishers',
-      new AppPublisher(),
+      new AbstractCrudObject(),
       'EDGE',
-      AppPublisher::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -99,9 +99,9 @@ class PublisherBlockList extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/paged_web_publishers',
-      new WebPublisher(),
+      new AbstractCrudObject(),
       'EDGE',
-      WebPublisher::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

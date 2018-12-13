@@ -39,6 +39,7 @@ class ProductFeedUploadFields extends AbstractEnum {
 
   const END_TIME = 'end_time';
   const ERROR_COUNT = 'error_count';
+  const ERROR_REPORT = 'error_report';
   const FILENAME = 'filename';
   const ID = 'id';
   const INPUT_METHOD = 'input_method';
@@ -54,6 +55,7 @@ class ProductFeedUploadFields extends AbstractEnum {
     return array(
       'end_time' => 'datetime',
       'error_count' => 'int',
+      'error_report' => 'ProductFeedUploadErrorReport',
       'filename' => 'string',
       'id' => 'string',
       'input_method' => 'InputMethod',

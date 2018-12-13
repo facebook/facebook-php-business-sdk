@@ -30,6 +30,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdAccountFields;
 use FacebookAds\Object\Values\AdAccountAdRulesHistoryActionValues;
+use FacebookAds\Object\Values\AdAccountAdRulesHistoryEvaluationTypeValues;
 use FacebookAds\Object\Values\AdAccountClaimObjectiveValues;
 use FacebookAds\Object\Values\AdAccountContentTypeValues;
 use FacebookAds\Object\Values\AdAccountCurrencyValues;
@@ -53,6 +54,8 @@ use FacebookAds\Object\Values\AdCreativeOperatorValues;
 use FacebookAds\Object\Values\AdDatePresetValues;
 use FacebookAds\Object\Values\AdExecutionOptionsValues;
 use FacebookAds\Object\Values\AdOperatorValues;
+use FacebookAds\Object\Values\AdPlacePageSetLocationTypesValues;
+use FacebookAds\Object\Values\AdPlacePageSetTargetedAreaTypeValues;
 use FacebookAds\Object\Values\AdPreviewAdFormatValues;
 use FacebookAds\Object\Values\AdPreviewRenderTypeValues;
 use FacebookAds\Object\Values\AdReportSpecActionsGroupByValues;
@@ -172,6 +175,58 @@ class AdAccount extends AbstractCrudObject {
       new AdActivity(),
       'EDGE',
       AdActivity::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getAdPlacePageSets(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/ad_place_page_sets',
+      new AdPlacePageSet(),
+      'EDGE',
+      AdPlacePageSet::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createAdPlacePageSet(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'name' => 'string',
+      'location_types' => 'list<location_types_enum>',
+      'parent_page' => 'string',
+      'targeted_area_type' => 'targeted_area_type_enum',
+    );
+    $enums = array(
+      'location_types_enum' => AdPlacePageSetLocationTypesValues::getInstance()->getValues(),
+      'targeted_area_type_enum' => AdPlacePageSetTargetedAreaTypeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/ad_place_page_sets',
+      new AdPlacePageSet(),
+      'EDGE',
+      AdPlacePageSet::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -382,7 +437,7 @@ class AdAccount extends AbstractCrudObject {
       'image_url' => 'string',
       'instagram_actor_id' => 'string',
       'instagram_permalink_url' => 'string',
-      'instagram_story_id' => 'unsigned int',
+      'portrait_customizations' => 'map',
       'link_og_id' => 'string',
       'link_url' => 'string',
       'name' => 'string',
@@ -986,9 +1041,11 @@ class AdAccount extends AbstractCrudObject {
       'object_id' => 'string',
       'action' => 'action_enum',
       'hide_no_changes' => 'bool',
+      'evaluation_type' => 'evaluation_type_enum',
     );
     $enums = array(
       'action_enum' => AdAccountAdRulesHistoryActionValues::getInstance()->getValues(),
+      'evaluation_type_enum' => AdAccountAdRulesHistoryEvaluationTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -2192,6 +2249,7 @@ class AdAccount extends AbstractCrudObject {
       'effective_status' => 'list<effective_status_enum>',
       'date_preset' => 'date_preset_enum',
       'is_completed' => 'bool',
+      'time_range' => 'Object',
     );
     $enums = array(
       'effective_status_enum' => CampaignEffectiveStatusValues::getInstance()->getValues(),
@@ -2648,9 +2706,9 @@ class AdAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/emailimport',
-      new EmailImport(),
+      new AbstractCrudObject(),
       'EDGE',
-      EmailImport::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

@@ -63,7 +63,7 @@ class EventSourceGroup extends AbstractCrudObject {
   }
 
 
-  public function getShareDAccounts(array $fields = array(), array $params = array(), $pending = false) {
+  public function getSharedAccounts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -86,7 +86,7 @@ class EventSourceGroup extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createShareDAccount(array $fields = array(), array $params = array(), $pending = false) {
+  public function createSharedAccount(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(

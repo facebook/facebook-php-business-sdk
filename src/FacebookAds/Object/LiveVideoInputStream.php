@@ -58,6 +58,7 @@ class LiveVideoInputStream extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'target_token' => 'string',
     );
     $enums = array(
     );

@@ -1042,4 +1042,46 @@ class Group extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'update_view_time' => 'bool',
+      'name' => 'string',
+      'description' => 'string',
+      'group_icon' => 'string',
+      'privacy' => 'string',
+      'archive' => 'bool',
+      'group_type' => 'group_type_enum',
+      'join_setting' => 'join_setting_enum',
+      'post_permissions' => 'post_permissions_enum',
+      'post_requires_admin_approval' => 'bool',
+      'cover' => 'string',
+      'cover_url' => 'string',
+      'offset_y' => 'int',
+      'no_feed_story' => 'bool',
+      'focus_x' => 'float',
+      'focus_y' => 'float',
+    );
+    $enums = array(
+      'group_type_enum' => GroupGroupTypeValues::getInstance()->getValues(),
+      'join_setting_enum' => GroupJoinSettingValues::getInstance()->getValues(),
+      'post_permissions_enum' => GroupPostPermissionsValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/',
+      new Group(),
+      'NODE',
+      Group::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
 }

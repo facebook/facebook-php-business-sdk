@@ -44,4 +44,4 @@ $params = array(
 echo json_encode((new Page($id))->createFeed(
   $fields,
   $params
-)->getResponse()->getContent(), JSON_PRETTY_PRINT);
+)->exportAllData(), JSON_PRETTY_PRINT);

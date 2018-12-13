@@ -52,9 +52,12 @@ use FacebookAds\Object\Values\BusinessSurveyBusinessTypeValues;
 use FacebookAds\Object\Values\BusinessTwoFactorTypeValues;
 use FacebookAds\Object\Values\BusinessUserRoleValues;
 use FacebookAds\Object\Values\BusinessVerticalValues;
+use FacebookAds\Object\Values\CreativeDemocracyRunPlacementValues;
 use FacebookAds\Object\Values\CustomConversionCustomEventTypeValues;
 use FacebookAds\Object\Values\DirectDealStatusValues;
 use FacebookAds\Object\Values\MeasurementReportReportTypeValues;
+use FacebookAds\Object\Values\MeasurementUploadEventGroupValues;
+use FacebookAds\Object\Values\MeasurementUploadEventVersionValues;
 use FacebookAds\Object\Values\OfflineConversionDataSetDataOriginValues;
 use FacebookAds\Object\Values\PartnerIntegrationLinkedPartnerValues;
 use FacebookAds\Object\Values\ProductCatalogVerticalValues;
@@ -1037,6 +1040,58 @@ class Business extends AbstractCrudObject {
       new AbstractCrudObject(),
       'EDGE',
       array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getCreativeCompassStudy(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/creative_compass_study',
+      new CreativeDemocracyRun(),
+      'EDGE',
+      CreativeDemocracyRun::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createCreativeCompassStudy(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'campaign_id' => 'list<string>',
+      'creative_id' => 'list<string>',
+      'description' => 'string',
+      'name' => 'string',
+      'placement' => 'placement_enum',
+    );
+    $enums = array(
+      'placement_enum' => CreativeDemocracyRunPlacementValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/creative_compass_study',
+      new CreativeDemocracyRun(),
+      'EDGE',
+      CreativeDemocracyRun::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2225,7 +2280,7 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getPendingShareDPixels(array $fields = array(), array $params = array(), $pending = false) {
+  public function getPendingSharedPixels(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -2405,7 +2460,7 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getShareDAudiencePermissions(array $fields = array(), array $params = array(), $pending = false) {
+  public function getSharedAudiencePermissions(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -2496,6 +2551,59 @@ class Business extends AbstractCrudObject {
       new SystemUser(),
       'EDGE',
       SystemUser::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getUploadEvent(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/upload_event',
+      new MeasurementUploadEvent(),
+      'EDGE',
+      MeasurementUploadEvent::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createUploadEvent(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'group' => 'group_enum',
+      'upload_end_time' => 'Object',
+      'upload_start_time' => 'Object',
+      'upload_tag' => 'string',
+      'version' => 'version_enum',
+    );
+    $enums = array(
+      'group_enum' => MeasurementUploadEventGroupValues::getInstance()->getValues(),
+      'version_enum' => MeasurementUploadEventVersionValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/upload_event',
+      new MeasurementUploadEvent(),
+      'EDGE',
+      MeasurementUploadEvent::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

@@ -75,6 +75,7 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const HOURS = 'hours';
   const PARKING = 'parking';
   const PUBLIC_TRANSIT = 'public_transit';
+  const PAGE_ABOUT_STORY = 'page_about_story';
   const PHONE = 'phone';
   const EMAIL = 'email';
   const WEBSITE = 'website';

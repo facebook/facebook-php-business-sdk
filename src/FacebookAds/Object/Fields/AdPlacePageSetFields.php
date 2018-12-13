@@ -43,6 +43,7 @@ class AdPlacePageSetFields extends AbstractEnum {
   const NAME = 'name';
   const PAGES_COUNT = 'pages_count';
   const PARENT_PAGE = 'parent_page';
+  const TARGETED_AREA_TYPE = 'targeted_area_type';
 
   public function getFieldTypes() {
     return array(
@@ -52,6 +53,7 @@ class AdPlacePageSetFields extends AbstractEnum {
       'name' => 'string',
       'pages_count' => 'int',
       'parent_page' => 'Page',
+      'targeted_area_type' => 'TargetedAreaType',
     );
   }
 }

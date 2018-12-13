@@ -318,7 +318,7 @@ class CustomAudience extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getShareDAccountInfo(array $fields = array(), array $params = array(), $pending = false) {
+  public function getSharedAccountInfo(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(

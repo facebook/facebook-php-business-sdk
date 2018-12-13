@@ -24,7 +24,7 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use FacebookAds\Object\ProductCatalog;
-use FacebookAds\Object\AbstractObject;
+use FacebookAds\Object\Hotel;
 use FacebookAds\Api;
 use FacebookAds\Logger\CurlLogger;
 

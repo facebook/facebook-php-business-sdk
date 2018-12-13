@@ -371,6 +371,7 @@ class ProductCatalog extends AbstractCrudObject {
 
     $param_types = array(
       'handle' => 'string',
+      'load_all_errors' => 'bool',
     );
     $enums = array(
     );

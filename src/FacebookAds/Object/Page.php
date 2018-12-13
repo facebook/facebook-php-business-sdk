@@ -3879,7 +3879,7 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getScheduleDPosts(array $fields = array(), array $params = array(), $pending = false) {
+  public function getScheduledPosts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(

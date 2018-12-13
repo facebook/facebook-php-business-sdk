@@ -29,6 +29,8 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdPlacePageSetFields;
+use FacebookAds\Object\Values\AdPlacePageSetLocationTypesValues;
+use FacebookAds\Object\Values\AdPlacePageSetTargetedAreaTypeValues;
 
 /**
  * This class is auto-generated.
@@ -57,6 +59,8 @@ class AdPlacePageSet extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['LocationTypes'] = AdPlacePageSetLocationTypesValues::getInstance()->getValues();
+    $ref_enums['TargetedAreaType'] = AdPlacePageSetTargetedAreaTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 

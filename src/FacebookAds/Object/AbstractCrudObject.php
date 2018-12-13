@@ -378,7 +378,7 @@ class AbstractCrudObject extends AbstractObject {
       return null;
     }
     $object = new $prototype_class(
-      null, $this->{static::FIELD_ID}, $this->getApi());
+      null, null, $this->getApi());
     /** @var AbstractCrudObject $object */
     $object->setDataWithoutValidation($response->getContent());
     return $object;
@@ -401,7 +401,7 @@ class AbstractCrudObject extends AbstractObject {
       $fields, $params, $prototype_class, $endpoint);
     return new Cursor(
       $response,
-      new $prototype_class(null, $this->{static::FIELD_ID}, $this->getApi()));
+      new $prototype_class(null, null, $this->getApi()));
   }
   /**
    * @param string $job_class

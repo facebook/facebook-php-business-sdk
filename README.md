@@ -156,23 +156,28 @@ Requesting an high number of fields may cause the response time to visibly incre
 
 ```php
 use FacebookAds\Object\AdSet;
+use FacebookAds\Object\AdAccount;
 use FacebookAds\Object\Fields\AdSetFields;
 
 $account_id = 'act_123123';
 $campaign_id = '123456';
 
-$set = new AdSet(null, $account_id);
-$set->setData(array(
-  AdSetFields::NAME => 'My Test AdSet',
-  AdSetFields::CAMPAIGN_ID => $campaign_id,
-  AdSetFields::DAILY_BUDGET => 150,
-  AdSetFields::START_TIME => (new \DateTime("+1 week"))->format(\DateTime::ISO8601),
-  AdSetFields::END_TIME => (new \DateTime("+2 week"))->format(\DateTime::ISO8601),
-));
-$set->create(array(
-  AdSet::STATUS_PARAM_NAME => AdSet::STATUS_PAUSED,
-));
-echo $set->id;
+$account = new AdAccount($account_id);
+$adset = $account->createAdSet(
+    array(),
+    array(
+      AdSetFields::NAME => 'My Test AdSet',
+      AdSetFields::CAMPAIGN_ID => campaign_id,
+      AdSetFields::DAILY_BUDGET => 150,
+      AdSetFields::START_TIME => (new \DateTime("+1 week"))->format(\DateTime::ISO8601),
+      AdSetFields::END_TIME => (new \DateTime("+2 week"))->format(\DateTime::ISO8601),
+      AdSetFields::BILLING_EVENT => 'IMPRESSIONS',
+      AdSetFields::TARGETING => array('geo_locations' => array('countries' => array('US'))),
+      AdSetFields::BID_AMOUNT => '1000',
+    )
+);
+
+echo $adset->id;
 ```
 
 #### Update Objects

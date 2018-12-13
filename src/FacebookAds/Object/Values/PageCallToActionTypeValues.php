@@ -63,4 +63,5 @@ class PageCallToActionTypeValues extends AbstractEnum {
   const SHOP_ON_FACEBOOK = 'SHOP_ON_FACEBOOK';
   const LOCAL_DEV_PLATFORM = 'LOCAL_DEV_PLATFORM';
   const INTERESTED = 'INTERESTED';
+  const WOODHENGE_SUPPORT = 'WOODHENGE_SUPPORT';
 }
