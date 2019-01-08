@@ -90,7 +90,7 @@ use FacebookAds\Api;
 // Initialize a new Session and instantiate an Api object
 Api::init($app_id, $app_secret, $access_token);
 
-// The Api object is now available trough singleton
+// The Api object is now available through singleton
 $api = Api::instance();
 
 ```
