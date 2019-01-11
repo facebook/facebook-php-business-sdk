@@ -592,6 +592,7 @@ class AdAccount extends AbstractCrudObject {
       'zipbytes' => 'Object',
       'bytes' => 'Object',
       'copy_from' => 'Object',
+      'filename' => 'file'
     );
     $enums = array(
     );

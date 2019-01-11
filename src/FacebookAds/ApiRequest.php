@@ -75,7 +75,11 @@ class ApiRequest {
     if (!ApiConfig::TYPE_CHECKER_STRICT_MODE
       || !$this->param_checker->isValidParam($param)
     ) {
-      $this->params[$param] = $extracted_value;
+      if ($this->param_checker->isFileParam($param)) {
+          $this->file_params[$param] = $extracted_value;
+      } else {
+        $this->params[$param] = $extracted_value;
+      }
     } else {
       if ($this->param_checker->isValidParamPair($param, $value)) {
         if ($this->param_checker->isFileParam($param)) {
@@ -179,8 +183,10 @@ class ApiRequest {
       $fields = implode(',', $this->fields);
       $updated_params['fields'] = $fields;
     }
+
     $response = $this->api->call(
       $url_path, $this->method, $updated_params, $this->file_params);
+
     if ($this->api_type === "EDGE" && $this->method === "GET") {
       return new Cursor($response, $this->return_prototype, $this->api);
     } else if ($this->method === "DELETE") {

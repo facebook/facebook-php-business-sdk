@@ -197,10 +197,14 @@ class Api {
   public function call(
     $path,
     $method = RequestInterface::METHOD_GET,
-    array $params = array()) {
-
+    array $params = array(),
+    array $file_params = array()) {
     $request = $this->prepareRequest($path, $method, $params);
-
+    if (!empty($file_params)) {
+      foreach($file_params as $key=>$value) {
+        $request->getFileParams()->offsetSet($key, $value);
+      }
+    }
     return $this->executeRequest($request);
   }
 
