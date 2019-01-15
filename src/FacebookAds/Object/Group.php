@@ -40,6 +40,7 @@ use FacebookAds\Object\Values\AdVideoUploadPhaseValues;
 use FacebookAds\Object\Values\GroupGroupTypeValues;
 use FacebookAds\Object\Values\GroupJoinSettingValues;
 use FacebookAds\Object\Values\GroupPostPermissionsValues;
+use FacebookAds\Object\Values\GroupPurposeValues;
 use FacebookAds\Object\Values\GroupSuggestionCategoryValues;
 use FacebookAds\Object\Values\LiveVideoBroadcastStatusValues;
 use FacebookAds\Object\Values\LiveVideoProjectionValues;
@@ -76,6 +77,7 @@ class Group extends AbstractCrudObject {
     $ref_enums['GroupType'] = GroupGroupTypeValues::getInstance()->getValues();
     $ref_enums['JoinSetting'] = GroupJoinSettingValues::getInstance()->getValues();
     $ref_enums['PostPermissions'] = GroupPostPermissionsValues::getInstance()->getValues();
+    $ref_enums['Purpose'] = GroupPurposeValues::getInstance()->getValues();
     $ref_enums['SuggestionCategory'] = GroupSuggestionCategoryValues::getInstance()->getValues();
     return $ref_enums;
   }
@@ -1053,6 +1055,7 @@ class Group extends AbstractCrudObject {
       'privacy' => 'string',
       'archive' => 'bool',
       'group_type' => 'group_type_enum',
+      'purpose' => 'purpose_enum',
       'join_setting' => 'join_setting_enum',
       'post_permissions' => 'post_permissions_enum',
       'post_requires_admin_approval' => 'bool',
@@ -1065,6 +1068,7 @@ class Group extends AbstractCrudObject {
     );
     $enums = array(
       'group_type_enum' => GroupGroupTypeValues::getInstance()->getValues(),
+      'purpose_enum' => GroupPurposeValues::getInstance()->getValues(),
       'join_setting_enum' => GroupJoinSettingValues::getInstance()->getValues(),
       'post_permissions_enum' => GroupPostPermissionsValues::getInstance()->getValues(),
     );

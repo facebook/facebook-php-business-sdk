@@ -52,7 +52,6 @@ use FacebookAds\Object\Values\BusinessSurveyBusinessTypeValues;
 use FacebookAds\Object\Values\BusinessTwoFactorTypeValues;
 use FacebookAds\Object\Values\BusinessUserRoleValues;
 use FacebookAds\Object\Values\BusinessVerticalValues;
-use FacebookAds\Object\Values\CreativeDemocracyRunPlacementValues;
 use FacebookAds\Object\Values\CustomConversionCustomEventTypeValues;
 use FacebookAds\Object\Values\DirectDealStatusValues;
 use FacebookAds\Object\Values\MeasurementReportReportTypeValues;
@@ -199,6 +198,7 @@ class Business extends AbstractCrudObject {
       'partner' => 'string',
       'invoice' => 'bool',
       'po_number' => 'string',
+      'invoicing_emails' => 'list<string>',
       'io' => 'bool',
       'billing_address_id' => 'Object',
       'sold_to_address_id' => 'Object',
@@ -511,6 +511,29 @@ class Business extends AbstractCrudObject {
       new AbstractCrudObject(),
       'EDGE',
       array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getAgencies(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/agencies',
+      new Business(),
+      'EDGE',
+      Business::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1047,7 +1070,7 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getCreativeCompassStudy(array $fields = array(), array $params = array(), $pending = false) {
+  public function getClients(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -1059,39 +1082,10 @@ class Business extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
-      '/creative_compass_study',
-      new CreativeDemocracyRun(),
+      '/clients',
+      new Business(),
       'EDGE',
-      CreativeDemocracyRun::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createCreativeCompassStudy(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'campaign_id' => 'list<string>',
-      'creative_id' => 'list<string>',
-      'description' => 'string',
-      'name' => 'string',
-      'placement' => 'placement_enum',
-    );
-    $enums = array(
-      'placement_enum' => CreativeDemocracyRunPlacementValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/creative_compass_study',
-      new CreativeDemocracyRun(),
-      'EDGE',
-      CreativeDemocracyRun::getFieldsEnum()->getValues(),
+      Business::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2095,6 +2089,7 @@ class Business extends AbstractCrudObject {
       'partner' => 'string',
       'invoice' => 'bool',
       'po_number' => 'string',
+      'invoicing_emails' => 'list<string>',
       'io' => 'bool',
       'billing_address_id' => 'Object',
       'sold_to_address_id' => 'Object',
@@ -2434,6 +2429,29 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getReceivedInprogressOnBehalfRequests(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/received_inprogress_onbehalf_requests',
+      new BusinessOwnedObjectOnBehalfOfRequest(),
+      'EDGE',
+      BusinessOwnedObjectOnBehalfOfRequest::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getReceivedSharingAgreements(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -2453,6 +2471,54 @@ class Business extends AbstractCrudObject {
       new BusinessAgreement(),
       'EDGE',
       BusinessAgreement::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getSentInprogressOnBehalfRequests(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/sent_inprogress_onbehalf_requests',
+      new BusinessOwnedObjectOnBehalfOfRequest(),
+      'EDGE',
+      BusinessOwnedObjectOnBehalfOfRequest::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createSentInprogressOnBehalfRequest(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'receiving_business' => 'string',
+      'business_owned_object' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/sent_inprogress_onbehalf_requests',
+      new BusinessOwnedObjectOnBehalfOfRequest(),
+      'EDGE',
+      BusinessOwnedObjectOnBehalfOfRequest::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

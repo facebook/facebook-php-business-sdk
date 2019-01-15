@@ -147,4 +147,5 @@ class AdAccountTargetingUnifiedLimitTypeValues extends AbstractEnum {
   const PROSPECTING_AUDIENCE = 'prospecting_audience';
   const BRAND_SAFETY_CONTENT_SEVERITY_LEVELS = 'brand_safety_content_severity_levels';
   const CATALOG_BASED_TARGETING = 'catalog_based_targeting';
+  const BRAND_SAFETY_CONTENT_FILTER_LEVELS = 'brand_safety_content_filter_levels';
 }

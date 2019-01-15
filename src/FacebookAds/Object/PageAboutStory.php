@@ -28,8 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\CreativeDemocracyRunFields;
-use FacebookAds\Object\Values\CreativeDemocracyRunPlacementValues;
+use FacebookAds\Object\Fields\PageAboutStoryFields;
 
 /**
  * This class is auto-generated.
@@ -40,30 +39,22 @@ use FacebookAds\Object\Values\CreativeDemocracyRunPlacementValues;
  *
  */
 
-class CreativeDemocracyRun extends AbstractCrudObject {
+class PageAboutStory extends AbstractCrudObject {
 
   /**
-   * @deprecated getEndpoint function is deprecated
-   */
-  protected function getEndpoint() {
-    return 'creative_compass_study';
-  }
-
-  /**
-   * @return CreativeDemocracyRunFields
+   * @return PageAboutStoryFields
    */
   public static function getFieldsEnum() {
-    return CreativeDemocracyRunFields::getInstance();
+    return PageAboutStoryFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Placement'] = CreativeDemocracyRunPlacementValues::getInstance()->getValues();
     return $ref_enums;
   }
 
 
-  public function getCampaignId(array $fields = array(), array $params = array(), $pending = false) {
+  public function deleteSelf(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -74,34 +65,11 @@ class CreativeDemocracyRun extends AbstractCrudObject {
     $request = new ApiRequest(
       $this->api,
       $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/campaign_id',
-      new Campaign(),
-      'EDGE',
-      Campaign::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getCreativeId(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/creative_id',
-      new AdCreative(),
-      'EDGE',
-      AdCreative::getFieldsEnum()->getValues(),
+      RequestInterface::METHOD_DELETE,
+      '/',
+      new AbstractCrudObject(),
+      'NODE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -122,9 +90,9 @@ class CreativeDemocracyRun extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new CreativeDemocracyRun(),
+      new PageAboutStory(),
       'NODE',
-      CreativeDemocracyRun::getFieldsEnum()->getValues(),
+      PageAboutStory::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -136,8 +104,11 @@ class CreativeDemocracyRun extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'description' => 'string',
-      'name' => 'string',
+      'is_published' => 'bool',
+      'title' => 'string',
+      'cover_photo' => 'Object',
+      'composed_text' => 'list<map>',
+      'entity_map' => 'list<map>',
     );
     $enums = array(
     );
@@ -147,9 +118,9 @@ class CreativeDemocracyRun extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/',
-      new CreativeDemocracyRun(),
+      new PageAboutStory(),
       'NODE',
-      CreativeDemocracyRun::getFieldsEnum()->getValues(),
+      PageAboutStory::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

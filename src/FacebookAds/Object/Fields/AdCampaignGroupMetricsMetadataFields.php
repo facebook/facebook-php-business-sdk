@@ -38,11 +38,13 @@ use FacebookAds\Enum\AbstractEnum;
 class AdCampaignGroupMetricsMetadataFields extends AbstractEnum {
 
   const BUDGET_OPTIMIZATION = 'budget_optimization';
+  const DUPLICATION_FLOW_TIPS = 'duplication_flow_tips';
   const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'budget_optimization' => 'list<string>',
+      'duplication_flow_tips' => 'list<string>',
       'id' => 'string',
     );
   }

@@ -23,14 +23,15 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-use FacebookAds\Object\Page;
+use FacebookAds\Object\AdAccount;
+use FacebookAds\Object\Ad;
 use FacebookAds\Api;
 use FacebookAds\Logger\CurlLogger;
 
 $access_token = '<ACCESS_TOKEN>';
 $app_secret = '<APP_SECRET>';
 $app_id = '<APP_ID>';
-$id = '<ID>';
+$id = '<AD_ACCOUNT_ID>';
 
 $api = Api::init($app_id, $app_secret, $access_token);
 $api->setLogger(new CurlLogger());
@@ -38,11 +39,13 @@ $api->setLogger(new CurlLogger());
 $fields = array(
 );
 $params = array(
-  'type' => 'adradiussuggestion',
-  'latitude' => '51.5152253',
-  'longitude' => '-0.1423029',
+  'name' => 'My AdGroup with Redownload',
+  'adset_id' => '<adSetID>',
+  'creative' => array('creative_id' => '<adCreativeID>'),
+  'redownload' => '1',
+  'status' => 'PAUSED',
 );
-echo json_encode((new Page($id))->get(
+echo json_encode((new AdAccount($id))->createAd(
   $fields,
   $params
-)->getResponse()->getContent(), JSON_PRETTY_PRINT);
+)->exportAllData(), JSON_PRETTY_PRINT);

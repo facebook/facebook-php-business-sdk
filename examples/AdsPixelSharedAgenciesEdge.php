@@ -23,15 +23,15 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-use FacebookAds\Object\Ad;
-use FacebookAds\Object\Lead;
+use FacebookAds\Object\AdsPixel;
+use FacebookAds\Object\Business;
 use FacebookAds\Api;
 use FacebookAds\Logger\CurlLogger;
 
 $access_token = '<ACCESS_TOKEN>';
 $app_secret = '<APP_SECRET>';
 $app_id = '<APP_ID>';
-$id = '<AD_GROUP_ID>';
+$id = '<PIXEL_ID>';
 
 $api = Api::init($app_id, $app_secret, $access_token);
 $api->setLogger(new CurlLogger());
@@ -40,7 +40,7 @@ $fields = array(
 );
 $params = array(
 );
-echo json_encode((new Ad($id))->getLeads(
+echo json_encode((new AdsPixel($id))->getShareDAgencies(
   $fields,
   $params
 )->getResponse()->getContent(), JSON_PRETTY_PRINT);

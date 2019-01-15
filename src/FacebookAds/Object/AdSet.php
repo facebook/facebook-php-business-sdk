@@ -187,9 +187,7 @@ class AdSet extends AbstractArchivableCrudObject
       'execution_options' => 'list<execution_options_enum>',
     );
     $enums = array(
-      'execution_options_enum' => array(
-        'validate_only',
-      ),
+      'execution_options_enum' => AdSetExecutionOptionsValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -215,9 +213,7 @@ class AdSet extends AbstractArchivableCrudObject
       'execution_options' => 'list<execution_options_enum>',
     );
     $enums = array(
-      'execution_options_enum' => array(
-        'validate_only',
-      ),
+      'execution_options_enum' => AdSetExecutionOptionsValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

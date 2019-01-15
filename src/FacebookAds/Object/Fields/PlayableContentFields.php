@@ -42,6 +42,7 @@ class PlayableContentFields extends AbstractEnum {
   const OWNER = 'owner';
   const SOURCE = 'source';
   const SOURCE_URL = 'source_url';
+  const SOURCE_ZIP = 'source_zip';
 
   public function getFieldTypes() {
     return array(
@@ -50,6 +51,7 @@ class PlayableContentFields extends AbstractEnum {
       'owner' => 'Profile',
       'source' => 'file',
       'source_url' => 'string',
+      'source_zip' => 'file',
     );
   }
 }

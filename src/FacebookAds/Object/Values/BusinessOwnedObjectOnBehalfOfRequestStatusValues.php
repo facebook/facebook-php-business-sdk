@@ -19,28 +19,26 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
+ *
  */
 
-require __DIR__ . '/vendor/autoload.php';
+namespace FacebookAds\Object\Values;
 
-use FacebookAds\Object\Ad;
-use FacebookAds\Object\Lead;
-use FacebookAds\Api;
-use FacebookAds\Logger\CurlLogger;
+use FacebookAds\Enum\AbstractEnum;
 
-$access_token = '<ACCESS_TOKEN>';
-$app_secret = '<APP_SECRET>';
-$app_id = '<APP_ID>';
-$id = '<AD_GROUP_ID>';
+/**
+ * This class is auto-generated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
+ * @method static BusinessOwnedObjectOnBehalfOfRequestStatusValues getInstance()
+ */
+class BusinessOwnedObjectOnBehalfOfRequestStatusValues extends AbstractEnum {
 
-$api = Api::init($app_id, $app_secret, $access_token);
-$api->setLogger(new CurlLogger());
-
-$fields = array(
-);
-$params = array(
-);
-echo json_encode((new Ad($id))->getLeads(
-  $fields,
-  $params
-)->getResponse()->getContent(), JSON_PRETTY_PRINT);
+  const APPROVE = 'APPROVE';
+  const DECLINE = 'DECLINE';
+  const IN_PROGRESS = 'IN_PROGRESS';
+  const EXPIRED = 'EXPIRED';
+}

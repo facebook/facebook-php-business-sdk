@@ -35,33 +35,25 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class CreativeDemocracyRunFields extends AbstractEnum {
+class PageAboutStoryFields extends AbstractEnum {
 
-  const DESCRIPTION = 'description';
-  const END_DATE = 'end_date';
+  const COMPOSED_TEXT = 'composed_text';
+  const COVER_PHOTO = 'cover_photo';
+  const ENTITY_MAP = 'entity_map';
   const ID = 'id';
-  const NAME = 'name';
-  const PLACEMENT = 'placement';
-  const REPORT_DATA = 'report_data';
-  const REPORT_FILES = 'report_files';
-  const START_DATE = 'start_date';
-  const STATUS = 'status';
-  const CAMPAIGN_ID = 'campaign_id';
-  const CREATIVE_ID = 'creative_id';
+  const IS_PUBLISHED = 'is_published';
+  const PAGE_ID = 'page_id';
+  const TITLE = 'title';
 
   public function getFieldTypes() {
     return array(
-      'description' => 'string',
-      'end_date' => 'string',
+      'composed_text' => 'list<Object>',
+      'cover_photo' => 'Photo',
+      'entity_map' => 'list<Object>',
       'id' => 'string',
-      'name' => 'string',
-      'placement' => 'string',
-      'report_data' => 'list<list<Object>>',
-      'report_files' => 'list<Object>',
-      'start_date' => 'string',
-      'status' => 'string',
-      'campaign_id' => 'list<string>',
-      'creative_id' => 'list<string>',
+      'is_published' => 'bool',
+      'page_id' => 'string',
+      'title' => 'string',
     );
   }
 }

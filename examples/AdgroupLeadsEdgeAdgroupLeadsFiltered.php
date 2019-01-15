@@ -31,7 +31,7 @@ use FacebookAds\Logger\CurlLogger;
 $access_token = '<ACCESS_TOKEN>';
 $app_secret = '<APP_SECRET>';
 $app_id = '<APP_ID>';
-$id = '<ID>';
+$id = '<AD_GROUP_ID>';
 
 $api = Api::init($app_id, $app_secret, $access_token);
 $api->setLogger(new CurlLogger());
@@ -39,7 +39,7 @@ $api->setLogger(new CurlLogger());
 $fields = array(
 );
 $params = array(
-  'filtering' => array(array('field' => 'time_created','operator' => 'GREATER_THAN','value' => '2018-11-25T17 => 47 => 55-0800')),
+  'filtering' => array(array('field' => 'time_created','operator' => 'GREATER_THAN','value' => 1546549613)),
 );
 echo json_encode((new Ad($id))->getLeads(
   $fields,

@@ -41,6 +41,7 @@ class PagePermittedTasksValues extends AbstractEnum {
   const CREATE_CONTENT = 'CREATE_CONTENT';
   const MODERATE = 'MODERATE';
   const MODERATE_COMMUNITY = 'MODERATE_COMMUNITY';
+  const MANAGE_JOBS = 'MANAGE_JOBS';
   const ADVERTISE = 'ADVERTISE';
   const ANALYZE = 'ANALYZE';
 }

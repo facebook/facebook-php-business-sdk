@@ -23,15 +23,15 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-use FacebookAds\Object\Ad;
-use FacebookAds\Object\Lead;
+use FacebookAds\Object\AdAccount;
+use FacebookAds\Object\AdSet;
 use FacebookAds\Api;
 use FacebookAds\Logger\CurlLogger;
 
 $access_token = '<ACCESS_TOKEN>';
 $app_secret = '<APP_SECRET>';
 $app_id = '<APP_ID>';
-$id = '<AD_GROUP_ID>';
+$id = '<AD_ACCOUNT_ID>';
 
 $api = Api::init($app_id, $app_secret, $access_token);
 $api->setLogger(new CurlLogger());
@@ -39,8 +39,19 @@ $api->setLogger(new CurlLogger());
 $fields = array(
 );
 $params = array(
+  'name' => 'A CPA Ad Set optimized for App Events',
+  'campaign_id' => '<adCampaignAppInstallsID>',
+  'daily_budget' => '300',
+  'start_time' => '2019-01-09T21:41:08-0800',
+  'end_time' => '2019-01-16T21:41:08-0800',
+  'billing_event' => 'IMPRESSIONS',
+  'optimization_goal' => 'OFFSITE_CONVERSIONS',
+  'bid_amount' => '100',
+  'status' => 'PAUSED',
+  'promoted_object' => array('application_id' => '<appID>','object_store_url' => '<appLink>','custom_event_type' => 'PURCHASE'),
+  'targeting' => array('geo_locations' => array('countries' => array('US')),'user_os' => array('iOS')),
 );
-echo json_encode((new Ad($id))->getLeads(
+echo json_encode((new AdAccount($id))->createAdSet(
   $fields,
   $params
-)->getResponse()->getContent(), JSON_PRETTY_PRINT);
+)->exportAllData(), JSON_PRETTY_PRINT);

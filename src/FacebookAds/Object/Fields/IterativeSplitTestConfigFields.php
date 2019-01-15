@@ -46,7 +46,6 @@ class IterativeSplitTestConfigFields extends AbstractEnum {
   const RESULTS_WINDOW = 'results_window';
   const SPLITS = 'splits';
   const START_TIME = 'start_time';
-  const TEST_END_METRICS_SNAPSHOT = 'test_end_metrics_snapshot';
 
   public function getFieldTypes() {
     return array(
@@ -59,7 +58,6 @@ class IterativeSplitTestConfigFields extends AbstractEnum {
       'results_window' => 'Object',
       'splits' => 'list<int>',
       'start_time' => 'datetime',
-      'test_end_metrics_snapshot' => 'Object',
     );
   }
 }

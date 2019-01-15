@@ -420,6 +420,7 @@ class Post extends AbstractCrudObject {
         'MULT_CUSTOM_AUDIENCES',
         'EVENT_CUSTOM_AUDIENCES',
         'AUTO_PAGE_LOOKALIKE',
+        'AUTO_TARGETING',
       ),
       'cta_type_enum' => array(
         'OPEN_LINK',

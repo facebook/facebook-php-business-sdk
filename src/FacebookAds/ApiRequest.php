@@ -75,7 +75,11 @@ class ApiRequest {
     if (!ApiConfig::TYPE_CHECKER_STRICT_MODE
       || !$this->param_checker->isValidParam($param)
     ) {
-      $this->params[$param] = $extracted_value;
+      if ($this->param_checker->isFileParam($param)) {
+          $this->file_params[$param] = $extracted_value;
+      } else {
+        $this->params[$param] = $extracted_value;
+      }
     } else {
       if ($this->param_checker->isValidParamPair($param, $value)) {
         if ($this->param_checker->isFileParam($param)) {

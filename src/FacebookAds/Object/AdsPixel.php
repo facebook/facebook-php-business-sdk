@@ -429,6 +429,7 @@ class AdsPixel extends AbstractCrudObject {
       'end_time' => 'Object',
       'aggregation' => 'aggregation_enum',
       'event' => 'string',
+      'event_source' => 'string',
     );
     $enums = array(
       'aggregation_enum' => AdsPixelStatsResultAggregationValues::getInstance()->getValues(),

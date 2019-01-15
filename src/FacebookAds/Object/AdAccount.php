@@ -91,6 +91,7 @@ use FacebookAds\Object\Values\AdsInsightsSummaryActionBreakdownsValues;
 use FacebookAds\Object\Values\AdsPixelSortByValues;
 use FacebookAds\Object\Values\AsyncRequestStatusValues;
 use FacebookAds\Object\Values\AsyncRequestTypeValues;
+use FacebookAds\Object\Values\BusinessOwnedObjectOnBehalfOfRequestStatusValues;
 use FacebookAds\Object\Values\CampaignBidStrategyValues;
 use FacebookAds\Object\Values\CampaignDatePresetValues;
 use FacebookAds\Object\Values\CampaignEffectiveStatusValues;
@@ -592,6 +593,7 @@ class AdAccount extends AbstractCrudObject {
       'zipbytes' => 'Object',
       'bytes' => 'Object',
       'copy_from' => 'Object',
+      'filename' => 'file'
     );
     $enums = array(
     );
@@ -771,6 +773,7 @@ class AdAccount extends AbstractCrudObject {
       'name' => 'string',
       'source' => 'file',
       'source_url' => 'string',
+      'source_zip' => 'file',
     );
     $enums = array(
     );
@@ -3090,6 +3093,31 @@ class AdAccount extends AbstractCrudObject {
       new OffsitePixel(),
       'EDGE',
       OffsitePixel::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getOnBehalfRequests(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'status' => 'status_enum',
+    );
+    $enums = array(
+      'status_enum' => BusinessOwnedObjectOnBehalfOfRequestStatusValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/onbehalf_requests',
+      new BusinessOwnedObjectOnBehalfOfRequest(),
+      'EDGE',
+      BusinessOwnedObjectOnBehalfOfRequest::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

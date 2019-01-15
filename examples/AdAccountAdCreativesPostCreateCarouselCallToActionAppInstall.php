@@ -31,7 +31,7 @@ use FacebookAds\Logger\CurlLogger;
 $access_token = '<ACCESS_TOKEN>';
 $app_secret = '<APP_SECRET>';
 $app_id = '<APP_ID>';
-$id = '<ID>';
+$id = '<AD_ACCOUNT_ID>';
 
 $api = Api::init($app_id, $app_secret, $access_token);
 $api->setLogger(new CurlLogger());
@@ -40,7 +40,7 @@ $fields = array(
 );
 $params = array(
   'name' => 'Carousel app ad',
-  'object_story_spec' => array('page_id' => '<pageID>','link_data' => array('message' => 'My message','link' => 'http://www.example.com/appstoreurl','caption' => 'WWW.ITUNES.COM','name' => 'The link name','description' => 'The link's description','child_attachments' => array(array('link' => 'http://www.example.com/appstoreurl','image_hash' => '<imageHash>','call_to_action' => array('type' => 'USE_MOBILE_APP','value' => array('app_link' => '<deepLink>'))),array('link' => 'http://www.example.com/appstoreurl','image_hash' => '<imageHash>','call_to_action' => array('type' => 'USE_MOBILE_APP','value' => array('app_link' => '<deepLink>'))),array('link' => 'http://www.example.com/appstoreurl','image_hash' => '<imageHash>','call_to_action' => array('type' => 'USE_MOBILE_APP','value' => array('app_link' => '<deepLink>'))),array('link' => 'http://www.example.com/appstoreurl','image_hash' => '<imageHash>','call_to_action' => array('type' => 'USE_MOBILE_APP','value' => array('app_link' => '<deepLink>')))),'multi_share_optimized' => true)),
+  'object_story_spec' => array('page_id' => '<pageID>','link_data' => array('message' => 'My message','link' => 'http://www.example.com/appstoreurl','caption' => 'WWW.ITUNES.COM','name' => 'The link name','description' => 'The link description','child_attachments' => array(array('link' => 'http://www.example.com/appstoreurl','image_hash' => '<imageHash>','call_to_action' => array('type' => 'USE_MOBILE_APP','value' => array('app_link' => '<deepLink>'))),array('link' => 'http://www.example.com/appstoreurl','image_hash' => '<imageHash>','call_to_action' => array('type' => 'USE_MOBILE_APP','value' => array('app_link' => '<deepLink>'))),array('link' => 'http://www.example.com/appstoreurl','image_hash' => '<imageHash>','call_to_action' => array('type' => 'USE_MOBILE_APP','value' => array('app_link' => '<deepLink>'))),array('link' => 'http://www.example.com/appstoreurl','image_hash' => '<imageHash>','call_to_action' => array('type' => 'USE_MOBILE_APP','value' => array('app_link' => '<deepLink>')))),'multi_share_optimized' => true)),
 );
 echo json_encode((new AdAccount($id))->createAdCreative(
   $fields,
