@@ -70,6 +70,11 @@ class RequestException extends Exception {
   protected $errorBlameFieldSpecs;
 
   /**
+   * @var string|null
+   */
+  protected $facebookTraceId;
+
+  /**
    * @param ResponseInterface $response
    */
   public function __construct(ResponseInterface $response) {
@@ -82,6 +87,7 @@ class RequestException extends Exception {
     $this->errorUserTitle = $error_data['error_user_title'];
     $this->errorUserMessage = $error_data['error_user_msg'];
     $this->errorBlameFieldSpecs = $error_data['error_blame_field_specs'];
+    $this->facebookTraceId = $error_data['fbtrace_id'];
   }
 
   /**
@@ -132,6 +138,7 @@ class RequestException extends Exception {
       'error_blame_field_specs' =>
         static::idx(static::idx($error_data, 'error_data', array()),
           'blame_field_specs'),
+      'fbtrace_id' => static::idx($error_data, 'fbtrace_id'),
       'type' => static::idx($error_data, 'type'),
     );
   }
@@ -202,6 +209,13 @@ class RequestException extends Exception {
    */
   public function getErrorBlameFieldSpecs() {
     return $this->errorBlameFieldSpecs;
+  }
+
+  /**
+   * @return string|null
+   */
+  public function getFacebookTraceId() {
+    return $this->facebookTraceId;
   }
 
   /**
