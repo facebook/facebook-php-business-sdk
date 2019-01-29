@@ -47,8 +47,8 @@ class PrivacyFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'allow' => 'Object',
-      'deny' => 'Object',
+      'allow' => 'string',
+      'deny' => 'string',
       'description' => 'string',
       'friends' => 'string',
       'networks' => 'string',

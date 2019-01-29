@@ -89,7 +89,7 @@ class Destination extends AbstractCrudObject {
 
     $param_types = array(
       'description' => 'string',
-      'url' => 'Object',
+      'url' => 'string',
       'images' => 'list<Object>',
       'currency' => 'string',
       'price' => 'unsigned int',

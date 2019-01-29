@@ -91,7 +91,7 @@ class Flight extends AbstractCrudObject {
       'destination_airport' => 'string',
       'origin_airport' => 'string',
       'description' => 'string',
-      'url' => 'Object',
+      'url' => 'string',
       'images' => 'list<Object>',
       'currency' => 'string',
       'price' => 'unsigned int',

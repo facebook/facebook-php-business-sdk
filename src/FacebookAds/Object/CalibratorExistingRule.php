@@ -58,8 +58,8 @@ class CalibratorExistingRule extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'start_time' => 'Object',
-      'end_time' => 'Object',
+      'start_time' => 'datetime',
+      'end_time' => 'datetime',
       'event_type' => 'event_type_enum',
     );
     $enums = array(

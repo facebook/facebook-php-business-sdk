@@ -119,7 +119,7 @@ class AdReportSpec extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'time_ranges' => 'Object',
+      'time_ranges' => 'list',
       'data_columns' => 'list<string>',
       'actions_group_by' => 'list<actions_group_by_enum>',
       'filters' => 'list<Object>',

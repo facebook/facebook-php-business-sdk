@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,10 +33,17 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static LiveVideoTypeValues getInstance()
  */
-class LiveVideoTypeValues extends AbstractEnum {
 
-  const TAGGED = 'tagged';
-  const UPLOADED = 'uploaded';
+class AdCreativeInteractiveComponentsSpecFields extends AbstractEnum {
+
+  const COMPONENTS = 'components';
+  const ID = 'id';
+
+  public function getFieldTypes() {
+    return array(
+      'components' => 'list<Object>',
+      'id' => 'string',
+    );
+  }
 }

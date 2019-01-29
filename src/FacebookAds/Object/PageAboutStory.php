@@ -106,7 +106,7 @@ class PageAboutStory extends AbstractCrudObject {
     $param_types = array(
       'is_published' => 'bool',
       'title' => 'string',
-      'cover_photo' => 'Object',
+      'cover_photo' => 'map',
       'composed_text' => 'list<map>',
       'entity_map' => 'list<map>',
     );

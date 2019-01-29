@@ -33,7 +33,6 @@ use FacebookAds\Object\Values\CommentCommentPrivacyValueValues;
 use FacebookAds\Object\Values\CommentFilterValues;
 use FacebookAds\Object\Values\CommentLiveFilterValues;
 use FacebookAds\Object\Values\CommentOrderValues;
-use FacebookAds\Object\Values\LinkUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\ProfileTypeValues;
 
 /**
@@ -56,7 +55,6 @@ class Link extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['UnpublishedContentType'] = LinkUnpublishedContentTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 

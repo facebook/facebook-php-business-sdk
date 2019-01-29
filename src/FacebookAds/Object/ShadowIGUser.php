@@ -60,8 +60,8 @@ class ShadowIGUser extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'media_id' => 'Object',
-      'comment_id' => 'Object',
+      'media_id' => 'string',
+      'comment_id' => 'string',
       'message' => 'string',
     );
     $enums = array(

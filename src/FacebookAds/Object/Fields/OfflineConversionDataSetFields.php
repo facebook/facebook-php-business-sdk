@@ -40,7 +40,6 @@ class OfflineConversionDataSetFields extends AbstractEnum {
   const BUSINESS = 'business';
   const CONFIG = 'config';
   const CREATION_TIME = 'creation_time';
-  const DATA_ORIGIN = 'data_origin';
   const DESCRIPTION = 'description';
   const DUPLICATE_ENTRIES = 'duplicate_entries';
   const ENABLE_AUTO_ASSIGN_TO_ACCOUNTS = 'enable_auto_assign_to_accounts';
@@ -64,7 +63,6 @@ class OfflineConversionDataSetFields extends AbstractEnum {
       'business' => 'Business',
       'config' => 'string',
       'creation_time' => 'datetime',
-      'data_origin' => 'string',
       'description' => 'string',
       'duplicate_entries' => 'int',
       'enable_auto_assign_to_accounts' => 'bool',

@@ -109,7 +109,7 @@ class MediaFingerprint extends AbstractCrudObject {
 
     $param_types = array(
       'title' => 'string',
-      'metadata' => 'Object',
+      'metadata' => 'list',
       'universal_content_id' => 'string',
     );
     $enums = array(

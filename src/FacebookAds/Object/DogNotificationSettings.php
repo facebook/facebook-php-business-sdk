@@ -81,7 +81,7 @@ class DogNotificationSettings extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'subscription_status_per_channel' => 'Object',
+      'subscription_status_per_channel' => 'map',
     );
     $enums = array(
     );

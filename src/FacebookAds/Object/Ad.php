@@ -424,6 +424,7 @@ class Ad extends AbstractArchivableCrudObject
     $param_types = array(
       'ad_format' => 'ad_format_enum',
       'dynamic_creative_spec' => 'Object',
+      'dynamic_customization' => 'Object',
       'dynamic_asset_label' => 'string',
       'interactive' => 'bool',
       'post' => 'Object',
@@ -554,7 +555,7 @@ class Ad extends AbstractArchivableCrudObject
     $this->assureId();
 
     $param_types = array(
-      'am_call_tags' => 'Object',
+      'am_call_tags' => 'map',
       'date_preset' => 'date_preset_enum',
       'from_adtable' => 'bool',
       'review_feedback_breakdown' => 'bool',

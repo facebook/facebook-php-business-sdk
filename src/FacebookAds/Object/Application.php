@@ -175,7 +175,7 @@ class Application extends AbstractCrudObject {
       'uid' => 'int',
       'owner_access_token' => 'string',
       'installed' => 'bool',
-      'permissions' => 'Object',
+      'permissions' => 'list<Permission>',
       'name' => 'string',
       'minor' => 'bool',
       'type' => 'type_enum',
@@ -295,8 +295,8 @@ class Application extends AbstractCrudObject {
       'metrics' => 'list<metrics_enum>',
       'ordering_column' => 'ordering_column_enum',
       'ordering_type' => 'ordering_type_enum',
-      'since' => 'Object',
-      'until' => 'Object',
+      'since' => 'datetime',
+      'until' => 'datetime',
     );
     $enums = array(
       'aggregation_period_enum' => ApplicationAggregationPeriodValues::getInstance()->getValues(),
@@ -332,8 +332,8 @@ class Application extends AbstractCrudObject {
       'limit' => 'int',
       'ordering_column' => 'ordering_column_enum',
       'ordering_type' => 'ordering_type_enum',
-      'since' => 'Object',
-      'until' => 'Object',
+      'since' => 'datetime',
+      'until' => 'datetime',
     );
     $enums = array(
       'aggregation_period_enum' => ApplicationAggregationPeriodValues::getInstance()->getValues(),
@@ -593,7 +593,7 @@ class Application extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'group_id' => 'Object',
+      'group_id' => 'string',
     );
     $enums = array(
     );
@@ -606,38 +606,6 @@ class Application extends AbstractCrudObject {
       new Group(),
       'EDGE',
       Group::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createAppLinkHost(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'android' => 'Object',
-      'ios' => 'Object',
-      'ipad' => 'Object',
-      'iphone' => 'Object',
-      'web' => 'Object',
-      'windows_phone' => 'Object',
-      'windows' => 'Object',
-      'windows_universal' => 'Object',
-      'name' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/app_link_hosts',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1314,7 +1282,7 @@ class Application extends AbstractCrudObject {
 
     $param_types = array(
       'name' => 'string',
-      'player_id' => 'Object',
+      'player_id' => 'string',
     );
     $enums = array(
     );
@@ -1339,7 +1307,7 @@ class Application extends AbstractCrudObject {
 
     $param_types = array(
       'name' => 'string',
-      'reset_time' => 'Object',
+      'reset_time' => 'datetime',
     );
     $enums = array(
     );
@@ -1365,7 +1333,7 @@ class Application extends AbstractCrudObject {
     $param_types = array(
       'name' => 'string',
       'score' => 'unsigned int',
-      'player_id' => 'Object',
+      'player_id' => 'string',
       'extra_data' => 'string',
     );
     $enums = array(
@@ -1413,7 +1381,7 @@ class Application extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'base_url' => 'Object',
+      'base_url' => 'string',
     );
     $enums = array(
     );
@@ -1816,7 +1784,7 @@ class Application extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'permission' => 'Object',
+      'permission' => 'list<Permission>',
       'status' => 'list<status_enum>',
       'android_key_hash' => 'string',
       'ios_bundle_id' => 'string',
@@ -1854,7 +1822,6 @@ class Application extends AbstractCrudObject {
       'uid' => 'int',
       'profile_id' => 'int',
       'target_id' => 'int',
-      'checkin_id' => 'Object',
       'vault_image_id' => 'string',
       'tags' => 'list<Object>',
       'place' => 'Object',
@@ -1866,7 +1833,7 @@ class Application extends AbstractCrudObject {
       'og_icon_id' => 'string',
       'og_suggestion_mechanism' => 'string',
       'og_set_profile_badge' => 'bool',
-      'privacy' => 'Object',
+      'privacy' => 'string',
       'targeting' => 'Object',
       'feed_targeting' => 'Object',
       'no_story' => 'bool',
@@ -2218,7 +2185,7 @@ class Application extends AbstractCrudObject {
     $param_types = array(
       'object' => 'string',
       'fields' => 'list<string>',
-      'callback_url' => 'Object',
+      'callback_url' => 'string',
       'verify_token' => 'string',
       'include_values' => 'bool',
     );

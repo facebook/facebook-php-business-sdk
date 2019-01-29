@@ -81,9 +81,9 @@ class URL extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'locale' => 'Object',
+      'locale' => 'list',
       'hmac' => 'string',
-      'ts' => 'Object',
+      'ts' => 'datetime',
     );
     $enums = array(
     );

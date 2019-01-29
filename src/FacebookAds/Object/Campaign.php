@@ -125,7 +125,9 @@ class Campaign extends AbstractArchivableCrudObject {
       'execution_options' => 'list<execution_options_enum>',
     );
     $enums = array(
-      'execution_options_enum' => CampaignExecutionOptionsValues::getInstance()->getValues(),
+      'execution_options_enum' => array(
+        'validate_only',
+      ),
     );
 
     $request = new ApiRequest(
@@ -151,7 +153,9 @@ class Campaign extends AbstractArchivableCrudObject {
       'execution_options' => 'list<execution_options_enum>',
     );
     $enums = array(
-      'execution_options_enum' => CampaignExecutionOptionsValues::getInstance()->getValues(),
+      'execution_options_enum' => array(
+        'validate_only',
+      ),
     );
 
     $request = new ApiRequest(
@@ -438,7 +442,7 @@ class Campaign extends AbstractArchivableCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'am_call_tags' => 'Object',
+      'am_call_tags' => 'map',
       'date_preset' => 'date_preset_enum',
       'from_adtable' => 'bool',
       'time_range' => 'Object',
@@ -500,11 +504,7 @@ class Campaign extends AbstractArchivableCrudObject {
       'upstream_events' => 'map',
       'adlabels' => 'list<Object>',
       'iterative_split_test_configs' => 'list<Object>',
-      'kpi_custom_conversion_id' => 'string',
-      'kpi_type' => 'Object',
-      'is_autobid' => 'bool',
-      'is_average_price_pacing' => 'bool',
-      'adset_bid_amounts' => 'Object',
+      'adset_bid_amounts' => 'map',
       'adset_budgets' => 'list<map>',
     );
     $enums = array(

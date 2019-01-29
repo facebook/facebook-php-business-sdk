@@ -40,7 +40,6 @@ use FacebookAds\Object\Values\LiveVideoSpatialAudioFormatValues;
 use FacebookAds\Object\Values\LiveVideoStatusValues;
 use FacebookAds\Object\Values\LiveVideoStereoscopicModeValues;
 use FacebookAds\Object\Values\LiveVideoStreamTypeValues;
-use FacebookAds\Object\Values\LiveVideoTypeValues;
 use FacebookAds\Object\Values\ProfileTypeValues;
 
 /**
@@ -70,7 +69,6 @@ class LiveVideo extends AbstractCrudObject {
     $ref_enums['Status'] = LiveVideoStatusValues::getInstance()->getValues();
     $ref_enums['StereoscopicMode'] = LiveVideoStereoscopicModeValues::getInstance()->getValues();
     $ref_enums['StreamType'] = LiveVideoStreamTypeValues::getInstance()->getValues();
-    $ref_enums['Type'] = LiveVideoTypeValues::getInstance()->getValues();
     $ref_enums['LiveCommentModerationSetting'] = LiveVideoLiveCommentModerationSettingValues::getInstance()->getValues();
     return $ref_enums;
   }
@@ -444,7 +442,7 @@ class LiveVideo extends AbstractCrudObject {
 
     $param_types = array(
       'content_tags' => 'list<string>',
-      'privacy' => 'Object',
+      'privacy' => 'string',
       'title' => 'string',
       'description' => 'string',
       'embeddable' => 'bool',

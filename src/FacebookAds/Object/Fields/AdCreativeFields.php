@@ -89,10 +89,10 @@ class AdCreativeFields extends AbstractEnum {
   const URL_TAGS = 'url_tags';
   const USE_PAGE_ACTOR_OVERRIDE = 'use_page_actor_override';
   const VIDEO_ID = 'video_id';
-  const ASSET_FEED_ID = 'asset_feed_id';
   const IS_DCO_INTERNAL = 'is_dco_internal';
   const CALL_TO_ACTION = 'call_to_action';
   const IMAGE_FILE = 'image_file';
+  const INTERACTIVE_COMPONENTS_SPEC = 'interactive_components_spec';
   const MOCKUP_ID = 'mockup_id';
   const PAGE_ID = 'page_id';
 
@@ -150,10 +150,10 @@ class AdCreativeFields extends AbstractEnum {
       'url_tags' => 'string',
       'use_page_actor_override' => 'bool',
       'video_id' => 'string',
-      'asset_feed_id' => 'string',
       'is_dco_internal' => 'bool',
       'call_to_action' => 'Object',
       'image_file' => 'string',
+      'interactive_components_spec' => 'map',
       'mockup_id' => 'string',
       'page_id' => 'string',
     );

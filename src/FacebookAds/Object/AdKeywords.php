@@ -28,7 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\PagesPlatformComponentFlowServiceConfigFields;
+use FacebookAds\Object\Fields\AdKeywordsFields;
 
 /**
  * This class is auto-generated.
@@ -39,13 +39,13 @@ use FacebookAds\Object\Fields\PagesPlatformComponentFlowServiceConfigFields;
  *
  */
 
-class PagesPlatformComponentFlowServiceConfig extends AbstractCrudObject {
+class AdKeywords extends AbstractCrudObject {
 
   /**
-   * @return PagesPlatformComponentFlowServiceConfigFields
+   * @return AdKeywordsFields
    */
   public static function getFieldsEnum() {
-    return PagesPlatformComponentFlowServiceConfigFields::getInstance();
+    return AdKeywordsFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -53,28 +53,5 @@ class PagesPlatformComponentFlowServiceConfig extends AbstractCrudObject {
     return $ref_enums;
   }
 
-
-  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/',
-      new PagesPlatformComponentFlowServiceConfig(),
-      'NODE',
-      PagesPlatformComponentFlowServiceConfig::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
 
 }

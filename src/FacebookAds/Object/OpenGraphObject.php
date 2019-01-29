@@ -189,7 +189,6 @@ class OpenGraphObject extends AbstractCrudObject {
       'uid' => 'int',
       'profile_id' => 'int',
       'target_id' => 'int',
-      'checkin_id' => 'Object',
       'vault_image_id' => 'string',
       'tags' => 'list<Object>',
       'place' => 'Object',
@@ -201,7 +200,7 @@ class OpenGraphObject extends AbstractCrudObject {
       'og_icon_id' => 'string',
       'og_suggestion_mechanism' => 'string',
       'og_set_profile_badge' => 'bool',
-      'privacy' => 'Object',
+      'privacy' => 'string',
       'targeting' => 'Object',
       'feed_targeting' => 'Object',
       'no_story' => 'bool',
@@ -333,7 +332,7 @@ class OpenGraphObject extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'locale' => 'Object',
+      'locale' => 'list',
       'object' => 'Object',
       'action_properties' => 'Object',
     );

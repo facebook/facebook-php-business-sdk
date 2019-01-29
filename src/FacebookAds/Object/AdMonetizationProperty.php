@@ -75,8 +75,8 @@ class AdMonetizationProperty extends AbstractCrudObject {
       'metrics' => 'list<metrics_enum>',
       'ordering_column' => 'ordering_column_enum',
       'ordering_type' => 'ordering_type_enum',
-      'since' => 'Object',
-      'until' => 'Object',
+      'since' => 'datetime',
+      'until' => 'datetime',
     );
     $enums = array(
       'aggregation_period_enum' => AdMonetizationPropertyAggregationPeriodValues::getInstance()->getValues(),
@@ -112,8 +112,8 @@ class AdMonetizationProperty extends AbstractCrudObject {
       'limit' => 'int',
       'ordering_column' => 'ordering_column_enum',
       'ordering_type' => 'ordering_type_enum',
-      'since' => 'Object',
-      'until' => 'Object',
+      'since' => 'datetime',
+      'until' => 'datetime',
     );
     $enums = array(
       'aggregation_period_enum' => AdMonetizationPropertyAggregationPeriodValues::getInstance()->getValues(),

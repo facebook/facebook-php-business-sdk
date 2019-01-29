@@ -131,7 +131,7 @@ class InstagramUser extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'business' => 'Object',
+      'business' => 'string',
       'user' => 'Object',
     );
     $enums = array(
@@ -156,7 +156,7 @@ class InstagramUser extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'business' => 'Object',
+      'business' => 'string',
     );
     $enums = array(
     );
@@ -180,7 +180,7 @@ class InstagramUser extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'business' => 'Object',
+      'business' => 'string',
       'user' => 'Object',
       'role' => 'role_enum',
     );
@@ -281,7 +281,7 @@ class InstagramUser extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'business' => 'Object',
+      'business' => 'string',
       'user' => 'Object',
       'role' => 'role_enum',
     );

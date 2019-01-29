@@ -59,6 +59,7 @@ class AdAccountCreationRequestFields extends AbstractEnum {
   const IS_TEST = 'is_test';
   const IS_UNDER_AUTHORIZATION = 'is_under_authorization';
   const LEGAL_ENTITY_NAME_IN_LOCAL_LANGUAGE = 'legal_entity_name_in_local_language';
+  const OE_REQUEST_ID = 'oe_request_id';
   const OFFICIAL_WEBSITE_URL = 'official_website_url';
   const PLANNING_AGENCY_BUSINESS = 'planning_agency_business';
   const PLANNING_AGENCY_BUSINESS_ID = 'planning_agency_business_id';
@@ -98,6 +99,7 @@ class AdAccountCreationRequestFields extends AbstractEnum {
       'is_test' => 'bool',
       'is_under_authorization' => 'bool',
       'legal_entity_name_in_local_language' => 'string',
+      'oe_request_id' => 'string',
       'official_website_url' => 'string',
       'planning_agency_business' => 'Business',
       'planning_agency_business_id' => 'string',
@@ -110,7 +112,7 @@ class AdAccountCreationRequestFields extends AbstractEnum {
       'time_created' => 'datetime',
       'vertical' => 'string',
       'business_registration' => 'file',
-      'promotable_page_urls' => 'list<Object>',
+      'promotable_page_urls' => 'list<string>',
       'advertiser_business_id' => 'string',
     );
   }

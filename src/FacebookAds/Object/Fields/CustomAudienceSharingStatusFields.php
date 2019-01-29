@@ -43,7 +43,7 @@ class CustomAudienceSharingStatusFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'sharing_relationship_id' => 'Object',
+      'sharing_relationship_id' => 'unsigned int',
       'status' => 'string',
       'id' => 'string',
     );

@@ -29,7 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\OfflineConversionDataSetFields;
-use FacebookAds\Object\Values\OfflineConversionDataSetDataOriginValues;
 use FacebookAds\Object\Values\OfflineConversionDataSetPermittedRolesValues;
 use FacebookAds\Object\Values\OfflineConversionDataSetRelationshipTypeValues;
 use FacebookAds\Object\Values\OfflineConversionDataSetRoleValues;
@@ -61,7 +60,6 @@ class OfflineConversionDataSet extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['DataOrigin'] = OfflineConversionDataSetDataOriginValues::getInstance()->getValues();
     $ref_enums['PermittedRoles'] = OfflineConversionDataSetPermittedRolesValues::getInstance()->getValues();
     $ref_enums['RelationshipType'] = OfflineConversionDataSetRelationshipTypeValues::getInstance()->getValues();
     $ref_enums['Role'] = OfflineConversionDataSetRoleValues::getInstance()->getValues();
@@ -406,8 +404,8 @@ class OfflineConversionDataSet extends AbstractCrudObject {
 
     $param_types = array(
       'upload_tag' => 'string',
-      'start_time' => 'Object',
-      'end_time' => 'Object',
+      'start_time' => 'datetime',
+      'end_time' => 'datetime',
       'sort_by' => 'sort_by_enum',
       'order' => 'order_enum',
     );
@@ -472,7 +470,7 @@ class OfflineConversionDataSet extends AbstractCrudObject {
     $param_types = array(
       'user' => 'int',
       'email' => 'string',
-      'business' => 'Object',
+      'business' => 'string',
     );
     $enums = array(
     );
@@ -496,7 +494,7 @@ class OfflineConversionDataSet extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'business' => 'Object',
+      'business' => 'string',
     );
     $enums = array(
     );
@@ -522,7 +520,7 @@ class OfflineConversionDataSet extends AbstractCrudObject {
     $param_types = array(
       'user' => 'int',
       'role' => 'role_enum',
-      'business' => 'Object',
+      'business' => 'string',
     );
     $enums = array(
       'role_enum' => OfflineConversionDataSetRoleValues::getInstance()->getValues(),
@@ -668,12 +666,10 @@ class OfflineConversionDataSet extends AbstractCrudObject {
     $param_types = array(
       'name' => 'string',
       'description' => 'string',
-      'data_origin' => 'data_origin_enum',
       'enable_auto_assign_to_accounts' => 'bool',
       'auto_assign_to_new_accounts_only' => 'bool',
     );
     $enums = array(
-      'data_origin_enum' => OfflineConversionDataSetDataOriginValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

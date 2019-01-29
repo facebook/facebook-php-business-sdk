@@ -225,7 +225,6 @@ class PagePost extends AbstractCrudObject {
       'until' => 'datetime',
       'metric' => 'list<Object>',
       'period' => 'period_enum',
-      'show_permission_error' => 'bool',
       'date_preset' => 'date_preset_enum',
     );
     $enums = array(
@@ -618,7 +617,7 @@ class PagePost extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'privacy' => 'Object',
+      'privacy' => 'string',
       'composer_session_id' => 'string',
       'message' => 'string',
       'is_hidden' => 'bool',

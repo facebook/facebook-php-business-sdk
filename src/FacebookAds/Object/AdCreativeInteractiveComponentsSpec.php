@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\AdCreativeInteractiveComponentsSpecFields;
 
 /**
  * This class is auto-generated.
@@ -33,13 +37,21 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static LinkUnpublishedContentTypeValues getInstance()
  */
-class LinkUnpublishedContentTypeValues extends AbstractEnum {
 
-  const SCHEDULED = 'SCHEDULED';
-  const DRAFT = 'DRAFT';
-  const ADS_POST = 'ADS_POST';
-  const INLINE_CREATED = 'INLINE_CREATED';
-  const PUBLISHED = 'PUBLISHED';
+class AdCreativeInteractiveComponentsSpec extends AbstractCrudObject {
+
+  /**
+   * @return AdCreativeInteractiveComponentsSpecFields
+   */
+  public static function getFieldsEnum() {
+    return AdCreativeInteractiveComponentsSpecFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
 }

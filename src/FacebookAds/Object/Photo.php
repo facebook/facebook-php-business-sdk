@@ -175,7 +175,6 @@ class Photo extends AbstractCrudObject {
       'until' => 'datetime',
       'metric' => 'list<Object>',
       'period' => 'period_enum',
-      'show_permission_error' => 'bool',
       'date_preset' => 'date_preset_enum',
     );
     $enums = array(
@@ -285,7 +284,6 @@ class Photo extends AbstractCrudObject {
       'uid' => 'int',
       'profile_id' => 'int',
       'target_id' => 'int',
-      'checkin_id' => 'Object',
       'vault_image_id' => 'string',
       'tags' => 'list<Object>',
       'place' => 'Object',
@@ -297,7 +295,7 @@ class Photo extends AbstractCrudObject {
       'og_icon_id' => 'string',
       'og_suggestion_mechanism' => 'string',
       'og_set_profile_badge' => 'bool',
-      'privacy' => 'Object',
+      'privacy' => 'string',
       'targeting' => 'Object',
       'feed_targeting' => 'Object',
       'no_story' => 'bool',
@@ -530,7 +528,7 @@ class Photo extends AbstractCrudObject {
       'backdated_time_granularity' => 'backdated_time_granularity_enum',
       'time_since_original_post' => 'unsigned int',
       'published' => 'bool',
-      'privacy' => 'Object',
+      'privacy' => 'string',
       'tags' => 'list<int>',
       'place' => 'Object',
       'is_explicit_location' => 'bool',

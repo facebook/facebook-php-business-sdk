@@ -89,7 +89,6 @@ class AdAccountCurrencyValues extends AbstractEnum {
   const TWD = 'TWD';
   const USD = 'USD';
   const UYU = 'UYU';
-  const VEF = 'VEF';
   const VND = 'VND';
   const ZAR = 'ZAR';
 }

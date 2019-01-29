@@ -29,7 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ReachEstimateFields;
-use FacebookAds\Object\Values\ReachEstimateOptimizeForValues;
 
 /**
  * This class is auto-generated.
@@ -58,7 +57,6 @@ class ReachEstimate extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['OptimizeFor'] = ReachEstimateOptimizeForValues::getInstance()->getValues();
     return $ref_enums;
   }
 

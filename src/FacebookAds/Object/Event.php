@@ -315,7 +315,7 @@ class Event extends AbstractCrudObject {
       'call_to_action' => 'Object',
       'time_since_original_post' => 'unsigned int',
       'client_mutation_id' => 'string',
-      'privacy' => 'Object',
+      'privacy' => 'string',
       'composer_session_id' => 'string',
       'content_attachment' => 'string',
       'actions' => 'Object',
@@ -377,7 +377,7 @@ class Event extends AbstractCrudObject {
       'text_format_preset_id' => 'string',
       'cta_link' => 'string',
       'cta_type' => 'string',
-      'place_list_data' => 'Object',
+      'place_list_data' => 'list',
       'formatting' => 'formatting_enum',
       'target_surface' => 'target_surface_enum',
       'adaptive_type' => 'string',
@@ -527,7 +527,7 @@ class Event extends AbstractCrudObject {
       'save_vod' => 'bool',
       'published' => 'bool',
       'status' => 'status_enum',
-      'privacy' => 'Object',
+      'privacy' => 'string',
       'stop_on_delete_stream' => 'bool',
       'stream_type' => 'stream_type_enum',
       'content_tags' => 'list<string>',
@@ -677,7 +677,6 @@ class Event extends AbstractCrudObject {
       'uid' => 'int',
       'profile_id' => 'int',
       'target_id' => 'int',
-      'checkin_id' => 'Object',
       'vault_image_id' => 'string',
       'tags' => 'list<Object>',
       'place' => 'Object',
@@ -689,7 +688,7 @@ class Event extends AbstractCrudObject {
       'og_icon_id' => 'string',
       'og_suggestion_mechanism' => 'string',
       'og_set_profile_badge' => 'bool',
-      'privacy' => 'Object',
+      'privacy' => 'string',
       'targeting' => 'Object',
       'feed_targeting' => 'Object',
       'no_story' => 'bool',
@@ -936,33 +935,6 @@ class Event extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function deleteSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'eid' => 'string',
-      'cancel_message' => 'string',
-      'action_context' => 'Object',
-      'app_context' => 'Object',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_DELETE,
-      '/',
-      new AbstractCrudObject(),
-      'NODE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -975,33 +947,6 @@ class Event extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
-      '/',
-      new Event(),
-      'NODE',
-      Event::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'eid' => 'string',
-      'event_info' => 'Object',
-      'action_context' => 'Object',
-      'app_context' => 'Object',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
       '/',
       new Event(),
       'NODE',

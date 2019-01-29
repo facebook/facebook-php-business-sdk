@@ -403,7 +403,6 @@ class ProductFeed extends AbstractCrudObject {
       'quoted_fields_mode' => 'quoted_fields_mode_enum',
       'schedule' => 'string',
       'update_schedule' => 'string',
-      'quoted_fields' => 'bool',
       'deletion_enabled' => 'bool',
     );
     $enums = array(

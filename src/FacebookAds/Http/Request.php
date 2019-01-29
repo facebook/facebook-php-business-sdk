@@ -240,7 +240,7 @@ class Request implements RequestInterface {
     return $this->getProtocol().$this->getDomain()
       .'/v'.$this->getGraphVersion().$this->getPath()
       .$delimiter
-      .http_build_query($this->getQueryParams()->export());
+      .http_build_query($this->getQueryParams()->export(), '', '&');
   }
 
   /**

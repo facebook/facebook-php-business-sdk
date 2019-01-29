@@ -124,13 +124,13 @@ class PartnerIntegrationLinked extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'ads_pixel_id' => 'Object',
-      'application_id' => 'Object',
+      'ads_pixel_id' => 'string',
+      'application_id' => 'string',
       'completed_integration_types' => 'list<completed_integration_types_enum>',
       'name' => 'string',
-      'oauth_partner_integration_id' => 'Object',
-      'offline_conversion_data_set_id' => 'Object',
-      'product_catalog_id' => 'Object',
+      'oauth_partner_integration_id' => 'string',
+      'offline_conversion_data_set_id' => 'string',
+      'product_catalog_id' => 'string',
       'setup_status' => 'setup_status_enum',
     );
     $enums = array(

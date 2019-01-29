@@ -51,6 +51,7 @@ class HotelFields extends AbstractEnum {
   const MARGIN_LEVEL = 'margin_level';
   const NAME = 'name';
   const PHONE = 'phone';
+  const SALE_PRICE = 'sale_price';
   const SANITIZED_IMAGES = 'sanitized_images';
   const STAR_RATING = 'star_rating';
   const URL = 'url';
@@ -72,6 +73,7 @@ class HotelFields extends AbstractEnum {
       'margin_level' => 'unsigned int',
       'name' => 'string',
       'phone' => 'string',
+      'sale_price' => 'string',
       'sanitized_images' => 'list<string>',
       'star_rating' => 'float',
       'url' => 'string',

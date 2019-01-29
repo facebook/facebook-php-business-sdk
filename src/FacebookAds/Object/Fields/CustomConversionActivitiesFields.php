@@ -45,7 +45,7 @@ class CustomConversionActivitiesFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'app_id' => 'Object',
+      'app_id' => 'unsigned int',
       'data' => 'string',
       'event_type' => 'string',
       'timestamp' => 'datetime',

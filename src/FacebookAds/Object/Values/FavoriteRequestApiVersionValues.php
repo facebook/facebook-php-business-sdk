@@ -55,5 +55,5 @@ class FavoriteRequestApiVersionValues extends AbstractEnum {
   const V3_0 = 'v3.0';
   const V3_1 = 'v3.1';
   const V3_2 = 'v3.2';
-  const V4_0 = 'v4.0';
+  const V3_3 = 'v3.3';
 }

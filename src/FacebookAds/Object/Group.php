@@ -49,7 +49,6 @@ use FacebookAds\Object\Values\LiveVideoSpatialAudioFormatValues;
 use FacebookAds\Object\Values\LiveVideoStatusValues;
 use FacebookAds\Object\Values\LiveVideoStereoscopicModeValues;
 use FacebookAds\Object\Values\LiveVideoStreamTypeValues;
-use FacebookAds\Object\Values\LiveVideoTypeValues;
 use FacebookAds\Object\Values\PhotoBackdatedTimeGranularityValues;
 use FacebookAds\Object\Values\PhotoUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
@@ -165,7 +164,7 @@ class Group extends AbstractCrudObject {
       'make_shared_album' => 'bool',
       'location' => 'string',
       'visible' => 'string',
-      'privacy' => 'Object',
+      'privacy' => 'string',
       'place' => 'Object',
       'tags' => 'list<int>',
       'message' => 'string',
@@ -282,7 +281,7 @@ class Group extends AbstractCrudObject {
       'call_to_action' => 'Object',
       'time_since_original_post' => 'unsigned int',
       'client_mutation_id' => 'string',
-      'privacy' => 'Object',
+      'privacy' => 'string',
       'composer_session_id' => 'string',
       'content_attachment' => 'string',
       'actions' => 'Object',
@@ -344,7 +343,7 @@ class Group extends AbstractCrudObject {
       'text_format_preset_id' => 'string',
       'cta_link' => 'string',
       'cta_type' => 'string',
-      'place_list_data' => 'Object',
+      'place_list_data' => 'list',
       'formatting' => 'formatting_enum',
       'target_surface' => 'target_surface_enum',
       'adaptive_type' => 'string',
@@ -530,12 +529,10 @@ class Group extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'type' => 'type_enum',
       'source' => 'source_enum',
       'broadcast_status' => 'list<broadcast_status_enum>',
     );
     $enums = array(
-      'type_enum' => LiveVideoTypeValues::getInstance()->getValues(),
       'source_enum' => LiveVideoSourceValues::getInstance()->getValues(),
       'broadcast_status_enum' => LiveVideoBroadcastStatusValues::getInstance()->getValues(),
     );
@@ -564,7 +561,7 @@ class Group extends AbstractCrudObject {
       'save_vod' => 'bool',
       'published' => 'bool',
       'status' => 'status_enum',
-      'privacy' => 'Object',
+      'privacy' => 'string',
       'stop_on_delete_stream' => 'bool',
       'stream_type' => 'stream_type_enum',
       'content_tags' => 'list<string>',
@@ -736,7 +733,7 @@ class Group extends AbstractCrudObject {
       'notify' => 'bool',
       'message' => 'string',
       'place' => 'string',
-      'privacy' => 'Object',
+      'privacy' => 'string',
       'ref' => 'string',
       'scrape' => 'bool',
       'start_time' => 'datetime',
@@ -793,7 +790,6 @@ class Group extends AbstractCrudObject {
       'uid' => 'int',
       'profile_id' => 'int',
       'target_id' => 'int',
-      'checkin_id' => 'Object',
       'vault_image_id' => 'string',
       'tags' => 'list<Object>',
       'place' => 'Object',
@@ -805,7 +801,7 @@ class Group extends AbstractCrudObject {
       'og_icon_id' => 'string',
       'og_suggestion_mechanism' => 'string',
       'og_set_profile_badge' => 'bool',
-      'privacy' => 'Object',
+      'privacy' => 'string',
       'targeting' => 'Object',
       'feed_targeting' => 'Object',
       'no_story' => 'bool',

@@ -77,6 +77,7 @@ class AdAccountTargetingUnifiedLimitTypeValues extends AbstractEnum {
   const EXCLUDED_GEO_LOCATIONS = 'excluded_geo_locations';
   const TIMEZONES = 'timezones';
   const PLACE_PAGE_SET_IDS = 'place_page_set_ids';
+  const LOCATION_EXPANSION = 'location_expansion';
   const PAGE_TYPES = 'page_types';
   const PUBLISHER_PLATFORMS = 'publisher_platforms';
   const EFFECTIVE_PUBLISHER_PLATFORMS = 'effective_publisher_platforms';

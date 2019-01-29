@@ -93,11 +93,6 @@ class AdSetFields extends AbstractEnum {
   const DAILY_IMPS = 'daily_imps';
   const DATE_FORMAT = 'date_format';
   const EXECUTION_OPTIONS = 'execution_options';
-  const FREQUENCY_CAP = 'frequency_cap';
-  const FREQUENCY_CAP_RESET_PERIOD = 'frequency_cap_reset_period';
-  const IS_AUTOBID = 'is_autobid';
-  const IS_AVERAGE_PRICE_PACING = 'is_average_price_pacing';
-  const LIFETIME_FREQUENCY_CAP = 'lifetime_frequency_cap';
   const LINE_NUMBER = 'line_number';
   const RB_PREDICTION_ID = 'rb_prediction_id';
   const TIME_START = 'time_start';
@@ -108,7 +103,7 @@ class AdSetFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'account_id' => 'string',
-      'ad_keywords' => 'string',
+      'ad_keywords' => 'AdKeywords',
       'adlabels' => 'list<AdLabel>',
       'adset_schedule' => 'list<DayPart>',
       'asset_feed_id' => 'string',
@@ -163,11 +158,6 @@ class AdSetFields extends AbstractEnum {
       'daily_imps' => 'unsigned int',
       'date_format' => 'string',
       'execution_options' => 'list<ExecutionOptions>',
-      'frequency_cap' => 'unsigned int',
-      'frequency_cap_reset_period' => 'unsigned int',
-      'is_autobid' => 'bool',
-      'is_average_price_pacing' => 'bool',
-      'lifetime_frequency_cap' => 'unsigned int',
       'line_number' => 'unsigned int',
       'rb_prediction_id' => 'string',
       'time_start' => 'datetime',
