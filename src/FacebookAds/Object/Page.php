@@ -83,11 +83,9 @@ use FacebookAds\Object\Values\PagePostWithValues;
 use FacebookAds\Object\Values\PagePublishStatusValues;
 use FacebookAds\Object\Values\PageSavedFilterSectionValues;
 use FacebookAds\Object\Values\PageSenderActionValues;
-use FacebookAds\Object\Values\PageSettingTypeValues;
 use FacebookAds\Object\Values\PageSettingValues;
 use FacebookAds\Object\Values\PageSubscribedFieldsValues;
 use FacebookAds\Object\Values\PageTasksValues;
-use FacebookAds\Object\Values\PageThreadStateValues;
 use FacebookAds\Object\Values\PageTypeValues;
 use FacebookAds\Object\Values\PhotoBackdatedTimeGranularityValues;
 use FacebookAds\Object\Values\PhotoTypeValues;
@@ -142,8 +140,6 @@ class Page extends AbstractCrudObject {
     $ref_enums['SubscribedFields'] = PageSubscribedFieldsValues::getInstance()->getValues();
     $ref_enums['DomainActionType'] = PageDomainActionTypeValues::getInstance()->getValues();
     $ref_enums['PaymentDevModeAction'] = PagePaymentDevModeActionValues::getInstance()->getValues();
-    $ref_enums['SettingType'] = PageSettingTypeValues::getInstance()->getValues();
-    $ref_enums['ThreadState'] = PageThreadStateValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -4131,8 +4127,17 @@ class Page extends AbstractCrudObject {
       'thread_state' => 'thread_state_enum',
     );
     $enums = array(
-      'setting_type_enum' => PageSettingTypeValues::getInstance()->getValues(),
-      'thread_state_enum' => PageThreadStateValues::getInstance()->getValues(),
+      'setting_type_enum' => array(
+        'ACCOUNT_LINKING',
+        'CALL_TO_ACTIONS',
+        'GREETING',
+        'DOMAIN_WHITELISTING',
+        'PAYMENT',
+      ),
+      'thread_state_enum' => array(
+        'NEW_THREAD',
+        'EXISTING_THREAD',
+      ),
     );
 
     $request = new ApiRequest(
@@ -4190,8 +4195,17 @@ class Page extends AbstractCrudObject {
       'payment_testers' => 'list<string>',
     );
     $enums = array(
-      'setting_type_enum' => PageSettingTypeValues::getInstance()->getValues(),
-      'thread_state_enum' => PageThreadStateValues::getInstance()->getValues(),
+      'setting_type_enum' => array(
+        'ACCOUNT_LINKING',
+        'CALL_TO_ACTIONS',
+        'GREETING',
+        'DOMAIN_WHITELISTING',
+        'PAYMENT',
+      ),
+      'thread_state_enum' => array(
+        'NEW_THREAD',
+        'EXISTING_THREAD',
+      ),
       'domain_action_type_enum' => PageDomainActionTypeValues::getInstance()->getValues(),
       'payment_dev_mode_action_enum' => PagePaymentDevModeActionValues::getInstance()->getValues(),
     );
@@ -4555,8 +4569,6 @@ class Page extends AbstractCrudObject {
       'og_phrase' => 'string',
       'og_icon_id' => 'string',
       'og_suggestion_mechanism' => 'string',
-      'manual_privacy' => 'bool',
-      'is_explicit_share' => 'bool',
       'thumb' => 'file',
       'spherical' => 'bool',
       'original_projection_type' => 'original_projection_type_enum',
@@ -4569,6 +4581,8 @@ class Page extends AbstractCrudObject {
       'guide_enabled' => 'bool',
       'guide' => 'list<list<unsigned int>>',
       'audio_story_wave_animation_handle' => 'string',
+      'manual_privacy' => 'bool',
+      'is_explicit_share' => 'bool',
       'adaptive_type' => 'string',
       'animated_effect_id' => 'unsigned int',
       'asked_fun_fact_prompt_id' => 'unsigned int',

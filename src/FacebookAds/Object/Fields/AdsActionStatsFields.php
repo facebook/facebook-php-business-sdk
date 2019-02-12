@@ -60,6 +60,8 @@ class AdsActionStatsFields extends AbstractEnum {
   const ACTION_VIDEO_SOUND = 'action_video_sound';
   const ACTION_VIDEO_TYPE = 'action_video_type';
   const INLINE = 'inline';
+  const INTERACTIVE_COMPONENT_STICKER_ID = 'interactive_component_sticker_id';
+  const INTERACTIVE_COMPONENT_STICKER_RESPONSE = 'interactive_component_sticker_response';
   const VALUE = 'value';
   const ID = 'id';
 
@@ -88,6 +90,8 @@ class AdsActionStatsFields extends AbstractEnum {
       'action_video_sound' => 'string',
       'action_video_type' => 'string',
       'inline' => 'string',
+      'interactive_component_sticker_id' => 'string',
+      'interactive_component_sticker_response' => 'string',
       'value' => 'string',
       'id' => 'string',
     );

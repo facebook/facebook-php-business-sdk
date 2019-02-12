@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,11 +33,19 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static BusinessOrderingColumnValues getInstance()
  */
-class BusinessOrderingColumnValues extends AbstractEnum {
 
-  const TIME = 'TIME';
-  const VALUE = 'VALUE';
-  const METRIC = 'METRIC';
+class CPASParentCatalogSettingsFields extends AbstractEnum {
+
+  const ATTRIBUTION_WINDOWS = 'attribution_windows';
+  const DEFAULT_CURRENCY = 'default_currency';
+  const ID = 'id';
+
+  public function getFieldTypes() {
+    return array(
+      'attribution_windows' => 'list<string>',
+      'default_currency' => 'string',
+      'id' => 'string',
+    );
+  }
 }

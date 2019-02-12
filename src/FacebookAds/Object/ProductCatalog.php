@@ -372,7 +372,7 @@ class ProductCatalog extends AbstractCrudObject {
 
     $param_types = array(
       'handle' => 'string',
-      'load_all_errors' => 'bool',
+      'load_ids_of_invalid_requests' => 'bool',
     );
     $enums = array(
     );
@@ -1245,7 +1245,7 @@ class ProductCatalog extends AbstractCrudObject {
 
     $param_types = array(
       'business' => 'string',
-      'user' => 'Object',
+      'user' => 'unsigned int',
     );
     $enums = array(
     );
@@ -1334,8 +1334,6 @@ class ProductCatalog extends AbstractCrudObject {
       'og_phrase' => 'string',
       'og_icon_id' => 'string',
       'og_suggestion_mechanism' => 'string',
-      'manual_privacy' => 'bool',
-      'is_explicit_share' => 'bool',
       'thumb' => 'file',
       'spherical' => 'bool',
       'original_projection_type' => 'original_projection_type_enum',
@@ -1348,6 +1346,8 @@ class ProductCatalog extends AbstractCrudObject {
       'guide_enabled' => 'bool',
       'guide' => 'list<list<unsigned int>>',
       'audio_story_wave_animation_handle' => 'string',
+      'manual_privacy' => 'bool',
+      'is_explicit_share' => 'bool',
       'adaptive_type' => 'string',
       'animated_effect_id' => 'unsigned int',
       'asked_fun_fact_prompt_id' => 'unsigned int',

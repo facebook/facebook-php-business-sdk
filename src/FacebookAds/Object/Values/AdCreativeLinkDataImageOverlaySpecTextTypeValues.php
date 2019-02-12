@@ -42,4 +42,5 @@ class AdCreativeLinkDataImageOverlaySpecTextTypeValues extends AbstractEnum {
   const PERCENTAGE_OFF = 'percentage_off';
   const CUSTOM = 'custom';
   const FROM_PRICE = 'from_price';
+  const DISCLAIMER = 'disclaimer';
 }
