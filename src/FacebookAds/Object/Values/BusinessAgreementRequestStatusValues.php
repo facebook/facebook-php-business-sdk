@@ -39,6 +39,6 @@ class BusinessAgreementRequestStatusValues extends AbstractEnum {
 
   const APPROVE = 'APPROVE';
   const DECLINE = 'DECLINE';
-  const IN_PROGRESS = 'IN_PROGRESS';
   const EXPIRED = 'EXPIRED';
+  const IN_PROGRESS = 'IN_PROGRESS';
 }

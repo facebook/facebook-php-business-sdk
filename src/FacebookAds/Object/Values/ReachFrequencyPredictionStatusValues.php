@@ -37,9 +37,9 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ReachFrequencyPredictionStatusValues extends AbstractEnum {
 
-  const EXPIRED = 'EXPIRED';
-  const DRAFT = 'DRAFT';
-  const PENDING = 'PENDING';
   const ACTIVE = 'ACTIVE';
   const COMPLETED = 'COMPLETED';
+  const DRAFT = 'DRAFT';
+  const EXPIRED = 'EXPIRED';
+  const PENDING = 'PENDING';
 }

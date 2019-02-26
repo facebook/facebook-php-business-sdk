@@ -37,9 +37,9 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdSetDestinationTypeValues extends AbstractEnum {
 
+  const APP = 'APP';
+  const APPLINKS_AUTOMATIC = 'APPLINKS_AUTOMATIC';
+  const MESSENGER = 'MESSENGER';
   const UNDEFINED = 'UNDEFINED';
   const WEBSITE = 'WEBSITE';
-  const APP = 'APP';
-  const MESSENGER = 'MESSENGER';
-  const APPLINKS_AUTOMATIC = 'APPLINKS_AUTOMATIC';
 }

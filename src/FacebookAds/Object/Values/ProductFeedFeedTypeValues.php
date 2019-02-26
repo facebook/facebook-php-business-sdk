@@ -47,6 +47,6 @@ class ProductFeedFeedTypeValues extends AbstractEnum {
   const MARKET = 'MARKET';
   const MEDIA_TITLE = 'MEDIA_TITLE';
   const PRODUCTS = 'PRODUCTS';
-  const VEHICLE_OFFER = 'VEHICLE_OFFER';
   const VEHICLES = 'VEHICLES';
+  const VEHICLE_OFFER = 'VEHICLE_OFFER';
 }

@@ -37,10 +37,10 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ApplicationAnPlatformsValues extends AbstractEnum {
 
-  const IOS = 'IOS';
   const ANDROID = 'ANDROID';
-  const MOBILE_WEB = 'MOBILE_WEB';
   const DESKTOP = 'DESKTOP';
   const INSTANT_ARTICLES = 'INSTANT_ARTICLES';
+  const IOS = 'IOS';
+  const MOBILE_WEB = 'MOBILE_WEB';
   const UNKNOWN = 'UNKNOWN';
 }

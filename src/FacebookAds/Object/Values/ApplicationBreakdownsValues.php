@@ -39,16 +39,17 @@ class ApplicationBreakdownsValues extends AbstractEnum {
 
   const AGE = 'AGE';
   const APP = 'APP';
+  const CLICKED_VIEW_TAG = 'CLICKED_VIEW_TAG';
   const COUNTRY = 'COUNTRY';
-  const DELIVERY_METHOD = 'DELIVERY_METHOD';
-  const DISPLAY_FORMAT = 'DISPLAY_FORMAT';
   const DEAL = 'DEAL';
   const DEAL_AD = 'DEAL_AD';
   const DEAL_PAGE = 'DEAL_PAGE';
+  const DELIVERY_METHOD = 'DELIVERY_METHOD';
+  const DISPLAY_FORMAT = 'DISPLAY_FORMAT';
+  const FAIL_REASON = 'FAIL_REASON';
   const GENDER = 'GENDER';
   const PLACEMENT = 'PLACEMENT';
   const PLATFORM = 'PLATFORM';
   const PROPERTY = 'PROPERTY';
-  const CLICKED_VIEW_TAG = 'CLICKED_VIEW_TAG';
-  const FAIL_REASON = 'FAIL_REASON';
+  const SDK_VERSION = 'SDK_VERSION';
 }

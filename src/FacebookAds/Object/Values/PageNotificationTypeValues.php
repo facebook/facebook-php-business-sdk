@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class PageNotificationTypeValues extends AbstractEnum {
 
+  const NO_PUSH = 'NO_PUSH';
   const REGULAR = 'REGULAR';
   const SILENT_PUSH = 'SILENT_PUSH';
-  const NO_PUSH = 'NO_PUSH';
 }

@@ -78,19 +78,19 @@ class OfflineConversionDataSet extends AbstractCrudObject {
     );
     $enums = array(
       'event_type_enum' => array(
+        'add_dataset_to_business',
+        'add_user_to_dataset',
+        'create_custom_audience',
+        'create_custom_conversion',
         'dataset_assign_to_adacct',
         'dataset_autotrack_on_adacct',
         'dataset_disable_autotrack_on_adacct',
         'dataset_unassign_from_adacct',
-        'add_dataset_to_business',
-        'add_user_to_dataset',
         'remove_user_from_dataset',
-        'update_user_role_on_dataset',
-        'create_custom_conversion',
-        'update_custom_conversion',
-        'create_custom_audience',
         'share_custom_audience',
         'unshare_custom_audience',
+        'update_custom_conversion',
+        'update_user_role_on_dataset',
       ),
     );
 
@@ -374,8 +374,8 @@ class OfflineConversionDataSet extends AbstractCrudObject {
     );
     $enums = array(
       'aggr_time_enum' => array(
-        'upload_time',
         'event_time',
+        'upload_time',
       ),
       'granularity_enum' => array(
         'daily',
@@ -411,13 +411,13 @@ class OfflineConversionDataSet extends AbstractCrudObject {
     );
     $enums = array(
       'sort_by_enum' => array(
-        'CREATION_TIME',
-        'FIRST_UPLOAD_TIME',
-        'LAST_UPLOAD_TIME',
         'API_CALLS',
-        'EVENT_TIME_MIN',
+        'CREATION_TIME',
         'EVENT_TIME_MAX',
+        'EVENT_TIME_MIN',
+        'FIRST_UPLOAD_TIME',
         'IS_EXCLUDED_FOR_LIFT',
+        'LAST_UPLOAD_TIME',
       ),
       'order_enum' => array(
         'ASCENDING',

@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdMonetizationPropertyAggregationPeriodValues extends AbstractEnum {
 
-  const HOUR = 'HOUR';
   const DAY = 'DAY';
+  const HOUR = 'HOUR';
   const TOTAL = 'TOTAL';
 }

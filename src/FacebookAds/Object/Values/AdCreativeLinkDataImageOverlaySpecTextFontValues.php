@@ -38,13 +38,13 @@ use FacebookAds\Enum\AbstractEnum;
 class AdCreativeLinkDataImageOverlaySpecTextFontValues extends AbstractEnum {
 
   const DROID_SERIF_REGULAR = 'droid_serif_regular';
+  const DYNADS_HYBRID_BOLD = 'dynads_hybrid_bold';
   const LATO_REGULAR = 'lato_regular';
+  const NOTO_SANS_REGULAR = 'noto_sans_regular';
   const NUNITO_SANS_BOLD = 'nunito_sans_bold';
   const OPEN_SANS_BOLD = 'open_sans_bold';
   const OPEN_SANS_CONDENSED_BOLD = 'open_sans_condensed_bold';
   const PT_SERIF_BOLD = 'pt_serif_bold';
-  const ROBOTO_MEDIUM = 'roboto_medium';
   const ROBOTO_CONDENSED_REGULAR = 'roboto_condensed_regular';
-  const NOTO_SANS_REGULAR = 'noto_sans_regular';
-  const DYNADS_HYBRID_BOLD = 'dynads_hybrid_bold';
+  const ROBOTO_MEDIUM = 'roboto_medium';
 }

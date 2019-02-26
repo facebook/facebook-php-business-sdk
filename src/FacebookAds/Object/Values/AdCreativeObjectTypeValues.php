@@ -40,6 +40,7 @@ class AdCreativeObjectTypeValues extends AbstractEnum {
   const APPLICATION = 'APPLICATION';
   const DOMAIN = 'DOMAIN';
   const EVENT = 'EVENT';
+  const INVALID = 'INVALID';
   const OFFER = 'OFFER';
   const PAGE = 'PAGE';
   const PHOTO = 'PHOTO';
@@ -47,5 +48,4 @@ class AdCreativeObjectTypeValues extends AbstractEnum {
   const STATUS = 'STATUS';
   const STORE_ITEM = 'STORE_ITEM';
   const VIDEO = 'VIDEO';
-  const INVALID = 'INVALID';
 }

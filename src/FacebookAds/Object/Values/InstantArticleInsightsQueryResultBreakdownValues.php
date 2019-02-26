@@ -37,13 +37,13 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class InstantArticleInsightsQueryResultBreakdownValues extends AbstractEnum {
 
-  const NO_BREAKDOWN = 'no_breakdown';
-  const PLATFORM = 'platform';
   const AGE = 'age';
-  const REGION = 'region';
   const COUNTRY = 'country';
-  const IS_SHARED_BY_IA_OWNER = 'is_shared_by_ia_owner';
   const GENDER = 'gender';
   const GENDER_AND_AGE = 'gender_and_age';
   const IS_ORGANIC = 'is_organic';
+  const IS_SHARED_BY_IA_OWNER = 'is_shared_by_ia_owner';
+  const NO_BREAKDOWN = 'no_breakdown';
+  const PLATFORM = 'platform';
+  const REGION = 'region';
 }

@@ -37,13 +37,13 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdCreativeLinkDataCustomOverlaySpecBackgroundColorValues extends AbstractEnum {
 
-  const BACKGROUND_FFFFFF = 'background_ffffff';
-  const BACKGROUND_E50900 = 'background_e50900';
-  const BACKGROUND_F78400 = 'background_f78400';
-  const BACKGROUND_00AF4C = 'background_00af4c';
-  const BACKGROUND_0090FF = 'background_0090ff';
-  const BACKGROUND_755DDE = 'background_755dde';
-  const BACKGROUND_F23474 = 'background_f23474';
-  const BACKGROUND_595959 = 'background_595959';
   const BACKGROUND_000000 = 'background_000000';
+  const BACKGROUND_0090FF = 'background_0090ff';
+  const BACKGROUND_00AF4C = 'background_00af4c';
+  const BACKGROUND_595959 = 'background_595959';
+  const BACKGROUND_755DDE = 'background_755dde';
+  const BACKGROUND_E50900 = 'background_e50900';
+  const BACKGROUND_F23474 = 'background_f23474';
+  const BACKGROUND_F78400 = 'background_f78400';
+  const BACKGROUND_FFFFFF = 'background_ffffff';
 }

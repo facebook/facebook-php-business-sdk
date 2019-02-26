@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class PageTypeValues extends AbstractEnum {
 
-  const STANDARD = 'STANDARD';
   const REF = 'REF';
+  const STANDARD = 'STANDARD';
 }

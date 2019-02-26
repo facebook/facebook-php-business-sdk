@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class UserLocalNewsMegaphoneDismissStatusValues extends AbstractEnum {
 
-  const YES = 'YES';
   const NO = 'NO';
+  const YES = 'YES';
 }

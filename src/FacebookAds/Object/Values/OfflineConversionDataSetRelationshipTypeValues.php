@@ -38,7 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class OfflineConversionDataSetRelationshipTypeValues extends AbstractEnum {
 
   const AD_MANAGER = 'AD_MANAGER';
-  const AUDIENCE_MANAGER = 'AUDIENCE_MANAGER';
   const AGENCY = 'AGENCY';
+  const AUDIENCE_MANAGER = 'AUDIENCE_MANAGER';
   const OTHER = 'OTHER';
 }

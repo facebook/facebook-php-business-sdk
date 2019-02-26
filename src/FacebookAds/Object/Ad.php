@@ -121,7 +121,9 @@ class Ad extends AbstractArchivableCrudObject
       'execution_options' => 'list<execution_options_enum>',
     );
     $enums = array(
-      'execution_options_enum' => AdExecutionOptionsValues::getInstance()->getValues(),
+      'execution_options_enum' => array(
+        'validate_only',
+      ),
     );
 
     $request = new ApiRequest(
@@ -147,7 +149,9 @@ class Ad extends AbstractArchivableCrudObject
       'execution_options' => 'list<execution_options_enum>',
     );
     $enums = array(
-      'execution_options_enum' => AdExecutionOptionsValues::getInstance()->getValues(),
+      'execution_options_enum' => array(
+        'validate_only',
+      ),
     );
 
     $request = new ApiRequest(
@@ -563,25 +567,25 @@ class Ad extends AbstractArchivableCrudObject
     );
     $enums = array(
       'date_preset_enum' => array(
-        'today',
-        'yesterday',
-        'this_month',
-        'last_month',
-        'this_quarter',
-        'lifetime',
-        'last_3d',
-        'last_7d',
         'last_14d',
         'last_28d',
         'last_30d',
+        'last_3d',
+        'last_7d',
         'last_90d',
+        'last_month',
+        'last_quarter',
         'last_week_mon_sun',
         'last_week_sun_sat',
-        'last_quarter',
         'last_year',
+        'lifetime',
+        'this_month',
+        'this_quarter',
         'this_week_mon_today',
         'this_week_sun_today',
         'this_year',
+        'today',
+        'yesterday',
       ),
     );
 

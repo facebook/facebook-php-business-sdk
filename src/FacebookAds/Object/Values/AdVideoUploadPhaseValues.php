@@ -37,8 +37,8 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdVideoUploadPhaseValues extends AbstractEnum {
 
+  const CANCEL = 'cancel';
+  const FINISH = 'finish';
   const START = 'start';
   const TRANSFER = 'transfer';
-  const FINISH = 'finish';
-  const CANCEL = 'cancel';
 }

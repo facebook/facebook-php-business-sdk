@@ -38,7 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class PhotoCheckinEntryPointValues extends AbstractEnum {
 
   const BRANDING_CHECKIN = 'BRANDING_CHECKIN';
-  const BRANDING_STATUS = 'BRANDING_STATUS';
-  const BRANDING_PHOTO = 'BRANDING_PHOTO';
   const BRANDING_OTHER = 'BRANDING_OTHER';
+  const BRANDING_PHOTO = 'BRANDING_PHOTO';
+  const BRANDING_STATUS = 'BRANDING_STATUS';
 }

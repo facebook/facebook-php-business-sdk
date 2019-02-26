@@ -39,7 +39,7 @@ class VideoPollActionValues extends AbstractEnum {
 
   const ATTACH_TO_VIDEO = 'ATTACH_TO_VIDEO';
   const CLOSE = 'CLOSE';
-  const SHOW_VOTING = 'SHOW_VOTING';
-  const SHOW_RESULTS = 'SHOW_RESULTS';
   const DELETE_POLL = 'DELETE_POLL';
+  const SHOW_RESULTS = 'SHOW_RESULTS';
+  const SHOW_VOTING = 'SHOW_VOTING';
 }

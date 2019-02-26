@@ -49,10 +49,10 @@ class AdVideoContentCategoryValues extends AbstractEnum {
   const LIFESTYLE = 'LIFESTYLE';
   const MUSIC = 'MUSIC';
   const NEWS = 'NEWS';
+  const OTHER = 'OTHER';
   const POLITICS = 'POLITICS';
   const SCIENCE = 'SCIENCE';
   const SPORTS = 'SPORTS';
   const TECHNOLOGY = 'TECHNOLOGY';
   const VIDEO_GAMING = 'VIDEO_GAMING';
-  const OTHER = 'OTHER';
 }

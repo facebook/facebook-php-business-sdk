@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class PageFilteringValues extends AbstractEnum {
 
+  const EMA = 'ema';
   const GROUPS = 'groups';
   const GROUPS_SOCIAL = 'groups_social';
-  const EMA = 'ema';
 }

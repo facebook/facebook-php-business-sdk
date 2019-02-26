@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ExtendedCreditAllocationConfigLiabilityTypeValues extends AbstractEnum {
 
+  const MSA = 'MSA';
   const NORMAL = 'Normal';
   const SEQUENTIAL = 'Sequential';
-  const MSA = 'MSA';
 }

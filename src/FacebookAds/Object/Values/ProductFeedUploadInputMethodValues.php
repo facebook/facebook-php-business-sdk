@@ -38,7 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class ProductFeedUploadInputMethodValues extends AbstractEnum {
 
   const MANUAL_UPLOAD = 'Manual Upload';
-  const SERVER_FETCH = 'Server Fetch';
   const REUPLOAD_LAST_FILE = 'Reupload Last File';
+  const SERVER_FETCH = 'Server Fetch';
   const USER_INITIATED_SERVER_FETCH = 'User initiated server fetch';
 }

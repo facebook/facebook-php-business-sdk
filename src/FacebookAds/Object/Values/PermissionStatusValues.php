@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class PermissionStatusValues extends AbstractEnum {
 
-  const GRANTED = 'granted';
   const DECLINED = 'declined';
+  const GRANTED = 'granted';
 }

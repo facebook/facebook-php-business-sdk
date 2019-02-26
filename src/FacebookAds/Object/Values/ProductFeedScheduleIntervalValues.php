@@ -37,8 +37,8 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ProductFeedScheduleIntervalValues extends AbstractEnum {
 
-  const HOURLY = 'HOURLY';
   const DAILY = 'DAILY';
-  const WEEKLY = 'WEEKLY';
+  const HOURLY = 'HOURLY';
   const MONTHLY = 'MONTHLY';
+  const WEEKLY = 'WEEKLY';
 }

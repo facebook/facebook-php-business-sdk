@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class GroupJoinSettingValues extends AbstractEnum {
 
-  const NONE = 'NONE';
-  const ANYONE = 'ANYONE';
   const ADMIN_ONLY = 'ADMIN_ONLY';
+  const ANYONE = 'ANYONE';
+  const NONE = 'NONE';
 }

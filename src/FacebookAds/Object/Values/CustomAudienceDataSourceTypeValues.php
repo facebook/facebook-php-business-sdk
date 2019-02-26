@@ -37,12 +37,12 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class CustomAudienceDataSourceTypeValues extends AbstractEnum {
 
-  const UNKNOWN = 'UNKNOWN';
-  const FILE_IMPORTED = 'FILE_IMPORTED';
+  const CONTACT_IMPORTER = 'CONTACT_IMPORTER';
+  const COPY_PASTE = 'COPY_PASTE';
   const EVENT_BASED = 'EVENT_BASED';
+  const FILE_IMPORTED = 'FILE_IMPORTED';
+  const HOUSEHOLD_AUDIENCE = 'HOUSEHOLD_AUDIENCE';
   const SEED_BASED = 'SEED_BASED';
   const THIRD_PARTY_IMPORTED = 'THIRD_PARTY_IMPORTED';
-  const COPY_PASTE = 'COPY_PASTE';
-  const CONTACT_IMPORTER = 'CONTACT_IMPORTER';
-  const HOUSEHOLD_AUDIENCE = 'HOUSEHOLD_AUDIENCE';
+  const UNKNOWN = 'UNKNOWN';
 }

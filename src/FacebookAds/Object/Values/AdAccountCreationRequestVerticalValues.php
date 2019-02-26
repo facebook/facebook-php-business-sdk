@@ -38,8 +38,8 @@ use FacebookAds\Enum\AbstractEnum;
 class AdAccountCreationRequestVerticalValues extends AbstractEnum {
 
   const ADVERTISING_AND_MARKETING = 'ADVERTISING_AND_MARKETING';
-  const AUTO_AGENCY = 'AUTO_AGENCY';
   const AUTOMOTIVE = 'AUTOMOTIVE';
+  const AUTO_AGENCY = 'AUTO_AGENCY';
   const CONSUMER_PACKAGED_GOODS = 'CONSUMER_PACKAGED_GOODS';
   const CPG_AND_BEVERAGE = 'CPG_AND_BEVERAGE';
   const ECOMMERCE = 'ECOMMERCE';

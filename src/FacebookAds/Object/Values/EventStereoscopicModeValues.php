@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class EventStereoscopicModeValues extends AbstractEnum {
 
-  const MONO = 'MONO';
   const LEFT_RIGHT = 'LEFT_RIGHT';
+  const MONO = 'MONO';
   const TOP_BOTTOM = 'TOP_BOTTOM';
 }

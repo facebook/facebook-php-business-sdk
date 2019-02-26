@@ -37,12 +37,12 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class PageCallToActionAndroidDestinationTypeValues extends AbstractEnum {
 
-  const WEBSITE = 'WEBSITE';
   const APP_DEEPLINK = 'APP_DEEPLINK';
-  const FACEBOOK_APP = 'FACEBOOK_APP';
-  const PHONE_CALL = 'PHONE_CALL';
-  const MESSENGER = 'MESSENGER';
   const EMAIL = 'EMAIL';
-  const SHOP_ON_FACEBOOK = 'SHOP_ON_FACEBOOK';
+  const FACEBOOK_APP = 'FACEBOOK_APP';
+  const MESSENGER = 'MESSENGER';
   const NONE = 'NONE';
+  const PHONE_CALL = 'PHONE_CALL';
+  const SHOP_ON_FACEBOOK = 'SHOP_ON_FACEBOOK';
+  const WEBSITE = 'WEBSITE';
 }

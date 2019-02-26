@@ -37,13 +37,13 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class StreamingReactionReactionTypeValues extends AbstractEnum {
 
-  const NONE = 'NONE';
+  const ANGRY = 'ANGRY';
+  const HAHA = 'HAHA';
   const LIKE = 'LIKE';
   const LOVE = 'LOVE';
-  const WOW = 'WOW';
-  const HAHA = 'HAHA';
-  const SAD = 'SAD';
-  const ANGRY = 'ANGRY';
-  const THANKFUL = 'THANKFUL';
+  const NONE = 'NONE';
   const PRIDE = 'PRIDE';
+  const SAD = 'SAD';
+  const THANKFUL = 'THANKFUL';
+  const WOW = 'WOW';
 }

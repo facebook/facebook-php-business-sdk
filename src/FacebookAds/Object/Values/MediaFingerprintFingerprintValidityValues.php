@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class MediaFingerprintFingerprintValidityValues extends AbstractEnum {
 
-  const VALID = 'VALID';
-  const EXPIRING = 'EXPIRING';
   const EXPIRED = 'EXPIRED';
+  const EXPIRING = 'EXPIRING';
+  const VALID = 'VALID';
 }

@@ -83,9 +83,11 @@ use FacebookAds\Object\Values\PagePostWithValues;
 use FacebookAds\Object\Values\PagePublishStatusValues;
 use FacebookAds\Object\Values\PageSavedFilterSectionValues;
 use FacebookAds\Object\Values\PageSenderActionValues;
+use FacebookAds\Object\Values\PageSettingTypeValues;
 use FacebookAds\Object\Values\PageSettingValues;
 use FacebookAds\Object\Values\PageSubscribedFieldsValues;
 use FacebookAds\Object\Values\PageTasksValues;
+use FacebookAds\Object\Values\PageThreadStateValues;
 use FacebookAds\Object\Values\PageTypeValues;
 use FacebookAds\Object\Values\PhotoBackdatedTimeGranularityValues;
 use FacebookAds\Object\Values\PhotoTypeValues;
@@ -140,6 +142,8 @@ class Page extends AbstractCrudObject {
     $ref_enums['SubscribedFields'] = PageSubscribedFieldsValues::getInstance()->getValues();
     $ref_enums['DomainActionType'] = PageDomainActionTypeValues::getInstance()->getValues();
     $ref_enums['PaymentDevModeAction'] = PagePaymentDevModeActionValues::getInstance()->getValues();
+    $ref_enums['SettingType'] = PageSettingTypeValues::getInstance()->getValues();
+    $ref_enums['ThreadState'] = PageThreadStateValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -474,6 +478,30 @@ class Page extends AbstractCrudObject {
       new WithAsset3D(),
       'EDGE',
       WithAsset3D::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function deleteAssignedUsers(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'user' => 'int',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/assigned_users',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1091,25 +1119,25 @@ class Page extends AbstractCrudObject {
     );
     $enums = array(
       'match_content_type_enum' => array(
+        'AUDIO_ONLY',
         'VIDEO_AND_AUDIO',
         'VIDEO_ONLY',
-        'AUDIO_ONLY',
       ),
       'action_enum' => array(
-        'MANUAL_REVIEW',
-        'MONITOR',
         'BLOCK',
         'CLAIM_AD_EARNINGS',
+        'MANUAL_REVIEW',
+        'MONITOR',
         'REQUEST_TAKEDOWN',
       ),
       'action_reason_enum' => array(
-        'UNAUTHORIZED_COMMERCIAL_USE',
-        'RESTRICTED_CONTENT',
-        'OBJECTIONABLE_CONTENT',
         'ARTIST_OBJECTION',
+        'OBJECTIONABLE_CONTENT',
+        'PREMIUM_MUSIC_VIDEO',
         'PRERELEASE_CONTENT',
         'PRODUCT_PARAMETERS',
-        'PREMIUM_MUSIC_VIDEO',
+        'RESTRICTED_CONTENT',
+        'UNAUTHORIZED_COMMERCIAL_USE',
       ),
     );
 
@@ -1566,7 +1594,7 @@ class Page extends AbstractCrudObject {
       'composer_session_events_log' => 'string',
       'composer_source_surface' => 'string',
       'composer_type' => 'string',
-      'fun_fact_prompt_id' => 'string',
+      'fun_fact_prompt_id' => 'unsigned int',
       'fun_fact_toastee_id' => 'unsigned int',
       'is_group_linking_post' => 'bool',
       'has_nickname' => 'bool',
@@ -1575,7 +1603,7 @@ class Page extends AbstractCrudObject {
       'is_boost_intended' => 'bool',
       'location_source_id' => 'string',
       'message' => 'string',
-      'offer_like_post_id' => 'string',
+      'offer_like_post_id' => 'unsigned int',
       'page_recommendation' => 'string',
       'place_list' => 'string',
       'publish_event_id' => 'unsigned int',
@@ -2717,14 +2745,14 @@ class Page extends AbstractCrudObject {
     );
     $enums = array(
       'fields_enum' => array(
+        'ACCOUNT_LINKING_URL',
         'GET_STARTED',
+        'GREETING',
+        'HOME_URL',
+        'PAYMENT_SETTINGS',
         'PERSISTENT_MENU',
         'TARGET_AUDIENCE',
         'WHITELISTED_DOMAINS',
-        'GREETING',
-        'ACCOUNT_LINKING_URL',
-        'PAYMENT_SETTINGS',
-        'HOME_URL',
       ),
     );
 
@@ -4127,17 +4155,8 @@ class Page extends AbstractCrudObject {
       'thread_state' => 'thread_state_enum',
     );
     $enums = array(
-      'setting_type_enum' => array(
-        'ACCOUNT_LINKING',
-        'CALL_TO_ACTIONS',
-        'GREETING',
-        'DOMAIN_WHITELISTING',
-        'PAYMENT',
-      ),
-      'thread_state_enum' => array(
-        'NEW_THREAD',
-        'EXISTING_THREAD',
-      ),
+      'setting_type_enum' => PageSettingTypeValues::getInstance()->getValues(),
+      'thread_state_enum' => PageThreadStateValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -4195,17 +4214,8 @@ class Page extends AbstractCrudObject {
       'payment_testers' => 'list<string>',
     );
     $enums = array(
-      'setting_type_enum' => array(
-        'ACCOUNT_LINKING',
-        'CALL_TO_ACTIONS',
-        'GREETING',
-        'DOMAIN_WHITELISTING',
-        'PAYMENT',
-      ),
-      'thread_state_enum' => array(
-        'NEW_THREAD',
-        'EXISTING_THREAD',
-      ),
+      'setting_type_enum' => PageSettingTypeValues::getInstance()->getValues(),
+      'thread_state_enum' => PageThreadStateValues::getInstance()->getValues(),
       'domain_action_type_enum' => PageDomainActionTypeValues::getInstance()->getValues(),
       'payment_dev_mode_action_enum' => PagePaymentDevModeActionValues::getInstance()->getValues(),
     );
@@ -4593,7 +4603,7 @@ class Page extends AbstractCrudObject {
       'composer_source_surface' => 'string',
       'composer_type' => 'string',
       'formatting' => 'formatting_enum',
-      'fun_fact_prompt_id' => 'string',
+      'fun_fact_prompt_id' => 'unsigned int',
       'fun_fact_toastee_id' => 'unsigned int',
       'is_group_linking_post' => 'bool',
       'has_nickname' => 'bool',
@@ -4602,7 +4612,7 @@ class Page extends AbstractCrudObject {
       'is_boost_intended' => 'bool',
       'location_source_id' => 'string',
       'description' => 'string',
-      'offer_like_post_id' => 'string',
+      'offer_like_post_id' => 'unsigned int',
       'publish_event_id' => 'unsigned int',
       'react_mode_metadata' => 'string',
       'sales_promo_id' => 'unsigned int',

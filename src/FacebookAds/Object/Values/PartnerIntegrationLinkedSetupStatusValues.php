@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class PartnerIntegrationLinkedSetupStatusValues extends AbstractEnum {
 
-  const START = 'START';
   const COMPLETE = 'COMPLETE';
+  const START = 'START';
 }

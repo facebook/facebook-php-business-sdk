@@ -29,6 +29,14 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\VehicleFields;
+use FacebookAds\Object\Values\VehicleAvailabilityValues;
+use FacebookAds\Object\Values\VehicleBodyStyleValues;
+use FacebookAds\Object\Values\VehicleConditionValues;
+use FacebookAds\Object\Values\VehicleDrivetrainValues;
+use FacebookAds\Object\Values\VehicleFuelTypeValues;
+use FacebookAds\Object\Values\VehicleStateOfVehicleValues;
+use FacebookAds\Object\Values\VehicleTransmissionValues;
+use FacebookAds\Object\Values\VehicleVehicleTypeValues;
 
 /**
  * This class is auto-generated.
@@ -42,6 +50,13 @@ use FacebookAds\Object\Fields\VehicleFields;
 class Vehicle extends AbstractCrudObject {
 
   /**
+   * @deprecated getEndpoint function is deprecated
+   */
+  protected function getEndpoint() {
+    return 'vehicles';
+  }
+
+  /**
    * @return VehicleFields
    */
   public static function getFieldsEnum() {
@@ -50,6 +65,14 @@ class Vehicle extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['Availability'] = VehicleAvailabilityValues::getInstance()->getValues();
+    $ref_enums['BodyStyle'] = VehicleBodyStyleValues::getInstance()->getValues();
+    $ref_enums['Condition'] = VehicleConditionValues::getInstance()->getValues();
+    $ref_enums['Drivetrain'] = VehicleDrivetrainValues::getInstance()->getValues();
+    $ref_enums['FuelType'] = VehicleFuelTypeValues::getInstance()->getValues();
+    $ref_enums['StateOfVehicle'] = VehicleStateOfVehicleValues::getInstance()->getValues();
+    $ref_enums['Transmission'] = VehicleTransmissionValues::getInstance()->getValues();
+    $ref_enums['VehicleType'] = VehicleVehicleTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 

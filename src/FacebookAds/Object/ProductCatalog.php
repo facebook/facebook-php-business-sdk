@@ -54,6 +54,14 @@ use FacebookAds\Object\Values\ProductItemAvailabilityValues;
 use FacebookAds\Object\Values\ProductItemConditionValues;
 use FacebookAds\Object\Values\ProductItemGenderValues;
 use FacebookAds\Object\Values\ProductItemVisibilityValues;
+use FacebookAds\Object\Values\VehicleAvailabilityValues;
+use FacebookAds\Object\Values\VehicleBodyStyleValues;
+use FacebookAds\Object\Values\VehicleConditionValues;
+use FacebookAds\Object\Values\VehicleDrivetrainValues;
+use FacebookAds\Object\Values\VehicleFuelTypeValues;
+use FacebookAds\Object\Values\VehicleStateOfVehicleValues;
+use FacebookAds\Object\Values\VehicleTransmissionValues;
+use FacebookAds\Object\Values\VehicleVehicleTypeValues;
 
 /**
  * This class is auto-generated.
@@ -1318,6 +1326,66 @@ class ProductCatalog extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createVehicle(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'applinks' => 'Object',
+      'body_style' => 'body_style_enum',
+      'description' => 'string',
+      'exterior_color' => 'string',
+      'make' => 'string',
+      'mileage' => 'map',
+      'model' => 'string',
+      'state_of_vehicle' => 'state_of_vehicle_enum',
+      'vin' => 'string',
+      'url' => 'string',
+      'vehicle_id' => 'string',
+      'year' => 'unsigned int',
+      'images' => 'list<Object>',
+      'address' => 'map',
+      'currency' => 'string',
+      'price' => 'unsigned int',
+      'title' => 'string',
+      'transmission' => 'transmission_enum',
+      'drivetrain' => 'drivetrain_enum',
+      'fuel_type' => 'fuel_type_enum',
+      'trim' => 'string',
+      'interior_color' => 'string',
+      'condition' => 'condition_enum',
+      'date_first_on_lot' => 'string',
+      'availability' => 'availability_enum',
+      'dealer_id' => 'string',
+      'dealer_name' => 'string',
+      'dealer_phone' => 'string',
+      'vehicle_type' => 'vehicle_type_enum',
+    );
+    $enums = array(
+      'body_style_enum' => VehicleBodyStyleValues::getInstance()->getValues(),
+      'state_of_vehicle_enum' => VehicleStateOfVehicleValues::getInstance()->getValues(),
+      'transmission_enum' => VehicleTransmissionValues::getInstance()->getValues(),
+      'drivetrain_enum' => VehicleDrivetrainValues::getInstance()->getValues(),
+      'fuel_type_enum' => VehicleFuelTypeValues::getInstance()->getValues(),
+      'condition_enum' => VehicleConditionValues::getInstance()->getValues(),
+      'availability_enum' => VehicleAvailabilityValues::getInstance()->getValues(),
+      'vehicle_type_enum' => VehicleVehicleTypeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/vehicles',
+      new Vehicle(),
+      'EDGE',
+      Vehicle::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createVideo(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1358,7 +1426,7 @@ class ProductCatalog extends AbstractCrudObject {
       'composer_source_surface' => 'string',
       'composer_type' => 'string',
       'formatting' => 'formatting_enum',
-      'fun_fact_prompt_id' => 'string',
+      'fun_fact_prompt_id' => 'unsigned int',
       'fun_fact_toastee_id' => 'unsigned int',
       'is_group_linking_post' => 'bool',
       'has_nickname' => 'bool',
@@ -1367,7 +1435,7 @@ class ProductCatalog extends AbstractCrudObject {
       'is_boost_intended' => 'bool',
       'location_source_id' => 'string',
       'description' => 'string',
-      'offer_like_post_id' => 'string',
+      'offer_like_post_id' => 'unsigned int',
       'publish_event_id' => 'unsigned int',
       'react_mode_metadata' => 'string',
       'sales_promo_id' => 'unsigned int',

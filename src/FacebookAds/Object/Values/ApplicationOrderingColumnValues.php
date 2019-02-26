@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ApplicationOrderingColumnValues extends AbstractEnum {
 
+  const METRIC = 'METRIC';
   const TIME = 'TIME';
   const VALUE = 'VALUE';
-  const METRIC = 'METRIC';
 }

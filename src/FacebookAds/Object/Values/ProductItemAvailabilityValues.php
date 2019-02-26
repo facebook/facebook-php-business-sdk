@@ -37,10 +37,10 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ProductItemAvailabilityValues extends AbstractEnum {
 
-  const IN_STOCK = 'in stock';
-  const OUT_OF_STOCK = 'out of stock';
-  const PREORDER = 'preorder';
   const AVAILABLE_FOR_ORDER = 'available for order';
   const DISCONTINUED = 'discontinued';
+  const IN_STOCK = 'in stock';
+  const OUT_OF_STOCK = 'out of stock';
   const PENDING = 'pending';
+  const PREORDER = 'preorder';
 }

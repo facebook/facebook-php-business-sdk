@@ -37,9 +37,9 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class BusinessPagePermittedRolesValues extends AbstractEnum {
 
-  const MANAGER = 'MANAGER';
-  const CONTENT_CREATOR = 'CONTENT_CREATOR';
-  const MODERATOR = 'MODERATOR';
   const ADVERTISER = 'ADVERTISER';
+  const CONTENT_CREATOR = 'CONTENT_CREATOR';
   const INSIGHTS_ANALYST = 'INSIGHTS_ANALYST';
+  const MANAGER = 'MANAGER';
+  const MODERATOR = 'MODERATOR';
 }

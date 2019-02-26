@@ -38,6 +38,6 @@ use FacebookAds\Enum\AbstractEnum;
 class OfflineConversionDataSetRoleValues extends AbstractEnum {
 
   const ADMIN = 'ADMIN';
-  const UPLOADER = 'UPLOADER';
   const ADVERTISER = 'ADVERTISER';
+  const UPLOADER = 'UPLOADER';
 }

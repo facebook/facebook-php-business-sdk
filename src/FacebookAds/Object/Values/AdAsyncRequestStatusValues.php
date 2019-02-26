@@ -37,13 +37,13 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdAsyncRequestStatusValues extends AbstractEnum {
 
+  const CANCELED = 'CANCELED';
+  const CANCELED_DEPENDENCY = 'CANCELED_DEPENDENCY';
+  const ERROR = 'ERROR';
+  const ERROR_CONFLICTS = 'ERROR_CONFLICTS';
+  const ERROR_DEPENDENCY = 'ERROR_DEPENDENCY';
   const INITIAL = 'INITIAL';
   const IN_PROGRESS = 'IN_PROGRESS';
-  const SUCCESS = 'SUCCESS';
-  const ERROR = 'ERROR';
-  const CANCELED = 'CANCELED';
   const PENDING_DEPENDENCY = 'PENDING_DEPENDENCY';
-  const CANCELED_DEPENDENCY = 'CANCELED_DEPENDENCY';
-  const ERROR_DEPENDENCY = 'ERROR_DEPENDENCY';
-  const ERROR_CONFLICTS = 'ERROR_CONFLICTS';
+  const SUCCESS = 'SUCCESS';
 }

@@ -37,10 +37,10 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdCreativeVideoDataCustomOverlaySpecPositionValues extends AbstractEnum {
 
-  const TOP_LEFT = 'top_left';
-  const TOP_CENTER = 'top_center';
-  const TOP_RIGHT = 'top_right';
-  const MIDDLE_LEFT = 'middle_left';
   const MIDDLE_CENTER = 'middle_center';
+  const MIDDLE_LEFT = 'middle_left';
   const MIDDLE_RIGHT = 'middle_right';
+  const TOP_CENTER = 'top_center';
+  const TOP_LEFT = 'top_left';
+  const TOP_RIGHT = 'top_right';
 }

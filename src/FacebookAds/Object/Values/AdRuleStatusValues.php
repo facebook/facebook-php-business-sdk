@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdRuleStatusValues extends AbstractEnum {
 
-  const ENABLED = 'ENABLED';
-  const DISABLED = 'DISABLED';
   const DELETED = 'DELETED';
+  const DISABLED = 'DISABLED';
+  const ENABLED = 'ENABLED';
 }

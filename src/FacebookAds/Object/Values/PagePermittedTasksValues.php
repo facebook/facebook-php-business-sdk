@@ -37,11 +37,11 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class PagePermittedTasksValues extends AbstractEnum {
 
-  const MANAGE = 'MANAGE';
-  const CREATE_CONTENT = 'CREATE_CONTENT';
-  const MODERATE = 'MODERATE';
-  const MODERATE_COMMUNITY = 'MODERATE_COMMUNITY';
-  const MANAGE_JOBS = 'MANAGE_JOBS';
   const ADVERTISE = 'ADVERTISE';
   const ANALYZE = 'ANALYZE';
+  const CREATE_CONTENT = 'CREATE_CONTENT';
+  const MANAGE = 'MANAGE';
+  const MANAGE_JOBS = 'MANAGE_JOBS';
+  const MODERATE = 'MODERATE';
+  const MODERATE_COMMUNITY = 'MODERATE_COMMUNITY';
 }

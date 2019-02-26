@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ExtendedCreditAllocationConfigPartitionTypeValues extends AbstractEnum {
 
-  const FIXED = 'FIXED';
   const AUTH = 'AUTH';
+  const FIXED = 'FIXED';
 }

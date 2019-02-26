@@ -37,10 +37,10 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class PostBackdatedTimeGranularityValues extends AbstractEnum {
 
-  const YEAR = 'year';
-  const MONTH = 'month';
   const DAY = 'day';
   const HOUR = 'hour';
   const MIN = 'min';
+  const MONTH = 'month';
   const NONE = 'none';
+  const YEAR = 'year';
 }

@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class UserLocalNewsSubscriptionStatusValues extends AbstractEnum {
 
-  const STATUS_ON = 'STATUS_ON';
   const STATUS_OFF = 'STATUS_OFF';
+  const STATUS_ON = 'STATUS_ON';
 }

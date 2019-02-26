@@ -38,6 +38,6 @@ use FacebookAds\Enum\AbstractEnum;
 class PageSenderActionValues extends AbstractEnum {
 
   const MARK_SEEN = 'MARK_SEEN';
-  const TYPING_ON = 'TYPING_ON';
   const TYPING_OFF = 'TYPING_OFF';
+  const TYPING_ON = 'TYPING_ON';
 }

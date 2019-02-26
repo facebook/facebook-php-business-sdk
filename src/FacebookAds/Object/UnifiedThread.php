@@ -161,9 +161,9 @@ class UnifiedThread extends AbstractCrudObject {
       ),
       'video_type_enum' => array(
         'FILE_ATTACHMENT',
+        'RECORDED_STICKER',
         'RECORDED_VIDEO',
         'SPEAKING_STICKER',
-        'RECORDED_STICKER',
         'VIDEO_MAIL',
       ),
     );

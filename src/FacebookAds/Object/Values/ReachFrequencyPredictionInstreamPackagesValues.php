@@ -37,11 +37,11 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ReachFrequencyPredictionInstreamPackagesValues extends AbstractEnum {
 
+  const BEAUTY = 'BEAUTY';
+  const ENTERTAINMENT = 'ENTERTAINMENT';
+  const FOOD = 'FOOD';
   const NORMAL = 'NORMAL';
   const PREMIUM = 'PREMIUM';
-  const SPORTS = 'SPORTS';
-  const ENTERTAINMENT = 'ENTERTAINMENT';
-  const BEAUTY = 'BEAUTY';
   const REGULAR_ANIMALS_PETS = 'REGULAR_ANIMALS_PETS';
   const REGULAR_FOOD = 'REGULAR_FOOD';
   const REGULAR_GAMES = 'REGULAR_GAMES';
@@ -49,4 +49,5 @@ class ReachFrequencyPredictionInstreamPackagesValues extends AbstractEnum {
   const REGULAR_SPORTS = 'REGULAR_SPORTS';
   const REGULAR_STYLE = 'REGULAR_STYLE';
   const REGULAR_TV_MOVIES = 'REGULAR_TV_MOVIES';
+  const SPORTS = 'SPORTS';
 }

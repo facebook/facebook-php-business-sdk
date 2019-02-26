@@ -37,13 +37,13 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdStudyObjectiveTypeValues extends AbstractEnum {
 
-  const SALES = 'SALES';
-  const NONSALES = 'NONSALES';
-  const MAE = 'MAE';
-  const TELCO = 'TELCO';
-  const FTL = 'FTL';
-  const MAI = 'MAI';
-  const PARTNER = 'PARTNER';
-  const BRANDLIFT = 'BRANDLIFT';
   const BRAND = 'BRAND';
+  const BRANDLIFT = 'BRANDLIFT';
+  const FTL = 'FTL';
+  const MAE = 'MAE';
+  const MAI = 'MAI';
+  const NONSALES = 'NONSALES';
+  const PARTNER = 'PARTNER';
+  const SALES = 'SALES';
+  const TELCO = 'TELCO';
 }

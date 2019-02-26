@@ -37,8 +37,8 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AsyncRequestStatusValues extends AbstractEnum {
 
-  const INITIALIZED = 'INITIALIZED';
+  const ERROR = 'ERROR';
   const EXECUTING = 'EXECUTING';
   const FINISHED = 'FINISHED';
-  const ERROR = 'ERROR';
+  const INITIALIZED = 'INITIALIZED';
 }

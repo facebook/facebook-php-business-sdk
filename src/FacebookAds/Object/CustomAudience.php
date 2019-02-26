@@ -236,14 +236,14 @@ class CustomAudience extends AbstractCrudObject {
     $enums = array(
       'action_type_enum' => array(
         'add',
-        'remove',
         'match',
         'optout',
+        'remove',
       ),
       'encoding_enum' => array(
         'md5',
-        'sha256',
         'plain',
+        'sha256',
       ),
       'entry_type_enum' => array(
         '0',

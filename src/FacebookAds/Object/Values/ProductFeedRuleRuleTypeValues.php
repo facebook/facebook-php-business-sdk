@@ -37,9 +37,9 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ProductFeedRuleRuleTypeValues extends AbstractEnum {
 
-  const MAPPING_RULE = 'mapping_rule';
-  const VALUE_MAPPING_RULE = 'value_mapping_rule';
-  const LETTER_CASE_RULE = 'letter_case_rule';
   const FALLBACK_RULE = 'fallback_rule';
+  const LETTER_CASE_RULE = 'letter_case_rule';
+  const MAPPING_RULE = 'mapping_rule';
   const REGEX_REPLACE_RULE = 'regex_replace_rule';
+  const VALUE_MAPPING_RULE = 'value_mapping_rule';
 }

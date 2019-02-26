@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class PhotoFormattingValues extends AbstractEnum {
 
-  const PLAINTEXT = 'PLAINTEXT';
   const MARKDOWN = 'MARKDOWN';
+  const PLAINTEXT = 'PLAINTEXT';
 }

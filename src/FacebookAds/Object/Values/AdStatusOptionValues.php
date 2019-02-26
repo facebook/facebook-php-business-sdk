@@ -38,6 +38,6 @@ use FacebookAds\Enum\AbstractEnum;
 class AdStatusOptionValues extends AbstractEnum {
 
   const ACTIVE = 'ACTIVE';
-  const PAUSED = 'PAUSED';
   const INHERITED_FROM_SOURCE = 'INHERITED_FROM_SOURCE';
+  const PAUSED = 'PAUSED';
 }

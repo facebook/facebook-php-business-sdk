@@ -37,10 +37,10 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class PageCallToActionWebDestinationTypeValues extends AbstractEnum {
 
+  const BECOME_SUPPORTER = 'BECOME_SUPPORTER';
   const EMAIL = 'EMAIL';
   const MESSENGER = 'MESSENGER';
   const NONE = 'NONE';
-  const WEBSITE = 'WEBSITE';
   const SHOP_ON_FACEBOOK = 'SHOP_ON_FACEBOOK';
-  const BECOME_SUPPORTER = 'BECOME_SUPPORTER';
+  const WEBSITE = 'WEBSITE';
 }

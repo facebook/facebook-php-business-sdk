@@ -37,8 +37,8 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdReportSpecFormatValues extends AbstractEnum {
 
-  const JSON = 'JSON';
   const CSV = 'CSV';
+  const JSON = 'JSON';
   const XLS = 'XLS';
   const XLSX = 'XLSX';
 }

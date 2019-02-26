@@ -37,6 +37,5 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class InstagramUserRoleValues extends AbstractEnum {
 
-  const MANAGER = 'MANAGER';
   const ANALYST = 'ANALYST';
 }

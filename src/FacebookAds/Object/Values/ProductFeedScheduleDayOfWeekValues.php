@@ -37,11 +37,11 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ProductFeedScheduleDayOfWeekValues extends AbstractEnum {
 
-  const SUNDAY = 'SUNDAY';
+  const FRIDAY = 'FRIDAY';
   const MONDAY = 'MONDAY';
+  const SATURDAY = 'SATURDAY';
+  const SUNDAY = 'SUNDAY';
+  const THURSDAY = 'THURSDAY';
   const TUESDAY = 'TUESDAY';
   const WEDNESDAY = 'WEDNESDAY';
-  const THURSDAY = 'THURSDAY';
-  const FRIDAY = 'FRIDAY';
-  const SATURDAY = 'SATURDAY';
 }

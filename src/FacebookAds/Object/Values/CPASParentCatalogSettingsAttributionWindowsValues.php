@@ -37,11 +37,11 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class CPASParentCatalogSettingsAttributionWindowsValues extends AbstractEnum {
 
-  const X1D_VIEW = 'X1D_VIEW';
-  const X7D_VIEW = 'X7D_VIEW';
-  const X28D_VIEW = 'X28D_VIEW';
-  const X1D_CLICK = 'X1D_CLICK';
-  const X7D_CLICK = 'X7D_CLICK';
-  const X28D_CLICK = 'X28D_CLICK';
   const VALUE_DEFAULT = 'DEFAULT';
+  const X1D_CLICK = 'X1D_CLICK';
+  const X1D_VIEW = 'X1D_VIEW';
+  const X28D_CLICK = 'X28D_CLICK';
+  const X28D_VIEW = 'X28D_VIEW';
+  const X7D_CLICK = 'X7D_CLICK';
+  const X7D_VIEW = 'X7D_VIEW';
 }

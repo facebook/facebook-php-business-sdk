@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class LiveVideoProjectionValues extends AbstractEnum {
 
-  const EQUIRECTANGULAR = 'EQUIRECTANGULAR';
   const CUBEMAP = 'CUBEMAP';
+  const EQUIRECTANGULAR = 'EQUIRECTANGULAR';
   const HALF_EQUIRECTANGULAR = 'HALF_EQUIRECTANGULAR';
 }

@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class PagePostTimelineVisibilityValues extends AbstractEnum {
 
+  const FORCED_ALLOW = 'forced_allow';
   const HIDDEN = 'hidden';
   const NORMAL = 'normal';
-  const FORCED_ALLOW = 'forced_allow';
 }

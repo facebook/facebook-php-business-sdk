@@ -37,9 +37,9 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class MediaFingerprintFingerprintContentTypeValues extends AbstractEnum {
 
-  const SONGTRACK = 'SONGTRACK';
-  const EPISODE = 'EPISODE';
-  const OTHER = 'OTHER';
-  const MOVIE = 'MOVIE';
   const AM_SONGTRACK = 'AM_SONGTRACK';
+  const EPISODE = 'EPISODE';
+  const MOVIE = 'MOVIE';
+  const OTHER = 'OTHER';
+  const SONGTRACK = 'SONGTRACK';
 }

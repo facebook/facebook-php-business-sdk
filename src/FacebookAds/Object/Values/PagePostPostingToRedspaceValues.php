@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class PagePostPostingToRedspaceValues extends AbstractEnum {
 
-  const ENABLED = 'enabled';
   const DISABLED = 'disabled';
+  const ENABLED = 'enabled';
 }

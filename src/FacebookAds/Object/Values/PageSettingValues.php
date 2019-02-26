@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class PageSettingValues extends AbstractEnum {
 
-  const POST_AS_SELF = 'POST_AS_SELF';
   const EMAIL_NOTIF = 'EMAIL_NOTIF';
   const MOBILE_NOTIF = 'MOBILE_NOTIF';
+  const POST_AS_SELF = 'POST_AS_SELF';
 }

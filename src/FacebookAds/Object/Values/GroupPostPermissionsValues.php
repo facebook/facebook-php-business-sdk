@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class GroupPostPermissionsValues extends AbstractEnum {
 
-  const NONE = 'NONE';
   const ADMIN_ONLY = 'ADMIN_ONLY';
   const ANYONE = 'ANYONE';
+  const NONE = 'NONE';
 }

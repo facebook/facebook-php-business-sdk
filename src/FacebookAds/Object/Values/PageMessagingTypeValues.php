@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class PageMessagingTypeValues extends AbstractEnum {
 
+  const MESSAGE_TAG = 'MESSAGE_TAG';
   const RESPONSE = 'RESPONSE';
   const UPDATE = 'UPDATE';
-  const MESSAGE_TAG = 'MESSAGE_TAG';
 }

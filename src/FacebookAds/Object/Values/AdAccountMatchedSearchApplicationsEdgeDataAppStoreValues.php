@@ -38,15 +38,15 @@ use FacebookAds\Enum\AbstractEnum;
 class AdAccountMatchedSearchApplicationsEdgeDataAppStoreValues extends AbstractEnum {
 
   const AMAZON_APP_STORE = 'AMAZON_APP_STORE';
-  const GOOGLE_PLAY = 'GOOGLE_PLAY';
-  const ITUNES = 'ITUNES';
-  const ITUNES_IPAD = 'ITUNES_IPAD';
+  const DOES_NOT_EXIST = 'DOES_NOT_EXIST';
+  const FB_ANDROID_STORE = 'FB_ANDROID_STORE';
   const FB_CANVAS = 'FB_CANVAS';
   const FB_GAMEROOM = 'FB_GAMEROOM';
-  const WINDOWS_STORE = 'WINDOWS_STORE';
-  const FB_ANDROID_STORE = 'FB_ANDROID_STORE';
-  const WINDOWS_10_STORE = 'WINDOWS_10_STORE';
-  const ROKU_STORE = 'ROKU_STORE';
+  const GOOGLE_PLAY = 'GOOGLE_PLAY';
   const INSTANT_GAME = 'INSTANT_GAME';
-  const DOES_NOT_EXIST = 'DOES_NOT_EXIST';
+  const ITUNES = 'ITUNES';
+  const ITUNES_IPAD = 'ITUNES_IPAD';
+  const ROKU_STORE = 'ROKU_STORE';
+  const WINDOWS_10_STORE = 'WINDOWS_10_STORE';
+  const WINDOWS_STORE = 'WINDOWS_STORE';
 }

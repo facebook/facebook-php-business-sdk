@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class EventTimeFilterValues extends AbstractEnum {
 
-  const UPCOMING = 'upcoming';
   const PAST = 'past';
+  const UPCOMING = 'upcoming';
 }

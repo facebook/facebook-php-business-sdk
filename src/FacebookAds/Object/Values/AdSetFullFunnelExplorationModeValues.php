@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdSetFullFunnelExplorationModeValues extends AbstractEnum {
 
-  const NONE_EXPLORATION = 'NONE_EXPLORATION';
-  const LIMITED_EXPLORATION = 'LIMITED_EXPLORATION';
   const EXTENDED_EXPLORATION = 'EXTENDED_EXPLORATION';
+  const LIMITED_EXPLORATION = 'LIMITED_EXPLORATION';
+  const NONE_EXPLORATION = 'NONE_EXPLORATION';
 }

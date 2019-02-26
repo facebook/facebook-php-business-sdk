@@ -37,18 +37,18 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class InstagramInsightsResultMetricValues extends AbstractEnum {
 
-  const IMPRESSIONS = 'impressions';
-  const REACH = 'reach';
+  const CAROUSEL_ALBUM_ENGAGEMENT = 'carousel_album_engagement';
   const CAROUSEL_ALBUM_IMPRESSIONS = 'carousel_album_impressions';
   const CAROUSEL_ALBUM_REACH = 'carousel_album_reach';
-  const CAROUSEL_ALBUM_ENGAGEMENT = 'carousel_album_engagement';
   const CAROUSEL_ALBUM_SAVED = 'carousel_album_saved';
   const CAROUSEL_ALBUM_VIDEO_VIEWS = 'carousel_album_video_views';
-  const TAPS_FORWARD = 'taps_forward';
-  const TAPS_BACK = 'taps_back';
-  const EXITS = 'exits';
-  const REPLIES = 'replies';
   const ENGAGEMENT = 'engagement';
+  const EXITS = 'exits';
+  const IMPRESSIONS = 'impressions';
+  const REACH = 'reach';
+  const REPLIES = 'replies';
   const SAVED = 'saved';
+  const TAPS_BACK = 'taps_back';
+  const TAPS_FORWARD = 'taps_forward';
   const VIDEO_VIEWS = 'video_views';
 }

@@ -37,8 +37,8 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class BusinessRoleRequestStatusValues extends AbstractEnum {
 
-  const PENDING = 'PENDING';
   const ACCEPTED = 'ACCEPTED';
   const DECLINED = 'DECLINED';
   const EXPIRED = 'EXPIRED';
+  const PENDING = 'PENDING';
 }

@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class PageAttireValues extends AbstractEnum {
 
-  const UNSPECIFIED = 'Unspecified';
   const CASUAL = 'Casual';
   const DRESSY = 'Dressy';
+  const UNSPECIFIED = 'Unspecified';
 }

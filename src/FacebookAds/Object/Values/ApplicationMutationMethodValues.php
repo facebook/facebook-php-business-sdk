@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ApplicationMutationMethodValues extends AbstractEnum {
 
-  const REPLACE = 'REPLACE';
   const ADD = 'ADD';
   const DELETE = 'DELETE';
+  const REPLACE = 'REPLACE';
 }

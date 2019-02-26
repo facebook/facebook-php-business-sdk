@@ -721,48 +721,49 @@ class AdAccount extends AbstractCrudObject {
         'PERFORMANCE',
         'PERFORMANCE_LEGACY',
         'TARGETING_AND_CREATIVE',
-        'VIDEO_ENGAGEMENT',
         'VALIDATION_VIEW',
+        'VIDEO_ENGAGEMENT',
       ),
       'level_enum' => array(
-        'politicalad',
+        'account',
         'ad',
         'adgroup',
         'campaign',
         'campaign_group',
-        'account',
+        'politicalad',
       ),
       'date_preset_enum' => array(
-        'today',
-        'yesterday',
-        'this_month',
-        'last_month',
-        'this_quarter',
-        'lifetime',
-        'last_3d',
-        'last_7d',
         'last_14d',
         'last_28d',
         'last_30d',
+        'last_3d',
+        'last_7d',
         'last_90d',
+        'last_month',
+        'last_quarter',
         'last_week_mon_sun',
         'last_week_sun_sat',
-        'last_quarter',
         'last_year',
+        'lifetime',
+        'this_month',
+        'this_quarter',
         'this_week_mon_today',
         'this_week_sun_today',
         'this_year',
+        'today',
+        'yesterday',
       ),
       'creation_source_enum' => array(
+        'adsExcelAddin',
         'adsManagerReporting',
         'newAdsManager',
-        'adsExcelAddin',
       ),
       'actions_group_by_enum' => array(
         'action_canvas_component_id',
         'action_canvas_component_name',
         'action_carousel_card_id',
         'action_carousel_card_name',
+        'action_converted_product_id',
         'action_destination',
         'action_device',
         'action_event_channel',
@@ -770,19 +771,18 @@ class AdAccount extends AbstractCrudObject {
         'action_type',
         'action_video_sound',
         'action_video_type',
-        'action_converted_product_id',
         'interactive_component_sticker_id',
         'interactive_component_sticker_response',
       ),
       'schedule_frequency_enum' => array(
         'daily',
-        'weekly',
         'monthly',
+        'weekly',
       ),
       'status_enum' => array(
         'Active',
-        'Paused',
         'Deleted',
+        'Paused',
       ),
     );
 
@@ -943,8 +943,8 @@ class AdAccount extends AbstractCrudObject {
     $enums = array(
       'delete_strategy_enum' => array(
         'DELETE_ANY',
-        'DELETE_OLDEST',
         'DELETE_ARCHIVED_BEFORE',
+        'DELETE_OLDEST',
       ),
     );
 
@@ -1074,8 +1074,8 @@ class AdAccount extends AbstractCrudObject {
     $enums = array(
       'delete_strategy_enum' => array(
         'DELETE_ANY',
-        'DELETE_OLDEST',
         'DELETE_ARCHIVED_BEFORE',
+        'DELETE_OLDEST',
       ),
     );
 
@@ -1414,7 +1414,7 @@ class AdAccount extends AbstractCrudObject {
       'composer_source_surface' => 'string',
       'composer_type' => 'string',
       'formatting' => 'formatting_enum',
-      'fun_fact_prompt_id' => 'string',
+      'fun_fact_prompt_id' => 'unsigned int',
       'fun_fact_toastee_id' => 'unsigned int',
       'is_group_linking_post' => 'bool',
       'has_nickname' => 'bool',
@@ -1423,7 +1423,7 @@ class AdAccount extends AbstractCrudObject {
       'is_boost_intended' => 'bool',
       'location_source_id' => 'string',
       'description' => 'string',
-      'offer_like_post_id' => 'string',
+      'offer_like_post_id' => 'unsigned int',
       'publish_event_id' => 'unsigned int',
       'react_mode_metadata' => 'string',
       'sales_promo_id' => 'unsigned int',
@@ -1591,6 +1591,30 @@ class AdAccount extends AbstractCrudObject {
       new Application(),
       'EDGE',
       Application::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function deleteAssignedUsers(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'user' => 'int',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/assigned_users',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2006,8 +2030,8 @@ class AdAccount extends AbstractCrudObject {
     $enums = array(
       'delete_strategy_enum' => array(
         'DELETE_ANY',
-        'DELETE_OLDEST',
         'DELETE_ARCHIVED_BEFORE',
+        'DELETE_OLDEST',
       ),
     );
 

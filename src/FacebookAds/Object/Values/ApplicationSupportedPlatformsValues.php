@@ -37,15 +37,15 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ApplicationSupportedPlatformsValues extends AbstractEnum {
 
-  const WEB = 'WEB';
-  const CANVAS = 'CANVAS';
-  const MOBILE_WEB = 'MOBILE_WEB';
-  const IPHONE = 'IPHONE';
-  const IPAD = 'IPAD';
-  const ANDROID = 'ANDROID';
-  const WINDOWS = 'WINDOWS';
   const AMAZON = 'AMAZON';
-  const SUPPLEMENTARY_IMAGES = 'SUPPLEMENTARY_IMAGES';
+  const ANDROID = 'ANDROID';
+  const CANVAS = 'CANVAS';
   const GAMEROOM = 'GAMEROOM';
   const INSTANT_GAME = 'INSTANT_GAME';
+  const IPAD = 'IPAD';
+  const IPHONE = 'IPHONE';
+  const MOBILE_WEB = 'MOBILE_WEB';
+  const SUPPLEMENTARY_IMAGES = 'SUPPLEMENTARY_IMAGES';
+  const WEB = 'WEB';
+  const WINDOWS = 'WINDOWS';
 }

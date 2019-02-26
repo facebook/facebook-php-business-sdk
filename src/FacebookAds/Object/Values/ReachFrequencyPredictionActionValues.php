@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ReachFrequencyPredictionActionValues extends AbstractEnum {
 
+  const CANCEL = 'cancel';
   const QUOTE = 'quote';
   const RESERVE = 'reserve';
-  const CANCEL = 'cancel';
 }

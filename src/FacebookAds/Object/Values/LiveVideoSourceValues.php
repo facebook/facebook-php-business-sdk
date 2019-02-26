@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class LiveVideoSourceValues extends AbstractEnum {
 
-  const TARGET = 'target';
   const OWNER = 'owner';
+  const TARGET = 'target';
 }

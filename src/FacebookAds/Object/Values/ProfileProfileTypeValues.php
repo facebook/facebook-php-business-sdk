@@ -37,9 +37,9 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ProfileProfileTypeValues extends AbstractEnum {
 
-  const USER = 'user';
-  const PAGE = 'page';
+  const APPLICATION = 'application';
   const EVENT = 'event';
   const GROUP = 'group';
-  const APPLICATION = 'application';
+  const PAGE = 'page';
+  const USER = 'user';
 }

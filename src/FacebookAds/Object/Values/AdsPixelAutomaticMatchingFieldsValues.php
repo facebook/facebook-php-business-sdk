@@ -37,12 +37,12 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdsPixelAutomaticMatchingFieldsValues extends AbstractEnum {
 
+  const CT = 'ct';
   const EM = 'em';
   const FN = 'fn';
+  const GE = 'ge';
   const LN = 'ln';
   const PH = 'ph';
-  const GE = 'ge';
-  const ZP = 'zp';
-  const CT = 'ct';
   const ST = 'st';
+  const ZP = 'zp';
 }

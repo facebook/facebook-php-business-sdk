@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AudioCopyrightUpdateSourceValues extends AbstractEnum {
 
-  const EDIT_REFERENCE_DIALOG = 'edit_reference_dialog';
   const DDEX = 'ddex';
+  const EDIT_REFERENCE_DIALOG = 'edit_reference_dialog';
   const REFERENCE_CONFLICT_DIALOG = 'reference_conflict_dialog';
 }

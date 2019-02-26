@@ -40,7 +40,7 @@ class ProductFeedDelimiterValues extends AbstractEnum {
   const AUTODETECT = 'AUTODETECT';
   const BAR = 'BAR';
   const COMMA = 'COMMA';
+  const SEMICOLON = 'SEMICOLON';
   const TAB = 'TAB';
   const TILDE = 'TILDE';
-  const SEMICOLON = 'SEMICOLON';
 }

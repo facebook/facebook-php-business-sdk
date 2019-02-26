@@ -37,8 +37,14 @@ use FacebookAds\Enum\AbstractEnum;
 
 class MeasurementUploadEventFields extends AbstractEnum {
 
+  const AGGREGATION_LEVEL = 'aggregation_level';
+  const CONVERSION_END_DATE = 'conversion_end_date';
+  const CONVERSION_START_DATE = 'conversion_start_date';
+  const EVENT_STATUS = 'event_status';
   const GROUP = 'group';
   const ID = 'id';
+  const LOOKBACK_WINDOW = 'lookback_window';
+  const MATCH_UNIVERSE = 'match_universe';
   const PARTNER = 'partner';
   const UPLOAD_END_TIME = 'upload_end_time';
   const UPLOAD_START_TIME = 'upload_start_time';
@@ -47,8 +53,14 @@ class MeasurementUploadEventFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'aggregation_level' => 'string',
+      'conversion_end_date' => 'string',
+      'conversion_start_date' => 'string',
+      'event_status' => 'string',
       'group' => 'string',
       'id' => 'string',
+      'lookback_window' => 'string',
+      'match_universe' => 'string',
       'partner' => 'Business',
       'upload_end_time' => 'datetime',
       'upload_start_time' => 'datetime',

@@ -717,11 +717,11 @@ class User extends AbstractCrudObject {
     );
     $enums = array(
       'contact_surface_enum' => array(
-        'ORIGINAL',
-        'MESSENGER',
         'CONNECTIONS',
-        'GROWTH_CONTACT_IMPORTER',
         'CONTACTSAPP',
+        'GROWTH_CONTACT_IMPORTER',
+        'MESSENGER',
+        'ORIGINAL',
       ),
     );
 
@@ -1107,7 +1107,7 @@ class User extends AbstractCrudObject {
       'composer_session_events_log' => 'string',
       'composer_source_surface' => 'string',
       'composer_type' => 'string',
-      'fun_fact_prompt_id' => 'string',
+      'fun_fact_prompt_id' => 'unsigned int',
       'fun_fact_toastee_id' => 'unsigned int',
       'is_group_linking_post' => 'bool',
       'has_nickname' => 'bool',
@@ -1116,7 +1116,7 @@ class User extends AbstractCrudObject {
       'is_boost_intended' => 'bool',
       'location_source_id' => 'string',
       'message' => 'string',
-      'offer_like_post_id' => 'string',
+      'offer_like_post_id' => 'unsigned int',
       'page_recommendation' => 'string',
       'place_list' => 'string',
       'publish_event_id' => 'unsigned int',
@@ -1128,23 +1128,23 @@ class User extends AbstractCrudObject {
     );
     $enums = array(
       'backdated_time_granularity_enum' => array(
-        'year',
-        'month',
         'day',
         'hour',
         'min',
+        'month',
         'none',
+        'year',
       ),
       'unpublished_content_type_enum' => array(
-        'SCHEDULED',
-        'DRAFT',
         'ADS_POST',
+        'DRAFT',
         'INLINE_CREATED',
         'PUBLISHED',
+        'SCHEDULED',
       ),
       'posting_to_redspace_enum' => array(
-        'enabled',
         'disabled',
+        'enabled',
       ),
       'place_attachment_setting_enum' => array(
         '1',
@@ -1152,9 +1152,9 @@ class User extends AbstractCrudObject {
       ),
       'checkin_entry_point_enum' => array(
         'BRANDING_CHECKIN',
-        'BRANDING_STATUS',
-        'BRANDING_PHOTO',
         'BRANDING_OTHER',
+        'BRANDING_PHOTO',
+        'BRANDING_STATUS',
       ),
       'post_surfaces_blacklist_enum' => array(
         '1',
@@ -1164,8 +1164,8 @@ class User extends AbstractCrudObject {
         '5',
       ),
       'formatting_enum' => array(
-        'PLAINTEXT',
         'MARKDOWN',
+        'PLAINTEXT',
       ),
       'target_surface_enum' => array(
         'STORY',
@@ -1248,9 +1248,9 @@ class User extends AbstractCrudObject {
     );
     $enums = array(
       'action_enum' => array(
-        'MARK',
         'CONSUME',
         'DROP',
+        'MARK',
       ),
     );
 
@@ -1277,9 +1277,9 @@ class User extends AbstractCrudObject {
     );
     $enums = array(
       'action_enum' => array(
-        'START',
-        'HEARTBEAT',
         'END',
+        'HEARTBEAT',
+        'START',
       ),
     );
 
@@ -2127,207 +2127,6 @@ class User extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createPaymentAccountEmail(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'user_input_email' => 'string',
-      'default' => 'bool',
-      'payment_type' => 'payment_type_enum',
-    );
-    $enums = array(
-      'payment_type_enum' => array(
-        'PAYMENT_SETTINGS',
-        'IG_PAYMENT_SETTINGS',
-        'UNKNOWN',
-        'MP_PAYMENT_SETTINGS',
-        'IAP_INSTANT_GAME',
-        'IAP_FAN_FUNDING',
-        'IAP_GROUP_SUBSCRIPTION',
-        'IAP_SOTTO',
-        'FB_BROWSER_PAYMENT',
-        'MOR_NONE',
-        'MOR_ADS_CONSENT',
-        'MOR_ADS_INVOICE',
-        'MOR_DONATIONS',
-        'MOR_DONATIONS_MATCHING_CONFIRMATION',
-        'MOR_DONATIONS_MATCHING_PLEDGE',
-        'MOR_OCULUS_CV1',
-        'MOR_OCULUS_LAUNCH_V1',
-        'MOR_OCULUS_LAUNCH_V2',
-        'MOR_OZONE',
-        'MOR_OPEN_GRAPH_PRODUCT',
-        'MOR_MESSENGER_COMMERCE',
-        'MOR_P2P_TRANSFER',
-        'MOR_DUMMY_FIRST_PARTY',
-        'MOR_DUMMY_THIRD_PARTY',
-        'MOR_GIFTS',
-        'MOR_BILL',
-        'MOR_AIRMAIL',
-        'MOR_EVENT_TICKETING',
-        'MOR_PAYMENT_LITE',
-        'MOR_MESSENGER_API_FEE',
-        'MOR_WORKPLACE_USAGE',
-        'MOR_FACEBOOK_SHOP',
-        'MOR_FAN_FUNDING',
-        'MOR_GAME_TIPPING_TOKEN',
-        'MOR_INSTANT_GAMES',
-        'MOR_BLUEBIRD',
-        'MOR_GROUP_SUBSCRIPTION',
-        'MOR_SOTTO',
-        'NMOR_UNKNOWN',
-        'NMOR_NONE',
-        'NMOR_PAGES_COMMERCE',
-        'NMOR_COMPONENT_FLOW',
-        'NMOR_BUSINESS_PLATFORM_COMMERCE',
-        'NMOR_SYNCHRONOUS_COMPONENT_FLOW',
-        'NMOR_EVENT_TICKETING',
-        'NMOR_PLATFORM_SELF_SERVE',
-        'NMOR_MESSENGER_PLATFORM',
-        'NMOR_MESSENGER_OMNIM',
-        'NMOR_TIP_JAR',
-        'NMOR_INSTANT_EXPERIENCES',
-        'NMOR_CHECKOUT_EXPERIENCES',
-        'NMOR_C2C_CHECKOUT_EXPERIENCES',
-        'NMOR_BUY_ON_FACEBOOK',
-        'NMOR_DONATION_P4P',
-        'NMOR_WHATSAPP_P2P',
-        'NMOR_P2P',
-        'NMOR_MOBILE_TOP_UP',
-        'NMOR_MFS',
-        'NMOR_SHIPPING_LABEL',
-        'NMOR_MARKETPLACE_DROPOFF',
-        'NMOR_PAGES_SOLUTION',
-        'NMOR_BLACKBAUD_RWR_DONATION',
-        'NMOR_MARKETPLACE_SHIPPING',
-        'NMOR_DUMMY',
-        'NMOR_PPGF_DONATION',
-        'NMOR_ADVERTISER_SUBSCRIPTION',
-        'NMOR_WHATSAPP_P2M',
-        'NMOR_MOVIE_TICKETING',
-        'IG_NMOR_P2B',
-        'IG_NMOR_SHOPPING',
-        'IG_MOR_DONATIONS',
-        'NMOR_INSTAGRAM_P2B',
-      ),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/payment_account_emails',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createPaymentAccountPhone(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'raw_input' => 'string',
-      'country_code' => 'string',
-      'default' => 'bool',
-      'payment_type' => 'payment_type_enum',
-    );
-    $enums = array(
-      'payment_type_enum' => array(
-        'PAYMENT_SETTINGS',
-        'IG_PAYMENT_SETTINGS',
-        'UNKNOWN',
-        'MP_PAYMENT_SETTINGS',
-        'IAP_INSTANT_GAME',
-        'IAP_FAN_FUNDING',
-        'IAP_GROUP_SUBSCRIPTION',
-        'IAP_SOTTO',
-        'FB_BROWSER_PAYMENT',
-        'MOR_NONE',
-        'MOR_ADS_CONSENT',
-        'MOR_ADS_INVOICE',
-        'MOR_DONATIONS',
-        'MOR_DONATIONS_MATCHING_CONFIRMATION',
-        'MOR_DONATIONS_MATCHING_PLEDGE',
-        'MOR_OCULUS_CV1',
-        'MOR_OCULUS_LAUNCH_V1',
-        'MOR_OCULUS_LAUNCH_V2',
-        'MOR_OZONE',
-        'MOR_OPEN_GRAPH_PRODUCT',
-        'MOR_MESSENGER_COMMERCE',
-        'MOR_P2P_TRANSFER',
-        'MOR_DUMMY_FIRST_PARTY',
-        'MOR_DUMMY_THIRD_PARTY',
-        'MOR_GIFTS',
-        'MOR_BILL',
-        'MOR_AIRMAIL',
-        'MOR_EVENT_TICKETING',
-        'MOR_PAYMENT_LITE',
-        'MOR_MESSENGER_API_FEE',
-        'MOR_WORKPLACE_USAGE',
-        'MOR_FACEBOOK_SHOP',
-        'MOR_FAN_FUNDING',
-        'MOR_GAME_TIPPING_TOKEN',
-        'MOR_INSTANT_GAMES',
-        'MOR_BLUEBIRD',
-        'MOR_GROUP_SUBSCRIPTION',
-        'MOR_SOTTO',
-        'NMOR_UNKNOWN',
-        'NMOR_NONE',
-        'NMOR_PAGES_COMMERCE',
-        'NMOR_COMPONENT_FLOW',
-        'NMOR_BUSINESS_PLATFORM_COMMERCE',
-        'NMOR_SYNCHRONOUS_COMPONENT_FLOW',
-        'NMOR_EVENT_TICKETING',
-        'NMOR_PLATFORM_SELF_SERVE',
-        'NMOR_MESSENGER_PLATFORM',
-        'NMOR_MESSENGER_OMNIM',
-        'NMOR_TIP_JAR',
-        'NMOR_INSTANT_EXPERIENCES',
-        'NMOR_CHECKOUT_EXPERIENCES',
-        'NMOR_C2C_CHECKOUT_EXPERIENCES',
-        'NMOR_BUY_ON_FACEBOOK',
-        'NMOR_DONATION_P4P',
-        'NMOR_WHATSAPP_P2P',
-        'NMOR_P2P',
-        'NMOR_MOBILE_TOP_UP',
-        'NMOR_MFS',
-        'NMOR_SHIPPING_LABEL',
-        'NMOR_MARKETPLACE_DROPOFF',
-        'NMOR_PAGES_SOLUTION',
-        'NMOR_BLACKBAUD_RWR_DONATION',
-        'NMOR_MARKETPLACE_SHIPPING',
-        'NMOR_DUMMY',
-        'NMOR_PPGF_DONATION',
-        'NMOR_ADVERTISER_SUBSCRIPTION',
-        'NMOR_WHATSAPP_P2M',
-        'NMOR_MOVIE_TICKETING',
-        'IG_NMOR_P2B',
-        'IG_NMOR_SHOPPING',
-        'IG_MOR_DONATIONS',
-        'NMOR_INSTAGRAM_P2B',
-      ),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/payment_account_phones',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function deletePermissions(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -2552,12 +2351,12 @@ class User extends AbstractCrudObject {
     );
     $enums = array(
       'type_enum' => array(
-        'PLACE',
         'CITY',
-        'STATE_PROVINCE',
         'COUNTRY',
         'EVENT',
+        'PLACE',
         'RESIDENCE',
+        'STATE_PROVINCE',
         'TEXT',
       ),
     );
@@ -3009,7 +2808,7 @@ class User extends AbstractCrudObject {
       'composer_source_surface' => 'string',
       'composer_type' => 'string',
       'formatting' => 'formatting_enum',
-      'fun_fact_prompt_id' => 'string',
+      'fun_fact_prompt_id' => 'unsigned int',
       'fun_fact_toastee_id' => 'unsigned int',
       'is_group_linking_post' => 'bool',
       'has_nickname' => 'bool',
@@ -3018,7 +2817,7 @@ class User extends AbstractCrudObject {
       'is_boost_intended' => 'bool',
       'location_source_id' => 'string',
       'description' => 'string',
-      'offer_like_post_id' => 'string',
+      'offer_like_post_id' => 'unsigned int',
       'publish_event_id' => 'unsigned int',
       'react_mode_metadata' => 'string',
       'sales_promo_id' => 'unsigned int',

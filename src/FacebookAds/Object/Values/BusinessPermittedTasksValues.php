@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class BusinessPermittedTasksValues extends AbstractEnum {
 
-  const MANAGE = 'MANAGE';
   const ADVERTISE = 'ADVERTISE';
   const ANALYZE = 'ANALYZE';
+  const MANAGE = 'MANAGE';
 }

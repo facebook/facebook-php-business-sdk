@@ -37,9 +37,9 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class BusinessRoleValues extends AbstractEnum {
 
-  const FINANCE_EDITOR = 'FINANCE_EDITOR';
-  const FINANCE_ANALYST = 'FINANCE_ANALYST';
-  const ADS_RIGHTS_REVIEWER = 'ADS_RIGHTS_REVIEWER';
   const ADMIN = 'ADMIN';
+  const ADS_RIGHTS_REVIEWER = 'ADS_RIGHTS_REVIEWER';
   const EMPLOYEE = 'EMPLOYEE';
+  const FINANCE_ANALYST = 'FINANCE_ANALYST';
+  const FINANCE_EDITOR = 'FINANCE_EDITOR';
 }

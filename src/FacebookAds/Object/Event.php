@@ -390,7 +390,7 @@ class Event extends AbstractCrudObject {
       'composer_session_events_log' => 'string',
       'composer_source_surface' => 'string',
       'composer_type' => 'string',
-      'fun_fact_prompt_id' => 'string',
+      'fun_fact_prompt_id' => 'unsigned int',
       'fun_fact_toastee_id' => 'unsigned int',
       'is_group_linking_post' => 'bool',
       'has_nickname' => 'bool',
@@ -399,7 +399,7 @@ class Event extends AbstractCrudObject {
       'is_boost_intended' => 'bool',
       'location_source_id' => 'string',
       'message' => 'string',
-      'offer_like_post_id' => 'string',
+      'offer_like_post_id' => 'unsigned int',
       'page_recommendation' => 'string',
       'place_list' => 'string',
       'publish_event_id' => 'unsigned int',
@@ -411,23 +411,23 @@ class Event extends AbstractCrudObject {
     );
     $enums = array(
       'backdated_time_granularity_enum' => array(
-        'year',
-        'month',
         'day',
         'hour',
         'min',
+        'month',
         'none',
+        'year',
       ),
       'unpublished_content_type_enum' => array(
-        'SCHEDULED',
-        'DRAFT',
         'ADS_POST',
+        'DRAFT',
         'INLINE_CREATED',
         'PUBLISHED',
+        'SCHEDULED',
       ),
       'posting_to_redspace_enum' => array(
-        'enabled',
         'disabled',
+        'enabled',
       ),
       'place_attachment_setting_enum' => array(
         '1',
@@ -435,9 +435,9 @@ class Event extends AbstractCrudObject {
       ),
       'checkin_entry_point_enum' => array(
         'BRANDING_CHECKIN',
-        'BRANDING_STATUS',
-        'BRANDING_PHOTO',
         'BRANDING_OTHER',
+        'BRANDING_PHOTO',
+        'BRANDING_STATUS',
       ),
       'post_surfaces_blacklist_enum' => array(
         '1',
@@ -447,8 +447,8 @@ class Event extends AbstractCrudObject {
         '5',
       ),
       'formatting_enum' => array(
-        'PLAINTEXT',
         'MARKDOWN',
+        'PLAINTEXT',
       ),
       'target_surface_enum' => array(
         'STORY',
@@ -874,7 +874,7 @@ class Event extends AbstractCrudObject {
       'composer_source_surface' => 'string',
       'composer_type' => 'string',
       'formatting' => 'formatting_enum',
-      'fun_fact_prompt_id' => 'string',
+      'fun_fact_prompt_id' => 'unsigned int',
       'fun_fact_toastee_id' => 'unsigned int',
       'is_group_linking_post' => 'bool',
       'has_nickname' => 'bool',
@@ -883,7 +883,7 @@ class Event extends AbstractCrudObject {
       'is_boost_intended' => 'bool',
       'location_source_id' => 'string',
       'description' => 'string',
-      'offer_like_post_id' => 'string',
+      'offer_like_post_id' => 'unsigned int',
       'publish_event_id' => 'unsigned int',
       'react_mode_metadata' => 'string',
       'sales_promo_id' => 'unsigned int',

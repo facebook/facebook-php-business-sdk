@@ -37,8 +37,8 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class BusinessSurveyBusinessTypeValues extends AbstractEnum {
 
-  const AGENCY = 'AGENCY';
   const ADVERTISER = 'ADVERTISER';
+  const AGENCY = 'AGENCY';
   const APP_DEVELOPER = 'APP_DEVELOPER';
   const PUBLISHER = 'PUBLISHER';
 }

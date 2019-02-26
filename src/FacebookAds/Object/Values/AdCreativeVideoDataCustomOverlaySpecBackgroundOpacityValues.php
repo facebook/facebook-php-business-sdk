@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdCreativeVideoDataCustomOverlaySpecBackgroundOpacityValues extends AbstractEnum {
 
-  const SOLID = 'solid';
   const HALF = 'half';
+  const SOLID = 'solid';
 }

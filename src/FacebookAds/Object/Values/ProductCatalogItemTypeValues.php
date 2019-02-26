@@ -38,8 +38,8 @@ use FacebookAds\Enum\AbstractEnum;
 class ProductCatalogItemTypeValues extends AbstractEnum {
 
   const AUTO = 'AUTO';
-  const AUTO_MARKET = 'AUTO_MARKET';
   const AUTOMOTIVE_MODEL = 'AUTOMOTIVE_MODEL';
+  const AUTO_MARKET = 'AUTO_MARKET';
   const DESTINATION = 'DESTINATION';
   const FLIGHT = 'FLIGHT';
   const GEO_BASED_ITEM = 'GEO_BASED_ITEM';

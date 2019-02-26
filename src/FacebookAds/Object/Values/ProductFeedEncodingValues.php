@@ -39,9 +39,9 @@ class ProductFeedEncodingValues extends AbstractEnum {
 
   const AUTODETECT = 'AUTODETECT';
   const LATIN1 = 'LATIN1';
-  const UTF8 = 'UTF8';
-  const UTF16LE = 'UTF16LE';
   const UTF16BE = 'UTF16BE';
-  const UTF32LE = 'UTF32LE';
+  const UTF16LE = 'UTF16LE';
   const UTF32BE = 'UTF32BE';
+  const UTF32LE = 'UTF32LE';
+  const UTF8 = 'UTF8';
 }

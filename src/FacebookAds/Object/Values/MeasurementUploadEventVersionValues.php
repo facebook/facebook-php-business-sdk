@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class MeasurementUploadEventVersionValues extends AbstractEnum {
 
-  const WEEKLY = 'WEEKLY';
   const EVALUATION = 'EVALUATION';
+  const WEEKLY = 'WEEKLY';
 }

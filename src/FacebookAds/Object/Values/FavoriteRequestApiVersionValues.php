@@ -41,6 +41,9 @@ class FavoriteRequestApiVersionValues extends AbstractEnum {
   const V1_0 = 'v1.0';
   const V2_0 = 'v2.0';
   const V2_1 = 'v2.1';
+  const V2_10 = 'v2.10';
+  const V2_11 = 'v2.11';
+  const V2_12 = 'v2.12';
   const V2_2 = 'v2.2';
   const V2_3 = 'v2.3';
   const V2_4 = 'v2.4';
@@ -49,9 +52,6 @@ class FavoriteRequestApiVersionValues extends AbstractEnum {
   const V2_7 = 'v2.7';
   const V2_8 = 'v2.8';
   const V2_9 = 'v2.9';
-  const V2_10 = 'v2.10';
-  const V2_11 = 'v2.11';
-  const V2_12 = 'v2.12';
   const V3_0 = 'v3.0';
   const V3_1 = 'v3.1';
   const V3_2 = 'v3.2';

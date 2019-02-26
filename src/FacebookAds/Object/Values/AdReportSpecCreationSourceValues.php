@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdReportSpecCreationSourceValues extends AbstractEnum {
 
+  const ADSEXCELADDIN = 'adsExcelAddin';
   const ADSMANAGERREPORTING = 'adsManagerReporting';
   const NEWADSMANAGER = 'newAdsManager';
-  const ADSEXCELADDIN = 'adsExcelAddin';
 }

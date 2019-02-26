@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AsyncRequestTypeValues extends AbstractEnum {
 
-  const DRAFTS = 'DRAFTS';
-  const BATCH_API = 'BATCH_API';
   const ASYNC_ADGROUP_CREATION = 'ASYNC_ADGROUP_CREATION';
+  const BATCH_API = 'BATCH_API';
+  const DRAFTS = 'DRAFTS';
 }

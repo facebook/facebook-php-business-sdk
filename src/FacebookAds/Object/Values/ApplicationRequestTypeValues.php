@@ -38,6 +38,6 @@ use FacebookAds\Enum\AbstractEnum;
 class ApplicationRequestTypeValues extends AbstractEnum {
 
   const APP_INDEXING = 'APP_INDEXING';
-  const PLUGIN = 'PLUGIN';
   const BUTTON_SAMPLING = 'BUTTON_SAMPLING';
+  const PLUGIN = 'PLUGIN';
 }

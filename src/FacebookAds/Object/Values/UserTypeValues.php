@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class UserTypeValues extends AbstractEnum {
 
-  const GENERIC = 'generic';
   const CONTENT_UPDATE = 'content_update';
+  const GENERIC = 'generic';
 }

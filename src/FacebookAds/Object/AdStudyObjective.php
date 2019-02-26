@@ -227,8 +227,8 @@ class AdStudyObjective extends AbstractCrudObject {
       'breakdowns_enum' => array(
         'age',
         'cell_id',
-        'gender',
         'country',
+        'gender',
       ),
     );
 

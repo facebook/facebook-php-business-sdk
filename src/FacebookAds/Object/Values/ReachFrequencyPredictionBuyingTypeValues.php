@@ -38,10 +38,10 @@ use FacebookAds\Enum\AbstractEnum;
 class ReachFrequencyPredictionBuyingTypeValues extends AbstractEnum {
 
   const AUCTION = 'AUCTION';
-  const FIXED_CPM = 'FIXED_CPM';
-  const RESERVED = 'RESERVED';
-  const REACHBLOCK = 'REACHBLOCK';
   const DEPRECATED_REACH_BLOCK = 'DEPRECATED_REACH_BLOCK';
-  const RESEARCH_POLL = 'RESEARCH_POLL';
+  const FIXED_CPM = 'FIXED_CPM';
   const MIXED = 'MIXED';
+  const REACHBLOCK = 'REACHBLOCK';
+  const RESEARCH_POLL = 'RESEARCH_POLL';
+  const RESERVED = 'RESERVED';
 }

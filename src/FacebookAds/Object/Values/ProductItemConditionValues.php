@@ -37,9 +37,9 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ProductItemConditionValues extends AbstractEnum {
 
+  const CPO = 'cpo';
   const VALUE_NEW = 'new';
+  const OPEN_BOX_NEW = 'open_box_new';
   const REFURBISHED = 'refurbished';
   const USED = 'used';
-  const CPO = 'cpo';
-  const OPEN_BOX_NEW = 'open_box_new';
 }

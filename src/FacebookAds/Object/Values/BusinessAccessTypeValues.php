@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class BusinessAccessTypeValues extends AbstractEnum {
 
-  const OWNER = 'OWNER';
   const AGENCY = 'AGENCY';
+  const OWNER = 'OWNER';
 }

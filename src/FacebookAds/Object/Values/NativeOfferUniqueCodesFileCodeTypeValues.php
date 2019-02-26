@@ -37,11 +37,11 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class NativeOfferUniqueCodesFileCodeTypeValues extends AbstractEnum {
 
-  const DISCOUNT_CODES = 'discount_codes';
   const BARCODES = 'barcodes';
-  const ONLINE_DISCOUNT_CODES = 'online_discount_codes';
-  const INSTORE_DISCOUNT_CODES = 'instore_discount_codes';
-  const INSTORE_BARCODES = 'instore_barcodes';
   const DISCOUNT_AND_BARCODES = 'discount_and_barcodes';
   const DISCOUNT_AND_DISCOUNT = 'discount_and_discount';
+  const DISCOUNT_CODES = 'discount_codes';
+  const INSTORE_BARCODES = 'instore_barcodes';
+  const INSTORE_DISCOUNT_CODES = 'instore_discount_codes';
+  const ONLINE_DISCOUNT_CODES = 'online_discount_codes';
 }

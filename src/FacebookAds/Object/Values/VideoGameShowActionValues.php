@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class VideoGameShowActionValues extends AbstractEnum {
 
-  const START_GAME = 'START_GAME';
   const END_GAME = 'END_GAME';
+  const START_GAME = 'START_GAME';
 }

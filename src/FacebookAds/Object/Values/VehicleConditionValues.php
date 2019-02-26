@@ -33,22 +33,14 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdNetworkAnalyticsSyncQueryResultBreakdownsValues getInstance()
+ * @method static VehicleConditionValues getInstance()
  */
-class AdNetworkAnalyticsSyncQueryResultBreakdownsValues extends AbstractEnum {
+class VehicleConditionValues extends AbstractEnum {
 
-  const AGE = 'AGE';
-  const APP = 'APP';
-  const COUNTRY = 'COUNTRY';
-  const DELIVERY_METHOD = 'DELIVERY_METHOD';
-  const DISPLAY_FORMAT = 'DISPLAY_FORMAT';
-  const DEAL = 'DEAL';
-  const DEAL_AD = 'DEAL_AD';
-  const DEAL_PAGE = 'DEAL_PAGE';
-  const GENDER = 'GENDER';
-  const PLACEMENT = 'PLACEMENT';
-  const PLATFORM = 'PLATFORM';
-  const PROPERTY = 'PROPERTY';
-  const CLICKED_VIEW_TAG = 'CLICKED_VIEW_TAG';
-  const FAIL_REASON = 'FAIL_REASON';
+  const EXCELLENT = 'EXCELLENT';
+  const FAIR = 'FAIR';
+  const GOOD = 'GOOD';
+  const NONE = 'NONE';
+  const OTHER = 'OTHER';
+  const POOR = 'POOR';
 }

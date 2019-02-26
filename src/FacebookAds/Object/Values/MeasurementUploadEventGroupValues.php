@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class MeasurementUploadEventGroupValues extends AbstractEnum {
 
-  const SUNDAY = 'SUNDAY';
   const MONDAY = 'MONDAY';
+  const SUNDAY = 'SUNDAY';
 }

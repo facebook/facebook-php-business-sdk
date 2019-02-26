@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ExtendedCreditAllocationConfigSendBillToValues extends AbstractEnum {
 
-  const AGENCY = 'Agency';
   const ADVERTISER = 'Advertiser';
+  const AGENCY = 'Agency';
 }

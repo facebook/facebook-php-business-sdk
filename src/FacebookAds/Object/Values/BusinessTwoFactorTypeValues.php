@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class BusinessTwoFactorTypeValues extends AbstractEnum {
 
-  const NONE = 'none';
   const ADMIN_REQUIRED = 'admin_required';
   const ALL_REQUIRED = 'all_required';
+  const NONE = 'none';
 }

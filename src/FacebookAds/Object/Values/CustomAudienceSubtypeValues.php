@@ -37,17 +37,17 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class CustomAudienceSubtypeValues extends AbstractEnum {
 
-  const CUSTOM = 'CUSTOM';
-  const WEBSITE = 'WEBSITE';
   const APP = 'APP';
-  const OFFLINE_CONVERSION = 'OFFLINE_CONVERSION';
-  const CLAIM = 'CLAIM';
-  const PARTNER = 'PARTNER';
-  const MANAGED = 'MANAGED';
-  const VIDEO = 'VIDEO';
-  const LOOKALIKE = 'LOOKALIKE';
-  const ENGAGEMENT = 'ENGAGEMENT';
   const BAG_OF_ACCOUNTS = 'BAG_OF_ACCOUNTS';
-  const STUDY_RULE_AUDIENCE = 'STUDY_RULE_AUDIENCE';
+  const CLAIM = 'CLAIM';
+  const CUSTOM = 'CUSTOM';
+  const ENGAGEMENT = 'ENGAGEMENT';
   const FOX = 'FOX';
+  const LOOKALIKE = 'LOOKALIKE';
+  const MANAGED = 'MANAGED';
+  const OFFLINE_CONVERSION = 'OFFLINE_CONVERSION';
+  const PARTNER = 'PARTNER';
+  const STUDY_RULE_AUDIENCE = 'STUDY_RULE_AUDIENCE';
+  const VIDEO = 'VIDEO';
+  const WEBSITE = 'WEBSITE';
 }

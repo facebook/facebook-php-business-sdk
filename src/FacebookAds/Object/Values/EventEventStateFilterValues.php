@@ -39,6 +39,6 @@ class EventEventStateFilterValues extends AbstractEnum {
 
   const CANCELED = 'canceled';
   const DRAFT = 'draft';
-  const SCHEDULED_DRAFT_FOR_PUBLICATION = 'scheduled_draft_for_publication';
   const PUBLISHED = 'published';
+  const SCHEDULED_DRAFT_FOR_PUBLICATION = 'scheduled_draft_for_publication';
 }

@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class VideoCopyrightMonitoringTypeValues extends AbstractEnum {
 
+  const AUDIO_ONLY = 'AUDIO_ONLY';
   const VIDEO_AND_AUDIO = 'VIDEO_AND_AUDIO';
   const VIDEO_ONLY = 'VIDEO_ONLY';
-  const AUDIO_ONLY = 'AUDIO_ONLY';
 }

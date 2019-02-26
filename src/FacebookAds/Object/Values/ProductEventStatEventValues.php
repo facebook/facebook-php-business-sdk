@@ -37,11 +37,11 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ProductEventStatEventValues extends AbstractEnum {
 
-  const VIEWCONTENT = 'ViewContent';
   const ADDTOCART = 'AddToCart';
-  const PURCHASE = 'Purchase';
-  const INITIATECHECKOUT = 'InitiateCheckout';
-  const SEARCH = 'Search';
-  const LEAD = 'Lead';
   const ADDTOWISHLIST = 'AddToWishlist';
+  const INITIATECHECKOUT = 'InitiateCheckout';
+  const LEAD = 'Lead';
+  const PURCHASE = 'Purchase';
+  const SEARCH = 'Search';
+  const VIEWCONTENT = 'ViewContent';
 }

@@ -39,6 +39,6 @@ class ApplicationRoleValues extends AbstractEnum {
 
   const ADMINISTRATORS = 'administrators';
   const DEVELOPERS = 'developers';
-  const TESTERS = 'testers';
   const INSIGHTS_USERS = 'insights users';
+  const TESTERS = 'testers';
 }

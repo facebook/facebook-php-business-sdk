@@ -37,17 +37,17 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdRuleTriggerOperatorValues extends AbstractEnum {
 
-  const GREATER_THAN = 'GREATER_THAN';
-  const LESS_THAN = 'LESS_THAN';
-  const EQUAL = 'EQUAL';
-  const NOT_EQUAL = 'NOT_EQUAL';
-  const IN_RANGE = 'IN_RANGE';
-  const NOT_IN_RANGE = 'NOT_IN_RANGE';
-  const IN = 'IN';
-  const NOT_IN = 'NOT_IN';
-  const CONTAIN = 'CONTAIN';
-  const NOT_CONTAIN = 'NOT_CONTAIN';
-  const ANY = 'ANY';
   const ALL = 'ALL';
+  const ANY = 'ANY';
+  const CONTAIN = 'CONTAIN';
+  const EQUAL = 'EQUAL';
+  const GREATER_THAN = 'GREATER_THAN';
+  const IN = 'IN';
+  const IN_RANGE = 'IN_RANGE';
+  const LESS_THAN = 'LESS_THAN';
   const NONE = 'NONE';
+  const NOT_CONTAIN = 'NOT_CONTAIN';
+  const NOT_EQUAL = 'NOT_EQUAL';
+  const NOT_IN = 'NOT_IN';
+  const NOT_IN_RANGE = 'NOT_IN_RANGE';
 }

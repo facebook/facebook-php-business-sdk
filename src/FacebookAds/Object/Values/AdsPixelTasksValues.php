@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdsPixelTasksValues extends AbstractEnum {
 
-  const EDIT = 'EDIT';
   const ANALYZE = 'ANALYZE';
+  const EDIT = 'EDIT';
 }

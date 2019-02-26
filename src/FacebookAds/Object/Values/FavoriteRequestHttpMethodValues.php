@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class FavoriteRequestHttpMethodValues extends AbstractEnum {
 
+  const DELETE = 'DELETE';
   const GET = 'GET';
   const POST = 'POST';
-  const DELETE = 'DELETE';
 }

@@ -39,12 +39,12 @@ class AdCreativeVideoDataCustomOverlaySpecOptionValues extends AbstractEnum {
 
   const BANK_TRANSFER = 'bank_transfer';
   const BOLETO = 'boleto';
-  const DISCOUNT_WITH_BOLETO = 'discount_with_boleto';
   const CASH_ON_DELIVERY = 'cash_on_delivery';
-  const HOME_DELIVERY = 'home_delivery';
-  const FREE_SHIPPING = 'free_shipping';
-  const INVENTORY = 'inventory';
-  const PAY_ON_ARRIVAL = 'pay_on_arrival';
-  const PAY_AT_HOTEL = 'pay_at_hotel';
+  const DISCOUNT_WITH_BOLETO = 'discount_with_boleto';
   const FAST_DELIVERY = 'fast_delivery';
+  const FREE_SHIPPING = 'free_shipping';
+  const HOME_DELIVERY = 'home_delivery';
+  const INVENTORY = 'inventory';
+  const PAY_AT_HOTEL = 'pay_at_hotel';
+  const PAY_ON_ARRIVAL = 'pay_on_arrival';
 }

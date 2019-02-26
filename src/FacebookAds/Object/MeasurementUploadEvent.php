@@ -29,7 +29,11 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\MeasurementUploadEventFields;
+use FacebookAds\Object\Values\MeasurementUploadEventAggregationLevelValues;
+use FacebookAds\Object\Values\MeasurementUploadEventEventStatusValues;
 use FacebookAds\Object\Values\MeasurementUploadEventGroupValues;
+use FacebookAds\Object\Values\MeasurementUploadEventLookbackWindowValues;
+use FacebookAds\Object\Values\MeasurementUploadEventMatchUniverseValues;
 use FacebookAds\Object\Values\MeasurementUploadEventVersionValues;
 
 /**
@@ -59,7 +63,11 @@ class MeasurementUploadEvent extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['AggregationLevel'] = MeasurementUploadEventAggregationLevelValues::getInstance()->getValues();
+    $ref_enums['EventStatus'] = MeasurementUploadEventEventStatusValues::getInstance()->getValues();
     $ref_enums['Group'] = MeasurementUploadEventGroupValues::getInstance()->getValues();
+    $ref_enums['LookbackWindow'] = MeasurementUploadEventLookbackWindowValues::getInstance()->getValues();
+    $ref_enums['MatchUniverse'] = MeasurementUploadEventMatchUniverseValues::getInstance()->getValues();
     $ref_enums['Version'] = MeasurementUploadEventVersionValues::getInstance()->getValues();
     return $ref_enums;
   }

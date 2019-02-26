@@ -37,10 +37,10 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class MeasurementReportReportTypeValues extends AbstractEnum {
 
-  const MULTI_CHANNEL_REPORT = 'multi_channel_report';
-  const VIDEO_METRICS_REPORT = 'video_metrics_report';
   const FRUIT_ROLLUP_REPORT = 'fruit_rollup_report';
-  const THIRD_PARTY_MTA_REPORT = 'third_party_mta_report';
-  const PARTNER_LIFT_STUDY_REPORT = 'partner_lift_study_report';
   const MMM_REPORT = 'mmm_report';
+  const MULTI_CHANNEL_REPORT = 'multi_channel_report';
+  const PARTNER_LIFT_STUDY_REPORT = 'partner_lift_study_report';
+  const THIRD_PARTY_MTA_REPORT = 'third_party_mta_report';
+  const VIDEO_METRICS_REPORT = 'video_metrics_report';
 }

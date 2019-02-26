@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ApplicationPostMethodValues extends AbstractEnum {
 
-  const EYMT = 'EYMT';
   const CODELESS = 'CODELESS';
+  const EYMT = 'EYMT';
 }

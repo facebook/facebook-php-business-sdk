@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class NativeOfferLocationTypeValues extends AbstractEnum {
 
-  const ONLINE = 'online';
-  const OFFLINE = 'offline';
   const BOTH = 'both';
+  const OFFLINE = 'offline';
+  const ONLINE = 'online';
 }

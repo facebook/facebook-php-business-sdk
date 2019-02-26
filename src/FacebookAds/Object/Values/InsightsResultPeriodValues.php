@@ -38,8 +38,8 @@ use FacebookAds\Enum\AbstractEnum;
 class InsightsResultPeriodValues extends AbstractEnum {
 
   const DAY = 'day';
-  const WEEK = 'week';
   const DAYS_28 = 'days_28';
-  const MONTH = 'month';
   const LIFETIME = 'lifetime';
+  const MONTH = 'month';
+  const WEEK = 'week';
 }

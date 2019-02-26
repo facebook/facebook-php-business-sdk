@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class EventStreamTypeValues extends AbstractEnum {
 
-  const REGULAR = 'REGULAR';
   const AMBIENT = 'AMBIENT';
+  const REGULAR = 'REGULAR';
 }

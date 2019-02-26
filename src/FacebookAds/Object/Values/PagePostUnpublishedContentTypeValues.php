@@ -37,9 +37,9 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class PagePostUnpublishedContentTypeValues extends AbstractEnum {
 
-  const SCHEDULED = 'SCHEDULED';
-  const DRAFT = 'DRAFT';
   const ADS_POST = 'ADS_POST';
+  const DRAFT = 'DRAFT';
   const INLINE_CREATED = 'INLINE_CREATED';
   const PUBLISHED = 'PUBLISHED';
+  const SCHEDULED = 'SCHEDULED';
 }

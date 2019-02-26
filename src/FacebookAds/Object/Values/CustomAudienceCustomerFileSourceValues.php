@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class CustomAudienceCustomerFileSourceValues extends AbstractEnum {
 
-  const USER_PROVIDED_ONLY = 'USER_PROVIDED_ONLY';
-  const PARTNER_PROVIDED_ONLY = 'PARTNER_PROVIDED_ONLY';
   const BOTH_USER_AND_PARTNER_PROVIDED = 'BOTH_USER_AND_PARTNER_PROVIDED';
+  const PARTNER_PROVIDED_ONLY = 'PARTNER_PROVIDED_ONLY';
+  const USER_PROVIDED_ONLY = 'USER_PROVIDED_ONLY';
 }
