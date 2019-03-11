@@ -39,16 +39,15 @@ $api->setLogger(new CurlLogger());
 $fields = array(
 );
 $params = array(
-  'name' => 'My Offer Claim AdSet',
-  'lifetime_budget' => '56000',
-  'start_time' => '2019-03-04T04:34:29-0800',
-  'end_time' => '2019-03-11T04:34:29-0700',
+  'name' => 'My First AdSet',
+  'daily_budget' => '10000',
+  'bid_amount' => '300',
+  'billing_event' => 'IMPRESSIONS',
+  'optimization_goal' => 'REACH',
   'campaign_id' => '<adCampaignLinkClicksID>',
-  'billing_event' => 'LINK_CLICKS',
-  'optimization_goal' => 'LINK_CLICKS',
-  'bid_amount' => '1000',
-  'promoted_object' => array('page_id' => '<pageID>','offer_id' => '<offerID>'),
-  'targeting' => array('geo_locations' => array('countries' => array('US')),'genders' => array(1),'age_min' => '25','age_max' => '55'),
+  'promoted_object' => array('page_id' => '<pageID>'),
+  'targeting' => array('geo_locations' => array('countries' => array('US'),'regions' => array(array('key' => '4081')),'cities' => array(array('key' => 777934,'radius' => 10,'distance_unit' => 'mile'))),'genders' => array(1),'age_max' => 24,'age_min' => 20,'publisher_platforms' => array('facebook','audience_network'),'device_platforms' => array('mobile'),'flexible_spec' => array(array('interests' => array(array('id' => '<adsInterestID>','name' => '<adsInterestName>'))))),
+  'status' => 'PAUSED',
 );
 echo json_encode((new AdAccount($id))->createAdSet(
   $fields,

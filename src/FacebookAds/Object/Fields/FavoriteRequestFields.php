@@ -54,8 +54,8 @@ class FavoriteRequestFields extends AbstractEnum {
       'hash' => 'string',
       'http_method' => 'HttpMethod',
       'id' => 'string',
-      'post_params' => 'list<Object>',
-      'query_params' => 'list<Object>',
+      'post_params' => 'map<string, string>',
+      'query_params' => 'map<string, string>',
     );
   }
 }

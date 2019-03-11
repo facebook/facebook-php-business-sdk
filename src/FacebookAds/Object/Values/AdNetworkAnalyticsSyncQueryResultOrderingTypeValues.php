@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,23 +33,10 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static AdNetworkAnalyticsSyncQueryResultOrderingTypeValues getInstance()
  */
+class AdNetworkAnalyticsSyncQueryResultOrderingTypeValues extends AbstractEnum {
 
-class LeadGenQualifierFields extends AbstractEnum {
-
-  const CATEGORY = 'category';
-  const FIELD_KEY = 'field_key';
-  const ID = 'id';
-  const LABEL = 'label';
-  const QUESTION = 'question';
-
-  public function getFieldTypes() {
-    return array(
-      'category' => 'string',
-      'field_key' => 'string',
-      'id' => 'string',
-      'label' => 'string',
-      'question' => 'string',
-    );
-  }
+  const ASCENDING = 'ASCENDING';
+  const DESCENDING = 'DESCENDING';
 }

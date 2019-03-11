@@ -46,7 +46,7 @@ class LiveWithGuestSessionFields extends AbstractEnum {
     return array(
       'conference_name' => 'string',
       'id' => 'string',
-      'participant_call_states' => 'list<Object>',
+      'participant_call_states' => 'map<string, string>',
       'server_sdp' => 'string',
     );
   }

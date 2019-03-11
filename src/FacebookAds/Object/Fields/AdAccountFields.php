@@ -63,6 +63,7 @@ class AdAccountFields extends AbstractEnum {
   const END_ADVERTISER_NAME = 'end_advertiser_name';
   const EXTENDED_CREDIT_INVOICE_GROUP = 'extended_credit_invoice_group';
   const FAILED_DELIVERY_CHECKS = 'failed_delivery_checks';
+  const FB_ENTITY = 'fb_entity';
   const FUNDING_SOURCE = 'funding_source';
   const FUNDING_SOURCE_DETAILS = 'funding_source_details';
   const HAS_MIGRATED_PERMISSIONS = 'has_migrated_permissions';
@@ -126,6 +127,7 @@ class AdAccountFields extends AbstractEnum {
       'end_advertiser_name' => 'string',
       'extended_credit_invoice_group' => 'ExtendedCreditInvoiceGroup',
       'failed_delivery_checks' => 'list<DeliveryCheck>',
+      'fb_entity' => 'unsigned int',
       'funding_source' => 'string',
       'funding_source_details' => 'FundingSourceDetails',
       'has_migrated_permissions' => 'bool',

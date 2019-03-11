@@ -29,13 +29,13 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ApplicationFields;
-use FacebookAds\Object\Values\ApplicationAggregationPeriodValues;
+use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultAggregationPeriodValues;
+use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultBreakdownsValues;
+use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultMetricsValues;
+use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultOrderingColumnValues;
+use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultOrderingTypeValues;
 use FacebookAds\Object\Values\ApplicationAnPlatformsValues;
-use FacebookAds\Object\Values\ApplicationBreakdownsValues;
-use FacebookAds\Object\Values\ApplicationMetricsValues;
 use FacebookAds\Object\Values\ApplicationMutationMethodValues;
-use FacebookAds\Object\Values\ApplicationOrderingColumnValues;
-use FacebookAds\Object\Values\ApplicationOrderingTypeValues;
 use FacebookAds\Object\Values\ApplicationPlatformValues;
 use FacebookAds\Object\Values\ApplicationPostMethodValues;
 use FacebookAds\Object\Values\ApplicationRequestTypeValues;
@@ -70,11 +70,6 @@ class Application extends AbstractCrudObject {
     $ref_enums = array();
     $ref_enums['SupportedPlatforms'] = ApplicationSupportedPlatformsValues::getInstance()->getValues();
     $ref_enums['AnPlatforms'] = ApplicationAnPlatformsValues::getInstance()->getValues();
-    $ref_enums['AggregationPeriod'] = ApplicationAggregationPeriodValues::getInstance()->getValues();
-    $ref_enums['Breakdowns'] = ApplicationBreakdownsValues::getInstance()->getValues();
-    $ref_enums['Metrics'] = ApplicationMetricsValues::getInstance()->getValues();
-    $ref_enums['OrderingColumn'] = ApplicationOrderingColumnValues::getInstance()->getValues();
-    $ref_enums['OrderingType'] = ApplicationOrderingTypeValues::getInstance()->getValues();
     $ref_enums['Platform'] = ApplicationPlatformValues::getInstance()->getValues();
     $ref_enums['RequestType'] = ApplicationRequestTypeValues::getInstance()->getValues();
     $ref_enums['MutationMethod'] = ApplicationMutationMethodValues::getInstance()->getValues();
@@ -299,11 +294,11 @@ class Application extends AbstractCrudObject {
       'until' => 'datetime',
     );
     $enums = array(
-      'aggregation_period_enum' => ApplicationAggregationPeriodValues::getInstance()->getValues(),
-      'breakdowns_enum' => ApplicationBreakdownsValues::getInstance()->getValues(),
-      'metrics_enum' => ApplicationMetricsValues::getInstance()->getValues(),
-      'ordering_column_enum' => ApplicationOrderingColumnValues::getInstance()->getValues(),
-      'ordering_type_enum' => ApplicationOrderingTypeValues::getInstance()->getValues(),
+      'aggregation_period_enum' => AdNetworkAnalyticsSyncQueryResultAggregationPeriodValues::getInstance()->getValues(),
+      'breakdowns_enum' => AdNetworkAnalyticsSyncQueryResultBreakdownsValues::getInstance()->getValues(),
+      'metrics_enum' => AdNetworkAnalyticsSyncQueryResultMetricsValues::getInstance()->getValues(),
+      'ordering_column_enum' => AdNetworkAnalyticsSyncQueryResultOrderingColumnValues::getInstance()->getValues(),
+      'ordering_type_enum' => AdNetworkAnalyticsSyncQueryResultOrderingTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -336,11 +331,11 @@ class Application extends AbstractCrudObject {
       'until' => 'datetime',
     );
     $enums = array(
-      'aggregation_period_enum' => ApplicationAggregationPeriodValues::getInstance()->getValues(),
-      'breakdowns_enum' => ApplicationBreakdownsValues::getInstance()->getValues(),
-      'metrics_enum' => ApplicationMetricsValues::getInstance()->getValues(),
-      'ordering_column_enum' => ApplicationOrderingColumnValues::getInstance()->getValues(),
-      'ordering_type_enum' => ApplicationOrderingTypeValues::getInstance()->getValues(),
+      'aggregation_period_enum' => AdNetworkAnalyticsSyncQueryResultAggregationPeriodValues::getInstance()->getValues(),
+      'breakdowns_enum' => AdNetworkAnalyticsSyncQueryResultBreakdownsValues::getInstance()->getValues(),
+      'metrics_enum' => AdNetworkAnalyticsSyncQueryResultMetricsValues::getInstance()->getValues(),
+      'ordering_column_enum' => AdNetworkAnalyticsSyncQueryResultOrderingColumnValues::getInstance()->getValues(),
+      'ordering_type_enum' => AdNetworkAnalyticsSyncQueryResultOrderingTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

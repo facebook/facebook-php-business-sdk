@@ -2190,29 +2190,6 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getLeadGenQualifiers(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/leadgen_qualifiers',
-      new LeadGenQualifier(),
-      'EDGE',
-      LeadGenQualifier::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function deleteLeadGenWhitelistedUsers(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 

@@ -100,4 +100,63 @@ class Vehicle extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'applinks' => 'Object',
+      'transmission' => 'transmission_enum',
+      'drivetrain' => 'drivetrain_enum',
+      'fuel_type' => 'fuel_type_enum',
+      'trim' => 'string',
+      'interior_color' => 'string',
+      'condition' => 'condition_enum',
+      'date_first_on_lot' => 'string',
+      'availability' => 'availability_enum',
+      'dealer_id' => 'string',
+      'dealer_name' => 'string',
+      'dealer_phone' => 'string',
+      'vehicle_type' => 'vehicle_type_enum',
+      'body_style' => 'body_style_enum',
+      'description' => 'string',
+      'exterior_color' => 'string',
+      'make' => 'string',
+      'mileage' => 'map',
+      'model' => 'string',
+      'state_of_vehicle' => 'state_of_vehicle_enum',
+      'vin' => 'string',
+      'url' => 'string',
+      'year' => 'unsigned int',
+      'images' => 'list<Object>',
+      'address' => 'map',
+      'currency' => 'string',
+      'price' => 'unsigned int',
+      'title' => 'string',
+    );
+    $enums = array(
+      'transmission_enum' => VehicleTransmissionValues::getInstance()->getValues(),
+      'drivetrain_enum' => VehicleDrivetrainValues::getInstance()->getValues(),
+      'fuel_type_enum' => VehicleFuelTypeValues::getInstance()->getValues(),
+      'condition_enum' => VehicleConditionValues::getInstance()->getValues(),
+      'availability_enum' => VehicleAvailabilityValues::getInstance()->getValues(),
+      'vehicle_type_enum' => VehicleVehicleTypeValues::getInstance()->getValues(),
+      'body_style_enum' => VehicleBodyStyleValues::getInstance()->getValues(),
+      'state_of_vehicle_enum' => VehicleStateOfVehicleValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/',
+      new Vehicle(),
+      'NODE',
+      Vehicle::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
 }

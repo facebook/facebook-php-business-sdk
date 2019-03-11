@@ -33,10 +33,9 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static ApplicationOrderingTypeValues getInstance()
+ * @method static ThirdPartyMeasurementReportDatasetCategoryValues getInstance()
  */
-class ApplicationOrderingTypeValues extends AbstractEnum {
+class ThirdPartyMeasurementReportDatasetCategoryValues extends AbstractEnum {
 
-  const ASCENDING = 'ASCENDING';
-  const DESCENDING = 'DESCENDING';
+  const MTA = 'MTA';
 }

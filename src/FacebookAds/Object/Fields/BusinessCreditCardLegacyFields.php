@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,11 +33,35 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static EventProjectionValues getInstance()
  */
-class EventProjectionValues extends AbstractEnum {
 
-  const CUBEMAP = 'CUBEMAP';
-  const EQUIRECTANGULAR = 'EQUIRECTANGULAR';
-  const HALF_EQUIRECTANGULAR = 'HALF_EQUIRECTANGULAR';
+class BusinessCreditCardLegacyFields extends AbstractEnum {
+
+  const ADDRESS = 'address';
+  const BUSINESS_ID = 'business_id';
+  const CREDIT_CARD_SUFFIX = 'credit_card_suffix';
+  const CREDIT_CARD_TYPE = 'credit_card_type';
+  const EXPIRATION_MONTH = 'expiration_month';
+  const EXPIRATION_YEAR = 'expiration_year';
+  const FIRST_NAME = 'first_name';
+  const FRAUD_STATUS = 'fraud_status';
+  const ID = 'id';
+  const LAST_NAME = 'last_name';
+  const MIDDLE_NAME = 'middle_name';
+
+  public function getFieldTypes() {
+    return array(
+      'address' => 'Object',
+      'business_id' => 'string',
+      'credit_card_suffix' => 'string',
+      'credit_card_type' => 'string',
+      'expiration_month' => 'int',
+      'expiration_year' => 'int',
+      'first_name' => 'string',
+      'fraud_status' => 'string',
+      'id' => 'string',
+      'last_name' => 'string',
+      'middle_name' => 'string',
+    );
+  }
 }

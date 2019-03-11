@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,10 +33,25 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static BusinessOrderingTypeValues getInstance()
  */
-class BusinessOrderingTypeValues extends AbstractEnum {
 
-  const ASCENDING = 'ASCENDING';
-  const DESCENDING = 'DESCENDING';
+class BrandSafetyBlockListUsageFields extends AbstractEnum {
+
+  const CURRENT_USAGE = 'current_usage';
+  const NEW_USAGE = 'new_usage';
+  const PLATFORM = 'platform';
+  const POSITION = 'position';
+  const THRESHOLD = 'threshold';
+  const ID = 'id';
+
+  public function getFieldTypes() {
+    return array(
+      'current_usage' => 'int',
+      'new_usage' => 'int',
+      'platform' => 'string',
+      'position' => 'string',
+      'threshold' => 'int',
+      'id' => 'string',
+    );
+  }
 }

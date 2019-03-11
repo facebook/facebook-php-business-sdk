@@ -1330,7 +1330,7 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'applinks' => 'Object',
+      'vehicle_id' => 'string',
       'body_style' => 'body_style_enum',
       'description' => 'string',
       'exterior_color' => 'string',
@@ -1340,13 +1340,13 @@ class ProductCatalog extends AbstractCrudObject {
       'state_of_vehicle' => 'state_of_vehicle_enum',
       'vin' => 'string',
       'url' => 'string',
-      'vehicle_id' => 'string',
       'year' => 'unsigned int',
       'images' => 'list<Object>',
       'address' => 'map',
       'currency' => 'string',
       'price' => 'unsigned int',
       'title' => 'string',
+      'applinks' => 'Object',
       'transmission' => 'transmission_enum',
       'drivetrain' => 'drivetrain_enum',
       'fuel_type' => 'fuel_type_enum',

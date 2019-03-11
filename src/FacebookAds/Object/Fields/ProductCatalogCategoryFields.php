@@ -55,7 +55,7 @@ class ProductCatalogCategoryFields extends AbstractEnum {
       'image_url' => 'string',
       'name' => 'string',
       'num_items' => 'int',
-      'tokens' => 'list<Object>',
+      'tokens' => 'map<string, string>',
       'id' => 'string',
       'data' => 'list<map>',
     );

@@ -71,7 +71,7 @@ class LeadGenDataDraftFields extends AbstractEnum {
       'questions' => 'list<LeadGenDraftQuestion>',
       'status' => 'string',
       'thank_you_page' => 'Object',
-      'tracking_parameters' => 'list<Object>',
+      'tracking_parameters' => 'map<string, string>',
     );
   }
 }

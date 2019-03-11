@@ -55,7 +55,7 @@ class AdAsyncRequestFields extends AbstractEnum {
       'input' => 'map',
       'result' => 'map',
       'scope_object_id' => 'string',
-      'status' => 'Status',
+      'status' => 'string',
       'type' => 'string',
       'updated_time' => 'datetime',
     );

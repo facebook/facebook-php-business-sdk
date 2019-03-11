@@ -28,7 +28,9 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\LeadGenQualifierFields;
+use FacebookAds\Object\Fields\ThirdPartyMeasurementReportDatasetFields;
+use FacebookAds\Object\Values\ThirdPartyMeasurementReportDatasetCategoryValues;
+use FacebookAds\Object\Values\ThirdPartyMeasurementReportDatasetProductValues;
 
 /**
  * This class is auto-generated.
@@ -39,19 +41,51 @@ use FacebookAds\Object\Fields\LeadGenQualifierFields;
  *
  */
 
-class LeadGenQualifier extends AbstractCrudObject {
+class ThirdPartyMeasurementReportDataset extends AbstractCrudObject {
 
   /**
-   * @return LeadGenQualifierFields
+   * @deprecated getEndpoint function is deprecated
+   */
+  protected function getEndpoint() {
+    return 'third_party_measurement_report_dataset';
+  }
+
+  /**
+   * @return ThirdPartyMeasurementReportDatasetFields
    */
   public static function getFieldsEnum() {
-    return LeadGenQualifierFields::getInstance();
+    return ThirdPartyMeasurementReportDatasetFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['Category'] = ThirdPartyMeasurementReportDatasetCategoryValues::getInstance()->getValues();
+    $ref_enums['Product'] = ThirdPartyMeasurementReportDatasetProductValues::getInstance()->getValues();
     return $ref_enums;
   }
 
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new ThirdPartyMeasurementReportDataset(),
+      'NODE',
+      ThirdPartyMeasurementReportDataset::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
 }

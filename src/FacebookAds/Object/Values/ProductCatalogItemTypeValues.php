@@ -42,7 +42,6 @@ class ProductCatalogItemTypeValues extends AbstractEnum {
   const AUTO_MARKET = 'AUTO_MARKET';
   const DESTINATION = 'DESTINATION';
   const FLIGHT = 'FLIGHT';
-  const GEO_BASED_ITEM = 'GEO_BASED_ITEM';
   const HOME_LISTING = 'HOME_LISTING';
   const HOME_SERVICE_PROVIDER = 'HOME_SERVICE_PROVIDER';
   const HOME_SERVICE_REVIEW = 'HOME_SERVICE_REVIEW';

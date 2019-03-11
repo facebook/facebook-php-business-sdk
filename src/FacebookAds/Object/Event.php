@@ -38,14 +38,14 @@ use FacebookAds\Object\Values\AdVideoUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\AdVideoUploadPhaseValues;
 use FacebookAds\Object\Values\CommentCommentPrivacyValueValues;
 use FacebookAds\Object\Values\EventEventStateFilterValues;
-use FacebookAds\Object\Values\EventProjectionValues;
 use FacebookAds\Object\Values\EventPromotableEventTypesValues;
-use FacebookAds\Object\Values\EventSpatialAudioFormatValues;
-use FacebookAds\Object\Values\EventStatusValues;
-use FacebookAds\Object\Values\EventStereoscopicModeValues;
-use FacebookAds\Object\Values\EventStreamTypeValues;
 use FacebookAds\Object\Values\EventTimeFilterValues;
 use FacebookAds\Object\Values\EventTypeValues;
+use FacebookAds\Object\Values\LiveVideoProjectionValues;
+use FacebookAds\Object\Values\LiveVideoSpatialAudioFormatValues;
+use FacebookAds\Object\Values\LiveVideoStatusValues;
+use FacebookAds\Object\Values\LiveVideoStereoscopicModeValues;
+use FacebookAds\Object\Values\LiveVideoStreamTypeValues;
 use FacebookAds\Object\Values\PhotoBackdatedTimeGranularityValues;
 use FacebookAds\Object\Values\PhotoUnpublishedContentTypeValues;
 
@@ -70,11 +70,6 @@ class Event extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['Type'] = EventTypeValues::getInstance()->getValues();
-    $ref_enums['Projection'] = EventProjectionValues::getInstance()->getValues();
-    $ref_enums['SpatialAudioFormat'] = EventSpatialAudioFormatValues::getInstance()->getValues();
-    $ref_enums['Status'] = EventStatusValues::getInstance()->getValues();
-    $ref_enums['StereoscopicMode'] = EventStereoscopicModeValues::getInstance()->getValues();
-    $ref_enums['StreamType'] = EventStreamTypeValues::getInstance()->getValues();
     $ref_enums['EventStateFilter'] = EventEventStateFilterValues::getInstance()->getValues();
     $ref_enums['TimeFilter'] = EventTimeFilterValues::getInstance()->getValues();
     $ref_enums['PromotableEventTypes'] = EventPromotableEventTypesValues::getInstance()->getValues();
@@ -122,34 +117,6 @@ class Event extends AbstractCrudObject {
       new User(),
       'EDGE',
       User::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createAttending(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'eid' => 'string',
-      'action_context' => 'Object',
-      'app_context' => 'Object',
-      'tracking' => 'string',
-      'uid' => 'int',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/attending',
-      new Event(),
-      'EDGE',
-      Event::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -234,34 +201,6 @@ class Event extends AbstractCrudObject {
       new User(),
       'EDGE',
       User::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createDeclined(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'eid' => 'string',
-      'action_context' => 'Object',
-      'app_context' => 'Object',
-      'tracking' => 'string',
-      'uid' => 'int',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/declined',
-      new Event(),
-      'EDGE',
-      Event::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -546,11 +485,11 @@ class Event extends AbstractCrudObject {
       'stereoscopic_mode' => 'stereoscopic_mode_enum',
     );
     $enums = array(
-      'status_enum' => EventStatusValues::getInstance()->getValues(),
-      'stream_type_enum' => EventStreamTypeValues::getInstance()->getValues(),
-      'projection_enum' => EventProjectionValues::getInstance()->getValues(),
-      'spatial_audio_format_enum' => EventSpatialAudioFormatValues::getInstance()->getValues(),
-      'stereoscopic_mode_enum' => EventStereoscopicModeValues::getInstance()->getValues(),
+      'status_enum' => LiveVideoStatusValues::getInstance()->getValues(),
+      'stream_type_enum' => LiveVideoStreamTypeValues::getInstance()->getValues(),
+      'projection_enum' => LiveVideoProjectionValues::getInstance()->getValues(),
+      'spatial_audio_format_enum' => LiveVideoSpatialAudioFormatValues::getInstance()->getValues(),
+      'stereoscopic_mode_enum' => LiveVideoStereoscopicModeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -558,9 +497,9 @@ class Event extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/live_videos',
-      new Event(),
+      new LiveVideo(),
       'EDGE',
-      Event::getFieldsEnum()->getValues(),
+      LiveVideo::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -585,34 +524,6 @@ class Event extends AbstractCrudObject {
       new User(),
       'EDGE',
       User::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createMaybe(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'eid' => 'string',
-      'action_context' => 'Object',
-      'app_context' => 'Object',
-      'tracking' => 'string',
-      'uid' => 'int',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/maybe',
-      new Event(),
-      'EDGE',
-      Event::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

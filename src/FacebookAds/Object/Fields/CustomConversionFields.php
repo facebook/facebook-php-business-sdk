@@ -49,6 +49,7 @@ class CustomConversionFields extends AbstractEnum {
   const FIRST_FIRED_TIME = 'first_fired_time';
   const ID = 'id';
   const IS_ARCHIVED = 'is_archived';
+  const IS_UNAVAILABLE = 'is_unavailable';
   const LAST_FIRED_TIME = 'last_fired_time';
   const NAME = 'name';
   const OFFLINE_CONVERSION_DATA_SET = 'offline_conversion_data_set';
@@ -73,6 +74,7 @@ class CustomConversionFields extends AbstractEnum {
       'first_fired_time' => 'datetime',
       'id' => 'string',
       'is_archived' => 'bool',
+      'is_unavailable' => 'bool',
       'last_fired_time' => 'datetime',
       'name' => 'string',
       'offline_conversion_data_set' => 'OfflineConversionDataSet',

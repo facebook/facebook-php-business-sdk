@@ -3297,6 +3297,7 @@ class AdAccount extends AbstractCrudObject {
       'is_bonus_media' => 'bool',
       'is_conversion_goal' => 'bool',
       'is_full_view' => 'bool',
+      'is_higher_average_frequency' => 'bool',
       'is_reach_and_frequency_io_buying' => 'bool',
       'is_reserved_buying' => 'bool',
       'expiration_time' => 'unsigned int',

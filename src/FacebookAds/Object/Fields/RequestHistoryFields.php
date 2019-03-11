@@ -53,8 +53,8 @@ class RequestHistoryFields extends AbstractEnum {
       'error_code' => 'unsigned int',
       'graph_path' => 'string',
       'http_method' => 'HttpMethod',
-      'post_params' => 'list<Object>',
-      'query_params' => 'list<Object>',
+      'post_params' => 'map<string, string>',
+      'query_params' => 'map<string, string>',
       'id' => 'string',
     );
   }

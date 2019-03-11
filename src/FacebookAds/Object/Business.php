@@ -32,17 +32,17 @@ use FacebookAds\Object\Fields\BusinessFields;
 use FacebookAds\Object\Values\AdAccountCreationRequestStatusValues;
 use FacebookAds\Object\Values\AdAccountCreationRequestSubverticalValues;
 use FacebookAds\Object\Values\AdAccountCreationRequestVerticalValues;
+use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultAggregationPeriodValues;
+use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultBreakdownsValues;
+use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultMetricsValues;
+use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultOrderingColumnValues;
+use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultOrderingTypeValues;
 use FacebookAds\Object\Values\AdStudyTypeValues;
 use FacebookAds\Object\Values\AdsPixelSortByValues;
 use FacebookAds\Object\Values\BusinessAccessTypeValues;
-use FacebookAds\Object\Values\BusinessAggregationPeriodValues;
 use FacebookAds\Object\Values\BusinessAgreementRequestStatusValues;
 use FacebookAds\Object\Values\BusinessAssetSharingAgreementRequestStatusValues;
-use FacebookAds\Object\Values\BusinessBreakdownsValues;
 use FacebookAds\Object\Values\BusinessMatchedSearchApplicationsEdgeDataAppStoreValues;
-use FacebookAds\Object\Values\BusinessMetricsValues;
-use FacebookAds\Object\Values\BusinessOrderingColumnValues;
-use FacebookAds\Object\Values\BusinessOrderingTypeValues;
 use FacebookAds\Object\Values\BusinessPagePermittedRolesValues;
 use FacebookAds\Object\Values\BusinessPermittedTasksValues;
 use FacebookAds\Object\Values\BusinessRoleRequestStatusValues;
@@ -65,6 +65,8 @@ use FacebookAds\Object\Values\ProductCatalogVerticalValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
 use FacebookAds\Object\Values\ReachFrequencyPredictionStatusValues;
 use FacebookAds\Object\Values\SystemUserRoleValues;
+use FacebookAds\Object\Values\ThirdPartyMeasurementReportDatasetCategoryValues;
+use FacebookAds\Object\Values\ThirdPartyMeasurementReportDatasetProductValues;
 
 /**
  * This class is auto-generated.
@@ -88,11 +90,6 @@ class Business extends AbstractCrudObject {
     $ref_enums = array();
     $ref_enums['TwoFactorType'] = BusinessTwoFactorTypeValues::getInstance()->getValues();
     $ref_enums['Vertical'] = BusinessVerticalValues::getInstance()->getValues();
-    $ref_enums['AggregationPeriod'] = BusinessAggregationPeriodValues::getInstance()->getValues();
-    $ref_enums['Breakdowns'] = BusinessBreakdownsValues::getInstance()->getValues();
-    $ref_enums['Metrics'] = BusinessMetricsValues::getInstance()->getValues();
-    $ref_enums['OrderingColumn'] = BusinessOrderingColumnValues::getInstance()->getValues();
-    $ref_enums['OrderingType'] = BusinessOrderingTypeValues::getInstance()->getValues();
     $ref_enums['AccessType'] = BusinessAccessTypeValues::getInstance()->getValues();
     $ref_enums['PermittedTasks'] = BusinessPermittedTasksValues::getInstance()->getValues();
     $ref_enums['SurveyBusinessType'] = BusinessSurveyBusinessTypeValues::getInstance()->getValues();
@@ -337,11 +334,11 @@ class Business extends AbstractCrudObject {
       'until' => 'datetime',
     );
     $enums = array(
-      'aggregation_period_enum' => BusinessAggregationPeriodValues::getInstance()->getValues(),
-      'breakdowns_enum' => BusinessBreakdownsValues::getInstance()->getValues(),
-      'metrics_enum' => BusinessMetricsValues::getInstance()->getValues(),
-      'ordering_column_enum' => BusinessOrderingColumnValues::getInstance()->getValues(),
-      'ordering_type_enum' => BusinessOrderingTypeValues::getInstance()->getValues(),
+      'aggregation_period_enum' => AdNetworkAnalyticsSyncQueryResultAggregationPeriodValues::getInstance()->getValues(),
+      'breakdowns_enum' => AdNetworkAnalyticsSyncQueryResultBreakdownsValues::getInstance()->getValues(),
+      'metrics_enum' => AdNetworkAnalyticsSyncQueryResultMetricsValues::getInstance()->getValues(),
+      'ordering_column_enum' => AdNetworkAnalyticsSyncQueryResultOrderingColumnValues::getInstance()->getValues(),
+      'ordering_type_enum' => AdNetworkAnalyticsSyncQueryResultOrderingTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -374,11 +371,11 @@ class Business extends AbstractCrudObject {
       'until' => 'datetime',
     );
     $enums = array(
-      'aggregation_period_enum' => BusinessAggregationPeriodValues::getInstance()->getValues(),
-      'breakdowns_enum' => BusinessBreakdownsValues::getInstance()->getValues(),
-      'metrics_enum' => BusinessMetricsValues::getInstance()->getValues(),
-      'ordering_column_enum' => BusinessOrderingColumnValues::getInstance()->getValues(),
-      'ordering_type_enum' => BusinessOrderingTypeValues::getInstance()->getValues(),
+      'aggregation_period_enum' => AdNetworkAnalyticsSyncQueryResultAggregationPeriodValues::getInstance()->getValues(),
+      'breakdowns_enum' => AdNetworkAnalyticsSyncQueryResultBreakdownsValues::getInstance()->getValues(),
+      'metrics_enum' => AdNetworkAnalyticsSyncQueryResultMetricsValues::getInstance()->getValues(),
+      'ordering_column_enum' => AdNetworkAnalyticsSyncQueryResultOrderingColumnValues::getInstance()->getValues(),
+      'ordering_type_enum' => AdNetworkAnalyticsSyncQueryResultOrderingTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1095,10 +1092,57 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getCreditCards(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/credit_cards',
+      new BusinessCreditCardLegacy(),
+      'EDGE',
+      BusinessCreditCardLegacy::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getCreditCards(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/creditcards',
+      new BusinessCreditCardLegacy(),
+      'EDGE',
+      BusinessCreditCardLegacy::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getCustomConversions(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
+      'include_archived' => 'bool',
     );
     $enums = array(
     );
@@ -2560,6 +2604,57 @@ class Business extends AbstractCrudObject {
       new SystemUser(),
       'EDGE',
       SystemUser::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getThirdPartyMeasurementReportDataset(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/third_party_measurement_report_dataset',
+      new ThirdPartyMeasurementReportDataset(),
+      'EDGE',
+      ThirdPartyMeasurementReportDataset::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createThirdPartyMeasurementReportDataset(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'category' => 'category_enum',
+      'product' => 'product_enum',
+      'schema' => 'list<map>',
+    );
+    $enums = array(
+      'category_enum' => ThirdPartyMeasurementReportDatasetCategoryValues::getInstance()->getValues(),
+      'product_enum' => ThirdPartyMeasurementReportDatasetProductValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/third_party_measurement_report_dataset',
+      new ThirdPartyMeasurementReportDataset(),
+      'EDGE',
+      ThirdPartyMeasurementReportDataset::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

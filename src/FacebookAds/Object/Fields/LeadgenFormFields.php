@@ -93,13 +93,13 @@ class LeadgenFormFields extends AbstractEnum {
       'page' => 'Page',
       'page_id' => 'string',
       'privacy_policy_url' => 'string',
-      'qualifiers' => 'list<LeadGenQualifier>',
+      'qualifiers' => 'list<Object>',
       'question_page_custom_headline' => 'string',
       'questions' => 'list<LeadGenQuestion>',
       'status' => 'string',
       'tcpa_compliance' => 'bool',
       'thank_you_page' => 'Object',
-      'tracking_parameters' => 'list<Object>',
+      'tracking_parameters' => 'map<string, string>',
     );
   }
 }

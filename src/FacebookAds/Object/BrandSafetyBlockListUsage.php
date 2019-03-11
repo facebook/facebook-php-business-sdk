@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\BrandSafetyBlockListUsageFields;
 
 /**
  * This class is auto-generated.
@@ -33,9 +37,21 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static EventSpatialAudioFormatValues getInstance()
  */
-class EventSpatialAudioFormatValues extends AbstractEnum {
 
-  const AMBIX_4 = 'ambiX_4';
+class BrandSafetyBlockListUsage extends AbstractCrudObject {
+
+  /**
+   * @return BrandSafetyBlockListUsageFields
+   */
+  public static function getFieldsEnum() {
+    return BrandSafetyBlockListUsageFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
 }

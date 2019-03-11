@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,13 +33,23 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static EventStatusValues getInstance()
  */
-class EventStatusValues extends AbstractEnum {
 
-  const LIVE_NOW = 'LIVE_NOW';
-  const SCHEDULED_CANCELED = 'SCHEDULED_CANCELED';
-  const SCHEDULED_LIVE = 'SCHEDULED_LIVE';
-  const SCHEDULED_UNPUBLISHED = 'SCHEDULED_UNPUBLISHED';
-  const UNPUBLISHED = 'UNPUBLISHED';
+class ThirdPartyMeasurementReportDatasetFields extends AbstractEnum {
+
+  const CATEGORY = 'category';
+  const ID = 'id';
+  const PARTNER = 'partner';
+  const PRODUCT = 'product';
+  const SCHEMA = 'schema';
+
+  public function getFieldTypes() {
+    return array(
+      'category' => 'string',
+      'id' => 'string',
+      'partner' => 'Business',
+      'product' => 'string',
+      'schema' => 'list<Object>',
+    );
+  }
 }

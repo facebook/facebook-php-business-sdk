@@ -29,7 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdAsyncRequestFields;
-use FacebookAds\Object\Values\AdAsyncRequestStatusValues;
 use FacebookAds\Object\Values\AdAsyncRequestStatusesValues;
 
 /**
@@ -52,7 +51,6 @@ class AdAsyncRequest extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Status'] = AdAsyncRequestStatusValues::getInstance()->getValues();
     $ref_enums['Statuses'] = AdAsyncRequestStatusesValues::getInstance()->getValues();
     return $ref_enums;
   }

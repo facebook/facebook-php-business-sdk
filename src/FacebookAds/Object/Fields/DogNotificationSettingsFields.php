@@ -45,7 +45,7 @@ class DogNotificationSettingsFields extends AbstractEnum {
     return array(
       'dog_check_key' => 'string',
       'id' => 'string',
-      'subscription_status_per_channel' => 'list<Object>',
+      'subscription_status_per_channel' => 'map<string, string>',
     );
   }
 }

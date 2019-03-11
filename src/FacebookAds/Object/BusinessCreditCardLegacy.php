@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\BusinessCreditCardLegacyFields;
 
 /**
  * This class is auto-generated.
@@ -33,10 +37,21 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static EventStreamTypeValues getInstance()
  */
-class EventStreamTypeValues extends AbstractEnum {
 
-  const AMBIENT = 'AMBIENT';
-  const REGULAR = 'REGULAR';
+class BusinessCreditCardLegacy extends AbstractCrudObject {
+
+  /**
+   * @return BusinessCreditCardLegacyFields
+   */
+  public static function getFieldsEnum() {
+    return BusinessCreditCardLegacyFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
 }

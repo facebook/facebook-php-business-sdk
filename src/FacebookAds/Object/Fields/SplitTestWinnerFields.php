@@ -45,7 +45,7 @@ class SplitTestWinnerFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'ad_object_level' => 'string',
-      'confidences' => 'list<Object>',
+      'confidences' => 'map<string, float>',
       'winner_ad_object_id' => 'string',
       'id' => 'string',
     );
