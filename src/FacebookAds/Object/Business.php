@@ -1104,29 +1104,6 @@ class Business extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
-      '/credit_cards',
-      new BusinessCreditCardLegacy(),
-      'EDGE',
-      BusinessCreditCardLegacy::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getCreditCards(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
       '/creditcards',
       new BusinessCreditCardLegacy(),
       'EDGE',
