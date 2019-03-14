@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\ReachFrequencyCurveUpperConfidenceRangeFields;
  *
  */
 
-class ReachFrequencyCurveUpperConfidenceRange extends AbstractCrudObject {
+class ReachFrequencyCurveUpperConfidenceRange extends AbstractObject {
 
   /**
    * @return ReachFrequencyCurveUpperConfidenceRangeFields

@@ -41,7 +41,7 @@ use FacebookAds\Object\Values\AdRecommendationImportanceValues;
  *
  */
 
-class AdRecommendation extends AbstractCrudObject {
+class AdRecommendation extends AbstractObject {
 
   /**
    * @return AdRecommendationFields

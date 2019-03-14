@@ -40,7 +40,7 @@ use FacebookAds\Object\Values\StreamingReactionReactionTypeValues;
  *
  */
 
-class StreamingReaction extends AbstractCrudObject {
+class StreamingReaction extends AbstractObject {
 
   /**
    * @return StreamingReactionFields

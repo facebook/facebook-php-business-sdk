@@ -38,12 +38,10 @@ use FacebookAds\Enum\AbstractEnum;
 class PageThreadOwnerFields extends AbstractEnum {
 
   const THREAD_OWNER = 'thread_owner';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'thread_owner' => 'Object',
-      'id' => 'string',
     );
   }
 }

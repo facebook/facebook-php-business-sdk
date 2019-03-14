@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\LeadGenDraftQuestionFields;
  *
  */
 
-class LeadGenDraftQuestion extends AbstractCrudObject {
+class LeadGenDraftQuestion extends AbstractObject {
 
   /**
    * @return LeadGenDraftQuestionFields

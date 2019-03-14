@@ -42,7 +42,6 @@ class TimezoneOffsetFields extends AbstractEnum {
   const OFFSET = 'offset';
   const TIME = 'time';
   const TS = 'ts';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -51,7 +50,6 @@ class TimezoneOffsetFields extends AbstractEnum {
       'offset' => 'int',
       'time' => 'string',
       'ts' => 'unsigned int',
-      'id' => 'string',
     );
   }
 }

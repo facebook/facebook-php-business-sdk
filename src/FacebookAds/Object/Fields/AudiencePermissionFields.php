@@ -40,14 +40,12 @@ class AudiencePermissionFields extends AbstractEnum {
   const AUDIENCE = 'audience';
   const SHARE_ACCOUNT_ID = 'share_account_id';
   const SHARE_ACCOUNT_NAME = 'share_account_name';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'audience' => 'CustomAudience',
       'share_account_id' => 'string',
       'share_account_name' => 'string',
-      'id' => 'string',
     );
   }
 }

@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\SecuritySettingsFields;
  *
  */
 
-class SecuritySettings extends AbstractCrudObject {
+class SecuritySettings extends AbstractObject {
 
   /**
    * @return SecuritySettingsFields

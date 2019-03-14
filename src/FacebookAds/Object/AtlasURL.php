@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AtlasURLFields;
  *
  */
 
-class AtlasURL extends AbstractCrudObject {
+class AtlasURL extends AbstractObject {
 
   /**
    * @return AtlasURLFields

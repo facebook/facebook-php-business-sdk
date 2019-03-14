@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\LeadGenConditionalQuestionsGroupChoicesFields;
  *
  */
 
-class LeadGenConditionalQuestionsGroupChoices extends AbstractCrudObject {
+class LeadGenConditionalQuestionsGroupChoices extends AbstractObject {
 
   /**
    * @return LeadGenConditionalQuestionsGroupChoicesFields

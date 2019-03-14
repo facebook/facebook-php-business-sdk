@@ -39,13 +39,11 @@ class AdCreativeLinkDataSponsorshipInfoSpecFields extends AbstractEnum {
 
   const SPONSOR_IMAGE_URL = 'sponsor_image_url';
   const SPONSOR_NAME = 'sponsor_name';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'sponsor_image_url' => 'string',
       'sponsor_name' => 'string',
-      'id' => 'string',
     );
   }
 }

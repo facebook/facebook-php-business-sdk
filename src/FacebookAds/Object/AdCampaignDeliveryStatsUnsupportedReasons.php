@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdCampaignDeliveryStatsUnsupportedReasonsFields;
  *
  */
 
-class AdCampaignDeliveryStatsUnsupportedReasons extends AbstractCrudObject {
+class AdCampaignDeliveryStatsUnsupportedReasons extends AbstractObject {
 
   /**
    * @return AdCampaignDeliveryStatsUnsupportedReasonsFields

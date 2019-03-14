@@ -43,7 +43,6 @@ class AdCampaignLearningStageInfoFields extends AbstractEnum {
   const LAST_SIG_EDIT_TS = 'last_sig_edit_ts';
   const STATUS = 'status';
   const TYPES = 'types';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -53,7 +52,6 @@ class AdCampaignLearningStageInfoFields extends AbstractEnum {
       'last_sig_edit_ts' => 'int',
       'status' => 'string',
       'types' => 'list<string>',
-      'id' => 'string',
     );
   }
 }

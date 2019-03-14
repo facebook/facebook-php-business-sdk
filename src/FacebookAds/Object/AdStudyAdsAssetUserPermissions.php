@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdStudyAdsAssetUserPermissionsFields;
  *
  */
 
-class AdStudyAdsAssetUserPermissions extends AbstractCrudObject {
+class AdStudyAdsAssetUserPermissions extends AbstractObject {
 
   /**
    * @return AdStudyAdsAssetUserPermissionsFields

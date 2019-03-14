@@ -44,7 +44,6 @@ class EngagementFields extends AbstractEnum {
   const SOCIAL_SENTENCE = 'social_sentence';
   const SOCIAL_SENTENCE_WITH_LIKE = 'social_sentence_with_like';
   const SOCIAL_SENTENCE_WITHOUT_LIKE = 'social_sentence_without_like';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -55,7 +54,6 @@ class EngagementFields extends AbstractEnum {
       'social_sentence' => 'string',
       'social_sentence_with_like' => 'string',
       'social_sentence_without_like' => 'string',
-      'id' => 'string',
     );
   }
 }

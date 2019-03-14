@@ -41,7 +41,6 @@ class FAMEExportConfigFields extends AbstractEnum {
   const COLUMN_ID = 'column_id';
   const DISPLAY_NAME = 'display_name';
   const FORMAT = 'format';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -49,7 +48,6 @@ class FAMEExportConfigFields extends AbstractEnum {
       'column_id' => 'string',
       'display_name' => 'string',
       'format' => 'string',
-      'id' => 'string',
     );
   }
 }

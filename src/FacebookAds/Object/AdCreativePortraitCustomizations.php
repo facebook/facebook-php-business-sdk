@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdCreativePortraitCustomizationsFields;
  *
  */
 
-class AdCreativePortraitCustomizations extends AbstractCrudObject {
+class AdCreativePortraitCustomizations extends AbstractObject {
 
   /**
    * @return AdCreativePortraitCustomizationsFields

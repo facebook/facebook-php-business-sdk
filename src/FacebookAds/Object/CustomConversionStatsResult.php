@@ -40,7 +40,7 @@ use FacebookAds\Object\Values\CustomConversionStatsResultAggregationValues;
  *
  */
 
-class CustomConversionStatsResult extends AbstractCrudObject {
+class CustomConversionStatsResult extends AbstractObject {
 
   /**
    * @return CustomConversionStatsResultFields

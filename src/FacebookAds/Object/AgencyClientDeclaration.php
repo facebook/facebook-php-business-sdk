@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AgencyClientDeclarationFields;
  *
  */
 
-class AgencyClientDeclaration extends AbstractCrudObject {
+class AgencyClientDeclaration extends AbstractObject {
 
   /**
    * @return AgencyClientDeclarationFields

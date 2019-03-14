@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\ProductCatalogHotelRoomsBatchFields;
  *
  */
 
-class ProductCatalogHotelRoomsBatch extends AbstractCrudObject {
+class ProductCatalogHotelRoomsBatch extends AbstractObject {
 
   /**
    * @return ProductCatalogHotelRoomsBatchFields

@@ -40,14 +40,12 @@ class AdAccountPromotableObjectsFields extends AbstractEnum {
   const PROMOTABLE_APP_IDS = 'promotable_app_ids';
   const PROMOTABLE_PAGE_IDS = 'promotable_page_ids';
   const PROMOTABLE_URLS = 'promotable_urls';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'promotable_app_ids' => 'list<string>',
       'promotable_page_ids' => 'list<string>',
       'promotable_urls' => 'list<string>',
-      'id' => 'string',
     );
   }
 }

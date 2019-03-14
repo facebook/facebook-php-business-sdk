@@ -38,12 +38,10 @@ use FacebookAds\Enum\AbstractEnum;
 class SecuritySettingsFields extends AbstractEnum {
 
   const SECURE_BROWSING = 'secure_browsing';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'secure_browsing' => 'Object',
-      'id' => 'string',
     );
   }
 }

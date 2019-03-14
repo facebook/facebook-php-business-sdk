@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdAsyncRequestSetNotificationResultFields;
  *
  */
 
-class AdAsyncRequestSetNotificationResult extends AbstractCrudObject {
+class AdAsyncRequestSetNotificationResult extends AbstractObject {
 
   /**
    * @return AdAsyncRequestSetNotificationResultFields

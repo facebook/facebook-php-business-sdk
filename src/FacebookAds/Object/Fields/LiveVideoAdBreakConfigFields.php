@@ -47,7 +47,6 @@ class LiveVideoAdBreakConfigFields extends AbstractEnum {
   const PREPARING_DURATION = 'preparing_duration';
   const TIME_BETWEEN_AD_BREAKS_SECS = 'time_between_ad_breaks_secs';
   const VIEWER_COUNT_THRESHOLD = 'viewer_count_threshold';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -61,7 +60,6 @@ class LiveVideoAdBreakConfigFields extends AbstractEnum {
       'preparing_duration' => 'unsigned int',
       'time_between_ad_breaks_secs' => 'unsigned int',
       'viewer_count_threshold' => 'unsigned int',
-      'id' => 'string',
     );
   }
 }

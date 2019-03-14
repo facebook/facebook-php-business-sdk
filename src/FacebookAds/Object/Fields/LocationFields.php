@@ -50,7 +50,6 @@ class LocationFields extends AbstractEnum {
   const STATE = 'state';
   const STREET = 'street';
   const ZIP = 'zip';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -67,7 +66,6 @@ class LocationFields extends AbstractEnum {
       'state' => 'string',
       'street' => 'string',
       'zip' => 'string',
-      'id' => 'string',
     );
   }
 }

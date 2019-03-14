@@ -40,14 +40,12 @@ class AdBidAdjustmentsFields extends AbstractEnum {
   const AGE_RANGE = 'age_range';
   const PAGE_TYPES = 'page_types';
   const USER_GROUPS = 'user_groups';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'age_range' => 'map<string, float>',
       'page_types' => 'Object',
       'user_groups' => 'string',
-      'id' => 'string',
     );
   }
 }

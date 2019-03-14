@@ -41,7 +41,7 @@ use FacebookAds\Object\Values\ProductFeedScheduleIntervalValues;
  *
  */
 
-class ProductFeedSchedule extends AbstractCrudObject {
+class ProductFeedSchedule extends AbstractObject {
 
   /**
    * @return ProductFeedScheduleFields

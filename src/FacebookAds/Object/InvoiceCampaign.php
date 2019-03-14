@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\InvoiceCampaignFields;
  *
  */
 
-class InvoiceCampaign extends AbstractCrudObject {
+class InvoiceCampaign extends AbstractObject {
 
   /**
    * @return InvoiceCampaignFields

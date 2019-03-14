@@ -39,13 +39,11 @@ class UserLeadGenFieldDataFields extends AbstractEnum {
 
   const NAME = 'name';
   const VALUES = 'values';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'name' => 'string',
       'values' => 'list<string>',
-      'id' => 'string',
     );
   }
 }

@@ -40,14 +40,12 @@ class LeadGenConditionalQuestionsGroupQuestionsFields extends AbstractEnum {
   const FIELD_KEY = 'field_key';
   const INPUT_TYPE = 'input_type';
   const NAME = 'name';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'field_key' => 'string',
       'input_type' => 'string',
       'name' => 'string',
-      'id' => 'string',
     );
   }
 }

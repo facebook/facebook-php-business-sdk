@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\ReachEstimateFields;
  *
  */
 
-class ReachEstimate extends AbstractCrudObject {
+class ReachEstimate extends AbstractObject {
 
   /**
    * @deprecated getEndpoint function is deprecated

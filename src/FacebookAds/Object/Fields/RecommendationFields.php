@@ -45,7 +45,6 @@ class RecommendationFields extends AbstractEnum {
   const RECOMMENDATION_TYPE = 'recommendation_type';
   const REVIEW_TEXT = 'review_text';
   const REVIEWER = 'reviewer';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -57,7 +56,6 @@ class RecommendationFields extends AbstractEnum {
       'recommendation_type' => 'string',
       'review_text' => 'string',
       'reviewer' => 'User',
-      'id' => 'string',
     );
   }
 }

@@ -41,7 +41,7 @@ use FacebookAds\Object\Values\AdCreativeLinkDataFormatOptionValues;
  *
  */
 
-class AdCreativeLinkData extends AbstractCrudObject {
+class AdCreativeLinkData extends AbstractObject {
 
   /**
    * @return AdCreativeLinkDataFields

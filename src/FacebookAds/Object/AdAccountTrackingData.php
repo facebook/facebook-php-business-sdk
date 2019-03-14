@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdAccountTrackingDataFields;
  *
  */
 
-class AdAccountTrackingData extends AbstractCrudObject {
+class AdAccountTrackingData extends AbstractObject {
 
   /**
    * @return AdAccountTrackingDataFields

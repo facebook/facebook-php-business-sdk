@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\MessengerProfileFields;
  *
  */
 
-class MessengerProfile extends AbstractCrudObject {
+class MessengerProfile extends AbstractObject {
 
   /**
    * @return MessengerProfileFields

@@ -39,13 +39,11 @@ class AdNetworkAnalyticsSyncQueryResultFields extends AbstractEnum {
 
   const QUERY_ID = 'query_id';
   const RESULTS = 'results';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'query_id' => 'string',
       'results' => 'list<Object>',
-      'id' => 'string',
     );
   }
 }

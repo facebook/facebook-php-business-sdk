@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\VideoCopyrightConditionGroupFields;
  *
  */
 
-class VideoCopyrightConditionGroup extends AbstractCrudObject {
+class VideoCopyrightConditionGroup extends AbstractObject {
 
   /**
    * @return VideoCopyrightConditionGroupFields

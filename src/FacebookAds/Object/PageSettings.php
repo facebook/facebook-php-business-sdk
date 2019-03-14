@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\PageSettingsFields;
  *
  */
 
-class PageSettings extends AbstractCrudObject {
+class PageSettings extends AbstractObject {
 
   /**
    * @return PageSettingsFields

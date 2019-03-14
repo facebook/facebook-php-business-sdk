@@ -38,12 +38,10 @@ use FacebookAds\Enum\AbstractEnum;
 class AdCreativeTextDataFields extends AbstractEnum {
 
   const MESSAGE = 'message';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'message' => 'string',
-      'id' => 'string',
     );
   }
 }

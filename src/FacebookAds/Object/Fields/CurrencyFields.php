@@ -41,7 +41,6 @@ class CurrencyFields extends AbstractEnum {
   const USD_EXCHANGE = 'usd_exchange';
   const USD_EXCHANGE_INVERSE = 'usd_exchange_inverse';
   const USER_CURRENCY = 'user_currency';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -49,7 +48,6 @@ class CurrencyFields extends AbstractEnum {
       'usd_exchange' => 'float',
       'usd_exchange_inverse' => 'float',
       'user_currency' => 'string',
-      'id' => 'string',
     );
   }
 }

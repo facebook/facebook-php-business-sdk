@@ -41,7 +41,6 @@ class ClientTransparencyStatusFields extends AbstractEnum {
   const HAS_OWNING_BUSINESS = 'has_owning_business';
   const IS_SATISFIED = 'is_satisfied';
   const OWNING_BUSINESS_REQUIREMENTS = 'owning_business_requirements';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -49,7 +48,6 @@ class ClientTransparencyStatusFields extends AbstractEnum {
       'has_owning_business' => 'bool',
       'is_satisfied' => 'bool',
       'owning_business_requirements' => 'Object',
-      'id' => 'string',
     );
   }
 }

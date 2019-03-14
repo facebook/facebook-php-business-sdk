@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdCreativeTemplateURLSpecFields;
  *
  */
 
-class AdCreativeTemplateURLSpec extends AbstractCrudObject {
+class AdCreativeTemplateURLSpec extends AbstractObject {
 
   /**
    * @return AdCreativeTemplateURLSpecFields

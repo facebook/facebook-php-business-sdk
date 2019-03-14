@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\CustomAudienceSharingStatusFields;
  *
  */
 
-class CustomAudienceSharingStatus extends AbstractCrudObject {
+class CustomAudienceSharingStatus extends AbstractObject {
 
   /**
    * @return CustomAudienceSharingStatusFields

@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\DayPartFields;
  *
  */
 
-class DayPart extends AbstractCrudObject {
+class DayPart extends AbstractObject {
 
   /**
    * @return DayPartFields

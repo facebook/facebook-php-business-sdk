@@ -40,7 +40,7 @@ use FacebookAds\Object\Values\PermissionStatusValues;
  *
  */
 
-class Permission extends AbstractCrudObject {
+class Permission extends AbstractObject {
 
   /**
    * @return PermissionFields

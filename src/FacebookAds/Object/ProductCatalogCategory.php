@@ -40,7 +40,7 @@ use FacebookAds\Object\Values\ProductCatalogCategoryCategorizationCriteriaValues
  *
  */
 
-class ProductCatalogCategory extends AbstractCrudObject {
+class ProductCatalogCategory extends AbstractObject {
 
   /**
    * @deprecated getEndpoint function is deprecated

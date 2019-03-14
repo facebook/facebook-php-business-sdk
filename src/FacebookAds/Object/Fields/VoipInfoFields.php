@@ -44,7 +44,6 @@ class VoipInfoFields extends AbstractEnum {
   const IS_PUSHABLE = 'is_pushable';
   const REASON_CODE = 'reason_code';
   const REASON_DESCRIPTION = 'reason_description';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -55,7 +54,6 @@ class VoipInfoFields extends AbstractEnum {
       'is_pushable' => 'bool',
       'reason_code' => 'unsigned int',
       'reason_description' => 'string',
-      'id' => 'string',
     );
   }
 }

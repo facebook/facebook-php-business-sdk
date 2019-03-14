@@ -39,13 +39,11 @@ class RevSharePolicyFields extends AbstractEnum {
 
   const POLICY_ID = 'policy_id';
   const POLICY_NAME = 'policy_name';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'policy_id' => 'string',
       'policy_name' => 'string',
-      'id' => 'string',
     );
   }
 }

@@ -44,7 +44,6 @@ class UserPaymentMethodsInfoFields extends AbstractEnum {
   const COUNTRY = 'country';
   const CURRENCY = 'currency';
   const EXISTING_PAYMENT_METHODS = 'existing_payment_methods';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -55,7 +54,6 @@ class UserPaymentMethodsInfoFields extends AbstractEnum {
       'country' => 'string',
       'currency' => 'string',
       'existing_payment_methods' => 'list<Object>',
-      'id' => 'string',
     );
   }
 }

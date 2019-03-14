@@ -40,14 +40,12 @@ class SavedMessageResponseMacroFields extends AbstractEnum {
   const LENGTH = 'length';
   const MACRO = 'macro';
   const OFFSET = 'offset';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'length' => 'unsigned int',
       'macro' => 'string',
       'offset' => 'unsigned int',
-      'id' => 'string',
     );
   }
 }

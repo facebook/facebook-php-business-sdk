@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\UserLeadGenDisclaimerResponseFields;
  *
  */
 
-class UserLeadGenDisclaimerResponse extends AbstractCrudObject {
+class UserLeadGenDisclaimerResponse extends AbstractObject {
 
   /**
    * @return UserLeadGenDisclaimerResponseFields

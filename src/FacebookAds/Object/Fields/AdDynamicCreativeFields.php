@@ -38,12 +38,10 @@ use FacebookAds\Enum\AbstractEnum;
 class AdDynamicCreativeFields extends AbstractEnum {
 
   const PREVIEW_URL = 'preview_url';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'preview_url' => 'string',
-      'id' => 'string',
     );
   }
 }

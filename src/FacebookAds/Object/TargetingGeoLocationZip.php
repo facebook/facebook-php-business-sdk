@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\TargetingGeoLocationZipFields;
  *
  */
 
-class TargetingGeoLocationZip extends AbstractCrudObject {
+class TargetingGeoLocationZip extends AbstractObject {
 
   /**
    * @return TargetingGeoLocationZipFields

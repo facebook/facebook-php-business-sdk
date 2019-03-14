@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdDynamicCreativeFields;
  *
  */
 
-class AdDynamicCreative extends AbstractCrudObject {
+class AdDynamicCreative extends AbstractObject {
 
   /**
    * @return AdDynamicCreativeFields

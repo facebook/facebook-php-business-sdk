@@ -38,12 +38,10 @@ use FacebookAds\Enum\AbstractEnum;
 class AdCampaignBidConstraintFields extends AbstractEnum {
 
   const ROAS_AVERAGE_FLOOR = 'roas_average_floor';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'roas_average_floor' => 'int',
-      'id' => 'string',
     );
   }
 }

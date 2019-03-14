@@ -44,7 +44,7 @@ use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultOrderingTypeValue
  *
  */
 
-class AdNetworkAnalyticsSyncQueryResult extends AbstractCrudObject {
+class AdNetworkAnalyticsSyncQueryResult extends AbstractObject {
 
   /**
    * @return AdNetworkAnalyticsSyncQueryResultFields

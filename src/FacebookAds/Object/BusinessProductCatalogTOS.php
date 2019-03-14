@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\BusinessProductCatalogTOSFields;
  *
  */
 
-class BusinessProductCatalogTOS extends AbstractCrudObject {
+class BusinessProductCatalogTOS extends AbstractObject {
 
   /**
    * @return BusinessProductCatalogTOSFields

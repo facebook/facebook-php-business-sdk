@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\MessagingFeatureReviewFields;
  *
  */
 
-class MessagingFeatureReview extends AbstractCrudObject {
+class MessagingFeatureReview extends AbstractObject {
 
   /**
    * @return MessagingFeatureReviewFields

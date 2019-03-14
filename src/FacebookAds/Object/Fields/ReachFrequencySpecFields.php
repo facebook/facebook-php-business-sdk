@@ -46,7 +46,6 @@ class ReachFrequencySpecFields extends AbstractEnum {
   const MIN_CAMPAIGN_DURATION = 'min_campaign_duration';
   const MIN_REACH_LIMITS = 'min_reach_limits';
   const SUPPORTS_VIDEO_VIEW_BENCHMARK_PER_COUNTRY = 'supports_video_view_benchmark_per_country';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -59,7 +58,6 @@ class ReachFrequencySpecFields extends AbstractEnum {
       'min_campaign_duration' => 'Object',
       'min_reach_limits' => 'Object',
       'supports_video_view_benchmark_per_country' => 'Object',
-      'id' => 'string',
     );
   }
 }

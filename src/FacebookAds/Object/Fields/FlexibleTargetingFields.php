@@ -65,7 +65,6 @@ class FlexibleTargetingFields extends AbstractEnum {
   const USER_ADCLUSTERS = 'user_adclusters';
   const WORK_EMPLOYERS = 'work_employers';
   const WORK_POSITIONS = 'work_positions';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -97,7 +96,6 @@ class FlexibleTargetingFields extends AbstractEnum {
       'user_adclusters' => 'list<IDName>',
       'work_employers' => 'list<IDName>',
       'work_positions' => 'list<IDName>',
-      'id' => 'string',
     );
   }
 }

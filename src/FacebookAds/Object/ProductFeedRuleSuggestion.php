@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\ProductFeedRuleSuggestionFields;
  *
  */
 
-class ProductFeedRuleSuggestion extends AbstractCrudObject {
+class ProductFeedRuleSuggestion extends AbstractObject {
 
   /**
    * @return ProductFeedRuleSuggestionFields

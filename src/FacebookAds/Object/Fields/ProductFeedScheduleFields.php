@@ -46,7 +46,6 @@ class ProductFeedScheduleFields extends AbstractEnum {
   const TIMEZONE = 'timezone';
   const URL = 'url';
   const USERNAME = 'username';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -59,7 +58,6 @@ class ProductFeedScheduleFields extends AbstractEnum {
       'timezone' => 'string',
       'url' => 'string',
       'username' => 'string',
-      'id' => 'string',
     );
   }
 }

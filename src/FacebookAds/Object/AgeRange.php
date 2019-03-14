@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AgeRangeFields;
  *
  */
 
-class AgeRange extends AbstractCrudObject {
+class AgeRange extends AbstractObject {
 
   /**
    * @return AgeRangeFields

@@ -39,13 +39,11 @@ class ProductCatalogImageSettingsFields extends AbstractEnum {
 
   const CAROUSEL_AD = 'carousel_ad';
   const SINGLE_AD = 'single_ad';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'carousel_ad' => 'ProductCatalogImageSettingsOperation',
       'single_ad' => 'ProductCatalogImageSettingsOperation',
-      'id' => 'string',
     );
   }
 }

@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdNetworkAnalyticsAsyncQueryResultFields;
  *
  */
 
-class AdNetworkAnalyticsAsyncQueryResult extends AbstractCrudObject {
+class AdNetworkAnalyticsAsyncQueryResult extends AbstractObject {
 
   /**
    * @return AdNetworkAnalyticsAsyncQueryResultFields

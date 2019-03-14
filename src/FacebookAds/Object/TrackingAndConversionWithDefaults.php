@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\TrackingAndConversionWithDefaultsFields;
  *
  */
 
-class TrackingAndConversionWithDefaults extends AbstractCrudObject {
+class TrackingAndConversionWithDefaults extends AbstractObject {
 
   /**
    * @return TrackingAndConversionWithDefaultsFields

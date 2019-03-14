@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\ProductVariantFields;
  *
  */
 
-class ProductVariant extends AbstractCrudObject {
+class ProductVariant extends AbstractObject {
 
   /**
    * @return ProductVariantFields

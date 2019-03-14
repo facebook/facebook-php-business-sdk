@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\InstagramInsightsValueFields;
  *
  */
 
-class InstagramInsightsValue extends AbstractCrudObject {
+class InstagramInsightsValue extends AbstractObject {
 
   /**
    * @return InstagramInsightsValueFields

@@ -39,13 +39,11 @@ class AdCampaignDeliveryStatsUnsupportedReasonsFields extends AbstractEnum {
 
   const REASON_DATA = 'reason_data';
   const REASON_TYPE = 'reason_type';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'reason_data' => 'map<string, string>',
       'reason_type' => 'string',
-      'id' => 'string',
     );
   }
 }

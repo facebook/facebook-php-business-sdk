@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\TargetingProductAudienceSpecFields;
  *
  */
 
-class TargetingProductAudienceSpec extends AbstractCrudObject {
+class TargetingProductAudienceSpec extends AbstractObject {
 
   /**
    * @return TargetingProductAudienceSpecFields

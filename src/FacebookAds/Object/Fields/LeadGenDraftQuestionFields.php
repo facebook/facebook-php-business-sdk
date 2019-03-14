@@ -45,7 +45,6 @@ class LeadGenDraftQuestionFields extends AbstractEnum {
   const LABEL = 'label';
   const OPTIONS = 'options';
   const TYPE = 'type';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -57,7 +56,6 @@ class LeadGenDraftQuestionFields extends AbstractEnum {
       'label' => 'string',
       'options' => 'list<LeadGenQuestionOption>',
       'type' => 'string',
-      'id' => 'string',
     );
   }
 }

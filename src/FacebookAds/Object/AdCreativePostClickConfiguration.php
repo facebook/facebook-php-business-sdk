@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdCreativePostClickConfigurationFields;
  *
  */
 
-class AdCreativePostClickConfiguration extends AbstractCrudObject {
+class AdCreativePostClickConfiguration extends AbstractObject {
 
   /**
    * @return AdCreativePostClickConfigurationFields

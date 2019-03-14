@@ -43,7 +43,6 @@ class ReachFrequencyCurveLowerConfidenceRangeFields extends AbstractEnum {
   const REACH_LOWER = 'reach_lower';
   const UNIQ_VIDEO_VIEWS_2S_LOWER = 'uniq_video_views_2s_lower';
   const VIDEO_VIEWS_2S_LOWER = 'video_views_2s_lower';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -53,7 +52,6 @@ class ReachFrequencyCurveLowerConfidenceRangeFields extends AbstractEnum {
       'reach_lower' => 'list<int>',
       'uniq_video_views_2s_lower' => 'list<int>',
       'video_views_2s_lower' => 'list<int>',
-      'id' => 'string',
     );
   }
 }

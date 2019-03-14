@@ -38,12 +38,10 @@ use FacebookAds\Enum\AbstractEnum;
 class AdCreativeDegreesOfFreedomSpecFields extends AbstractEnum {
 
   const DEGREES_OF_FREEDOM_TYPE = 'degrees_of_freedom_type';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'degrees_of_freedom_type' => 'string',
-      'id' => 'string',
     );
   }
 }

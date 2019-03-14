@@ -63,7 +63,6 @@ class ConversionActionQueryFields extends AbstractEnum {
   const FIELD_QUESTION_CREATOR = 'question.creator';
   const RESPONSE = 'response';
   const SUBTYPE = 'subtype';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -93,7 +92,6 @@ class ConversionActionQueryFields extends AbstractEnum {
       'question.creator' => 'list<string>',
       'response' => 'list<string>',
       'subtype' => 'list<string>',
-      'id' => 'string',
     );
   }
 }

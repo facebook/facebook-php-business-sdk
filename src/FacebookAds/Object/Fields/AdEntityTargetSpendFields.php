@@ -42,7 +42,6 @@ class AdEntityTargetSpendFields extends AbstractEnum {
   const IS_ACCURATE = 'is_accurate';
   const IS_PRORATED = 'is_prorated';
   const IS_UPDATING = 'is_updating';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -51,7 +50,6 @@ class AdEntityTargetSpendFields extends AbstractEnum {
       'is_accurate' => 'bool',
       'is_prorated' => 'bool',
       'is_updating' => 'bool',
-      'id' => 'string',
     );
   }
 }

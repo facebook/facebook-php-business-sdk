@@ -39,13 +39,11 @@ class AgeRangeFields extends AbstractEnum {
 
   const MAX = 'max';
   const MIN = 'min';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'max' => 'unsigned int',
       'min' => 'unsigned int',
-      'id' => 'string',
     );
   }
 }

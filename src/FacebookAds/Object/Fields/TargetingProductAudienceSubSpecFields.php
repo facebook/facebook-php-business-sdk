@@ -39,13 +39,11 @@ class TargetingProductAudienceSubSpecFields extends AbstractEnum {
 
   const RETENTION_SECONDS = 'retention_seconds';
   const RULE = 'rule';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'retention_seconds' => 'string',
       'rule' => 'string',
-      'id' => 'string',
     );
   }
 }

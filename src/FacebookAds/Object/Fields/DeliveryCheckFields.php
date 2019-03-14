@@ -41,7 +41,6 @@ class DeliveryCheckFields extends AbstractEnum {
   const DESCRIPTION = 'description';
   const EXTRA_INFO = 'extra_info';
   const SUMMARY = 'summary';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -49,7 +48,6 @@ class DeliveryCheckFields extends AbstractEnum {
       'description' => 'string',
       'extra_info' => 'DeliveryCheckExtraInfo',
       'summary' => 'string',
-      'id' => 'string',
     );
   }
 }

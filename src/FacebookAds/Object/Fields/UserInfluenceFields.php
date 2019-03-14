@@ -40,14 +40,12 @@ class UserInfluenceFields extends AbstractEnum {
   const TRUST = 'trust';
   const TRUST_CODE = 'trust_code';
   const VERSION = 'version';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'trust' => 'string',
       'trust_code' => 'int',
       'version' => 'int',
-      'id' => 'string',
     );
   }
 }

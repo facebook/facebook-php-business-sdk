@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdsPixelStatsFields;
  *
  */
 
-class AdsPixelStats extends AbstractCrudObject {
+class AdsPixelStats extends AbstractObject {
 
   /**
    * @return AdsPixelStatsFields

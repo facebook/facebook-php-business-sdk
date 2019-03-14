@@ -72,7 +72,6 @@ class AdCreativeLinkDataFields extends AbstractEnum {
   const SPONSORSHIP_INFO = 'sponsorship_info';
   const STATIC_FALLBACK_SPEC = 'static_fallback_spec';
   const USE_FLEXIBLE_IMAGE_ASPECT_RATIO = 'use_flexible_image_aspect_ratio';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -111,7 +110,6 @@ class AdCreativeLinkDataFields extends AbstractEnum {
       'sponsorship_info' => 'AdCreativeLinkDataSponsorshipInfoSpec',
       'static_fallback_spec' => 'AdCreativeStaticFallbackSpec',
       'use_flexible_image_aspect_ratio' => 'bool',
-      'id' => 'string',
     );
   }
 }

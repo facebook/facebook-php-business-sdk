@@ -54,7 +54,6 @@ class AdPromotedObjectFields extends AbstractEnum {
   const PRODUCT_ITEM_ID = 'product_item_id';
   const PRODUCT_SET_ID = 'product_set_id';
   const RETENTION_DAYS = 'retention_days';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -75,7 +74,6 @@ class AdPromotedObjectFields extends AbstractEnum {
       'product_item_id' => 'string',
       'product_set_id' => 'string',
       'retention_days' => 'string',
-      'id' => 'string',
     );
   }
 }

@@ -40,7 +40,7 @@ use FacebookAds\Object\Values\AdAssetFeedSpecCallToActionTypesValues;
  *
  */
 
-class AdAssetFeedSpec extends AbstractCrudObject {
+class AdAssetFeedSpec extends AbstractObject {
 
   /**
    * @return AdAssetFeedSpecFields

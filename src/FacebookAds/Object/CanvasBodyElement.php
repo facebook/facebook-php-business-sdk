@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\CanvasBodyElementFields;
  *
  */
 
-class CanvasBodyElement extends AbstractCrudObject {
+class CanvasBodyElement extends AbstractObject {
 
   /**
    * @return CanvasBodyElementFields

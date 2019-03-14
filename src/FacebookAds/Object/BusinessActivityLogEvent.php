@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\BusinessActivityLogEventFields;
  *
  */
 
-class BusinessActivityLogEvent extends AbstractCrudObject {
+class BusinessActivityLogEvent extends AbstractObject {
 
   /**
    * @return BusinessActivityLogEventFields

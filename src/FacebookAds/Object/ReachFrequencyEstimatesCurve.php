@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\ReachFrequencyEstimatesCurveFields;
  *
  */
 
-class ReachFrequencyEstimatesCurve extends AbstractCrudObject {
+class ReachFrequencyEstimatesCurve extends AbstractObject {
 
   /**
    * @return ReachFrequencyEstimatesCurveFields

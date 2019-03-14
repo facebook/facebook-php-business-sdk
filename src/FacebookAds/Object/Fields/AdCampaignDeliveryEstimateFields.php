@@ -41,7 +41,6 @@ class AdCampaignDeliveryEstimateFields extends AbstractEnum {
   const ESTIMATE_DAU = 'estimate_dau';
   const ESTIMATE_MAU = 'estimate_mau';
   const ESTIMATE_READY = 'estimate_ready';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -49,7 +48,6 @@ class AdCampaignDeliveryEstimateFields extends AbstractEnum {
       'estimate_dau' => 'int',
       'estimate_mau' => 'int',
       'estimate_ready' => 'bool',
-      'id' => 'string',
     );
   }
 }

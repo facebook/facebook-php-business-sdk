@@ -46,7 +46,7 @@ use FacebookAds\Object\Values\AdCreativeLinkDataImageLayerSpecTextFontValues;
  *
  */
 
-class AdCreativeLinkDataImageLayerSpec extends AbstractCrudObject {
+class AdCreativeLinkDataImageLayerSpec extends AbstractObject {
 
   /**
    * @return AdCreativeLinkDataImageLayerSpecFields

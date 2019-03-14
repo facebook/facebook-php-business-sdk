@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdCampaignOptimizationEventFields;
  *
  */
 
-class AdCampaignOptimizationEvent extends AbstractCrudObject {
+class AdCampaignOptimizationEvent extends AbstractObject {
 
   /**
    * @return AdCampaignOptimizationEventFields

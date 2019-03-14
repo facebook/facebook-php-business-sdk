@@ -39,13 +39,11 @@ class VideoUploadLimitsFields extends AbstractEnum {
 
   const LENGTH = 'length';
   const SIZE = 'size';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'length' => 'unsigned int',
       'size' => 'int',
-      'id' => 'string',
     );
   }
 }

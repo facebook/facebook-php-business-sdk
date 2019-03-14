@@ -43,7 +43,7 @@ use FacebookAds\Object\Values\AdCreativeVideoDataCustomOverlaySpecTemplateValues
  *
  */
 
-class AdCreativeVideoDataCustomOverlaySpec extends AbstractCrudObject {
+class AdCreativeVideoDataCustomOverlaySpec extends AbstractObject {
 
   /**
    * @return AdCreativeVideoDataCustomOverlaySpecFields

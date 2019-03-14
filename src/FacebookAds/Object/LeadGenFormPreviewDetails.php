@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\LeadGenFormPreviewDetailsFields;
  *
  */
 
-class LeadGenFormPreviewDetails extends AbstractCrudObject {
+class LeadGenFormPreviewDetails extends AbstractObject {
 
   /**
    * @return LeadGenFormPreviewDetailsFields

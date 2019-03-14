@@ -38,12 +38,10 @@ use FacebookAds\Enum\AbstractEnum;
 class CanvasBodyElementFields extends AbstractEnum {
 
   const ELEMENT = 'element';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'element' => 'Object',
-      'id' => 'string',
     );
   }
 }

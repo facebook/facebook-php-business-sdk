@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdCampaignBidConstraintFields;
  *
  */
 
-class AdCampaignBidConstraint extends AbstractCrudObject {
+class AdCampaignBidConstraint extends AbstractObject {
 
   /**
    * @return AdCampaignBidConstraintFields

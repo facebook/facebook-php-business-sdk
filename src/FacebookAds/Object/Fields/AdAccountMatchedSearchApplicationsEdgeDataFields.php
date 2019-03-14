@@ -44,7 +44,6 @@ class AdAccountMatchedSearchApplicationsEdgeDataFields extends AbstractEnum {
   const STORE = 'store';
   const UNIQUE_ID = 'unique_id';
   const URL = 'url';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -55,7 +54,6 @@ class AdAccountMatchedSearchApplicationsEdgeDataFields extends AbstractEnum {
       'store' => 'string',
       'unique_id' => 'string',
       'url' => 'string',
-      'id' => 'string',
     );
   }
 }

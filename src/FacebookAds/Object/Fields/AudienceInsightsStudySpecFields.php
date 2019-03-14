@@ -45,7 +45,6 @@ class AudienceInsightsStudySpecFields extends AbstractEnum {
   const INCLUDED_RULES = 'included_rules';
   const START_TIME = 'start_time';
   const STATUS = 'status';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -57,7 +56,6 @@ class AudienceInsightsStudySpecFields extends AbstractEnum {
       'included_rules' => 'list<Object>',
       'start_time' => 'int',
       'status' => 'string',
-      'id' => 'string',
     );
   }
 }

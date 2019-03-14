@@ -38,12 +38,10 @@ use FacebookAds\Enum\AbstractEnum;
 class TargetingProspectingAudienceFields extends AbstractEnum {
 
   const SOURCES = 'sources';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'sources' => 'list<Object>',
-      'id' => 'string',
     );
   }
 }

@@ -38,12 +38,10 @@ use FacebookAds\Enum\AbstractEnum;
 class AdRecommendationDataFields extends AbstractEnum {
 
   const LINK = 'link';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'link' => 'string',
-      'id' => 'string',
     );
   }
 }

@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\ProductCatalogUserPermissionsFields;
  *
  */
 
-class ProductCatalogUserPermissions extends AbstractCrudObject {
+class ProductCatalogUserPermissions extends AbstractObject {
 
   /**
    * @return ProductCatalogUserPermissionsFields

@@ -41,7 +41,6 @@ class TrackingAndConversionWithDefaultsFields extends AbstractEnum {
   const CUSTOM_TRACKING = 'custom_tracking';
   const DEFAULT_CONVERSION = 'default_conversion';
   const DEFAULT_TRACKING = 'default_tracking';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -49,7 +48,6 @@ class TrackingAndConversionWithDefaultsFields extends AbstractEnum {
       'custom_tracking' => 'list<Object>',
       'default_conversion' => 'list<Object>',
       'default_tracking' => 'list<Object>',
-      'id' => 'string',
     );
   }
 }

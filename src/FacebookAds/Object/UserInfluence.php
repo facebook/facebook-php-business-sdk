@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\UserInfluenceFields;
  *
  */
 
-class UserInfluence extends AbstractCrudObject {
+class UserInfluence extends AbstractObject {
 
   /**
    * @return UserInfluenceFields

@@ -39,13 +39,11 @@ class AdRuleScheduleSpecFields extends AbstractEnum {
 
   const SCHEDULE = 'schedule';
   const SCHEDULE_TYPE = 'schedule_type';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'schedule' => 'list<AdRuleSchedule>',
       'schedule_type' => 'string',
-      'id' => 'string',
     );
   }
 }

@@ -60,7 +60,6 @@ class AdgroupPlacementSpecificReviewFeedbackFields extends AbstractEnum {
   const SELLER = 'seller';
   const SHOPS = 'shops';
   const WHATSAPP = 'whatsapp';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -87,7 +86,6 @@ class AdgroupPlacementSpecificReviewFeedbackFields extends AbstractEnum {
       'seller' => 'map<string, string>',
       'shops' => 'map<string, string>',
       'whatsapp' => 'map<string, string>',
-      'id' => 'string',
     );
   }
 }

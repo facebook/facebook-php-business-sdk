@@ -40,14 +40,12 @@ class AdRuleHistoryResultFields extends AbstractEnum {
   const ACTIONS = 'actions';
   const OBJECT_ID = 'object_id';
   const OBJECT_TYPE = 'object_type';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'actions' => 'list<AdRuleHistoryResultAction>',
       'object_id' => 'string',
       'object_type' => 'ObjectType',
-      'id' => 'string',
     );
   }
 }

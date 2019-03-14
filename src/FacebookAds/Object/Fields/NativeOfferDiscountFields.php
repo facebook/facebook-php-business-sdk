@@ -43,7 +43,6 @@ class NativeOfferDiscountFields extends AbstractEnum {
   const TYPE = 'type';
   const VALUE1 = 'value1';
   const VALUE2 = 'value2';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -53,7 +52,6 @@ class NativeOfferDiscountFields extends AbstractEnum {
       'type' => 'string',
       'value1' => 'float',
       'value2' => 'float',
-      'id' => 'string',
     );
   }
 }

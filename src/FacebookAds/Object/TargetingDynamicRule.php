@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\TargetingDynamicRuleFields;
  *
  */
 
-class TargetingDynamicRule extends AbstractCrudObject {
+class TargetingDynamicRule extends AbstractObject {
 
   /**
    * @return TargetingDynamicRuleFields

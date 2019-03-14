@@ -39,13 +39,11 @@ class AdAccountDefaultDestinationFields extends AbstractEnum {
 
   const DESTINATION_ID = 'destination_id';
   const DESTINATION_URL = 'destination_url';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'destination_id' => 'string',
       'destination_url' => 'string',
-      'id' => 'string',
     );
   }
 }

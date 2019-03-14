@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\LookalikeSpecFields;
  *
  */
 
-class LookalikeSpec extends AbstractCrudObject {
+class LookalikeSpec extends AbstractObject {
 
   /**
    * @return LookalikeSpecFields

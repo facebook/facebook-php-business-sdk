@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\DeliveryCheckExtraInfoFields;
  *
  */
 
-class DeliveryCheckExtraInfo extends AbstractCrudObject {
+class DeliveryCheckExtraInfo extends AbstractObject {
 
   /**
    * @return DeliveryCheckExtraInfoFields

@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\ConversionActionQueryFields;
  *
  */
 
-class ConversionActionQuery extends AbstractCrudObject {
+class ConversionActionQuery extends AbstractObject {
 
   /**
    * @return ConversionActionQueryFields

@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdRuleScheduleSpecFields;
  *
  */
 
-class AdRuleScheduleSpec extends AbstractCrudObject {
+class AdRuleScheduleSpec extends AbstractObject {
 
   /**
    * @return AdRuleScheduleSpecFields

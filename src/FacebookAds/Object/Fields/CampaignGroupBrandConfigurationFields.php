@@ -40,14 +40,12 @@ class CampaignGroupBrandConfigurationFields extends AbstractEnum {
   const BRAND_PRODUCT_NAME = 'brand_product_name';
   const LOCALE = 'locale';
   const VERTICAL = 'vertical';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'brand_product_name' => 'string',
       'locale' => 'string',
       'vertical' => 'string',
-      'id' => 'string',
     );
   }
 }

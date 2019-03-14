@@ -41,7 +41,7 @@ use FacebookAds\Object\Values\AdAccountAdRulesHistoryEvaluationTypeValues;
  *
  */
 
-class AdAccountAdRulesHistory extends AbstractCrudObject {
+class AdAccountAdRulesHistory extends AbstractObject {
 
   /**
    * @return AdAccountAdRulesHistoryFields

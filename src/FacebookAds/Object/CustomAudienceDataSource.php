@@ -41,7 +41,7 @@ use FacebookAds\Object\Values\CustomAudienceDataSourceTypeValues;
  *
  */
 
-class CustomAudienceDataSource extends AbstractCrudObject {
+class CustomAudienceDataSource extends AbstractObject {
 
   /**
    * @return CustomAudienceDataSourceFields

@@ -45,7 +45,6 @@ class InvoiceCampaignFields extends AbstractEnum {
   const CONVERSIONS = 'conversions';
   const IMPRESSIONS = 'impressions';
   const TAGS = 'tags';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -57,7 +56,6 @@ class InvoiceCampaignFields extends AbstractEnum {
       'conversions' => 'unsigned int',
       'impressions' => 'unsigned int',
       'tags' => 'list<string>',
-      'id' => 'string',
     );
   }
 }

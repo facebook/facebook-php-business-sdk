@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdCreativePhotoDataFields;
  *
  */
 
-class AdCreativePhotoData extends AbstractCrudObject {
+class AdCreativePhotoData extends AbstractObject {
 
   /**
    * @return AdCreativePhotoDataFields

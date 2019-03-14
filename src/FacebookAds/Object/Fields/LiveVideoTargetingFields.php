@@ -41,7 +41,6 @@ class LiveVideoTargetingFields extends AbstractEnum {
   const AGE_MIN = 'age_min';
   const EXCLUDED_COUNTRIES = 'excluded_countries';
   const GEO_LOCATIONS = 'geo_locations';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -49,7 +48,6 @@ class LiveVideoTargetingFields extends AbstractEnum {
       'age_min' => 'unsigned int',
       'excluded_countries' => 'list<string>',
       'geo_locations' => 'TargetingGeoLocation',
-      'id' => 'string',
     );
   }
 }

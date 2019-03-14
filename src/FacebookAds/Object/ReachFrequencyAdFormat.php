@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\ReachFrequencyAdFormatFields;
  *
  */
 
-class ReachFrequencyAdFormat extends AbstractCrudObject {
+class ReachFrequencyAdFormat extends AbstractObject {
 
   /**
    * @return ReachFrequencyAdFormatFields

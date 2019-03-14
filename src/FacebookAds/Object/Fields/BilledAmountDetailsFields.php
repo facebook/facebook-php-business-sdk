@@ -41,7 +41,6 @@ class BilledAmountDetailsFields extends AbstractEnum {
   const NET_AMOUNT = 'net_amount';
   const TAX_AMOUNT = 'tax_amount';
   const TOTAL_AMOUNT = 'total_amount';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -49,7 +48,6 @@ class BilledAmountDetailsFields extends AbstractEnum {
       'net_amount' => 'string',
       'tax_amount' => 'string',
       'total_amount' => 'string',
-      'id' => 'string',
     );
   }
 }

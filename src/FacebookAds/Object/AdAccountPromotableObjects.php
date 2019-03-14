@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdAccountPromotableObjectsFields;
  *
  */
 
-class AdAccountPromotableObjects extends AbstractCrudObject {
+class AdAccountPromotableObjects extends AbstractObject {
 
   /**
    * @return AdAccountPromotableObjectsFields

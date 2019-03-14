@@ -49,7 +49,6 @@ class ReachFrequencyActivityFields extends AbstractEnum {
   const DELIVERED_TOTAL_IMPRESSION = 'delivered_total_impression';
   const IO_APPROVED = 'io_approved';
   const SF_LINK = 'sf_link';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -65,7 +64,6 @@ class ReachFrequencyActivityFields extends AbstractEnum {
       'delivered_total_impression' => 'unsigned int',
       'io_approved' => 'bool',
       'sf_link' => 'string',
-      'id' => 'string',
     );
   }
 }

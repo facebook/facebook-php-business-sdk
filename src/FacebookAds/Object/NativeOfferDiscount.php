@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\NativeOfferDiscountFields;
  *
  */
 
-class NativeOfferDiscount extends AbstractCrudObject {
+class NativeOfferDiscount extends AbstractObject {
 
   /**
    * @return NativeOfferDiscountFields

@@ -40,14 +40,12 @@ class WindowsPhoneAppLinkFields extends AbstractEnum {
   const APP_ID = 'app_id';
   const APP_NAME = 'app_name';
   const URL = 'url';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'app_id' => 'string',
       'app_name' => 'string',
       'url' => 'string',
-      'id' => 'string',
     );
   }
 }

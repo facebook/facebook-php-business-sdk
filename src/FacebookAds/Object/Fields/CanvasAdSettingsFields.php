@@ -44,7 +44,6 @@ class CanvasAdSettingsFields extends AbstractEnum {
   const LEADS_COUNT = 'leads_count';
   const PRODUCT_SET_ID = 'product_set_id';
   const USE_RETAILER_ITEM_IDS = 'use_retailer_item_ids';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -55,7 +54,6 @@ class CanvasAdSettingsFields extends AbstractEnum {
       'leads_count' => 'int',
       'product_set_id' => 'string',
       'use_retailer_item_ids' => 'bool',
-      'id' => 'string',
     );
   }
 }

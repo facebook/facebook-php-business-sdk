@@ -39,13 +39,11 @@ class ReachFrequencyAdFormatFields extends AbstractEnum {
 
   const DETAILS = 'details';
   const TYPE = 'type';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'details' => 'Object',
       'type' => 'string',
-      'id' => 'string',
     );
   }
 }

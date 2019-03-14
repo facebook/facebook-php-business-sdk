@@ -80,6 +80,7 @@ class PartnerIntegrationLinkedPartnerValues extends AbstractEnum {
   const SHOPIFY = 'shopify';
   const SHOPIFY_ONLINE = 'shopify_online';
   const SHOPLINE = 'shopline';
+  const SINGULAR = 'singular';
   const SIRCLO = 'sirclo';
   const SQUARESPACE = 'squarespace';
   const STOREDEN = 'storeden';

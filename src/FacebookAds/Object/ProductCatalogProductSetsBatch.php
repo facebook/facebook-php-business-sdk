@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\ProductCatalogProductSetsBatchFields;
  *
  */
 
-class ProductCatalogProductSetsBatch extends AbstractCrudObject {
+class ProductCatalogProductSetsBatch extends AbstractObject {
 
   /**
    * @return ProductCatalogProductSetsBatchFields

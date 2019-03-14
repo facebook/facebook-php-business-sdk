@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdCustomizationRuleSpecFields;
  *
  */
 
-class AdCustomizationRuleSpec extends AbstractCrudObject {
+class AdCustomizationRuleSpec extends AbstractObject {
 
   /**
    * @return AdCustomizationRuleSpecFields

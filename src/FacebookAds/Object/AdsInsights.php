@@ -46,7 +46,7 @@ use FacebookAds\Object\Values\AdsInsightsSummaryActionBreakdownsValues;
  *
  */
 
-class AdsInsights extends AbstractCrudObject {
+class AdsInsights extends AbstractObject {
 
   /**
    * @deprecated getEndpoint function is deprecated

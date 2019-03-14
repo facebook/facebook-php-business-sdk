@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdRecommendationDataFields;
  *
  */
 
-class AdRecommendationData extends AbstractCrudObject {
+class AdRecommendationData extends AbstractObject {
 
   /**
    * @return AdRecommendationDataFields

@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\FAMEExportConfigFields;
  *
  */
 
-class FAMEExportConfig extends AbstractCrudObject {
+class FAMEExportConfig extends AbstractObject {
 
   /**
    * @return FAMEExportConfigFields

@@ -39,13 +39,11 @@ class VideoCopyrightGeoGateFields extends AbstractEnum {
 
   const EXCLUDED_COUNTRIES = 'excluded_countries';
   const INCLUDED_COUNTRIES = 'included_countries';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'excluded_countries' => 'list<string>',
       'included_countries' => 'list<string>',
-      'id' => 'string',
     );
   }
 }

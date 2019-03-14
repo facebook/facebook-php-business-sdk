@@ -56,7 +56,6 @@ class BusinessActivityLogEventFields extends AbstractEnum {
   const TARGET_BUSINESS_OBJECT_ID = 'target_business_object_id';
   const TARGET_BUSINESS_OBJECT_NAME = 'target_business_object_name';
   const TARGET_BUSINESS_OBJECT_TYPE = 'target_business_object_type';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -79,7 +78,6 @@ class BusinessActivityLogEventFields extends AbstractEnum {
       'target_business_object_id' => 'string',
       'target_business_object_name' => 'string',
       'target_business_object_type' => 'string',
-      'id' => 'string',
     );
   }
 }

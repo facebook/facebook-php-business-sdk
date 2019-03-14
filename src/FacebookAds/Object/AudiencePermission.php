@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AudiencePermissionFields;
  *
  */
 
-class AudiencePermission extends AbstractCrudObject {
+class AudiencePermission extends AbstractObject {
 
   /**
    * @return AudiencePermissionFields

@@ -38,12 +38,10 @@ use FacebookAds\Enum\AbstractEnum;
 class AdCreativePortraitCustomizationsFields extends AbstractEnum {
 
   const SPECIFICATIONS = 'specifications';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'specifications' => 'list<Object>',
-      'id' => 'string',
     );
   }
 }

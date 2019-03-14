@@ -42,7 +42,6 @@ class BusinessSettingLogsDataFields extends AbstractEnum {
   const EVENT_TIME = 'event_time';
   const EVENT_TYPE = 'event_type';
   const EXTRA_DATA = 'extra_data';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -51,7 +50,6 @@ class BusinessSettingLogsDataFields extends AbstractEnum {
       'event_time' => 'string',
       'event_type' => 'string',
       'extra_data' => 'Object',
-      'id' => 'string',
     );
   }
 }

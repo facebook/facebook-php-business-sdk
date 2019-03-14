@@ -57,7 +57,6 @@ class TargetingGeoLocationFields extends AbstractEnum {
   const SUBCITIES = 'subcities';
   const SUBNEIGHBORHOODS = 'subneighborhoods';
   const ZIPS = 'zips';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -81,7 +80,6 @@ class TargetingGeoLocationFields extends AbstractEnum {
       'subcities' => 'list<TargetingGeoLocationGeoEntities>',
       'subneighborhoods' => 'list<TargetingGeoLocationGeoEntities>',
       'zips' => 'list<TargetingGeoLocationZip>',
-      'id' => 'string',
     );
   }
 }

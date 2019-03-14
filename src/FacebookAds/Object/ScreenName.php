@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\ScreenNameFields;
  *
  */
 
-class ScreenName extends AbstractCrudObject {
+class ScreenName extends AbstractObject {
 
   /**
    * @return ScreenNameFields

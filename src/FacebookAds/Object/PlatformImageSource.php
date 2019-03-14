@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\PlatformImageSourceFields;
  *
  */
 
-class PlatformImageSource extends AbstractCrudObject {
+class PlatformImageSource extends AbstractObject {
 
   /**
    * @return PlatformImageSourceFields

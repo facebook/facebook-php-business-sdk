@@ -42,7 +42,6 @@ class PagePaymentOptionsFields extends AbstractEnum {
   const DISCOVER = 'discover';
   const MASTERCARD = 'mastercard';
   const VISA = 'visa';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -51,7 +50,6 @@ class PagePaymentOptionsFields extends AbstractEnum {
       'discover' => 'unsigned int',
       'mastercard' => 'unsigned int',
       'visa' => 'unsigned int',
-      'id' => 'string',
     );
   }
 }

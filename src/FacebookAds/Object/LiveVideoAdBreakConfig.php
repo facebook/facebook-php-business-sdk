@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\LiveVideoAdBreakConfigFields;
  *
  */
 
-class LiveVideoAdBreakConfig extends AbstractCrudObject {
+class LiveVideoAdBreakConfig extends AbstractObject {
 
   /**
    * @return LiveVideoAdBreakConfigFields

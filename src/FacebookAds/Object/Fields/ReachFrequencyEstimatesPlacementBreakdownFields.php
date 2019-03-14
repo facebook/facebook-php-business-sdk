@@ -49,7 +49,6 @@ class ReachFrequencyEstimatesPlacementBreakdownFields extends AbstractEnum {
   const IOS = 'ios';
   const MSITE = 'msite';
   const SUGGESTED_VIDEOS = 'suggested_videos';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -65,7 +64,6 @@ class ReachFrequencyEstimatesPlacementBreakdownFields extends AbstractEnum {
       'ios' => 'list<float>',
       'msite' => 'list<float>',
       'suggested_videos' => 'list<float>',
-      'id' => 'string',
     );
   }
 }

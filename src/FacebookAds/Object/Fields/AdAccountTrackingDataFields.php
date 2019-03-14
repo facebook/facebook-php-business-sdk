@@ -38,12 +38,10 @@ use FacebookAds\Enum\AbstractEnum;
 class AdAccountTrackingDataFields extends AbstractEnum {
 
   const TRACKING_SPECS = 'tracking_specs';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'tracking_specs' => 'ConversionActionQuery',
-      'id' => 'string',
     );
   }
 }

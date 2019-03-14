@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdCreativeLinkDataChildAttachmentFields;
  *
  */
 
-class AdCreativeLinkDataChildAttachment extends AbstractCrudObject {
+class AdCreativeLinkDataChildAttachment extends AbstractObject {
 
   /**
    * @return AdCreativeLinkDataChildAttachmentFields

@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\CanvasAdSettingsFields;
  *
  */
 
-class CanvasAdSettings extends AbstractCrudObject {
+class CanvasAdSettings extends AbstractObject {
 
   /**
    * @return CanvasAdSettingsFields

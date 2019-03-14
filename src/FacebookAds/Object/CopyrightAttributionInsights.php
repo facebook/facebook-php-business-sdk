@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\CopyrightAttributionInsightsFields;
  *
  */
 
-class CopyrightAttributionInsights extends AbstractCrudObject {
+class CopyrightAttributionInsights extends AbstractObject {
 
   /**
    * @return CopyrightAttributionInsightsFields

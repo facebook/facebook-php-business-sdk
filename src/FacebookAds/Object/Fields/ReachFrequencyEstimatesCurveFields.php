@@ -46,7 +46,6 @@ class ReachFrequencyEstimatesCurveFields extends AbstractEnum {
   const RAW_IMPRESSION = 'raw_impression';
   const RAW_REACH = 'raw_reach';
   const REACH = 'reach';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -59,7 +58,6 @@ class ReachFrequencyEstimatesCurveFields extends AbstractEnum {
       'raw_impression' => 'list<int>',
       'raw_reach' => 'list<int>',
       'reach' => 'list<int>',
-      'id' => 'string',
     );
   }
 }

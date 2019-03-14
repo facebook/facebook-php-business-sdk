@@ -45,7 +45,6 @@ class TargetingDynamicRuleFields extends AbstractEnum {
   const PAGE_ID = 'page_id';
   const POST = 'post';
   const RETENTION_SECONDS = 'retention_seconds';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -57,7 +56,6 @@ class TargetingDynamicRuleFields extends AbstractEnum {
       'page_id' => 'string',
       'post' => 'string',
       'retention_seconds' => 'string',
-      'id' => 'string',
     );
   }
 }

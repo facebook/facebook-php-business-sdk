@@ -40,7 +40,7 @@ use FacebookAds\Object\Values\AdRuleExecutionOptionsOperatorValues;
  *
  */
 
-class AdRuleExecutionOptions extends AbstractCrudObject {
+class AdRuleExecutionOptions extends AbstractObject {
 
   /**
    * @return AdRuleExecutionOptionsFields

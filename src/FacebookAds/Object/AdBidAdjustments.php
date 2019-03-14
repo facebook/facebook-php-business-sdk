@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdBidAdjustmentsFields;
  *
  */
 
-class AdBidAdjustments extends AbstractCrudObject {
+class AdBidAdjustments extends AbstractObject {
 
   /**
    * @return AdBidAdjustmentsFields

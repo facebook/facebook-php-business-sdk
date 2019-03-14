@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\UserDeviceFields;
  *
  */
 
-class UserDevice extends AbstractCrudObject {
+class UserDevice extends AbstractObject {
 
   /**
    * @return UserDeviceFields

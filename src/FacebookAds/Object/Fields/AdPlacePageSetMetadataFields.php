@@ -40,14 +40,12 @@ class AdPlacePageSetMetadataFields extends AbstractEnum {
   const AUDIENCE = 'audience';
   const EXTRA_DATA = 'extra_data';
   const FIXED_RADIUS = 'fixed_radius';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'audience' => 'Object',
       'extra_data' => 'string',
       'fixed_radius' => 'Object',
-      'id' => 'string',
     );
   }
 }

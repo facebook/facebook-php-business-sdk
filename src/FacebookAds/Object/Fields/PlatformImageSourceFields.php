@@ -40,14 +40,12 @@ class PlatformImageSourceFields extends AbstractEnum {
   const HEIGHT = 'height';
   const SOURCE = 'source';
   const WIDTH = 'width';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'height' => 'unsigned int',
       'source' => 'string',
       'width' => 'unsigned int',
-      'id' => 'string',
     );
   }
 }

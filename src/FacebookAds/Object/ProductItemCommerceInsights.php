@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\ProductItemCommerceInsightsFields;
  *
  */
 
-class ProductItemCommerceInsights extends AbstractCrudObject {
+class ProductItemCommerceInsights extends AbstractObject {
 
   /**
    * @return ProductItemCommerceInsightsFields

@@ -43,7 +43,6 @@ class PrivacyFields extends AbstractEnum {
   const FRIENDS = 'friends';
   const NETWORKS = 'networks';
   const VALUE = 'value';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -53,7 +52,6 @@ class PrivacyFields extends AbstractEnum {
       'friends' => 'string',
       'networks' => 'string',
       'value' => 'string',
-      'id' => 'string',
     );
   }
 }

@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdgroupRelevanceScoreFields;
  *
  */
 
-class AdgroupRelevanceScore extends AbstractCrudObject {
+class AdgroupRelevanceScore extends AbstractObject {
 
   /**
    * @return AdgroupRelevanceScoreFields

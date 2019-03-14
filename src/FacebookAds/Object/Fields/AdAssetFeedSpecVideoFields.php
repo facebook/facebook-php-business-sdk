@@ -43,7 +43,6 @@ class AdAssetFeedSpecVideoFields extends AbstractEnum {
   const THUMBNAIL_URL = 'thumbnail_url';
   const URL_TAGS = 'url_tags';
   const VIDEO_ID = 'video_id';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -53,7 +52,6 @@ class AdAssetFeedSpecVideoFields extends AbstractEnum {
       'thumbnail_url' => 'string',
       'url_tags' => 'string',
       'video_id' => 'string',
-      'id' => 'string',
     );
   }
 }

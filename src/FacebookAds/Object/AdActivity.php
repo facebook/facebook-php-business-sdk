@@ -41,7 +41,7 @@ use FacebookAds\Object\Values\AdActivityEventTypeValues;
  *
  */
 
-class AdActivity extends AbstractCrudObject {
+class AdActivity extends AbstractObject {
 
   /**
    * @return AdActivityFields

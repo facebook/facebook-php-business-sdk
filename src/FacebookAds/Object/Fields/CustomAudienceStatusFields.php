@@ -39,13 +39,11 @@ class CustomAudienceStatusFields extends AbstractEnum {
 
   const CODE = 'code';
   const DESCRIPTION = 'description';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'code' => 'unsigned int',
       'description' => 'string',
-      'id' => 'string',
     );
   }
 }

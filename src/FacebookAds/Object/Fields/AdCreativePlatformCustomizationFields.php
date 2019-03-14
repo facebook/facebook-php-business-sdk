@@ -38,12 +38,10 @@ use FacebookAds\Enum\AbstractEnum;
 class AdCreativePlatformCustomizationFields extends AbstractEnum {
 
   const INSTAGRAM = 'instagram';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'instagram' => 'Object',
-      'id' => 'string',
     );
   }
 }

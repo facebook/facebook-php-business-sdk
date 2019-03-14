@@ -42,7 +42,6 @@ class TargetingGeoLocationGeoEntitiesFields extends AbstractEnum {
   const NAME = 'name';
   const REGION = 'region';
   const REGION_ID = 'region_id';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -51,7 +50,6 @@ class TargetingGeoLocationGeoEntitiesFields extends AbstractEnum {
       'name' => 'string',
       'region' => 'string',
       'region_id' => 'string',
-      'id' => 'string',
     );
   }
 }

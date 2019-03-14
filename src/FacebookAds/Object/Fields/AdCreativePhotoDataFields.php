@@ -44,7 +44,6 @@ class AdCreativePhotoDataFields extends AbstractEnum {
   const IMAGE_HASH = 'image_hash';
   const PAGE_WELCOME_MESSAGE = 'page_welcome_message';
   const URL = 'url';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -55,7 +54,6 @@ class AdCreativePhotoDataFields extends AbstractEnum {
       'image_hash' => 'string',
       'page_welcome_message' => 'string',
       'url' => 'string',
-      'id' => 'string',
     );
   }
 }

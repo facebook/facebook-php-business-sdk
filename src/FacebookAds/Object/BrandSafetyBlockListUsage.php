@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\BrandSafetyBlockListUsageFields;
  *
  */
 
-class BrandSafetyBlockListUsage extends AbstractCrudObject {
+class BrandSafetyBlockListUsage extends AbstractObject {
 
   /**
    * @return BrandSafetyBlockListUsageFields

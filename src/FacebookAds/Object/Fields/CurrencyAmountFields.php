@@ -41,7 +41,6 @@ class CurrencyAmountFields extends AbstractEnum {
   const AMOUNT_IN_HUNDREDTHS = 'amount_in_hundredths';
   const CURRENCY = 'currency';
   const OFFSETTED_AMOUNT = 'offsetted_amount';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -49,7 +48,6 @@ class CurrencyAmountFields extends AbstractEnum {
       'amount_in_hundredths' => 'string',
       'currency' => 'string',
       'offsetted_amount' => 'string',
-      'id' => 'string',
     );
   }
 }

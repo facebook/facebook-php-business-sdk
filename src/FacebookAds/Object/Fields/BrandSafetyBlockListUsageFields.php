@@ -42,7 +42,6 @@ class BrandSafetyBlockListUsageFields extends AbstractEnum {
   const PLATFORM = 'platform';
   const POSITION = 'position';
   const THRESHOLD = 'threshold';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -51,7 +50,6 @@ class BrandSafetyBlockListUsageFields extends AbstractEnum {
       'platform' => 'string',
       'position' => 'string',
       'threshold' => 'int',
-      'id' => 'string',
     );
   }
 }

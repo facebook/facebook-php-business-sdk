@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\LiveVideoTargetingFields;
  *
  */
 
-class LiveVideoTargeting extends AbstractCrudObject {
+class LiveVideoTargeting extends AbstractObject {
 
   /**
    * @return LiveVideoTargetingFields

@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\CustomAudiencePrefillStateFields;
  *
  */
 
-class CustomAudiencePrefillState extends AbstractCrudObject {
+class CustomAudiencePrefillState extends AbstractObject {
 
   /**
    * @return CustomAudiencePrefillStateFields

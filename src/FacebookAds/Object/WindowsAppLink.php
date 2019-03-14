@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\WindowsAppLinkFields;
  *
  */
 
-class WindowsAppLink extends AbstractCrudObject {
+class WindowsAppLink extends AbstractObject {
 
   /**
    * @return WindowsAppLinkFields

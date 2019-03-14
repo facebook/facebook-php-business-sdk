@@ -55,7 +55,6 @@ class AdCreativeVideoDataFields extends AbstractEnum {
   const TARGETING = 'targeting';
   const TITLE = 'title';
   const VIDEO_ID = 'video_id';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -77,7 +76,6 @@ class AdCreativeVideoDataFields extends AbstractEnum {
       'targeting' => 'Targeting',
       'title' => 'string',
       'video_id' => 'string',
-      'id' => 'string',
     );
   }
 }

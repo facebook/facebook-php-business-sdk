@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\PageParkingFields;
  *
  */
 
-class PageParking extends AbstractCrudObject {
+class PageParking extends AbstractObject {
 
   /**
    * @return PageParkingFields

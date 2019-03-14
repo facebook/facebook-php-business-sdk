@@ -174,7 +174,6 @@ class AdsInsightsFields extends AbstractEnum {
   const WEBSITE_CTR = 'website_ctr';
   const WEBSITE_PURCHASE_ROAS = 'website_purchase_roas';
   const WISH_BID = 'wish_bid';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -315,7 +314,6 @@ class AdsInsightsFields extends AbstractEnum {
       'website_ctr' => 'list<AdsActionStats>',
       'website_purchase_roas' => 'list<AdsActionStats>',
       'wish_bid' => 'string',
-      'id' => 'string',
     );
   }
 }

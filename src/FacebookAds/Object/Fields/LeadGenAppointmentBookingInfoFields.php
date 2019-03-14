@@ -40,14 +40,12 @@ class LeadGenAppointmentBookingInfoFields extends AbstractEnum {
   const ADVERTISER_TIMEZONE_OFFSET = 'advertiser_timezone_offset';
   const APPOINTMENT_DURATIONS = 'appointment_durations';
   const APPOINTMENT_SLOTS_BY_DAY = 'appointment_slots_by_day';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'advertiser_timezone_offset' => 'string',
       'appointment_durations' => 'list<string>',
       'appointment_slots_by_day' => 'list<Object>',
-      'id' => 'string',
     );
   }
 }

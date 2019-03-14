@@ -40,14 +40,12 @@ class CanvasCollectionThumbnailFields extends AbstractEnum {
   const ELEMENT_CHILD_INDEX = 'element_child_index';
   const ELEMENT_ID = 'element_id';
   const PHOTO = 'photo';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'element_child_index' => 'int',
       'element_id' => 'string',
       'photo' => 'Photo',
-      'id' => 'string',
     );
   }
 }

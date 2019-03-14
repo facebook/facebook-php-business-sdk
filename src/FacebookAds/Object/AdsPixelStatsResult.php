@@ -40,7 +40,7 @@ use FacebookAds\Object\Values\AdsPixelStatsResultAggregationValues;
  *
  */
 
-class AdsPixelStatsResult extends AbstractCrudObject {
+class AdsPixelStatsResult extends AbstractObject {
 
   /**
    * @deprecated getEndpoint function is deprecated

@@ -38,12 +38,10 @@ use FacebookAds\Enum\AbstractEnum;
 class ProductCatalogImageSettingsOperationFields extends AbstractEnum {
 
   const TRANSFORMATION_TYPE = 'transformation_type';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'transformation_type' => 'string',
-      'id' => 'string',
     );
   }
 }

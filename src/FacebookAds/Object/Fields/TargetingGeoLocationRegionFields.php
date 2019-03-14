@@ -40,14 +40,12 @@ class TargetingGeoLocationRegionFields extends AbstractEnum {
   const COUNTRY = 'country';
   const KEY = 'key';
   const NAME = 'name';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'country' => 'string',
       'key' => 'string',
       'name' => 'string',
-      'id' => 'string',
     );
   }
 }

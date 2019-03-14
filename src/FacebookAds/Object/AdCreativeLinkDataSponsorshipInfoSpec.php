@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdCreativeLinkDataSponsorshipInfoSpecFields;
  *
  */
 
-class AdCreativeLinkDataSponsorshipInfoSpec extends AbstractCrudObject {
+class AdCreativeLinkDataSponsorshipInfoSpec extends AbstractObject {
 
   /**
    * @return AdCreativeLinkDataSponsorshipInfoSpecFields

@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\ReachFrequencyDayPartFields;
  *
  */
 
-class ReachFrequencyDayPart extends AbstractCrudObject {
+class ReachFrequencyDayPart extends AbstractObject {
 
   /**
    * @return ReachFrequencyDayPartFields

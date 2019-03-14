@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\SplitTestWinnerFields;
  *
  */
 
-class SplitTestWinner extends AbstractCrudObject {
+class SplitTestWinner extends AbstractObject {
 
   /**
    * @return SplitTestWinnerFields

@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdAssetFeedSpecLinkURLFields;
  *
  */
 
-class AdAssetFeedSpecLinkURL extends AbstractCrudObject {
+class AdAssetFeedSpecLinkURL extends AbstractObject {
 
   /**
    * @return AdAssetFeedSpecLinkURLFields

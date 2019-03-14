@@ -41,7 +41,7 @@ use FacebookAds\Object\Values\TargetingEffectiveDevicePlatformsValues;
  *
  */
 
-class Targeting extends AbstractCrudObject {
+class Targeting extends AbstractObject {
 
   /**
    * @return TargetingFields

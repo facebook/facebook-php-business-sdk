@@ -40,14 +40,12 @@ class LeadGenConditionalQuestionsGroupChoicesFields extends AbstractEnum {
   const CUSTOMIZED_TOKEN = 'customized_token';
   const NEXT_QUESTION_CHOICES = 'next_question_choices';
   const VALUE = 'value';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'customized_token' => 'string',
       'next_question_choices' => 'list<LeadGenConditionalQuestionsGroupChoices>',
       'value' => 'string',
-      'id' => 'string',
     );
   }
 }

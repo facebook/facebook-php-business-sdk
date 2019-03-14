@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\CanvasCollectionThumbnailFields;
  *
  */
 
-class CanvasCollectionThumbnail extends AbstractCrudObject {
+class CanvasCollectionThumbnail extends AbstractObject {
 
   /**
    * @return CanvasCollectionThumbnailFields

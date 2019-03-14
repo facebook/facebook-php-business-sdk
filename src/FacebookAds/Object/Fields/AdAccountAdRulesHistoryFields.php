@@ -46,7 +46,6 @@ class AdAccountAdRulesHistoryFields extends AbstractEnum {
   const RULE_ID = 'rule_id';
   const SCHEDULE_SPEC = 'schedule_spec';
   const TIMESTAMP = 'timestamp';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -59,7 +58,6 @@ class AdAccountAdRulesHistoryFields extends AbstractEnum {
       'rule_id' => 'int',
       'schedule_spec' => 'AdRuleScheduleSpec',
       'timestamp' => 'datetime',
-      'id' => 'string',
     );
   }
 }

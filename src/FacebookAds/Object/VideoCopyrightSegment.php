@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\VideoCopyrightSegmentFields;
  *
  */
 
-class VideoCopyrightSegment extends AbstractCrudObject {
+class VideoCopyrightSegment extends AbstractObject {
 
   /**
    * @return VideoCopyrightSegmentFields

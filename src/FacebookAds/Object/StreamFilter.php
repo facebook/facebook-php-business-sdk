@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\StreamFilterFields;
  *
  */
 
-class StreamFilter extends AbstractCrudObject {
+class StreamFilter extends AbstractObject {
 
   /**
    * @return StreamFilterFields

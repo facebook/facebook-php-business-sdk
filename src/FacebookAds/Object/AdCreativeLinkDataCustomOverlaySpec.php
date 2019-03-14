@@ -45,7 +45,7 @@ use FacebookAds\Object\Values\AdCreativeLinkDataCustomOverlaySpecTextColorValues
  *
  */
 
-class AdCreativeLinkDataCustomOverlaySpec extends AbstractCrudObject {
+class AdCreativeLinkDataCustomOverlaySpec extends AbstractObject {
 
   /**
    * @return AdCreativeLinkDataCustomOverlaySpecFields

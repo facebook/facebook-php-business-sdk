@@ -40,7 +40,7 @@ use FacebookAds\Object\Values\RequestHistoryHttpMethodValues;
  *
  */
 
-class RequestHistory extends AbstractCrudObject {
+class RequestHistory extends AbstractObject {
 
   /**
    * @return RequestHistoryFields

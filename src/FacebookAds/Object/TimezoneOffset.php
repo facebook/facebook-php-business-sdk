@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\TimezoneOffsetFields;
  *
  */
 
-class TimezoneOffset extends AbstractCrudObject {
+class TimezoneOffset extends AbstractObject {
 
   /**
    * @return TimezoneOffsetFields

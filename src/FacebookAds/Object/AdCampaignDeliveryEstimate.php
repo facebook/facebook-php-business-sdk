@@ -40,7 +40,7 @@ use FacebookAds\Object\Values\AdCampaignDeliveryEstimateOptimizationGoalValues;
  *
  */
 
-class AdCampaignDeliveryEstimate extends AbstractCrudObject {
+class AdCampaignDeliveryEstimate extends AbstractObject {
 
   /**
    * @return AdCampaignDeliveryEstimateFields

@@ -79,7 +79,6 @@ class AdContractFields extends AbstractEnum {
   const VAT_COUNTRY = 'vat_country';
   const VERSION = 'version';
   const VERTICAL = 'vertical';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -125,7 +124,6 @@ class AdContractFields extends AbstractEnum {
       'vat_country' => 'string',
       'version' => 'unsigned int',
       'vertical' => 'string',
-      'id' => 'string',
     );
   }
 }

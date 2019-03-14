@@ -45,7 +45,6 @@ class MessengerProfileFields extends AbstractEnum {
   const PERSISTENT_MENU = 'persistent_menu';
   const TARGET_AUDIENCE = 'target_audience';
   const WHITELISTED_DOMAINS = 'whitelisted_domains';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -57,7 +56,6 @@ class MessengerProfileFields extends AbstractEnum {
       'persistent_menu' => 'list<Object>',
       'target_audience' => 'Object',
       'whitelisted_domains' => 'list<string>',
-      'id' => 'string',
     );
   }
 }

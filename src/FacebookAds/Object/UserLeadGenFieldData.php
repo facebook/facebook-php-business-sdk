@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\UserLeadGenFieldDataFields;
  *
  */
 
-class UserLeadGenFieldData extends AbstractCrudObject {
+class UserLeadGenFieldData extends AbstractObject {
 
   /**
    * @return UserLeadGenFieldDataFields

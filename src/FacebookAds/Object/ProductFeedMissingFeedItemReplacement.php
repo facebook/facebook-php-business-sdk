@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\ProductFeedMissingFeedItemReplacementFields;
  *
  */
 
-class ProductFeedMissingFeedItemReplacement extends AbstractCrudObject {
+class ProductFeedMissingFeedItemReplacement extends AbstractObject {
 
   /**
    * @return ProductFeedMissingFeedItemReplacementFields

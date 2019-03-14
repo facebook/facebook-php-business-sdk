@@ -44,7 +44,6 @@ class AdsImageCropsFields extends AbstractEnum {
   const FIELD_400X500 = '400x500';
   const FIELD_600X360 = '600x360';
   const FIELD_90X160 = '90x160';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -55,7 +54,6 @@ class AdsImageCropsFields extends AbstractEnum {
       '400x500' => 'list<list>',
       '600x360' => 'list<list>',
       '90x160' => 'list<list>',
-      'id' => 'string',
     );
   }
 }

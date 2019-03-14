@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\VideoUploadLimitsFields;
  *
  */
 
-class VideoUploadLimits extends AbstractCrudObject {
+class VideoUploadLimits extends AbstractObject {
 
   /**
    * @return VideoUploadLimitsFields

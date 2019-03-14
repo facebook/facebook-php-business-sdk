@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AudienceInsightsStudySpecFields;
  *
  */
 
-class AudienceInsightsStudySpec extends AbstractCrudObject {
+class AudienceInsightsStudySpec extends AbstractObject {
 
   /**
    * @return AudienceInsightsStudySpecFields

@@ -40,14 +40,12 @@ class ProductFeedRuleSuggestionFields extends AbstractEnum {
   const ATTRIBUTE = 'attribute';
   const PARAMS = 'params';
   const TYPE = 'type';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'attribute' => 'string',
       'params' => 'map<string, string>',
       'type' => 'string',
-      'id' => 'string',
     );
   }
 }

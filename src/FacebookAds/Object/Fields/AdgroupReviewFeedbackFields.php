@@ -39,13 +39,11 @@ class AdgroupReviewFeedbackFields extends AbstractEnum {
 
   const FIELD_GLOBAL = 'global';
   const PLACEMENT_SPECIFIC = 'placement_specific';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'global' => 'map<string, string>',
       'placement_specific' => 'AdgroupPlacementSpecificReviewFeedback',
-      'id' => 'string',
     );
   }
 }

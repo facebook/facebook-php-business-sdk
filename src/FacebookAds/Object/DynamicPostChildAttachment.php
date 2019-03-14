@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\DynamicPostChildAttachmentFields;
  *
  */
 
-class DynamicPostChildAttachment extends AbstractCrudObject {
+class DynamicPostChildAttachment extends AbstractObject {
 
   /**
    * @return DynamicPostChildAttachmentFields

@@ -41,7 +41,7 @@ use FacebookAds\Object\Values\InstantArticleInsightsQueryResultPeriodValues;
  *
  */
 
-class InstantArticleInsightsQueryResult extends AbstractCrudObject {
+class InstantArticleInsightsQueryResult extends AbstractObject {
 
   /**
    * @return InstantArticleInsightsQueryResultFields

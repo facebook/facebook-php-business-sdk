@@ -40,7 +40,7 @@ use FacebookAds\Object\Values\AdAccountMatchedSearchApplicationsEdgeDataAppStore
  *
  */
 
-class AdAccountMatchedSearchApplicationsEdgeData extends AbstractCrudObject {
+class AdAccountMatchedSearchApplicationsEdgeData extends AbstractObject {
 
   /**
    * @return AdAccountMatchedSearchApplicationsEdgeDataFields

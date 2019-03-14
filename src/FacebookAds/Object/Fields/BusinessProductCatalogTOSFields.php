@@ -39,13 +39,11 @@ class BusinessProductCatalogTOSFields extends AbstractEnum {
 
   const ACCEPTED = 'accepted';
   const CONTENT = 'content';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'accepted' => 'bool',
       'content' => 'string',
-      'id' => 'string',
     );
   }
 }

@@ -41,7 +41,6 @@ class UserPaymentModulesOptionsFields extends AbstractEnum {
   const AVAILABLE_PAYMENT_OPTIONS = 'available_payment_options';
   const COUNTRY = 'country';
   const CURRENCY = 'currency';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -49,7 +48,6 @@ class UserPaymentModulesOptionsFields extends AbstractEnum {
       'available_payment_options' => 'list<Object>',
       'country' => 'string',
       'currency' => 'string',
-      'id' => 'string',
     );
   }
 }

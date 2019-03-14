@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdCampaignPacedBidInfoFields;
  *
  */
 
-class AdCampaignPacedBidInfo extends AbstractCrudObject {
+class AdCampaignPacedBidInfo extends AbstractObject {
 
   /**
    * @return AdCampaignPacedBidInfoFields

@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\BilledAmountDetailsFields;
  *
  */
 
-class BilledAmountDetails extends AbstractCrudObject {
+class BilledAmountDetails extends AbstractObject {
 
   /**
    * @return BilledAmountDetailsFields

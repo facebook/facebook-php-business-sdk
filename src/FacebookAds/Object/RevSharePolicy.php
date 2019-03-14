@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\RevSharePolicyFields;
  *
  */
 
-class RevSharePolicy extends AbstractCrudObject {
+class RevSharePolicy extends AbstractObject {
 
   /**
    * @return RevSharePolicyFields

@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\UserCoverPhotoFields;
  *
  */
 
-class UserCoverPhoto extends AbstractCrudObject {
+class UserCoverPhoto extends AbstractObject {
 
   /**
    * @return UserCoverPhotoFields

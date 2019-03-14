@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\CurrencyAmountFields;
  *
  */
 
-class CurrencyAmount extends AbstractCrudObject {
+class CurrencyAmount extends AbstractObject {
 
   /**
    * @return CurrencyAmountFields

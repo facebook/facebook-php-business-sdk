@@ -40,14 +40,12 @@ class CustomAudienceDataSourceFields extends AbstractEnum {
   const CREATION_PARAMS = 'creation_params';
   const SUB_TYPE = 'sub_type';
   const TYPE = 'type';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'creation_params' => 'string',
       'sub_type' => 'SubType',
       'type' => 'Type',
-      'id' => 'string',
     );
   }
 }

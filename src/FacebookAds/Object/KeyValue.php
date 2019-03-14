@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\KeyValueFields;
  *
  */
 
-class KeyValue extends AbstractCrudObject {
+class KeyValue extends AbstractObject {
 
   /**
    * @return KeyValueFields

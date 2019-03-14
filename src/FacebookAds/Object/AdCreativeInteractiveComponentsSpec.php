@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdCreativeInteractiveComponentsSpecFields;
  *
  */
 
-class AdCreativeInteractiveComponentsSpec extends AbstractCrudObject {
+class AdCreativeInteractiveComponentsSpec extends AbstractObject {
 
   /**
    * @return AdCreativeInteractiveComponentsSpecFields

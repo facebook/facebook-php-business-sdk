@@ -41,7 +41,6 @@ class CustomConversionActivitiesFields extends AbstractEnum {
   const DATA = 'data';
   const EVENT_TYPE = 'event_type';
   const TIMESTAMP = 'timestamp';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -49,7 +48,6 @@ class CustomConversionActivitiesFields extends AbstractEnum {
       'data' => 'string',
       'event_type' => 'string',
       'timestamp' => 'datetime',
-      'id' => 'string',
     );
   }
 }

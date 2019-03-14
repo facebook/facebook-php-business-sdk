@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdAssetFeedSpecVideoFields;
  *
  */
 
-class AdAssetFeedSpecVideo extends AbstractCrudObject {
+class AdAssetFeedSpecVideo extends AbstractObject {
 
   /**
    * @return AdAssetFeedSpecVideoFields

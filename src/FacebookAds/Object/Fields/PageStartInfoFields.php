@@ -39,13 +39,11 @@ class PageStartInfoFields extends AbstractEnum {
 
   const DATE = 'date';
   const TYPE = 'type';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'date' => 'Object',
       'type' => 'string',
-      'id' => 'string',
     );
   }
 }

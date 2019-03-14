@@ -44,7 +44,6 @@ class AdAssetFeedSpecGroupRuleFields extends AbstractEnum {
   const LINK_URL_LABEL = 'link_url_label';
   const TITLE_LABEL = 'title_label';
   const VIDEO_LABEL = 'video_label';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -55,7 +54,6 @@ class AdAssetFeedSpecGroupRuleFields extends AbstractEnum {
       'link_url_label' => 'AdAssetFeedSpecAssetLabel',
       'title_label' => 'AdAssetFeedSpecAssetLabel',
       'video_label' => 'AdAssetFeedSpecAssetLabel',
-      'id' => 'string',
     );
   }
 }

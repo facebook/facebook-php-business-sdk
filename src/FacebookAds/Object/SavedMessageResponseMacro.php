@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\SavedMessageResponseMacroFields;
  *
  */
 
-class SavedMessageResponseMacro extends AbstractCrudObject {
+class SavedMessageResponseMacro extends AbstractObject {
 
   /**
    * @return SavedMessageResponseMacroFields

@@ -39,13 +39,11 @@ class CommerceSettingsFields extends AbstractEnum {
 
   const INVENTORY = 'inventory';
   const TOTAL_INVENTORY = 'total_inventory';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'inventory' => 'int',
       'total_inventory' => 'int',
-      'id' => 'string',
     );
   }
 }

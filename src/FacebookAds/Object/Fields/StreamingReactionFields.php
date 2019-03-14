@@ -39,13 +39,11 @@ class StreamingReactionFields extends AbstractEnum {
 
   const COUNT = 'count';
   const REACTION_TYPE = 'reaction_type';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'count' => 'unsigned int',
       'reaction_type' => 'ReactionType',
-      'id' => 'string',
     );
   }
 }

@@ -41,7 +41,7 @@ use FacebookAds\Object\Values\ProductDaEventSamplesBatchEventValues;
  *
  */
 
-class ProductDaEventSamplesBatch extends AbstractCrudObject {
+class ProductDaEventSamplesBatch extends AbstractObject {
 
   /**
    * @return ProductDaEventSamplesBatchFields

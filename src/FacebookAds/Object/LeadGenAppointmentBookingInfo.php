@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\LeadGenAppointmentBookingInfoFields;
  *
  */
 
-class LeadGenAppointmentBookingInfo extends AbstractCrudObject {
+class LeadGenAppointmentBookingInfo extends AbstractObject {
 
   /**
    * @return LeadGenAppointmentBookingInfoFields

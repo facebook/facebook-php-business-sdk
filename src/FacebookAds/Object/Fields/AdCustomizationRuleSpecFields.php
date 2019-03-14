@@ -45,7 +45,6 @@ class AdCustomizationRuleSpecFields extends AbstractEnum {
   const NAME = 'name';
   const PRIORITY = 'priority';
   const TEMPLATE_URL_SPEC = 'template_url_spec';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -57,7 +56,6 @@ class AdCustomizationRuleSpecFields extends AbstractEnum {
       'name' => 'string',
       'priority' => 'int',
       'template_url_spec' => 'AdCreativeTemplateURLSpec',
-      'id' => 'string',
     );
   }
 }

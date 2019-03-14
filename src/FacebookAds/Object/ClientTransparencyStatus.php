@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\ClientTransparencyStatusFields;
  *
  */
 
-class ClientTransparencyStatus extends AbstractCrudObject {
+class ClientTransparencyStatus extends AbstractObject {
 
   /**
    * @return ClientTransparencyStatusFields

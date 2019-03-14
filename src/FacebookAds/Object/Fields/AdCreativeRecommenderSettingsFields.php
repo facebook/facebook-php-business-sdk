@@ -39,13 +39,11 @@ class AdCreativeRecommenderSettingsFields extends AbstractEnum {
 
   const PREFERRED_EVENTS = 'preferred_events';
   const PRODUCT_SALES_CHANNEL = 'product_sales_channel';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'preferred_events' => 'list<string>',
       'product_sales_channel' => 'string',
-      'id' => 'string',
     );
   }
 }

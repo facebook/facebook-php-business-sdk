@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdCampaignFrequencyControlSpecsFields;
  *
  */
 
-class AdCampaignFrequencyControlSpecs extends AbstractCrudObject {
+class AdCampaignFrequencyControlSpecs extends AbstractObject {
 
   /**
    * @return AdCampaignFrequencyControlSpecsFields

@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdEntityTargetSpendFields;
  *
  */
 
-class AdEntityTargetSpend extends AbstractCrudObject {
+class AdEntityTargetSpend extends AbstractObject {
 
   /**
    * @return AdEntityTargetSpendFields

@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdsImageCropsFields;
  *
  */
 
-class AdsImageCrops extends AbstractCrudObject {
+class AdsImageCrops extends AbstractObject {
 
   /**
    * @return AdsImageCropsFields

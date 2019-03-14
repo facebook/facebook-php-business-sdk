@@ -39,13 +39,11 @@ class UserDeviceFields extends AbstractEnum {
 
   const HARDWARE = 'hardware';
   const OS = 'os';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'hardware' => 'string',
       'os' => 'string',
-      'id' => 'string',
     );
   }
 }

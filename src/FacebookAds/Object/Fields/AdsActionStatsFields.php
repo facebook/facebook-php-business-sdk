@@ -63,7 +63,6 @@ class AdsActionStatsFields extends AbstractEnum {
   const INTERACTIVE_COMPONENT_STICKER_ID = 'interactive_component_sticker_id';
   const INTERACTIVE_COMPONENT_STICKER_RESPONSE = 'interactive_component_sticker_response';
   const VALUE = 'value';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -93,7 +92,6 @@ class AdsActionStatsFields extends AbstractEnum {
       'interactive_component_sticker_id' => 'string',
       'interactive_component_sticker_response' => 'string',
       'value' => 'string',
-      'id' => 'string',
     );
   }
 }

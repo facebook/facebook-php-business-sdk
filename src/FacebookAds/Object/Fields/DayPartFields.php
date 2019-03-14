@@ -41,7 +41,6 @@ class DayPartFields extends AbstractEnum {
   const END_MINUTE = 'end_minute';
   const START_MINUTE = 'start_minute';
   const TIMEZONE_TYPE = 'timezone_type';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -49,7 +48,6 @@ class DayPartFields extends AbstractEnum {
       'end_minute' => 'int',
       'start_minute' => 'int',
       'timezone_type' => 'string',
-      'id' => 'string',
     );
   }
 }

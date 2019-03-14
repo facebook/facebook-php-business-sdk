@@ -40,7 +40,7 @@ use FacebookAds\Object\Values\AdRuleHistoryResultObjectTypeValues;
  *
  */
 
-class AdRuleHistoryResult extends AbstractCrudObject {
+class AdRuleHistoryResult extends AbstractObject {
 
   /**
    * @return AdRuleHistoryResultFields

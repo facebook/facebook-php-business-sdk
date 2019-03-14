@@ -40,14 +40,12 @@ class TargetingProductAudienceSpecFields extends AbstractEnum {
   const EXCLUSIONS = 'exclusions';
   const INCLUSIONS = 'inclusions';
   const PRODUCT_SET_ID = 'product_set_id';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'exclusions' => 'list<TargetingProductAudienceSubSpec>',
       'inclusions' => 'list<TargetingProductAudienceSubSpec>',
       'product_set_id' => 'string',
-      'id' => 'string',
     );
   }
 }

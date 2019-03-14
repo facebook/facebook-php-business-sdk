@@ -43,7 +43,6 @@ class AdCreativeStaticFallbackSpecFields extends AbstractEnum {
   const LINK = 'link';
   const MESSAGE = 'message';
   const NAME = 'name';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -53,7 +52,6 @@ class AdCreativeStaticFallbackSpecFields extends AbstractEnum {
       'link' => 'string',
       'message' => 'string',
       'name' => 'string',
-      'id' => 'string',
     );
   }
 }

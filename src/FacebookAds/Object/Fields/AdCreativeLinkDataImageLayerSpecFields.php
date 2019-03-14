@@ -50,7 +50,6 @@ class AdCreativeLinkDataImageLayerSpecFields extends AbstractEnum {
   const SHAPE_COLOR = 'shape_color';
   const TEXT_COLOR = 'text_color';
   const TEXT_FONT = 'text_font';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -67,7 +66,6 @@ class AdCreativeLinkDataImageLayerSpecFields extends AbstractEnum {
       'shape_color' => 'string',
       'text_color' => 'string',
       'text_font' => 'TextFont',
-      'id' => 'string',
     );
   }
 }

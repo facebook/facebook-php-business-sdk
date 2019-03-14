@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\OutcomePredictionPointFields;
  *
  */
 
-class OutcomePredictionPoint extends AbstractCrudObject {
+class OutcomePredictionPoint extends AbstractObject {
 
   /**
    * @return OutcomePredictionPointFields

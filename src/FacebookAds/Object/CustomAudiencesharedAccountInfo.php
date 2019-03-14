@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\CustomAudiencesharedAccountInfoFields;
  *
  */
 
-class CustomAudiencesharedAccountInfo extends AbstractCrudObject {
+class CustomAudiencesharedAccountInfo extends AbstractObject {
 
   /**
    * @return CustomAudiencesharedAccountInfoFields

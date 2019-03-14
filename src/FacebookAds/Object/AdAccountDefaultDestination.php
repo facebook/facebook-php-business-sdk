@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdAccountDefaultDestinationFields;
  *
  */
 
-class AdAccountDefaultDestination extends AbstractCrudObject {
+class AdAccountDefaultDestination extends AbstractObject {
 
   /**
    * @return AdAccountDefaultDestinationFields

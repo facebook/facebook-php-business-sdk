@@ -40,14 +40,12 @@ class AdAccountRecommendedCamapaignBudgetFields extends AbstractEnum {
   const DAILY = 'daily';
   const LIFETIME = 'lifetime';
   const OBJECTIVE = 'objective';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'daily' => 'string',
       'lifetime' => 'string',
       'objective' => 'string',
-      'id' => 'string',
     );
   }
 }

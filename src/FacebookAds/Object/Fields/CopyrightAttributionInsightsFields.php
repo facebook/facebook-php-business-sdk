@@ -42,7 +42,6 @@ class CopyrightAttributionInsightsFields extends AbstractEnum {
   const L7_ATTRIBUTION_VIDEO_VIEW = 'l7_attribution_video_view';
   const L7_ATTRIBUTION_VIDEO_VIEW_DELTA = 'l7_attribution_video_view_delta';
   const METRICS_ENDING_DATE = 'metrics_ending_date';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -51,7 +50,6 @@ class CopyrightAttributionInsightsFields extends AbstractEnum {
       'l7_attribution_video_view' => 'int',
       'l7_attribution_video_view_delta' => 'float',
       'metrics_ending_date' => 'string',
-      'id' => 'string',
     );
   }
 }

@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdAccountRecommendedCamapaignBudgetFields;
  *
  */
 
-class AdAccountRecommendedCamapaignBudget extends AbstractCrudObject {
+class AdAccountRecommendedCamapaignBudget extends AbstractObject {
 
   /**
    * @return AdAccountRecommendedCamapaignBudgetFields

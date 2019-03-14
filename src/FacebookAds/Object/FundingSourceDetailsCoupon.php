@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\FundingSourceDetailsCouponFields;
  *
  */
 
-class FundingSourceDetailsCoupon extends AbstractCrudObject {
+class FundingSourceDetailsCoupon extends AbstractObject {
 
   /**
    * @return FundingSourceDetailsCouponFields

@@ -42,7 +42,6 @@ class MinimumBudgetFields extends AbstractEnum {
   const MIN_DAILY_BUDGET_IMP = 'min_daily_budget_imp';
   const MIN_DAILY_BUDGET_LOW_FREQ = 'min_daily_budget_low_freq';
   const MIN_DAILY_BUDGET_VIDEO_VIEWS = 'min_daily_budget_video_views';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -51,7 +50,6 @@ class MinimumBudgetFields extends AbstractEnum {
       'min_daily_budget_imp' => 'int',
       'min_daily_budget_low_freq' => 'int',
       'min_daily_budget_video_views' => 'int',
-      'id' => 'string',
     );
   }
 }

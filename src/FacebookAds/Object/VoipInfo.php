@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\VoipInfoFields;
  *
  */
 
-class VoipInfo extends AbstractCrudObject {
+class VoipInfo extends AbstractObject {
 
   /**
    * @return VoipInfoFields

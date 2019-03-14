@@ -38,12 +38,10 @@ use FacebookAds\Enum\AbstractEnum;
 class PaymentPricepointsFields extends AbstractEnum {
 
   const MOBILE = 'mobile';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'mobile' => 'list<Object>',
-      'id' => 'string',
     );
   }
 }

@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\CreditPartitionActionOptionsFields;
  *
  */
 
-class CreditPartitionActionOptions extends AbstractCrudObject {
+class CreditPartitionActionOptions extends AbstractObject {
 
   /**
    * @return CreditPartitionActionOptionsFields

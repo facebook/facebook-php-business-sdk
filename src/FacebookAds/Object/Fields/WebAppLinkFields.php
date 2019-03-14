@@ -39,13 +39,11 @@ class WebAppLinkFields extends AbstractEnum {
 
   const SHOULD_FALLBACK = 'should_fallback';
   const URL = 'url';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'should_fallback' => 'bool',
       'url' => 'string',
-      'id' => 'string',
     );
   }
 }

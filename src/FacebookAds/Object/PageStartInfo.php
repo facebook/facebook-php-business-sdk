@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\PageStartInfoFields;
  *
  */
 
-class PageStartInfo extends AbstractCrudObject {
+class PageStartInfo extends AbstractObject {
 
   /**
    * @return PageStartInfoFields

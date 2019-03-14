@@ -41,7 +41,6 @@ class AdKeywordsFields extends AbstractEnum {
   const PRODUCT_CATEGORIES = 'product_categories';
   const PRODUCT_NAMES = 'product_names';
   const SEARCH_TERMS = 'search_terms';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -49,7 +48,6 @@ class AdKeywordsFields extends AbstractEnum {
       'product_categories' => 'list<string>',
       'product_names' => 'list<string>',
       'search_terms' => 'list<string>',
-      'id' => 'string',
     );
   }
 }

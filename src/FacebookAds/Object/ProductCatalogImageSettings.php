@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\ProductCatalogImageSettingsFields;
  *
  */
 
-class ProductCatalogImageSettings extends AbstractCrudObject {
+class ProductCatalogImageSettings extends AbstractObject {
 
   /**
    * @return ProductCatalogImageSettingsFields

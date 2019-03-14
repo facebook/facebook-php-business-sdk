@@ -49,7 +49,6 @@ class LookalikeSpecFields extends AbstractEnum {
   const TARGET_COUNTRIES = 'target_countries';
   const TARGET_COUNTRY_NAMES = 'target_country_names';
   const TYPE = 'type';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -65,7 +64,6 @@ class LookalikeSpecFields extends AbstractEnum {
       'target_countries' => 'list<string>',
       'target_country_names' => 'list',
       'type' => 'string',
-      'id' => 'string',
     );
   }
 }

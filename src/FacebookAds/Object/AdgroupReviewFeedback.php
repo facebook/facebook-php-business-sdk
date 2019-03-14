@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdgroupReviewFeedbackFields;
  *
  */
 
-class AdgroupReviewFeedback extends AbstractCrudObject {
+class AdgroupReviewFeedback extends AbstractObject {
 
   /**
    * @return AdgroupReviewFeedbackFields

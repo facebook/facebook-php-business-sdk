@@ -41,7 +41,6 @@ class InstantArticleInsightsQueryResultFields extends AbstractEnum {
   const NAME = 'name';
   const TIME = 'time';
   const VALUE = 'value';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -49,7 +48,6 @@ class InstantArticleInsightsQueryResultFields extends AbstractEnum {
       'name' => 'string',
       'time' => 'datetime',
       'value' => 'string',
-      'id' => 'string',
     );
   }
 }

@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\IosAppLinkFields;
  *
  */
 
-class IosAppLink extends AbstractCrudObject {
+class IosAppLink extends AbstractObject {
 
   /**
    * @return IosAppLinkFields

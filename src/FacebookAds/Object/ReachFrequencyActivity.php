@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\ReachFrequencyActivityFields;
  *
  */
 
-class ReachFrequencyActivity extends AbstractCrudObject {
+class ReachFrequencyActivity extends AbstractObject {
 
   /**
    * @return ReachFrequencyActivityFields

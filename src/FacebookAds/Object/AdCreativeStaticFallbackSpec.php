@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdCreativeStaticFallbackSpecFields;
  *
  */
 
-class AdCreativeStaticFallbackSpec extends AbstractCrudObject {
+class AdCreativeStaticFallbackSpec extends AbstractObject {
 
   /**
    * @return AdCreativeStaticFallbackSpecFields

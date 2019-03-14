@@ -41,7 +41,6 @@ class AndroidAppLinkFields extends AbstractEnum {
   const FIELD_CLASS = 'class';
   const PACKAGE = 'package';
   const URL = 'url';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -49,7 +48,6 @@ class AndroidAppLinkFields extends AbstractEnum {
       'class' => 'string',
       'package' => 'string',
       'url' => 'string',
-      'id' => 'string',
     );
   }
 }

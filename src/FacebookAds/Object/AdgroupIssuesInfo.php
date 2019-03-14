@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdgroupIssuesInfoFields;
  *
  */
 
-class AdgroupIssuesInfo extends AbstractCrudObject {
+class AdgroupIssuesInfo extends AbstractObject {
 
   /**
    * @return AdgroupIssuesInfoFields

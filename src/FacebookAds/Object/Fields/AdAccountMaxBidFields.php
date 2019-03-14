@@ -38,12 +38,10 @@ use FacebookAds\Enum\AbstractEnum;
 class AdAccountMaxBidFields extends AbstractEnum {
 
   const MAX_BID = 'max_bid';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'max_bid' => 'int',
-      'id' => 'string',
     );
   }
 }

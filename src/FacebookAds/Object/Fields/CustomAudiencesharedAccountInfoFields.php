@@ -42,7 +42,6 @@ class CustomAudiencesharedAccountInfoFields extends AbstractEnum {
   const BUSINESS_ID = 'business_id';
   const BUSINESS_NAME = 'business_name';
   const SHARING_STATUS = 'sharing_status';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -51,7 +50,6 @@ class CustomAudiencesharedAccountInfoFields extends AbstractEnum {
       'business_id' => 'string',
       'business_name' => 'string',
       'sharing_status' => 'string',
-      'id' => 'string',
     );
   }
 }

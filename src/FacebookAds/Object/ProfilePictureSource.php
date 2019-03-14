@@ -40,7 +40,7 @@ use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
  *
  */
 
-class ProfilePictureSource extends AbstractCrudObject {
+class ProfilePictureSource extends AbstractObject {
 
   /**
    * @return ProfilePictureSourceFields

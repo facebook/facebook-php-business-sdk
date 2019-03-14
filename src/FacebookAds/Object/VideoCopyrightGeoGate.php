@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\VideoCopyrightGeoGateFields;
  *
  */
 
-class VideoCopyrightGeoGate extends AbstractCrudObject {
+class VideoCopyrightGeoGate extends AbstractObject {
 
   /**
    * @return VideoCopyrightGeoGateFields

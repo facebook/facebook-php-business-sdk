@@ -40,14 +40,12 @@ class AdCampaignOptimizationEventFields extends AbstractEnum {
   const CUSTOM_CONVERSION_ID = 'custom_conversion_id';
   const EVENT_SEQUENCE = 'event_sequence';
   const EVENT_TYPE = 'event_type';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'custom_conversion_id' => 'string',
       'event_sequence' => 'unsigned int',
       'event_type' => 'string',
-      'id' => 'string',
     );
   }
 }

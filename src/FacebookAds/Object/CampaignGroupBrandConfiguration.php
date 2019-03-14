@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\CampaignGroupBrandConfigurationFields;
  *
  */
 
-class CampaignGroupBrandConfiguration extends AbstractCrudObject {
+class CampaignGroupBrandConfiguration extends AbstractObject {
 
   /**
    * @return CampaignGroupBrandConfigurationFields

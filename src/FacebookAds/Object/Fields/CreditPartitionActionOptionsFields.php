@@ -40,14 +40,12 @@ class CreditPartitionActionOptionsFields extends AbstractEnum {
   const LIABILITY_TYPE = 'liability_type';
   const PARTITION_TYPE = 'partition_type';
   const SEND_BILL_TO = 'send_bill_to';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'liability_type' => 'Object',
       'partition_type' => 'Object',
       'send_bill_to' => 'Object',
-      'id' => 'string',
     );
   }
 }

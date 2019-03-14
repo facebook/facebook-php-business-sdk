@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\CheckBatchRequestStatusFields;
  *
  */
 
-class CheckBatchRequestStatus extends AbstractCrudObject {
+class CheckBatchRequestStatus extends AbstractObject {
 
   /**
    * @return CheckBatchRequestStatusFields

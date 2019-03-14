@@ -40,14 +40,12 @@ class AdRuleExecutionOptionsFields extends AbstractEnum {
   const FIELD = 'field';
   const OPERATOR = 'operator';
   const VALUE = 'value';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'field' => 'string',
       'operator' => 'Operator',
       'value' => 'Object',
-      'id' => 'string',
     );
   }
 }

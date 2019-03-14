@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\RichMediaElementFields;
  *
  */
 
-class RichMediaElement extends AbstractCrudObject {
+class RichMediaElement extends AbstractObject {
 
   /**
    * @return RichMediaElementFields

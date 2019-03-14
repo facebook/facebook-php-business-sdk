@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdPlacePageSetMetadataFields;
  *
  */
 
-class AdPlacePageSetMetadata extends AbstractCrudObject {
+class AdPlacePageSetMetadata extends AbstractObject {
 
   /**
    * @return AdPlacePageSetMetadataFields

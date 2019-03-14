@@ -47,7 +47,6 @@ class AdCreativeVideoDataCustomOverlaySpecFields extends AbstractEnum {
   const START = 'start';
   const TEMPLATE = 'template';
   const TEXT_COLOR = 'text_color';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -61,7 +60,6 @@ class AdCreativeVideoDataCustomOverlaySpecFields extends AbstractEnum {
       'start' => 'int',
       'template' => 'Template',
       'text_color' => 'string',
-      'id' => 'string',
     );
   }
 }

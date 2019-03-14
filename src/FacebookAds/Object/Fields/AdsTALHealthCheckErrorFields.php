@@ -39,13 +39,11 @@ class AdsTALHealthCheckErrorFields extends AbstractEnum {
 
   const ERROR_CODE = 'error_code';
   const TARGET_ID = 'target_id';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'error_code' => 'unsigned int',
       'target_id' => 'string',
-      'id' => 'string',
     );
   }
 }

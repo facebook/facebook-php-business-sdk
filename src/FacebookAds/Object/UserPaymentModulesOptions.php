@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\UserPaymentModulesOptionsFields;
  *
  */
 
-class UserPaymentModulesOptions extends AbstractCrudObject {
+class UserPaymentModulesOptions extends AbstractObject {
 
   /**
    * @return UserPaymentModulesOptionsFields

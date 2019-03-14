@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdCreativeLinkDataCallToActionValueFields;
  *
  */
 
-class AdCreativeLinkDataCallToActionValue extends AbstractCrudObject {
+class AdCreativeLinkDataCallToActionValue extends AbstractObject {
 
   /**
    * @return AdCreativeLinkDataCallToActionValueFields

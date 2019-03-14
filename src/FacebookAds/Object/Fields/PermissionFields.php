@@ -39,13 +39,11 @@ class PermissionFields extends AbstractEnum {
 
   const PERMISSION = 'permission';
   const STATUS = 'status';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'permission' => 'string',
       'status' => 'string',
-      'id' => 'string',
     );
   }
 }

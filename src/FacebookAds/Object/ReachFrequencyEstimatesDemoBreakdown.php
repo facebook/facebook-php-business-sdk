@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\ReachFrequencyEstimatesDemoBreakdownFields;
  *
  */
 
-class ReachFrequencyEstimatesDemoBreakdown extends AbstractCrudObject {
+class ReachFrequencyEstimatesDemoBreakdown extends AbstractObject {
 
   /**
    * @return ReachFrequencyEstimatesDemoBreakdownFields

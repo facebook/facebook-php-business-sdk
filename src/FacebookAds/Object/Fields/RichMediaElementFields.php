@@ -40,14 +40,12 @@ class RichMediaElementFields extends AbstractEnum {
   const ELEMENT = 'element';
   const ELEMENT_TYPE = 'element_type';
   const NAME = 'name';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'element' => 'Object',
       'element_type' => 'string',
       'name' => 'string',
-      'id' => 'string',
     );
   }
 }

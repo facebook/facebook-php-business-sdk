@@ -40,14 +40,12 @@ class StreamFilterFields extends AbstractEnum {
   const FILTER_KEY = 'filter_key';
   const NAME = 'name';
   const TYPE = 'type';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'filter_key' => 'string',
       'name' => 'string',
       'type' => 'string',
-      'id' => 'string',
     );
   }
 }

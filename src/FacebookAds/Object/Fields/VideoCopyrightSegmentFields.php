@@ -40,14 +40,12 @@ class VideoCopyrightSegmentFields extends AbstractEnum {
   const DURATION_IN_SEC = 'duration_in_sec';
   const MEDIA_TYPE = 'media_type';
   const START_TIME_IN_SEC = 'start_time_in_sec';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'duration_in_sec' => 'float',
       'media_type' => 'string',
       'start_time_in_sec' => 'float',
-      'id' => 'string',
     );
   }
 }

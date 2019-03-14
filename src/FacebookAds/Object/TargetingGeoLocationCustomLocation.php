@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\TargetingGeoLocationCustomLocationFields;
  *
  */
 
-class TargetingGeoLocationCustomLocation extends AbstractCrudObject {
+class TargetingGeoLocationCustomLocation extends AbstractObject {
 
   /**
    * @return TargetingGeoLocationCustomLocationFields

@@ -40,14 +40,12 @@ class VideoCopyrightConditionGroupFields extends AbstractEnum {
   const ACTION = 'action';
   const CONDITIONS = 'conditions';
   const VALIDITY_STATUS = 'validity_status';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'action' => 'string',
       'conditions' => 'list<Object>',
       'validity_status' => 'string',
-      'id' => 'string',
     );
   }
 }

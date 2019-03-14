@@ -39,13 +39,11 @@ class KeyValueFields extends AbstractEnum {
 
   const KEY = 'key';
   const VALUE = 'value';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'key' => 'string',
       'value' => 'string',
-      'id' => 'string',
     );
   }
 }

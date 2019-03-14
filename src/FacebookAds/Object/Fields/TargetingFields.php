@@ -126,7 +126,6 @@ class TargetingFields extends AbstractEnum {
   const WORK_EMPLOYERS = 'work_employers';
   const WORK_POSITIONS = 'work_positions';
   const ZIPS = 'zips';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -219,7 +218,6 @@ class TargetingFields extends AbstractEnum {
       'work_employers' => 'list<IDName>',
       'work_positions' => 'list<IDName>',
       'zips' => 'list<string>',
-      'id' => 'string',
     );
   }
 }

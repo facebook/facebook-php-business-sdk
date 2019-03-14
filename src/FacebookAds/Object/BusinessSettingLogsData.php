@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\BusinessSettingLogsDataFields;
  *
  */
 
-class BusinessSettingLogsData extends AbstractCrudObject {
+class BusinessSettingLogsData extends AbstractObject {
 
   /**
    * @return BusinessSettingLogsDataFields

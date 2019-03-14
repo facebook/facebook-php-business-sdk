@@ -41,7 +41,6 @@ class OutcomePredictionPointFields extends AbstractEnum {
   const IMPRESSIONS = 'impressions';
   const REACH = 'reach';
   const SPEND = 'spend';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -49,7 +48,6 @@ class OutcomePredictionPointFields extends AbstractEnum {
       'impressions' => 'float',
       'reach' => 'float',
       'spend' => 'int',
-      'id' => 'string',
     );
   }
 }

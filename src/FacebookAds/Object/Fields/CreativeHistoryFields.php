@@ -39,13 +39,11 @@ class CreativeHistoryFields extends AbstractEnum {
 
   const CREATIVE_FINGERPRINT = 'creative_fingerprint';
   const TIME_RANGES = 'time_ranges';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'creative_fingerprint' => 'int',
       'time_ranges' => 'list<Object>',
-      'id' => 'string',
     );
   }
 }

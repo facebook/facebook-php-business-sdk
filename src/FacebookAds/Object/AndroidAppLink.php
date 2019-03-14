@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AndroidAppLinkFields;
  *
  */
 
-class AndroidAppLink extends AbstractCrudObject {
+class AndroidAppLink extends AbstractObject {
 
   /**
    * @return AndroidAppLinkFields

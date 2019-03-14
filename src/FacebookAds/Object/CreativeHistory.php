@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\CreativeHistoryFields;
  *
  */
 
-class CreativeHistory extends AbstractCrudObject {
+class CreativeHistory extends AbstractObject {
 
   /**
    * @return CreativeHistoryFields

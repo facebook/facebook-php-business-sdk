@@ -41,7 +41,7 @@ use FacebookAds\Object\Values\AdPreviewRenderTypeValues;
  *
  */
 
-class AdPreview extends AbstractCrudObject {
+class AdPreview extends AbstractObject {
 
   /**
    * @deprecated getEndpoint function is deprecated

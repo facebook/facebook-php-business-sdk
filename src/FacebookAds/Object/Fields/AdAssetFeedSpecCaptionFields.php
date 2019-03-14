@@ -40,14 +40,12 @@ class AdAssetFeedSpecCaptionFields extends AbstractEnum {
   const ADLABELS = 'adlabels';
   const TEXT = 'text';
   const URL_TAGS = 'url_tags';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'adlabels' => 'list<AdAssetFeedSpecAssetLabel>',
       'text' => 'string',
       'url_tags' => 'string',
-      'id' => 'string',
     );
   }
 }

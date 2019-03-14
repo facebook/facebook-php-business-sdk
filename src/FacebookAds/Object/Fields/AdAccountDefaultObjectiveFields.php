@@ -39,13 +39,11 @@ class AdAccountDefaultObjectiveFields extends AbstractEnum {
 
   const DEFAULT_OBJECTIVE_FOR_USER = 'default_objective_for_user';
   const OBJECTIVE_FOR_LEVEL = 'objective_for_level';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'default_objective_for_user' => 'DefaultObjectiveForUser',
       'objective_for_level' => 'ObjectiveForLevel',
-      'id' => 'string',
     );
   }
 }

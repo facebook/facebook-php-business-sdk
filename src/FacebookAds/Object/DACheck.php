@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\DACheckFields;
  *
  */
 
-class DACheck extends AbstractCrudObject {
+class DACheck extends AbstractObject {
 
   /**
    * @return DACheckFields

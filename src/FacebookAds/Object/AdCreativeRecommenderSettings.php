@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdCreativeRecommenderSettingsFields;
  *
  */
 
-class AdCreativeRecommenderSettings extends AbstractCrudObject {
+class AdCreativeRecommenderSettings extends AbstractObject {
 
   /**
    * @return AdCreativeRecommenderSettingsFields

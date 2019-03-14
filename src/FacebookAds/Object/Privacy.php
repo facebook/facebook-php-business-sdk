@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\PrivacyFields;
  *
  */
 
-class Privacy extends AbstractCrudObject {
+class Privacy extends AbstractObject {
 
   /**
    * @return PrivacyFields

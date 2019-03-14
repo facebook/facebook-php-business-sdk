@@ -38,12 +38,10 @@ use FacebookAds\Enum\AbstractEnum;
 class AtlasURLFields extends AbstractEnum {
 
   const URL = 'url';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'url' => 'string',
-      'id' => 'string',
     );
   }
 }

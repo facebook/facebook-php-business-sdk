@@ -38,12 +38,10 @@ use FacebookAds\Enum\AbstractEnum;
 class CatalogBasedTargetingFields extends AbstractEnum {
 
   const GEO_TARGETING_TYPE = 'geo_targeting_type';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'geo_targeting_type' => 'string',
-      'id' => 'string',
     );
   }
 }

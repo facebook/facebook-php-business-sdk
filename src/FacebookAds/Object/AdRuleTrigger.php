@@ -41,7 +41,7 @@ use FacebookAds\Object\Values\AdRuleTriggerTypeValues;
  *
  */
 
-class AdRuleTrigger extends AbstractCrudObject {
+class AdRuleTrigger extends AbstractObject {
 
   /**
    * @return AdRuleTriggerFields

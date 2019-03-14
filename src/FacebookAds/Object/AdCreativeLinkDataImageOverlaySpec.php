@@ -45,7 +45,7 @@ use FacebookAds\Object\Values\AdCreativeLinkDataImageOverlaySpecThemeColorValues
  *
  */
 
-class AdCreativeLinkDataImageOverlaySpec extends AbstractCrudObject {
+class AdCreativeLinkDataImageOverlaySpec extends AbstractObject {
 
   /**
    * @return AdCreativeLinkDataImageOverlaySpecFields

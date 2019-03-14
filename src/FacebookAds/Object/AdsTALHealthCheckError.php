@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdsTALHealthCheckErrorFields;
  *
  */
 
-class AdsTALHealthCheckError extends AbstractCrudObject {
+class AdsTALHealthCheckError extends AbstractObject {
 
   /**
    * @return AdsTALHealthCheckErrorFields

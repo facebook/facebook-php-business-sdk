@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\NullNodeFields;
  *
  */
 
-class NullNode extends AbstractCrudObject {
+class NullNode extends AbstractObject {
 
   /**
    * @return NullNodeFields

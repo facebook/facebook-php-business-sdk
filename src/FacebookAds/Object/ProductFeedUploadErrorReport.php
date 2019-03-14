@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\ProductFeedUploadErrorReportFields;
  *
  */
 
-class ProductFeedUploadErrorReport extends AbstractCrudObject {
+class ProductFeedUploadErrorReport extends AbstractObject {
 
   /**
    * @return ProductFeedUploadErrorReportFields

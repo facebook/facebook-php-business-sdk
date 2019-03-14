@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AttributionSpecFields;
  *
  */
 
-class AttributionSpec extends AbstractCrudObject {
+class AttributionSpec extends AbstractObject {
 
   /**
    * @return AttributionSpecFields

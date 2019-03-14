@@ -43,7 +43,6 @@ class DynamicPostChildAttachmentFields extends AbstractEnum {
   const PLACE_ID = 'place_id';
   const PRODUCT_ID = 'product_id';
   const TITLE = 'title';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -53,7 +52,6 @@ class DynamicPostChildAttachmentFields extends AbstractEnum {
       'place_id' => 'string',
       'product_id' => 'string',
       'title' => 'string',
-      'id' => 'string',
     );
   }
 }

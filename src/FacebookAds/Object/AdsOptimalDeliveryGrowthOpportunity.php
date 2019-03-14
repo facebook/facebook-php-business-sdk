@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdsOptimalDeliveryGrowthOpportunityFields;
  *
  */
 
-class AdsOptimalDeliveryGrowthOpportunity extends AbstractCrudObject {
+class AdsOptimalDeliveryGrowthOpportunity extends AbstractObject {
 
   /**
    * @return AdsOptimalDeliveryGrowthOpportunityFields

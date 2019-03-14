@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\CustomAudienceSessionFields;
  *
  */
 
-class CustomAudienceSession extends AbstractCrudObject {
+class CustomAudienceSession extends AbstractObject {
 
   /**
    * @return CustomAudienceSessionFields

@@ -41,7 +41,6 @@ class UserPaymentMobilePricepointsFields extends AbstractEnum {
   const PHONE_NUMBER_LAST4 = 'phone_number_last4';
   const PRICEPOINTS = 'pricepoints';
   const USER_CURRENCY = 'user_currency';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -49,7 +48,6 @@ class UserPaymentMobilePricepointsFields extends AbstractEnum {
       'phone_number_last4' => 'string',
       'pricepoints' => 'list<Object>',
       'user_currency' => 'string',
-      'id' => 'string',
     );
   }
 }

@@ -43,7 +43,6 @@ class DACheckFields extends AbstractEnum {
   const RESULT = 'result';
   const TITLE = 'title';
   const USER_MESSAGE = 'user_message';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -53,7 +52,6 @@ class DACheckFields extends AbstractEnum {
       'result' => 'string',
       'title' => 'string',
       'user_message' => 'string',
-      'id' => 'string',
     );
   }
 }

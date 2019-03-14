@@ -38,12 +38,10 @@ use FacebookAds\Enum\AbstractEnum;
 class AdCampaignPacedBidInfoFields extends AbstractEnum {
 
   const BIDDING_STATUS = 'bidding_status';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'bidding_status' => 'string',
-      'id' => 'string',
     );
   }
 }

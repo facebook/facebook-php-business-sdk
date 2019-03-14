@@ -40,14 +40,12 @@ class UserCoverPhotoFields extends AbstractEnum {
   const OFFSET_X = 'offset_x';
   const OFFSET_Y = 'offset_y';
   const SOURCE = 'source';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'offset_x' => 'float',
       'offset_y' => 'float',
       'source' => 'string',
-      'id' => 'string',
     );
   }
 }

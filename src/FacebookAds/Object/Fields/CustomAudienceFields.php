@@ -101,6 +101,7 @@ class CustomAudienceFields extends AbstractEnum {
   const EVENT_SOURCE_GROUP = 'event_source_group';
   const PRODUCT_SET_ID = 'product_set_id';
   const EVENT_SOURCES = 'event_sources';
+  const ENABLE_FETCH_OR_CREATE = 'enable_fetch_or_create';
   const VIDEO_GROUP_IDS = 'video_group_ids';
   const DATASET_ID = 'dataset_id';
 
@@ -170,6 +171,7 @@ class CustomAudienceFields extends AbstractEnum {
       'event_source_group' => 'string',
       'product_set_id' => 'string',
       'event_sources' => 'list<map>',
+      'enable_fetch_or_create' => 'bool',
       'video_group_ids' => 'list<string>',
       'dataset_id' => 'string',
     );

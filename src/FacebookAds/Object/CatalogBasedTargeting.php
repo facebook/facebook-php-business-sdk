@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\CatalogBasedTargetingFields;
  *
  */
 
-class CatalogBasedTargeting extends AbstractCrudObject {
+class CatalogBasedTargeting extends AbstractObject {
 
   /**
    * @return CatalogBasedTargetingFields

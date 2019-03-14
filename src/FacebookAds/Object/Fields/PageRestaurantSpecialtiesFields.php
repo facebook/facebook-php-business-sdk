@@ -42,7 +42,6 @@ class PageRestaurantSpecialtiesFields extends AbstractEnum {
   const DINNER = 'dinner';
   const DRINKS = 'drinks';
   const LUNCH = 'lunch';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -51,7 +50,6 @@ class PageRestaurantSpecialtiesFields extends AbstractEnum {
       'dinner' => 'unsigned int',
       'drinks' => 'unsigned int',
       'lunch' => 'unsigned int',
-      'id' => 'string',
     );
   }
 }

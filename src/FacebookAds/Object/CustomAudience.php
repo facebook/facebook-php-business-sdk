@@ -530,6 +530,7 @@ class CustomAudience extends AbstractCrudObject {
       'event_source_group' => 'string',
       'product_set_id' => 'string',
       'event_sources' => 'list<map>',
+      'enable_fetch_or_create' => 'bool',
       'study_spec' => 'map',
     );
     $enums = array(

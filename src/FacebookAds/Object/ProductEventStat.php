@@ -42,7 +42,7 @@ use FacebookAds\Object\Values\ProductEventStatEventValues;
  *
  */
 
-class ProductEventStat extends AbstractCrudObject {
+class ProductEventStat extends AbstractObject {
 
   /**
    * @return ProductEventStatFields

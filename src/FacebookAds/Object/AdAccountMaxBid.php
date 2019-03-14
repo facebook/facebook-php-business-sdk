@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdAccountMaxBidFields;
  *
  */
 
-class AdAccountMaxBid extends AbstractCrudObject {
+class AdAccountMaxBid extends AbstractObject {
 
   /**
    * @return AdAccountMaxBidFields

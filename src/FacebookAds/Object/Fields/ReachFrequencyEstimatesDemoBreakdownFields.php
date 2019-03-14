@@ -39,13 +39,11 @@ class ReachFrequencyEstimatesDemoBreakdownFields extends AbstractEnum {
 
   const FEMALE = 'female';
   const MALE = 'male';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'female' => 'list<float>',
       'male' => 'list<float>',
-      'id' => 'string',
     );
   }
 }

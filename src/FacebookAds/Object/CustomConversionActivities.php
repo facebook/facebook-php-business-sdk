@@ -40,7 +40,7 @@ use FacebookAds\Object\Values\CustomConversionActivitiesEventTypeValues;
  *
  */
 
-class CustomConversionActivities extends AbstractCrudObject {
+class CustomConversionActivities extends AbstractObject {
 
   /**
    * @return CustomConversionActivitiesFields

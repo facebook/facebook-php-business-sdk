@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\EngagementFields;
  *
  */
 
-class Engagement extends AbstractCrudObject {
+class Engagement extends AbstractObject {
 
   /**
    * @return EngagementFields

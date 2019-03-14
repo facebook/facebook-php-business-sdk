@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdCreativeDegreesOfFreedomSpecFields;
  *
  */
 
-class AdCreativeDegreesOfFreedomSpec extends AbstractCrudObject {
+class AdCreativeDegreesOfFreedomSpec extends AbstractObject {
 
   /**
    * @return AdCreativeDegreesOfFreedomSpecFields

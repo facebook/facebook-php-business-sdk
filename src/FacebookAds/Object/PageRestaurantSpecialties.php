@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\PageRestaurantSpecialtiesFields;
  *
  */
 
-class PageRestaurantSpecialties extends AbstractCrudObject {
+class PageRestaurantSpecialties extends AbstractObject {
 
   /**
    * @return PageRestaurantSpecialtiesFields

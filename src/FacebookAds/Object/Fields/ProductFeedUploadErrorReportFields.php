@@ -39,13 +39,11 @@ class ProductFeedUploadErrorReportFields extends AbstractEnum {
 
   const FILE_HANDLE = 'file_handle';
   const REPORT_STATUS = 'report_status';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'file_handle' => 'string',
       'report_status' => 'string',
-      'id' => 'string',
     );
   }
 }

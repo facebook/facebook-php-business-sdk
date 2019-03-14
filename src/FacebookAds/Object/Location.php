@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\LocationFields;
  *
  */
 
-class Location extends AbstractCrudObject {
+class Location extends AbstractObject {
 
   /**
    * @return LocationFields

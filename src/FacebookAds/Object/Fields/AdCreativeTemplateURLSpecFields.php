@@ -44,7 +44,6 @@ class AdCreativeTemplateURLSpecFields extends AbstractEnum {
   const IPHONE = 'iphone';
   const WEB = 'web';
   const WINDOWS_PHONE = 'windows_phone';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -55,7 +54,6 @@ class AdCreativeTemplateURLSpecFields extends AbstractEnum {
       'iphone' => 'Object',
       'web' => 'Object',
       'windows_phone' => 'Object',
-      'id' => 'string',
     );
   }
 }

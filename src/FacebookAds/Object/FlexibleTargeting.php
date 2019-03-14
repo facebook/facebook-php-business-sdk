@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\FlexibleTargetingFields;
  *
  */
 
-class FlexibleTargeting extends AbstractCrudObject {
+class FlexibleTargeting extends AbstractObject {
 
   /**
    * @return FlexibleTargetingFields

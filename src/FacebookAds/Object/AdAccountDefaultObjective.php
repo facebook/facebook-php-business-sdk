@@ -41,7 +41,7 @@ use FacebookAds\Object\Values\AdAccountDefaultObjectiveObjectiveForLevelValues;
  *
  */
 
-class AdAccountDefaultObjective extends AbstractCrudObject {
+class AdAccountDefaultObjective extends AbstractObject {
 
   /**
    * @return AdAccountDefaultObjectiveFields

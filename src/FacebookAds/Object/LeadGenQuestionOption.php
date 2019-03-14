@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\LeadGenQuestionOptionFields;
  *
  */
 
-class LeadGenQuestionOption extends AbstractCrudObject {
+class LeadGenQuestionOption extends AbstractObject {
 
   /**
    * @return LeadGenQuestionOptionFields

@@ -37,7 +37,6 @@ use FacebookAds\Object\Values\AdVideoSwapModeValues;
 use FacebookAds\Object\Values\AdVideoUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\AdVideoUploadPhaseValues;
 use FacebookAds\Object\Values\ProductCatalogCategoryCategorizationCriteriaValues;
-use FacebookAds\Object\Values\ProductCatalogItemTypeValues;
 use FacebookAds\Object\Values\ProductCatalogPermittedRolesValues;
 use FacebookAds\Object\Values\ProductCatalogPermittedTasksValues;
 use FacebookAds\Object\Values\ProductCatalogRoleValues;
@@ -94,7 +93,6 @@ class ProductCatalog extends AbstractCrudObject {
     $ref_enums['PermittedRoles'] = ProductCatalogPermittedRolesValues::getInstance()->getValues();
     $ref_enums['PermittedTasks'] = ProductCatalogPermittedTasksValues::getInstance()->getValues();
     $ref_enums['Standard'] = ProductCatalogStandardValues::getInstance()->getValues();
-    $ref_enums['ItemType'] = ProductCatalogItemTypeValues::getInstance()->getValues();
     $ref_enums['Role'] = ProductCatalogRoleValues::getInstance()->getValues();
     return $ref_enums;
   }
@@ -819,11 +817,10 @@ class ProductCatalog extends AbstractCrudObject {
 
     $param_types = array(
       'requests' => 'map',
-      'item_type' => 'item_type_enum',
+      'item_type' => 'string',
       'allow_upsert' => 'bool',
     );
     $enums = array(
-      'item_type_enum' => ProductCatalogItemTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

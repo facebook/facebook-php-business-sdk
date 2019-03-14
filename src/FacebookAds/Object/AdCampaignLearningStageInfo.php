@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdCampaignLearningStageInfoFields;
  *
  */
 
-class AdCampaignLearningStageInfo extends AbstractCrudObject {
+class AdCampaignLearningStageInfo extends AbstractObject {
 
   /**
    * @return AdCampaignLearningStageInfoFields

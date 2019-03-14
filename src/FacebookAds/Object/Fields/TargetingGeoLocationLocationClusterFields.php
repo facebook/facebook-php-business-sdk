@@ -38,12 +38,10 @@ use FacebookAds\Enum\AbstractEnum;
 class TargetingGeoLocationLocationClusterFields extends AbstractEnum {
 
   const KEY = 'key';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'key' => 'int',
-      'id' => 'string',
     );
   }
 }

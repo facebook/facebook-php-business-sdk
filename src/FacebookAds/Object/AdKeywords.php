@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\AdKeywordsFields;
  *
  */
 
-class AdKeywords extends AbstractCrudObject {
+class AdKeywords extends AbstractObject {
 
   /**
    * @return AdKeywordsFields

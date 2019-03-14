@@ -37,11 +37,9 @@ use FacebookAds\Enum\AbstractEnum;
 
 class NullNodeFields extends AbstractEnum {
 
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
-      'id' => 'string',
     );
   }
 }

@@ -39,7 +39,7 @@ use FacebookAds\Object\Fields\PageThreadOwnerFields;
  *
  */
 
-class PageThreadOwner extends AbstractCrudObject {
+class PageThreadOwner extends AbstractObject {
 
   /**
    * @return PageThreadOwnerFields
