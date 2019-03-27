@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,41 +33,18 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static BusinessPagePermittedTasksValues getInstance()
  */
+class BusinessPagePermittedTasksValues extends AbstractEnum {
 
-class ShadowIGMediaFields extends AbstractEnum {
-
-  const CAPTION = 'caption';
-  const COMMENTS_COUNT = 'comments_count';
-  const ID = 'id';
-  const IG_ID = 'ig_id';
-  const IS_COMMENT_ENABLED = 'is_comment_enabled';
-  const LIKE_COUNT = 'like_count';
-  const MEDIA_TYPE = 'media_type';
-  const MEDIA_URL = 'media_url';
-  const OWNER = 'owner';
-  const PERMALINK = 'permalink';
-  const SHORTCODE = 'shortcode';
-  const THUMBNAIL_URL = 'thumbnail_url';
-  const TIMESTAMP = 'timestamp';
-  const USERNAME = 'username';
-
-  public function getFieldTypes() {
-    return array(
-      'caption' => 'string',
-      'comments_count' => 'int',
-      'id' => 'string',
-      'ig_id' => 'string',
-      'is_comment_enabled' => 'bool',
-      'like_count' => 'int',
-      'media_type' => 'string',
-      'media_url' => 'string',
-      'owner' => 'ShadowIGUser',
-      'permalink' => 'string',
-      'shortcode' => 'string',
-      'thumbnail_url' => 'string',
-      'timestamp' => 'datetime',
-      'username' => 'string',
-    );
-  }
+  const ADVERTISE = 'ADVERTISE';
+  const ANALYZE = 'ANALYZE';
+  const CREATE_CONTENT = 'CREATE_CONTENT';
+  const MANAGE = 'MANAGE';
+  const MANAGE_JOBS = 'MANAGE_JOBS';
+  const MODERATE = 'MODERATE';
+  const MODERATE_COMMUNITY = 'MODERATE_COMMUNITY';
+  const PAGES_MESSAGING = 'PAGES_MESSAGING';
+  const PAGES_MESSAGING_SUBSCRIPTIONS = 'PAGES_MESSAGING_SUBSCRIPTIONS';
+  const READ_PAGE_MAILBOXES = 'READ_PAGE_MAILBOXES';
 }

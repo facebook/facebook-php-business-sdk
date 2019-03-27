@@ -33,10 +33,14 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static MeasurementUploadEventVersionValues getInstance()
+ * @method static LiveEncoderStatusValues getInstance()
  */
-class MeasurementUploadEventVersionValues extends AbstractEnum {
+class LiveEncoderStatusValues extends AbstractEnum {
 
-  const EVALUATION = 'EVALUATION';
-  const WEEKLY = 'WEEKLY';
+  const CAPTURE = 'CAPTURE';
+  const LIVE = 'LIVE';
+  const NONE = 'NONE';
+  const PREVIEW = 'PREVIEW';
+  const READY = 'READY';
+  const REGISTER = 'REGISTER';
 }

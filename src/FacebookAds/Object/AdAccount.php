@@ -973,6 +973,7 @@ class AdAccount extends AbstractCrudObject {
       'time_range' => 'Object',
       'updated_since' => 'int',
       'ad_draft_id' => 'string',
+      'include_drafts' => 'bool',
     );
     $enums = array(
       'date_preset_enum' => AdDatePresetValues::getInstance()->getValues(),
@@ -1104,6 +1105,7 @@ class AdAccount extends AbstractCrudObject {
       'is_completed' => 'bool',
       'time_range' => 'Object',
       'ad_draft_id' => 'string',
+      'include_drafts' => 'bool',
     );
     $enums = array(
       'effective_status_enum' => AdSetEffectiveStatusValues::getInstance()->getValues(),
@@ -3281,6 +3283,7 @@ class AdAccount extends AbstractCrudObject {
       'frequency_cap' => 'unsigned int',
       'budget' => 'unsigned int',
       'prediction_mode' => 'unsigned int',
+      'deal_id' => 'string',
       'destination_id' => 'unsigned int',
       'destination_ids' => 'list<string>',
       'story_event_type' => 'unsigned int',

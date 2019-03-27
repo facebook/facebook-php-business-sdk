@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\LiveEncoderFields;
+use FacebookAds\Object\Values\LiveEncoderStatusValues;
 
 /**
  * This class is auto-generated.
@@ -50,9 +51,86 @@ class LiveEncoder extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['Status'] = LiveEncoderStatusValues::getInstance()->getValues();
     return $ref_enums;
   }
 
+
+  public function createTelemetry(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'broadcast_id' => 'string',
+      'status' => 'status_enum',
+      'timestamp' => 'unsigned int',
+      'uptime' => 'unsigned int',
+      'cpu_usage' => 'float',
+      'process_uptime' => 'unsigned int',
+      'cpu_temperature' => 'unsigned int',
+      'gpu_usage' => 'float',
+      'gpu_temperature' => 'unsigned int',
+      'cpu_load_1m' => 'float',
+      'cpu_load_5m' => 'float',
+      'cpu_load_15m' => 'float',
+      'memory_usage' => 'float',
+      'network_tx_bandwidth' => 'unsigned int',
+      'network_rx_bandwidth' => 'unsigned int',
+      'network_tx_packets_dropped' => 'float',
+      'network_rx_packets_dropped' => 'float',
+      'network_tx_packets_errors' => 'float',
+      'network_rx_packets_errors' => 'float',
+      'network_latency' => 'float',
+      'frames_dropped' => 'float',
+      'framerate' => 'float',
+      'bitrate' => 'unsigned int',
+      'total_video_frames_sent' => 'unsigned int',
+      'total_video_keyframes_sent' => 'unsigned int',
+      'total_audio_frames_sent' => 'unsigned int',
+      'last_video_timecode' => 'unsigned int',
+      'last_video_keyframe_timecode' => 'unsigned int',
+      'last_audio_timecode' => 'unsigned int',
+    );
+    $enums = array(
+      'status_enum' => LiveEncoderStatusValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/telemetry',
+      new LiveEncoder(),
+      'EDGE',
+      LiveEncoder::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function deleteSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/',
+      new AbstractCrudObject(),
+      'NODE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
   public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
@@ -66,6 +144,47 @@ class LiveEncoder extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
+      '/',
+      new LiveEncoder(),
+      'NODE',
+      LiveEncoder::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'broadcast_id' => 'string',
+      'name' => 'string',
+      'version' => 'string',
+      'status' => 'status_enum',
+      'cap_streaming_protocols' => 'Object',
+      'cap_audio_codecs' => 'Object',
+      'cap_video_codecs' => 'Object',
+      'input_video_height' => 'unsigned int',
+      'input_video_width' => 'unsigned int',
+      'input_video_framerate' => 'string',
+      'input_video_gop_size' => 'unsigned int',
+      'input_video_gop_num_b_frames' => 'unsigned int',
+      'input_video_interlace_mode' => 'string',
+      'input_audio_channels' => 'unsigned int',
+      'input_audio_samplerate' => 'unsigned int',
+      'error_code' => 'unsigned int',
+      'error_msg' => 'string',
+    );
+    $enums = array(
+      'status_enum' => LiveEncoderStatusValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
       '/',
       new LiveEncoder(),
       'NODE',

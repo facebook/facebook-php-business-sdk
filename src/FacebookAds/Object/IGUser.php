@@ -28,7 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\ShadowIGUserFields;
+use FacebookAds\Object\Fields\IGUserFields;
 use FacebookAds\Object\Values\InstagramInsightsResultMetricValues;
 use FacebookAds\Object\Values\InstagramInsightsResultPeriodValues;
 
@@ -41,13 +41,13 @@ use FacebookAds\Object\Values\InstagramInsightsResultPeriodValues;
  *
  */
 
-class ShadowIGUser extends AbstractCrudObject {
+class IGUser extends AbstractCrudObject {
 
   /**
-   * @return ShadowIGUserFields
+   * @return IGUserFields
    */
   public static function getFieldsEnum() {
-    return ShadowIGUserFields::getInstance();
+    return IGUserFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -124,9 +124,9 @@ class ShadowIGUser extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/media',
-      new ShadowIGMedia(),
+      new IGMedia(),
       'EDGE',
-      ShadowIGMedia::getFieldsEnum()->getValues(),
+      IGMedia::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -151,9 +151,9 @@ class ShadowIGUser extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/media',
-      new ShadowIGMedia(),
+      new IGMedia(),
       'EDGE',
-      ShadowIGMedia::getFieldsEnum()->getValues(),
+      IGMedia::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -175,9 +175,9 @@ class ShadowIGUser extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/media_publish',
-      new ShadowIGMedia(),
+      new IGMedia(),
       'EDGE',
-      ShadowIGMedia::getFieldsEnum()->getValues(),
+      IGMedia::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -221,9 +221,9 @@ class ShadowIGUser extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/stories',
-      new ShadowIGMedia(),
+      new IGMedia(),
       'EDGE',
-      ShadowIGMedia::getFieldsEnum()->getValues(),
+      IGMedia::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -244,9 +244,9 @@ class ShadowIGUser extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/tags',
-      new ShadowIGMedia(),
+      new IGMedia(),
       'EDGE',
-      ShadowIGMedia::getFieldsEnum()->getValues(),
+      IGMedia::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -267,9 +267,9 @@ class ShadowIGUser extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new ShadowIGUser(),
+      new IGUser(),
       'NODE',
-      ShadowIGUser::getFieldsEnum()->getValues(),
+      IGUser::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

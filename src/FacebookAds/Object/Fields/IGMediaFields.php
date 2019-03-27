@@ -35,37 +35,39 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class ShadowIGUserFields extends AbstractEnum {
+class IGMediaFields extends AbstractEnum {
 
-  const BIOGRAPHY = 'biography';
-  const BUSINESS_DISCOVERY = 'business_discovery';
-  const FOLLOWERS_COUNT = 'followers_count';
-  const FOLLOWS_COUNT = 'follows_count';
+  const CAPTION = 'caption';
+  const COMMENTS_COUNT = 'comments_count';
   const ID = 'id';
   const IG_ID = 'ig_id';
-  const MEDIA_COUNT = 'media_count';
-  const MENTIONED_COMMENT = 'mentioned_comment';
-  const MENTIONED_MEDIA = 'mentioned_media';
-  const NAME = 'name';
-  const PROFILE_PICTURE_URL = 'profile_picture_url';
+  const IS_COMMENT_ENABLED = 'is_comment_enabled';
+  const LIKE_COUNT = 'like_count';
+  const MEDIA_TYPE = 'media_type';
+  const MEDIA_URL = 'media_url';
+  const OWNER = 'owner';
+  const PERMALINK = 'permalink';
+  const SHORTCODE = 'shortcode';
+  const THUMBNAIL_URL = 'thumbnail_url';
+  const TIMESTAMP = 'timestamp';
   const USERNAME = 'username';
-  const WEBSITE = 'website';
 
   public function getFieldTypes() {
     return array(
-      'biography' => 'string',
-      'business_discovery' => 'ShadowIGUser',
-      'followers_count' => 'int',
-      'follows_count' => 'int',
+      'caption' => 'string',
+      'comments_count' => 'int',
       'id' => 'string',
-      'ig_id' => 'int',
-      'media_count' => 'int',
-      'mentioned_comment' => 'ShadowIGComment',
-      'mentioned_media' => 'ShadowIGMedia',
-      'name' => 'string',
-      'profile_picture_url' => 'string',
+      'ig_id' => 'string',
+      'is_comment_enabled' => 'bool',
+      'like_count' => 'int',
+      'media_type' => 'string',
+      'media_url' => 'string',
+      'owner' => 'Object',
+      'permalink' => 'string',
+      'shortcode' => 'string',
+      'thumbnail_url' => 'string',
+      'timestamp' => 'datetime',
       'username' => 'string',
-      'website' => 'string',
     );
   }
 }

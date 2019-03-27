@@ -42,8 +42,8 @@ use FacebookAds\Object\Values\AdsPixelSortByValues;
 use FacebookAds\Object\Values\BusinessAccessTypeValues;
 use FacebookAds\Object\Values\BusinessAgreementRequestStatusValues;
 use FacebookAds\Object\Values\BusinessAssetSharingAgreementRequestStatusValues;
-use FacebookAds\Object\Values\BusinessMatchedSearchApplicationsEdgeDataAppStoreValues;
 use FacebookAds\Object\Values\BusinessPagePermittedRolesValues;
+use FacebookAds\Object\Values\BusinessPagePermittedTasksValues;
 use FacebookAds\Object\Values\BusinessPermittedTasksValues;
 use FacebookAds\Object\Values\BusinessRoleRequestStatusValues;
 use FacebookAds\Object\Values\BusinessRoleValues;
@@ -56,10 +56,9 @@ use FacebookAds\Object\Values\DirectDealStatusValues;
 use FacebookAds\Object\Values\MeasurementReportReportTypeValues;
 use FacebookAds\Object\Values\MeasurementUploadEventAggregationLevelValues;
 use FacebookAds\Object\Values\MeasurementUploadEventEventStatusValues;
-use FacebookAds\Object\Values\MeasurementUploadEventGroupValues;
 use FacebookAds\Object\Values\MeasurementUploadEventLookbackWindowValues;
 use FacebookAds\Object\Values\MeasurementUploadEventMatchUniverseValues;
-use FacebookAds\Object\Values\MeasurementUploadEventVersionValues;
+use FacebookAds\Object\Values\MeasurementUploadEventTimezoneValues;
 use FacebookAds\Object\Values\PartnerIntegrationLinkedPartnerValues;
 use FacebookAds\Object\Values\ProductCatalogVerticalValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
@@ -94,6 +93,7 @@ class Business extends AbstractCrudObject {
     $ref_enums['PermittedTasks'] = BusinessPermittedTasksValues::getInstance()->getValues();
     $ref_enums['SurveyBusinessType'] = BusinessSurveyBusinessTypeValues::getInstance()->getValues();
     $ref_enums['PagePermittedRoles'] = BusinessPagePermittedRolesValues::getInstance()->getValues();
+    $ref_enums['PagePermittedTasks'] = BusinessPagePermittedTasksValues::getInstance()->getValues();
     $ref_enums['Role'] = BusinessRoleValues::getInstance()->getValues();
     return $ref_enums;
   }
@@ -1446,34 +1446,6 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getMatchedSearchApplications(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'app_store' => 'app_store_enum',
-      'app_store_country' => 'string',
-      'query_term' => 'string',
-      'allow_incomplete_app' => 'bool',
-    );
-    $enums = array(
-      'app_store_enum' => BusinessMatchedSearchApplicationsEdgeDataAppStoreValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/matched_search_applications',
-      new BusinessMatchedSearchApplicationsEdgeData(),
-      'EDGE',
-      BusinessMatchedSearchApplicationsEdgeData::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getMeasurementReports(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1755,11 +1727,13 @@ class Business extends AbstractCrudObject {
       'sales_rep_email' => 'string',
       'shared_page_id' => 'string',
       'page_permitted_roles' => 'list<page_permitted_roles_enum>',
+      'page_permitted_tasks' => 'list<page_permitted_tasks_enum>',
     );
     $enums = array(
       'vertical_enum' => BusinessVerticalValues::getInstance()->getValues(),
       'survey_business_type_enum' => BusinessSurveyBusinessTypeValues::getInstance()->getValues(),
       'page_permitted_roles_enum' => BusinessPagePermittedRolesValues::getInstance()->getValues(),
+      'page_permitted_tasks_enum' => BusinessPagePermittedTasksValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -2670,21 +2644,17 @@ class Business extends AbstractCrudObject {
       'conversion_end_date' => 'string',
       'conversion_start_date' => 'string',
       'event_status' => 'event_status_enum',
-      'group' => 'group_enum',
       'lookback_window' => 'lookback_window_enum',
       'match_universe' => 'match_universe_enum',
-      'upload_end_time' => 'datetime',
-      'upload_start_time' => 'datetime',
+      'timezone' => 'timezone_enum',
       'upload_tag' => 'string',
-      'version' => 'version_enum',
     );
     $enums = array(
       'aggregation_level_enum' => MeasurementUploadEventAggregationLevelValues::getInstance()->getValues(),
       'event_status_enum' => MeasurementUploadEventEventStatusValues::getInstance()->getValues(),
-      'group_enum' => MeasurementUploadEventGroupValues::getInstance()->getValues(),
       'lookback_window_enum' => MeasurementUploadEventLookbackWindowValues::getInstance()->getValues(),
       'match_universe_enum' => MeasurementUploadEventMatchUniverseValues::getInstance()->getValues(),
-      'version_enum' => MeasurementUploadEventVersionValues::getInstance()->getValues(),
+      'timezone_enum' => MeasurementUploadEventTimezoneValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

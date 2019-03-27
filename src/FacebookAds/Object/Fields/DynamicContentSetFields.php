@@ -22,14 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Fields;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\BusinessMatchedSearchApplicationsEdgeDataFields;
-use FacebookAds\Object\Values\BusinessMatchedSearchApplicationsEdgeDataAppStoreValues;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-generated.
@@ -40,20 +35,17 @@ use FacebookAds\Object\Values\BusinessMatchedSearchApplicationsEdgeDataAppStoreV
  *
  */
 
-class BusinessMatchedSearchApplicationsEdgeData extends AbstractObject {
+class DynamicContentSetFields extends AbstractEnum {
 
-  /**
-   * @return BusinessMatchedSearchApplicationsEdgeDataFields
-   */
-  public static function getFieldsEnum() {
-    return BusinessMatchedSearchApplicationsEdgeDataFields::getInstance();
+  const BUSINESS_ID = 'business_id';
+  const ID = 'id';
+  const NAME = 'name';
+
+  public function getFieldTypes() {
+    return array(
+      'business_id' => 'string',
+      'id' => 'string',
+      'name' => 'string',
+    );
   }
-
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    $ref_enums['AppStore'] = BusinessMatchedSearchApplicationsEdgeDataAppStoreValues::getInstance()->getValues();
-    return $ref_enums;
-  }
-
-
 }

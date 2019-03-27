@@ -332,6 +332,30 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getAdsPosts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'include_inline_create' => 'bool',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/ads_posts',
+      new AdsPost(),
+      'EDGE',
+      AdsPost::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function deleteAgencies(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -2802,6 +2826,31 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createMessengerThreadSetting(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'psid' => 'string',
+      'thread_banner' => 'Object',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/messenger_thread_settings',
+      new Page(),
+      'EDGE',
+      Page::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getMilestones(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -3185,6 +3234,7 @@ class Page extends AbstractCrudObject {
 
     $param_types = array(
       'aid' => 'string',
+      'alt_text_custom' => 'string',
       'caption' => 'string',
       'url' => 'string',
       'uid' => 'int',

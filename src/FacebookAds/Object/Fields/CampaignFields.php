@@ -98,7 +98,7 @@ class CampaignFields extends AbstractEnum {
       'pacing_type' => 'list<string>',
       'promoted_object' => 'AdPromotedObject',
       'recommendations' => 'list<AdRecommendation>',
-      'source_campaign' => 'Campaign',
+      'source_campaign' => 'Object',
       'source_campaign_id' => 'string',
       'spend_cap' => 'string',
       'start_time' => 'datetime',

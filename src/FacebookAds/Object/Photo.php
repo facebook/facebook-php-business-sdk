@@ -279,6 +279,7 @@ class Photo extends AbstractCrudObject {
 
     $param_types = array(
       'aid' => 'string',
+      'alt_text_custom' => 'string',
       'caption' => 'string',
       'url' => 'string',
       'uid' => 'int',
@@ -572,6 +573,7 @@ class Photo extends AbstractCrudObject {
       'prompt_id' => 'string',
       'prompt_tracking_string' => 'string',
       'referenced_sticker_id' => 'string',
+      'alt_text_custom' => 'string',
       'adaptive_type' => 'string',
       'animated_effect_id' => 'unsigned int',
       'asked_fun_fact_prompt_id' => 'unsigned int',

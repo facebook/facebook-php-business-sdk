@@ -452,6 +452,7 @@ class AdsPixel extends AbstractCrudObject {
       'automatic_matching_fields' => 'list<automatic_matching_fields_enum>',
       'first_party_cookie_status' => 'first_party_cookie_status_enum',
       'data_use_setting' => 'data_use_setting_enum',
+      'server_events_business_id' => 'string',
     );
     $enums = array(
       'automatic_matching_fields_enum' => AdsPixelAutomaticMatchingFieldsValues::getInstance()->getValues(),

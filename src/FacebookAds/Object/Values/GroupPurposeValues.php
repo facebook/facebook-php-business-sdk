@@ -51,6 +51,7 @@ class GroupPurposeValues extends AbstractEnum {
   const FOR_WORK = 'FOR_WORK';
   const FRATERNITY = 'FRATERNITY';
   const GAME = 'GAME';
+  const HEALTH = 'HEALTH';
   const HIGH_SCHOOL_FORUM = 'HIGH_SCHOOL_FORUM';
   const JOBS = 'JOBS';
   const LEARNING = 'LEARNING';

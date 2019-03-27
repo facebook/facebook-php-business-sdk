@@ -28,7 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\ShadowIGMediaFields;
+use FacebookAds\Object\Fields\IGMediaFields;
 use FacebookAds\Object\Values\InstagramInsightsResultMetricValues;
 use FacebookAds\Object\Values\InstagramInsightsResultPeriodValues;
 
@@ -41,13 +41,13 @@ use FacebookAds\Object\Values\InstagramInsightsResultPeriodValues;
  *
  */
 
-class ShadowIGMedia extends AbstractCrudObject {
+class IGMedia extends AbstractCrudObject {
 
   /**
-   * @return ShadowIGMediaFields
+   * @return IGMediaFields
    */
   public static function getFieldsEnum() {
-    return ShadowIGMediaFields::getInstance();
+    return IGMediaFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -69,9 +69,9 @@ class ShadowIGMedia extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/children',
-      new ShadowIGMedia(),
+      new IGMedia(),
       'EDGE',
-      ShadowIGMedia::getFieldsEnum()->getValues(),
+      IGMedia::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -92,9 +92,9 @@ class ShadowIGMedia extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/comments',
-      new ShadowIGComment(),
+      new IGComment(),
       'EDGE',
-      ShadowIGComment::getFieldsEnum()->getValues(),
+      IGComment::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -116,9 +116,9 @@ class ShadowIGMedia extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/comments',
-      new ShadowIGComment(),
+      new IGComment(),
       'EDGE',
-      ShadowIGComment::getFieldsEnum()->getValues(),
+      IGComment::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -166,9 +166,9 @@ class ShadowIGMedia extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new ShadowIGMedia(),
+      new IGMedia(),
       'NODE',
-      ShadowIGMedia::getFieldsEnum()->getValues(),
+      IGMedia::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -190,9 +190,9 @@ class ShadowIGMedia extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/',
-      new ShadowIGMedia(),
+      new IGMedia(),
       'NODE',
-      ShadowIGMedia::getFieldsEnum()->getValues(),
+      IGMedia::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

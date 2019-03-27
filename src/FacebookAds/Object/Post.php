@@ -312,6 +312,7 @@ class Post extends AbstractCrudObject {
 
     $param_types = array(
       'aid' => 'string',
+      'alt_text_custom' => 'string',
       'caption' => 'string',
       'url' => 'string',
       'uid' => 'int',

@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,10 +33,29 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static MeasurementUploadEventGroupValues getInstance()
  */
-class MeasurementUploadEventGroupValues extends AbstractEnum {
 
-  const MONDAY = 'MONDAY';
-  const SUNDAY = 'SUNDAY';
+class IGCommentFields extends AbstractEnum {
+
+  const HIDDEN = 'hidden';
+  const ID = 'id';
+  const LIKE_COUNT = 'like_count';
+  const MEDIA = 'media';
+  const TEXT = 'text';
+  const TIMESTAMP = 'timestamp';
+  const USER = 'user';
+  const USERNAME = 'username';
+
+  public function getFieldTypes() {
+    return array(
+      'hidden' => 'bool',
+      'id' => 'string',
+      'like_count' => 'int',
+      'media' => 'IGMedia',
+      'text' => 'string',
+      'timestamp' => 'datetime',
+      'user' => 'Object',
+      'username' => 'string',
+    );
+  }
 }

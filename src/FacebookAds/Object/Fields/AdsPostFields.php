@@ -35,25 +35,45 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class BusinessMatchedSearchApplicationsEdgeDataFields extends AbstractEnum {
+class AdsPostFields extends AbstractEnum {
 
-  const APP_ID = 'app_id';
-  const ICON_URL = 'icon_url';
-  const NAME = 'name';
-  const SEARCH_SOURCE_STORE = 'search_source_store';
-  const STORE = 'store';
-  const UNIQUE_ID = 'unique_id';
-  const URL = 'url';
+  const ADMIN_CREATOR = 'admin_creator';
+  const CREATION_TIME = 'creation_time';
+  const FEED_AUDIENCE_DESCRIPTION = 'feed_audience_description';
+  const FEED_TARGETING = 'feed_targeting';
+  const ID = 'id';
+  const MESSAGE = 'message';
+  const MODIFIED_TIME = 'modified_time';
+  const OG_ACTION_SUMMARY = 'og_action_summary';
+  const PERMALINK_URL = 'permalink_url';
+  const PLACE = 'place';
+  const PRIVACY_DESCRIPTION = 'privacy_description';
+  const PROMOTION_INFO = 'promotion_info';
+  const SCHEDULED_PUBLISH_TIME = 'scheduled_publish_time';
+  const STORY_TOKEN = 'story_token';
+  const THUMBNAIL = 'thumbnail';
+  const TYPE = 'type';
+  const VIDEO_ID = 'video_id';
 
   public function getFieldTypes() {
     return array(
-      'app_id' => 'string',
-      'icon_url' => 'string',
-      'name' => 'string',
-      'search_source_store' => 'string',
-      'store' => 'string',
-      'unique_id' => 'string',
-      'url' => 'string',
+      'admin_creator' => 'User',
+      'creation_time' => 'datetime',
+      'feed_audience_description' => 'string',
+      'feed_targeting' => 'Targeting',
+      'id' => 'string',
+      'message' => 'string',
+      'modified_time' => 'datetime',
+      'og_action_summary' => 'string',
+      'permalink_url' => 'string',
+      'place' => 'Place',
+      'privacy_description' => 'string',
+      'promotion_info' => 'Object',
+      'scheduled_publish_time' => 'datetime',
+      'story_token' => 'string',
+      'thumbnail' => 'string',
+      'type' => 'string',
+      'video_id' => 'string',
     );
   }
 }

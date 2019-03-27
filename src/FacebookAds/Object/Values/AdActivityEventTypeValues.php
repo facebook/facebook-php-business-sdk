@@ -85,6 +85,7 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const UPDATE_AD_LABELS = 'update_ad_labels';
   const UPDATE_AD_RUN_STATUS = 'update_ad_run_status';
   const UPDATE_AD_RUN_STATUS_TO_BE_SET_AFTER_REVIEW = 'update_ad_run_status_to_be_set_after_review';
+  const UPDATE_AD_SET_AD_KEYWORDS = 'update_ad_set_ad_keywords';
   const UPDATE_AD_SET_BID_ADJUSTMENTS = 'update_ad_set_bid_adjustments';
   const UPDATE_AD_SET_BID_STRATEGY = 'update_ad_set_bid_strategy';
   const UPDATE_AD_SET_BIDDING = 'update_ad_set_bidding';
@@ -97,8 +98,12 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const UPDATE_AD_TARGETS_SPEC = 'update_ad_targets_spec';
   const UPDATE_ADGROUP_STOP_DELIVERY = 'update_adgroup_stop_delivery';
   const UPDATE_AUDIENCE = 'update_audience';
+  const UPDATE_CAMPAIGN_AD_SCHEDULING = 'update_campaign_ad_scheduling';
   const UPDATE_CAMPAIGN_BUDGET = 'update_campaign_budget';
+  const UPDATE_CAMPAIGN_DELIVERY_TYPE = 'update_campaign_delivery_type';
   const UPDATE_CAMPAIGN_DURATION = 'update_campaign_duration';
+  const UPDATE_CAMPAIGN_GROUP_AD_SCHEDULING = 'update_campaign_group_ad_scheduling';
+  const UPDATE_CAMPAIGN_GROUP_DELIVERY_TYPE = 'update_campaign_group_delivery_type';
   const UPDATE_CAMPAIGN_GROUP_SPEND_CAP = 'update_campaign_group_spend_cap';
   const UPDATE_CAMPAIGN_NAME = 'update_campaign_name';
   const UPDATE_CAMPAIGN_RUN_STATUS = 'update_campaign_run_status';

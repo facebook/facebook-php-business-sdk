@@ -203,6 +203,7 @@ class Campaign extends AbstractArchivableCrudObject {
       'time_range' => 'Object',
       'updated_since' => 'int',
       'ad_draft_id' => 'string',
+      'include_drafts' => 'bool',
     );
     $enums = array(
       'date_preset_enum' => AdDatePresetValues::getInstance()->getValues(),
@@ -232,6 +233,7 @@ class Campaign extends AbstractArchivableCrudObject {
       'is_completed' => 'bool',
       'time_range' => 'Object',
       'ad_draft_id' => 'string',
+      'include_drafts' => 'bool',
     );
     $enums = array(
       'effective_status_enum' => AdSetEffectiveStatusValues::getInstance()->getValues(),

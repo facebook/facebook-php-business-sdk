@@ -31,10 +31,9 @@ use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\MeasurementUploadEventFields;
 use FacebookAds\Object\Values\MeasurementUploadEventAggregationLevelValues;
 use FacebookAds\Object\Values\MeasurementUploadEventEventStatusValues;
-use FacebookAds\Object\Values\MeasurementUploadEventGroupValues;
 use FacebookAds\Object\Values\MeasurementUploadEventLookbackWindowValues;
 use FacebookAds\Object\Values\MeasurementUploadEventMatchUniverseValues;
-use FacebookAds\Object\Values\MeasurementUploadEventVersionValues;
+use FacebookAds\Object\Values\MeasurementUploadEventTimezoneValues;
 
 /**
  * This class is auto-generated.
@@ -65,10 +64,9 @@ class MeasurementUploadEvent extends AbstractCrudObject {
     $ref_enums = array();
     $ref_enums['AggregationLevel'] = MeasurementUploadEventAggregationLevelValues::getInstance()->getValues();
     $ref_enums['EventStatus'] = MeasurementUploadEventEventStatusValues::getInstance()->getValues();
-    $ref_enums['Group'] = MeasurementUploadEventGroupValues::getInstance()->getValues();
     $ref_enums['LookbackWindow'] = MeasurementUploadEventLookbackWindowValues::getInstance()->getValues();
     $ref_enums['MatchUniverse'] = MeasurementUploadEventMatchUniverseValues::getInstance()->getValues();
-    $ref_enums['Version'] = MeasurementUploadEventVersionValues::getInstance()->getValues();
+    $ref_enums['Timezone'] = MeasurementUploadEventTimezoneValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -85,6 +83,43 @@ class MeasurementUploadEvent extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
+      '/',
+      new MeasurementUploadEvent(),
+      'NODE',
+      MeasurementUploadEvent::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'aggregation_level' => 'aggregation_level_enum',
+      'conversion_end_date' => 'string',
+      'conversion_start_date' => 'string',
+      'event_status' => 'event_status_enum',
+      'lookback_window' => 'lookback_window_enum',
+      'match_universe' => 'match_universe_enum',
+      'partner' => 'string',
+      'timezone' => 'timezone_enum',
+      'upload_tag' => 'string',
+    );
+    $enums = array(
+      'aggregation_level_enum' => MeasurementUploadEventAggregationLevelValues::getInstance()->getValues(),
+      'event_status_enum' => MeasurementUploadEventEventStatusValues::getInstance()->getValues(),
+      'lookback_window_enum' => MeasurementUploadEventLookbackWindowValues::getInstance()->getValues(),
+      'match_universe_enum' => MeasurementUploadEventMatchUniverseValues::getInstance()->getValues(),
+      'timezone_enum' => MeasurementUploadEventTimezoneValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
       '/',
       new MeasurementUploadEvent(),
       'NODE',

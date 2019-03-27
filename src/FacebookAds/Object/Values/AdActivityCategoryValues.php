@@ -39,6 +39,7 @@ class AdActivityCategoryValues extends AbstractEnum {
 
   const ACCOUNT = 'ACCOUNT';
   const AD = 'AD';
+  const AD_KEYWORDS = 'AD_KEYWORDS';
   const AD_SET = 'AD_SET';
   const AUDIENCE = 'AUDIENCE';
   const BID = 'BID';

@@ -38,6 +38,8 @@ use FacebookAds\Enum\AbstractEnum;
 class PhotoFields extends AbstractEnum {
 
   const ALBUM = 'album';
+  const ALT_TEXT = 'alt_text';
+  const ALT_TEXT_CUSTOM = 'alt_text_custom';
   const BACKDATED_TIME = 'backdated_time';
   const BACKDATED_TIME_GRANULARITY = 'backdated_time_granularity';
   const CAN_BACKDATE = 'can_backdate';
@@ -66,6 +68,8 @@ class PhotoFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'album' => 'Album',
+      'alt_text' => 'string',
+      'alt_text_custom' => 'string',
       'backdated_time' => 'datetime',
       'backdated_time_granularity' => 'string',
       'can_backdate' => 'bool',

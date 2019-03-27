@@ -129,6 +129,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const REACH = 'reach';
   const IMPRESSION = 'impression';
   const BUDGET = 'budget';
+  const DEAL_ID = 'deal_id';
   const DESTINATION_IDS = 'destination_ids';
   const RF_PREDICTION_ID = 'rf_prediction_id';
   const RF_PREDICTION_ID_TO_RELEASE = 'rf_prediction_id_to_release';
@@ -234,6 +235,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'reach' => 'unsigned int',
       'impression' => 'unsigned int',
       'budget' => 'unsigned int',
+      'deal_id' => 'string',
       'destination_ids' => 'list<string>',
       'rf_prediction_id' => 'string',
       'rf_prediction_id_to_release' => 'string',

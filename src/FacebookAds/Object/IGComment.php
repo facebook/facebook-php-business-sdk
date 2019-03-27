@@ -28,7 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\ShadowIGCommentFields;
+use FacebookAds\Object\Fields\IGCommentFields;
 
 /**
  * This class is auto-generated.
@@ -39,13 +39,13 @@ use FacebookAds\Object\Fields\ShadowIGCommentFields;
  *
  */
 
-class ShadowIGComment extends AbstractCrudObject {
+class IGComment extends AbstractCrudObject {
 
   /**
-   * @return ShadowIGCommentFields
+   * @return IGCommentFields
    */
   public static function getFieldsEnum() {
-    return ShadowIGCommentFields::getInstance();
+    return IGCommentFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -67,9 +67,9 @@ class ShadowIGComment extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/replies',
-      new ShadowIGComment(),
+      new IGComment(),
       'EDGE',
-      ShadowIGComment::getFieldsEnum()->getValues(),
+      IGComment::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -91,9 +91,9 @@ class ShadowIGComment extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/replies',
-      new ShadowIGComment(),
+      new IGComment(),
       'EDGE',
-      ShadowIGComment::getFieldsEnum()->getValues(),
+      IGComment::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -137,9 +137,9 @@ class ShadowIGComment extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new ShadowIGComment(),
+      new IGComment(),
       'NODE',
-      ShadowIGComment::getFieldsEnum()->getValues(),
+      IGComment::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -161,9 +161,9 @@ class ShadowIGComment extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/',
-      new ShadowIGComment(),
+      new IGComment(),
       'NODE',
-      ShadowIGComment::getFieldsEnum()->getValues(),
+      IGComment::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

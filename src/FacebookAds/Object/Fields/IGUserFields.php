@@ -35,27 +35,37 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class ShadowIGCommentFields extends AbstractEnum {
+class IGUserFields extends AbstractEnum {
 
-  const HIDDEN = 'hidden';
+  const BIOGRAPHY = 'biography';
+  const BUSINESS_DISCOVERY = 'business_discovery';
+  const FOLLOWERS_COUNT = 'followers_count';
+  const FOLLOWS_COUNT = 'follows_count';
   const ID = 'id';
-  const LIKE_COUNT = 'like_count';
-  const MEDIA = 'media';
-  const TEXT = 'text';
-  const TIMESTAMP = 'timestamp';
-  const USER = 'user';
+  const IG_ID = 'ig_id';
+  const MEDIA_COUNT = 'media_count';
+  const MENTIONED_COMMENT = 'mentioned_comment';
+  const MENTIONED_MEDIA = 'mentioned_media';
+  const NAME = 'name';
+  const PROFILE_PICTURE_URL = 'profile_picture_url';
   const USERNAME = 'username';
+  const WEBSITE = 'website';
 
   public function getFieldTypes() {
     return array(
-      'hidden' => 'bool',
+      'biography' => 'string',
+      'business_discovery' => 'Object',
+      'followers_count' => 'int',
+      'follows_count' => 'int',
       'id' => 'string',
-      'like_count' => 'int',
-      'media' => 'ShadowIGMedia',
-      'text' => 'string',
-      'timestamp' => 'datetime',
-      'user' => 'ShadowIGUser',
+      'ig_id' => 'int',
+      'media_count' => 'int',
+      'mentioned_comment' => 'IGComment',
+      'mentioned_media' => 'IGMedia',
+      'name' => 'string',
+      'profile_picture_url' => 'string',
       'username' => 'string',
+      'website' => 'string',
     );
   }
 }

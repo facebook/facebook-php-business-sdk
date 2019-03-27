@@ -259,6 +259,7 @@ class AdStudyObjective extends AbstractCrudObject {
       'applications' => 'list<Object>',
       'offsitepixels' => 'list<Object>',
       'offline_conversion_data_sets' => 'list<Object>',
+      'product_sets' => 'list<Object>',
     );
     $enums = array(
       'type_enum' => AdStudyObjectiveTypeValues::getInstance()->getValues(),

@@ -265,6 +265,7 @@ class AdSet extends AbstractArchivableCrudObject
       'time_range' => 'Object',
       'updated_since' => 'int',
       'ad_draft_id' => 'string',
+      'include_drafts' => 'bool',
     );
     $enums = array(
       'date_preset_enum' => AdDatePresetValues::getInstance()->getValues(),

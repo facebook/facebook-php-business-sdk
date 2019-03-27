@@ -43,6 +43,7 @@ class PartnerIntegrationLinkedPartnerValues extends AbstractEnum {
   const BACKER_FOUNDER = 'backer_founder';
   const BANDZOOGLE = 'bandzoogle';
   const BIG_COMMERCE = 'big_commerce';
+  const BRANCH = 'branch';
   const CART_3D = 'cart_3d';
   const VALUE_DEFAULT = 'default';
   const DRUPAL = 'drupal';
