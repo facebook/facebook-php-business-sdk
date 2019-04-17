@@ -40,8 +40,6 @@ use FacebookAds\Object\Values\AdVideoUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\AdVideoUploadPhaseValues;
 use FacebookAds\Object\Values\EventPromotableEventTypesValues;
 use FacebookAds\Object\Values\EventTypeValues;
-use FacebookAds\Object\Values\FavoriteRequestApiVersionValues;
-use FacebookAds\Object\Values\FavoriteRequestHttpMethodValues;
 use FacebookAds\Object\Values\LiveVideoBroadcastStatusValues;
 use FacebookAds\Object\Values\LiveVideoProjectionValues;
 use FacebookAds\Object\Values\LiveVideoSourceValues;
@@ -122,6 +120,7 @@ class User extends AbstractCrudObject {
 
     $param_types = array(
       'business_app' => 'int',
+      'page_id' => 'string',
       'scope' => 'list<Permission>',
     );
     $enums = array(
@@ -170,9 +169,9 @@ class User extends AbstractCrudObject {
 
     $param_types = array(
       'business_id' => 'string',
-      'is_promotable' => 'bool',
       'is_business' => 'bool',
       'is_place' => 'bool',
+      'is_promotable' => 'bool',
     );
     $enums = array(
     );
@@ -196,22 +195,22 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'name' => 'string',
+      'about' => 'string',
+      'address' => 'string',
       'category' => 'int',
       'category_enum' => 'string',
-      'picture' => 'string',
-      'cover_photo' => 'Object',
-      'about' => 'string',
-      'description' => 'string',
-      'address' => 'string',
-      'city_id' => 'string',
-      'location' => 'Object',
-      'zip' => 'string',
-      'phone' => 'string',
-      'website' => 'string',
-      'coordinates' => 'Object',
       'category_list' => 'list<string>',
+      'city_id' => 'string',
+      'coordinates' => 'Object',
+      'cover_photo' => 'Object',
+      'description' => 'string',
       'ignore_coordinate_warnings' => 'bool',
+      'location' => 'Object',
+      'name' => 'string',
+      'phone' => 'string',
+      'picture' => 'string',
+      'website' => 'string',
+      'zip' => 'string',
     );
     $enums = array(
     );
@@ -261,20 +260,14 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'to' => 'string',
-      'client_secret' => 'string',
-      'preview' => 'bool',
-      'ios_bundle_id' => 'string',
-      'android_key_hash' => 'string',
-      'proxied_app_id' => 'string',
-      'user_selected_tags' => 'bool',
-      'user_selected_place' => 'bool',
       'added' => 'string',
       'alias' => 'string',
-      'fb:channel' => 'string',
+      'android_key_hash' => 'string',
+      'client_secret' => 'string',
       'created_time' => 'datetime',
       'end_time' => 'datetime',
       'expires_in' => 'unsigned int',
+      'fb:channel' => 'string',
       'fb:explicitly_shared' => 'bool',
       'image:height' => 'unsigned int',
       'image:secure_url' => 'string',
@@ -282,16 +275,22 @@ class User extends AbstractCrudObject {
       'image:url' => 'string',
       'image:user_generated' => 'bool',
       'image:width' => 'unsigned int',
-      'no_feed_story' => 'bool',
-      'no_action_link' => 'bool',
-      'notify' => 'bool',
+      'ios_bundle_id' => 'string',
       'message' => 'string',
+      'no_action_link' => 'bool',
+      'no_feed_story' => 'bool',
+      'notify' => 'bool',
       'place' => 'string',
+      'preview' => 'bool',
       'privacy' => 'string',
+      'proxied_app_id' => 'string',
       'ref' => 'string',
       'scrape' => 'bool',
       'start_time' => 'datetime',
       'tags' => 'list<int>',
+      'to' => 'string',
+      'user_selected_place' => 'bool',
+      'user_selected_tags' => 'bool',
     );
     $enums = array(
     );
@@ -339,17 +338,17 @@ class User extends AbstractCrudObject {
 
     $param_types = array(
       'cells' => 'list<Object>',
-      'objectives' => 'list<Object>',
-      'end_time' => 'int',
-      'description' => 'string',
-      'name' => 'string',
-      'start_time' => 'int',
-      'viewers' => 'list<int>',
-      'cooldown_start_time' => 'int',
-      'observation_end_time' => 'int',
-      'confidence_level' => 'float',
       'client_business' => 'string',
+      'confidence_level' => 'float',
+      'cooldown_start_time' => 'int',
+      'description' => 'string',
+      'end_time' => 'int',
+      'name' => 'string',
+      'objectives' => 'list<Object>',
+      'observation_end_time' => 'int',
+      'start_time' => 'int',
       'type' => 'type_enum',
+      'viewers' => 'list<int>',
     );
     $enums = array(
       'type_enum' => AdStudyTypeValues::getInstance()->getValues(),
@@ -443,17 +442,17 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'is_default' => 'bool',
-      'name' => 'string',
-      'description' => 'string',
       'contributors' => 'list<int>',
-      'make_shared_album' => 'bool',
+      'description' => 'string',
+      'is_default' => 'bool',
       'location' => 'string',
-      'visible' => 'string',
-      'privacy' => 'string',
-      'place' => 'Object',
-      'tags' => 'list<int>',
+      'make_shared_album' => 'bool',
       'message' => 'string',
+      'name' => 'string',
+      'place' => 'Object',
+      'privacy' => 'string',
+      'tags' => 'list<int>',
+      'visible' => 'string',
     );
     $enums = array(
     );
@@ -570,10 +569,10 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'file' => 'file',
-      'file_url' => 'string',
       'fallback_image' => 'file',
       'fallback_image_url' => 'string',
+      'file' => 'file',
+      'file_url' => 'string',
     );
     $enums = array(
     );
@@ -838,8 +837,8 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'tags' => 'list<string>',
       'folder' => 'string',
+      'tags' => 'list<string>',
       'user_id' => 'string',
     );
     $enums = array(
@@ -910,8 +909,8 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'type' => 'type_enum',
       'include_canceled' => 'bool',
+      'type' => 'type_enum',
     );
     $enums = array(
       'type_enum' => EventTypeValues::getInstance()->getValues(),
@@ -968,9 +967,9 @@ class User extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/favorite_requests',
-      new FavoriteRequest(),
+      new AbstractCrudObject(),
       'EDGE',
-      FavoriteRequest::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -983,15 +982,39 @@ class User extends AbstractCrudObject {
 
     $param_types = array(
       'api_version' => 'api_version_enum',
-      'graph_path' => 'string',
-      'query_params' => 'map',
-      'http_method' => 'http_method_enum',
       'description' => 'string',
+      'graph_path' => 'string',
+      'http_method' => 'http_method_enum',
       'post_params' => 'map',
+      'query_params' => 'map',
     );
     $enums = array(
-      'api_version_enum' => FavoriteRequestApiVersionValues::getInstance()->getValues(),
-      'http_method_enum' => FavoriteRequestHttpMethodValues::getInstance()->getValues(),
+      'api_version_enum' => array(
+        'unversioned',
+        'v1.0',
+        'v2.0',
+        'v2.1',
+        'v2.10',
+        'v2.11',
+        'v2.12',
+        'v2.2',
+        'v2.3',
+        'v2.4',
+        'v2.5',
+        'v2.6',
+        'v2.7',
+        'v2.8',
+        'v2.9',
+        'v3.0',
+        'v3.1',
+        'v3.2',
+        'v3.3',
+      ),
+      'http_method_enum' => array(
+        'DELETE',
+        'GET',
+        'POST',
+      ),
     );
 
     $request = new ApiRequest(
@@ -999,9 +1022,9 @@ class User extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/favorite_requests',
-      new FavoriteRequest(),
+      new AbstractCrudObject(),
       'EDGE',
-      FavoriteRequest::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1013,118 +1036,118 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'picture' => 'string',
-      'name' => 'string',
-      'link' => 'string',
-      'caption' => 'string',
-      'description' => 'string',
-      'quote' => 'string',
-      'source' => 'string',
-      'properties' => 'Object',
-      'object_attachment' => 'string',
-      'height' => 'unsigned int',
-      'width' => 'unsigned int',
-      'expanded_height' => 'unsigned int',
-      'expanded_width' => 'unsigned int',
-      'referral_id' => 'string',
-      'thumbnail' => 'file',
-      'image_crops' => 'map',
-      'call_to_action' => 'Object',
-      'time_since_original_post' => 'unsigned int',
-      'client_mutation_id' => 'string',
-      'privacy' => 'string',
-      'composer_session_id' => 'string',
-      'content_attachment' => 'string',
       'actions' => 'Object',
-      'targeting' => 'Object',
-      'feed_targeting' => 'Object',
-      'ref' => 'list<string>',
-      'tags' => 'list<int>',
-      'place' => 'Object',
-      'is_explicit_location' => 'bool',
-      'og_action_type_id' => 'string',
-      'og_object_id' => 'string',
-      'og_phrase' => 'string',
-      'og_icon_id' => 'string',
-      'og_set_profile_badge' => 'bool',
-      'og_suggestion_mechanism' => 'string',
-      'og_hide_object_attachment' => 'bool',
-      'backdated_time' => 'datetime',
-      'backdated_time_granularity' => 'backdated_time_granularity_enum',
-      'published' => 'bool',
-      'scheduled_publish_time' => 'datetime',
-      'unpublished_content_type' => 'unpublished_content_type_enum',
-      'application_id' => 'string',
-      'proxied_app_id' => 'string',
-      'ios_bundle_id' => 'string',
-      'android_key_hash' => 'string',
-      'user_selected_tags' => 'bool',
-      'nectar_module' => 'string',
-      'manual_privacy' => 'bool',
-      'audience_exp' => 'bool',
-      'coordinates' => 'Object',
-      'is_explicit_share' => 'bool',
-      'is_photo_container' => 'bool',
-      'implicit_with_tags' => 'list<int>',
-      'child_attachments' => 'list<Object>',
-      'suggested_place_id' => 'Object',
-      'attach_place_suggestion' => 'bool',
-      'viewer_coordinates' => 'Object',
-      'album_id' => 'string',
-      'multi_share_optimized' => 'bool',
-      'multi_share_end_card' => 'bool',
-      'title' => 'string',
-      'attached_media' => 'list<Object>',
-      'home_checkin_city_id' => 'Object',
-      'text_only_place' => 'string',
-      'connection_class' => 'string',
-      'associated_id' => 'string',
-      'posting_to_redspace' => 'posting_to_redspace_enum',
-      'place_attachment_setting' => 'place_attachment_setting_enum',
-      'checkin_entry_point' => 'checkin_entry_point_enum',
-      'is_backout_draft' => 'bool',
-      'sponsor_id' => 'string',
-      'direct_share_status' => 'unsigned int',
-      'sponsor_relationship' => 'unsigned int',
-      'referenceable_image_ids' => 'list<string>',
-      'prompt_id' => 'string',
-      'prompt_tracking_string' => 'string',
-      'post_surfaces_blacklist' => 'list<post_surfaces_blacklist_enum>',
-      'tracking_info' => 'string',
-      'text_format_preset_id' => 'string',
-      'cta_link' => 'string',
-      'cta_type' => 'string',
-      'place_list_data' => 'list',
-      'formatting' => 'formatting_enum',
-      'target_surface' => 'target_surface_enum',
       'adaptive_type' => 'string',
+      'album_id' => 'string',
+      'android_key_hash' => 'string',
       'animated_effect_id' => 'unsigned int',
+      'application_id' => 'string',
       'asked_fun_fact_prompt_id' => 'unsigned int',
       'asset3d_id' => 'unsigned int',
+      'associated_id' => 'string',
+      'attach_place_suggestion' => 'bool',
+      'attached_media' => 'list<Object>',
+      'audience_exp' => 'bool',
+      'backdated_time' => 'datetime',
+      'backdated_time_granularity' => 'backdated_time_granularity_enum',
+      'call_to_action' => 'Object',
+      'caption' => 'string',
+      'checkin_entry_point' => 'checkin_entry_point_enum',
+      'child_attachments' => 'list<Object>',
+      'client_mutation_id' => 'string',
       'composer_entry_picker' => 'string',
       'composer_entry_point' => 'string',
       'composer_entry_time' => 'unsigned int',
       'composer_session_events_log' => 'string',
+      'composer_session_id' => 'string',
       'composer_source_surface' => 'string',
       'composer_type' => 'string',
+      'connection_class' => 'string',
+      'content_attachment' => 'string',
+      'coordinates' => 'Object',
+      'cta_link' => 'string',
+      'cta_type' => 'string',
+      'description' => 'string',
+      'direct_share_status' => 'unsigned int',
+      'expanded_height' => 'unsigned int',
+      'expanded_width' => 'unsigned int',
+      'feed_targeting' => 'Object',
+      'formatting' => 'formatting_enum',
       'fun_fact_prompt_id' => 'unsigned int',
       'fun_fact_toastee_id' => 'unsigned int',
-      'is_group_linking_post' => 'bool',
       'has_nickname' => 'bool',
+      'height' => 'unsigned int',
       'holiday_card' => 'string',
+      'home_checkin_city_id' => 'Object',
+      'image_crops' => 'map',
+      'implicit_with_tags' => 'list<int>',
       'instant_game_entry_point_data' => 'string',
+      'ios_bundle_id' => 'string',
+      'is_backout_draft' => 'bool',
       'is_boost_intended' => 'bool',
+      'is_explicit_location' => 'bool',
+      'is_explicit_share' => 'bool',
+      'is_group_linking_post' => 'bool',
+      'is_photo_container' => 'bool',
+      'link' => 'string',
       'location_source_id' => 'string',
+      'manual_privacy' => 'bool',
       'message' => 'string',
+      'multi_share_end_card' => 'bool',
+      'multi_share_optimized' => 'bool',
+      'name' => 'string',
+      'nectar_module' => 'string',
+      'object_attachment' => 'string',
       'offer_like_post_id' => 'unsigned int',
+      'og_action_type_id' => 'string',
+      'og_hide_object_attachment' => 'bool',
+      'og_icon_id' => 'string',
+      'og_object_id' => 'string',
+      'og_phrase' => 'string',
+      'og_set_profile_badge' => 'bool',
+      'og_suggestion_mechanism' => 'string',
       'page_recommendation' => 'string',
+      'picture' => 'string',
+      'place' => 'Object',
+      'place_attachment_setting' => 'place_attachment_setting_enum',
       'place_list' => 'string',
+      'place_list_data' => 'list',
+      'post_surfaces_blacklist' => 'list<post_surfaces_blacklist_enum>',
+      'posting_to_redspace' => 'posting_to_redspace_enum',
+      'privacy' => 'string',
+      'prompt_id' => 'string',
+      'prompt_tracking_string' => 'string',
+      'properties' => 'Object',
+      'proxied_app_id' => 'string',
       'publish_event_id' => 'unsigned int',
+      'published' => 'bool',
+      'quote' => 'string',
       'react_mode_metadata' => 'string',
+      'ref' => 'list<string>',
+      'referenceable_image_ids' => 'list<string>',
+      'referral_id' => 'string',
       'sales_promo_id' => 'unsigned int',
+      'scheduled_publish_time' => 'datetime',
+      'source' => 'string',
+      'sponsor_id' => 'string',
+      'sponsor_relationship' => 'unsigned int',
+      'suggested_place_id' => 'Object',
+      'tags' => 'list<int>',
+      'target_surface' => 'target_surface_enum',
+      'targeting' => 'Object',
       'text_format_metadata' => 'string',
+      'text_format_preset_id' => 'string',
+      'text_only_place' => 'string',
       'throwback_camera_roll_media' => 'string',
+      'thumbnail' => 'file',
+      'time_since_original_post' => 'unsigned int',
+      'title' => 'string',
+      'tracking_info' => 'string',
+      'unpublished_content_type' => 'unpublished_content_type_enum',
+      'user_selected_tags' => 'bool',
       'video_start_time_ms' => 'unsigned int',
+      'viewer_coordinates' => 'Object',
+      'width' => 'unsigned int',
     );
     $enums = array(
       'backdated_time_granularity_enum' => array(
@@ -1135,26 +1158,19 @@ class User extends AbstractCrudObject {
         'none',
         'year',
       ),
-      'unpublished_content_type_enum' => array(
-        'ADS_POST',
-        'DRAFT',
-        'INLINE_CREATED',
-        'PUBLISHED',
-        'SCHEDULED',
-      ),
-      'posting_to_redspace_enum' => array(
-        'disabled',
-        'enabled',
-      ),
-      'place_attachment_setting_enum' => array(
-        '1',
-        '2',
-      ),
       'checkin_entry_point_enum' => array(
         'BRANDING_CHECKIN',
         'BRANDING_OTHER',
         'BRANDING_PHOTO',
         'BRANDING_STATUS',
+      ),
+      'formatting_enum' => array(
+        'MARKDOWN',
+        'PLAINTEXT',
+      ),
+      'place_attachment_setting_enum' => array(
+        '1',
+        '2',
       ),
       'post_surfaces_blacklist_enum' => array(
         '1',
@@ -1163,13 +1179,20 @@ class User extends AbstractCrudObject {
         '4',
         '5',
       ),
-      'formatting_enum' => array(
-        'MARKDOWN',
-        'PLAINTEXT',
+      'posting_to_redspace_enum' => array(
+        'disabled',
+        'enabled',
       ),
       'target_surface_enum' => array(
         'STORY',
         'TIMELINE',
+      ),
+      'unpublished_content_type_enum' => array(
+        'ADS_POST',
+        'DRAFT',
+        'INLINE_CREATED',
+        'PUBLISHED',
+        'SCHEDULED',
       ),
     );
 
@@ -1240,11 +1263,11 @@ class User extends AbstractCrudObject {
 
     $param_types = array(
       'action' => 'action_enum',
-      'item_id' => 'string',
+      'app_id' => 'string',
       'drop_table_id' => 'string',
       'ext_id' => 'string',
+      'item_id' => 'string',
       'quantity' => 'unsigned int',
-      'app_id' => 'string',
     );
     $enums = array(
       'action_enum' => array(
@@ -1326,9 +1349,9 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'stat_name' => 'string',
-      'set' => 'unsigned int',
       'inc' => 'unsigned int',
+      'set' => 'unsigned int',
+      'stat_name' => 'string',
     );
     $enums = array(
     );
@@ -1352,20 +1375,14 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'to' => 'string',
-      'client_secret' => 'string',
-      'preview' => 'bool',
-      'ios_bundle_id' => 'string',
-      'android_key_hash' => 'string',
-      'proxied_app_id' => 'string',
-      'user_selected_tags' => 'bool',
-      'user_selected_place' => 'bool',
       'added' => 'string',
       'alias' => 'string',
-      'fb:channel' => 'string',
+      'android_key_hash' => 'string',
+      'client_secret' => 'string',
       'created_time' => 'datetime',
       'end_time' => 'datetime',
       'expires_in' => 'unsigned int',
+      'fb:channel' => 'string',
       'fb:explicitly_shared' => 'bool',
       'image:height' => 'unsigned int',
       'image:secure_url' => 'string',
@@ -1373,16 +1390,22 @@ class User extends AbstractCrudObject {
       'image:url' => 'string',
       'image:user_generated' => 'bool',
       'image:width' => 'unsigned int',
-      'no_feed_story' => 'bool',
-      'no_action_link' => 'bool',
-      'notify' => 'bool',
+      'ios_bundle_id' => 'string',
       'message' => 'string',
+      'no_action_link' => 'bool',
+      'no_feed_story' => 'bool',
+      'notify' => 'bool',
       'place' => 'string',
+      'preview' => 'bool',
       'privacy' => 'string',
+      'proxied_app_id' => 'string',
       'ref' => 'string',
       'scrape' => 'bool',
       'start_time' => 'datetime',
       'tags' => 'list<int>',
+      'to' => 'string',
+      'user_selected_place' => 'bool',
+      'user_selected_tags' => 'bool',
     );
     $enums = array(
     );
@@ -1406,20 +1429,14 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'to' => 'string',
-      'client_secret' => 'string',
-      'preview' => 'bool',
-      'ios_bundle_id' => 'string',
-      'android_key_hash' => 'string',
-      'proxied_app_id' => 'string',
-      'user_selected_tags' => 'bool',
-      'user_selected_place' => 'bool',
       'added' => 'string',
       'alias' => 'string',
-      'fb:channel' => 'string',
+      'android_key_hash' => 'string',
+      'client_secret' => 'string',
       'created_time' => 'datetime',
       'end_time' => 'datetime',
       'expires_in' => 'unsigned int',
+      'fb:channel' => 'string',
       'fb:explicitly_shared' => 'bool',
       'image:height' => 'unsigned int',
       'image:secure_url' => 'string',
@@ -1427,16 +1444,22 @@ class User extends AbstractCrudObject {
       'image:url' => 'string',
       'image:user_generated' => 'bool',
       'image:width' => 'unsigned int',
-      'no_feed_story' => 'bool',
-      'no_action_link' => 'bool',
-      'notify' => 'bool',
+      'ios_bundle_id' => 'string',
       'message' => 'string',
+      'no_action_link' => 'bool',
+      'no_feed_story' => 'bool',
+      'notify' => 'bool',
       'place' => 'string',
+      'preview' => 'bool',
       'privacy' => 'string',
+      'proxied_app_id' => 'string',
       'ref' => 'string',
       'scrape' => 'bool',
       'start_time' => 'datetime',
       'tags' => 'list<int>',
+      'to' => 'string',
+      'user_selected_place' => 'bool',
+      'user_selected_tags' => 'bool',
     );
     $enums = array(
     );
@@ -1460,8 +1483,8 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'parent' => 'string',
       'admin_only' => 'bool',
+      'parent' => 'string',
     );
     $enums = array(
     );
@@ -1630,10 +1653,10 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'message' => 'string',
-      'url' => 'string',
-      'ref' => 'string',
       'action' => 'string',
+      'message' => 'string',
+      'ref' => 'string',
+      'url' => 'string',
     );
     $enums = array(
     );
@@ -1680,10 +1703,10 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'device_id' => 'string',
-      'name' => 'string',
       'brand' => 'string',
+      'device_id' => 'string',
       'model' => 'string',
+      'name' => 'string',
       'version' => 'string',
     );
     $enums = array(
@@ -1708,12 +1731,12 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'source' => 'source_enum',
       'broadcast_status' => 'list<broadcast_status_enum>',
+      'source' => 'source_enum',
     );
     $enums = array(
-      'source_enum' => LiveVideoSourceValues::getInstance()->getValues(),
       'broadcast_status_enum' => LiveVideoBroadcastStatusValues::getInstance()->getValues(),
+      'source_enum' => LiveVideoSourceValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1735,35 +1758,35 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'title' => 'string',
-      'description' => 'string',
-      'save_vod' => 'bool',
-      'published' => 'bool',
-      'status' => 'status_enum',
-      'privacy' => 'string',
-      'stop_on_delete_stream' => 'bool',
-      'stream_type' => 'stream_type_enum',
+      'attribution_app_id' => 'string',
       'content_tags' => 'list<string>',
-      'is_spherical' => 'bool',
-      'is_audio_only' => 'bool',
-      'planned_start_time' => 'int',
-      'schedule_custom_profile_image' => 'file',
-      'projection' => 'projection_enum',
-      'spatial_audio_format' => 'spatial_audio_format_enum',
+      'description' => 'string',
       'encoding_settings' => 'string',
-      'live_encoders' => 'list<string>',
-      'original_fov' => 'unsigned int',
       'fisheye_video_cropped' => 'bool',
       'front_z_rotation' => 'float',
-      'attribution_app_id' => 'string',
+      'is_audio_only' => 'bool',
+      'is_spherical' => 'bool',
+      'live_encoders' => 'list<string>',
+      'original_fov' => 'unsigned int',
+      'planned_start_time' => 'int',
+      'privacy' => 'string',
+      'projection' => 'projection_enum',
+      'published' => 'bool',
+      'save_vod' => 'bool',
+      'schedule_custom_profile_image' => 'file',
+      'spatial_audio_format' => 'spatial_audio_format_enum',
+      'status' => 'status_enum',
       'stereoscopic_mode' => 'stereoscopic_mode_enum',
+      'stop_on_delete_stream' => 'bool',
+      'stream_type' => 'stream_type_enum',
+      'title' => 'string',
     );
     $enums = array(
-      'status_enum' => LiveVideoStatusValues::getInstance()->getValues(),
-      'stream_type_enum' => LiveVideoStreamTypeValues::getInstance()->getValues(),
       'projection_enum' => LiveVideoProjectionValues::getInstance()->getValues(),
       'spatial_audio_format_enum' => LiveVideoSpatialAudioFormatValues::getInstance()->getValues(),
+      'status_enum' => LiveVideoStatusValues::getInstance()->getValues(),
       'stereoscopic_mode_enum' => LiveVideoStereoscopicModeValues::getInstance()->getValues(),
+      'stream_type_enum' => LiveVideoStreamTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1810,9 +1833,9 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'machine_id' => 'string',
       'check_code' => 'string',
       'client_time' => 'string',
+      'machine_id' => 'string',
     );
     $enums = array(
     );
@@ -1836,11 +1859,11 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'provider_id' => 'string',
       'password_token' => 'string',
-      'should_bypass_token_proxy' => 'bool',
-      'resume_type' => 'resume_type_enum',
+      'provider_id' => 'string',
       'resume_payload' => 'string',
+      'resume_type' => 'resume_type_enum',
+      'should_bypass_token_proxy' => 'bool',
     );
     $enums = array(
       'resume_type_enum' => UserResumeTypeValues::getInstance()->getValues(),
@@ -1865,9 +1888,9 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'moments_folder_uuid' => 'string',
       'invite_source' => 'string',
       'is_aldrin_region' => 'bool',
+      'moments_folder_uuid' => 'string',
     );
     $enums = array(
     );
@@ -1892,9 +1915,9 @@ class User extends AbstractCrudObject {
 
     $param_types = array(
       'encoded_invite_id' => 'string',
+      'funnel_id' => 'string',
       'invite_nonce' => 'string',
       'invite_source' => 'string',
-      'funnel_id' => 'string',
     );
     $enums = array(
     );
@@ -1990,13 +2013,13 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'seen' => 'bool',
-      'read' => 'bool',
-      'notif_ids' => 'list<string>',
       'filtering' => 'list<filtering_enum>',
-      'template' => 'Object',
       'href' => 'Object',
+      'notif_ids' => 'list<string>',
+      'read' => 'bool',
       'ref' => 'string',
+      'seen' => 'bool',
+      'template' => 'Object',
       'type' => 'type_enum',
     );
     $enums = array(
@@ -2047,13 +2070,13 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'type' => 'string',
-      'object' => 'Object',
       'action_properties' => 'Object',
-      'privacy' => 'string',
-      'ios_bundle_id' => 'string',
       'android_key_hash' => 'string',
+      'ios_bundle_id' => 'string',
+      'object' => 'Object',
+      'privacy' => 'string',
       'proxied_app_id' => 'string',
+      'type' => 'string',
     );
     $enums = array(
     );
@@ -2077,20 +2100,14 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'to' => 'string',
-      'client_secret' => 'string',
-      'preview' => 'bool',
-      'ios_bundle_id' => 'string',
-      'android_key_hash' => 'string',
-      'proxied_app_id' => 'string',
-      'user_selected_tags' => 'bool',
-      'user_selected_place' => 'bool',
       'added' => 'string',
       'alias' => 'string',
-      'fb:channel' => 'string',
+      'android_key_hash' => 'string',
+      'client_secret' => 'string',
       'created_time' => 'datetime',
       'end_time' => 'datetime',
       'expires_in' => 'unsigned int',
+      'fb:channel' => 'string',
       'fb:explicitly_shared' => 'bool',
       'image:height' => 'unsigned int',
       'image:secure_url' => 'string',
@@ -2098,16 +2115,22 @@ class User extends AbstractCrudObject {
       'image:url' => 'string',
       'image:user_generated' => 'bool',
       'image:width' => 'unsigned int',
-      'no_feed_story' => 'bool',
-      'no_action_link' => 'bool',
-      'notify' => 'bool',
+      'ios_bundle_id' => 'string',
       'message' => 'string',
+      'no_action_link' => 'bool',
+      'no_feed_story' => 'bool',
+      'notify' => 'bool',
       'place' => 'string',
+      'preview' => 'bool',
       'privacy' => 'string',
+      'proxied_app_id' => 'string',
       'ref' => 'string',
       'scrape' => 'bool',
       'start_time' => 'datetime',
       'tags' => 'list<int>',
+      'to' => 'string',
+      'user_selected_place' => 'bool',
+      'user_selected_tags' => 'bool',
     );
     $enums = array(
     );
@@ -2230,56 +2253,56 @@ class User extends AbstractCrudObject {
 
     $param_types = array(
       'aid' => 'string',
+      'allow_spherical_photo' => 'bool',
       'alt_text_custom' => 'string',
-      'caption' => 'string',
-      'url' => 'string',
-      'uid' => 'int',
-      'profile_id' => 'int',
-      'target_id' => 'int',
-      'vault_image_id' => 'string',
-      'tags' => 'list<Object>',
-      'place' => 'Object',
-      'is_explicit_place' => 'bool',
-      'is_explicit_location' => 'bool',
-      'og_action_type_id' => 'string',
-      'og_object_id' => 'string',
-      'og_phrase' => 'string',
-      'og_icon_id' => 'string',
-      'og_suggestion_mechanism' => 'string',
-      'og_set_profile_badge' => 'bool',
-      'privacy' => 'string',
-      'targeting' => 'Object',
-      'feed_targeting' => 'Object',
-      'no_story' => 'bool',
-      'published' => 'bool',
-      'offline_id' => 'unsigned int',
+      'android_key_hash' => 'string',
+      'application_id' => 'string',
       'attempt' => 'unsigned int',
+      'audience_exp' => 'bool',
       'backdated_time' => 'datetime',
       'backdated_time_granularity' => 'backdated_time_granularity_enum',
-      'time_since_original_post' => 'unsigned int',
-      'filter_type' => 'unsigned int',
-      'scheduled_publish_time' => 'unsigned int',
-      'unpublished_content_type' => 'unpublished_content_type_enum',
-      'full_res_is_coming_later' => 'bool',
+      'caption' => 'string',
       'composer_session_id' => 'string',
-      'qn' => 'string',
-      'manual_privacy' => 'bool',
-      'audience_exp' => 'bool',
-      'proxied_app_id' => 'string',
-      'ios_bundle_id' => 'string',
-      'android_key_hash' => 'string',
-      'user_selected_tags' => 'bool',
-      'allow_spherical_photo' => 'bool',
-      'spherical_metadata' => 'map',
+      'direct_share_status' => 'unsigned int',
+      'feed_targeting' => 'Object',
+      'filter_type' => 'unsigned int',
+      'full_res_is_coming_later' => 'bool',
       'initial_view_heading_override_degrees' => 'unsigned int',
       'initial_view_pitch_override_degrees' => 'unsigned int',
       'initial_view_vertical_fov_override_degrees' => 'unsigned int',
-      'sponsor_id' => 'string',
-      'direct_share_status' => 'unsigned int',
-      'sponsor_relationship' => 'unsigned int',
-      'application_id' => 'string',
-      'name' => 'string',
+      'ios_bundle_id' => 'string',
+      'is_explicit_location' => 'bool',
+      'is_explicit_place' => 'bool',
+      'manual_privacy' => 'bool',
       'message' => 'string',
+      'name' => 'string',
+      'no_story' => 'bool',
+      'offline_id' => 'unsigned int',
+      'og_action_type_id' => 'string',
+      'og_icon_id' => 'string',
+      'og_object_id' => 'string',
+      'og_phrase' => 'string',
+      'og_set_profile_badge' => 'bool',
+      'og_suggestion_mechanism' => 'string',
+      'place' => 'Object',
+      'privacy' => 'string',
+      'profile_id' => 'int',
+      'proxied_app_id' => 'string',
+      'published' => 'bool',
+      'qn' => 'string',
+      'scheduled_publish_time' => 'unsigned int',
+      'spherical_metadata' => 'map',
+      'sponsor_id' => 'string',
+      'sponsor_relationship' => 'unsigned int',
+      'tags' => 'list<Object>',
+      'target_id' => 'int',
+      'targeting' => 'Object',
+      'time_since_original_post' => 'unsigned int',
+      'uid' => 'int',
+      'unpublished_content_type' => 'unpublished_content_type_enum',
+      'url' => 'string',
+      'user_selected_tags' => 'bool',
+      'vault_image_id' => 'string',
     );
     $enums = array(
       'backdated_time_granularity_enum' => PhotoBackdatedTimeGranularityValues::getInstance()->getValues(),
@@ -2306,9 +2329,9 @@ class User extends AbstractCrudObject {
 
     $param_types = array(
       'height' => 'int',
-      'width' => 'int',
-      'type' => 'type_enum',
       'redirect' => 'bool',
+      'type' => 'type_enum',
+      'width' => 'int',
     );
     $enums = array(
       'type_enum' => ProfilePictureSourceTypeValues::getInstance()->getValues(),
@@ -2333,22 +2356,22 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'type' => 'type_enum',
-      'coords' => 'Object',
-      'name' => 'string',
-      'description' => 'string',
-      'topics' => 'list<string>',
-      'uid' => 'int',
-      'geometry' => 'Object',
-      'override_ids' => 'list<int>',
       'address' => 'Object',
-      'privacy' => 'string',
-      'phone' => 'string',
-      'website' => 'string',
       'city_id' => 'string',
-      'neighborhood_name' => 'string',
-      'pin_source' => 'string',
+      'coords' => 'Object',
       'custom_provider' => 'string',
+      'description' => 'string',
+      'geometry' => 'Object',
+      'name' => 'string',
+      'neighborhood_name' => 'string',
+      'override_ids' => 'list<int>',
+      'phone' => 'string',
+      'pin_source' => 'string',
+      'privacy' => 'string',
+      'topics' => 'list<string>',
+      'type' => 'type_enum',
+      'uid' => 'int',
+      'website' => 'string',
     );
     $enums = array(
       'type_enum' => array(
@@ -2404,9 +2427,9 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'include_past_events' => 'bool',
       'is_page_event' => 'bool',
       'page_id' => 'unsigned int',
-      'include_past_events' => 'bool',
       'promotable_event_types' => 'list<promotable_event_types_enum>',
     );
     $enums = array(
@@ -2601,11 +2624,11 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'object' => 'string',
-      'fields' => 'list<string>',
       'callback_url' => 'string',
-      'verify_token' => 'string',
+      'fields' => 'list<string>',
       'include_values' => 'bool',
+      'object' => 'string',
+      'verify_token' => 'string',
     );
     $enums = array(
     );
@@ -2699,8 +2722,8 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'tags' => 'list<string>',
       'folder' => 'string',
+      'tags' => 'list<string>',
       'user_id' => 'string',
     );
     $enums = array(
@@ -2773,90 +2796,90 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'title' => 'string',
-      'source' => 'string',
-      'unpublished_content_type' => 'unpublished_content_type_enum',
-      'time_since_original_post' => 'unsigned int',
-      'file_url' => 'string',
-      'composer_session_id' => 'string',
-      'waterfall_id' => 'string',
-      'og_action_type_id' => 'string',
-      'og_object_id' => 'string',
-      'og_phrase' => 'string',
-      'og_icon_id' => 'string',
-      'og_suggestion_mechanism' => 'string',
-      'thumb' => 'file',
-      'spherical' => 'bool',
-      'original_projection_type' => 'original_projection_type_enum',
-      'initial_heading' => 'unsigned int',
-      'initial_pitch' => 'unsigned int',
-      'fov' => 'unsigned int',
-      'original_fov' => 'unsigned int',
-      'fisheye_video_cropped' => 'bool',
-      'front_z_rotation' => 'float',
-      'guide_enabled' => 'bool',
-      'guide' => 'list<list<unsigned int>>',
-      'audio_story_wave_animation_handle' => 'string',
-      'manual_privacy' => 'bool',
-      'is_explicit_share' => 'bool',
       'adaptive_type' => 'string',
       'animated_effect_id' => 'unsigned int',
+      'application_id' => 'string',
       'asked_fun_fact_prompt_id' => 'unsigned int',
+      'attribution_app_id' => 'string',
+      'audio_story_wave_animation_handle' => 'string',
       'composer_entry_picker' => 'string',
       'composer_entry_point' => 'string',
       'composer_entry_time' => 'unsigned int',
       'composer_session_events_log' => 'string',
+      'composer_session_id' => 'string',
       'composer_source_surface' => 'string',
       'composer_type' => 'string',
+      'container_type' => 'container_type_enum',
+      'content_category' => 'content_category_enum',
+      'description' => 'string',
+      'direct_share_status' => 'unsigned int',
+      'embeddable' => 'bool',
+      'end_offset' => 'unsigned int',
+      'fbuploader_video_file_chunk' => 'string',
+      'file_size' => 'unsigned int',
+      'file_url' => 'string',
+      'fisheye_video_cropped' => 'bool',
       'formatting' => 'formatting_enum',
+      'fov' => 'unsigned int',
+      'front_z_rotation' => 'float',
       'fun_fact_prompt_id' => 'unsigned int',
       'fun_fact_toastee_id' => 'unsigned int',
-      'is_group_linking_post' => 'bool',
+      'guide' => 'list<list<unsigned int>>',
+      'guide_enabled' => 'bool',
       'has_nickname' => 'bool',
       'holiday_card' => 'string',
+      'initial_heading' => 'unsigned int',
+      'initial_pitch' => 'unsigned int',
       'instant_game_entry_point_data' => 'string',
       'is_boost_intended' => 'bool',
+      'is_explicit_share' => 'bool',
+      'is_group_linking_post' => 'bool',
+      'is_voice_clip' => 'bool',
       'location_source_id' => 'string',
-      'description' => 'string',
+      'manual_privacy' => 'bool',
+      'no_story' => 'bool',
       'offer_like_post_id' => 'unsigned int',
+      'og_action_type_id' => 'string',
+      'og_icon_id' => 'string',
+      'og_object_id' => 'string',
+      'og_phrase' => 'string',
+      'og_suggestion_mechanism' => 'string',
+      'original_fov' => 'unsigned int',
+      'original_projection_type' => 'original_projection_type_enum',
+      'privacy' => 'string',
       'publish_event_id' => 'unsigned int',
       'react_mode_metadata' => 'string',
-      'sales_promo_id' => 'unsigned int',
-      'text_format_metadata' => 'string',
-      'throwback_camera_roll_media' => 'string',
-      'video_start_time_ms' => 'unsigned int',
-      'application_id' => 'string',
-      'upload_phase' => 'upload_phase_enum',
-      'file_size' => 'unsigned int',
-      'start_offset' => 'unsigned int',
-      'end_offset' => 'unsigned int',
-      'video_file_chunk' => 'string',
-      'fbuploader_video_file_chunk' => 'string',
-      'upload_session_id' => 'string',
-      'is_voice_clip' => 'bool',
-      'attribution_app_id' => 'string',
-      'content_category' => 'content_category_enum',
-      'embeddable' => 'bool',
-      'slideshow_spec' => 'map',
-      'upload_setting_properties' => 'string',
-      'transcode_setting_properties' => 'string',
-      'container_type' => 'container_type_enum',
       'referenced_sticker_id' => 'string',
       'replace_video_id' => 'string',
-      'swap_mode' => 'swap_mode_enum',
-      'privacy' => 'string',
-      'no_story' => 'bool',
+      'sales_promo_id' => 'unsigned int',
+      'slideshow_spec' => 'map',
+      'source' => 'string',
+      'spherical' => 'bool',
       'sponsor_id' => 'string',
-      'direct_share_status' => 'unsigned int',
+      'start_offset' => 'unsigned int',
+      'swap_mode' => 'swap_mode_enum',
+      'text_format_metadata' => 'string',
+      'throwback_camera_roll_media' => 'string',
+      'thumb' => 'file',
+      'time_since_original_post' => 'unsigned int',
+      'title' => 'string',
+      'transcode_setting_properties' => 'string',
+      'unpublished_content_type' => 'unpublished_content_type_enum',
+      'upload_phase' => 'upload_phase_enum',
+      'upload_session_id' => 'string',
+      'upload_setting_properties' => 'string',
+      'video_file_chunk' => 'string',
+      'video_start_time_ms' => 'unsigned int',
+      'waterfall_id' => 'string',
     );
     $enums = array(
-      'unpublished_content_type_enum' => AdVideoUnpublishedContentTypeValues::getInstance()->getValues(),
-      'original_projection_type_enum' => AdVideoOriginalProjectionTypeValues::getInstance()->getValues(),
-      'formatting_enum' => AdVideoFormattingValues::getInstance()->getValues(),
-      'upload_phase_enum' => AdVideoUploadPhaseValues::getInstance()->getValues(),
-      'content_category_enum' => AdVideoContentCategoryValues::getInstance()->getValues(),
       'container_type_enum' => AdVideoContainerTypeValues::getInstance()->getValues(),
+      'content_category_enum' => AdVideoContentCategoryValues::getInstance()->getValues(),
+      'formatting_enum' => AdVideoFormattingValues::getInstance()->getValues(),
+      'original_projection_type_enum' => AdVideoOriginalProjectionTypeValues::getInstance()->getValues(),
       'swap_mode_enum' => AdVideoSwapModeValues::getInstance()->getValues(),
+      'unpublished_content_type_enum' => AdVideoUnpublishedContentTypeValues::getInstance()->getValues(),
+      'upload_phase_enum' => AdVideoUploadPhaseValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -2924,18 +2947,18 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'password' => 'string',
-      'name' => 'string',
-      'firstname' => 'string',
-      'lastname' => 'string',
-      'local_news_subscription_status' => 'local_news_subscription_status_enum',
-      'local_news_megaphone_dismiss_status' => 'local_news_megaphone_dismiss_status_enum',
-      'label_cohort' => 'Object',
       'emoji_color_pref' => 'unsigned int',
+      'firstname' => 'string',
+      'label_cohort' => 'Object',
+      'lastname' => 'string',
+      'local_news_megaphone_dismiss_status' => 'local_news_megaphone_dismiss_status_enum',
+      'local_news_subscription_status' => 'local_news_subscription_status_enum',
+      'name' => 'string',
+      'password' => 'string',
     );
     $enums = array(
-      'local_news_subscription_status_enum' => UserLocalNewsSubscriptionStatusValues::getInstance()->getValues(),
       'local_news_megaphone_dismiss_status_enum' => UserLocalNewsMegaphoneDismissStatusValues::getInstance()->getValues(),
+      'local_news_subscription_status_enum' => UserLocalNewsSubscriptionStatusValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

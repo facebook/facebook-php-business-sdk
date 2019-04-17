@@ -151,12 +151,12 @@ class Canvas extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'name' => 'string',
-      'body_element_ids' => 'list<string>',
       'background_color' => 'string',
-      'is_published' => 'bool',
-      'is_hidden' => 'bool',
+      'body_element_ids' => 'list<string>',
       'enable_swipe_to_open' => 'bool',
+      'is_hidden' => 'bool',
+      'is_published' => 'bool',
+      'name' => 'string',
     );
     $enums = array(
     );

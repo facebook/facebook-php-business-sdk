@@ -88,13 +88,13 @@ class Flight extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'destination_airport' => 'string',
-      'origin_airport' => 'string',
-      'description' => 'string',
-      'url' => 'string',
-      'images' => 'list<Object>',
       'currency' => 'string',
+      'description' => 'string',
+      'destination_airport' => 'string',
+      'images' => 'list<Object>',
+      'origin_airport' => 'string',
       'price' => 'unsigned int',
+      'url' => 'string',
     );
     $enums = array(
     );

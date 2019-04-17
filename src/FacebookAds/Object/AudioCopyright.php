@@ -83,13 +83,13 @@ class AudioCopyright extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'update_source' => 'update_source_enum',
-      'match_rule' => 'string',
-      'ownership_countries' => 'list<string>',
-      'whitelisted_fb_users' => 'list<string>',
-      'whitelisted_ig_users' => 'list<string>',
       'append_excluded_ownership_segments' => 'bool',
       'excluded_ownership_segments' => 'list<Object>',
+      'match_rule' => 'string',
+      'ownership_countries' => 'list<string>',
+      'update_source' => 'update_source_enum',
+      'whitelisted_fb_users' => 'list<string>',
+      'whitelisted_ig_users' => 'list<string>',
     );
     $enums = array(
       'update_source_enum' => AudioCopyrightUpdateSourceValues::getInstance()->getValues(),

@@ -54,7 +54,7 @@ class IGUserFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'biography' => 'string',
-      'business_discovery' => 'Object',
+      'business_discovery' => 'IGUser',
       'followers_count' => 'int',
       'follows_count' => 'int',
       'id' => 'string',

@@ -72,9 +72,9 @@ class OfflineConversionDataSet extends AbstractCrudObject {
 
     $param_types = array(
       'business_id' => 'string',
-      'start_time' => 'datetime',
       'end_time' => 'datetime',
       'event_type' => 'event_type_enum',
+      'start_time' => 'datetime',
     );
     $enums = array(
       'event_type_enum' => array(
@@ -163,8 +163,8 @@ class OfflineConversionDataSet extends AbstractCrudObject {
 
     $param_types = array(
       'account_id' => 'string',
-      'business' => 'string',
       'auto_track_for_ads' => 'bool',
+      'business' => 'string',
     );
     $enums = array(
     );
@@ -236,9 +236,9 @@ class OfflineConversionDataSet extends AbstractCrudObject {
 
     $param_types = array(
       'business' => 'string',
+      'other_relationship' => 'string',
       'permitted_roles' => 'list<permitted_roles_enum>',
       'relationship_type' => 'list<relationship_type_enum>',
-      'other_relationship' => 'string',
     );
     $enums = array(
       'permitted_roles_enum' => OfflineConversionDataSetPermittedRolesValues::getInstance()->getValues(),
@@ -336,12 +336,12 @@ class OfflineConversionDataSet extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'upload_tag' => 'string',
-      'upload_id' => 'string',
-      'upload_source' => 'string',
       'data' => 'list<string>',
       'namespace_id' => 'string',
       'progress' => 'Object',
+      'upload_id' => 'string',
+      'upload_source' => 'string',
+      'upload_tag' => 'string',
     );
     $enums = array(
     );
@@ -365,12 +365,12 @@ class OfflineConversionDataSet extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'start' => 'int',
-      'end' => 'int',
-      'skip_empty_values' => 'bool',
       'aggr_time' => 'aggr_time_enum',
-      'user_timezone_id' => 'unsigned int',
+      'end' => 'int',
       'granularity' => 'granularity_enum',
+      'skip_empty_values' => 'bool',
+      'start' => 'int',
+      'user_timezone_id' => 'unsigned int',
     );
     $enums = array(
       'aggr_time_enum' => array(
@@ -403,13 +403,17 @@ class OfflineConversionDataSet extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'upload_tag' => 'string',
-      'start_time' => 'datetime',
       'end_time' => 'datetime',
-      'sort_by' => 'sort_by_enum',
       'order' => 'order_enum',
+      'sort_by' => 'sort_by_enum',
+      'start_time' => 'datetime',
+      'upload_tag' => 'string',
     );
     $enums = array(
+      'order_enum' => array(
+        'ASCENDING',
+        'DESCENDING',
+      ),
       'sort_by_enum' => array(
         'API_CALLS',
         'CREATION_TIME',
@@ -418,10 +422,6 @@ class OfflineConversionDataSet extends AbstractCrudObject {
         'FIRST_UPLOAD_TIME',
         'IS_EXCLUDED_FOR_LIFT',
         'LAST_UPLOAD_TIME',
-      ),
-      'order_enum' => array(
-        'ASCENDING',
-        'DESCENDING',
       ),
     );
 
@@ -468,9 +468,9 @@ class OfflineConversionDataSet extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'user' => 'int',
-      'email' => 'string',
       'business' => 'string',
+      'email' => 'string',
+      'user' => 'int',
     );
     $enums = array(
     );
@@ -518,9 +518,9 @@ class OfflineConversionDataSet extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'user' => 'int',
-      'role' => 'role_enum',
       'business' => 'string',
+      'role' => 'role_enum',
+      'user' => 'int',
     );
     $enums = array(
       'role_enum' => OfflineConversionDataSetRoleValues::getInstance()->getValues(),
@@ -664,10 +664,10 @@ class OfflineConversionDataSet extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'name' => 'string',
+      'auto_assign_to_new_accounts_only' => 'bool',
       'description' => 'string',
       'enable_auto_assign_to_accounts' => 'bool',
-      'auto_assign_to_new_accounts_only' => 'bool',
+      'name' => 'string',
     );
     $enums = array(
     );

@@ -175,12 +175,12 @@ class AdStudyCell extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'description' => 'string',
-      'name' => 'string',
-      'creation_template' => 'creation_template_enum',
       'adaccounts' => 'list<unsigned int>',
       'adsets' => 'list<string>',
       'campaigns' => 'list<string>',
+      'creation_template' => 'creation_template_enum',
+      'description' => 'string',
+      'name' => 'string',
     );
     $enums = array(
       'creation_template_enum' => AdStudyCellCreationTemplateValues::getInstance()->getValues(),

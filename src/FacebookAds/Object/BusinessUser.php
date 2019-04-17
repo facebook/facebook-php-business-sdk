@@ -228,13 +228,13 @@ class BusinessUser extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'role' => 'role_enum',
+      'clear_pending_email' => 'bool',
+      'email' => 'string',
       'first_name' => 'string',
       'last_name' => 'string',
-      'title' => 'string',
-      'email' => 'string',
       'pending_email' => 'string',
-      'clear_pending_email' => 'bool',
+      'role' => 'role_enum',
+      'title' => 'string',
     );
     $enums = array(
       'role_enum' => BusinessUserRoleValues::getInstance()->getValues(),

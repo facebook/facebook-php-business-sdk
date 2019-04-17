@@ -69,9 +69,9 @@ class CustomConversion extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'start_time' => 'datetime',
       'end_time' => 'datetime',
       'event_type' => 'event_type_enum',
+      'start_time' => 'datetime',
     );
     $enums = array(
       'event_type_enum' => CustomConversionActivitiesEventTypeValues::getInstance()->getValues(),
@@ -170,9 +170,9 @@ class CustomConversion extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'start_time' => 'datetime',
-      'end_time' => 'datetime',
       'aggregation' => 'aggregation_enum',
+      'end_time' => 'datetime',
+      'start_time' => 'datetime',
     );
     $enums = array(
       'aggregation_enum' => CustomConversionStatsResultAggregationValues::getInstance()->getValues(),
@@ -243,9 +243,9 @@ class CustomConversion extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'name' => 'string',
       'default_conversion_value' => 'float',
       'description' => 'string',
+      'name' => 'string',
     );
     $enums = array(
     );

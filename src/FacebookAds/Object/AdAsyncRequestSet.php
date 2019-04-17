@@ -142,8 +142,8 @@ class AdAsyncRequestSet extends AbstractCrudObject {
 
     $param_types = array(
       'name' => 'string',
-      'notification_uri' => 'string',
       'notification_mode' => 'notification_mode_enum',
+      'notification_uri' => 'string',
     );
     $enums = array(
       'notification_mode_enum' => AdAsyncRequestSetNotificationModeValues::getInstance()->getValues(),

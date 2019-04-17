@@ -45,11 +45,13 @@ class AdCreativeCallToActionTypeValues extends AbstractEnum {
   const BUY_TICKETS = 'BUY_TICKETS';
   const CALL = 'CALL';
   const CALL_ME = 'CALL_ME';
+  const CONTACT = 'CONTACT';
   const CONTACT_US = 'CONTACT_US';
   const DONATE = 'DONATE';
   const DONATE_NOW = 'DONATE_NOW';
   const DOWNLOAD = 'DOWNLOAD';
   const EVENT_RSVP = 'EVENT_RSVP';
+  const FIND_A_GROUP = 'FIND_A_GROUP';
   const FOLLOW_NEWS_STORYLINE = 'FOLLOW_NEWS_STORYLINE';
   const GET_DIRECTIONS = 'GET_DIRECTIONS';
   const GET_OFFER = 'GET_OFFER';

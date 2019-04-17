@@ -60,8 +60,8 @@ class IGUser extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'media_id' => 'string',
       'comment_id' => 'string',
+      'media_id' => 'string',
       'message' => 'string',
     );
     $enums = array(
@@ -86,10 +86,10 @@ class IGUser extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'since' => 'datetime',
-      'until' => 'datetime',
       'metric' => 'list<metric_enum>',
       'period' => 'list<period_enum>',
+      'since' => 'datetime',
+      'until' => 'datetime',
     );
     $enums = array(
       'metric_enum' => InstagramInsightsResultMetricValues::getInstance()->getValues(),
@@ -138,10 +138,10 @@ class IGUser extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'media_type' => 'string',
       'caption' => 'string',
-      'image_url' => 'string',
       'children' => 'list<unsigned int>',
+      'image_url' => 'string',
+      'media_type' => 'string',
     );
     $enums = array(
     );

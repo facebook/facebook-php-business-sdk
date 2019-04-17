@@ -71,9 +71,9 @@ class AdAccountCreationRequestFields extends AbstractEnum {
   const SUBVERTICAL = 'subvertical';
   const TIME_CREATED = 'time_created';
   const VERTICAL = 'vertical';
+  const ADVERTISER_BUSINESS_ID = 'advertiser_business_id';
   const BUSINESS_REGISTRATION = 'business_registration';
   const PROMOTABLE_PAGE_URLS = 'promotable_page_urls';
-  const ADVERTISER_BUSINESS_ID = 'advertiser_business_id';
 
   public function getFieldTypes() {
     return array(
@@ -111,9 +111,9 @@ class AdAccountCreationRequestFields extends AbstractEnum {
       'subvertical' => 'string',
       'time_created' => 'datetime',
       'vertical' => 'string',
+      'advertiser_business_id' => 'string',
       'business_registration' => 'file',
       'promotable_page_urls' => 'list<string>',
-      'advertiser_business_id' => 'string',
     );
   }
 }

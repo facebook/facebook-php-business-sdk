@@ -55,7 +55,6 @@ class AdsInsightsFields extends AbstractEnum {
   const AUCTION_BID = 'auction_bid';
   const AUCTION_COMPETITIVENESS = 'auction_competitiveness';
   const AUCTION_MAX_COMPETITOR_BID = 'auction_max_competitor_bid';
-  const BID_TYPE = 'bid_type';
   const BODY_ASSET = 'body_asset';
   const BUYING_TYPE = 'buying_type';
   const CALL_TO_ACTION_ASSET = 'call_to_action_asset';
@@ -128,11 +127,9 @@ class AdsInsightsFields extends AbstractEnum {
   const PLACE_PAGE_NAME = 'place_page_name';
   const PLACEMENT = 'placement';
   const PLATFORM_POSITION = 'platform_position';
-  const PRODUCT_FORMAT = 'product_format';
   const PRODUCT_ID = 'product_id';
   const PUBLISHER_PLATFORM = 'publisher_platform';
   const PURCHASE_ROAS = 'purchase_roas';
-  const PURCHASING_INTERFACE = 'purchasing_interface';
   const REACH = 'reach';
   const REGION = 'region';
   const RELEVANCE_SCORE = 'relevance_score';
@@ -195,7 +192,6 @@ class AdsInsightsFields extends AbstractEnum {
       'auction_bid' => 'string',
       'auction_competitiveness' => 'string',
       'auction_max_competitor_bid' => 'string',
-      'bid_type' => 'string',
       'body_asset' => 'Object',
       'buying_type' => 'string',
       'call_to_action_asset' => 'Object',
@@ -268,11 +264,9 @@ class AdsInsightsFields extends AbstractEnum {
       'place_page_name' => 'string',
       'placement' => 'string',
       'platform_position' => 'string',
-      'product_format' => 'string',
       'product_id' => 'string',
       'publisher_platform' => 'string',
       'purchase_roas' => 'list<AdsActionStats>',
-      'purchasing_interface' => 'string',
       'reach' => 'string',
       'region' => 'string',
       'relevance_score' => 'AdgroupRelevanceScore',

@@ -134,16 +134,16 @@ class HotelRoom extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'description' => 'string',
-      'name' => 'string',
-      'url' => 'string',
-      'currency' => 'string',
-      'base_price' => 'float',
       'applinks' => 'Object',
+      'base_price' => 'float',
+      'currency' => 'string',
+      'description' => 'string',
       'images' => 'list<Object>',
       'margin_level' => 'unsigned int',
+      'name' => 'string',
       'pricing_variables' => 'list<Object>',
       'sale_price' => 'float',
+      'url' => 'string',
     );
     $enums = array(
     );

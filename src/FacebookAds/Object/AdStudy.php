@@ -95,11 +95,11 @@ class AdStudy extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'cell_id' => 'string',
-      'objective_id' => 'string',
       'account_id' => 'string',
       'audience_name' => 'string',
       'audience_type' => 'audience_type_enum',
+      'cell_id' => 'string',
+      'objective_id' => 'string',
     );
     $enums = array(
       'audience_type_enum' => AdStudyAudienceTypeValues::getInstance()->getValues(),
@@ -170,15 +170,15 @@ class AdStudy extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'adspixels' => 'list<Object>',
+      'applications' => 'list<Object>',
+      'customconversions' => 'list<Object>',
       'is_primary' => 'bool',
       'name' => 'string',
-      'type' => 'type_enum',
-      'adspixels' => 'list<Object>',
-      'customconversions' => 'list<Object>',
-      'applications' => 'list<Object>',
-      'offsitepixels' => 'list<Object>',
       'offline_conversion_data_sets' => 'list<Object>',
+      'offsitepixels' => 'list<Object>',
       'product_sets' => 'list<Object>',
+      'type' => 'type_enum',
     );
     $enums = array(
       'type_enum' => AdStudyObjectiveTypeValues::getInstance()->getValues(),
@@ -203,9 +203,9 @@ class AdStudy extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'user' => 'int',
-      'email' => 'string',
       'business' => 'string',
+      'email' => 'string',
+      'user' => 'int',
     );
     $enums = array(
     );
@@ -252,10 +252,10 @@ class AdStudy extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'user' => 'int',
+      'business' => 'string',
       'email' => 'string',
       'role' => 'role_enum',
-      'business' => 'string',
+      'user' => 'int',
     );
     $enums = array(
       'role_enum' => AdStudyRoleValues::getInstance()->getValues(),
@@ -350,16 +350,16 @@ class AdStudy extends AbstractCrudObject {
 
     $param_types = array(
       'cells' => 'list<Object>',
-      'objectives' => 'list<Object>',
-      'end_time' => 'int',
+      'client_business' => 'string',
+      'confidence_level' => 'float',
+      'cooldown_start_time' => 'int',
       'description' => 'string',
+      'end_time' => 'int',
       'name' => 'string',
+      'objectives' => 'list<Object>',
+      'observation_end_time' => 'int',
       'start_time' => 'int',
       'viewers' => 'list<int>',
-      'cooldown_start_time' => 'int',
-      'observation_end_time' => 'int',
-      'confidence_level' => 'float',
-      'client_business' => 'string',
     );
     $enums = array(
     );

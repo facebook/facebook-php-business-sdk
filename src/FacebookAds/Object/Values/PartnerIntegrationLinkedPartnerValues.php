@@ -62,6 +62,7 @@ class PartnerIntegrationLinkedPartnerValues extends AbstractEnum {
   const JOOMLA = 'joomla';
   const JUMPSELLER = 'jumpseller';
   const KAJABI = 'kajabi';
+  const KOCHAVA = 'kochava';
   const KRAFTLY = 'kraftly';
   const M_PARTICLE = 'm_particle';
   const MAGENTO = 'magento';

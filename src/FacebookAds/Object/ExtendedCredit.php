@@ -107,8 +107,8 @@ class ExtendedCredit extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'name' => 'string',
       'emails' => 'list<string>',
+      'name' => 'string',
     );
     $enums = array(
     );
@@ -156,16 +156,16 @@ class ExtendedCredit extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'receiving_business_id' => 'string',
       'amount' => 'Object',
       'liability_type' => 'liability_type_enum',
-      'send_bill_to' => 'send_bill_to_enum',
       'partition_type' => 'partition_type_enum',
+      'receiving_business_id' => 'string',
+      'send_bill_to' => 'send_bill_to_enum',
     );
     $enums = array(
       'liability_type_enum' => ExtendedCreditAllocationConfigLiabilityTypeValues::getInstance()->getValues(),
-      'send_bill_to_enum' => ExtendedCreditAllocationConfigSendBillToValues::getInstance()->getValues(),
       'partition_type_enum' => ExtendedCreditAllocationConfigPartitionTypeValues::getInstance()->getValues(),
+      'send_bill_to_enum' => ExtendedCreditAllocationConfigSendBillToValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

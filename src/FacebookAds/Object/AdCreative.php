@@ -142,19 +142,19 @@ class AdCreative extends AbstractCrudObject {
 
     $param_types = array(
       'ad_format' => 'ad_format_enum',
+      'dynamic_asset_label' => 'string',
       'dynamic_creative_spec' => 'Object',
       'dynamic_customization' => 'Object',
-      'dynamic_asset_label' => 'string',
-      'interactive' => 'bool',
-      'post' => 'Object',
-      'height' => 'unsigned int',
-      'width' => 'unsigned int',
-      'place_page_id' => 'int',
-      'product_item_ids' => 'list<string>',
-      'start_date' => 'datetime',
       'end_date' => 'datetime',
+      'height' => 'unsigned int',
+      'interactive' => 'bool',
       'locale' => 'string',
+      'place_page_id' => 'int',
+      'post' => 'Object',
+      'product_item_ids' => 'list<string>',
       'render_type' => 'render_type_enum',
+      'start_date' => 'datetime',
+      'width' => 'unsigned int',
     );
     $enums = array(
       'ad_format_enum' => AdPreviewAdFormatValues::getInstance()->getValues(),
@@ -181,8 +181,8 @@ class AdCreative extends AbstractCrudObject {
 
     $param_types = array(
       'account_id' => 'string',
-      'name' => 'string',
       'adlabels' => 'list<Object>',
+      'name' => 'string',
       'status' => 'status_enum',
     );
     $enums = array(
@@ -234,8 +234,8 @@ class AdCreative extends AbstractCrudObject {
 
     $param_types = array(
       'account_id' => 'string',
-      'name' => 'string',
       'adlabels' => 'list<Object>',
+      'name' => 'string',
       'status' => 'status_enum',
     );
     $enums = array(

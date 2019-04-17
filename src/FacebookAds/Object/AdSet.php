@@ -107,12 +107,12 @@ class AdSet extends AbstractArchivableCrudObject
 
     $param_types = array(
       'after' => 'string',
+      'business_id' => 'string',
+      'category' => 'category_enum',
       'limit' => 'int',
       'since' => 'datetime',
-      'category' => 'category_enum',
-      'until' => 'datetime',
       'uid' => 'int',
-      'business_id' => 'string',
+      'until' => 'datetime',
     );
     $enums = array(
       'category_enum' => AdActivityCategoryValues::getInstance()->getValues(),
@@ -259,13 +259,13 @@ class AdSet extends AbstractArchivableCrudObject
     $this->assureId();
 
     $param_types = array(
-      'include_deleted' => 'bool',
-      'effective_status' => 'list<string>',
+      'ad_draft_id' => 'string',
       'date_preset' => 'date_preset_enum',
+      'effective_status' => 'list<string>',
+      'include_deleted' => 'bool',
+      'include_drafts' => 'bool',
       'time_range' => 'Object',
       'updated_since' => 'int',
-      'ad_draft_id' => 'string',
-      'include_drafts' => 'bool',
     );
     $enums = array(
       'date_preset_enum' => AdDatePresetValues::getInstance()->getValues(),
@@ -315,14 +315,14 @@ class AdSet extends AbstractArchivableCrudObject
     $this->assureId();
 
     $param_types = array(
-      'effective_status' => 'list<effective_status_enum>',
       'date_preset' => 'date_preset_enum',
+      'effective_status' => 'list<effective_status_enum>',
       'is_completed' => 'bool',
       'time_range' => 'Object',
     );
     $enums = array(
-      'effective_status_enum' => AdSetEffectiveStatusValues::getInstance()->getValues(),
       'date_preset_enum' => AdSetDatePresetValues::getInstance()->getValues(),
+      'effective_status_enum' => AdSetEffectiveStatusValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -344,13 +344,13 @@ class AdSet extends AbstractArchivableCrudObject
     $this->assureId();
 
     $param_types = array(
-      'deep_copy' => 'bool',
       'campaign_id' => 'string',
-      'rename_options' => 'Object',
-      'status_option' => 'status_option_enum',
-      'start_time' => 'datetime',
-      'end_time' => 'datetime',
       'create_dco_adset' => 'bool',
+      'deep_copy' => 'bool',
+      'end_time' => 'datetime',
+      'rename_options' => 'Object',
+      'start_time' => 'datetime',
+      'status_option' => 'status_option_enum',
     );
     $enums = array(
       'status_option_enum' => AdSetStatusOptionValues::getInstance()->getValues(),
@@ -375,9 +375,9 @@ class AdSet extends AbstractArchivableCrudObject
     $this->assureId();
 
     $param_types = array(
-      'targeting_spec' => 'Targeting',
       'optimization_goal' => 'optimization_goal_enum',
       'promoted_object' => 'Object',
+      'targeting_spec' => 'Targeting',
     );
     $enums = array(
       'optimization_goal_enum' => AdCampaignDeliveryEstimateOptimizationGoalValues::getInstance()->getValues(),
@@ -402,21 +402,21 @@ class AdSet extends AbstractArchivableCrudObject
     $this->assureId();
 
     $param_types = array(
-      'default_summary' => 'bool',
-      'fields' => 'list<string>',
-      'filtering' => 'list<Object>',
-      'summary' => 'list<string>',
-      'sort' => 'list<string>',
       'action_attribution_windows' => 'list<action_attribution_windows_enum>',
       'action_breakdowns' => 'list<action_breakdowns_enum>',
       'action_report_time' => 'action_report_time_enum',
       'breakdowns' => 'list<breakdowns_enum>',
       'date_preset' => 'date_preset_enum',
+      'default_summary' => 'bool',
       'export_columns' => 'list<string>',
       'export_format' => 'string',
       'export_name' => 'string',
+      'fields' => 'list<string>',
+      'filtering' => 'list<Object>',
       'level' => 'level_enum',
       'product_id_limit' => 'int',
+      'sort' => 'list<string>',
+      'summary' => 'list<string>',
       'summary_action_breakdowns' => 'list<summary_action_breakdowns_enum>',
       'time_increment' => 'string',
       'time_range' => 'Object',
@@ -452,21 +452,21 @@ class AdSet extends AbstractArchivableCrudObject
     $this->assureId();
 
     $param_types = array(
-      'default_summary' => 'bool',
-      'fields' => 'list<string>',
-      'filtering' => 'list<Object>',
-      'summary' => 'list<string>',
-      'sort' => 'list<string>',
       'action_attribution_windows' => 'list<action_attribution_windows_enum>',
       'action_breakdowns' => 'list<action_breakdowns_enum>',
       'action_report_time' => 'action_report_time_enum',
       'breakdowns' => 'list<breakdowns_enum>',
       'date_preset' => 'date_preset_enum',
+      'default_summary' => 'bool',
       'export_columns' => 'list<string>',
       'export_format' => 'string',
       'export_name' => 'string',
+      'fields' => 'list<string>',
+      'filtering' => 'list<Object>',
       'level' => 'level_enum',
       'product_id_limit' => 'int',
+      'sort' => 'list<string>',
+      'summary' => 'list<string>',
       'summary_action_breakdowns' => 'list<summary_action_breakdowns_enum>',
       'time_increment' => 'string',
       'time_range' => 'Object',
@@ -599,14 +599,14 @@ class AdSet extends AbstractArchivableCrudObject
       'account_id' => 'string',
       'ad_keywords' => 'Object',
       'adlabels' => 'list<Object>',
-      'bid_amount' => 'int',
+      'adset_schedule' => 'list<Object>',
+      'attribution_spec' => 'list<map>',
       'bid_adjustments' => 'Object',
+      'bid_amount' => 'int',
       'bid_constraints' => 'map<string, Object>',
       'bid_strategy' => 'bid_strategy_enum',
       'billing_event' => 'billing_event_enum',
       'campaign_spec' => 'Object',
-      'adset_schedule' => 'list<Object>',
-      'status' => 'status_enum',
       'creative_sequence' => 'list<string>',
       'daily_budget' => 'unsigned int',
       'daily_imps' => 'unsigned int',
@@ -616,6 +616,7 @@ class AdSet extends AbstractArchivableCrudObject
       'destination_type' => 'destination_type_enum',
       'end_time' => 'datetime',
       'execution_options' => 'list<execution_options_enum>',
+      'full_funnel_exploration_mode' => 'full_funnel_exploration_mode_enum',
       'lifetime_budget' => 'unsigned int',
       'lifetime_imps' => 'unsigned int',
       'lifetime_min_spend_target' => 'unsigned int',
@@ -627,23 +628,22 @@ class AdSet extends AbstractArchivableCrudObject
       'rb_prediction_id' => 'string',
       'rf_prediction_id' => 'string',
       'start_time' => 'datetime',
+      'status' => 'status_enum',
       'targeting' => 'Targeting',
       'time_based_ad_rotation_id_blocks' => 'list<list<unsigned int>>',
       'time_based_ad_rotation_intervals' => 'list<unsigned int>',
       'time_start' => 'datetime',
       'time_stop' => 'datetime',
       'upstream_events' => 'map',
-      'full_funnel_exploration_mode' => 'full_funnel_exploration_mode_enum',
-      'attribution_spec' => 'list<map>',
     );
     $enums = array(
       'bid_strategy_enum' => AdSetBidStrategyValues::getInstance()->getValues(),
       'billing_event_enum' => AdSetBillingEventValues::getInstance()->getValues(),
-      'status_enum' => AdSetStatusValues::getInstance()->getValues(),
       'destination_type_enum' => AdSetDestinationTypeValues::getInstance()->getValues(),
       'execution_options_enum' => AdSetExecutionOptionsValues::getInstance()->getValues(),
-      'optimization_goal_enum' => AdSetOptimizationGoalValues::getInstance()->getValues(),
       'full_funnel_exploration_mode_enum' => AdSetFullFunnelExplorationModeValues::getInstance()->getValues(),
+      'optimization_goal_enum' => AdSetOptimizationGoalValues::getInstance()->getValues(),
+      'status_enum' => AdSetStatusValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

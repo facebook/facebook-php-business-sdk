@@ -73,7 +73,6 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const FREQUENCY_DISTRIBUTION = 'frequency_distribution';
   const FREQUENCY_DISTRIBUTION_MAP = 'frequency_distribution_map';
   const FREQUENCY_DISTRIBUTION_MAP_AGG = 'frequency_distribution_map_agg';
-  const FULL_VIEW_RATIO_00 = 'full_view_ratio_00';
   const GRP_AUDIENCE_SIZE = 'grp_audience_size';
   const GRP_AVG_PROBABILITY_MAP = 'grp_avg_probability_map';
   const GRP_COUNTRY_AUDIENCE_SIZE = 'grp_country_audience_size';
@@ -125,21 +124,21 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const VIDEO_VIEW_LENGTH_CONSTRAINT = 'video_view_length_constraint';
   const VIEWTAG = 'viewtag';
   const ACTION = 'action';
-  const STOP_TIME = 'stop_time';
-  const REACH = 'reach';
-  const IMPRESSION = 'impression';
   const BUDGET = 'budget';
   const DEAL_ID = 'deal_id';
   const DESTINATION_IDS = 'destination_ids';
+  const EXCEPTIONS = 'exceptions';
+  const EXISTING_CAMPAIGN_ID = 'existing_campaign_id';
+  const GRP_BUYING = 'grp_buying';
+  const IMPRESSION = 'impression';
+  const IS_FULL_VIEW = 'is_full_view';
+  const IS_REACH_AND_FREQUENCY_IO_BUYING = 'is_reach_and_frequency_io_buying';
+  const NUM_CURVE_POINTS = 'num_curve_points';
+  const REACH = 'reach';
   const RF_PREDICTION_ID = 'rf_prediction_id';
   const RF_PREDICTION_ID_TO_RELEASE = 'rf_prediction_id_to_release';
   const RF_PREDICTION_ID_TO_SHARE = 'rf_prediction_id_to_share';
-  const NUM_CURVE_POINTS = 'num_curve_points';
-  const GRP_BUYING = 'grp_buying';
-  const IS_FULL_VIEW = 'is_full_view';
-  const IS_REACH_AND_FREQUENCY_IO_BUYING = 'is_reach_and_frequency_io_buying';
-  const EXISTING_CAMPAIGN_ID = 'existing_campaign_id';
-  const EXCEPTIONS = 'exceptions';
+  const STOP_TIME = 'stop_time';
 
   public function getFieldTypes() {
     return array(
@@ -179,7 +178,6 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'frequency_distribution' => 'list<float>',
       'frequency_distribution_map' => 'map<unsigned int, list<float>>',
       'frequency_distribution_map_agg' => 'map<unsigned int, list<unsigned int>>',
-      'full_view_ratio_00' => 'unsigned int',
       'grp_audience_size' => 'float',
       'grp_avg_probability_map' => 'string',
       'grp_country_audience_size' => 'float',
@@ -231,21 +229,21 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'video_view_length_constraint' => 'unsigned int',
       'viewtag' => 'string',
       'action' => 'Action',
-      'stop_time' => 'unsigned int',
-      'reach' => 'unsigned int',
-      'impression' => 'unsigned int',
       'budget' => 'unsigned int',
       'deal_id' => 'string',
       'destination_ids' => 'list<string>',
+      'exceptions' => 'bool',
+      'existing_campaign_id' => 'string',
+      'grp_buying' => 'bool',
+      'impression' => 'unsigned int',
+      'is_full_view' => 'bool',
+      'is_reach_and_frequency_io_buying' => 'bool',
+      'num_curve_points' => 'unsigned int',
+      'reach' => 'unsigned int',
       'rf_prediction_id' => 'string',
       'rf_prediction_id_to_release' => 'string',
       'rf_prediction_id_to_share' => 'string',
-      'num_curve_points' => 'unsigned int',
-      'grp_buying' => 'bool',
-      'is_full_view' => 'bool',
-      'is_reach_and_frequency_io_buying' => 'bool',
-      'existing_campaign_id' => 'string',
-      'exceptions' => 'bool',
+      'stop_time' => 'unsigned int',
     );
   }
 }

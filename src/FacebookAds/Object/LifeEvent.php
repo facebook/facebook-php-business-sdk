@@ -63,14 +63,14 @@ class LifeEvent extends AbstractCrudObject {
 
     $param_types = array(
       'filter' => 'filter_enum',
-      'order' => 'order_enum',
       'live_filter' => 'live_filter_enum',
+      'order' => 'order_enum',
       'since' => 'datetime',
     );
     $enums = array(
       'filter_enum' => CommentFilterValues::getInstance()->getValues(),
-      'order_enum' => CommentOrderValues::getInstance()->getValues(),
       'live_filter_enum' => CommentLiveFilterValues::getInstance()->getValues(),
+      'order_enum' => CommentOrderValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -92,17 +92,17 @@ class LifeEvent extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'attachment_id' => 'string',
+      'attachment_share_url' => 'string',
+      'attachment_url' => 'string',
+      'comment_privacy_value' => 'comment_privacy_value_enum',
+      'facepile_mentioned_ids' => 'list<string>',
+      'feedback_source' => 'string',
+      'is_offline' => 'bool',
+      'message' => 'string',
+      'nectar_module' => 'string',
       'object_id' => 'string',
       'parent_comment_id' => 'Object',
-      'nectar_module' => 'string',
-      'attachment_id' => 'string',
-      'attachment_url' => 'string',
-      'attachment_share_url' => 'string',
-      'feedback_source' => 'string',
-      'facepile_mentioned_ids' => 'list<string>',
-      'is_offline' => 'bool',
-      'comment_privacy_value' => 'comment_privacy_value_enum',
-      'message' => 'string',
       'text' => 'string',
       'tracking' => 'string',
     );
@@ -245,9 +245,9 @@ class LifeEvent extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'title' => 'string',
       'description' => 'string',
       'start_time' => 'datetime',
+      'title' => 'string',
     );
     $enums = array(
     );

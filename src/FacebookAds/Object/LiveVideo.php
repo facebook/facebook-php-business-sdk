@@ -103,14 +103,14 @@ class LiveVideo extends AbstractCrudObject {
 
     $param_types = array(
       'filter' => 'filter_enum',
-      'order' => 'order_enum',
       'live_filter' => 'live_filter_enum',
+      'order' => 'order_enum',
       'since' => 'datetime',
     );
     $enums = array(
       'filter_enum' => CommentFilterValues::getInstance()->getValues(),
-      'order_enum' => CommentOrderValues::getInstance()->getValues(),
       'live_filter_enum' => CommentLiveFilterValues::getInstance()->getValues(),
+      'order_enum' => CommentOrderValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -339,13 +339,13 @@ class LiveVideo extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'question' => 'string',
-      'options' => 'list<string>',
+      'close_after_voting' => 'bool',
       'correct_option' => 'unsigned int',
       'default_open' => 'bool',
-      'show_results' => 'bool',
+      'options' => 'list<string>',
+      'question' => 'string',
       'show_gradient' => 'bool',
-      'close_after_voting' => 'bool',
+      'show_results' => 'bool',
     );
     $enums = array(
     );
@@ -441,49 +441,49 @@ class LiveVideo extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'content_tags' => 'list<string>',
-      'privacy' => 'string',
-      'title' => 'string',
-      'description' => 'string',
-      'embeddable' => 'bool',
-      'disturbing' => 'bool',
-      'place' => 'Object',
-      'published' => 'bool',
-      'status' => 'status_enum',
-      'end_live_video' => 'bool',
-      'targeting' => 'Object',
-      'tags' => 'list<int>',
-      'og_phrase' => 'string',
-      'og_icon_id' => 'string',
-      'sponsor_id' => 'string',
-      'direct_share_status' => 'unsigned int',
-      'sponsor_relationship' => 'unsigned int',
-      'planned_start_time' => 'int',
-      'stream_type' => 'stream_type_enum',
-      'attribution_app_id' => 'string',
-      'attribution_app_metadata' => 'string',
-      'custom_labels' => 'list<string>',
-      'commercial_break_durations' => 'list<unsigned int>',
-      'is_audio_only' => 'bool',
-      'is_manual_mode' => 'bool',
-      'schedule_custom_profile_image' => 'file',
-      'schedule_feed_background_image' => 'file',
-      'product_items' => 'list<string>',
+      'ad_break_drop_live_stream' => 'bool',
+      'ad_break_duration' => 'unsigned int',
+      'ad_break_encoder_drops_live_stream' => 'bool',
       'ad_break_intent' => 'bool',
       'ad_break_start_now' => 'bool',
-      'ad_break_drop_live_stream' => 'bool',
       'ad_break_time_offset' => 'float',
-      'ad_break_encoder_drops_live_stream' => 'bool',
-      'ad_break_duration' => 'unsigned int',
-      'live_encoders' => 'list<string>',
-      'live_comment_moderation_setting' => 'list<live_comment_moderation_setting_enum>',
-      'crossposting_actions' => 'list<map>',
       'allow_bm_crossposting' => 'bool',
+      'attribution_app_id' => 'string',
+      'attribution_app_metadata' => 'string',
+      'commercial_break_durations' => 'list<unsigned int>',
+      'content_tags' => 'list<string>',
+      'crossposting_actions' => 'list<map>',
+      'custom_labels' => 'list<string>',
+      'description' => 'string',
+      'direct_share_status' => 'unsigned int',
+      'disturbing' => 'bool',
+      'embeddable' => 'bool',
+      'end_live_video' => 'bool',
+      'is_audio_only' => 'bool',
+      'is_manual_mode' => 'bool',
+      'live_comment_moderation_setting' => 'list<live_comment_moderation_setting_enum>',
+      'live_encoders' => 'list<string>',
+      'og_icon_id' => 'string',
+      'og_phrase' => 'string',
+      'place' => 'Object',
+      'planned_start_time' => 'int',
+      'privacy' => 'string',
+      'product_items' => 'list<string>',
+      'published' => 'bool',
+      'schedule_custom_profile_image' => 'file',
+      'schedule_feed_background_image' => 'file',
+      'sponsor_id' => 'string',
+      'sponsor_relationship' => 'unsigned int',
+      'status' => 'status_enum',
+      'stream_type' => 'stream_type_enum',
+      'tags' => 'list<int>',
+      'targeting' => 'Object',
+      'title' => 'string',
     );
     $enums = array(
+      'live_comment_moderation_setting_enum' => LiveVideoLiveCommentModerationSettingValues::getInstance()->getValues(),
       'status_enum' => LiveVideoStatusValues::getInstance()->getValues(),
       'stream_type_enum' => LiveVideoStreamTypeValues::getInstance()->getValues(),
-      'live_comment_moderation_setting_enum' => LiveVideoLiveCommentModerationSettingValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

@@ -40,7 +40,6 @@ class SplitTestConfigFields extends AbstractEnum {
   const BUDGET = 'budget';
   const EARLY_WINNER_DECLARATION_ENABLED = 'early_winner_declaration_enabled';
   const END_TIME = 'end_time';
-  const EXTEND_WINNER_ENABLED = 'extend_winner_enabled';
   const SPLITS = 'splits';
   const START_TIME = 'start_time';
   const TEST_VARIABLE = 'test_variable';
@@ -51,7 +50,6 @@ class SplitTestConfigFields extends AbstractEnum {
       'budget' => 'int',
       'early_winner_declaration_enabled' => 'bool',
       'end_time' => 'datetime',
-      'extend_winner_enabled' => 'bool',
       'splits' => 'list<int>',
       'start_time' => 'datetime',
       'test_variable' => 'string',

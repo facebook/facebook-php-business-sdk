@@ -38,5 +38,4 @@ use FacebookAds\Enum\AbstractEnum;
 class OwnedDomainPermittedRolesValues extends AbstractEnum {
 
   const ADMIN = 'ADMIN';
-  const WEBMASTER_DEVELOPER = 'WEBMASTER_DEVELOPER';
 }

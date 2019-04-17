@@ -92,9 +92,9 @@ class LeadgenForm extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'start_time' => 'datetime',
       'end_time' => 'datetime',
       'session_id' => 'string',
+      'start_time' => 'datetime',
     );
     $enums = array(
     );
@@ -141,8 +141,8 @@ class LeadgenForm extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'field_data' => 'list<Object>',
       'custom_disclaimer_responses' => 'list<Object>',
+      'field_data' => 'list<Object>',
     );
     $enums = array(
     );

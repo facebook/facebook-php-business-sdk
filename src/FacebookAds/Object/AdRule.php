@@ -91,9 +91,9 @@ class AdRule extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'object_id' => 'string',
       'action' => 'action_enum',
       'hide_no_changes' => 'bool',
+      'object_id' => 'string',
     );
     $enums = array(
       'action_enum' => AdRuleHistoryActionValues::getInstance()->getValues(),
@@ -189,8 +189,8 @@ class AdRule extends AbstractCrudObject {
     $param_types = array(
       'evaluation_spec' => 'Object',
       'execution_spec' => 'Object',
-      'schedule_spec' => 'Object',
       'name' => 'string',
+      'schedule_spec' => 'Object',
       'status' => 'status_enum',
     );
     $enums = array(

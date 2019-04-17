@@ -60,15 +60,15 @@ class InstantArticle extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'breakdown' => 'breakdown_enum',
       'metric' => 'list<Object>',
       'period' => 'period_enum',
       'since' => 'datetime',
       'until' => 'datetime',
-      'breakdown' => 'breakdown_enum',
     );
     $enums = array(
-      'period_enum' => InstantArticleInsightsQueryResultPeriodValues::getInstance()->getValues(),
       'breakdown_enum' => InstantArticleInsightsQueryResultBreakdownValues::getInstance()->getValues(),
+      'period_enum' => InstantArticleInsightsQueryResultPeriodValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

@@ -55,12 +55,12 @@ class AdReportSpecFields extends AbstractEnum {
   const TIME_INCREMENT = 'time_increment';
   const TIME_INTERVAL = 'time_interval';
   const TIME_RANGES = 'time_ranges';
+  const BUSINESS_ID = 'business_id';
+  const BYPASS_ASYNC = 'bypass_async';
   const FORMAT = 'format';
+  const LIMIT = 'limit';
   const REPORT_RUN_ID = 'report_run_id';
   const USER_REPORT = 'user_report';
-  const BUSINESS_ID = 'business_id';
-  const LIMIT = 'limit';
-  const BYPASS_ASYNC = 'bypass_async';
 
   public function getFieldTypes() {
     return array(
@@ -82,12 +82,12 @@ class AdReportSpecFields extends AbstractEnum {
       'time_increment' => 'string',
       'time_interval' => 'Object',
       'time_ranges' => 'list<Object>',
+      'business_id' => 'string',
+      'bypass_async' => 'bool',
       'format' => 'Format',
+      'limit' => 'int',
       'report_run_id' => 'string',
       'user_report' => 'bool',
-      'business_id' => 'string',
-      'limit' => 'int',
-      'bypass_async' => 'bool',
     );
   }
 }

@@ -64,9 +64,9 @@ class Profile extends AbstractCrudObject {
 
     $param_types = array(
       'height' => 'int',
-      'width' => 'int',
-      'type' => 'type_enum',
       'redirect' => 'bool',
+      'type' => 'type_enum',
+      'width' => 'int',
     );
     $enums = array(
       'type_enum' => ProfilePictureSourceTypeValues::getInstance()->getValues(),

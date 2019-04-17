@@ -54,7 +54,7 @@ class IGCommentFields extends AbstractEnum {
       'media' => 'IGMedia',
       'text' => 'string',
       'timestamp' => 'datetime',
-      'user' => 'Object',
+      'user' => 'IGUser',
       'username' => 'string',
     );
   }

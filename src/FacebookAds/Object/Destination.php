@@ -88,14 +88,14 @@ class Destination extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'description' => 'string',
-      'url' => 'string',
-      'images' => 'list<Object>',
-      'currency' => 'string',
-      'price' => 'unsigned int',
-      'name' => 'string',
-      'types' => 'string',
       'address' => 'Object',
+      'currency' => 'string',
+      'description' => 'string',
+      'images' => 'list<Object>',
+      'name' => 'string',
+      'price' => 'unsigned int',
+      'types' => 'string',
+      'url' => 'string',
     );
     $enums = array(
     );

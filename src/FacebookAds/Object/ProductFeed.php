@@ -397,13 +397,13 @@ class ProductFeed extends AbstractCrudObject {
 
     $param_types = array(
       'default_currency' => 'string',
+      'deletion_enabled' => 'bool',
       'delimiter' => 'delimiter_enum',
       'encoding' => 'encoding_enum',
       'name' => 'string',
       'quoted_fields_mode' => 'quoted_fields_mode_enum',
       'schedule' => 'string',
       'update_schedule' => 'string',
-      'deletion_enabled' => 'bool',
     );
     $enums = array(
       'delimiter_enum' => ProductFeedDelimiterValues::getInstance()->getValues(),

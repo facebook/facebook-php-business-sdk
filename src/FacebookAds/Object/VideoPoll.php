@@ -107,10 +107,10 @@ class VideoPoll extends AbstractCrudObject {
 
     $param_types = array(
       'action' => 'action_enum',
-      'default_open' => 'bool',
-      'show_results' => 'bool',
-      'show_gradient' => 'bool',
       'close_after_voting' => 'bool',
+      'default_open' => 'bool',
+      'show_gradient' => 'bool',
+      'show_results' => 'bool',
     );
     $enums = array(
       'action_enum' => VideoPollActionValues::getInstance()->getValues(),

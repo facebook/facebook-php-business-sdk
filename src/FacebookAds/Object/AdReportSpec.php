@@ -119,33 +119,33 @@ class AdReportSpec extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'time_ranges' => 'list',
-      'data_columns' => 'list<string>',
       'actions_group_by' => 'list<actions_group_by_enum>',
+      'business_id' => 'string',
+      'bypass_async' => 'bool',
+      'creation_source' => 'creation_source_enum',
+      'data_columns' => 'list<string>',
+      'date_preset' => 'date_preset_enum',
+      'export_columns' => 'Object',
       'filters' => 'list<Object>',
+      'format' => 'format_enum',
+      'format_version' => 'unsigned int',
+      'insights_section' => 'Object',
+      'limit' => 'int',
+      'name' => 'string',
+      'report_run_id' => 'string',
+      'report_schedule_id' => 'string',
       'sort_by' => 'string',
       'sort_dir' => 'string',
       'time_increment' => 'string',
       'time_interval' => 'Object',
-      'date_preset' => 'date_preset_enum',
-      'format' => 'format_enum',
-      'export_columns' => 'Object',
-      'report_run_id' => 'string',
-      'name' => 'string',
+      'time_ranges' => 'list',
       'user_report' => 'bool',
-      'business_id' => 'string',
-      'limit' => 'int',
-      'bypass_async' => 'bool',
-      'report_schedule_id' => 'string',
-      'insights_section' => 'Object',
-      'creation_source' => 'creation_source_enum',
-      'format_version' => 'unsigned int',
     );
     $enums = array(
       'actions_group_by_enum' => AdReportSpecActionsGroupByValues::getInstance()->getValues(),
+      'creation_source_enum' => AdReportSpecCreationSourceValues::getInstance()->getValues(),
       'date_preset_enum' => AdReportSpecDatePresetValues::getInstance()->getValues(),
       'format_enum' => AdReportSpecFormatValues::getInstance()->getValues(),
-      'creation_source_enum' => AdReportSpecCreationSourceValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

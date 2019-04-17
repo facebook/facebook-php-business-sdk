@@ -81,12 +81,12 @@ class NativeOfferView extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'urls' => 'list<string>',
-      'photos' => 'list<string>',
       'ad_account' => 'string',
       'ad_image_hashes' => 'list<string>',
-      'image_crops' => 'list<map>',
       'file' => 'file',
+      'image_crops' => 'list<map>',
+      'photos' => 'list<string>',
+      'urls' => 'list<string>',
     );
     $enums = array(
     );
@@ -157,9 +157,9 @@ class NativeOfferView extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'published_ads' => 'bool',
-      'published' => 'bool',
       'message' => 'string',
+      'published' => 'bool',
+      'published_ads' => 'bool',
     );
     $enums = array(
     );

@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ProductCatalogPermittedTasksValues extends AbstractEnum {
 
-  const ADMIN = 'ADMIN';
-  const ADVERTISER = 'ADVERTISER';
+  const ADVERTISE = 'ADVERTISE';
+  const MANAGE = 'MANAGE';
 }

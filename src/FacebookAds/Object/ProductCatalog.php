@@ -41,6 +41,7 @@ use FacebookAds\Object\Values\ProductCatalogPermittedRolesValues;
 use FacebookAds\Object\Values\ProductCatalogPermittedTasksValues;
 use FacebookAds\Object\Values\ProductCatalogRoleValues;
 use FacebookAds\Object\Values\ProductCatalogStandardValues;
+use FacebookAds\Object\Values\ProductCatalogTasksValues;
 use FacebookAds\Object\Values\ProductCatalogVerticalValues;
 use FacebookAds\Object\Values\ProductDaEventSamplesBatchAggregationTypeValues;
 use FacebookAds\Object\Values\ProductDaEventSamplesBatchEventValues;
@@ -92,6 +93,7 @@ class ProductCatalog extends AbstractCrudObject {
     $ref_enums['Vertical'] = ProductCatalogVerticalValues::getInstance()->getValues();
     $ref_enums['PermittedRoles'] = ProductCatalogPermittedRolesValues::getInstance()->getValues();
     $ref_enums['PermittedTasks'] = ProductCatalogPermittedTasksValues::getInstance()->getValues();
+    $ref_enums['Tasks'] = ProductCatalogTasksValues::getInstance()->getValues();
     $ref_enums['Standard'] = ProductCatalogStandardValues::getInstance()->getValues();
     $ref_enums['Role'] = ProductCatalogRoleValues::getInstance()->getValues();
     return $ref_enums;
@@ -173,6 +175,82 @@ class ProductCatalog extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function deleteAssignedUsers(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'business' => 'string',
+      'user' => 'int',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/assigned_users',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getAssignedUsers(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'business' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/assigned_users',
+      new AssignedUser(),
+      'EDGE',
+      AssignedUser::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createAssignedUser(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'business' => 'string',
+      'tasks' => 'list<tasks_enum>',
+      'user' => 'int',
+    );
+    $enums = array(
+      'tasks_enum' => ProductCatalogTasksValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/assigned_users',
+      new ProductCatalog(),
+      'EDGE',
+      ProductCatalog::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getAutomotiveModels(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -202,8 +280,8 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'requests' => 'list<map>',
       'allow_upsert' => 'bool',
+      'requests' => 'list<map>',
     );
     $enums = array(
     );
@@ -402,13 +480,13 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'source_id' => 'string',
-      'event' => 'event_enum',
       'aggregation_type' => 'aggregation_type_enum',
+      'event' => 'event_enum',
+      'source_id' => 'string',
     );
     $enums = array(
-      'event_enum' => ProductDaEventSamplesBatchEventValues::getInstance()->getValues(),
       'aggregation_type_enum' => ProductDaEventSamplesBatchAggregationTypeValues::getInstance()->getValues(),
+      'event_enum' => ProductDaEventSamplesBatchEventValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -455,15 +533,15 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'destination_id' => 'string',
-      'images' => 'list<Object>',
-      'types' => 'string',
-      'url' => 'string',
-      'name' => 'string',
       'address' => 'Object',
       'currency' => 'string',
-      'price' => 'unsigned int',
       'description' => 'string',
+      'destination_id' => 'string',
+      'images' => 'list<Object>',
+      'name' => 'string',
+      'price' => 'unsigned int',
+      'types' => 'string',
+      'url' => 'string',
     );
     $enums = array(
     );
@@ -608,13 +686,13 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'currency' => 'string',
+      'description' => 'string',
+      'destination_airport' => 'string',
       'images' => 'list<Object>',
       'origin_airport' => 'string',
-      'destination_airport' => 'string',
-      'description' => 'string',
-      'url' => 'string',
-      'currency' => 'string',
       'price' => 'unsigned int',
+      'url' => 'string',
     );
     $enums = array(
     );
@@ -663,21 +741,21 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'home_listing_id' => 'string',
       'address' => 'Object',
       'availability' => 'string',
-      'images' => 'list<Object>',
-      'name' => 'string',
       'currency' => 'string',
-      'price' => 'float',
-      'url' => 'string',
-      'year_built' => 'unsigned int',
       'description' => 'string',
+      'home_listing_id' => 'string',
+      'images' => 'list<Object>',
       'listing_type' => 'string',
+      'name' => 'string',
       'num_baths' => 'float',
       'num_beds' => 'float',
       'num_units' => 'float',
+      'price' => 'float',
       'property_type' => 'string',
+      'url' => 'string',
+      'year_built' => 'unsigned int',
     );
     $enums = array(
     );
@@ -728,9 +806,9 @@ class ProductCatalog extends AbstractCrudObject {
       'file' => 'file',
       'password' => 'string',
       'standard' => 'standard_enum',
+      'update_only' => 'bool',
       'url' => 'string',
       'username' => 'string',
-      'update_only' => 'bool',
     );
     $enums = array(
       'standard_enum' => ProductCatalogStandardValues::getInstance()->getValues(),
@@ -780,19 +858,19 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'hotel_id' => 'string',
       'address' => 'Object',
-      'brand' => 'string',
-      'description' => 'string',
-      'name' => 'string',
-      'url' => 'string',
-      'images' => 'list<Object>',
-      'currency' => 'string',
-      'base_price' => 'unsigned int',
       'applinks' => 'Object',
+      'base_price' => 'unsigned int',
+      'brand' => 'string',
+      'currency' => 'string',
+      'description' => 'string',
+      'guest_ratings' => 'list<Object>',
+      'hotel_id' => 'string',
+      'images' => 'list<Object>',
+      'name' => 'string',
       'phone' => 'string',
       'star_rating' => 'float',
-      'guest_ratings' => 'list<Object>',
+      'url' => 'string',
     );
     $enums = array(
     );
@@ -816,9 +894,9 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'requests' => 'map',
-      'item_type' => 'string',
       'allow_upsert' => 'bool',
+      'item_type' => 'string',
+      'requests' => 'map',
     );
     $enums = array(
     );
@@ -869,9 +947,9 @@ class ProductCatalog extends AbstractCrudObject {
       'file' => 'file',
       'password' => 'string',
       'standard' => 'standard_enum',
+      'update_only' => 'bool',
       'url' => 'string',
       'username' => 'string',
-      'update_only' => 'bool',
     );
     $enums = array(
       'standard_enum' => ProductCatalogStandardValues::getInstance()->getValues(),
@@ -919,24 +997,24 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'country' => 'string',
       'default_currency' => 'string',
+      'deletion_enabled' => 'bool',
       'delimiter' => 'delimiter_enum',
       'encoding' => 'encoding_enum',
-      'name' => 'string',
-      'quoted_fields_mode' => 'quoted_fields_mode_enum',
-      'schedule' => 'string',
-      'update_schedule' => 'string',
-      'country' => 'string',
-      'deletion_enabled' => 'bool',
       'feed_type' => 'feed_type_enum',
       'file_name' => 'string',
+      'name' => 'string',
+      'quoted_fields_mode' => 'quoted_fields_mode_enum',
       'rules' => 'list<string>',
+      'schedule' => 'string',
+      'update_schedule' => 'string',
     );
     $enums = array(
       'delimiter_enum' => ProductFeedDelimiterValues::getInstance()->getValues(),
       'encoding_enum' => ProductFeedEncodingValues::getInstance()->getValues(),
-      'quoted_fields_mode_enum' => ProductFeedQuotedFieldsModeValues::getInstance()->getValues(),
       'feed_type_enum' => ProductFeedFeedTypeValues::getInstance()->getValues(),
+      'quoted_fields_mode_enum' => ProductFeedQuotedFieldsModeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1006,9 +1084,9 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'parent_id' => 'string',
       'ancestor_id' => 'string',
       'has_children' => 'bool',
+      'parent_id' => 'string',
       'retailer_id' => 'string',
     );
     $enums = array(
@@ -1085,9 +1163,9 @@ class ProductCatalog extends AbstractCrudObject {
       'file' => 'file',
       'password' => 'string',
       'standard' => 'standard_enum',
+      'update_only' => 'bool',
       'url' => 'string',
       'username' => 'string',
-      'update_only' => 'bool',
     );
     $enums = array(
       'standard_enum' => ProductCatalogStandardValues::getInstance()->getValues(),
@@ -1113,8 +1191,8 @@ class ProductCatalog extends AbstractCrudObject {
 
     $param_types = array(
       'bulk_pagination' => 'bool',
-      'return_only_approved_products' => 'bool',
       'filter' => 'Object',
+      'return_only_approved_products' => 'bool',
     );
     $enums = array(
     );
@@ -1138,70 +1216,70 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'retailer_id' => 'string',
-      'retailer_product_group_id' => 'string',
-      'availability' => 'availability_enum',
-      'currency' => 'string',
-      'condition' => 'condition_enum',
-      'description' => 'string',
-      'image_url' => 'string',
-      'name' => 'string',
-      'price' => 'unsigned int',
-      'product_type' => 'string',
-      'url' => 'string',
-      'visibility' => 'visibility_enum',
       'additional_image_urls' => 'list<string>',
       'additional_variant_attributes' => 'map',
+      'android_app_name' => 'string',
+      'android_class' => 'string',
+      'android_package' => 'string',
+      'android_url' => 'string',
+      'availability' => 'availability_enum',
       'brand' => 'string',
       'category' => 'string',
       'checkout_url' => 'string',
       'color' => 'string',
+      'condition' => 'condition_enum',
+      'currency' => 'string',
       'custom_data' => 'map',
       'custom_label_0' => 'string',
       'custom_label_1' => 'string',
       'custom_label_2' => 'string',
       'custom_label_3' => 'string',
       'custom_label_4' => 'string',
+      'description' => 'string',
       'expiration_date' => 'string',
       'gender' => 'gender_enum',
       'gtin' => 'string',
+      'image_url' => 'string',
       'inventory' => 'unsigned int',
+      'ios_app_name' => 'string',
+      'ios_app_store_id' => 'unsigned int',
+      'ios_url' => 'string',
+      'ipad_app_name' => 'string',
+      'ipad_app_store_id' => 'unsigned int',
+      'ipad_url' => 'string',
+      'iphone_app_name' => 'string',
+      'iphone_app_store_id' => 'unsigned int',
+      'iphone_url' => 'string',
       'manufacturer_part_number' => 'string',
-      'mobile_link' => 'string',
       'material' => 'string',
+      'mobile_link' => 'string',
+      'name' => 'string',
       'offer_price_amount' => 'unsigned int',
       'offer_price_end_date' => 'datetime',
       'offer_price_start_date' => 'datetime',
       'ordering_index' => 'unsigned int',
       'pattern' => 'string',
+      'price' => 'unsigned int',
+      'product_type' => 'string',
+      'retailer_id' => 'string',
+      'retailer_product_group_id' => 'string',
       'sale_price' => 'unsigned int',
       'sale_price_end_date' => 'datetime',
       'sale_price_start_date' => 'datetime',
       'short_description' => 'string',
       'size' => 'string',
       'start_date' => 'string',
-      'ios_url' => 'string',
-      'ios_app_store_id' => 'unsigned int',
-      'ios_app_name' => 'string',
-      'iphone_url' => 'string',
-      'iphone_app_store_id' => 'unsigned int',
-      'iphone_app_name' => 'string',
-      'ipad_url' => 'string',
-      'ipad_app_store_id' => 'unsigned int',
-      'ipad_app_name' => 'string',
-      'android_url' => 'string',
-      'android_package' => 'string',
-      'android_class' => 'string',
-      'android_app_name' => 'string',
-      'windows_phone_url' => 'string',
+      'url' => 'string',
+      'visibility' => 'visibility_enum',
       'windows_phone_app_id' => 'string',
       'windows_phone_app_name' => 'string',
+      'windows_phone_url' => 'string',
     );
     $enums = array(
       'availability_enum' => ProductItemAvailabilityValues::getInstance()->getValues(),
       'condition_enum' => ProductItemConditionValues::getInstance()->getValues(),
-      'visibility_enum' => ProductItemVisibilityValues::getInstance()->getValues(),
       'gender_enum' => ProductItemGenderValues::getInstance()->getValues(),
+      'visibility_enum' => ProductItemVisibilityValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1223,9 +1301,9 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'user' => 'int',
-      'email' => 'string',
       'business' => 'string',
+      'email' => 'string',
+      'user' => 'int',
     );
     $enums = array(
     );
@@ -1274,10 +1352,10 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'user' => 'int',
+      'business' => 'string',
       'email' => 'string',
       'role' => 'role_enum',
-      'business' => 'string',
+      'user' => 'int',
     );
     $enums = array(
       'role_enum' => ProductCatalogRoleValues::getInstance()->getValues(),
@@ -1327,44 +1405,44 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'vehicle_id' => 'string',
-      'body_style' => 'body_style_enum',
-      'description' => 'string',
-      'exterior_color' => 'string',
-      'make' => 'string',
-      'mileage' => 'map',
-      'model' => 'string',
-      'state_of_vehicle' => 'state_of_vehicle_enum',
-      'vin' => 'string',
-      'url' => 'string',
-      'year' => 'unsigned int',
-      'images' => 'list<Object>',
       'address' => 'map',
-      'currency' => 'string',
-      'price' => 'unsigned int',
-      'title' => 'string',
       'applinks' => 'Object',
-      'transmission' => 'transmission_enum',
-      'drivetrain' => 'drivetrain_enum',
-      'fuel_type' => 'fuel_type_enum',
-      'trim' => 'string',
-      'interior_color' => 'string',
-      'condition' => 'condition_enum',
-      'date_first_on_lot' => 'string',
       'availability' => 'availability_enum',
+      'body_style' => 'body_style_enum',
+      'condition' => 'condition_enum',
+      'currency' => 'string',
+      'date_first_on_lot' => 'string',
       'dealer_id' => 'string',
       'dealer_name' => 'string',
       'dealer_phone' => 'string',
+      'description' => 'string',
+      'drivetrain' => 'drivetrain_enum',
+      'exterior_color' => 'string',
+      'fuel_type' => 'fuel_type_enum',
+      'images' => 'list<Object>',
+      'interior_color' => 'string',
+      'make' => 'string',
+      'mileage' => 'map',
+      'model' => 'string',
+      'price' => 'unsigned int',
+      'state_of_vehicle' => 'state_of_vehicle_enum',
+      'title' => 'string',
+      'transmission' => 'transmission_enum',
+      'trim' => 'string',
+      'url' => 'string',
+      'vehicle_id' => 'string',
       'vehicle_type' => 'vehicle_type_enum',
+      'vin' => 'string',
+      'year' => 'unsigned int',
     );
     $enums = array(
+      'availability_enum' => VehicleAvailabilityValues::getInstance()->getValues(),
       'body_style_enum' => VehicleBodyStyleValues::getInstance()->getValues(),
-      'state_of_vehicle_enum' => VehicleStateOfVehicleValues::getInstance()->getValues(),
-      'transmission_enum' => VehicleTransmissionValues::getInstance()->getValues(),
+      'condition_enum' => VehicleConditionValues::getInstance()->getValues(),
       'drivetrain_enum' => VehicleDrivetrainValues::getInstance()->getValues(),
       'fuel_type_enum' => VehicleFuelTypeValues::getInstance()->getValues(),
-      'condition_enum' => VehicleConditionValues::getInstance()->getValues(),
-      'availability_enum' => VehicleAvailabilityValues::getInstance()->getValues(),
+      'state_of_vehicle_enum' => VehicleStateOfVehicleValues::getInstance()->getValues(),
+      'transmission_enum' => VehicleTransmissionValues::getInstance()->getValues(),
       'vehicle_type_enum' => VehicleVehicleTypeValues::getInstance()->getValues(),
     );
 
@@ -1387,86 +1465,86 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'title' => 'string',
-      'source' => 'string',
-      'unpublished_content_type' => 'unpublished_content_type_enum',
-      'time_since_original_post' => 'unsigned int',
-      'file_url' => 'string',
-      'composer_session_id' => 'string',
-      'waterfall_id' => 'string',
-      'og_action_type_id' => 'string',
-      'og_object_id' => 'string',
-      'og_phrase' => 'string',
-      'og_icon_id' => 'string',
-      'og_suggestion_mechanism' => 'string',
-      'thumb' => 'file',
-      'spherical' => 'bool',
-      'original_projection_type' => 'original_projection_type_enum',
-      'initial_heading' => 'unsigned int',
-      'initial_pitch' => 'unsigned int',
-      'fov' => 'unsigned int',
-      'original_fov' => 'unsigned int',
-      'fisheye_video_cropped' => 'bool',
-      'front_z_rotation' => 'float',
-      'guide_enabled' => 'bool',
-      'guide' => 'list<list<unsigned int>>',
-      'audio_story_wave_animation_handle' => 'string',
-      'manual_privacy' => 'bool',
-      'is_explicit_share' => 'bool',
       'adaptive_type' => 'string',
       'animated_effect_id' => 'unsigned int',
+      'application_id' => 'string',
       'asked_fun_fact_prompt_id' => 'unsigned int',
+      'attribution_app_id' => 'string',
+      'audio_story_wave_animation_handle' => 'string',
       'composer_entry_picker' => 'string',
       'composer_entry_point' => 'string',
       'composer_entry_time' => 'unsigned int',
       'composer_session_events_log' => 'string',
+      'composer_session_id' => 'string',
       'composer_source_surface' => 'string',
       'composer_type' => 'string',
+      'container_type' => 'container_type_enum',
+      'content_category' => 'content_category_enum',
+      'description' => 'string',
+      'embeddable' => 'bool',
+      'end_offset' => 'unsigned int',
+      'fbuploader_video_file_chunk' => 'string',
+      'file_size' => 'unsigned int',
+      'file_url' => 'string',
+      'fisheye_video_cropped' => 'bool',
       'formatting' => 'formatting_enum',
+      'fov' => 'unsigned int',
+      'front_z_rotation' => 'float',
       'fun_fact_prompt_id' => 'unsigned int',
       'fun_fact_toastee_id' => 'unsigned int',
-      'is_group_linking_post' => 'bool',
+      'guide' => 'list<list<unsigned int>>',
+      'guide_enabled' => 'bool',
       'has_nickname' => 'bool',
       'holiday_card' => 'string',
+      'initial_heading' => 'unsigned int',
+      'initial_pitch' => 'unsigned int',
       'instant_game_entry_point_data' => 'string',
       'is_boost_intended' => 'bool',
+      'is_explicit_share' => 'bool',
+      'is_group_linking_post' => 'bool',
+      'is_voice_clip' => 'bool',
       'location_source_id' => 'string',
-      'description' => 'string',
+      'manual_privacy' => 'bool',
       'offer_like_post_id' => 'unsigned int',
+      'og_action_type_id' => 'string',
+      'og_icon_id' => 'string',
+      'og_object_id' => 'string',
+      'og_phrase' => 'string',
+      'og_suggestion_mechanism' => 'string',
+      'original_fov' => 'unsigned int',
+      'original_projection_type' => 'original_projection_type_enum',
       'publish_event_id' => 'unsigned int',
       'react_mode_metadata' => 'string',
-      'sales_promo_id' => 'unsigned int',
-      'text_format_metadata' => 'string',
-      'throwback_camera_roll_media' => 'string',
-      'video_start_time_ms' => 'unsigned int',
-      'application_id' => 'string',
-      'upload_phase' => 'upload_phase_enum',
-      'file_size' => 'unsigned int',
-      'start_offset' => 'unsigned int',
-      'end_offset' => 'unsigned int',
-      'video_file_chunk' => 'string',
-      'fbuploader_video_file_chunk' => 'string',
-      'upload_session_id' => 'string',
-      'is_voice_clip' => 'bool',
-      'attribution_app_id' => 'string',
-      'content_category' => 'content_category_enum',
-      'embeddable' => 'bool',
-      'slideshow_spec' => 'map',
-      'upload_setting_properties' => 'string',
-      'transcode_setting_properties' => 'string',
-      'container_type' => 'container_type_enum',
       'referenced_sticker_id' => 'string',
       'replace_video_id' => 'string',
+      'sales_promo_id' => 'unsigned int',
+      'slideshow_spec' => 'map',
+      'source' => 'string',
+      'spherical' => 'bool',
+      'start_offset' => 'unsigned int',
       'swap_mode' => 'swap_mode_enum',
+      'text_format_metadata' => 'string',
+      'throwback_camera_roll_media' => 'string',
+      'thumb' => 'file',
+      'time_since_original_post' => 'unsigned int',
+      'title' => 'string',
+      'transcode_setting_properties' => 'string',
+      'unpublished_content_type' => 'unpublished_content_type_enum',
+      'upload_phase' => 'upload_phase_enum',
+      'upload_session_id' => 'string',
+      'upload_setting_properties' => 'string',
+      'video_file_chunk' => 'string',
+      'video_start_time_ms' => 'unsigned int',
+      'waterfall_id' => 'string',
     );
     $enums = array(
-      'unpublished_content_type_enum' => AdVideoUnpublishedContentTypeValues::getInstance()->getValues(),
-      'original_projection_type_enum' => AdVideoOriginalProjectionTypeValues::getInstance()->getValues(),
-      'formatting_enum' => AdVideoFormattingValues::getInstance()->getValues(),
-      'upload_phase_enum' => AdVideoUploadPhaseValues::getInstance()->getValues(),
-      'content_category_enum' => AdVideoContentCategoryValues::getInstance()->getValues(),
       'container_type_enum' => AdVideoContainerTypeValues::getInstance()->getValues(),
+      'content_category_enum' => AdVideoContentCategoryValues::getInstance()->getValues(),
+      'formatting_enum' => AdVideoFormattingValues::getInstance()->getValues(),
+      'original_projection_type_enum' => AdVideoOriginalProjectionTypeValues::getInstance()->getValues(),
       'swap_mode_enum' => AdVideoSwapModeValues::getInstance()->getValues(),
+      'unpublished_content_type_enum' => AdVideoUnpublishedContentTypeValues::getInstance()->getValues(),
+      'upload_phase_enum' => AdVideoUploadPhaseValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1534,12 +1612,12 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'name' => 'string',
+      'da_display_settings' => 'Object',
       'default_image_url' => 'string',
+      'destination_catalog_settings' => 'map',
       'fallback_image_url' => 'string',
       'flight_catalog_settings' => 'map',
-      'destination_catalog_settings' => 'map',
-      'da_display_settings' => 'Object',
+      'name' => 'string',
     );
     $enums = array(
     );

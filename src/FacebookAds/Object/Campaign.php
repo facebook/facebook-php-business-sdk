@@ -197,13 +197,13 @@ class Campaign extends AbstractArchivableCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'effective_status' => 'list<string>',
+      'ad_draft_id' => 'string',
       'date_preset' => 'date_preset_enum',
+      'effective_status' => 'list<string>',
       'include_deleted' => 'bool',
+      'include_drafts' => 'bool',
       'time_range' => 'Object',
       'updated_since' => 'int',
-      'ad_draft_id' => 'string',
-      'include_drafts' => 'bool',
     );
     $enums = array(
       'date_preset_enum' => AdDatePresetValues::getInstance()->getValues(),
@@ -228,16 +228,16 @@ class Campaign extends AbstractArchivableCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'effective_status' => 'list<effective_status_enum>',
+      'ad_draft_id' => 'string',
       'date_preset' => 'date_preset_enum',
+      'effective_status' => 'list<effective_status_enum>',
+      'include_drafts' => 'bool',
       'is_completed' => 'bool',
       'time_range' => 'Object',
-      'ad_draft_id' => 'string',
-      'include_drafts' => 'bool',
     );
     $enums = array(
-      'effective_status_enum' => AdSetEffectiveStatusValues::getInstance()->getValues(),
       'date_preset_enum' => AdSetDatePresetValues::getInstance()->getValues(),
+      'effective_status_enum' => AdSetEffectiveStatusValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -259,14 +259,14 @@ class Campaign extends AbstractArchivableCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'effective_status' => 'list<effective_status_enum>',
       'date_preset' => 'date_preset_enum',
+      'effective_status' => 'list<effective_status_enum>',
       'is_completed' => 'bool',
       'time_range' => 'Object',
     );
     $enums = array(
-      'effective_status_enum' => CampaignEffectiveStatusValues::getInstance()->getValues(),
       'date_preset_enum' => CampaignDatePresetValues::getInstance()->getValues(),
+      'effective_status_enum' => CampaignEffectiveStatusValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -289,10 +289,10 @@ class Campaign extends AbstractArchivableCrudObject {
 
     $param_types = array(
       'deep_copy' => 'bool',
-      'rename_options' => 'Object',
-      'status_option' => 'status_option_enum',
-      'start_time' => 'datetime',
       'end_time' => 'datetime',
+      'rename_options' => 'Object',
+      'start_time' => 'datetime',
+      'status_option' => 'status_option_enum',
     );
     $enums = array(
       'status_option_enum' => CampaignStatusOptionValues::getInstance()->getValues(),
@@ -317,21 +317,21 @@ class Campaign extends AbstractArchivableCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'default_summary' => 'bool',
-      'fields' => 'list<string>',
-      'filtering' => 'list<Object>',
-      'summary' => 'list<string>',
-      'sort' => 'list<string>',
       'action_attribution_windows' => 'list<action_attribution_windows_enum>',
       'action_breakdowns' => 'list<action_breakdowns_enum>',
       'action_report_time' => 'action_report_time_enum',
       'breakdowns' => 'list<breakdowns_enum>',
       'date_preset' => 'date_preset_enum',
+      'default_summary' => 'bool',
       'export_columns' => 'list<string>',
       'export_format' => 'string',
       'export_name' => 'string',
+      'fields' => 'list<string>',
+      'filtering' => 'list<Object>',
       'level' => 'level_enum',
       'product_id_limit' => 'int',
+      'sort' => 'list<string>',
+      'summary' => 'list<string>',
       'summary_action_breakdowns' => 'list<summary_action_breakdowns_enum>',
       'time_increment' => 'string',
       'time_range' => 'Object',
@@ -367,21 +367,21 @@ class Campaign extends AbstractArchivableCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'default_summary' => 'bool',
-      'fields' => 'list<string>',
-      'filtering' => 'list<Object>',
-      'summary' => 'list<string>',
-      'sort' => 'list<string>',
       'action_attribution_windows' => 'list<action_attribution_windows_enum>',
       'action_breakdowns' => 'list<action_breakdowns_enum>',
       'action_report_time' => 'action_report_time_enum',
       'breakdowns' => 'list<breakdowns_enum>',
       'date_preset' => 'date_preset_enum',
+      'default_summary' => 'bool',
       'export_columns' => 'list<string>',
       'export_format' => 'string',
       'export_name' => 'string',
+      'fields' => 'list<string>',
+      'filtering' => 'list<Object>',
       'level' => 'level_enum',
       'product_id_limit' => 'int',
+      'sort' => 'list<string>',
+      'summary' => 'list<string>',
       'summary_action_breakdowns' => 'list<summary_action_breakdowns_enum>',
       'time_increment' => 'string',
       'time_range' => 'Object',
@@ -488,28 +488,28 @@ class Campaign extends AbstractArchivableCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'name' => 'string',
-      'objective' => 'objective_enum',
-      'status' => 'status_enum',
+      'adlabels' => 'list<Object>',
+      'adset_bid_amounts' => 'map',
+      'adset_budgets' => 'list<map>',
       'bid_strategy' => 'bid_strategy_enum',
       'budget_rebalance_flag' => 'bool',
       'daily_budget' => 'unsigned int',
+      'execution_options' => 'list<execution_options_enum>',
+      'iterative_split_test_configs' => 'list<Object>',
       'lifetime_budget' => 'unsigned int',
+      'name' => 'string',
+      'objective' => 'objective_enum',
       'pacing_type' => 'list<string>',
       'promoted_object' => 'Object',
       'spend_cap' => 'unsigned int',
-      'execution_options' => 'list<execution_options_enum>',
+      'status' => 'status_enum',
       'upstream_events' => 'map',
-      'adlabels' => 'list<Object>',
-      'iterative_split_test_configs' => 'list<Object>',
-      'adset_bid_amounts' => 'map',
-      'adset_budgets' => 'list<map>',
     );
     $enums = array(
-      'objective_enum' => CampaignObjectiveValues::getInstance()->getValues(),
-      'status_enum' => CampaignStatusValues::getInstance()->getValues(),
       'bid_strategy_enum' => CampaignBidStrategyValues::getInstance()->getValues(),
       'execution_options_enum' => CampaignExecutionOptionsValues::getInstance()->getValues(),
+      'objective_enum' => CampaignObjectiveValues::getInstance()->getValues(),
+      'status_enum' => CampaignStatusValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

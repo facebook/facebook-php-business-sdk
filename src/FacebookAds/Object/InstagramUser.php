@@ -181,8 +181,8 @@ class InstagramUser extends AbstractCrudObject {
 
     $param_types = array(
       'business' => 'string',
-      'user' => 'Object',
       'role' => 'role_enum',
+      'user' => 'Object',
     );
     $enums = array(
       'role_enum' => InstagramUserRoleValues::getInstance()->getValues(),
@@ -282,8 +282,8 @@ class InstagramUser extends AbstractCrudObject {
 
     $param_types = array(
       'business' => 'string',
-      'user' => 'Object',
       'role' => 'role_enum',
+      'user' => 'Object',
     );
     $enums = array(
       'role_enum' => InstagramUserRoleValues::getInstance()->getValues(),

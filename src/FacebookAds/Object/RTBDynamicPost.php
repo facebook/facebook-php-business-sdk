@@ -62,14 +62,14 @@ class RTBDynamicPost extends AbstractCrudObject {
 
     $param_types = array(
       'filter' => 'filter_enum',
-      'order' => 'order_enum',
       'live_filter' => 'live_filter_enum',
+      'order' => 'order_enum',
       'since' => 'datetime',
     );
     $enums = array(
       'filter_enum' => CommentFilterValues::getInstance()->getValues(),
-      'order_enum' => CommentOrderValues::getInstance()->getValues(),
       'live_filter_enum' => CommentLiveFilterValues::getInstance()->getValues(),
+      'order_enum' => CommentOrderValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

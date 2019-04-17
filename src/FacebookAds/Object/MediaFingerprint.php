@@ -108,8 +108,8 @@ class MediaFingerprint extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'title' => 'string',
       'metadata' => 'list',
+      'title' => 'string',
       'universal_content_id' => 'string',
     );
     $enums = array(

@@ -104,11 +104,11 @@ class PageAboutStory extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'composed_text' => 'list<map>',
+      'cover_photo' => 'map',
+      'entity_map' => 'list<map>',
       'is_published' => 'bool',
       'title' => 'string',
-      'cover_photo' => 'map',
-      'composed_text' => 'list<map>',
-      'entity_map' => 'list<map>',
     );
     $enums = array(
     );

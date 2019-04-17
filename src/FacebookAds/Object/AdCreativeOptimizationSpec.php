@@ -28,7 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AdsPostFields;
+use FacebookAds\Object\Fields\AdCreativeOptimizationSpecFields;
 
 /**
  * This class is auto-generated.
@@ -39,13 +39,13 @@ use FacebookAds\Object\Fields\AdsPostFields;
  *
  */
 
-class AdsPost extends AbstractCrudObject {
+class AdCreativeOptimizationSpec extends AbstractObject {
 
   /**
-   * @return AdsPostFields
+   * @return AdCreativeOptimizationSpecFields
    */
   public static function getFieldsEnum() {
-    return AdsPostFields::getInstance();
+    return AdCreativeOptimizationSpecFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -53,28 +53,5 @@ class AdsPost extends AbstractCrudObject {
     return $ref_enums;
   }
 
-
-  public function getInsights(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/insights',
-      new InsightsResult(),
-      'EDGE',
-      InsightsResult::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
 
 }

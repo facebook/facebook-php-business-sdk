@@ -83,9 +83,9 @@ class VideoGameShow extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'question' => 'string',
-      'options' => 'list<string>',
       'correct_option' => 'unsigned int',
+      'options' => 'list<string>',
+      'question' => 'string',
     );
     $enums = array(
     );

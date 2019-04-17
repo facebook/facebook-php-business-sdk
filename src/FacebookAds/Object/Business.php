@@ -152,17 +152,17 @@ class Business extends AbstractCrudObject {
 
     $param_types = array(
       'cells' => 'list<Object>',
-      'objectives' => 'list<Object>',
-      'end_time' => 'int',
-      'description' => 'string',
-      'name' => 'string',
-      'start_time' => 'int',
-      'viewers' => 'list<int>',
-      'cooldown_start_time' => 'int',
-      'observation_end_time' => 'int',
-      'confidence_level' => 'float',
       'client_business' => 'string',
+      'confidence_level' => 'float',
+      'cooldown_start_time' => 'int',
+      'description' => 'string',
+      'end_time' => 'int',
+      'name' => 'string',
+      'objectives' => 'list<Object>',
+      'observation_end_time' => 'int',
+      'start_time' => 'int',
       'type' => 'type_enum',
+      'viewers' => 'list<int>',
     );
     $enums = array(
       'type_enum' => AdStudyTypeValues::getInstance()->getValues(),
@@ -187,21 +187,21 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'name' => 'string',
+      'billing_address_id' => 'string',
       'currency' => 'string',
-      'timezone_id' => 'unsigned int',
       'end_advertiser' => 'Object',
       'funding_id' => 'string',
-      'media_agency' => 'string',
-      'partner' => 'string',
       'invoice' => 'bool',
-      'po_number' => 'string',
+      'invoice_group_id' => 'string',
       'invoicing_emails' => 'list<string>',
       'io' => 'bool',
-      'billing_address_id' => 'string',
-      'sold_to_address_id' => 'string',
       'liable_address_id' => 'string',
-      'invoice_group_id' => 'string',
+      'media_agency' => 'string',
+      'name' => 'string',
+      'partner' => 'string',
+      'po_number' => 'string',
+      'sold_to_address_id' => 'string',
+      'timezone_id' => 'unsigned int',
     );
     $enums = array(
     );
@@ -225,8 +225,8 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'status' => 'list<status_enum>',
       'ad_account_creation_request_id' => 'string',
+      'status' => 'list<status_enum>',
     );
     $enums = array(
       'status_enum' => AdAccountCreationRequestStatusValues::getInstance()->getValues(),
@@ -251,33 +251,33 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'extended_credit_id' => 'string',
       'ad_accounts_info' => 'list<Object>',
-      'business_registration' => 'file',
-      'planning_agency_business_id' => 'string',
-      'english_legal_entity_name' => 'string',
-      'legal_entity_name_in_local_language' => 'string',
-      'chinese_legal_entity_name' => 'string',
-      'address_in_chinese' => 'string',
-      'address_in_local_language' => 'string',
-      'address_in_english' => 'Object',
-      'official_website_url' => 'string',
-      'business_registration_id' => 'string',
-      'vertical' => 'vertical_enum',
-      'subvertical' => 'subvertical_enum',
-      'promotable_page_urls' => 'list<string>',
-      'promotable_page_ids' => 'list<string>',
-      'promotable_app_ids' => 'list<string>',
-      'promotable_urls' => 'list<string>',
-      'contact' => 'Object',
       'additional_comment' => 'string',
+      'address_in_chinese' => 'string',
+      'address_in_english' => 'Object',
+      'address_in_local_language' => 'string',
+      'advertiser_business_id' => 'string',
+      'business_registration' => 'file',
+      'business_registration_id' => 'string',
+      'chinese_legal_entity_name' => 'string',
+      'contact' => 'Object',
+      'english_legal_entity_name' => 'string',
+      'extended_credit_id' => 'string',
       'is_smb' => 'bool',
       'is_test' => 'bool',
-      'advertiser_business_id' => 'string',
+      'legal_entity_name_in_local_language' => 'string',
+      'official_website_url' => 'string',
+      'planning_agency_business_id' => 'string',
+      'promotable_app_ids' => 'list<string>',
+      'promotable_page_ids' => 'list<string>',
+      'promotable_page_urls' => 'list<string>',
+      'promotable_urls' => 'list<string>',
+      'subvertical' => 'subvertical_enum',
+      'vertical' => 'vertical_enum',
     );
     $enums = array(
-      'vertical_enum' => AdAccountCreationRequestVerticalValues::getInstance()->getValues(),
       'subvertical_enum' => AdAccountCreationRequestSubverticalValues::getInstance()->getValues(),
+      'vertical_enum' => AdAccountCreationRequestVerticalValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -362,9 +362,9 @@ class Business extends AbstractCrudObject {
     $param_types = array(
       'aggregation_period' => 'aggregation_period_enum',
       'breakdowns' => 'list<breakdowns_enum>',
-      'metrics' => 'list<metrics_enum>',
       'filters' => 'list<Object>',
       'limit' => 'int',
+      'metrics' => 'list<metrics_enum>',
       'ordering_column' => 'ordering_column_enum',
       'ordering_type' => 'ordering_type_enum',
       'since' => 'datetime',
@@ -421,8 +421,8 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'name_filter' => 'string',
       'id_filter' => 'string',
+      'name_filter' => 'string',
       'sort_by' => 'sort_by_enum',
     );
     $enums = array(
@@ -592,8 +592,8 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'app_id' => 'Object',
       'access_type' => 'access_type_enum',
+      'app_id' => 'Object',
     );
     $enums = array(
       'access_type_enum' => BusinessAccessTypeValues::getInstance()->getValues(),
@@ -642,8 +642,8 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'start_date' => 'string',
       'end_date' => 'string',
+      'start_date' => 'string',
     );
     $enums = array(
     );
@@ -1143,13 +1143,13 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'name' => 'string',
+      'advanced_rule' => 'string',
+      'custom_event_type' => 'custom_event_type_enum',
+      'default_conversion_value' => 'float',
       'description' => 'string',
       'event_source_id' => 'string',
+      'name' => 'string',
       'rule' => 'string',
-      'default_conversion_value' => 'float',
-      'custom_event_type' => 'custom_event_type_enum',
-      'advanced_rule' => 'string',
     );
     $enums = array(
       'custom_event_type_enum' => CustomConversionCustomEventTypeValues::getInstance()->getValues(),
@@ -1417,18 +1417,18 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'name' => 'string',
-      'vertical' => 'vertical_enum',
-      'timezone_id' => 'unsigned int',
-      'survey_business_type' => 'survey_business_type_enum',
-      'survey_num_people' => 'unsigned int',
-      'survey_num_assets' => 'unsigned int',
-      'sales_rep_email' => 'string',
       'existing_client_business_id' => 'string',
+      'name' => 'string',
+      'sales_rep_email' => 'string',
+      'survey_business_type' => 'survey_business_type_enum',
+      'survey_num_assets' => 'unsigned int',
+      'survey_num_people' => 'unsigned int',
+      'timezone_id' => 'unsigned int',
+      'vertical' => 'vertical_enum',
     );
     $enums = array(
-      'vertical_enum' => BusinessVerticalValues::getInstance()->getValues(),
       'survey_business_type_enum' => BusinessSurveyBusinessTypeValues::getInstance()->getValues(),
+      'vertical_enum' => BusinessVerticalValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1450,8 +1450,8 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'report_type' => 'report_type_enum',
       'filters' => 'list<Object>',
+      'report_type' => 'report_type_enum',
     );
     $enums = array(
       'report_type_enum' => MeasurementReportReportTypeValues::getInstance()->getValues(),
@@ -1476,8 +1476,8 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'report_type' => 'report_type_enum',
       'metadata' => 'string',
+      'report_type' => 'report_type_enum',
     );
     $enums = array(
       'report_type_enum' => MeasurementReportReportTypeValues::getInstance()->getValues(),
@@ -1525,11 +1525,11 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'name' => 'string',
+      'auto_assign_to_new_accounts_only' => 'bool',
       'description' => 'string',
       'enable_auto_assign_to_accounts' => 'bool',
       'is_mta_use' => 'bool',
-      'auto_assign_to_new_accounts_only' => 'bool',
+      'name' => 'string',
     );
     $enums = array(
     );
@@ -1719,21 +1719,21 @@ class Business extends AbstractCrudObject {
 
     $param_types = array(
       'name' => 'string',
-      'vertical' => 'vertical_enum',
-      'timezone_id' => 'unsigned int',
-      'survey_business_type' => 'survey_business_type_enum',
-      'survey_num_people' => 'unsigned int',
-      'survey_num_assets' => 'unsigned int',
-      'sales_rep_email' => 'string',
-      'shared_page_id' => 'string',
       'page_permitted_roles' => 'list<page_permitted_roles_enum>',
       'page_permitted_tasks' => 'list<page_permitted_tasks_enum>',
+      'sales_rep_email' => 'string',
+      'shared_page_id' => 'string',
+      'survey_business_type' => 'survey_business_type_enum',
+      'survey_num_assets' => 'unsigned int',
+      'survey_num_people' => 'unsigned int',
+      'timezone_id' => 'unsigned int',
+      'vertical' => 'vertical_enum',
     );
     $enums = array(
-      'vertical_enum' => BusinessVerticalValues::getInstance()->getValues(),
-      'survey_business_type_enum' => BusinessSurveyBusinessTypeValues::getInstance()->getValues(),
       'page_permitted_roles_enum' => BusinessPagePermittedRolesValues::getInstance()->getValues(),
       'page_permitted_tasks_enum' => BusinessPagePermittedTasksValues::getInstance()->getValues(),
+      'survey_business_type_enum' => BusinessSurveyBusinessTypeValues::getInstance()->getValues(),
+      'vertical_enum' => BusinessVerticalValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1871,8 +1871,8 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'page_id' => 'int',
       'ig_password' => 'string',
+      'page_id' => 'int',
     );
     $enums = array(
     );
@@ -1942,11 +1942,11 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'da_display_settings' => 'Object',
+      'destination_catalog_settings' => 'map',
+      'flight_catalog_settings' => 'map',
       'name' => 'string',
       'vertical' => 'vertical_enum',
-      'flight_catalog_settings' => 'map',
-      'destination_catalog_settings' => 'map',
-      'da_display_settings' => 'Object',
     );
     $enums = array(
       'vertical_enum' => ProductCatalogVerticalValues::getInstance()->getValues(),
@@ -2047,21 +2047,21 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'name' => 'string',
+      'billing_address_id' => 'string',
       'currency' => 'string',
-      'timezone_id' => 'unsigned int',
       'end_advertiser' => 'Object',
       'funding_id' => 'string',
-      'media_agency' => 'string',
-      'partner' => 'string',
       'invoice' => 'bool',
-      'po_number' => 'string',
+      'invoice_group_id' => 'string',
       'invoicing_emails' => 'list<string>',
       'io' => 'bool',
-      'billing_address_id' => 'string',
-      'sold_to_address_id' => 'string',
       'liable_address_id' => 'string',
-      'invoice_group_id' => 'string',
+      'media_agency' => 'string',
+      'name' => 'string',
+      'partner' => 'string',
+      'po_number' => 'string',
+      'sold_to_address_id' => 'string',
+      'timezone_id' => 'unsigned int',
     );
     $enums = array(
     );
@@ -2209,9 +2209,9 @@ class Business extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/pending_owned_ad_accounts',
-      new LegacyBusinessAdAccountRequest(),
+      new BusinessAdAccountRequest(),
       'EDGE',
-      LegacyBusinessAdAccountRequest::getFieldsEnum()->getValues(),
+      BusinessAdAccountRequest::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2294,9 +2294,9 @@ class Business extends AbstractCrudObject {
 
     $param_types = array(
       'height' => 'int',
-      'width' => 'int',
-      'type' => 'type_enum',
       'redirect' => 'bool',
+      'type' => 'type_enum',
+      'width' => 'int',
     );
     $enums = array(
       'type_enum' => ProfilePictureSourceTypeValues::getInstance()->getValues(),
@@ -2394,8 +2394,8 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'requesting_business_id' => 'string',
       'request_status' => 'request_status_enum',
+      'requesting_business_id' => 'string',
     );
     $enums = array(
       'request_status_enum' => BusinessAgreementRequestStatusValues::getInstance()->getValues(),
@@ -2443,8 +2443,8 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'receiving_business' => 'string',
       'business_owned_object' => 'string',
+      'receiving_business' => 'string',
     );
     $enums = array(
     );
@@ -2539,8 +2539,8 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'role' => 'role_enum',
       'name' => 'string',
+      'role' => 'role_enum',
       'system_user_id' => 'int',
     );
     $enums = array(
@@ -2700,8 +2700,8 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'status' => 'status_enum',
       'email' => 'string',
+      'status' => 'status_enum',
     );
     $enums = array(
       'status_enum' => BusinessRoleRequestStatusValues::getInstance()->getValues(),
@@ -2726,8 +2726,8 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'user' => 'int',
       'email' => 'string',
+      'user' => 'int',
     );
     $enums = array(
     );
@@ -2751,9 +2751,9 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'user' => 'int',
       'email' => 'string',
       'role' => 'role_enum',
+      'user' => 'int',
     );
     $enums = array(
       'role_enum' => BusinessRoleValues::getInstance()->getValues(),
@@ -2778,33 +2778,33 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'address_in_local_language' => 'string',
       'ad_accounts_currency' => 'string',
-      'credit_card_id' => 'string',
-      'extended_credit_id' => 'string',
-      'legal_entity_name_in_local_language' => 'string',
       'ad_accounts_info' => 'list<Object>',
-      'business_registration' => 'file',
-      'planning_agency_business_id' => 'string',
-      'english_legal_entity_name' => 'string',
-      'address_in_english' => 'Object',
-      'official_website_url' => 'string',
-      'business_registration_id' => 'string',
-      'vertical' => 'vertical_enum',
-      'subvertical' => 'subvertical_enum',
-      'promotable_page_urls' => 'list<string>',
-      'promotable_page_ids' => 'list<int>',
-      'promotable_app_ids' => 'list<string>',
-      'promotable_urls' => 'list<string>',
-      'contact' => 'Object',
       'additional_comment' => 'string',
+      'address_in_english' => 'Object',
+      'address_in_local_language' => 'string',
+      'advertiser_business_id' => 'string',
+      'business_registration' => 'file',
+      'business_registration_id' => 'string',
+      'contact' => 'Object',
+      'credit_card_id' => 'string',
+      'english_legal_entity_name' => 'string',
+      'extended_credit_id' => 'string',
       'is_smb' => 'bool',
       'is_test' => 'bool',
-      'advertiser_business_id' => 'string',
+      'legal_entity_name_in_local_language' => 'string',
+      'official_website_url' => 'string',
+      'planning_agency_business_id' => 'string',
+      'promotable_app_ids' => 'list<string>',
+      'promotable_page_ids' => 'list<int>',
+      'promotable_page_urls' => 'list<string>',
+      'promotable_urls' => 'list<string>',
+      'subvertical' => 'subvertical_enum',
+      'vertical' => 'vertical_enum',
     );
     $enums = array(
-      'vertical_enum' => AdAccountCreationRequestVerticalValues::getInstance()->getValues(),
       'subvertical_enum' => AdAccountCreationRequestSubverticalValues::getInstance()->getValues(),
+      'vertical_enum' => AdAccountCreationRequestVerticalValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -2850,14 +2850,14 @@ class Business extends AbstractCrudObject {
 
     $param_types = array(
       'name' => 'string',
-      'vertical' => 'vertical_enum',
-      'timezone_id' => 'unsigned int',
       'primary_page' => 'string',
+      'timezone_id' => 'unsigned int',
       'two_factor_type' => 'two_factor_type_enum',
+      'vertical' => 'vertical_enum',
     );
     $enums = array(
-      'vertical_enum' => BusinessVerticalValues::getInstance()->getValues(),
       'two_factor_type_enum' => BusinessTwoFactorTypeValues::getInstance()->getValues(),
+      'vertical_enum' => BusinessVerticalValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

@@ -112,26 +112,26 @@ class PageCallToAction extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'type' => 'type_enum',
-      'intl_number_with_plus' => 'string',
-      'email_address' => 'string',
-      'web_destination_type' => 'web_destination_type_enum',
-      'web_url' => 'string',
-      'android_destination_type' => 'android_destination_type_enum',
+      'android_app_id' => 'int',
       'android_deeplink' => 'string',
+      'android_destination_type' => 'android_destination_type_enum',
       'android_package_name' => 'string',
       'android_url' => 'string',
-      'android_app_id' => 'int',
-      'iphone_destination_type' => 'iphone_destination_type_enum',
-      'iphone_deeplink' => 'string',
-      'iphone_url' => 'string',
+      'email_address' => 'string',
+      'intl_number_with_plus' => 'string',
       'iphone_app_id' => 'int',
+      'iphone_deeplink' => 'string',
+      'iphone_destination_type' => 'iphone_destination_type_enum',
+      'iphone_url' => 'string',
+      'type' => 'type_enum',
+      'web_destination_type' => 'web_destination_type_enum',
+      'web_url' => 'string',
     );
     $enums = array(
-      'type_enum' => PageCallToActionTypeValues::getInstance()->getValues(),
-      'web_destination_type_enum' => PageCallToActionWebDestinationTypeValues::getInstance()->getValues(),
       'android_destination_type_enum' => PageCallToActionAndroidDestinationTypeValues::getInstance()->getValues(),
       'iphone_destination_type_enum' => PageCallToActionIphoneDestinationTypeValues::getInstance()->getValues(),
+      'type_enum' => PageCallToActionTypeValues::getInstance()->getValues(),
+      'web_destination_type_enum' => PageCallToActionWebDestinationTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

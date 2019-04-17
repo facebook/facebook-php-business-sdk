@@ -40,20 +40,20 @@ class PlayableContentFields extends AbstractEnum {
   const ID = 'id';
   const NAME = 'name';
   const OWNER = 'owner';
+  const APP_ID = 'app_id';
   const SOURCE = 'source';
   const SOURCE_URL = 'source_url';
   const SOURCE_ZIP = 'source_zip';
-  const APP_ID = 'app_id';
 
   public function getFieldTypes() {
     return array(
       'id' => 'string',
       'name' => 'string',
       'owner' => 'Profile',
+      'app_id' => 'string',
       'source' => 'file',
       'source_url' => 'string',
       'source_zip' => 'file',
-      'app_id' => 'string',
     );
   }
 }

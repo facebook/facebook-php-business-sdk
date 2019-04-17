@@ -152,16 +152,16 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'after' => 'string',
-      'limit' => 'int',
-      'since' => 'datetime',
-      'category' => 'category_enum',
-      'until' => 'datetime',
-      'uid' => 'int',
-      'business_id' => 'string',
-      'oid' => 'string',
-      'extra_oids' => 'list<string>',
       'add_children' => 'bool',
+      'after' => 'string',
+      'business_id' => 'string',
+      'category' => 'category_enum',
+      'extra_oids' => 'list<string>',
+      'limit' => 'int',
+      'oid' => 'string',
+      'since' => 'datetime',
+      'uid' => 'int',
+      'until' => 'datetime',
     );
     $enums = array(
       'category_enum' => AdActivityCategoryValues::getInstance()->getValues(),
@@ -209,8 +209,8 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'name' => 'string',
       'location_types' => 'list<location_types_enum>',
+      'name' => 'string',
       'parent_page' => 'string',
       'targeted_area_type' => 'targeted_area_type_enum',
     );
@@ -312,15 +312,14 @@ class AdAccount extends AbstractCrudObject {
       'applink_treatment' => 'applink_treatment_enum',
       'asset_feed_spec' => 'Object',
       'authorization_category' => 'authorization_category_enum',
-      'is_dco_internal' => 'bool',
       'body' => 'string',
       'branded_content_sponsor_page_id' => 'string',
       'bundle_folder_id' => 'string',
+      'call_to_action' => 'Object',
       'categorization_criteria' => 'categorization_criteria_enum',
       'category_media_source' => 'category_media_source_enum',
-      'call_to_action' => 'Object',
-      'dynamic_ad_voice' => 'dynamic_ad_voice_enum',
       'destination_set_id' => 'string',
+      'dynamic_ad_voice' => 'dynamic_ad_voice_enum',
       'enable_direct_install' => 'bool',
       'enable_launch_instant_app' => 'bool',
       'image_crops' => 'map',
@@ -329,27 +328,28 @@ class AdAccount extends AbstractCrudObject {
       'image_url' => 'string',
       'instagram_actor_id' => 'string',
       'instagram_permalink_url' => 'string',
-      'portrait_customizations' => 'map',
       'interactive_components_spec' => 'map',
+      'is_dco_internal' => 'bool',
       'link_og_id' => 'string',
       'link_url' => 'string',
+      'messenger_sponsored_message' => 'string',
       'name' => 'string',
       'object_id' => 'unsigned int',
       'object_story_id' => 'string',
+      'object_story_spec' => 'AdCreativeObjectStorySpec',
       'object_type' => 'string',
       'object_url' => 'string',
       'platform_customizations' => 'Object',
       'playable_asset_id' => 'string',
+      'portrait_customizations' => 'map',
       'product_set_id' => 'string',
       'recommender_settings' => 'map',
-      'messenger_sponsored_message' => 'string',
       'template_url' => 'string',
       'template_url_spec' => 'Object',
       'thumbnail_url' => 'string',
       'title' => 'string',
       'url_tags' => 'string',
       'use_page_actor_override' => 'bool',
-      'object_story_spec' => 'AdCreativeObjectStorySpec',
     );
     $enums = array(
       'applink_treatment_enum' => AdCreativeApplinkTreatmentValues::getInstance()->getValues(),
@@ -453,12 +453,12 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'hashes' => 'list<string>',
-      'minwidth' => 'unsigned int',
-      'minheight' => 'unsigned int',
-      'name' => 'string',
       'biz_tag_id' => 'unsigned int',
       'business_id' => 'string',
+      'hashes' => 'list<string>',
+      'minheight' => 'unsigned int',
+      'minwidth' => 'unsigned int',
+      'name' => 'string',
     );
     $enums = array(
     );
@@ -579,11 +579,11 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'app_id' => 'string',
       'name' => 'string',
       'source' => 'file',
       'source_url' => 'string',
       'source_zip' => 'file',
-      'app_id' => 'string',
     );
     $enums = array(
     );
@@ -676,35 +676,51 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'name' => 'string',
-      'user_columns' => 'list<string>',
-      'user_attribution_windows' => 'list<string>',
-      'builtin_column_set' => 'builtin_column_set_enum',
-      'normalized_filter' => 'list<Object>',
-      'user_filter' => 'list<Object>',
-      'sort' => 'list<Object>',
-      'breakdowns' => 'list<string>',
-      'insights_section' => 'Object',
-      'level' => 'level_enum',
-      'date_preset' => 'date_preset_enum',
-      'date_interval' => 'Object',
-      'format_version' => 'unsigned int',
-      'creation_source' => 'creation_source_enum',
       'actions_group_by' => 'list<actions_group_by_enum>',
+      'breakdowns' => 'list<string>',
+      'builtin_column_set' => 'builtin_column_set_enum',
+      'creation_source' => 'creation_source_enum',
       'custom_column_set_id' => 'string',
       'data_columns' => 'list<string>',
+      'date_interval' => 'Object',
+      'date_preset' => 'date_preset_enum',
       'emails' => 'list<string>',
       'export_columns' => 'Object',
       'filters' => 'list<Object>',
+      'format_version' => 'unsigned int',
+      'insights_section' => 'Object',
+      'level' => 'level_enum',
+      'name' => 'string',
+      'normalized_filter' => 'list<Object>',
       'schedule_frequency' => 'schedule_frequency_enum',
+      'sort' => 'list<Object>',
       'sort_by' => 'string',
       'sort_dir' => 'string',
       'start_date' => 'Object',
       'status' => 'status_enum',
       'subscribers' => 'list<int>',
       'time_increment' => 'string',
+      'user_attribution_windows' => 'list<string>',
+      'user_columns' => 'list<string>',
+      'user_filter' => 'list<Object>',
     );
     $enums = array(
+      'actions_group_by_enum' => array(
+        'action_canvas_component_id',
+        'action_canvas_component_name',
+        'action_carousel_card_id',
+        'action_carousel_card_name',
+        'action_converted_product_id',
+        'action_destination',
+        'action_device',
+        'action_event_channel',
+        'action_target_id',
+        'action_type',
+        'action_video_sound',
+        'action_video_type',
+        'interactive_component_sticker_id',
+        'interactive_component_sticker_response',
+      ),
       'builtin_column_set_enum' => array(
         '',
         'APP_ENGAGEMENT',
@@ -724,13 +740,10 @@ class AdAccount extends AbstractCrudObject {
         'VALIDATION_VIEW',
         'VIDEO_ENGAGEMENT',
       ),
-      'level_enum' => array(
-        'account',
-        'ad',
-        'adgroup',
-        'campaign',
-        'campaign_group',
-        'politicalad',
+      'creation_source_enum' => array(
+        'adsExcelAddin',
+        'adsManagerReporting',
+        'newAdsManager',
       ),
       'date_preset_enum' => array(
         'last_14d',
@@ -753,26 +766,13 @@ class AdAccount extends AbstractCrudObject {
         'today',
         'yesterday',
       ),
-      'creation_source_enum' => array(
-        'adsExcelAddin',
-        'adsManagerReporting',
-        'newAdsManager',
-      ),
-      'actions_group_by_enum' => array(
-        'action_canvas_component_id',
-        'action_canvas_component_name',
-        'action_carousel_card_id',
-        'action_carousel_card_name',
-        'action_converted_product_id',
-        'action_destination',
-        'action_device',
-        'action_event_channel',
-        'action_target_id',
-        'action_type',
-        'action_video_sound',
-        'action_video_type',
-        'interactive_component_sticker_id',
-        'interactive_component_sticker_response',
+      'level_enum' => array(
+        'account',
+        'ad',
+        'adgroup',
+        'campaign',
+        'campaign_group',
+        'politicalad',
       ),
       'schedule_frequency_enum' => array(
         'daily',
@@ -805,33 +805,33 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'time_ranges' => 'list',
-      'data_columns' => 'list<string>',
       'actions_group_by' => 'list<actions_group_by_enum>',
+      'business_id' => 'string',
+      'bypass_async' => 'bool',
+      'creation_source' => 'creation_source_enum',
+      'data_columns' => 'list<string>',
+      'date_preset' => 'date_preset_enum',
+      'export_columns' => 'Object',
       'filters' => 'list<Object>',
+      'format' => 'format_enum',
+      'format_version' => 'unsigned int',
+      'insights_section' => 'Object',
+      'limit' => 'int',
+      'name' => 'string',
+      'report_run_id' => 'string',
+      'report_schedule_id' => 'string',
       'sort_by' => 'string',
       'sort_dir' => 'string',
       'time_increment' => 'string',
       'time_interval' => 'Object',
-      'date_preset' => 'date_preset_enum',
-      'format' => 'format_enum',
-      'export_columns' => 'Object',
-      'report_run_id' => 'string',
-      'name' => 'string',
+      'time_ranges' => 'list',
       'user_report' => 'bool',
-      'business_id' => 'string',
-      'limit' => 'int',
-      'bypass_async' => 'bool',
-      'report_schedule_id' => 'string',
-      'insights_section' => 'Object',
-      'creation_source' => 'creation_source_enum',
-      'format_version' => 'unsigned int',
     );
     $enums = array(
       'actions_group_by_enum' => AdReportSpecActionsGroupByValues::getInstance()->getValues(),
+      'creation_source_enum' => AdReportSpecCreationSourceValues::getInstance()->getValues(),
       'date_preset_enum' => AdReportSpecDatePresetValues::getInstance()->getValues(),
       'format_enum' => AdReportSpecFormatValues::getInstance()->getValues(),
-      'creation_source_enum' => AdReportSpecCreationSourceValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -853,10 +853,10 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'object_id' => 'string',
       'action' => 'action_enum',
-      'hide_no_changes' => 'bool',
       'evaluation_type' => 'evaluation_type_enum',
+      'hide_no_changes' => 'bool',
+      'object_id' => 'string',
     );
     $enums = array(
       'action_enum' => AdAccountAdRulesHistoryActionValues::getInstance()->getValues(),
@@ -908,8 +908,8 @@ class AdAccount extends AbstractCrudObject {
       'account_id' => 'string',
       'evaluation_spec' => 'Object',
       'execution_spec' => 'Object',
-      'schedule_spec' => 'Object',
       'name' => 'string',
+      'schedule_spec' => 'Object',
       'status' => 'status_enum',
     );
     $enums = array(
@@ -935,10 +935,10 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'delete_strategy' => 'delete_strategy_enum',
-      'object_count' => 'int',
       'before_date' => 'datetime',
       'delete_offset' => 'unsigned int',
+      'delete_strategy' => 'delete_strategy_enum',
+      'object_count' => 'int',
     );
     $enums = array(
       'delete_strategy_enum' => array(
@@ -967,13 +967,13 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'ad_draft_id' => 'string',
       'date_preset' => 'date_preset_enum',
       'effective_status' => 'list<string>',
       'include_deleted' => 'bool',
+      'include_drafts' => 'bool',
       'time_range' => 'Object',
       'updated_since' => 'int',
-      'ad_draft_id' => 'string',
-      'include_drafts' => 'bool',
     );
     $enums = array(
       'date_preset_enum' => AdDatePresetValues::getInstance()->getValues(),
@@ -998,27 +998,27 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'audience_id' => 'string',
-      'adset_id' => 'unsigned int',
-      'date_format' => 'string',
-      'include_demolink_hashes' => 'bool',
-      'creative' => 'AdCreative',
-      'name' => 'string',
-      'status' => 'status_enum',
-      'priority' => 'unsigned int',
-      'tracking_specs' => 'Object',
-      'display_sequence' => 'unsigned int',
-      'engagement_audience' => 'bool',
-      'adset_spec' => 'AdSet',
-      'draft_adgroup_id' => 'string',
-      'execution_options' => 'list<execution_options_enum>',
       'adlabels' => 'list<Object>',
+      'adset_id' => 'unsigned int',
+      'adset_spec' => 'AdSet',
+      'audience_id' => 'string',
       'bid_amount' => 'int',
+      'creative' => 'AdCreative',
+      'date_format' => 'string',
+      'display_sequence' => 'unsigned int',
+      'draft_adgroup_id' => 'string',
+      'engagement_audience' => 'bool',
+      'execution_options' => 'list<execution_options_enum>',
+      'include_demolink_hashes' => 'bool',
+      'name' => 'string',
+      'priority' => 'unsigned int',
       'source_ad_id' => 'string',
+      'status' => 'status_enum',
+      'tracking_specs' => 'Object',
     );
     $enums = array(
-      'status_enum' => AdStatusValues::getInstance()->getValues(),
       'execution_options_enum' => AdExecutionOptionsValues::getInstance()->getValues(),
+      'status_enum' => AdStatusValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1067,10 +1067,10 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'delete_strategy' => 'delete_strategy_enum',
-      'object_count' => 'int',
       'before_date' => 'datetime',
       'delete_offset' => 'unsigned int',
+      'delete_strategy' => 'delete_strategy_enum',
+      'object_count' => 'int',
     );
     $enums = array(
       'delete_strategy_enum' => array(
@@ -1099,17 +1099,17 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'effective_status' => 'list<effective_status_enum>',
+      'ad_draft_id' => 'string',
       'date_preset' => 'date_preset_enum',
+      'effective_status' => 'list<effective_status_enum>',
       'include_deleted' => 'bool',
+      'include_drafts' => 'bool',
       'is_completed' => 'bool',
       'time_range' => 'Object',
-      'ad_draft_id' => 'string',
-      'include_drafts' => 'bool',
     );
     $enums = array(
-      'effective_status_enum' => AdSetEffectiveStatusValues::getInstance()->getValues(),
       'date_preset_enum' => AdSetDatePresetValues::getInstance()->getValues(),
+      'effective_status_enum' => AdSetEffectiveStatusValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1133,15 +1133,15 @@ class AdAccount extends AbstractCrudObject {
     $param_types = array(
       'ad_keywords' => 'Object',
       'adlabels' => 'list<Object>',
-      'bid_amount' => 'int',
+      'adset_schedule' => 'list<Object>',
+      'attribution_spec' => 'list<map>',
       'bid_adjustments' => 'Object',
+      'bid_amount' => 'int',
       'bid_constraints' => 'map<string, Object>',
       'bid_strategy' => 'bid_strategy_enum',
       'billing_event' => 'billing_event_enum',
       'campaign_id' => 'string',
       'campaign_spec' => 'Object',
-      'adset_schedule' => 'list<Object>',
-      'status' => 'status_enum',
       'creative_sequence' => 'list<string>',
       'daily_budget' => 'unsigned int',
       'daily_imps' => 'unsigned int',
@@ -1152,6 +1152,7 @@ class AdAccount extends AbstractCrudObject {
       'end_time' => 'datetime',
       'execution_options' => 'list<execution_options_enum>',
       'frequency_control_specs' => 'list<Object>',
+      'full_funnel_exploration_mode' => 'full_funnel_exploration_mode_enum',
       'is_dynamic_creative' => 'bool',
       'lifetime_budget' => 'unsigned int',
       'lifetime_imps' => 'unsigned int',
@@ -1166,6 +1167,7 @@ class AdAccount extends AbstractCrudObject {
       'rf_prediction_id' => 'string',
       'source_adset_id' => 'string',
       'start_time' => 'datetime',
+      'status' => 'status_enum',
       'targeting' => 'Targeting',
       'time_based_ad_rotation_id_blocks' => 'list<list<unsigned int>>',
       'time_based_ad_rotation_intervals' => 'list<unsigned int>',
@@ -1173,17 +1175,15 @@ class AdAccount extends AbstractCrudObject {
       'time_stop' => 'datetime',
       'topline_id' => 'string',
       'upstream_events' => 'map',
-      'full_funnel_exploration_mode' => 'full_funnel_exploration_mode_enum',
-      'attribution_spec' => 'list<map>',
     );
     $enums = array(
       'bid_strategy_enum' => AdSetBidStrategyValues::getInstance()->getValues(),
       'billing_event_enum' => AdSetBillingEventValues::getInstance()->getValues(),
-      'status_enum' => AdSetStatusValues::getInstance()->getValues(),
       'destination_type_enum' => AdSetDestinationTypeValues::getInstance()->getValues(),
       'execution_options_enum' => AdSetExecutionOptionsValues::getInstance()->getValues(),
-      'optimization_goal_enum' => AdSetOptimizationGoalValues::getInstance()->getValues(),
       'full_funnel_exploration_mode_enum' => AdSetFullFunnelExplorationModeValues::getInstance()->getValues(),
+      'optimization_goal_enum' => AdSetOptimizationGoalValues::getInstance()->getValues(),
+      'status_enum' => AdSetStatusValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1351,15 +1351,15 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'title' => 'string',
-      'minlength' => 'unsigned int',
-      'maxlength' => 'unsigned int',
-      'minheight' => 'unsigned int',
+      'max_aspect_ratio' => 'float',
       'maxheight' => 'unsigned int',
-      'minwidth' => 'unsigned int',
+      'maxlength' => 'unsigned int',
       'maxwidth' => 'unsigned int',
       'min_aspect_ratio' => 'float',
-      'max_aspect_ratio' => 'float',
+      'minheight' => 'unsigned int',
+      'minlength' => 'unsigned int',
+      'minwidth' => 'unsigned int',
+      'title' => 'string',
     );
     $enums = array(
     );
@@ -1383,85 +1383,85 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'title' => 'string',
-      'unpublished_content_type' => 'unpublished_content_type_enum',
-      'time_since_original_post' => 'unsigned int',
-      'file_url' => 'string',
-      'composer_session_id' => 'string',
-      'waterfall_id' => 'string',
-      'og_action_type_id' => 'string',
-      'og_object_id' => 'string',
-      'og_phrase' => 'string',
-      'og_icon_id' => 'string',
-      'og_suggestion_mechanism' => 'string',
-      'thumb' => 'file',
-      'spherical' => 'bool',
-      'original_projection_type' => 'original_projection_type_enum',
-      'initial_heading' => 'unsigned int',
-      'initial_pitch' => 'unsigned int',
-      'fov' => 'unsigned int',
-      'original_fov' => 'unsigned int',
-      'fisheye_video_cropped' => 'bool',
-      'front_z_rotation' => 'float',
-      'guide_enabled' => 'bool',
-      'guide' => 'list<list<unsigned int>>',
-      'audio_story_wave_animation_handle' => 'string',
       'adaptive_type' => 'string',
       'animated_effect_id' => 'unsigned int',
+      'application_id' => 'string',
       'asked_fun_fact_prompt_id' => 'unsigned int',
+      'attribution_app_id' => 'string',
+      'audio_story_wave_animation_handle' => 'string',
+      'chunk_session_id' => 'string',
       'composer_entry_picker' => 'string',
       'composer_entry_point' => 'string',
       'composer_entry_time' => 'unsigned int',
       'composer_session_events_log' => 'string',
+      'composer_session_id' => 'string',
       'composer_source_surface' => 'string',
       'composer_type' => 'string',
+      'container_type' => 'container_type_enum',
+      'content_category' => 'content_category_enum',
+      'description' => 'string',
+      'embeddable' => 'bool',
+      'end_offset' => 'unsigned int',
+      'fbuploader_video_file_chunk' => 'string',
+      'file_size' => 'unsigned int',
+      'file_url' => 'string',
+      'fisheye_video_cropped' => 'bool',
       'formatting' => 'formatting_enum',
+      'fov' => 'unsigned int',
+      'front_z_rotation' => 'float',
       'fun_fact_prompt_id' => 'unsigned int',
       'fun_fact_toastee_id' => 'unsigned int',
-      'is_group_linking_post' => 'bool',
+      'guide' => 'list<list<unsigned int>>',
+      'guide_enabled' => 'bool',
       'has_nickname' => 'bool',
       'holiday_card' => 'string',
+      'initial_heading' => 'unsigned int',
+      'initial_pitch' => 'unsigned int',
       'instant_game_entry_point_data' => 'string',
       'is_boost_intended' => 'bool',
+      'is_group_linking_post' => 'bool',
+      'is_voice_clip' => 'bool',
       'location_source_id' => 'string',
-      'description' => 'string',
+      'name' => 'string',
       'offer_like_post_id' => 'unsigned int',
+      'og_action_type_id' => 'string',
+      'og_icon_id' => 'string',
+      'og_object_id' => 'string',
+      'og_phrase' => 'string',
+      'og_suggestion_mechanism' => 'string',
+      'original_fov' => 'unsigned int',
+      'original_projection_type' => 'original_projection_type_enum',
       'publish_event_id' => 'unsigned int',
       'react_mode_metadata' => 'string',
-      'sales_promo_id' => 'unsigned int',
-      'text_format_metadata' => 'string',
-      'throwback_camera_roll_media' => 'string',
-      'video_start_time_ms' => 'unsigned int',
-      'application_id' => 'string',
-      'upload_phase' => 'upload_phase_enum',
-      'file_size' => 'unsigned int',
-      'start_offset' => 'unsigned int',
-      'end_offset' => 'unsigned int',
-      'video_file_chunk' => 'string',
-      'fbuploader_video_file_chunk' => 'string',
-      'upload_session_id' => 'string',
-      'is_voice_clip' => 'bool',
-      'attribution_app_id' => 'string',
-      'content_category' => 'content_category_enum',
-      'embeddable' => 'bool',
-      'slideshow_spec' => 'map',
-      'upload_setting_properties' => 'string',
-      'transcode_setting_properties' => 'string',
-      'container_type' => 'container_type_enum',
       'referenced_sticker_id' => 'string',
       'replace_video_id' => 'string',
+      'sales_promo_id' => 'unsigned int',
+      'slideshow_spec' => 'map',
+      'spherical' => 'bool',
+      'start_offset' => 'unsigned int',
       'swap_mode' => 'swap_mode_enum',
-      'name' => 'string',
-      'chunk_session_id' => 'string',
+      'text_format_metadata' => 'string',
+      'throwback_camera_roll_media' => 'string',
+      'thumb' => 'file',
+      'time_since_original_post' => 'unsigned int',
+      'title' => 'string',
+      'transcode_setting_properties' => 'string',
+      'unpublished_content_type' => 'unpublished_content_type_enum',
+      'upload_phase' => 'upload_phase_enum',
+      'upload_session_id' => 'string',
+      'upload_setting_properties' => 'string',
+      'video_file_chunk' => 'string',
+      'video_start_time_ms' => 'unsigned int',
+      'waterfall_id' => 'string',
     );
     $enums = array(
-      'unpublished_content_type_enum' => AdVideoUnpublishedContentTypeValues::getInstance()->getValues(),
-      'original_projection_type_enum' => AdVideoOriginalProjectionTypeValues::getInstance()->getValues(),
-      'formatting_enum' => AdVideoFormattingValues::getInstance()->getValues(),
-      'upload_phase_enum' => AdVideoUploadPhaseValues::getInstance()->getValues(),
-      'content_category_enum' => AdVideoContentCategoryValues::getInstance()->getValues(),
       'container_type_enum' => AdVideoContainerTypeValues::getInstance()->getValues(),
+      'content_category_enum' => AdVideoContentCategoryValues::getInstance()->getValues(),
+      'formatting_enum' => AdVideoFormattingValues::getInstance()->getValues(),
+      'original_projection_type_enum' => AdVideoOriginalProjectionTypeValues::getInstance()->getValues(),
       'swap_mode_enum' => AdVideoSwapModeValues::getInstance()->getValues(),
+      'unpublished_content_type_enum' => AdVideoUnpublishedContentTypeValues::getInstance()->getValues(),
+      'upload_phase_enum' => AdVideoUploadPhaseValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1652,8 +1652,8 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'user' => 'int',
       'tasks' => 'list<tasks_enum>',
+      'user' => 'int',
     );
     $enums = array(
       'tasks_enum' => AdAccountTasksValues::getInstance()->getValues(),
@@ -1678,8 +1678,8 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'name' => 'string',
       'adbatch' => 'list<Object>',
+      'name' => 'string',
     );
     $enums = array(
     );
@@ -1756,8 +1756,8 @@ class AdAccount extends AbstractCrudObject {
     $param_types = array(
       'ad_specs' => 'list<map>',
       'name' => 'string',
-      'notification_uri' => 'string',
       'notification_mode' => 'notification_mode_enum',
+      'notification_uri' => 'string',
     );
     $enums = array(
       'notification_mode_enum' => AdAsyncRequestSetNotificationModeValues::getInstance()->getValues(),
@@ -1782,8 +1782,8 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'session' => 'Object',
       'payload' => 'Object',
+      'session' => 'Object',
     );
     $enums = array(
     );
@@ -1902,10 +1902,10 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'name' => 'string',
-      'targeting' => 'Object',
-      'target_size' => 'int',
       'description' => 'string',
+      'name' => 'string',
+      'target_size' => 'int',
+      'targeting' => 'Object',
     );
     $enums = array(
     );
@@ -2024,10 +2024,10 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'delete_strategy' => 'delete_strategy_enum',
-      'object_count' => 'int',
       'before_date' => 'datetime',
       'delete_offset' => 'unsigned int',
+      'delete_strategy' => 'delete_strategy_enum',
+      'object_count' => 'int',
     );
     $enums = array(
       'delete_strategy_enum' => array(
@@ -2056,14 +2056,16 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'effective_status' => 'list<effective_status_enum>',
       'date_preset' => 'date_preset_enum',
+      'effective_status' => 'list<effective_status_enum>',
+      'include_drafts' => 'bool',
       'is_completed' => 'bool',
       'time_range' => 'Object',
+      'use_employee_draft' => 'bool',
     );
     $enums = array(
-      'effective_status_enum' => CampaignEffectiveStatusValues::getInstance()->getValues(),
       'date_preset_enum' => CampaignDatePresetValues::getInstance()->getValues(),
+      'effective_status_enum' => CampaignEffectiveStatusValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -2085,29 +2087,29 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'name' => 'string',
-      'objective' => 'objective_enum',
-      'status' => 'status_enum',
+      'adlabels' => 'list<Object>',
       'bid_strategy' => 'bid_strategy_enum',
       'budget_rebalance_flag' => 'bool',
       'buying_type' => 'string',
       'daily_budget' => 'unsigned int',
+      'execution_options' => 'list<execution_options_enum>',
+      'iterative_split_test_configs' => 'list<Object>',
       'lifetime_budget' => 'unsigned int',
+      'name' => 'string',
+      'objective' => 'objective_enum',
       'pacing_type' => 'list<string>',
       'promoted_object' => 'Object',
-      'topline_id' => 'string',
-      'spend_cap' => 'unsigned int',
-      'execution_options' => 'list<execution_options_enum>',
-      'upstream_events' => 'map',
-      'adlabels' => 'list<Object>',
       'source_campaign_id' => 'string',
-      'iterative_split_test_configs' => 'list<Object>',
+      'spend_cap' => 'unsigned int',
+      'status' => 'status_enum',
+      'topline_id' => 'string',
+      'upstream_events' => 'map',
     );
     $enums = array(
-      'objective_enum' => CampaignObjectiveValues::getInstance()->getValues(),
-      'status_enum' => CampaignStatusValues::getInstance()->getValues(),
       'bid_strategy_enum' => CampaignBidStrategyValues::getInstance()->getValues(),
       'execution_options_enum' => CampaignExecutionOptionsValues::getInstance()->getValues(),
+      'objective_enum' => CampaignObjectiveValues::getInstance()->getValues(),
+      'status_enum' => CampaignStatusValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -2202,10 +2204,10 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'pixel_id' => 'string',
+      'business_id' => 'string',
       'fields' => 'list<string>',
       'filtering' => 'list<Object>',
-      'business_id' => 'string',
+      'pixel_id' => 'string',
     );
     $enums = array(
     );
@@ -2229,59 +2231,59 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'creation_params' => 'map',
-      'description' => 'string',
-      'name' => 'string',
-      'opt_out_link' => 'string',
-      'parent_audience_id' => 'unsigned int',
-      'subtype' => 'subtype_enum',
-      'seed_audience' => 'unsigned int',
-      'tags' => 'list<string>',
-      'associated_audience_id' => 'unsigned int',
-      'is_household' => 'bool',
-      'is_household_exclusion' => 'bool',
-      'is_value_based' => 'bool',
-      'allowed_domains' => 'list<string>',
-      'is_snapshot' => 'bool',
-      'lookalike_spec' => 'string',
-      'retention_days' => 'unsigned int',
-      'customer_file_source' => 'customer_file_source_enum',
-      'rev_share_policy_id' => 'unsigned int',
-      'partner_reference_key' => 'string',
-      'rule' => 'string',
-      'prefill' => 'bool',
-      'pixel_id' => 'string',
-      'rule_aggregation' => 'string',
-      'inclusions' => 'list<Object>',
-      'exclusions' => 'list<Object>',
-      'countries' => 'string',
-      'origin_audience_id' => 'string',
-      'details' => 'string',
-      'source' => 'string',
-      'isPrivate' => 'bool',
-      'additionalMetadata' => 'string',
-      'minAge' => 'unsigned int',
-      'maxAge' => 'unsigned int',
-      'expectedSize' => 'unsigned int',
-      'gender' => 'string',
-      'partnerID' => 'string',
       'accountID' => 'string',
+      'additionalMetadata' => 'string',
+      'allowed_domains' => 'list<string>',
+      'associated_audience_id' => 'unsigned int',
       'claim_objective' => 'claim_objective_enum',
       'content_type' => 'content_type_enum',
-      'event_source_group' => 'string',
-      'product_set_id' => 'string',
-      'event_sources' => 'list<map>',
-      'enable_fetch_or_create' => 'bool',
-      'video_group_ids' => 'list<string>',
-      'study_spec' => 'map',
-      'list_of_accounts' => 'list<unsigned int>',
+      'countries' => 'string',
+      'creation_params' => 'map',
+      'customer_file_source' => 'customer_file_source_enum',
       'dataset_id' => 'string',
+      'description' => 'string',
+      'details' => 'string',
+      'enable_fetch_or_create' => 'bool',
+      'event_source_group' => 'string',
+      'event_sources' => 'list<map>',
+      'exclusions' => 'list<Object>',
+      'expectedSize' => 'unsigned int',
+      'gender' => 'string',
+      'inclusions' => 'list<Object>',
+      'isPrivate' => 'bool',
+      'is_household' => 'bool',
+      'is_household_exclusion' => 'bool',
+      'is_snapshot' => 'bool',
+      'is_value_based' => 'bool',
+      'list_of_accounts' => 'list<unsigned int>',
+      'lookalike_spec' => 'string',
+      'maxAge' => 'unsigned int',
+      'minAge' => 'unsigned int',
+      'name' => 'string',
+      'opt_out_link' => 'string',
+      'origin_audience_id' => 'string',
+      'parent_audience_id' => 'unsigned int',
+      'partnerID' => 'string',
+      'partner_reference_key' => 'string',
+      'pixel_id' => 'string',
+      'prefill' => 'bool',
+      'product_set_id' => 'string',
+      'retention_days' => 'unsigned int',
+      'rev_share_policy_id' => 'unsigned int',
+      'rule' => 'string',
+      'rule_aggregation' => 'string',
+      'seed_audience' => 'unsigned int',
+      'source' => 'string',
+      'study_spec' => 'map',
+      'subtype' => 'subtype_enum',
+      'tags' => 'list<string>',
+      'video_group_ids' => 'list<string>',
     );
     $enums = array(
-      'subtype_enum' => CustomAudienceSubtypeValues::getInstance()->getValues(),
-      'customer_file_source_enum' => CustomAudienceCustomerFileSourceValues::getInstance()->getValues(),
       'claim_objective_enum' => CustomAudienceClaimObjectiveValues::getInstance()->getValues(),
       'content_type_enum' => CustomAudienceContentTypeValues::getInstance()->getValues(),
+      'customer_file_source_enum' => CustomAudienceCustomerFileSourceValues::getInstance()->getValues(),
+      'subtype_enum' => CustomAudienceSubtypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -2349,13 +2351,13 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'name' => 'string',
+      'advanced_rule' => 'string',
+      'custom_event_type' => 'custom_event_type_enum',
+      'default_conversion_value' => 'float',
       'description' => 'string',
       'event_source_id' => 'string',
+      'name' => 'string',
       'rule' => 'string',
-      'default_conversion_value' => 'float',
-      'custom_event_type' => 'custom_event_type_enum',
-      'advanced_rule' => 'string',
     );
     $enums = array(
       'custom_event_type_enum' => CustomConversionCustomEventTypeValues::getInstance()->getValues(),
@@ -2403,9 +2405,9 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'targeting_spec' => 'Targeting',
       'optimization_goal' => 'optimization_goal_enum',
       'promoted_object' => 'Object',
+      'targeting_spec' => 'Targeting',
     );
     $enums = array(
       'optimization_goal_enum' => AdAccountDeliveryEstimateOptimizationGoalValues::getInstance()->getValues(),
@@ -2528,20 +2530,20 @@ class AdAccount extends AbstractCrudObject {
 
     $param_types = array(
       'ad_format' => 'ad_format_enum',
+      'creative' => 'AdCreative',
+      'dynamic_asset_label' => 'string',
       'dynamic_creative_spec' => 'Object',
       'dynamic_customization' => 'Object',
-      'dynamic_asset_label' => 'string',
-      'interactive' => 'bool',
-      'post' => 'Object',
-      'height' => 'unsigned int',
-      'width' => 'unsigned int',
-      'place_page_id' => 'int',
-      'product_item_ids' => 'list<string>',
-      'start_date' => 'datetime',
       'end_date' => 'datetime',
+      'height' => 'unsigned int',
+      'interactive' => 'bool',
       'locale' => 'string',
+      'place_page_id' => 'int',
+      'post' => 'Object',
+      'product_item_ids' => 'list<string>',
       'render_type' => 'render_type_enum',
-      'creative' => 'AdCreative',
+      'start_date' => 'datetime',
+      'width' => 'unsigned int',
     );
     $enums = array(
       'ad_format_enum' => AdPreviewAdFormatValues::getInstance()->getValues(),
@@ -2590,21 +2592,21 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'default_summary' => 'bool',
-      'fields' => 'list<string>',
-      'filtering' => 'list<Object>',
-      'summary' => 'list<string>',
-      'sort' => 'list<string>',
       'action_attribution_windows' => 'list<action_attribution_windows_enum>',
       'action_breakdowns' => 'list<action_breakdowns_enum>',
       'action_report_time' => 'action_report_time_enum',
       'breakdowns' => 'list<breakdowns_enum>',
       'date_preset' => 'date_preset_enum',
+      'default_summary' => 'bool',
       'export_columns' => 'list<string>',
       'export_format' => 'string',
       'export_name' => 'string',
+      'fields' => 'list<string>',
+      'filtering' => 'list<Object>',
       'level' => 'level_enum',
       'product_id_limit' => 'int',
+      'sort' => 'list<string>',
+      'summary' => 'list<string>',
       'summary_action_breakdowns' => 'list<summary_action_breakdowns_enum>',
       'time_increment' => 'string',
       'time_range' => 'Object',
@@ -2640,21 +2642,21 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'default_summary' => 'bool',
-      'fields' => 'list<string>',
-      'filtering' => 'list<Object>',
-      'summary' => 'list<string>',
-      'sort' => 'list<string>',
       'action_attribution_windows' => 'list<action_attribution_windows_enum>',
       'action_breakdowns' => 'list<action_breakdowns_enum>',
       'action_report_time' => 'action_report_time_enum',
       'breakdowns' => 'list<breakdowns_enum>',
       'date_preset' => 'date_preset_enum',
+      'default_summary' => 'bool',
       'export_columns' => 'list<string>',
       'export_format' => 'string',
       'export_name' => 'string',
+      'fields' => 'list<string>',
+      'filtering' => 'list<Object>',
       'level' => 'level_enum',
       'product_id_limit' => 'int',
+      'sort' => 'list<string>',
+      'summary' => 'list<string>',
       'summary_action_breakdowns' => 'list<summary_action_breakdowns_enum>',
       'time_increment' => 'string',
       'time_range' => 'Object',
@@ -2761,11 +2763,11 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'allow_incomplete_app' => 'bool',
       'app_store' => 'app_store_enum',
       'app_store_country' => 'string',
       'business_id' => 'string',
       'query_term' => 'string',
-      'allow_incomplete_app' => 'bool',
     );
     $enums = array(
       'app_store_enum' => AdAccountMatchedSearchApplicationsEdgeDataAppStoreValues::getInstance()->getValues(),
@@ -2838,8 +2840,8 @@ class AdAccount extends AbstractCrudObject {
 
     $param_types = array(
       'mockup_access_token' => 'string',
-      'source_mockup_id' => 'string',
       'page_id' => 'string',
+      'source_mockup_id' => 'string',
     );
     $enums = array(
     );
@@ -2986,11 +2988,11 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'targeting_type' => 'string',
-      'private_or_public' => 'private_or_public_enum',
       'hide_pc' => 'bool',
-      'limit' => 'unsigned int',
       'is_exclusion' => 'bool',
+      'limit' => 'unsigned int',
+      'private_or_public' => 'private_or_public_enum',
+      'targeting_type' => 'string',
     );
     $enums = array(
       'private_or_public_enum' => PartnerCategoryPrivateOrPublicValues::getInstance()->getValues(),
@@ -3015,16 +3017,16 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'upload_id' => 'unsigned int',
-      'type' => 'string',
-      'start_new_upload' => 'bool',
-      'total_expected' => 'unsigned int',
-      'upload_metadata' => 'string',
-      'upload_complete' => 'bool',
-      'ignore_count_check' => 'bool',
       'abandon_upload' => 'bool',
+      'ignore_count_check' => 'bool',
       'payload' => 'list<string>',
       'payload_type' => 'string',
+      'start_new_upload' => 'bool',
+      'total_expected' => 'unsigned int',
+      'type' => 'string',
+      'upload_complete' => 'bool',
+      'upload_id' => 'unsigned int',
+      'upload_metadata' => 'string',
     );
     $enums = array(
     );
@@ -3048,8 +3050,8 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'category_ids' => 'list<string>',
       'account_ids' => 'list<int>',
+      'category_ids' => 'list<string>',
       'type' => 'type_enum',
     );
     $enums = array(
@@ -3100,34 +3102,34 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'allowed_domains' => 'list<string>',
+      'associated_audience_id' => 'unsigned int',
+      'claim_objective' => 'claim_objective_enum',
+      'content_type' => 'content_type_enum',
       'creation_params' => 'map',
       'description' => 'string',
+      'enable_fetch_or_create' => 'bool',
+      'event_source_group' => 'string',
+      'event_sources' => 'list<map>',
+      'exclusions' => 'list<Object>',
+      'inclusions' => 'list<Object>',
+      'is_household' => 'bool',
+      'is_household_exclusion' => 'bool',
+      'is_snapshot' => 'bool',
+      'is_value_based' => 'bool',
       'name' => 'string',
       'opt_out_link' => 'string',
       'parent_audience_id' => 'unsigned int',
-      'subtype' => 'subtype_enum',
-      'seed_audience' => 'unsigned int',
-      'tags' => 'list<string>',
-      'associated_audience_id' => 'unsigned int',
-      'is_household' => 'bool',
-      'is_household_exclusion' => 'bool',
-      'is_value_based' => 'bool',
-      'allowed_domains' => 'list<string>',
-      'is_snapshot' => 'bool',
-      'claim_objective' => 'claim_objective_enum',
-      'content_type' => 'content_type_enum',
-      'event_source_group' => 'string',
       'product_set_id' => 'string',
       'rev_share_policy_id' => 'unsigned int',
-      'event_sources' => 'list<map>',
-      'enable_fetch_or_create' => 'bool',
-      'inclusions' => 'list<Object>',
-      'exclusions' => 'list<Object>',
+      'seed_audience' => 'unsigned int',
+      'subtype' => 'subtype_enum',
+      'tags' => 'list<string>',
     );
     $enums = array(
-      'subtype_enum' => AdAccountSubtypeValues::getInstance()->getValues(),
       'claim_objective_enum' => AdAccountClaimObjectiveValues::getInstance()->getValues(),
       'content_type_enum' => AdAccountContentTypeValues::getInstance()->getValues(),
+      'subtype_enum' => AdAccountSubtypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -3219,13 +3221,13 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'targeting_spec' => 'Targeting',
-      'is_debug' => 'bool',
-      'creative_action_spec' => 'string',
       'adgroup_ids' => 'list<string>',
-      'concepts' => 'string',
       'caller_id' => 'string',
+      'concepts' => 'string',
+      'creative_action_spec' => 'string',
+      'is_debug' => 'bool',
       'object_store_url' => 'string',
+      'targeting_spec' => 'Targeting',
     );
     $enums = array(
     );
@@ -3274,42 +3276,42 @@ class AdAccount extends AbstractCrudObject {
     $param_types = array(
       'action' => 'action_enum',
       'ad_formats' => 'list<map>',
-      'target_spec' => 'Targeting',
-      'start_time' => 'unsigned int',
-      'stop_time' => 'unsigned int',
-      'end_time' => 'unsigned int',
-      'reach' => 'unsigned int',
-      'impression' => 'unsigned int',
-      'frequency_cap' => 'unsigned int',
+      'auction_entry_option_index' => 'unsigned int',
       'budget' => 'unsigned int',
-      'prediction_mode' => 'unsigned int',
+      'buying_type' => 'buying_type_enum',
+      'campaign_group_id' => 'string',
+      'day_parting_schedule' => 'list<Object>',
       'deal_id' => 'string',
       'destination_id' => 'unsigned int',
       'destination_ids' => 'list<string>',
-      'story_event_type' => 'unsigned int',
-      'day_parting_schedule' => 'list<Object>',
-      'target_cpm' => 'unsigned int',
-      'buying_type' => 'buying_type_enum',
-      'objective' => 'string',
-      'rf_prediction_id' => 'string',
-      'rf_prediction_id_to_release' => 'string',
-      'rf_prediction_id_to_share' => 'string',
-      'num_curve_points' => 'unsigned int',
-      'interval_frequency_cap_reset_period' => 'unsigned int',
-      'campaign_group_id' => 'string',
+      'end_time' => 'unsigned int',
+      'exceptions' => 'bool',
+      'existing_campaign_id' => 'string',
+      'expiration_time' => 'unsigned int',
+      'frequency_cap' => 'unsigned int',
       'grp_buying' => 'bool',
+      'impression' => 'unsigned int',
       'instream_packages' => 'list<instream_packages_enum>',
+      'interval_frequency_cap_reset_period' => 'unsigned int',
       'is_bonus_media' => 'bool',
       'is_conversion_goal' => 'bool',
       'is_full_view' => 'bool',
       'is_higher_average_frequency' => 'bool',
       'is_reach_and_frequency_io_buying' => 'bool',
       'is_reserved_buying' => 'bool',
-      'expiration_time' => 'unsigned int',
-      'existing_campaign_id' => 'string',
+      'num_curve_points' => 'unsigned int',
+      'objective' => 'string',
+      'prediction_mode' => 'unsigned int',
+      'reach' => 'unsigned int',
+      'rf_prediction_id' => 'string',
+      'rf_prediction_id_to_release' => 'string',
+      'rf_prediction_id_to_share' => 'string',
+      'start_time' => 'unsigned int',
+      'stop_time' => 'unsigned int',
+      'story_event_type' => 'unsigned int',
+      'target_cpm' => 'unsigned int',
+      'target_spec' => 'Targeting',
       'video_view_length_constraint' => 'unsigned int',
-      'auction_entry_option_index' => 'unsigned int',
-      'exceptions' => 'bool',
     );
     $enums = array(
       'action_enum' => ReachFrequencyPredictionActionValues::getInstance()->getValues(),
@@ -3392,10 +3394,10 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'time_increment' => 'string',
-      'time_range' => 'Object',
       'fields' => 'list<string>',
       'filtering' => 'list<Object>',
+      'time_increment' => 'string',
+      'time_range' => 'Object',
     );
     $enums = array(
     );
@@ -3419,9 +3421,9 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'business_id' => 'string',
       'fields' => 'list<string>',
       'filtering' => 'list<Object>',
-      'business_id' => 'string',
     );
     $enums = array(
     );
@@ -3445,9 +3447,9 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'message_creative_id' => 'string',
-      'daily_budget' => 'unsigned int',
       'bid_amount' => 'int',
+      'daily_budget' => 'unsigned int',
+      'message_creative_id' => 'string',
       'targeting' => 'Targeting',
     );
     $enums = array(
@@ -3472,10 +3474,10 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'include_nodes' => 'bool',
       'excluded_category' => 'string',
-      'limit_type' => 'limit_type_enum',
+      'include_nodes' => 'bool',
       'is_exclusion' => 'bool',
+      'limit_type' => 'limit_type_enum',
       'whitelisted_types' => 'list<whitelisted_types_enum>',
     );
     $enums = array(
@@ -3502,13 +3504,13 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'q' => 'string',
-      'limit_type' => 'limit_type_enum',
-      'whitelisted_types' => 'list<whitelisted_types_enum>',
+      'countries' => 'list<string>',
       'is_exclusion' => 'bool',
+      'limit_type' => 'limit_type_enum',
+      'q' => 'string',
       'session_id' => 'unsigned int',
       'targeting_list' => 'list<Object>',
-      'countries' => 'list<string>',
+      'whitelisted_types' => 'list<whitelisted_types_enum>',
     );
     $enums = array(
       'limit_type_enum' => AdAccountTargetingUnifiedLimitTypeValues::getInstance()->getValues(),
@@ -3534,10 +3536,10 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'targeting_spec' => 'Targeting',
       'discard_ages' => 'bool',
       'discard_placements' => 'bool',
       'hide_targeting_spec_from_return' => 'bool',
+      'targeting_spec' => 'Targeting',
     );
     $enums = array(
     );
@@ -3561,19 +3563,19 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'targeting_list' => 'list<Object>',
-      'objective' => 'objective_enum',
-      'objects' => 'Object',
+      'countries' => 'list<string>',
       'limit_type' => 'limit_type_enum',
       'mode' => 'mode_enum',
+      'objective' => 'objective_enum',
+      'objects' => 'Object',
       'session_id' => 'unsigned int',
+      'targeting_list' => 'list<Object>',
       'whitelisted_types' => 'list<whitelisted_types_enum>',
-      'countries' => 'list<string>',
     );
     $enums = array(
-      'objective_enum' => AdAccountTargetingUnifiedObjectiveValues::getInstance()->getValues(),
       'limit_type_enum' => AdAccountTargetingUnifiedLimitTypeValues::getInstance()->getValues(),
       'mode_enum' => AdAccountTargetingUnifiedModeValues::getInstance()->getValues(),
+      'objective_enum' => AdAccountTargetingUnifiedObjectiveValues::getInstance()->getValues(),
       'whitelisted_types_enum' => AdAccountTargetingUnifiedWhitelistedTypesValues::getInstance()->getValues(),
     );
 
@@ -3596,10 +3598,10 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'targeting_list' => 'list<Object>',
       'id_list' => 'list<unsigned int>',
-      'name_list' => 'list<string>',
       'is_exclusion' => 'bool',
+      'name_list' => 'list<string>',
+      'targeting_list' => 'list<Object>',
     );
     $enums = array(
     );
@@ -3718,9 +3720,9 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'payload' => 'Object',
-      'namespace' => 'string',
       'bidirectional' => 'bool',
+      'namespace' => 'string',
+      'payload' => 'Object',
     );
     $enums = array(
     );
@@ -3744,11 +3746,11 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'payload' => 'Object',
       'action' => 'string',
-      'namespace' => 'string',
-      'retention' => 'string',
       'bidirectional' => 'bool',
+      'namespace' => 'string',
+      'payload' => 'Object',
+      'retention' => 'string',
     );
     $enums = array(
     );
@@ -3820,8 +3822,8 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'uid' => 'int',
       'tasks' => 'list<tasks_enum>',
+      'uid' => 'int',
     );
     $enums = array(
       'tasks_enum' => AdAccountTasksValues::getInstance()->getValues(),
@@ -3846,9 +3848,9 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'session' => 'Object',
-      'payload' => 'Object',
       'namespace' => 'string',
+      'payload' => 'Object',
+      'session' => 'Object',
     );
     $enums = array(
     );
@@ -3895,19 +3897,19 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'name' => 'string',
-      'spend_cap_action' => 'string',
-      'spend_cap' => 'float',
       'agency_client_declaration' => 'map',
-      'business_info' => 'map',
-      'tos_accepted' => 'map',
-      'currency' => 'currency_enum',
-      'timezone_id' => 'unsigned int',
-      'end_advertiser' => 'string',
-      'media_agency' => 'string',
-      'partner' => 'string',
-      'is_notifications_enabled' => 'bool',
       'attribution_spec' => 'list<Object>',
+      'business_info' => 'map',
+      'currency' => 'currency_enum',
+      'end_advertiser' => 'string',
+      'is_notifications_enabled' => 'bool',
+      'media_agency' => 'string',
+      'name' => 'string',
+      'partner' => 'string',
+      'spend_cap' => 'float',
+      'spend_cap_action' => 'string',
+      'timezone_id' => 'unsigned int',
+      'tos_accepted' => 'map',
     );
     $enums = array(
       'currency_enum' => AdAccountCurrencyValues::getInstance()->getValues(),

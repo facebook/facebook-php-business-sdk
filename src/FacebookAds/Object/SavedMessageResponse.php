@@ -129,10 +129,10 @@ class SavedMessageResponse extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'message' => 'string',
-      'title' => 'string',
       'image' => 'string',
+      'message' => 'string',
       'remove_image' => 'bool',
+      'title' => 'string',
     );
     $enums = array(
     );

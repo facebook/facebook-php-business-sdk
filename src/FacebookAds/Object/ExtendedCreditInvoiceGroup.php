@@ -151,8 +151,8 @@ class ExtendedCreditInvoiceGroup extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'name' => 'string',
       'emails' => 'list<string>',
+      'name' => 'string',
     );
     $enums = array(
     );

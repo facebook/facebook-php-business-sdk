@@ -115,8 +115,8 @@ class AdVideo extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'target_id' => 'unsigned int',
       'auto_trim_type' => 'string',
+      'target_id' => 'unsigned int',
     );
     $enums = array(
     );
@@ -140,8 +140,8 @@ class AdVideo extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'uid' => 'Object',
       'remove_block' => 'bool',
+      'uid' => 'Object',
     );
     $enums = array(
     );
@@ -212,8 +212,8 @@ class AdVideo extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'default_locale' => 'string',
       'captions_file' => 'file',
+      'default_locale' => 'string',
       'locales_to_delete' => 'list<string>',
     );
     $enums = array(
@@ -239,14 +239,14 @@ class AdVideo extends AbstractCrudObject {
 
     $param_types = array(
       'filter' => 'filter_enum',
-      'order' => 'order_enum',
       'live_filter' => 'live_filter_enum',
+      'order' => 'order_enum',
       'since' => 'datetime',
     );
     $enums = array(
       'filter_enum' => CommentFilterValues::getInstance()->getValues(),
-      'order_enum' => CommentOrderValues::getInstance()->getValues(),
       'live_filter_enum' => CommentLiveFilterValues::getInstance()->getValues(),
+      'order_enum' => CommentOrderValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -268,17 +268,17 @@ class AdVideo extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'attachment_id' => 'string',
+      'attachment_share_url' => 'string',
+      'attachment_url' => 'string',
+      'comment_privacy_value' => 'comment_privacy_value_enum',
+      'facepile_mentioned_ids' => 'list<string>',
+      'feedback_source' => 'string',
+      'is_offline' => 'bool',
+      'message' => 'string',
+      'nectar_module' => 'string',
       'object_id' => 'string',
       'parent_comment_id' => 'Object',
-      'nectar_module' => 'string',
-      'attachment_id' => 'string',
-      'attachment_url' => 'string',
-      'attachment_share_url' => 'string',
-      'feedback_source' => 'string',
-      'facepile_mentioned_ids' => 'list<string>',
-      'is_offline' => 'bool',
-      'comment_privacy_value' => 'comment_privacy_value_enum',
-      'message' => 'string',
       'text' => 'string',
       'tracking' => 'string',
     );
@@ -328,10 +328,10 @@ class AdVideo extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'tracking' => 'string',
+      'feedback_source' => 'string',
       'nectar_module' => 'string',
       'notify' => 'bool',
-      'feedback_source' => 'string',
+      'tracking' => 'string',
     );
     $enums = array(
     );
@@ -378,10 +378,10 @@ class AdVideo extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'tracking' => 'string',
+      'feedback_source' => 'string',
       'nectar_module' => 'string',
       'notify' => 'bool',
-      'feedback_source' => 'string',
+      'tracking' => 'string',
     );
     $enums = array(
     );
@@ -428,13 +428,13 @@ class AdVideo extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'question' => 'string',
-      'options' => 'list<string>',
+      'close_after_voting' => 'bool',
       'correct_option' => 'unsigned int',
       'default_open' => 'bool',
-      'show_results' => 'bool',
+      'options' => 'list<string>',
+      'question' => 'string',
       'show_gradient' => 'bool',
-      'close_after_voting' => 'bool',
+      'show_results' => 'bool',
     );
     $enums = array(
     );
@@ -529,8 +529,8 @@ class AdVideo extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'target_id' => 'unsigned int',
       'summarization_type' => 'string',
+      'target_id' => 'unsigned int',
     );
     $enums = array(
     );
@@ -577,9 +577,9 @@ class AdVideo extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'tag_uid' => 'int',
       'uid' => 'int',
       'vid' => 'string',
-      'tag_uid' => 'int',
     );
     $enums = array(
     );
@@ -626,8 +626,8 @@ class AdVideo extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'source' => 'file',
       'is_preferred' => 'bool',
+      'source' => 'file',
     );
     $enums = array(
     );
@@ -725,34 +725,34 @@ class AdVideo extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'privacy' => 'string',
-      'published' => 'bool',
-      'target' => 'string',
-      'scheduled_publish_time' => 'unsigned int',
-      'name' => 'string',
-      'description' => 'string',
-      'tags' => 'list<string>',
-      'preferred_thumbnail_id' => 'string',
       'ad_breaks' => 'list',
+      'allow_bm_crossposting' => 'bool',
+      'allow_crossposting_for_pages' => 'list<Object>',
       'backdated_time' => 'datetime',
       'backdated_time_granularity' => 'backdated_time_granularity_enum',
       'call_to_action' => 'Object',
+      'content_category' => 'content_category_enum',
+      'content_tags' => 'list<string>',
       'custom_labels' => 'list<string>',
+      'description' => 'string',
+      'direct_share_status' => 'unsigned int',
+      'embeddable' => 'bool',
       'expiration' => 'Object',
       'expire_now' => 'bool',
-      'embeddable' => 'bool',
-      'allow_bm_crossposting' => 'bool',
-      'allow_crossposting_for_pages' => 'list<Object>',
-      'social_actions' => 'bool',
-      'content_category' => 'content_category_enum',
-      'publish_to_videos_tab' => 'bool',
-      'publish_to_news_feed' => 'bool',
-      'universal_video_id' => 'string',
-      'content_tags' => 'list<string>',
-      'sponsor_id' => 'string',
-      'direct_share_status' => 'unsigned int',
-      'sponsor_relationship' => 'unsigned int',
       'increment_play_count' => 'bool',
+      'name' => 'string',
+      'preferred_thumbnail_id' => 'string',
+      'privacy' => 'string',
+      'publish_to_news_feed' => 'bool',
+      'publish_to_videos_tab' => 'bool',
+      'published' => 'bool',
+      'scheduled_publish_time' => 'unsigned int',
+      'social_actions' => 'bool',
+      'sponsor_id' => 'string',
+      'sponsor_relationship' => 'unsigned int',
+      'tags' => 'list<string>',
+      'target' => 'string',
+      'universal_video_id' => 'string',
     );
     $enums = array(
       'backdated_time_granularity_enum' => AdVideoBackdatedTimeGranularityValues::getInstance()->getValues(),

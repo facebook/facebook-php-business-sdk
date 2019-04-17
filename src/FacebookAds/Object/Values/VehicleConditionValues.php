@@ -43,4 +43,5 @@ class VehicleConditionValues extends AbstractEnum {
   const NONE = 'NONE';
   const OTHER = 'OTHER';
   const POOR = 'POOR';
+  const VERY_GOOD = 'VERY_GOOD';
 }

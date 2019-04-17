@@ -65,7 +65,7 @@ class DirectDealFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'adbreaks_enabled' => 'bool',
-      'adset' => 'Object',
+      'adset' => 'AdSet',
       'advertiser' => 'Object',
       'advertiser_lead_email' => 'string',
       'advertiser_page' => 'string',

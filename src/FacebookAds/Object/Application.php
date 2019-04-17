@@ -81,33 +81,6 @@ class Application extends AbstractCrudObject {
   }
 
 
-  public function createLocalServiceBookingTest(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'api_name' => 'api_name_enum',
-    );
-    $enums = array(
-      'api_name_enum' => array(
-        'AVAILABILITY',
-      ),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/LocalServiceBookingTest',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function deleteAccounts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -167,13 +140,13 @@ class Application extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'uid' => 'int',
-      'owner_access_token' => 'string',
       'installed' => 'bool',
-      'permissions' => 'list<Permission>',
-      'name' => 'string',
       'minor' => 'bool',
+      'name' => 'string',
+      'owner_access_token' => 'string',
+      'permissions' => 'list<Permission>',
       'type' => 'type_enum',
+      'uid' => 'int',
     );
     $enums = array(
       'type_enum' => array(
@@ -224,34 +197,34 @@ class Application extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'event' => 'event_enum',
-      'attribution' => 'string',
       'advertiser_id' => 'string',
-      'anon_id' => 'string',
       'advertiser_tracking_enabled' => 'bool',
+      'anon_id' => 'string',
+      'app_user_id' => 'string',
       'application_tracking_enabled' => 'bool',
-      'extinfo' => 'Object',
-      'bundle_id' => 'string',
-      'bundle_version' => 'string',
-      'bundle_short_version' => 'string',
+      'attribution' => 'string',
       'auto_publish' => 'bool',
+      'bundle_id' => 'string',
+      'bundle_short_version' => 'string',
+      'bundle_version' => 'string',
+      'consider_views' => 'bool',
       'custom_events' => 'list<Object>',
       'custom_events_file' => 'file',
+      'device_token' => 'string',
+      'event' => 'event_enum',
+      'extinfo' => 'Object',
+      'include_dwell_data' => 'bool',
+      'include_video_data' => 'bool',
       'installer_package' => 'string',
       'migration_bundle' => 'string',
-      'url_schemes' => 'list<string>',
-      'device_token' => 'string',
-      'windows_attribution_id' => 'string',
-      'consider_views' => 'bool',
-      'include_video_data' => 'bool',
-      'include_dwell_data' => 'bool',
       'page_id' => 'unsigned int',
       'page_scoped_user_id' => 'unsigned int',
+      'receipt_data' => 'string',
       'ud' => 'map',
+      'url_schemes' => 'list<string>',
       'user_id' => 'string',
       'user_id_type' => 'user_id_type_enum',
-      'app_user_id' => 'string',
-      'receipt_data' => 'string',
+      'windows_attribution_id' => 'string',
     );
     $enums = array(
       'event_enum' => array(
@@ -322,9 +295,9 @@ class Application extends AbstractCrudObject {
     $param_types = array(
       'aggregation_period' => 'aggregation_period_enum',
       'breakdowns' => 'list<breakdowns_enum>',
-      'metrics' => 'list<metrics_enum>',
       'filters' => 'list<Object>',
       'limit' => 'int',
+      'metrics' => 'list<metrics_enum>',
       'ordering_column' => 'ordering_column_enum',
       'ordering_type' => 'ordering_type_enum',
       'since' => 'datetime',
@@ -451,11 +424,11 @@ class Application extends AbstractCrudObject {
 
     $param_types = array(
       'app_version' => 'string',
-      'platform' => 'platform_enum',
-      'tree' => 'map',
-      'extra_info' => 'string',
-      'request_type' => 'request_type_enum',
       'device_session_id' => 'string',
+      'extra_info' => 'string',
+      'platform' => 'platform_enum',
+      'request_type' => 'request_type_enum',
+      'tree' => 'map',
     );
     $enums = array(
       'platform_enum' => ApplicationPlatformValues::getInstance()->getValues(),
@@ -506,27 +479,17 @@ class Application extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'aggregateBy' => 'aggregateBy_enum',
+      'breakdowns' => 'list<string>',
+      'ecosystem' => 'ecosystem_enum',
+      'event_name' => 'string',
+      'intervals_to_aggregate' => 'int',
       'metric_key' => 'string',
       'period' => 'period_enum',
       'since' => 'datetime',
       'until' => 'datetime',
-      'breakdowns' => 'list<string>',
-      'aggregateBy' => 'aggregateBy_enum',
-      'event_name' => 'string',
-      'ecosystem' => 'ecosystem_enum',
-      'intervals_to_aggregate' => 'int',
     );
     $enums = array(
-      'period_enum' => array(
-        'daily',
-        'days_28',
-        'hourly',
-        'lifetime',
-        'mins_15',
-        'monthly',
-        'range',
-        'weekly',
-      ),
       'aggregateBy_enum' => array(
         'AVERAGE_JOURNEY_LENGTH',
         'CONVERTED_JOURNEY_PERCENT',
@@ -566,6 +529,16 @@ class Application extends AbstractCrudObject {
       'ecosystem_enum' => array(
         'GAME',
         'NON_GAME',
+      ),
+      'period_enum' => array(
+        'daily',
+        'days_28',
+        'hourly',
+        'lifetime',
+        'mins_15',
+        'monthly',
+        'range',
+        'weekly',
       ),
     );
 
@@ -883,9 +856,9 @@ class Application extends AbstractCrudObject {
 
     $param_types = array(
       'app_version' => 'string',
-      'indexed_button_list' => 'list<map>',
       'device_id' => 'string',
       'extinfo' => 'string',
+      'indexed_button_list' => 'list<map>',
     );
     $enums = array(
     );
@@ -909,9 +882,9 @@ class Application extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'bindings' => 'list<map>',
       'mutation_method' => 'mutation_method_enum',
       'platform' => 'platform_enum',
-      'bindings' => 'list<map>',
     );
     $enums = array(
       'mutation_method_enum' => ApplicationMutationMethodValues::getInstance()->getValues(),
@@ -937,10 +910,10 @@ class Application extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'mappings' => 'list<map>',
       'mutation_method' => 'mutation_method_enum',
       'platform' => 'platform_enum',
       'post_method' => 'post_method_enum',
-      'mappings' => 'list<map>',
     );
     $enums = array(
       'mutation_method_enum' => ApplicationMutationMethodValues::getInstance()->getValues(),
@@ -1062,8 +1035,8 @@ class Application extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'type' => 'type_enum',
       'include_canceled' => 'bool',
+      'type' => 'type_enum',
     );
     $enums = array(
       'type_enum' => EventTypeValues::getInstance()->getValues(),
@@ -1077,63 +1050,6 @@ class Application extends AbstractCrudObject {
       new Event(),
       'EDGE',
       Event::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getFoodDrinkOrders(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'order_id' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/food_drink_orders',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createFoodDrinkOrder(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'order_id' => 'string',
-      'status' => 'status_enum',
-    );
-    $enums = array(
-      'status_enum' => array(
-        'CANCELLED',
-        'CONFIRMED',
-        'CREATED',
-        'DELIVERED',
-        'OUT_FOR_DELIVERY',
-        'READY_FOR_PICKUP',
-      ),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/food_drink_orders',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1245,16 +1161,16 @@ class Application extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'name' => 'string',
       'context_id' => 'string',
-      'sort_order' => 'sort_order_enum',
-      'score_type' => 'score_type_enum',
       'decimal_offset' => 'unsigned int',
+      'name' => 'string',
+      'score_type' => 'score_type_enum',
+      'sort_order' => 'sort_order_enum',
       'unit' => 'string',
     );
     $enums = array(
-      'sort_order_enum' => ApplicationSortOrderValues::getInstance()->getValues(),
       'score_type_enum' => ApplicationScoreTypeValues::getInstance()->getValues(),
+      'sort_order_enum' => ApplicationSortOrderValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1326,10 +1242,10 @@ class Application extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'name' => 'string',
-      'score' => 'unsigned int',
-      'player_id' => 'string',
       'extra_data' => 'string',
+      'name' => 'string',
+      'player_id' => 'string',
+      'score' => 'unsigned int',
     );
     $enums = array(
     );
@@ -1342,53 +1258,6 @@ class Application extends AbstractCrudObject {
       new Application(),
       'EDGE',
       Application::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getLocalServiceBookingConfig(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/local_service_booking_config',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createLocalServiceBookingConfig(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'base_url' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/local_service_booking_config',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1423,20 +1292,20 @@ class Application extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'event' => 'string',
-      'is_fb' => 'bool',
-      'fb_ad_id' => 'unsigned int',
-      'attribution' => 'string',
       'advertiser_id' => 'string',
+      'attribution' => 'string',
+      'attribution_model' => 'string',
+      'auditing_token' => 'string',
+      'click_attr_window' => 'unsigned int',
+      'custom_events' => 'list<Object>',
+      'decline_reason' => 'string',
+      'event' => 'string',
+      'event_reported_time' => 'unsigned int',
+      'fb_ad_id' => 'unsigned int',
       'fb_click_time' => 'unsigned int',
       'fb_view_time' => 'unsigned int',
-      'event_reported_time' => 'unsigned int',
-      'attribution_model' => 'string',
-      'click_attr_window' => 'unsigned int',
+      'is_fb' => 'bool',
       'view_attr_window' => 'unsigned int',
-      'decline_reason' => 'string',
-      'auditing_token' => 'string',
-      'custom_events' => 'list<Object>',
     );
     $enums = array(
     );
@@ -1585,8 +1454,8 @@ class Application extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'unity' => 'bool',
       'flash' => 'bool',
+      'unity' => 'bool',
     );
     $enums = array(
     );
@@ -1633,11 +1502,11 @@ class Application extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'release_name' => 'string',
-      'changelog' => 'string',
-      'rollout_percentage' => 'float',
       'auto_push_to_prod' => 'bool',
+      'changelog' => 'string',
       'channel_id' => 'unsigned int',
+      'release_name' => 'string',
+      'rollout_percentage' => 'float',
     );
     $enums = array(
     );
@@ -1780,11 +1649,11 @@ class Application extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'permission' => 'list<Permission>',
-      'status' => 'list<status_enum>',
       'android_key_hash' => 'string',
       'ios_bundle_id' => 'string',
+      'permission' => 'list<Permission>',
       'proxied_app_id' => 'int',
+      'status' => 'list<status_enum>',
     );
     $enums = array(
       'status_enum' => array(
@@ -1813,56 +1682,56 @@ class Application extends AbstractCrudObject {
 
     $param_types = array(
       'aid' => 'string',
+      'allow_spherical_photo' => 'bool',
       'alt_text_custom' => 'string',
-      'caption' => 'string',
-      'url' => 'string',
-      'uid' => 'int',
-      'profile_id' => 'int',
-      'target_id' => 'int',
-      'vault_image_id' => 'string',
-      'tags' => 'list<Object>',
-      'place' => 'Object',
-      'is_explicit_place' => 'bool',
-      'is_explicit_location' => 'bool',
-      'og_action_type_id' => 'string',
-      'og_object_id' => 'string',
-      'og_phrase' => 'string',
-      'og_icon_id' => 'string',
-      'og_suggestion_mechanism' => 'string',
-      'og_set_profile_badge' => 'bool',
-      'privacy' => 'string',
-      'targeting' => 'Object',
-      'feed_targeting' => 'Object',
-      'no_story' => 'bool',
-      'published' => 'bool',
-      'offline_id' => 'unsigned int',
+      'android_key_hash' => 'string',
+      'application_id' => 'string',
       'attempt' => 'unsigned int',
+      'audience_exp' => 'bool',
       'backdated_time' => 'datetime',
       'backdated_time_granularity' => 'backdated_time_granularity_enum',
-      'time_since_original_post' => 'unsigned int',
-      'filter_type' => 'unsigned int',
-      'scheduled_publish_time' => 'unsigned int',
-      'unpublished_content_type' => 'unpublished_content_type_enum',
-      'full_res_is_coming_later' => 'bool',
+      'caption' => 'string',
       'composer_session_id' => 'string',
-      'qn' => 'string',
-      'manual_privacy' => 'bool',
-      'audience_exp' => 'bool',
-      'proxied_app_id' => 'string',
-      'ios_bundle_id' => 'string',
-      'android_key_hash' => 'string',
-      'user_selected_tags' => 'bool',
-      'allow_spherical_photo' => 'bool',
-      'spherical_metadata' => 'map',
+      'direct_share_status' => 'unsigned int',
+      'feed_targeting' => 'Object',
+      'filter_type' => 'unsigned int',
+      'full_res_is_coming_later' => 'bool',
       'initial_view_heading_override_degrees' => 'unsigned int',
       'initial_view_pitch_override_degrees' => 'unsigned int',
       'initial_view_vertical_fov_override_degrees' => 'unsigned int',
-      'sponsor_id' => 'string',
-      'direct_share_status' => 'unsigned int',
-      'sponsor_relationship' => 'unsigned int',
-      'application_id' => 'string',
-      'name' => 'string',
+      'ios_bundle_id' => 'string',
+      'is_explicit_location' => 'bool',
+      'is_explicit_place' => 'bool',
+      'manual_privacy' => 'bool',
       'message' => 'string',
+      'name' => 'string',
+      'no_story' => 'bool',
+      'offline_id' => 'unsigned int',
+      'og_action_type_id' => 'string',
+      'og_icon_id' => 'string',
+      'og_object_id' => 'string',
+      'og_phrase' => 'string',
+      'og_set_profile_badge' => 'bool',
+      'og_suggestion_mechanism' => 'string',
+      'place' => 'Object',
+      'privacy' => 'string',
+      'profile_id' => 'int',
+      'proxied_app_id' => 'string',
+      'published' => 'bool',
+      'qn' => 'string',
+      'scheduled_publish_time' => 'unsigned int',
+      'spherical_metadata' => 'map',
+      'sponsor_id' => 'string',
+      'sponsor_relationship' => 'unsigned int',
+      'tags' => 'list<Object>',
+      'target_id' => 'int',
+      'targeting' => 'Object',
+      'time_since_original_post' => 'unsigned int',
+      'uid' => 'int',
+      'unpublished_content_type' => 'unpublished_content_type_enum',
+      'url' => 'string',
+      'user_selected_tags' => 'bool',
+      'vault_image_id' => 'string',
     );
     $enums = array(
       'backdated_time_granularity_enum' => PhotoBackdatedTimeGranularityValues::getInstance()->getValues(),
@@ -1888,8 +1757,8 @@ class Application extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'type' => 'type_enum',
       'redirect' => 'bool',
+      'type' => 'type_enum',
     );
     $enums = array(
       'type_enum' => ProfilePictureSourceTypeValues::getInstance()->getValues(),
@@ -2009,8 +1878,8 @@ class Application extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'user' => 'int',
       'role' => 'role_enum',
+      'user' => 'int',
     );
     $enums = array(
       'role_enum' => ApplicationRoleValues::getInstance()->getValues(),
@@ -2155,8 +2024,8 @@ class Application extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'object' => 'string',
       'fields' => 'list<string>',
+      'object' => 'string',
     );
     $enums = array(
     );
@@ -2180,11 +2049,11 @@ class Application extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'object' => 'string',
-      'fields' => 'list<string>',
       'callback_url' => 'string',
-      'verify_token' => 'string',
+      'fields' => 'list<string>',
       'include_values' => 'bool',
+      'object' => 'string',
+      'verify_token' => 'string',
     );
     $enums = array(
     );
@@ -2208,11 +2077,11 @@ class Application extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'object_id' => 'string',
-      'object' => 'string',
-      'field' => 'string',
-      'stress_run' => 'unsigned int',
       'custom_fields' => 'string',
+      'field' => 'string',
+      'object' => 'string',
+      'object_id' => 'string',
+      'stress_run' => 'unsigned int',
     );
     $enums = array(
     );
@@ -2236,10 +2105,10 @@ class Application extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'session_type' => 'session_type_enum',
-      'file_type' => 'string',
       'file_length' => 'unsigned int',
       'file_name' => 'string',
+      'file_type' => 'string',
+      'session_type' => 'session_type_enum',
     );
     $enums = array(
       'session_type_enum' => array(
@@ -2314,49 +2183,49 @@ class Application extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'migrations' => 'string',
-      'restrictions' => 'string',
-      'android_key_hash' => 'list<string>',
       'an_platforms' => 'list<an_platforms_enum>',
+      'android_class_name' => 'string',
+      'android_key_hash' => 'list<string>',
+      'android_key_hashes' => 'list<string>',
+      'android_package_name' => 'string',
+      'android_sso' => 'bool',
+      'app_domains' => 'list<string>',
       'app_name' => 'string',
       'app_type' => 'bool',
+      'auth_dialog_data_help_url' => 'string',
       'auth_dialog_headline' => 'string',
       'auth_dialog_perms_explanation' => 'string',
       'auth_referral_default_activity_privacy' => 'string',
       'auth_referral_enabled' => 'bool',
       'auth_referral_extended_perms' => 'list<string>',
+      'auth_referral_friend_perms' => 'list<string>',
       'auth_referral_response_type' => 'string',
       'auth_referral_user_perms' => 'list<string>',
-      'auth_referral_friend_perms' => 'list<string>',
       'canvas_fluid_height' => 'bool',
       'canvas_fluid_width' => 'bool',
+      'canvas_url' => 'string',
       'category' => 'string',
       'configured_ios_sso' => 'bool',
-      'ios_bundle_id' => 'list<string>',
-      'ipad_app_store_id' => 'string',
-      'iphone_app_store_id' => 'string',
-      'page_tab_default_name' => 'string',
-      'social_discovery' => 'bool',
-      'subcategory' => 'string',
-      'android_package_name' => 'string',
-      'android_class_name' => 'string',
-      'android_key_hashes' => 'list<string>',
-      'android_sso' => 'bool',
-      'app_domains' => 'list<string>',
-      'auth_dialog_data_help_url' => 'string',
-      'canvas_url' => 'string',
       'contact_email' => 'string',
       'created_time' => 'Object',
       'creator_uid' => 'int',
       'deauth_callback_url' => 'string',
       'hosting_url' => 'string',
+      'ios_bundle_id' => 'list<string>',
+      'ipad_app_store_id' => 'string',
+      'iphone_app_store_id' => 'string',
+      'migrations' => 'string',
       'mobile_web_url' => 'string',
       'namespace' => 'string',
+      'page_tab_default_name' => 'string',
       'page_tab_url' => 'string',
       'privacy_policy_url' => 'string',
+      'restrictions' => 'string',
       'secure_canvas_url' => 'string',
       'secure_page_tab_url' => 'string',
       'server_ip_whitelist' => 'list<string>',
+      'social_discovery' => 'bool',
+      'subcategory' => 'string',
       'terms_of_service_url' => 'string',
       'url_scheme_suffix' => 'string',
       'user_support_email' => 'string',

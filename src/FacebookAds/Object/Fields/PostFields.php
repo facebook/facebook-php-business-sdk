@@ -60,6 +60,7 @@ class PostFields extends AbstractEnum {
   const ID = 'id';
   const INSTAGRAM_ELIGIBILITY = 'instagram_eligibility';
   const IS_APP_SHARE = 'is_app_share';
+  const IS_ELIGIBLE_FOR_PROMOTION = 'is_eligible_for_promotion';
   const IS_EXPIRED = 'is_expired';
   const IS_HIDDEN = 'is_hidden';
   const IS_INSTAGRAM_ELIGIBLE = 'is_instagram_eligible';
@@ -122,6 +123,7 @@ class PostFields extends AbstractEnum {
       'id' => 'string',
       'instagram_eligibility' => 'string',
       'is_app_share' => 'bool',
+      'is_eligible_for_promotion' => 'bool',
       'is_expired' => 'bool',
       'is_hidden' => 'bool',
       'is_instagram_eligible' => 'bool',

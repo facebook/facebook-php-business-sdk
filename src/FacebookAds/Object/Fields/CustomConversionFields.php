@@ -56,8 +56,8 @@ class CustomConversionFields extends AbstractEnum {
   const PIXEL = 'pixel';
   const RETENTION_DAYS = 'retention_days';
   const RULE = 'rule';
-  const EVENT_SOURCE_ID = 'event_source_id';
   const ADVANCED_RULE = 'advanced_rule';
+  const EVENT_SOURCE_ID = 'event_source_id';
   const CUSTOM_CONVERSION_ID = 'custom_conversion_id';
 
   public function getFieldTypes() {
@@ -81,8 +81,8 @@ class CustomConversionFields extends AbstractEnum {
       'pixel' => 'AdsPixel',
       'retention_days' => 'unsigned int',
       'rule' => 'string',
-      'event_source_id' => 'string',
       'advanced_rule' => 'string',
+      'event_source_id' => 'string',
       'custom_conversion_id' => 'string',
     );
   }

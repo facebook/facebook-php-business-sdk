@@ -162,8 +162,8 @@ class EventSourceGroup extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'user' => 'int',
       'role' => 'role_enum',
+      'user' => 'int',
     );
     $enums = array(
       'role_enum' => EventSourceGroupRoleValues::getInstance()->getValues(),
