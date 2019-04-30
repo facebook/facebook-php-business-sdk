@@ -255,6 +255,10 @@ class AdImage extends AbstractCrudObject {
     $params
       = array_merge($params, array('hash' => $this->data[AdImageFields::HASH]));
 
-    parent::deleteSelf($params);
+    $this->getApi()->call(
+      $this->getNodePath(),
+      RequestInterface::METHOD_DELETE,
+      $params
+    );
   }
 }

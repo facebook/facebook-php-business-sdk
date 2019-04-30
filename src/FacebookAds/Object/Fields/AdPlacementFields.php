@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,9 +33,29 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static OwnedDomainPermittedRolesValues getInstance()
  */
-class OwnedDomainPermittedRolesValues extends AbstractEnum {
 
-  const ADMIN = 'ADMIN';
+class AdPlacementFields extends AbstractEnum {
+
+  const BUNDLE_ID = 'bundle_id';
+  const DISPLAY_FORMAT = 'display_format';
+  const EXTERNAL_PLACEMENT_ID = 'external_placement_id';
+  const GOOGLE_DISPLAY_FORMAT = 'google_display_format';
+  const ID = 'id';
+  const NAME = 'name';
+  const PLATFORM = 'platform';
+  const STATUS = 'status';
+
+  public function getFieldTypes() {
+    return array(
+      'bundle_id' => 'string',
+      'display_format' => 'string',
+      'external_placement_id' => 'string',
+      'google_display_format' => 'string',
+      'id' => 'string',
+      'name' => 'string',
+      'platform' => 'string',
+      'status' => 'string',
+    );
+  }
 }

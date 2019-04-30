@@ -43,7 +43,6 @@ class AdCreativeVideoDataFields extends AbstractEnum {
   const BRANDED_CONTENT_SPONSOR_RELATIONSHIP = 'branded_content_sponsor_relationship';
   const CALL_TO_ACTION = 'call_to_action';
   const COLLECTION_THUMBNAILS = 'collection_thumbnails';
-  const CUSTOM_OVERLAY_SPEC = 'custom_overlay_spec';
   const IMAGE_HASH = 'image_hash';
   const IMAGE_URL = 'image_url';
   const LINK_DESCRIPTION = 'link_description';
@@ -64,7 +63,6 @@ class AdCreativeVideoDataFields extends AbstractEnum {
       'branded_content_sponsor_relationship' => 'string',
       'call_to_action' => 'AdCreativeLinkDataCallToAction',
       'collection_thumbnails' => 'list<AdCreativeCollectionThumbnailInfo>',
-      'custom_overlay_spec' => 'list<AdCreativeVideoDataCustomOverlaySpec>',
       'image_hash' => 'string',
       'image_url' => 'string',
       'link_description' => 'string',

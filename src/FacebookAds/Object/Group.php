@@ -73,10 +73,10 @@ class Group extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['GroupType'] = GroupGroupTypeValues::getInstance()->getValues();
     $ref_enums['JoinSetting'] = GroupJoinSettingValues::getInstance()->getValues();
     $ref_enums['PostPermissions'] = GroupPostPermissionsValues::getInstance()->getValues();
     $ref_enums['Purpose'] = GroupPurposeValues::getInstance()->getValues();
+    $ref_enums['GroupType'] = GroupGroupTypeValues::getInstance()->getValues();
     $ref_enums['SuggestionCategory'] = GroupSuggestionCategoryValues::getInstance()->getValues();
     return $ref_enums;
   }
@@ -1052,7 +1052,6 @@ class Group extends AbstractCrudObject {
       'focus_x' => 'float',
       'focus_y' => 'float',
       'group_icon' => 'string',
-      'group_type' => 'group_type_enum',
       'join_setting' => 'join_setting_enum',
       'name' => 'string',
       'no_feed_story' => 'bool',
@@ -1064,7 +1063,6 @@ class Group extends AbstractCrudObject {
       'update_view_time' => 'bool',
     );
     $enums = array(
-      'group_type_enum' => GroupGroupTypeValues::getInstance()->getValues(),
       'join_setting_enum' => GroupJoinSettingValues::getInstance()->getValues(),
       'post_permissions_enum' => GroupPostPermissionsValues::getInstance()->getValues(),
       'purpose_enum' => GroupPurposeValues::getInstance()->getValues(),

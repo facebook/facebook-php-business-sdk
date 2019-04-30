@@ -45,9 +45,11 @@ if (is_null($account_id)) {
 }
 
 use FacebookAds\Api;
+use FacebookAds\Logger\CurlLogger;
 
 Api::init($app_id, $app_secret, $access_token);
-
+$api = Api::instance();
+$api->setLogger(new CurlLogger());
 
 /**
  * Step 1 Read the AdAccount (optional)
@@ -76,17 +78,18 @@ if($account->{AdAccountFields::ACCOUNT_STATUS} !== 1) {
  */
 use FacebookAds\Object\Campaign;
 use FacebookAds\Object\Fields\CampaignFields;
-use FacebookAds\Object\Values\AdObjectives;
+use FacebookAds\Object\Values\CampaignObjectiveValues;
 
-$campaign  = new Campaign(null, $account->id);
-$campaign->setData(array(
-  CampaignFields::NAME => 'My First Campaign',
-  CampaignFields::OBJECTIVE => AdObjectives::LINK_CLICKS,
-));
+$campaign = $account->createCampaign(
+  $fields = array(),
+  $params = array(
+    CampaignFields::NAME => 'My First Campaign',
+    CampaignFields::OBJECTIVE => CampaignObjectiveValues::LINK_CLICKS,
+    Campaign::STATUS_PARAM_NAME => Campaign::STATUS_PAUSED,
+  )
+);
 
-$campaign->validate()->create(array(
-  Campaign::STATUS_PARAM_NAME => Campaign::STATUS_PAUSED,
-));
+
 echo "Campaign ID:" . $campaign->id . "\n";
 
 /**
@@ -94,8 +97,8 @@ echo "Campaign ID:" . $campaign->id . "\n";
  */
 use FacebookAds\Object\TargetingSearch;
 use FacebookAds\Object\Search\TargetingSearchTypes;
-use FacebookAds\Object\TargetingSpecs;
-use FacebookAds\Object\Fields\TargetingSpecsFields;
+use FacebookAds\Object\Targeting;
+use FacebookAds\Object\Fields\TargetingFields;
 
 $results = TargetingSearch::search(
   $type = TargetingSearchTypes::INTEREST,
@@ -107,10 +110,10 @@ $target = (count($results)) ? $results->current() : null;
 
 echo "Using target: ".$target->name."\n";
 
-$targeting = new TargetingSpecs();
-$targeting->{TargetingSpecsFields::GEO_LOCATIONS}
+$targeting = new Targeting();
+$targeting->{TargetingFields::GEO_LOCATIONS}
   = array('countries' => array('GB'));
-$targeting->{TargetingSpecsFields::INTERESTS} = array(
+$targeting->{TargetingFields::INTERESTS} = array(
     array(
         'id' => $target->id,
         'name' => $target->name,
@@ -122,27 +125,28 @@ $targeting->{TargetingSpecsFields::INTERESTS} = array(
  */
 use FacebookAds\Object\AdSet;
 use FacebookAds\Object\Fields\AdSetFields;
-use FacebookAds\Object\Values\OptimizationGoals;
-use FacebookAds\Object\Values\BillingEvents;
+use FacebookAds\Object\Values\AdSetOptimizationGoalValues;
+use FacebookAds\Object\Values\AdSetBillingEventValues;
+use FacebookAds\Object\Values\AdSetStatusValues;
 
-$adset = new AdSet(null, $account->id);
-$adset->setData(array(
-  AdSetFields::NAME => 'My First AdSet',
-  AdSetFields::CAMPAIGN_ID => $campaign->id,
-  AdSetFields::DAILY_BUDGET => '150',
-  AdSetFields::TARGETING => $targeting,
-  AdSetFields::OPTIMIZATION_GOAL => OptimizationGoals::REACH,
-  AdSetFields::BILLING_EVENT => BillingEvents::IMPRESSIONS,
-  AdSetFields::BID_AMOUNT => 100,
-  AdSetFields::START_TIME =>
-    (new \DateTime("+1 week"))->format(\DateTime::ISO8601),
-  AdSetFields::END_TIME =>
-    (new \DateTime("+2 week"))->format(\DateTime::ISO8601),
-));
+$adset = $account->createAdSet(
+  $fields = array(),
+  $params = array(
+    AdSetFields::NAME => 'My First AdSet',
+    AdSetFields::CAMPAIGN_ID => 6121920447142,//$campaign->id,
+    AdSetFields::DAILY_BUDGET => '150',
+    AdSetFields::TARGETING => $targeting,
+    AdSetFields::OPTIMIZATION_GOAL => AdSetOptimizationGoalValues::REACH,
+    AdSetFields::BILLING_EVENT => AdSetBillingEventValues::IMPRESSIONS,
+    AdSetFields::BID_AMOUNT => 100,
+    AdSetFields::START_TIME =>
+      (new \DateTime("+1 week"))->format(\DateTime::ISO8601),
+    AdSetFields::END_TIME =>
+      (new \DateTime("+2 week"))->format(\DateTime::ISO8601),
+    AdSetFields::STATUS => AdSetStatusValues::ACTIVE,
+  )
+);
 
-$adset->validate()->create(array(
-  AdSet::STATUS_PARAM_NAME => AdSet::STATUS_ACTIVE,
-));
 
 echo 'AdSet  ID: '. $adset->id . "\n";
 
@@ -152,11 +156,12 @@ echo 'AdSet  ID: '. $adset->id . "\n";
 use FacebookAds\Object\AdImage;
 use FacebookAds\Object\Fields\AdImageFields;
 
-$image = new AdImage(null, $account->id);
-$image->{AdImageFields::FILENAME}
-  = SDK_DIR.'/test/misc/image.png';
-
-$image->create();
+$image = $account->createAdImage(
+  array(),
+  array(
+    AdImageFields::FILENAME => SDK_DIR.'/test/misc/image.png',
+  )
+);
 echo 'Image Hash: '.$image->hash . "\n";
 
 /**
@@ -165,16 +170,17 @@ echo 'Image Hash: '.$image->hash . "\n";
 use FacebookAds\Object\AdCreative;
 use FacebookAds\Object\Fields\AdCreativeFields;
 
-$creative = new AdCreative(null, $account->id);
-$creative->setData(array(
-  AdCreativeFields::NAME => 'Sample Creative',
-  AdCreativeFields::TITLE => 'Welcome to the Jungle',
-  AdCreativeFields::BODY => 'We\'ve got fun \'n\' games',
-  AdCreativeFields::IMAGE_HASH => $image->hash,
-  AdCreativeFields::OBJECT_URL => 'http://www.example.com/',
-));
+$creative = $account->createAdCreative(
+  array(),
+  array(
+    AdCreativeFields::NAME => 'Sample Creative',
+    AdCreativeFields::TITLE => 'Welcome to the Jungle',
+    AdCreativeFields::BODY => 'We\'ve got fun \'n\' games',
+    AdCreativeFields::IMAGE_HASH => $image->hash,
+    AdCreativeFields::OBJECT_URL => 'http://www.example.com/',
+  )
+);
 
-$creative->create();
 echo 'Creative ID: '.$creative->id . "\n";
 
 /**
@@ -183,13 +189,13 @@ echo 'Creative ID: '.$creative->id . "\n";
 use FacebookAds\Object\Ad;
 use FacebookAds\Object\Fields\AdFields;
 
-$ad = new Ad(null, $account->id);
-$ad->setData(array(
-  AdFields::CREATIVE =>
-    array('creative_id' => $creative->id),
-  AdFields::NAME => 'My First Ad',
-  AdFields::ADSET_ID => $adset->id,
-));
+$account->createAd(
+  array(),
+  array(
+    AdFields::CREATIVE => array('creative_id' => $creative->id),
+    AdFields::NAME => 'My First Ad',
+    AdFields::ADSET_ID => $adset->id,
+  )
+);
 
-$ad->create();
 echo 'Ad ID:' . $ad->id . "\n";

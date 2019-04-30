@@ -42,7 +42,6 @@ use FacebookAds\Object\Values\AdsPixelSortByValues;
 use FacebookAds\Object\Values\BusinessAccessTypeValues;
 use FacebookAds\Object\Values\BusinessAgreementRequestStatusValues;
 use FacebookAds\Object\Values\BusinessAssetSharingAgreementRequestStatusValues;
-use FacebookAds\Object\Values\BusinessPagePermittedRolesValues;
 use FacebookAds\Object\Values\BusinessPagePermittedTasksValues;
 use FacebookAds\Object\Values\BusinessPermittedTasksValues;
 use FacebookAds\Object\Values\BusinessRoleRequestStatusValues;
@@ -59,6 +58,7 @@ use FacebookAds\Object\Values\MeasurementUploadEventEventStatusValues;
 use FacebookAds\Object\Values\MeasurementUploadEventLookbackWindowValues;
 use FacebookAds\Object\Values\MeasurementUploadEventMatchUniverseValues;
 use FacebookAds\Object\Values\MeasurementUploadEventTimezoneValues;
+use FacebookAds\Object\Values\OracleTransactionTypeValues;
 use FacebookAds\Object\Values\PartnerIntegrationLinkedPartnerValues;
 use FacebookAds\Object\Values\ProductCatalogVerticalValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
@@ -92,7 +92,6 @@ class Business extends AbstractCrudObject {
     $ref_enums['AccessType'] = BusinessAccessTypeValues::getInstance()->getValues();
     $ref_enums['PermittedTasks'] = BusinessPermittedTasksValues::getInstance()->getValues();
     $ref_enums['SurveyBusinessType'] = BusinessSurveyBusinessTypeValues::getInstance()->getValues();
-    $ref_enums['PagePermittedRoles'] = BusinessPagePermittedRolesValues::getInstance()->getValues();
     $ref_enums['PagePermittedTasks'] = BusinessPagePermittedTasksValues::getInstance()->getValues();
     $ref_enums['Role'] = BusinessRoleValues::getInstance()->getValues();
     return $ref_enums;
@@ -564,6 +563,29 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getAnPlacements(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/an_placements',
+      new AdPlacement(),
+      'EDGE',
+      AdPlacement::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function deleteApps(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -643,9 +665,13 @@ class Business extends AbstractCrudObject {
 
     $param_types = array(
       'end_date' => 'string',
+      'issue_end_date' => 'string',
+      'issue_start_date' => 'string',
       'start_date' => 'string',
+      'type' => 'type_enum',
     );
     $enums = array(
+      'type_enum' => OracleTransactionTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1085,29 +1111,6 @@ class Business extends AbstractCrudObject {
       new Business(),
       'EDGE',
       Business::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getCreditCards(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/creditcards',
-      new BusinessCreditCardLegacy(),
-      'EDGE',
-      BusinessCreditCardLegacy::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1719,7 +1722,6 @@ class Business extends AbstractCrudObject {
 
     $param_types = array(
       'name' => 'string',
-      'page_permitted_roles' => 'list<page_permitted_roles_enum>',
       'page_permitted_tasks' => 'list<page_permitted_tasks_enum>',
       'sales_rep_email' => 'string',
       'shared_page_id' => 'string',
@@ -1730,7 +1732,6 @@ class Business extends AbstractCrudObject {
       'vertical' => 'vertical_enum',
     );
     $enums = array(
-      'page_permitted_roles_enum' => BusinessPagePermittedRolesValues::getInstance()->getValues(),
       'page_permitted_tasks_enum' => BusinessPagePermittedTasksValues::getInstance()->getValues(),
       'survey_business_type_enum' => BusinessSurveyBusinessTypeValues::getInstance()->getValues(),
       'vertical_enum' => BusinessVerticalValues::getInstance()->getValues(),

@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\ValueBasedEligibleSourceFields;
 
 /**
  * This class is auto-generated.
@@ -33,16 +37,21 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdCreativeLinkDataCustomOverlaySpecFontValues getInstance()
  */
-class AdCreativeLinkDataCustomOverlaySpecFontValues extends AbstractEnum {
 
-  const DROID_SERIF_REGULAR = 'droid_serif_regular';
-  const LATO_REGULAR = 'lato_regular';
-  const NOTO_SANS_REGULAR = 'noto_sans_regular';
-  const NUNITO_SANS_BOLD = 'nunito_sans_bold';
-  const OPEN_SANS_BOLD = 'open_sans_bold';
-  const PT_SERIF_BOLD = 'pt_serif_bold';
-  const ROBOTO_CONDENSED_REGULAR = 'roboto_condensed_regular';
-  const ROBOTO_MEDIUM = 'roboto_medium';
+class ValueBasedEligibleSource extends AbstractCrudObject {
+
+  /**
+   * @return ValueBasedEligibleSourceFields
+   */
+  public static function getFieldsEnum() {
+    return ValueBasedEligibleSourceFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
 }

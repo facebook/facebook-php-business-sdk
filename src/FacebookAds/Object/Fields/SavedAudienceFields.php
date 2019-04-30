@@ -40,7 +40,6 @@ class SavedAudienceFields extends AbstractEnum {
   const ACCOUNT = 'account';
   const APPROXIMATE_COUNT = 'approximate_count';
   const DESCRIPTION = 'description';
-  const EXPIRY_TIME = 'expiry_time';
   const ID = 'id';
   const NAME = 'name';
   const PERMISSION_FOR_ACTIONS = 'permission_for_actions';
@@ -55,7 +54,6 @@ class SavedAudienceFields extends AbstractEnum {
       'account' => 'AdAccount',
       'approximate_count' => 'int',
       'description' => 'string',
-      'expiry_time' => 'datetime',
       'id' => 'string',
       'name' => 'string',
       'permission_for_actions' => 'AudiencePermissionForActions',

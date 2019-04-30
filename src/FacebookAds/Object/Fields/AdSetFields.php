@@ -74,6 +74,7 @@ class AdSetFields extends AbstractEnum {
   const LIFETIME_SPEND_CAP = 'lifetime_spend_cap';
   const NAME = 'name';
   const OPTIMIZATION_GOAL = 'optimization_goal';
+  const OPTIMIZATION_SUB_EVENT = 'optimization_sub_event';
   const PACING_TYPE = 'pacing_type';
   const PROMOTED_OBJECT = 'promoted_object';
   const RECOMMENDATIONS = 'recommendations';
@@ -139,6 +140,7 @@ class AdSetFields extends AbstractEnum {
       'lifetime_spend_cap' => 'string',
       'name' => 'string',
       'optimization_goal' => 'OptimizationGoal',
+      'optimization_sub_event' => 'string',
       'pacing_type' => 'list<string>',
       'promoted_object' => 'AdPromotedObject',
       'recommendations' => 'list<AdRecommendation>',

@@ -19,31 +19,28 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
- *
  */
 
-namespace FacebookAds\Object\Values;
+require __DIR__ . '/vendor/autoload.php';
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\Object\Page;
+use FacebookAds\Api;
+use FacebookAds\Logger\CurlLogger;
 
-/**
- * This class is auto-generated.
- *
- * For any issues or feature requests related to this class, please let us know
- * on github and we'll fix in our codegen framework. We'll not be able to accept
- * pull request for this class.
- *
- * @method static AdCreativeLinkDataCustomOverlaySpecTextColorValues getInstance()
- */
-class AdCreativeLinkDataCustomOverlaySpecTextColorValues extends AbstractEnum {
+$access_token = '<ACCESS_TOKEN>';
+$app_secret = '<APP_SECRET>';
+$app_id = '<APP_ID>';
+$id = '<PAGE_ID>';
 
-  const TEXT_000000 = 'text_000000';
-  const TEXT_007AD0 = 'text_007ad0';
-  const TEXT_009C2A = 'text_009c2a';
-  const TEXT_646464 = 'text_646464';
-  const TEXT_755DDE = 'text_755dde';
-  const TEXT_C91B00 = 'text_c91b00';
-  const TEXT_F23474 = 'text_f23474';
-  const TEXT_F78400 = 'text_f78400';
-  const TEXT_FFFFFF = 'text_ffffff';
-}
+$api = Api::init($app_id, $app_secret, $access_token);
+$api->setLogger(new CurlLogger());
+
+$fields = array(
+);
+$params = array(
+  'subscribed_fields' => 'leadgen',
+);
+echo json_encode((new Page($id))->createSubscribedApp(
+  $fields,
+  $params
+)->exportAllData(), JSON_PRETTY_PRINT);

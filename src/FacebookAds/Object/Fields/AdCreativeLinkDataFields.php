@@ -47,7 +47,6 @@ class AdCreativeLinkDataFields extends AbstractEnum {
   const CAPTION = 'caption';
   const CHILD_ATTACHMENTS = 'child_attachments';
   const COLLECTION_THUMBNAILS = 'collection_thumbnails';
-  const CUSTOM_OVERLAY_SPEC = 'custom_overlay_spec';
   const CUSTOMIZATION_RULES_SPEC = 'customization_rules_spec';
   const DESCRIPTION = 'description';
   const EVENT_ID = 'event_id';
@@ -69,7 +68,6 @@ class AdCreativeLinkDataFields extends AbstractEnum {
   const PREFERRED_IMAGE_TAGS = 'preferred_image_tags';
   const RETAILER_ITEM_IDS = 'retailer_item_ids';
   const SHOW_MULTIPLE_IMAGES = 'show_multiple_images';
-  const SPONSORSHIP_INFO = 'sponsorship_info';
   const STATIC_FALLBACK_SPEC = 'static_fallback_spec';
   const USE_FLEXIBLE_IMAGE_ASPECT_RATIO = 'use_flexible_image_aspect_ratio';
 
@@ -85,7 +83,6 @@ class AdCreativeLinkDataFields extends AbstractEnum {
       'caption' => 'string',
       'child_attachments' => 'list<AdCreativeLinkDataChildAttachment>',
       'collection_thumbnails' => 'list<AdCreativeCollectionThumbnailInfo>',
-      'custom_overlay_spec' => 'AdCreativeLinkDataCustomOverlaySpec',
       'customization_rules_spec' => 'list<AdCustomizationRuleSpec>',
       'description' => 'string',
       'event_id' => 'string',
@@ -107,7 +104,6 @@ class AdCreativeLinkDataFields extends AbstractEnum {
       'preferred_image_tags' => 'list<string>',
       'retailer_item_ids' => 'list<string>',
       'show_multiple_images' => 'bool',
-      'sponsorship_info' => 'AdCreativeLinkDataSponsorshipInfoSpec',
       'static_fallback_spec' => 'AdCreativeStaticFallbackSpec',
       'use_flexible_image_aspect_ratio' => 'bool',
     );

@@ -46,7 +46,6 @@ class CustomAudienceFields extends AbstractEnum {
   const DELIVERY_STATUS = 'delivery_status';
   const DESCRIPTION = 'description';
   const EXCLUDED_CUSTOM_AUDIENCES = 'excluded_custom_audiences';
-  const EXPIRY_TIME = 'expiry_time';
   const EXTERNAL_EVENT_SOURCE = 'external_event_source';
   const HOUSEHOLD_AUDIENCE = 'household_audience';
   const ID = 'id';
@@ -54,7 +53,6 @@ class CustomAudienceFields extends AbstractEnum {
   const IS_HOUSEHOLD = 'is_household';
   const IS_SNAPSHOT = 'is_snapshot';
   const IS_VALUE_BASED = 'is_value_based';
-  const LIST_OF_ACCOUNTS = 'list_of_accounts';
   const LOOKALIKE_AUDIENCE_IDS = 'lookalike_audience_ids';
   const LOOKALIKE_SPEC = 'lookalike_spec';
   const NAME = 'name';
@@ -62,6 +60,7 @@ class CustomAudienceFields extends AbstractEnum {
   const OPT_OUT_LINK = 'opt_out_link';
   const PERMISSION_FOR_ACTIONS = 'permission_for_actions';
   const PIXEL_ID = 'pixel_id';
+  const REGULATED_AUDIENCE_SPEC = 'regulated_audience_spec';
   const RETENTION_DAYS = 'retention_days';
   const REV_SHARE_POLICY_ID = 'rev_share_policy_id';
   const RULE = 'rule';
@@ -69,7 +68,6 @@ class CustomAudienceFields extends AbstractEnum {
   const RULE_V2 = 'rule_v2';
   const SEED_AUDIENCE = 'seed_audience';
   const SHARING_STATUS = 'sharing_status';
-  const STUDY_SPEC = 'study_spec';
   const SUBTYPE = 'subtype';
   const TIME_CONTENT_UPDATED = 'time_content_updated';
   const TIME_CREATED = 'time_created';
@@ -93,6 +91,7 @@ class CustomAudienceFields extends AbstractEnum {
   const INCLUSIONS = 'inclusions';
   const ISPRIVATE = 'isPrivate';
   const IS_HOUSEHOLD_EXCLUSION = 'is_household_exclusion';
+  const LIST_OF_ACCOUNTS = 'list_of_accounts';
   const MAXAGE = 'maxAge';
   const MINAGE = 'minAge';
   const ORIGIN_AUDIENCE_ID = 'origin_audience_id';
@@ -102,6 +101,7 @@ class CustomAudienceFields extends AbstractEnum {
   const PREFILL = 'prefill';
   const PRODUCT_SET_ID = 'product_set_id';
   const SOURCE = 'source';
+  const STUDY_SPEC = 'study_spec';
   const TAGS = 'tags';
   const VIDEO_GROUP_IDS = 'video_group_ids';
 
@@ -116,7 +116,6 @@ class CustomAudienceFields extends AbstractEnum {
       'delivery_status' => 'CustomAudienceStatus',
       'description' => 'string',
       'excluded_custom_audiences' => 'list<CustomAudience>',
-      'expiry_time' => 'unsigned int',
       'external_event_source' => 'AdsPixel',
       'household_audience' => 'int',
       'id' => 'string',
@@ -124,7 +123,6 @@ class CustomAudienceFields extends AbstractEnum {
       'is_household' => 'bool',
       'is_snapshot' => 'bool',
       'is_value_based' => 'bool',
-      'list_of_accounts' => 'list<string>',
       'lookalike_audience_ids' => 'list<string>',
       'lookalike_spec' => 'LookalikeSpec',
       'name' => 'string',
@@ -132,6 +130,7 @@ class CustomAudienceFields extends AbstractEnum {
       'opt_out_link' => 'string',
       'permission_for_actions' => 'AudiencePermissionForActions',
       'pixel_id' => 'string',
+      'regulated_audience_spec' => 'LookalikeSpec',
       'retention_days' => 'int',
       'rev_share_policy_id' => 'unsigned int',
       'rule' => 'string',
@@ -139,7 +138,6 @@ class CustomAudienceFields extends AbstractEnum {
       'rule_v2' => 'string',
       'seed_audience' => 'int',
       'sharing_status' => 'CustomAudienceSharingStatus',
-      'study_spec' => 'AudienceInsightsStudySpec',
       'subtype' => 'string',
       'time_content_updated' => 'unsigned int',
       'time_created' => 'unsigned int',
@@ -163,6 +161,7 @@ class CustomAudienceFields extends AbstractEnum {
       'inclusions' => 'list<Object>',
       'isPrivate' => 'bool',
       'is_household_exclusion' => 'bool',
+      'list_of_accounts' => 'list<unsigned int>',
       'maxAge' => 'unsigned int',
       'minAge' => 'unsigned int',
       'origin_audience_id' => 'string',
@@ -172,6 +171,7 @@ class CustomAudienceFields extends AbstractEnum {
       'prefill' => 'bool',
       'product_set_id' => 'string',
       'source' => 'string',
+      'study_spec' => 'map',
       'tags' => 'list<string>',
       'video_group_ids' => 'list<string>',
     );

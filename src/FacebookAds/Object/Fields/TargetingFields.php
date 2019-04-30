@@ -44,7 +44,6 @@ class TargetingFields extends AbstractEnum {
   const AUDIENCE_NETWORK_POSITIONS = 'audience_network_positions';
   const BEHAVIORS = 'behaviors';
   const BRAND_SAFETY_CONTENT_FILTER_LEVELS = 'brand_safety_content_filter_levels';
-  const BRAND_SAFETY_CONTENT_SEVERITY_LEVELS = 'brand_safety_content_severity_levels';
   const CATALOG_BASED_TARGETING = 'catalog_based_targeting';
   const CITIES = 'cities';
   const COLLEGE_YEARS = 'college_years';
@@ -136,7 +135,6 @@ class TargetingFields extends AbstractEnum {
       'audience_network_positions' => 'list<string>',
       'behaviors' => 'list<IDName>',
       'brand_safety_content_filter_levels' => 'list<string>',
-      'brand_safety_content_severity_levels' => 'list<string>',
       'catalog_based_targeting' => 'CatalogBasedTargeting',
       'cities' => 'list<IDName>',
       'college_years' => 'list<unsigned int>',

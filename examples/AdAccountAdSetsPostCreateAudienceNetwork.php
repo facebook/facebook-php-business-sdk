@@ -19,28 +19,35 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
- *
  */
 
-namespace FacebookAds\Object\Values;
+require __DIR__ . '/vendor/autoload.php';
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\Object\AdAccount;
+use FacebookAds\Object\AdSet;
+use FacebookAds\Api;
+use FacebookAds\Logger\CurlLogger;
 
-/**
- * This class is auto-generated.
- *
- * For any issues or feature requests related to this class, please let us know
- * on github and we'll fix in our codegen framework. We'll not be able to accept
- * pull request for this class.
- *
- * @method static AdCreativeVideoDataCustomOverlaySpecPositionValues getInstance()
- */
-class AdCreativeVideoDataCustomOverlaySpecPositionValues extends AbstractEnum {
+$access_token = '<ACCESS_TOKEN>';
+$app_secret = '<APP_SECRET>';
+$app_id = '<APP_ID>';
+$id = '<AD_ACCOUNT_ID>';
 
-  const MIDDLE_CENTER = 'middle_center';
-  const MIDDLE_LEFT = 'middle_left';
-  const MIDDLE_RIGHT = 'middle_right';
-  const TOP_CENTER = 'top_center';
-  const TOP_LEFT = 'top_left';
-  const TOP_RIGHT = 'top_right';
-}
+$api = Api::init($app_id, $app_secret, $access_token);
+$api->setLogger(new CurlLogger());
+
+$fields = array(
+);
+$params = array(
+  'name' => 'My Ad Set',
+  'optimization_goal' => 'LINK_CLICKS',
+  'billing_event' => 'LINK_CLICKS',
+  'bid_amount' => '2',
+  'daily_budget' => '1000',
+  'campaign_id' => '<adCampaignLinkClicksID>',
+  'targeting' => array('device_platforms' => array('mobile'),'geo_locations' => array('countries' => array('US')),'publisher_platforms' => array('facebook','audience_network')),
+);
+echo json_encode((new AdAccount($id))->createAdSet(
+  $fields,
+  $params
+)->exportAllData(), JSON_PRETTY_PRINT);

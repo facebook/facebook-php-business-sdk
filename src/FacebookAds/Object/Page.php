@@ -250,6 +250,36 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createAdminStickySetting(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'ad_account_id' => 'string',
+      'audience' => 'audience_enum',
+      'budget' => 'unsigned int',
+      'campaign_length' => 'datetime',
+      'currency' => 'string',
+      'targeting' => 'Targeting',
+    );
+    $enums = array(
+      'audience_enum' => PageAudienceValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/admin_sticky_settings',
+      new Page(),
+      'EDGE',
+      Page::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function deleteAdmins(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -295,36 +325,6 @@ class Page extends AbstractCrudObject {
       new User(),
       'EDGE',
       User::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createAdminStickySetting(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'ad_account_id' => 'string',
-      'audience' => 'audience_enum',
-      'budget' => 'unsigned int',
-      'campaign_length' => 'datetime',
-      'currency' => 'string',
-      'targeting' => 'Targeting',
-    );
-    $enums = array(
-      'audience_enum' => PageAudienceValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/adminstickysettings',
-      new Page(),
-      'EDGE',
-      Page::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -3426,36 +3426,6 @@ class Page extends AbstractCrudObject {
       new ProductCatalog(),
       'EDGE',
       ProductCatalog::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getPromotablePosts(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'include_hidden' => 'bool',
-      'include_inline' => 'bool',
-      'is_published' => 'bool',
-      'q' => 'string',
-      'show_expired' => 'bool',
-      'with' => 'with_enum',
-    );
-    $enums = array(
-      'with_enum' => PagePostWithValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/promotable_posts',
-      new PagePost(),
-      'EDGE',
-      PagePost::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

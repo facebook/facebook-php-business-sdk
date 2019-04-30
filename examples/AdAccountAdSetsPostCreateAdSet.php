@@ -39,17 +39,16 @@ $api->setLogger(new CurlLogger());
 $fields = array(
 );
 $params = array(
-  'name' => 'A CPA Ad Set optimized for App Events',
-  'campaign_id' => '<adCampaignAppInstallsID>',
-  'daily_budget' => '300',
-  'start_time' => '2019-05-06T08:48:58-0700',
-  'end_time' => '2019-05-13T08:48:58-0700',
+  'name' => 'My First AdSet',
+  'lifetime_budget' => '20000',
+  'start_time' => '2019-05-06T08:44:23-0700',
+  'end_time' => '2019-05-13T08:44:23-0700',
+  'campaign_id' => '<adCampaignLinkClicksID>',
+  'bid_amount' => '500',
   'billing_event' => 'IMPRESSIONS',
-  'optimization_goal' => 'OFFSITE_CONVERSIONS',
-  'bid_amount' => '100',
+  'optimization_goal' => 'POST_ENGAGEMENT',
+  'targeting' => array('age_min' => 20,'age_max' => 24,'behaviors' => array(array('id' => 6002714895372,'name' => 'All travelers')),'genders' => array(1),'geo_locations' => array('countries' => array('US'),'regions' => array(array('key' => '4081')),'cities' => array(array('key' => '777934','radius' => 10,'distance_unit' => 'mile'))),'home_ownership' => array(array('id' => 6006371327132,'name' => 'Renters')),'interests' => array(array('id' => '<adsInterestID>','name' => '<adsInterestName>')),'life_events' => array(array('id' => 6002714398172,'name' => 'Newlywed (1 year)')),'publisher_platforms' => array('facebook','audience_network')),
   'status' => 'PAUSED',
-  'promoted_object' => array('application_id' => '<appID>','object_store_url' => '<appLink>','custom_event_type' => 'PURCHASE'),
-  'targeting' => array('geo_locations' => array('countries' => array('US')),'user_os' => array('iOS')),
 );
 echo json_encode((new AdAccount($id))->createAdSet(
   $fields,

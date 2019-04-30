@@ -29,7 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\OwnedDomainFields;
-use FacebookAds\Object\Values\OwnedDomainPermittedRolesValues;
 
 /**
  * This class is auto-generated.
@@ -58,7 +57,6 @@ class OwnedDomain extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['PermittedRoles'] = OwnedDomainPermittedRolesValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -68,17 +66,15 @@ class OwnedDomain extends AbstractCrudObject {
 
     $param_types = array(
       'business' => 'string',
-      'permitted_roles' => 'list<permitted_roles_enum>',
     );
     $enums = array(
-      'permitted_roles_enum' => OwnedDomainPermittedRolesValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_POST,
-      '/Agencies',
+      '/agencies',
       new OwnedDomain(),
       'EDGE',
       OwnedDomain::getFieldsEnum()->getValues(),

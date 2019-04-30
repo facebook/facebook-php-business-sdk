@@ -31,7 +31,6 @@ use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdStudyFields;
 use FacebookAds\Object\Values\AdStudyAudienceTypeValues;
 use FacebookAds\Object\Values\AdStudyObjectiveTypeValues;
-use FacebookAds\Object\Values\AdStudyRoleValues;
 use FacebookAds\Object\Values\AdStudyTypeValues;
 
 /**
@@ -62,7 +61,6 @@ class AdStudy extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['AudienceType'] = AdStudyAudienceTypeValues::getInstance()->getValues();
-    $ref_enums['Role'] = AdStudyRoleValues::getInstance()->getValues();
     $ref_enums['Type'] = AdStudyTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
@@ -192,83 +190,6 @@ class AdStudy extends AbstractCrudObject {
       new AdStudyObjective(),
       'EDGE',
       AdStudyObjective::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function deleteUserPermissions(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'business' => 'string',
-      'email' => 'string',
-      'user' => 'int',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_DELETE,
-      '/userpermissions',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getUserPermissions(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/userpermissions',
-      new AdStudyAdsAssetUserPermissions(),
-      'EDGE',
-      AdStudyAdsAssetUserPermissions::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createUserPermission(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'business' => 'string',
-      'email' => 'string',
-      'role' => 'role_enum',
-      'user' => 'int',
-    );
-    $enums = array(
-      'role_enum' => AdStudyRoleValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/userpermissions',
-      new AdStudy(),
-      'EDGE',
-      AdStudy::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

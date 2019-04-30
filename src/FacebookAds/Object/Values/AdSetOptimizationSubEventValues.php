@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,33 +33,18 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static AdSetOptimizationSubEventValues getInstance()
  */
+class AdSetOptimizationSubEventValues extends AbstractEnum {
 
-class ProductCatalogUserPermissionsFields extends AbstractEnum {
-
-  const BUSINESS = 'business';
-  const BUSINESS_PERSONA = 'business_persona';
-  const CREATED_BY = 'created_by';
-  const CREATED_TIME = 'created_time';
-  const EMAIL = 'email';
-  const ROLE = 'role';
-  const STATUS = 'status';
-  const UPDATED_BY = 'updated_by';
-  const UPDATED_TIME = 'updated_time';
-  const USER = 'user';
-
-  public function getFieldTypes() {
-    return array(
-      'business' => 'Business',
-      'business_persona' => 'Object',
-      'created_by' => 'User',
-      'created_time' => 'datetime',
-      'email' => 'string',
-      'role' => 'string',
-      'status' => 'string',
-      'updated_by' => 'User',
-      'updated_time' => 'datetime',
-      'user' => 'User',
-    );
-  }
+  const NONE = 'NONE';
+  const TRAVEL_INTENT = 'TRAVEL_INTENT';
+  const TRAVEL_INTENT_BUCKET_01 = 'TRAVEL_INTENT_BUCKET_01';
+  const TRAVEL_INTENT_BUCKET_02 = 'TRAVEL_INTENT_BUCKET_02';
+  const TRAVEL_INTENT_BUCKET_03 = 'TRAVEL_INTENT_BUCKET_03';
+  const TRAVEL_INTENT_BUCKET_04 = 'TRAVEL_INTENT_BUCKET_04';
+  const TRAVEL_INTENT_BUCKET_05 = 'TRAVEL_INTENT_BUCKET_05';
+  const TRAVEL_INTENT_NO_DESTINATION_INTENT = 'TRAVEL_INTENT_NO_DESTINATION_INTENT';
+  const TRIP_CONSIDERATION = 'TRIP_CONSIDERATION';
+  const VIDEO_SOUND_ON = 'VIDEO_SOUND_ON';
 }

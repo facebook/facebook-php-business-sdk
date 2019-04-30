@@ -33,10 +33,10 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdStudyRoleValues getInstance()
+ * @method static OracleTransactionTypeValues getInstance()
  */
-class AdStudyRoleValues extends AbstractEnum {
+class OracleTransactionTypeValues extends AbstractEnum {
 
-  const ADMIN = 'ADMIN';
-  const ANALYST = 'ANALYST';
+  const CM = 'CM';
+  const INV = 'INV';
 }

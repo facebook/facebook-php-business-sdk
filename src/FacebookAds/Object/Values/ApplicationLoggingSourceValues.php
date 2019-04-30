@@ -22,13 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Values;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\ProductCatalogUserPermissionsFields;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-generated.
@@ -37,21 +33,9 @@ use FacebookAds\Object\Fields\ProductCatalogUserPermissionsFields;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static ApplicationLoggingSourceValues getInstance()
  */
+class ApplicationLoggingSourceValues extends AbstractEnum {
 
-class ProductCatalogUserPermissions extends AbstractObject {
-
-  /**
-   * @return ProductCatalogUserPermissionsFields
-   */
-  public static function getFieldsEnum() {
-    return ProductCatalogUserPermissionsFields::getInstance();
-  }
-
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
+  const MESSENGER_BOT = 'MESSENGER_BOT';
 }

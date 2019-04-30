@@ -25,6 +25,8 @@
 namespace FacebookAds\Object\Traits;
 
 /**
+ * @deprecated
+ * This trait will be deprecated
  * @property array $changedFields
  */
 trait ObjectValidation {

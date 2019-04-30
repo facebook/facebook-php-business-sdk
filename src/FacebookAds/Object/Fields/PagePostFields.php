@@ -44,12 +44,10 @@ class PagePostFields extends AbstractEnum {
   const BACKDATED_TIME = 'backdated_time';
   const CALL_TO_ACTION = 'call_to_action';
   const CAN_REPLY_PRIVATELY = 'can_reply_privately';
-  const CAPTION = 'caption';
   const CHILD_ATTACHMENTS = 'child_attachments';
   const COMMENTS_MIRRORING_DOMAIN = 'comments_mirroring_domain';
   const COORDINATES = 'coordinates';
   const CREATED_TIME = 'created_time';
-  const DESCRIPTION = 'description';
   const EVENT = 'event';
   const EXPANDED_HEIGHT = 'expanded_height';
   const EXPANDED_WIDTH = 'expanded_width';
@@ -68,13 +66,10 @@ class PagePostFields extends AbstractEnum {
   const IS_POPULAR = 'is_popular';
   const IS_PUBLISHED = 'is_published';
   const IS_SPHERICAL = 'is_spherical';
-  const LINK = 'link';
   const MESSAGE = 'message';
   const MESSAGE_TAGS = 'message_tags';
   const MULTI_SHARE_END_CARD = 'multi_share_end_card';
   const MULTI_SHARE_OPTIMIZED = 'multi_share_optimized';
-  const NAME = 'name';
-  const OBJECT_ID = 'object_id';
   const PARENT_ID = 'parent_id';
   const PERMALINK_URL = 'permalink_url';
   const PICTURE = 'picture';
@@ -85,7 +80,6 @@ class PagePostFields extends AbstractEnum {
   const PROPERTIES = 'properties';
   const SCHEDULED_PUBLISH_TIME = 'scheduled_publish_time';
   const SHARES = 'shares';
-  const SOURCE = 'source';
   const STATUS_TYPE = 'status_type';
   const STORY = 'story';
   const STORY_TAGS = 'story_tags';
@@ -93,7 +87,6 @@ class PagePostFields extends AbstractEnum {
   const TARGET = 'target';
   const TARGETING = 'targeting';
   const TIMELINE_VISIBILITY = 'timeline_visibility';
-  const TYPE = 'type';
   const UPDATED_TIME = 'updated_time';
   const VIA = 'via';
   const VIDEO_BUYING_ELIGIBILITY = 'video_buying_eligibility';
@@ -108,12 +101,10 @@ class PagePostFields extends AbstractEnum {
       'backdated_time' => 'datetime',
       'call_to_action' => 'Object',
       'can_reply_privately' => 'bool',
-      'caption' => 'string',
       'child_attachments' => 'list',
       'comments_mirroring_domain' => 'string',
       'coordinates' => 'Object',
       'created_time' => 'datetime',
-      'description' => 'string',
       'event' => 'Event',
       'expanded_height' => 'unsigned int',
       'expanded_width' => 'unsigned int',
@@ -132,13 +123,10 @@ class PagePostFields extends AbstractEnum {
       'is_popular' => 'bool',
       'is_published' => 'bool',
       'is_spherical' => 'bool',
-      'link' => 'string',
       'message' => 'string',
       'message_tags' => 'list',
       'multi_share_end_card' => 'bool',
       'multi_share_optimized' => 'bool',
-      'name' => 'string',
-      'object_id' => 'string',
       'parent_id' => 'string',
       'permalink_url' => 'Object',
       'picture' => 'string',
@@ -149,7 +137,6 @@ class PagePostFields extends AbstractEnum {
       'properties' => 'list',
       'scheduled_publish_time' => 'float',
       'shares' => 'Object',
-      'source' => 'string',
       'status_type' => 'string',
       'story' => 'string',
       'story_tags' => 'list',
@@ -157,7 +144,6 @@ class PagePostFields extends AbstractEnum {
       'target' => 'Profile',
       'targeting' => 'Object',
       'timeline_visibility' => 'string',
-      'type' => 'string',
       'updated_time' => 'datetime',
       'via' => 'Object',
       'video_buying_eligibility' => 'list<string>',

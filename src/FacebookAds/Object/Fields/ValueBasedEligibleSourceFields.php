@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,18 +33,19 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdCreativeLinkDataCustomOverlaySpecOptionValues getInstance()
  */
-class AdCreativeLinkDataCustomOverlaySpecOptionValues extends AbstractEnum {
 
-  const BANK_TRANSFER = 'bank_transfer';
-  const BOLETO = 'boleto';
-  const CASH_ON_DELIVERY = 'cash_on_delivery';
-  const DISCOUNT_WITH_BOLETO = 'discount_with_boleto';
-  const FAST_DELIVERY = 'fast_delivery';
-  const FREE_SHIPPING = 'free_shipping';
-  const HOME_DELIVERY = 'home_delivery';
-  const INVENTORY = 'inventory';
-  const PAY_AT_HOTEL = 'pay_at_hotel';
-  const PAY_ON_ARRIVAL = 'pay_on_arrival';
+class ValueBasedEligibleSourceFields extends AbstractEnum {
+
+  const ID = 'id';
+  const TITLE = 'title';
+  const TYPE = 'type';
+
+  public function getFieldTypes() {
+    return array(
+      'id' => 'string',
+      'title' => 'string',
+      'type' => 'string',
+    );
+  }
 }

@@ -35,6 +35,8 @@ use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultMetricsValues;
 use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultOrderingColumnValues;
 use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultOrderingTypeValues;
 use FacebookAds\Object\Values\ApplicationAnPlatformsValues;
+use FacebookAds\Object\Values\ApplicationLoggingSourceValues;
+use FacebookAds\Object\Values\ApplicationLoggingTargetValues;
 use FacebookAds\Object\Values\ApplicationMutationMethodValues;
 use FacebookAds\Object\Values\ApplicationPlatformValues;
 use FacebookAds\Object\Values\ApplicationPostMethodValues;
@@ -76,6 +78,8 @@ class Application extends AbstractCrudObject {
     $ref_enums['PostMethod'] = ApplicationPostMethodValues::getInstance()->getValues();
     $ref_enums['ScoreType'] = ApplicationScoreTypeValues::getInstance()->getValues();
     $ref_enums['SortOrder'] = ApplicationSortOrderValues::getInstance()->getValues();
+    $ref_enums['LoggingSource'] = ApplicationLoggingSourceValues::getInstance()->getValues();
+    $ref_enums['LoggingTarget'] = ApplicationLoggingTargetValues::getInstance()->getValues();
     $ref_enums['Role'] = ApplicationRoleValues::getInstance()->getValues();
     return $ref_enums;
   }
@@ -1330,6 +1334,7 @@ class Application extends AbstractCrudObject {
 
     $param_types = array(
       'device_id' => 'string',
+      'extinfo' => 'Object',
       'platform' => 'platform_enum',
       'sdk_version' => 'string',
     );
@@ -1526,6 +1531,38 @@ class Application extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createPageActivity(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'advertiser_tracking_enabled' => 'bool',
+      'application_tracking_enabled' => 'bool',
+      'custom_events' => 'list<Object>',
+      'logging_source' => 'logging_source_enum',
+      'logging_target' => 'logging_target_enum',
+      'page_id' => 'unsigned int',
+      'page_scoped_user_id' => 'unsigned int',
+    );
+    $enums = array(
+      'logging_source_enum' => ApplicationLoggingSourceValues::getInstance()->getValues(),
+      'logging_target_enum' => ApplicationLoggingTargetValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/page_activities',
+      new Application(),
+      'EDGE',
+      Application::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function deletePaymentCurrencies(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1564,77 +1601,6 @@ class Application extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/payment_currencies',
-      new Application(),
-      'EDGE',
-      Application::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function deletePaymentsTestUsers(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'uids' => 'list<int>',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_DELETE,
-      '/payments_test_users',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getPaymentsTestUsers(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/payments_test_users',
-      new User(),
-      'EDGE',
-      User::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createPaymentsTestUser(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'uids' => 'list<int>',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/payments_test_users',
       new Application(),
       'EDGE',
       Application::getFieldsEnum()->getValues(),
@@ -1913,7 +1879,7 @@ class Application extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_POST,
-      '/stagingresources',
+      '/staging_resources',
       new Application(),
       'EDGE',
       Application::getFieldsEnum()->getValues(),

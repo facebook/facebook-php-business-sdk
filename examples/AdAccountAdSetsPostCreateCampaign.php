@@ -19,27 +19,31 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
- *
  */
 
-namespace FacebookAds\Object\Values;
+require __DIR__ . '/vendor/autoload.php';
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\Object\AdAccount;
+use FacebookAds\Object\Campaign;
+use FacebookAds\Api;
+use FacebookAds\Logger\CurlLogger;
 
-/**
- * This class is auto-generated.
- *
- * For any issues or feature requests related to this class, please let us know
- * on github and we'll fix in our codegen framework. We'll not be able to accept
- * pull request for this class.
- *
- * @method static BusinessPagePermittedRolesValues getInstance()
- */
-class BusinessPagePermittedRolesValues extends AbstractEnum {
+$access_token = '<ACCESS_TOKEN>';
+$app_secret = '<APP_SECRET>';
+$app_id = '<APP_ID>';
+$id = '<AD_ACCOUNT_ID>';
 
-  const ADVERTISER = 'ADVERTISER';
-  const CONTENT_CREATOR = 'CONTENT_CREATOR';
-  const INSIGHTS_ANALYST = 'INSIGHTS_ANALYST';
-  const MANAGER = 'MANAGER';
-  const MODERATOR = 'MODERATOR';
-}
+$api = Api::init($app_id, $app_secret, $access_token);
+$api->setLogger(new CurlLogger());
+
+$fields = array(
+);
+$params = array(
+  'name' => 'My campaign',
+  'objective' => 'LINK_CLICKS',
+  'status' => 'PAUSED',
+);
+echo json_encode((new AdAccount($id))->createCampaign(
+  $fields,
+  $params
+)->exportAllData(), JSON_PRETTY_PRINT);

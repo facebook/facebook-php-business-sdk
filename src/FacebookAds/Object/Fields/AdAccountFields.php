@@ -57,7 +57,6 @@ class AdAccountFields extends AbstractEnum {
   const CAPABILITIES = 'capabilities';
   const CREATED_TIME = 'created_time';
   const CURRENCY = 'currency';
-  const DIRECT_DEALS_TOS_ACCEPTED = 'direct_deals_tos_accepted';
   const DISABLE_REASON = 'disable_reason';
   const END_ADVERTISER = 'end_advertiser';
   const END_ADVERTISER_NAME = 'end_advertiser_name';
@@ -120,7 +119,6 @@ class AdAccountFields extends AbstractEnum {
       'capabilities' => 'list<string>',
       'created_time' => 'datetime',
       'currency' => 'string',
-      'direct_deals_tos_accepted' => 'bool',
       'disable_reason' => 'unsigned int',
       'end_advertiser' => 'string',
       'end_advertiser_name' => 'string',
