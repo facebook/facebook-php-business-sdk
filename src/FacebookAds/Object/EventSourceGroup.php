@@ -29,7 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\EventSourceGroupFields;
-use FacebookAds\Object\Values\EventSourceGroupRoleValues;
+use FacebookAds\Object\Values\EventSourceGroupTasksValues;
 
 /**
  * This class is auto-generated.
@@ -58,7 +58,7 @@ class EventSourceGroup extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Role'] = EventSourceGroupRoleValues::getInstance()->getValues();
+    $ref_enums['Tasks'] = EventSourceGroupTasksValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -162,11 +162,11 @@ class EventSourceGroup extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'role' => 'role_enum',
+      'tasks' => 'list<tasks_enum>',
       'user' => 'int',
     );
     $enums = array(
-      'role_enum' => EventSourceGroupRoleValues::getInstance()->getValues(),
+      'tasks_enum' => EventSourceGroupTasksValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

@@ -93,8 +93,6 @@ class AdCreativeFields extends AbstractEnum {
   const CALL_TO_ACTION = 'call_to_action';
   const IMAGE_FILE = 'image_file';
   const IS_DCO_INTERNAL = 'is_dco_internal';
-  const MOCKUP_ID = 'mockup_id';
-  const PAGE_ID = 'page_id';
 
   public function getFieldTypes() {
     return array(
@@ -154,8 +152,6 @@ class AdCreativeFields extends AbstractEnum {
       'call_to_action' => 'Object',
       'image_file' => 'string',
       'is_dco_internal' => 'bool',
-      'mockup_id' => 'string',
-      'page_id' => 'string',
     );
   }
 }

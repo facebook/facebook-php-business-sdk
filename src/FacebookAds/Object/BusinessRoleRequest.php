@@ -30,7 +30,6 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\BusinessRoleRequestFields;
 use FacebookAds\Object\Values\BusinessRoleRequestRoleValues;
-use FacebookAds\Object\Values\BusinessRoleRequestStatusValues;
 
 /**
  * This class is auto-generated.
@@ -53,7 +52,6 @@ class BusinessRoleRequest extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['Role'] = BusinessRoleRequestRoleValues::getInstance()->getValues();
-    $ref_enums['Status'] = BusinessRoleRequestStatusValues::getInstance()->getValues();
     return $ref_enums;
   }
 

@@ -29,14 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\EventFields;
-use FacebookAds\Object\Values\AdVideoContainerTypeValues;
-use FacebookAds\Object\Values\AdVideoContentCategoryValues;
-use FacebookAds\Object\Values\AdVideoFormattingValues;
-use FacebookAds\Object\Values\AdVideoOriginalProjectionTypeValues;
-use FacebookAds\Object\Values\AdVideoSwapModeValues;
-use FacebookAds\Object\Values\AdVideoUnpublishedContentTypeValues;
-use FacebookAds\Object\Values\AdVideoUploadPhaseValues;
-use FacebookAds\Object\Values\CommentCommentPrivacyValueValues;
 use FacebookAds\Object\Values\EventEventStateFilterValues;
 use FacebookAds\Object\Values\EventPromotableEventTypesValues;
 use FacebookAds\Object\Values\EventTimeFilterValues;
@@ -100,30 +92,6 @@ class Event extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getAttending(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'user' => 'int',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/attending',
-      new User(),
-      'EDGE',
-      User::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getComments(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -140,67 +108,6 @@ class Event extends AbstractCrudObject {
       new NullNode(),
       'EDGE',
       NullNode::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createComment(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'attachment_id' => 'string',
-      'attachment_share_url' => 'string',
-      'attachment_url' => 'string',
-      'comment_privacy_value' => 'comment_privacy_value_enum',
-      'facepile_mentioned_ids' => 'list<string>',
-      'feedback_source' => 'string',
-      'is_offline' => 'bool',
-      'message' => 'string',
-      'nectar_module' => 'string',
-      'object_id' => 'string',
-      'parent_comment_id' => 'Object',
-      'text' => 'string',
-      'tracking' => 'string',
-    );
-    $enums = array(
-      'comment_privacy_value_enum' => CommentCommentPrivacyValueValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/comments',
-      new Comment(),
-      'EDGE',
-      Comment::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getDeclined(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'user' => 'int',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/declined',
-      new User(),
-      'EDGE',
-      User::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -410,30 +317,6 @@ class Event extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getInterested(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'user' => 'int',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/interested',
-      new User(),
-      'EDGE',
-      User::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getLiveVideos(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -500,54 +383,6 @@ class Event extends AbstractCrudObject {
       new LiveVideo(),
       'EDGE',
       LiveVideo::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getMaybe(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'user' => 'int',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/maybe',
-      new User(),
-      'EDGE',
-      User::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getNoreply(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'user' => 'int',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/noreply',
-      new User(),
-      'EDGE',
-      User::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -739,107 +574,6 @@ class Event extends AbstractCrudObject {
       new NullNode(),
       'EDGE',
       NullNode::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createVideo(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'adaptive_type' => 'string',
-      'animated_effect_id' => 'unsigned int',
-      'application_id' => 'string',
-      'asked_fun_fact_prompt_id' => 'unsigned int',
-      'attribution_app_id' => 'string',
-      'audio_story_wave_animation_handle' => 'string',
-      'composer_entry_picker' => 'string',
-      'composer_entry_point' => 'string',
-      'composer_entry_time' => 'unsigned int',
-      'composer_session_events_log' => 'string',
-      'composer_session_id' => 'string',
-      'composer_source_surface' => 'string',
-      'composer_type' => 'string',
-      'container_type' => 'container_type_enum',
-      'content_category' => 'content_category_enum',
-      'description' => 'string',
-      'embeddable' => 'bool',
-      'end_offset' => 'unsigned int',
-      'fbuploader_video_file_chunk' => 'string',
-      'file_size' => 'unsigned int',
-      'file_url' => 'string',
-      'fisheye_video_cropped' => 'bool',
-      'formatting' => 'formatting_enum',
-      'fov' => 'unsigned int',
-      'front_z_rotation' => 'float',
-      'fun_fact_prompt_id' => 'unsigned int',
-      'fun_fact_toastee_id' => 'unsigned int',
-      'guide' => 'list<list<unsigned int>>',
-      'guide_enabled' => 'bool',
-      'has_nickname' => 'bool',
-      'holiday_card' => 'string',
-      'initial_heading' => 'unsigned int',
-      'initial_pitch' => 'unsigned int',
-      'instant_game_entry_point_data' => 'string',
-      'is_boost_intended' => 'bool',
-      'is_explicit_share' => 'bool',
-      'is_group_linking_post' => 'bool',
-      'is_voice_clip' => 'bool',
-      'location_source_id' => 'string',
-      'manual_privacy' => 'bool',
-      'offer_like_post_id' => 'unsigned int',
-      'og_action_type_id' => 'string',
-      'og_icon_id' => 'string',
-      'og_object_id' => 'string',
-      'og_phrase' => 'string',
-      'og_suggestion_mechanism' => 'string',
-      'original_fov' => 'unsigned int',
-      'original_projection_type' => 'original_projection_type_enum',
-      'publish_event_id' => 'unsigned int',
-      'react_mode_metadata' => 'string',
-      'referenced_sticker_id' => 'string',
-      'replace_video_id' => 'string',
-      'sales_promo_id' => 'unsigned int',
-      'slideshow_spec' => 'map',
-      'source' => 'string',
-      'spherical' => 'bool',
-      'start_offset' => 'unsigned int',
-      'swap_mode' => 'swap_mode_enum',
-      'text_format_metadata' => 'string',
-      'throwback_camera_roll_media' => 'string',
-      'thumb' => 'file',
-      'time_since_original_post' => 'unsigned int',
-      'title' => 'string',
-      'transcode_setting_properties' => 'string',
-      'unpublished_content_type' => 'unpublished_content_type_enum',
-      'upload_phase' => 'upload_phase_enum',
-      'upload_session_id' => 'string',
-      'upload_setting_properties' => 'string',
-      'video_file_chunk' => 'string',
-      'video_start_time_ms' => 'unsigned int',
-      'waterfall_id' => 'string',
-    );
-    $enums = array(
-      'container_type_enum' => AdVideoContainerTypeValues::getInstance()->getValues(),
-      'content_category_enum' => AdVideoContentCategoryValues::getInstance()->getValues(),
-      'formatting_enum' => AdVideoFormattingValues::getInstance()->getValues(),
-      'original_projection_type_enum' => AdVideoOriginalProjectionTypeValues::getInstance()->getValues(),
-      'swap_mode_enum' => AdVideoSwapModeValues::getInstance()->getValues(),
-      'unpublished_content_type_enum' => AdVideoUnpublishedContentTypeValues::getInstance()->getValues(),
-      'upload_phase_enum' => AdVideoUploadPhaseValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/videos',
-      new AdVideo(),
-      'EDGE',
-      AdVideo::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

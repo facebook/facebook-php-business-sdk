@@ -43,13 +43,13 @@ class ProductCatalogFields extends AbstractEnum {
   const DEFAULT_IMAGE_URL = 'default_image_url';
   const FALLBACK_IMAGE_URL = 'fallback_image_url';
   const FEED_COUNT = 'feed_count';
-  const FLIGHT_CATALOG_SETTINGS = 'flight_catalog_settings';
   const ID = 'id';
   const NAME = 'name';
   const PRODUCT_COUNT = 'product_count';
   const QUALIFIED_PRODUCT_COUNT = 'qualified_product_count';
   const VERTICAL = 'vertical';
   const DESTINATION_CATALOG_SETTINGS = 'destination_catalog_settings';
+  const FLIGHT_CATALOG_SETTINGS = 'flight_catalog_settings';
 
   public function getFieldTypes() {
     return array(
@@ -59,13 +59,13 @@ class ProductCatalogFields extends AbstractEnum {
       'default_image_url' => 'string',
       'fallback_image_url' => 'list<string>',
       'feed_count' => 'int',
-      'flight_catalog_settings' => 'FlightCatalogSettings',
       'id' => 'string',
       'name' => 'string',
       'product_count' => 'int',
       'qualified_product_count' => 'unsigned int',
       'vertical' => 'string',
       'destination_catalog_settings' => 'map',
+      'flight_catalog_settings' => 'map',
     );
   }
 }

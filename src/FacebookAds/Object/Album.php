@@ -129,33 +129,6 @@ class Album extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function deleteLikes(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'feedback_source' => 'string',
-      'nectar_module' => 'string',
-      'notify' => 'bool',
-      'tracking' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_DELETE,
-      '/likes',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getLikes(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 

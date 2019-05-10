@@ -43,5 +43,6 @@ class ProductEventStatEventValues extends AbstractEnum {
   const LEAD = 'Lead';
   const PURCHASE = 'Purchase';
   const SEARCH = 'Search';
+  const SUBSCRIBE = 'Subscribe';
   const VIEWCONTENT = 'ViewContent';
 }

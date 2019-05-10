@@ -30,7 +30,6 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdSetFields;
 use FacebookAds\Object\Values\AdActivityCategoryValues;
-use FacebookAds\Object\Values\AdAsyncRequestStatusesValues;
 use FacebookAds\Object\Values\AdCampaignDeliveryEstimateOptimizationGoalValues;
 use FacebookAds\Object\Values\AdDatePresetValues;
 use FacebookAds\Object\Values\AdSetBidStrategyValues;
@@ -281,60 +280,6 @@ class AdSet extends AbstractArchivableCrudObject
       new Ad(),
       'EDGE',
       Ad::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getAsyncAdRequests(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'statuses' => 'list<statuses_enum>',
-    );
-    $enums = array(
-      'statuses_enum' => AdAsyncRequestStatusesValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/asyncadrequests',
-      new AdAsyncRequest(),
-      'EDGE',
-      AdAsyncRequest::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getCopies(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'date_preset' => 'date_preset_enum',
-      'effective_status' => 'list<effective_status_enum>',
-      'is_completed' => 'bool',
-      'time_range' => 'Object',
-    );
-    $enums = array(
-      'date_preset_enum' => AdSetDatePresetValues::getInstance()->getValues(),
-      'effective_status_enum' => AdSetEffectiveStatusValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/copies',
-      new AdSet(),
-      'EDGE',
-      AdSet::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

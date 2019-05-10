@@ -61,7 +61,7 @@ class PublisherBlockList extends AbstractCrudObject {
   }
 
 
-  public function getPageDAppPublishers(array $fields = array(), array $params = array(), $pending = false) {
+  public function getPagedAppPublishers(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -85,7 +85,7 @@ class PublisherBlockList extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getPageDWebPublishers(array $fields = array(), array $params = array(), $pending = false) {
+  public function getPagedWebPublishers(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(

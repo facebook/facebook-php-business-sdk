@@ -32,7 +32,6 @@ use FacebookAds\Object\Fields\ReachFrequencyPredictionFields;
 use FacebookAds\Object\Values\ReachFrequencyPredictionActionValues;
 use FacebookAds\Object\Values\ReachFrequencyPredictionBuyingTypeValues;
 use FacebookAds\Object\Values\ReachFrequencyPredictionInstreamPackagesValues;
-use FacebookAds\Object\Values\ReachFrequencyPredictionStatusValues;
 
 /**
  * This class is auto-generated.
@@ -64,7 +63,6 @@ class ReachFrequencyPrediction extends AbstractCrudObject {
     $ref_enums['Action'] = ReachFrequencyPredictionActionValues::getInstance()->getValues();
     $ref_enums['BuyingType'] = ReachFrequencyPredictionBuyingTypeValues::getInstance()->getValues();
     $ref_enums['InstreamPackages'] = ReachFrequencyPredictionInstreamPackagesValues::getInstance()->getValues();
-    $ref_enums['Status'] = ReachFrequencyPredictionStatusValues::getInstance()->getValues();
     return $ref_enums;
   }
 
