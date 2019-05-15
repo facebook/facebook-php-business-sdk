@@ -39,6 +39,6 @@ class ProductItemShippingWeightUnitValues extends AbstractEnum {
 
   const VALUE_G = 'g';
   const KG = 'kg';
-  const OZ = 'oz';
   const LB = 'lb';
+  const OZ = 'oz';
 }

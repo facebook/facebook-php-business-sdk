@@ -91,7 +91,7 @@ class ClientTest extends AbstractUnitTestCase {
     $this->assertTrue($headers instanceof Headers);
     $this->assertTrue($headers === $client->getDefaultRequestHeaderds());
     $this->assertArrayHasKey('User-Agent', $headers);
-    $this->assertEquals('fb-php-ads-'.Api::VERSION, $headers['User-Agent']);
+    $this->assertEquals('fbbizsdk-php-v'.Api::VERSION, $headers['User-Agent']);
   }
 
   public function testDomain() {

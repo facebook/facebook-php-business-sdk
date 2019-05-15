@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProductFeedUploadErrorFields;
+use FacebookAds\Object\Values\ProductFeedUploadErrorAffectedSurfacesValues;
 use FacebookAds\Object\Values\ProductFeedUploadErrorSeverityValues;
 
 /**
@@ -58,6 +59,7 @@ class ProductFeedUploadError extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['AffectedSurfaces'] = ProductFeedUploadErrorAffectedSurfacesValues::getInstance()->getValues();
     $ref_enums['Severity'] = ProductFeedUploadErrorSeverityValues::getInstance()->getValues();
     return $ref_enums;
   }
@@ -79,6 +81,29 @@ class ProductFeedUploadError extends AbstractCrudObject {
       new ProductFeedUploadErrorSample(),
       'EDGE',
       ProductFeedUploadErrorSample::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getSuggestedRules(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/suggested_rules',
+      new ProductFeedRuleSuggestion(),
+      'EDGE',
+      ProductFeedRuleSuggestion::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

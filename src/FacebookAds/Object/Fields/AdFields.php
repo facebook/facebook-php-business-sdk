@@ -51,21 +51,30 @@ class AdFields extends AbstractEnum {
   const CONVERSION_SPECS = 'conversion_specs';
   const CREATED_TIME = 'created_time';
   const CREATIVE = 'creative';
+  const DEMOLINK_HASH = 'demolink_hash';
+  const DISPLAY_SEQUENCE = 'display_sequence';
   const EFFECTIVE_STATUS = 'effective_status';
+  const ENGAGEMENT_AUDIENCE = 'engagement_audience';
+  const FAILED_DELIVERY_CHECKS = 'failed_delivery_checks';
   const ID = 'id';
+  const ISSUES_INFO = 'issues_info';
   const LAST_UPDATED_BY_APP_ID = 'last_updated_by_app_id';
   const NAME = 'name';
+  const PRIORITY = 'priority';
   const RECOMMENDATIONS = 'recommendations';
   const SOURCE_AD = 'source_ad';
   const SOURCE_AD_ID = 'source_ad_id';
   const STATUS = 'status';
+  const TARGETING = 'targeting';
+  const TRACKING_AND_CONVERSION_WITH_DEFAULTS = 'tracking_and_conversion_with_defaults';
   const TRACKING_SPECS = 'tracking_specs';
   const UPDATED_TIME = 'updated_time';
   const ADSET_SPEC = 'adset_spec';
+  const AUDIENCE_ID = 'audience_id';
   const DATE_FORMAT = 'date_format';
-  const DISPLAY_SEQUENCE = 'display_sequence';
+  const DRAFT_ADGROUP_ID = 'draft_adgroup_id';
   const EXECUTION_OPTIONS = 'execution_options';
-  const REDOWNLOAD = 'redownload';
+  const INCLUDE_DEMOLINK_HASHES = 'include_demolink_hashes';
   const FILENAME = 'filename';
 
   public function getFieldTypes() {
@@ -84,21 +93,30 @@ class AdFields extends AbstractEnum {
       'conversion_specs' => 'list<ConversionActionQuery>',
       'created_time' => 'datetime',
       'creative' => 'AdCreative',
+      'demolink_hash' => 'string',
+      'display_sequence' => 'int',
       'effective_status' => 'EffectiveStatus',
+      'engagement_audience' => 'bool',
+      'failed_delivery_checks' => 'list<DeliveryCheck>',
       'id' => 'string',
+      'issues_info' => 'list<AdgroupIssuesInfo>',
       'last_updated_by_app_id' => 'string',
       'name' => 'string',
+      'priority' => 'unsigned int',
       'recommendations' => 'list<AdRecommendation>',
       'source_ad' => 'Ad',
       'source_ad_id' => 'string',
       'status' => 'Status',
+      'targeting' => 'Targeting',
+      'tracking_and_conversion_with_defaults' => 'TrackingAndConversionWithDefaults',
       'tracking_specs' => 'list<ConversionActionQuery>',
       'updated_time' => 'datetime',
       'adset_spec' => 'AdSet',
+      'audience_id' => 'string',
       'date_format' => 'string',
-      'display_sequence' => 'unsigned int',
+      'draft_adgroup_id' => 'string',
       'execution_options' => 'list<ExecutionOptions>',
-      'redownload' => 'bool',
+      'include_demolink_hashes' => 'bool',
       'filename' => 'file',
     );
   }

@@ -39,6 +39,8 @@ class AdAccountFields extends AbstractEnum {
 
   const ACCOUNT_ID = 'account_id';
   const ACCOUNT_STATUS = 'account_status';
+  const AD_ACCOUNT_CREATION_REQUEST = 'ad_account_creation_request';
+  const AD_ACCOUNT_PROMOTABLE_OBJECTS = 'ad_account_promotable_objects';
   const AGE = 'age';
   const AGENCY_CLIENT_DECLARATION = 'agency_client_declaration';
   const AMOUNT_SPENT = 'amount_spent';
@@ -59,13 +61,17 @@ class AdAccountFields extends AbstractEnum {
   const END_ADVERTISER = 'end_advertiser';
   const END_ADVERTISER_NAME = 'end_advertiser_name';
   const FAILED_DELIVERY_CHECKS = 'failed_delivery_checks';
+  const FB_ENTITY = 'fb_entity';
   const FUNDING_SOURCE = 'funding_source';
   const FUNDING_SOURCE_DETAILS = 'funding_source_details';
   const HAS_MIGRATED_PERMISSIONS = 'has_migrated_permissions';
+  const HAS_PAGE_AUTHORIZED_ADACCOUNT = 'has_page_authorized_adaccount';
   const ID = 'id';
   const IO_NUMBER = 'io_number';
   const IS_ATTRIBUTION_SPEC_SYSTEM_DEFAULT = 'is_attribution_spec_system_default';
   const IS_DIRECT_DEALS_ENABLED = 'is_direct_deals_enabled';
+  const IS_IN_3DS_AUTHORIZATION_ENABLED_MARKET = 'is_in_3ds_authorization_enabled_market';
+  const IS_IN_MIDDLE_OF_LOCAL_ENTITY_MIGRATION = 'is_in_middle_of_local_entity_migration';
   const IS_NOTIFICATIONS_ENABLED = 'is_notifications_enabled';
   const IS_PERSONAL = 'is_personal';
   const IS_PREPAY_ACCOUNT = 'is_prepay_account';
@@ -75,12 +81,10 @@ class AdAccountFields extends AbstractEnum {
   const MIN_CAMPAIGN_GROUP_SPEND_CAP = 'min_campaign_group_spend_cap';
   const MIN_DAILY_BUDGET = 'min_daily_budget';
   const NAME = 'name';
-  const NEXT_BILL_DATE = 'next_bill_date';
   const OFFSITE_PIXELS_TOS_ACCEPTED = 'offsite_pixels_tos_accepted';
   const OWNER = 'owner';
   const PARTNER = 'partner';
   const RF_SPEC = 'rf_spec';
-  const SALESFORCE_INVOICE_GROUP_ID = 'salesforce_invoice_group_id';
   const SHOW_CHECKOUT_EXPERIENCE = 'show_checkout_experience';
   const SPEND_CAP = 'spend_cap';
   const TAX_ID = 'tax_id';
@@ -91,15 +95,18 @@ class AdAccountFields extends AbstractEnum {
   const TIMEZONE_OFFSET_HOURS_UTC = 'timezone_offset_hours_utc';
   const TOS_ACCEPTED = 'tos_accepted';
   const USER_ROLE = 'user_role';
+  const USER_TOS_ACCEPTED = 'user_tos_accepted';
 
   public function getFieldTypes() {
     return array(
       'account_id' => 'string',
       'account_status' => 'unsigned int',
+      'ad_account_creation_request' => 'AdAccountCreationRequest',
+      'ad_account_promotable_objects' => 'AdAccountPromotableObjects',
       'age' => 'float',
       'agency_client_declaration' => 'AgencyClientDeclaration',
       'amount_spent' => 'string',
-      'attribution_spec' => 'list<Object>',
+      'attribution_spec' => 'list<AttributionSpec>',
       'balance' => 'string',
       'business' => 'Business',
       'business_city' => 'string',
@@ -116,13 +123,17 @@ class AdAccountFields extends AbstractEnum {
       'end_advertiser' => 'string',
       'end_advertiser_name' => 'string',
       'failed_delivery_checks' => 'list<DeliveryCheck>',
+      'fb_entity' => 'unsigned int',
       'funding_source' => 'string',
       'funding_source_details' => 'FundingSourceDetails',
       'has_migrated_permissions' => 'bool',
+      'has_page_authorized_adaccount' => 'bool',
       'id' => 'string',
       'io_number' => 'string',
       'is_attribution_spec_system_default' => 'bool',
       'is_direct_deals_enabled' => 'bool',
+      'is_in_3ds_authorization_enabled_market' => 'bool',
+      'is_in_middle_of_local_entity_migration' => 'bool',
       'is_notifications_enabled' => 'bool',
       'is_personal' => 'unsigned int',
       'is_prepay_account' => 'bool',
@@ -132,12 +143,10 @@ class AdAccountFields extends AbstractEnum {
       'min_campaign_group_spend_cap' => 'string',
       'min_daily_budget' => 'unsigned int',
       'name' => 'string',
-      'next_bill_date' => 'datetime',
       'offsite_pixels_tos_accepted' => 'bool',
       'owner' => 'string',
       'partner' => 'string',
       'rf_spec' => 'ReachFrequencySpec',
-      'salesforce_invoice_group_id' => 'string',
       'show_checkout_experience' => 'bool',
       'spend_cap' => 'string',
       'tax_id' => 'string',
@@ -148,6 +157,7 @@ class AdAccountFields extends AbstractEnum {
       'timezone_offset_hours_utc' => 'float',
       'tos_accepted' => 'map<string, int>',
       'user_role' => 'string',
+      'user_tos_accepted' => 'map<string, int>',
     );
   }
 }

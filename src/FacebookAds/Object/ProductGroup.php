@@ -93,6 +93,7 @@ class ProductGroup extends AbstractCrudObject {
 
     $param_types = array(
       'additional_image_urls' => 'list<string>',
+      'additional_variant_attributes' => 'map',
       'android_app_name' => 'string',
       'android_class' => 'string',
       'android_package' => 'string',
@@ -127,7 +128,11 @@ class ProductGroup extends AbstractCrudObject {
       'iphone_url' => 'string',
       'manufacturer_part_number' => 'string',
       'material' => 'string',
+      'mobile_link' => 'string',
       'name' => 'string',
+      'offer_price_amount' => 'unsigned int',
+      'offer_price_end_date' => 'datetime',
+      'offer_price_start_date' => 'datetime',
       'ordering_index' => 'unsigned int',
       'pattern' => 'string',
       'price' => 'unsigned int',
@@ -217,6 +222,7 @@ class ProductGroup extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'default_product_id' => 'string',
       'variants' => 'list<Object>',
     );
     $enums = array(

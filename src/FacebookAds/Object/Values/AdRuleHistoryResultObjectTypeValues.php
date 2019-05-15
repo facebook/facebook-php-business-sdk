@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdRuleHistoryResultObjectTypeValues extends AbstractEnum {
 
-  const CAMPAIGN = 'CAMPAIGN';
-  const ADSET = 'ADSET';
   const AD = 'AD';
+  const ADSET = 'ADSET';
+  const CAMPAIGN = 'CAMPAIGN';
 }

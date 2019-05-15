@@ -37,11 +37,11 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdsInsightsActionAttributionWindowsValues extends AbstractEnum {
 
-  const VALUE_1D_VIEW = '1d_view';
-  const VALUE_7D_VIEW = '7d_view';
-  const VALUE_28D_VIEW = '28d_view';
   const VALUE_1D_CLICK = '1d_click';
-  const VALUE_7D_CLICK = '7d_click';
+  const VALUE_1D_VIEW = '1d_view';
   const VALUE_28D_CLICK = '28d_click';
+  const VALUE_28D_VIEW = '28d_view';
+  const VALUE_7D_CLICK = '7d_click';
+  const VALUE_7D_VIEW = '7d_view';
   const VALUE_DEFAULT = 'default';
 }

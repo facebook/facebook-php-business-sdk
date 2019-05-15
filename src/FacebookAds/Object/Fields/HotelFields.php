@@ -40,32 +40,44 @@ class HotelFields extends AbstractEnum {
   const ADDRESS = 'address';
   const APPLINKS = 'applinks';
   const BRAND = 'brand';
+  const CURRENCY = 'currency';
   const DESCRIPTION = 'description';
   const GUEST_RATINGS = 'guest_ratings';
   const HOTEL_ID = 'hotel_id';
   const ID = 'id';
   const IMAGES = 'images';
   const LOWEST_BASE_PRICE = 'lowest_base_price';
+  const LOYALTY_PROGRAM = 'loyalty_program';
+  const MARGIN_LEVEL = 'margin_level';
   const NAME = 'name';
   const PHONE = 'phone';
+  const SALE_PRICE = 'sale_price';
+  const SANITIZED_IMAGES = 'sanitized_images';
   const STAR_RATING = 'star_rating';
   const URL = 'url';
+  const BASE_PRICE = 'base_price';
 
   public function getFieldTypes() {
     return array(
       'address' => 'string',
       'applinks' => 'AppLinks',
       'brand' => 'string',
+      'currency' => 'string',
       'description' => 'string',
       'guest_ratings' => 'string',
       'hotel_id' => 'string',
       'id' => 'string',
       'images' => 'list<string>',
       'lowest_base_price' => 'string',
+      'loyalty_program' => 'string',
+      'margin_level' => 'unsigned int',
       'name' => 'string',
       'phone' => 'string',
-      'star_rating' => 'string',
+      'sale_price' => 'string',
+      'sanitized_images' => 'list<string>',
+      'star_rating' => 'float',
       'url' => 'string',
+      'base_price' => 'unsigned int',
     );
   }
 }

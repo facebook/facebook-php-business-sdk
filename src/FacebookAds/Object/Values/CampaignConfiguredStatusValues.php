@@ -38,7 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class CampaignConfiguredStatusValues extends AbstractEnum {
 
   const ACTIVE = 'ACTIVE';
-  const PAUSED = 'PAUSED';
-  const DELETED = 'DELETED';
   const ARCHIVED = 'ARCHIVED';
+  const DELETED = 'DELETED';
+  const PAUSED = 'PAUSED';
 }

@@ -45,7 +45,7 @@ class ReachEstimateFields extends AbstractEnum {
     return array(
       'estimate_ready' => 'bool',
       'unsupported' => 'bool',
-      'users' => 'unsigned int',
+      'users' => 'int',
     );
   }
 }

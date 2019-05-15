@@ -37,11 +37,14 @@ use FacebookAds\Enum\AbstractEnum;
 
 class ProductItemFields extends AbstractEnum {
 
+  const ADDITIONAL_IMAGE_CDN_URLS = 'additional_image_cdn_urls';
   const ADDITIONAL_IMAGE_URLS = 'additional_image_urls';
+  const ADDITIONAL_VARIANT_ATTRIBUTES = 'additional_variant_attributes';
   const AGE_GROUP = 'age_group';
   const APPLINKS = 'applinks';
   const AVAILABILITY = 'availability';
   const BRAND = 'brand';
+  const CAPABILITY_TO_REVIEW_STATUS = 'capability_to_review_status';
   const CATEGORY = 'category';
   const COLOR = 'color';
   const COMMERCE_INSIGHTS = 'commerce_insights';
@@ -58,9 +61,12 @@ class ProductItemFields extends AbstractEnum {
   const GENDER = 'gender';
   const GTIN = 'gtin';
   const ID = 'id';
+  const IMAGE_CDN_URLS = 'image_cdn_urls';
   const IMAGE_URL = 'image_url';
+  const INVENTORY = 'inventory';
   const MANUFACTURER_PART_NUMBER = 'manufacturer_part_number';
   const MATERIAL = 'material';
+  const MOBILE_LINK = 'mobile_link';
   const NAME = 'name';
   const ORDERING_INDEX = 'ordering_index';
   const PATTERN = 'pattern';
@@ -88,7 +94,6 @@ class ProductItemFields extends AbstractEnum {
   const ANDROID_PACKAGE = 'android_package';
   const ANDROID_URL = 'android_url';
   const CHECKOUT_URL = 'checkout_url';
-  const INVENTORY = 'inventory';
   const IOS_APP_NAME = 'ios_app_name';
   const IOS_APP_STORE_ID = 'ios_app_store_id';
   const IOS_URL = 'ios_url';
@@ -98,23 +103,29 @@ class ProductItemFields extends AbstractEnum {
   const IPHONE_APP_NAME = 'iphone_app_name';
   const IPHONE_APP_STORE_ID = 'iphone_app_store_id';
   const IPHONE_URL = 'iphone_url';
+  const OFFER_PRICE_AMOUNT = 'offer_price_amount';
+  const OFFER_PRICE_END_DATE = 'offer_price_end_date';
+  const OFFER_PRICE_START_DATE = 'offer_price_start_date';
   const WINDOWS_PHONE_APP_ID = 'windows_phone_app_id';
   const WINDOWS_PHONE_APP_NAME = 'windows_phone_app_name';
   const WINDOWS_PHONE_URL = 'windows_phone_url';
 
   public function getFieldTypes() {
     return array(
+      'additional_image_cdn_urls' => 'list<map<string, string>>',
       'additional_image_urls' => 'list<string>',
+      'additional_variant_attributes' => 'map<string, string>',
       'age_group' => 'AgeGroup',
       'applinks' => 'AppLinks',
       'availability' => 'Availability',
       'brand' => 'string',
+      'capability_to_review_status' => 'map<Object, Object>',
       'category' => 'string',
       'color' => 'string',
       'commerce_insights' => 'ProductItemCommerceInsights',
       'condition' => 'Condition',
       'currency' => 'string',
-      'custom_data' => 'list<Object>',
+      'custom_data' => 'map<string, string>',
       'custom_label_0' => 'string',
       'custom_label_1' => 'string',
       'custom_label_2' => 'string',
@@ -125,9 +136,12 @@ class ProductItemFields extends AbstractEnum {
       'gender' => 'Gender',
       'gtin' => 'string',
       'id' => 'string',
+      'image_cdn_urls' => 'map<string, string>',
       'image_url' => 'string',
+      'inventory' => 'int',
       'manufacturer_part_number' => 'string',
       'material' => 'string',
+      'mobile_link' => 'string',
       'name' => 'string',
       'ordering_index' => 'int',
       'pattern' => 'string',
@@ -155,7 +169,6 @@ class ProductItemFields extends AbstractEnum {
       'android_package' => 'string',
       'android_url' => 'string',
       'checkout_url' => 'string',
-      'inventory' => 'unsigned int',
       'ios_app_name' => 'string',
       'ios_app_store_id' => 'unsigned int',
       'ios_url' => 'string',
@@ -165,6 +178,9 @@ class ProductItemFields extends AbstractEnum {
       'iphone_app_name' => 'string',
       'iphone_app_store_id' => 'unsigned int',
       'iphone_url' => 'string',
+      'offer_price_amount' => 'unsigned int',
+      'offer_price_end_date' => 'datetime',
+      'offer_price_start_date' => 'datetime',
       'windows_phone_app_id' => 'string',
       'windows_phone_app_name' => 'string',
       'windows_phone_url' => 'string',

@@ -43,6 +43,8 @@ class TargetingFields extends AbstractEnum {
   const APP_INSTALL_STATE = 'app_install_state';
   const AUDIENCE_NETWORK_POSITIONS = 'audience_network_positions';
   const BEHAVIORS = 'behaviors';
+  const BRAND_SAFETY_CONTENT_FILTER_LEVELS = 'brand_safety_content_filter_levels';
+  const CATALOG_BASED_TARGETING = 'catalog_based_targeting';
   const CITIES = 'cities';
   const COLLEGE_YEARS = 'college_years';
   const CONNECTIONS = 'connections';
@@ -92,8 +94,10 @@ class TargetingFields extends AbstractEnum {
   const INCOME = 'income';
   const INDUSTRIES = 'industries';
   const INSTAGRAM_POSITIONS = 'instagram_positions';
+  const INSTREAM_VIDEO_SPONSORSHIP_PLACEMENTS = 'instream_video_sponsorship_placements';
   const INTERESTED_IN = 'interested_in';
   const INTERESTS = 'interests';
+  const IS_WHATSAPP_DESTINATION_AD = 'is_whatsapp_destination_ad';
   const KEYWORDS = 'keywords';
   const LIFE_EVENTS = 'life_events';
   const LOCALES = 'locales';
@@ -105,12 +109,12 @@ class TargetingFields extends AbstractEnum {
   const POLITICAL_VIEWS = 'political_views';
   const POLITICS = 'politics';
   const PRODUCT_AUDIENCE_SPECS = 'product_audience_specs';
+  const PROSPECTING_AUDIENCE = 'prospecting_audience';
   const PUBLISHER_PLATFORMS = 'publisher_platforms';
   const PUBLISHER_VISIBILITY_CATEGORIES = 'publisher_visibility_categories';
   const RADIUS = 'radius';
   const REGIONS = 'regions';
   const RELATIONSHIP_STATUSES = 'relationship_statuses';
-  const RTB_FLAG = 'rtb_flag';
   const SITE_CATEGORY = 'site_category';
   const TARGETING_OPTIMIZATION = 'targeting_optimization';
   const USER_ADCLUSTERS = 'user_adclusters';
@@ -130,6 +134,8 @@ class TargetingFields extends AbstractEnum {
       'app_install_state' => 'string',
       'audience_network_positions' => 'list<string>',
       'behaviors' => 'list<IDName>',
+      'brand_safety_content_filter_levels' => 'list<string>',
+      'catalog_based_targeting' => 'CatalogBasedTargeting',
       'cities' => 'list<IDName>',
       'college_years' => 'list<unsigned int>',
       'connections' => 'list<IDName>',
@@ -137,7 +143,7 @@ class TargetingFields extends AbstractEnum {
       'countries' => 'list<string>',
       'country' => 'list<string>',
       'country_groups' => 'list<string>',
-      'custom_audiences' => 'list<IDName>',
+      'custom_audiences' => 'list<RawCustomAudience>',
       'device_platforms' => 'list<DevicePlatforms>',
       'direct_install_devices' => 'bool',
       'dynamic_audience_ids' => 'list<string>',
@@ -179,8 +185,10 @@ class TargetingFields extends AbstractEnum {
       'income' => 'list<IDName>',
       'industries' => 'list<IDName>',
       'instagram_positions' => 'list<string>',
+      'instream_video_sponsorship_placements' => 'list<string>',
       'interested_in' => 'list<unsigned int>',
       'interests' => 'list<IDName>',
+      'is_whatsapp_destination_ad' => 'bool',
       'keywords' => 'list<string>',
       'life_events' => 'list<IDName>',
       'locales' => 'list<unsigned int>',
@@ -192,12 +200,12 @@ class TargetingFields extends AbstractEnum {
       'political_views' => 'list<unsigned int>',
       'politics' => 'list<IDName>',
       'product_audience_specs' => 'list<TargetingProductAudienceSpec>',
+      'prospecting_audience' => 'TargetingProspectingAudience',
       'publisher_platforms' => 'list<string>',
       'publisher_visibility_categories' => 'list<string>',
       'radius' => 'string',
       'regions' => 'list<IDName>',
       'relationship_statuses' => 'list<unsigned int>',
-      'rtb_flag' => 'bool',
       'site_category' => 'list<string>',
       'targeting_optimization' => 'string',
       'user_adclusters' => 'list<IDName>',

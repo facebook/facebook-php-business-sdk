@@ -247,7 +247,7 @@ class AdImage extends AbstractCrudObject {
    * @return void
    * @throws \Exception
    */
-  public function delete(array $params = array()) {
+  public function deleteSelf(array $params = array()) {
     if (!$this->data[AdImageFields::HASH]) {
       throw new \Exception("AdImage hash is required to delete");
     }
@@ -255,6 +255,10 @@ class AdImage extends AbstractCrudObject {
     $params
       = array_merge($params, array('hash' => $this->data[AdImageFields::HASH]));
 
-    parent::delete($params);
+    $this->getApi()->call(
+      $this->getNodePath(),
+      RequestInterface::METHOD_DELETE,
+      $params
+    );
   }
 }

@@ -30,6 +30,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdPreviewFields;
 use FacebookAds\Object\Values\AdPreviewAdFormatValues;
+use FacebookAds\Object\Values\AdPreviewRenderTypeValues;
 
 /**
  * This class is auto-generated.
@@ -59,6 +60,7 @@ class AdPreview extends AbstractObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['AdFormat'] = AdPreviewAdFormatValues::getInstance()->getValues();
+    $ref_enums['RenderType'] = AdPreviewRenderTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 

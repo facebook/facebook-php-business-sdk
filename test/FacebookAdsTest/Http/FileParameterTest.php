@@ -24,29 +24,15 @@
 
 namespace FacebookAdsTest\Http;
 
-use FacebookAds\Http\Adapter\Curl\AbstractCurl;
 use FacebookAds\Http\FileParameter;
 use FacebookAdsTest\AbstractUnitTestCase;
 
 class FileParameterTest extends AbstractUnitTestCase {
 
-  public function argumentsProvider() {
-    return array(
-      array('PATH', 'NAME', 'MIME_TYPE'),
-      array('PATH', 'NAME', null),
-      array('PATH', 'NAME'),
-      array('PATH', null, null),
-      array('PATH'),
-    );
-  }
-
-  /**
-   * @dataProvider argumentsProvider
-   * @param string $path
-   * @param string|null $name
-   * @param string|null $mime_type
-   */
-  public function testGetters($path, $name = null, $mime_type = null) {
+  public function testGetters() {
+    $path = 'PATH';
+    $name = 'NAME';
+    $mime_type = 'MIME_TYPE';
     $param = (new FileParameter($path))
       ->setName($name)
       ->setMimeType($mime_type);
@@ -54,22 +40,5 @@ class FileParameterTest extends AbstractUnitTestCase {
     $this->assertEquals($param->getPath(), $path);
     $this->assertEquals($param->getName(), $name);
     $this->assertEquals($param->getMimeType(), $mime_type);
-  }
-
-  /**
-   * @dataProvider argumentsProvider
-   * @param string $path
-   * @param string|null $name
-   * @param string|null $mime_type
-   */
-  public function testCurlImplementation(
-    $path,
-    $name = null,
-    $mime_type = null) {
-    $param = (new FileParameter($path))
-      ->setName($name)
-      ->setMimeType($mime_type);
-
-    AbstractCurl::createOptimalVersion()->preparePostFileField($param);
   }
 }

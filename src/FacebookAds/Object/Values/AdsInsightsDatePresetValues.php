@@ -37,23 +37,23 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdsInsightsDatePresetValues extends AbstractEnum {
 
-  const TODAY = 'today';
-  const YESTERDAY = 'yesterday';
-  const THIS_MONTH = 'this_month';
-  const LAST_MONTH = 'last_month';
-  const THIS_QUARTER = 'this_quarter';
-  const LIFETIME = 'lifetime';
-  const LAST_3D = 'last_3d';
-  const LAST_7D = 'last_7d';
   const LAST_14D = 'last_14d';
   const LAST_28D = 'last_28d';
   const LAST_30D = 'last_30d';
+  const LAST_3D = 'last_3d';
+  const LAST_7D = 'last_7d';
   const LAST_90D = 'last_90d';
+  const LAST_MONTH = 'last_month';
+  const LAST_QUARTER = 'last_quarter';
   const LAST_WEEK_MON_SUN = 'last_week_mon_sun';
   const LAST_WEEK_SUN_SAT = 'last_week_sun_sat';
-  const LAST_QUARTER = 'last_quarter';
   const LAST_YEAR = 'last_year';
+  const LIFETIME = 'lifetime';
+  const THIS_MONTH = 'this_month';
+  const THIS_QUARTER = 'this_quarter';
   const THIS_WEEK_MON_TODAY = 'this_week_mon_today';
   const THIS_WEEK_SUN_TODAY = 'this_week_sun_today';
   const THIS_YEAR = 'this_year';
+  const TODAY = 'today';
+  const YESTERDAY = 'yesterday';
 }

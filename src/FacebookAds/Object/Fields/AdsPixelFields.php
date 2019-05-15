@@ -37,9 +37,14 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdsPixelFields extends AbstractEnum {
 
+  const AUTOMATIC_MATCHING_FIELDS = 'automatic_matching_fields';
+  const CAN_PROXY = 'can_proxy';
   const CODE = 'code';
   const CREATION_TIME = 'creation_time';
   const CREATOR = 'creator';
+  const DATA_USE_SETTING = 'data_use_setting';
+  const ENABLE_AUTOMATIC_MATCHING = 'enable_automatic_matching';
+  const FIRST_PARTY_COOKIE_STATUS = 'first_party_cookie_status';
   const ID = 'id';
   const IS_CREATED_BY_BUSINESS = 'is_created_by_business';
   const LAST_FIRED_TIME = 'last_fired_time';
@@ -49,9 +54,14 @@ class AdsPixelFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'automatic_matching_fields' => 'list<string>',
+      'can_proxy' => 'bool',
       'code' => 'string',
       'creation_time' => 'datetime',
       'creator' => 'User',
+      'data_use_setting' => 'string',
+      'enable_automatic_matching' => 'bool',
+      'first_party_cookie_status' => 'string',
       'id' => 'string',
       'is_created_by_business' => 'bool',
       'last_fired_time' => 'datetime',

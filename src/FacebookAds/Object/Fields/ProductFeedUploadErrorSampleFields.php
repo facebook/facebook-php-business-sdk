@@ -45,7 +45,7 @@ class ProductFeedUploadErrorSampleFields extends AbstractEnum {
     return array(
       'id' => 'string',
       'retailer_id' => 'string',
-      'row_number' => 'unsigned int',
+      'row_number' => 'int',
     );
   }
 }

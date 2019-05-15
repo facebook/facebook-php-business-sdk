@@ -37,18 +37,26 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdsInsightsBreakdownsValues extends AbstractEnum {
 
+  const AD_FORMAT_ASSET = 'ad_format_asset';
   const AGE = 'age';
+  const BODY_ASSET = 'body_asset';
+  const CALL_TO_ACTION_ASSET = 'call_to_action_asset';
   const COUNTRY = 'country';
+  const DESCRIPTION_ASSET = 'description_asset';
+  const DEVICE_PLATFORM = 'device_platform';
   const DMA = 'dma';
-  const GENDER = 'gender';
   const FREQUENCY_VALUE = 'frequency_value';
+  const GENDER = 'gender';
   const HOURLY_STATS_AGGREGATED_BY_ADVERTISER_TIME_ZONE = 'hourly_stats_aggregated_by_advertiser_time_zone';
   const HOURLY_STATS_AGGREGATED_BY_AUDIENCE_TIME_ZONE = 'hourly_stats_aggregated_by_audience_time_zone';
+  const IMAGE_ASSET = 'image_asset';
   const IMPRESSION_DEVICE = 'impression_device';
+  const LINK_URL_ASSET = 'link_url_asset';
   const PLACE_PAGE_ID = 'place_page_id';
-  const PUBLISHER_PLATFORM = 'publisher_platform';
   const PLATFORM_POSITION = 'platform_position';
-  const DEVICE_PLATFORM = 'device_platform';
   const PRODUCT_ID = 'product_id';
+  const PUBLISHER_PLATFORM = 'publisher_platform';
   const REGION = 'region';
+  const TITLE_ASSET = 'title_asset';
+  const VIDEO_ASSET = 'video_asset';
 }

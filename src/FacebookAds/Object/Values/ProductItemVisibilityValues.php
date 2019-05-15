@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ProductItemVisibilityValues extends AbstractEnum {
 
-  const STAGING = 'staging';
   const PUBLISHED = 'published';
+  const STAGING = 'staging';
 }

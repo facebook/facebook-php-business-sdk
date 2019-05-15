@@ -29,7 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProductCatalogPricingVariablesBatchFields;
-use FacebookAds\Object\Values\ProductCatalogPricingVariablesBatchStandardValues;
 
 /**
  * This class is auto-generated.
@@ -43,13 +42,6 @@ use FacebookAds\Object\Values\ProductCatalogPricingVariablesBatchStandardValues;
 class ProductCatalogPricingVariablesBatch extends AbstractObject {
 
   /**
-   * @deprecated getEndpoint function is deprecated
-   */
-  protected function getEndpoint() {
-    return 'pricing_variables_batch';
-  }
-
-  /**
    * @return ProductCatalogPricingVariablesBatchFields
    */
   public static function getFieldsEnum() {
@@ -58,7 +50,6 @@ class ProductCatalogPricingVariablesBatch extends AbstractObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Standard'] = ProductCatalogPricingVariablesBatchStandardValues::getInstance()->getValues();
     return $ref_enums;
   }
 

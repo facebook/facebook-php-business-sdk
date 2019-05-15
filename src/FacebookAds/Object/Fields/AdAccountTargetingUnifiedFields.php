@@ -38,20 +38,50 @@ use FacebookAds\Enum\AbstractEnum;
 class AdAccountTargetingUnifiedFields extends AbstractEnum {
 
   const AUDIENCE_SIZE = 'audience_size';
+  const CONVERSION_LIFT = 'conversion_lift';
   const DESCRIPTION = 'description';
   const ID = 'id';
+  const IMG = 'img';
+  const INFO = 'info';
+  const INFO_TITLE = 'info_title';
+  const IS_RECOMMENDATION = 'is_recommendation';
+  const KEY = 'key';
+  const LINK = 'link';
   const NAME = 'name';
+  const PARENT = 'parent';
+  const PARTNER = 'partner';
   const PATH = 'path';
+  const PERFORMANCE_RATING = 'performance_rating';
+  const RAW_NAME = 'raw_name';
+  const RECOMMENDATION_MODEL = 'recommendation_model';
+  const SEARCH_INTEREST_ID = 'search_interest_id';
+  const SOURCE = 'source';
+  const SPEND = 'spend';
   const TYPE = 'type';
   const VALID = 'valid';
 
   public function getFieldTypes() {
     return array(
       'audience_size' => 'unsigned int',
+      'conversion_lift' => 'float',
       'description' => 'string',
       'id' => 'string',
+      'img' => 'string',
+      'info' => 'string',
+      'info_title' => 'string',
+      'is_recommendation' => 'bool',
+      'key' => 'string',
+      'link' => 'string',
       'name' => 'string',
+      'parent' => 'string',
+      'partner' => 'string',
       'path' => 'list<string>',
+      'performance_rating' => 'unsigned int',
+      'raw_name' => 'string',
+      'recommendation_model' => 'string',
+      'search_interest_id' => 'string',
+      'source' => 'string',
+      'spend' => 'float',
       'type' => 'string',
       'valid' => 'bool',
     );

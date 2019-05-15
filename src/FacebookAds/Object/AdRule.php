@@ -64,6 +64,29 @@ class AdRule extends AbstractCrudObject {
   }
 
 
+  public function createExecute(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/execute',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getHistory(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -84,6 +107,29 @@ class AdRule extends AbstractCrudObject {
       new AdRuleHistory(),
       'EDGE',
       AdRuleHistory::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createPreview(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/preview',
+      new AdRule(),
+      'EDGE',
+      AdRule::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -144,7 +190,6 @@ class AdRule extends AbstractCrudObject {
       'evaluation_spec' => 'Object',
       'execution_spec' => 'Object',
       'name' => 'string',
-      'reset_period' => 'int',
       'schedule_spec' => 'Object',
       'status' => 'status_enum',
     );

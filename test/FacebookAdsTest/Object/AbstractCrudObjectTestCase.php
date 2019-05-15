@@ -248,7 +248,7 @@ abstract class AbstractCrudObjectTestCase extends AbstractIntegrationTestCase {
    */
   public function assertCanDelete(AbstractCrudObject $subject) {
     $this->assertNotEmpty($subject->{AbstractCrudObject::FIELD_ID});
-    $subject->delete();
+    $subject->deleteSelf();
     if ($subject instanceof AbstractArchivableCrudObject) {
       $this->assertArchivableCrudObjectStatus(
         $subject, AbstractArchivableCrudObject::STATUS_DELETED);
@@ -261,7 +261,7 @@ abstract class AbstractCrudObjectTestCase extends AbstractIntegrationTestCase {
   public function assertCannotDelete(AbstractCrudObject $subject) {
     $has_throw_exception = false;
     try {
-      $subject->delete();
+      $subject->deleteSelf();
     } catch (\Exception $e) {
       $has_throw_exception = true;
     }
@@ -273,7 +273,7 @@ abstract class AbstractCrudObjectTestCase extends AbstractIntegrationTestCase {
    */
   public function assertCanArchive(AbstractArchivableCrudObject $subject) {
     $this->assertNotEmpty($subject->{AbstractCrudObject::FIELD_ID});
-    $subject->archive();
+    $subject->archiveSelf();
     if ($subject instanceof AbstractArchivableCrudObject) {
       $this->assertArchivableCrudObjectStatus(
         $subject, AbstractArchivableCrudObject::STATUS_ARCHIVED);
@@ -310,6 +310,6 @@ abstract class AbstractCrudObjectTestCase extends AbstractIntegrationTestCase {
     $mirror->read(array('adlabels'));
     $this->assertNull($mirror->{'adlabels'});
 
-    $label->delete();
+    $label->deleteSelf();
   }
 }

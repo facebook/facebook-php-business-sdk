@@ -30,6 +30,10 @@ use FacebookAds\Object\Fields\CustomAudienceFields;
 use FacebookAds\Object\CustomAudienceNormalizers\HashNormalizer;
 use FacebookAds\Object\Fields\CustomAudienceMultikeySchemaFields;
 
+/**
+ * @deprecated
+ * Please use class `CustomAudience` instead
+ **/
 class CustomAudienceMultiKey extends AbstractCrudObject {
 
   /**
@@ -82,6 +86,7 @@ class CustomAudienceMultiKey extends AbstractCrudObject {
   }
 
   /**
+   * @deprecated
    * Add users to the AdCustomAudiences. There is no max on the total number of
    * users that can be added to an audience, but up to 10000 users can be added
    * at a given time.
@@ -97,6 +102,9 @@ class CustomAudienceMultiKey extends AbstractCrudObject {
     array $types,
     $is_hashed = false,
     $is_normalized = false) {
+    $warning_message = 'CustomAudienceMultiKey is being deprecated, please use'.
+      .'`new CustomAudience(...)->addUsers(..)` instead';
+    trigger_error($warning_message, E_USER_DEPRECATED);
 
     $params = $this->formatParams($users, $types, $is_hashed, $is_normalized);
     return $this->getApi()->call(
@@ -106,6 +114,7 @@ class CustomAudienceMultiKey extends AbstractCrudObject {
   }
 
   /**
+   * @deprecated
    * Delete users from AdCustomAudiences
    *
    * @param array $users
@@ -119,7 +128,9 @@ class CustomAudienceMultiKey extends AbstractCrudObject {
     array $types,
     $is_hashed = false,
     $is_normalized = false) {
-
+    $warning_message = 'CustomAudienceMultiKey is being deprecated, please use'.
+      .'`new CustomAudience(...)->removeUsers(..)` instead';
+    trigger_error($warning_message, E_USER_DEPRECATED);
     $params = $this->formatParams($users, $types, $is_hashed, $is_normalized);
     return $this->getApi()->call(
       '/'.$this->assureId().'/users',

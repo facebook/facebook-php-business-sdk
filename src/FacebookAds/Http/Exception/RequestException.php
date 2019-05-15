@@ -70,6 +70,11 @@ class RequestException extends Exception {
   protected $errorBlameFieldSpecs;
 
   /**
+   * @var string|null
+   */
+  protected $facebookTraceId;
+
+  /**
    * @param ResponseInterface $response
    */
   public function __construct(ResponseInterface $response) {
@@ -82,6 +87,7 @@ class RequestException extends Exception {
     $this->errorUserTitle = $error_data['error_user_title'];
     $this->errorUserMessage = $error_data['error_user_msg'];
     $this->errorBlameFieldSpecs = $error_data['error_blame_field_specs'];
+    $this->facebookTraceId = $error_data['fbtrace_id'];
   }
 
   /**
@@ -92,12 +98,15 @@ class RequestException extends Exception {
   }
 
   /**
-   * @param array $array
+   * @param array|string $array
    * @param string|int $key
    * @param mixed $default
    * @return mixed
    */
-  protected static function idx(array $array, $key, $default = null) {
+  protected static function idx($array, $key, $default = null) {
+    if (is_string($array)) {
+      $array = json_decode($array, true);
+    }
     return array_key_exists($key, $array)
       ? $array[$key]
       : $default;
@@ -114,6 +123,11 @@ class RequestException extends Exception {
     }
     $error_data = static::idx($response_data, 'error', array());
 
+    if (is_string(static::idx($error_data, 'error_data'))) {
+      $error_data["error_data"] =
+        json_decode(stripslashes(static::idx($error_data, 'error_data')), true);
+    }
+
     return array(
       'code' =>
         static::idx($error_data, 'code', static::idx($response_data, 'code')),
@@ -124,6 +138,7 @@ class RequestException extends Exception {
       'error_blame_field_specs' =>
         static::idx(static::idx($error_data, 'error_data', array()),
           'blame_field_specs'),
+      'fbtrace_id' => static::idx($error_data, 'fbtrace_id'),
       'type' => static::idx($error_data, 'type'),
     );
   }
@@ -194,6 +209,13 @@ class RequestException extends Exception {
    */
   public function getErrorBlameFieldSpecs() {
     return $this->errorBlameFieldSpecs;
+  }
+
+  /**
+   * @return string|null
+   */
+  public function getFacebookTraceId() {
+    return $this->facebookTraceId;
   }
 
   /**

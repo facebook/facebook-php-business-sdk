@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class ProductFeedUploadErrorFields extends AbstractEnum {
 
+  const AFFECTED_SURFACES = 'affected_surfaces';
   const DESCRIPTION = 'description';
   const ERROR_TYPE = 'error_type';
   const ID = 'id';
@@ -46,6 +47,7 @@ class ProductFeedUploadErrorFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'affected_surfaces' => 'list<AffectedSurfaces>',
       'description' => 'string',
       'error_type' => 'string',
       'id' => 'string',

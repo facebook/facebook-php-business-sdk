@@ -37,8 +37,9 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdRuleTriggerTypeValues extends AbstractEnum {
 
+  const DELIVERY_INSIGHTS_CHANGE = 'DELIVERY_INSIGHTS_CHANGE';
   const METADATA_CREATION = 'METADATA_CREATION';
   const METADATA_UPDATE = 'METADATA_UPDATE';
-  const STATS_MILESTONE = 'STATS_MILESTONE';
   const STATS_CHANGE = 'STATS_CHANGE';
+  const STATS_MILESTONE = 'STATS_MILESTONE';
 }

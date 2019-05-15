@@ -36,7 +36,6 @@ use FacebookAds\Object\Values\AdsInsightsBreakdownsValues;
 use FacebookAds\Object\Values\AdsInsightsDatePresetValues;
 use FacebookAds\Object\Values\AdsInsightsLevelValues;
 use FacebookAds\Object\Values\AdsInsightsSummaryActionBreakdownsValues;
-use FacebookAds\Object\Values\AdsInsightsSummaryValues;
 
 /**
  * This class is auto-generated.
@@ -72,7 +71,6 @@ class AdsInsights extends AbstractObject {
     $ref_enums['DatePreset'] = AdsInsightsDatePresetValues::getInstance()->getValues();
     $ref_enums['Level'] = AdsInsightsLevelValues::getInstance()->getValues();
     $ref_enums['SummaryActionBreakdowns'] = AdsInsightsSummaryActionBreakdownsValues::getInstance()->getValues();
-    $ref_enums['Summary'] = AdsInsightsSummaryValues::getInstance()->getValues();
     return $ref_enums;
   }
 

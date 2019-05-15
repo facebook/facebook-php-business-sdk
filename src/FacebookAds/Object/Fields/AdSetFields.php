@@ -38,11 +38,17 @@ use FacebookAds\Enum\AbstractEnum;
 class AdSetFields extends AbstractEnum {
 
   const ACCOUNT_ID = 'account_id';
+  const AD_KEYWORDS = 'ad_keywords';
   const ADLABELS = 'adlabels';
   const ADSET_SCHEDULE = 'adset_schedule';
+  const ASSET_FEED_ID = 'asset_feed_id';
   const ATTRIBUTION_SPEC = 'attribution_spec';
+  const BEST_CREATIVE = 'best_creative';
+  const BID_ADJUSTMENTS = 'bid_adjustments';
   const BID_AMOUNT = 'bid_amount';
+  const BID_CONSTRAINTS = 'bid_constraints';
   const BID_INFO = 'bid_info';
+  const BID_STRATEGY = 'bid_strategy';
   const BILLING_EVENT = 'billing_event';
   const BUDGET_REMAINING = 'budget_remaining';
   const CAMPAIGN = 'campaign';
@@ -51,24 +57,30 @@ class AdSetFields extends AbstractEnum {
   const CREATED_TIME = 'created_time';
   const CREATIVE_SEQUENCE = 'creative_sequence';
   const DAILY_BUDGET = 'daily_budget';
+  const DAILY_MIN_SPEND_TARGET = 'daily_min_spend_target';
+  const DAILY_SPEND_CAP = 'daily_spend_cap';
   const DESTINATION_TYPE = 'destination_type';
   const EFFECTIVE_STATUS = 'effective_status';
   const END_TIME = 'end_time';
   const FREQUENCY_CONTROL_SPECS = 'frequency_control_specs';
+  const FULL_FUNNEL_EXPLORATION_MODE = 'full_funnel_exploration_mode';
   const ID = 'id';
   const INSTAGRAM_ACTOR_ID = 'instagram_actor_id';
-  const IS_AUTOBID = 'is_autobid';
-  const IS_AVERAGE_PRICE_PACING = 'is_average_price_pacing';
+  const IS_DYNAMIC_CREATIVE = 'is_dynamic_creative';
+  const ISSUES_INFO = 'issues_info';
   const LIFETIME_BUDGET = 'lifetime_budget';
   const LIFETIME_IMPS = 'lifetime_imps';
+  const LIFETIME_MIN_SPEND_TARGET = 'lifetime_min_spend_target';
+  const LIFETIME_SPEND_CAP = 'lifetime_spend_cap';
   const NAME = 'name';
   const OPTIMIZATION_GOAL = 'optimization_goal';
+  const OPTIMIZATION_SUB_EVENT = 'optimization_sub_event';
   const PACING_TYPE = 'pacing_type';
   const PROMOTED_OBJECT = 'promoted_object';
   const RECOMMENDATIONS = 'recommendations';
   const RECURRING_BUDGET_SEMANTICS = 'recurring_budget_semantics';
+  const REVIEW_FEEDBACK = 'review_feedback';
   const RF_PREDICTION_ID = 'rf_prediction_id';
-  const RTB_FLAG = 'rtb_flag';
   const SOURCE_ADSET = 'source_adset';
   const SOURCE_ADSET_ID = 'source_adset_id';
   const START_TIME = 'start_time';
@@ -80,17 +92,29 @@ class AdSetFields extends AbstractEnum {
   const USE_NEW_APP_CLICK = 'use_new_app_click';
   const CAMPAIGN_SPEC = 'campaign_spec';
   const DAILY_IMPS = 'daily_imps';
+  const DATE_FORMAT = 'date_format';
   const EXECUTION_OPTIONS = 'execution_options';
-  const REDOWNLOAD = 'redownload';
+  const LINE_NUMBER = 'line_number';
+  const RB_PREDICTION_ID = 'rb_prediction_id';
+  const TIME_START = 'time_start';
+  const TIME_STOP = 'time_stop';
+  const TOPLINE_ID = 'topline_id';
+  const UPSTREAM_EVENTS = 'upstream_events';
 
   public function getFieldTypes() {
     return array(
       'account_id' => 'string',
+      'ad_keywords' => 'AdKeywords',
       'adlabels' => 'list<AdLabel>',
       'adset_schedule' => 'list<DayPart>',
-      'attribution_spec' => 'list<Object>',
+      'asset_feed_id' => 'string',
+      'attribution_spec' => 'list<AttributionSpec>',
+      'best_creative' => 'AdDynamicCreative',
+      'bid_adjustments' => 'AdBidAdjustments',
       'bid_amount' => 'unsigned int',
+      'bid_constraints' => 'AdCampaignBidConstraint',
       'bid_info' => 'map<string, unsigned int>',
+      'bid_strategy' => 'BidStrategy',
       'billing_event' => 'BillingEvent',
       'budget_remaining' => 'string',
       'campaign' => 'Campaign',
@@ -99,24 +123,30 @@ class AdSetFields extends AbstractEnum {
       'created_time' => 'datetime',
       'creative_sequence' => 'list<string>',
       'daily_budget' => 'string',
+      'daily_min_spend_target' => 'string',
+      'daily_spend_cap' => 'string',
       'destination_type' => 'string',
       'effective_status' => 'EffectiveStatus',
       'end_time' => 'datetime',
-      'frequency_control_specs' => 'list<Object>',
+      'frequency_control_specs' => 'list<AdCampaignFrequencyControlSpecs>',
+      'full_funnel_exploration_mode' => 'string',
       'id' => 'string',
       'instagram_actor_id' => 'string',
-      'is_autobid' => 'bool',
-      'is_average_price_pacing' => 'bool',
+      'is_dynamic_creative' => 'bool',
+      'issues_info' => 'list<AdCampaignIssuesInfo>',
       'lifetime_budget' => 'string',
       'lifetime_imps' => 'int',
+      'lifetime_min_spend_target' => 'string',
+      'lifetime_spend_cap' => 'string',
       'name' => 'string',
       'optimization_goal' => 'OptimizationGoal',
+      'optimization_sub_event' => 'string',
       'pacing_type' => 'list<string>',
       'promoted_object' => 'AdPromotedObject',
       'recommendations' => 'list<AdRecommendation>',
       'recurring_budget_semantics' => 'bool',
+      'review_feedback' => 'string',
       'rf_prediction_id' => 'string',
-      'rtb_flag' => 'bool',
       'source_adset' => 'AdSet',
       'source_adset_id' => 'string',
       'start_time' => 'datetime',
@@ -128,8 +158,14 @@ class AdSetFields extends AbstractEnum {
       'use_new_app_click' => 'bool',
       'campaign_spec' => 'Object',
       'daily_imps' => 'unsigned int',
+      'date_format' => 'string',
       'execution_options' => 'list<ExecutionOptions>',
-      'redownload' => 'bool',
+      'line_number' => 'unsigned int',
+      'rb_prediction_id' => 'string',
+      'time_start' => 'datetime',
+      'time_stop' => 'datetime',
+      'topline_id' => 'string',
+      'upstream_events' => 'map',
     );
   }
 }

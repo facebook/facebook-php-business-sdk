@@ -38,8 +38,10 @@ use FacebookAds\Enum\AbstractEnum;
 class ProductItemAgeGroupValues extends AbstractEnum {
 
   const ADULT = 'adult';
+  const ALL_AGES = 'all ages';
   const INFANT = 'infant';
   const KIDS = 'kids';
   const NEWBORN = 'newborn';
+  const TEEN = 'teen';
   const TODDLER = 'toddler';
 }

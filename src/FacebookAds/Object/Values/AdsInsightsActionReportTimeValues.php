@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdsInsightsActionReportTimeValues extends AbstractEnum {
 
-  const IMPRESSION = 'impression';
   const CONVERSION = 'conversion';
+  const IMPRESSION = 'impression';
 }

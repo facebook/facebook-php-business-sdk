@@ -49,7 +49,7 @@ class AdSetTest extends AbstractCrudObjectTestCase {
   }
 
   public function tearDown() {
-    $this->campaign->delete();
+    $this->campaign->deleteSelf();
     $this->campaign = null;
     parent::tearDown();
   }

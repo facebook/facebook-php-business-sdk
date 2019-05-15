@@ -55,11 +55,11 @@ class TypeChecker {
       return $value;
     } elseif ($primitive_type === "string") {
       return $value;
-    } elseif (primitive_type === "Object") {
+    } elseif ($primitive_type === "Object") {
       return $value;
     } else {
       if (ApiConfig::TYPE_CHECKER_STRICT_MODE) {
-        throw new Exception("Not a primitive type");
+        throw new \Exception("Not a primitive type");
       } else {
         return $value;
       }

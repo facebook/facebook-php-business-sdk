@@ -233,10 +233,14 @@ class Request implements RequestInterface {
    * @return string
    */
   public function getUrl() {
+    $delimiter = null;
+    if ($this->getQueryParams()->count() ) {
+      $delimiter = strpos($this->getPath(), '?') ? '&' : '?';
+    }
     return $this->getProtocol().$this->getDomain()
       .'/v'.$this->getGraphVersion().$this->getPath()
-      .($this->getQueryParams()->count() ? '?' : null)
-      .http_build_query($this->getQueryParams()->export());
+      .$delimiter
+      .http_build_query($this->getQueryParams()->export(), '', '&');
   }
 
   /**

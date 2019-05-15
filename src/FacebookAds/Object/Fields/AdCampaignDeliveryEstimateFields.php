@@ -37,7 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdCampaignDeliveryEstimateFields extends AbstractEnum {
 
-  const BID_ESTIMATE = 'bid_estimate';
   const DAILY_OUTCOMES_CURVE = 'daily_outcomes_curve';
   const ESTIMATE_DAU = 'estimate_dau';
   const ESTIMATE_MAU = 'estimate_mau';
@@ -45,10 +44,9 @@ class AdCampaignDeliveryEstimateFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'bid_estimate' => 'Object',
       'daily_outcomes_curve' => 'list<OutcomePredictionPoint>',
-      'estimate_dau' => 'Object',
-      'estimate_mau' => 'Object',
+      'estimate_dau' => 'int',
+      'estimate_mau' => 'int',
       'estimate_ready' => 'bool',
     );
   }

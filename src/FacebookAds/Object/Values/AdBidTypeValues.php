@@ -37,9 +37,9 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdBidTypeValues extends AbstractEnum {
 
+  const ABSOLUTE_OCPM = 'ABSOLUTE_OCPM';
+  const CPA = 'CPA';
   const CPC = 'CPC';
   const CPM = 'CPM';
   const MULTI_PREMIUM = 'MULTI_PREMIUM';
-  const ABSOLUTE_OCPM = 'ABSOLUTE_OCPM';
-  const CPA = 'CPA';
 }

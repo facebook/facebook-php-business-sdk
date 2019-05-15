@@ -61,21 +61,10 @@ class Hotel extends AbstractCrudObject {
   }
 
 
-  public function createHotelRoom(array $fields = array(), array $params = array(), $pending = false) {
+  public function getHotelRooms(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
-      'applinks' => 'Object',
-      'base_price' => 'float',
-      'currency' => 'string',
-      'description' => 'string',
-      'images' => 'list<Object>',
-      'margin_level' => 'unsigned int',
-      'name' => 'string',
-      'pricing_variables' => 'list<Object>',
-      'room_id' => 'string',
-      'sale_price' => 'float',
-      'url' => 'string',
     );
     $enums = array(
     );
@@ -83,7 +72,7 @@ class Hotel extends AbstractCrudObject {
     $request = new ApiRequest(
       $this->api,
       $this->data['id'],
-      RequestInterface::METHOD_POST,
+      RequestInterface::METHOD_GET,
       '/hotel_rooms',
       new HotelRoom(),
       'EDGE',
@@ -147,7 +136,9 @@ class Hotel extends AbstractCrudObject {
     $param_types = array(
       'address' => 'Object',
       'applinks' => 'Object',
+      'base_price' => 'unsigned int',
       'brand' => 'string',
+      'currency' => 'string',
       'description' => 'string',
       'guest_ratings' => 'list<Object>',
       'images' => 'list<Object>',

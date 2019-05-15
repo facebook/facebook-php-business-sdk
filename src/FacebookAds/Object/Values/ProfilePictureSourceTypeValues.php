@@ -37,9 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ProfilePictureSourceTypeValues extends AbstractEnum {
 
-  const SMALL = 'small';
-  const NORMAL = 'normal';
   const ALBUM = 'album';
-  const LARGE = 'large';
-  const SQUARE = 'square';
+  const SMALL = 'small';
+  const THUMBNAIL = 'thumbnail';
 }

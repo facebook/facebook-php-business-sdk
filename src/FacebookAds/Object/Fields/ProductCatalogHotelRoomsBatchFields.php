@@ -41,12 +41,6 @@ class ProductCatalogHotelRoomsBatchFields extends AbstractEnum {
   const ERRORS_TOTAL_COUNT = 'errors_total_count';
   const HANDLE = 'handle';
   const STATUS = 'status';
-  const FILE = 'file';
-  const PASSWORD = 'password';
-  const STANDARD = 'standard';
-  const UPDATE_ONLY = 'update_only';
-  const URL = 'url';
-  const USERNAME = 'username';
 
   public function getFieldTypes() {
     return array(
@@ -54,12 +48,6 @@ class ProductCatalogHotelRoomsBatchFields extends AbstractEnum {
       'errors_total_count' => 'int',
       'handle' => 'string',
       'status' => 'string',
-      'file' => 'file',
-      'password' => 'string',
-      'standard' => 'Standard',
-      'update_only' => 'bool',
-      'url' => 'string',
-      'username' => 'string',
     );
   }
 }

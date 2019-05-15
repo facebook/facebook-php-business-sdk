@@ -41,11 +41,10 @@ class AdSetBillingEventValues extends AbstractEnum {
   const CLICKS = 'CLICKS';
   const IMPRESSIONS = 'IMPRESSIONS';
   const LINK_CLICKS = 'LINK_CLICKS';
+  const NONE = 'NONE';
   const OFFER_CLAIMS = 'OFFER_CLAIMS';
   const PAGE_LIKES = 'PAGE_LIKES';
   const POST_ENGAGEMENT = 'POST_ENGAGEMENT';
+  const THRUPLAY = 'THRUPLAY';
   const VIDEO_VIEWS = 'VIDEO_VIEWS';
-  const MRC_VIDEO_VIEWS = 'MRC_VIDEO_VIEWS';
-  const COMPLETED_VIDEO_VIEWS = 'COMPLETED_VIDEO_VIEWS';
-  const VIDEO_VIEWS_15S = 'VIDEO_VIEWS_15S';
 }

@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdPlacePageSetLocationTypesValues extends AbstractEnum {
 
-  const RECENT = 'recent';
   const HOME = 'home';
+  const RECENT = 'recent';
 }

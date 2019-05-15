@@ -29,7 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdLabelFields;
-use FacebookAds\Object\Values\AdLabelExecutionOptionsValues;
 
 /**
  * This class is auto-generated.
@@ -58,7 +57,6 @@ class AdLabel extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['ExecutionOptions'] = AdLabelExecutionOptionsValues::getInstance()->getValues();
     return $ref_enums;
   }
 

@@ -38,6 +38,6 @@ use FacebookAds\Enum\AbstractEnum;
 class ProductFeedQuotedFieldsModeValues extends AbstractEnum {
 
   const AUTODETECT = 'AUTODETECT';
-  const ON = 'ON';
   const OFF = 'OFF';
+  const ON = 'ON';
 }

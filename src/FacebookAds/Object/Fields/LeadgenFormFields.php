@@ -39,7 +39,6 @@ class LeadgenFormFields extends AbstractEnum {
 
   const ALLOW_ORGANIC_LEAD = 'allow_organic_lead';
   const BLOCK_DISPLAY_FOR_NON_TARGETED_VIEWER = 'block_display_for_non_targeted_viewer';
-  const CONTEXT_CARD = 'context_card';
   const CREATED_TIME = 'created_time';
   const CREATOR = 'creator';
   const CREATOR_ID = 'creator_id';
@@ -49,10 +48,9 @@ class LeadgenFormFields extends AbstractEnum {
   const FOLLOW_UP_ACTION_TEXT = 'follow_up_action_text';
   const FOLLOW_UP_ACTION_URL = 'follow_up_action_url';
   const ID = 'id';
-  const IS_CONTINUED_FLOW = 'is_continued_flow';
+  const IS_OPTIMIZED_FOR_QUALITY = 'is_optimized_for_quality';
   const LEADGEN_EXPORT_CSV_URL = 'leadgen_export_csv_url';
   const LEADS_COUNT = 'leads_count';
-  const LEGAL_CONTENT = 'legal_content';
   const LOCALE = 'locale';
   const MESSENGER_WELCOME_MESSAGE = 'messenger_welcome_message';
   const NAME = 'name';
@@ -65,13 +63,12 @@ class LeadgenFormFields extends AbstractEnum {
   const QUESTIONS = 'questions';
   const STATUS = 'status';
   const TCPA_COMPLIANCE = 'tcpa_compliance';
-  const THANK_YOU_PAGE = 'thank_you_page';
+  const TRACKING_PARAMETERS = 'tracking_parameters';
 
   public function getFieldTypes() {
     return array(
       'allow_organic_lead' => 'bool',
       'block_display_for_non_targeted_viewer' => 'bool',
-      'context_card' => 'Object',
       'created_time' => 'datetime',
       'creator' => 'User',
       'creator_id' => 'int',
@@ -81,23 +78,22 @@ class LeadgenFormFields extends AbstractEnum {
       'follow_up_action_text' => 'string',
       'follow_up_action_url' => 'string',
       'id' => 'string',
-      'is_continued_flow' => 'bool',
+      'is_optimized_for_quality' => 'bool',
       'leadgen_export_csv_url' => 'string',
       'leads_count' => 'unsigned int',
-      'legal_content' => 'Object',
       'locale' => 'string',
       'messenger_welcome_message' => 'string',
       'name' => 'string',
       'organic_leads_count' => 'unsigned int',
-      'page' => 'Object',
+      'page' => 'Page',
       'page_id' => 'string',
       'privacy_policy_url' => 'string',
-      'qualifiers' => 'list<LeadGenQualifier>',
+      'qualifiers' => 'list<Object>',
       'question_page_custom_headline' => 'string',
       'questions' => 'list<LeadGenQuestion>',
       'status' => 'string',
       'tcpa_compliance' => 'bool',
-      'thank_you_page' => 'Object',
+      'tracking_parameters' => 'map<string, string>',
     );
   }
 }

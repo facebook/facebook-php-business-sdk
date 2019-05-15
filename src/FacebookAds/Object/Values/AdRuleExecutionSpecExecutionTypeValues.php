@@ -37,12 +37,12 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdRuleExecutionSpecExecutionTypeValues extends AbstractEnum {
 
-  const PING_ENDPOINT = 'PING_ENDPOINT';
+  const CHANGE_BID = 'CHANGE_BID';
+  const CHANGE_BUDGET = 'CHANGE_BUDGET';
   const NOTIFICATION = 'NOTIFICATION';
   const PAUSE = 'PAUSE';
+  const PING_ENDPOINT = 'PING_ENDPOINT';
   const REBALANCE_BUDGET = 'REBALANCE_BUDGET';
-  const CHANGE_BUDGET = 'CHANGE_BUDGET';
-  const CHANGE_BID = 'CHANGE_BID';
   const ROTATE = 'ROTATE';
   const UNPAUSE = 'UNPAUSE';
 }

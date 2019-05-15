@@ -47,12 +47,14 @@ class AdCreativeLinkDataFields extends AbstractEnum {
   const CAPTION = 'caption';
   const CHILD_ATTACHMENTS = 'child_attachments';
   const COLLECTION_THUMBNAILS = 'collection_thumbnails';
+  const CUSTOMIZATION_RULES_SPEC = 'customization_rules_spec';
   const DESCRIPTION = 'description';
   const EVENT_ID = 'event_id';
   const FORCE_SINGLE_LINK = 'force_single_link';
   const FORMAT_OPTION = 'format_option';
   const IMAGE_CROPS = 'image_crops';
   const IMAGE_HASH = 'image_hash';
+  const IMAGE_LAYER_SPECS = 'image_layer_specs';
   const IMAGE_OVERLAY_SPEC = 'image_overlay_spec';
   const LINK = 'link';
   const MESSAGE = 'message';
@@ -63,8 +65,11 @@ class AdCreativeLinkDataFields extends AbstractEnum {
   const PAGE_WELCOME_MESSAGE = 'page_welcome_message';
   const PICTURE = 'picture';
   const POST_CLICK_CONFIGURATION = 'post_click_configuration';
+  const PREFERRED_IMAGE_TAGS = 'preferred_image_tags';
   const RETAILER_ITEM_IDS = 'retailer_item_ids';
   const SHOW_MULTIPLE_IMAGES = 'show_multiple_images';
+  const STATIC_FALLBACK_SPEC = 'static_fallback_spec';
+  const USE_FLEXIBLE_IMAGE_ASPECT_RATIO = 'use_flexible_image_aspect_ratio';
 
   public function getFieldTypes() {
     return array(
@@ -78,12 +83,14 @@ class AdCreativeLinkDataFields extends AbstractEnum {
       'caption' => 'string',
       'child_attachments' => 'list<AdCreativeLinkDataChildAttachment>',
       'collection_thumbnails' => 'list<AdCreativeCollectionThumbnailInfo>',
+      'customization_rules_spec' => 'list<AdCustomizationRuleSpec>',
       'description' => 'string',
       'event_id' => 'string',
       'force_single_link' => 'bool',
       'format_option' => 'FormatOption',
       'image_crops' => 'AdsImageCrops',
       'image_hash' => 'string',
+      'image_layer_specs' => 'list<AdCreativeLinkDataImageLayerSpec>',
       'image_overlay_spec' => 'AdCreativeLinkDataImageOverlaySpec',
       'link' => 'string',
       'message' => 'string',
@@ -94,8 +101,11 @@ class AdCreativeLinkDataFields extends AbstractEnum {
       'page_welcome_message' => 'string',
       'picture' => 'string',
       'post_click_configuration' => 'AdCreativePostClickConfiguration',
+      'preferred_image_tags' => 'list<string>',
       'retailer_item_ids' => 'list<string>',
       'show_multiple_images' => 'bool',
+      'static_fallback_spec' => 'AdCreativeStaticFallbackSpec',
+      'use_flexible_image_aspect_ratio' => 'bool',
     );
   }
 }

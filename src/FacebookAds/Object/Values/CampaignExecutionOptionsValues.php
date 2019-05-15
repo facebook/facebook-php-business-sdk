@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class CampaignExecutionOptionsValues extends AbstractEnum {
 
-  const VALIDATE_ONLY = 'validate_only';
   const INCLUDE_RECOMMENDATIONS = 'include_recommendations';
+  const VALIDATE_ONLY = 'validate_only';
 }

@@ -75,7 +75,11 @@ class ApiRequest {
     if (!ApiConfig::TYPE_CHECKER_STRICT_MODE
       || !$this->param_checker->isValidParam($param)
     ) {
-      $this->params[$param] = $extracted_value;
+      if ($this->param_checker->isFileParam($param)) {
+          $this->file_params[$param] = $extracted_value;
+      } else {
+        $this->params[$param] = $extracted_value;
+      }
     } else {
       if ($this->param_checker->isValidParamPair($param, $value)) {
         if ($this->param_checker->isFileParam($param)) {
@@ -113,7 +117,7 @@ class ApiRequest {
   public function clearParams() {
     $this->params = [];
     $this->file_params = [];
-    return this;
+    return $this;
   }
 
   public function getParams() {
@@ -150,7 +154,7 @@ class ApiRequest {
 
   public function clearFields() {
     $this->fields = [];
-    return this;
+    return $this;
   }
 
   public function getFields() {

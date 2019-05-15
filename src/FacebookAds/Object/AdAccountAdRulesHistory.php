@@ -29,6 +29,8 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdAccountAdRulesHistoryFields;
+use FacebookAds\Object\Values\AdAccountAdRulesHistoryActionValues;
+use FacebookAds\Object\Values\AdAccountAdRulesHistoryEvaluationTypeValues;
 
 /**
  * This class is auto-generated.
@@ -50,6 +52,8 @@ class AdAccountAdRulesHistory extends AbstractObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['Action'] = AdAccountAdRulesHistoryActionValues::getInstance()->getValues();
+    $ref_enums['EvaluationType'] = AdAccountAdRulesHistoryEvaluationTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 

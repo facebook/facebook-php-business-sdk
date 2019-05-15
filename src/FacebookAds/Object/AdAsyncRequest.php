@@ -29,7 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdAsyncRequestFields;
-use FacebookAds\Object\Values\AdAsyncRequestStatusValues;
 use FacebookAds\Object\Values\AdAsyncRequestStatusesValues;
 
 /**
@@ -52,11 +51,33 @@ class AdAsyncRequest extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Status'] = AdAsyncRequestStatusValues::getInstance()->getValues();
     $ref_enums['Statuses'] = AdAsyncRequestStatusesValues::getInstance()->getValues();
     return $ref_enums;
   }
 
+
+  public function deleteSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/',
+      new AbstractCrudObject(),
+      'NODE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
   public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();

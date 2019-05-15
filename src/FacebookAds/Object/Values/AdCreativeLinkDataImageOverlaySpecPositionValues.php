@@ -37,8 +37,8 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdCreativeLinkDataImageOverlaySpecPositionValues extends AbstractEnum {
 
-  const TOP_LEFT = 'top_left';
-  const TOP_RIGHT = 'top_right';
   const BOTTOM_LEFT = 'bottom_left';
   const BOTTOM_RIGHT = 'bottom_right';
+  const TOP_LEFT = 'top_left';
+  const TOP_RIGHT = 'top_right';
 }

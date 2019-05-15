@@ -128,7 +128,7 @@ class Client {
   public function getDefaultRequestHeaderds() {
     if ($this->defaultRequestHeaders === null) {
       $this->defaultRequestHeaders = new Headers(array(
-        'User-Agent' => 'fb-php-ads-'.Api::VERSION,
+        'User-Agent' => 'fbbizsdk-php-v'.Api::VERSION,
         'Accept-Encoding' => '*',
       ));
     }

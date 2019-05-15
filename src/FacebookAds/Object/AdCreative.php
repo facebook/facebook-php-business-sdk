@@ -30,12 +30,16 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdCreativeFields;
 use FacebookAds\Object\Values\AdCreativeApplinkTreatmentValues;
+use FacebookAds\Object\Values\AdCreativeAuthorizationCategoryValues;
 use FacebookAds\Object\Values\AdCreativeCallToActionTypeValues;
+use FacebookAds\Object\Values\AdCreativeCategorizationCriteriaValues;
+use FacebookAds\Object\Values\AdCreativeCategoryMediaSourceValues;
 use FacebookAds\Object\Values\AdCreativeDynamicAdVoiceValues;
 use FacebookAds\Object\Values\AdCreativeObjectTypeValues;
 use FacebookAds\Object\Values\AdCreativeOperatorValues;
 use FacebookAds\Object\Values\AdCreativeStatusValues;
 use FacebookAds\Object\Values\AdPreviewAdFormatValues;
+use FacebookAds\Object\Values\AdPreviewRenderTypeValues;
 use FacebookAds\Object\Traits\AdLabelAwareCrudObjectTrait;
 
 /**
@@ -71,6 +75,9 @@ class AdCreative extends AbstractCrudObject {
     $ref_enums['CallToActionType'] = AdCreativeCallToActionTypeValues::getInstance()->getValues();
     $ref_enums['ObjectType'] = AdCreativeObjectTypeValues::getInstance()->getValues();
     $ref_enums['Status'] = AdCreativeStatusValues::getInstance()->getValues();
+    $ref_enums['AuthorizationCategory'] = AdCreativeAuthorizationCategoryValues::getInstance()->getValues();
+    $ref_enums['CategorizationCriteria'] = AdCreativeCategorizationCriteriaValues::getInstance()->getValues();
+    $ref_enums['CategoryMediaSource'] = AdCreativeCategoryMediaSourceValues::getInstance()->getValues();
     $ref_enums['DynamicAdVoice'] = AdCreativeDynamicAdVoiceValues::getInstance()->getValues();
     $ref_enums['Operator'] = AdCreativeOperatorValues::getInstance()->getValues();
     return $ref_enums;
@@ -120,9 +127,9 @@ class AdCreative extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/adlabels',
-      new AdLabel(),
+      new AdCreative(),
       'EDGE',
-      AdLabel::getFieldsEnum()->getValues(),
+      AdCreative::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -135,18 +142,23 @@ class AdCreative extends AbstractCrudObject {
 
     $param_types = array(
       'ad_format' => 'ad_format_enum',
+      'dynamic_asset_label' => 'string',
       'dynamic_creative_spec' => 'Object',
+      'dynamic_customization' => 'Object',
       'end_date' => 'datetime',
       'height' => 'unsigned int',
+      'interactive' => 'bool',
       'locale' => 'string',
       'place_page_id' => 'int',
       'post' => 'Object',
       'product_item_ids' => 'list<string>',
+      'render_type' => 'render_type_enum',
       'start_date' => 'datetime',
       'width' => 'unsigned int',
     );
     $enums = array(
       'ad_format_enum' => AdPreviewAdFormatValues::getInstance()->getValues(),
+      'render_type_enum' => AdPreviewRenderTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

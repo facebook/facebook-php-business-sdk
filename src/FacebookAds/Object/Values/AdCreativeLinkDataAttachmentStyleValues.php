@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdCreativeLinkDataAttachmentStyleValues extends AbstractEnum {
 
-  const LINK = 'link';
   const VALUE_DEFAULT = 'default';
+  const LINK = 'link';
 }

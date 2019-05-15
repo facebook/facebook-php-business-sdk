@@ -47,11 +47,13 @@ class AdStudyFields extends AbstractEnum {
   const ID = 'id';
   const NAME = 'name';
   const OBSERVATION_END_TIME = 'observation_end_time';
+  const RESULTS_FIRST_AVAILABLE_DATE = 'results_first_available_date';
   const START_TIME = 'start_time';
   const TYPE = 'type';
   const UPDATED_BY = 'updated_by';
   const UPDATED_TIME = 'updated_time';
   const CELLS = 'cells';
+  const CLIENT_BUSINESS = 'client_business';
   const CONFIDENCE_LEVEL = 'confidence_level';
   const OBJECTIVES = 'objectives';
   const VIEWERS = 'viewers';
@@ -68,11 +70,13 @@ class AdStudyFields extends AbstractEnum {
       'id' => 'string',
       'name' => 'string',
       'observation_end_time' => 'datetime',
+      'results_first_available_date' => 'string',
       'start_time' => 'datetime',
       'type' => 'string',
       'updated_by' => 'User',
       'updated_time' => 'datetime',
       'cells' => 'list<Object>',
+      'client_business' => 'string',
       'confidence_level' => 'float',
       'objectives' => 'list<Object>',
       'viewers' => 'list<int>',

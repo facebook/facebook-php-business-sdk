@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdCreativeLinkDataImageOverlaySpecOverlayTemplateValues extends AbstractEnum {
 
-  const PILL_WITH_TEXT = 'pill_with_text';
   const CIRCLE_WITH_TEXT = 'circle_with_text';
+  const PILL_WITH_TEXT = 'pill_with_text';
   const TRIANGLE_WITH_TEXT = 'triangle_with_text';
 }

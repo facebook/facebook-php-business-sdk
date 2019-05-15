@@ -89,13 +89,13 @@ class IntegrationBootstrap extends Bootstrap {
   public function getConfig() {
     if ($this->config === null) {
       $this->config = parent::getConfig();
-      $this->config->appId = $this->confxt('app_id');
-      $this->config->appSecret = $this->confxt('app_secret');
-      $this->config->accessToken = $this->confxt('access_token');
-      $this->config->accountId = $this->confxt('act_id');
-      $this->config->pageId = $this->confxt('page_id');
-      $this->config->appUrl = $this->confxt('app_url');
-      $this->config->businessId = $this->confxt('business_id');
+      $this->config->appId = $this->confx('app_id');
+      $this->config->appSecret = $this->confx('app_secret');
+      $this->config->accessToken = $this->confx('access_token');
+      $this->config->accountId = $this->confx('act_id');
+      $this->config->pageId = $this->confx('page_id');
+      $this->config->appUrl = $this->confx('app_url');
+      $this->config->businessId = $this->confx('business_id');
       $this->config->instagramActorId = $this->confx('instagram_actor_id');
 
       // Optionals: Override unit config
@@ -119,11 +119,6 @@ class IntegrationBootstrap extends Bootstrap {
       $this->config->skipSslVerification
         = $this->confx('skip_ssl_verification', false);
       $this->config->curlLogger = $this->confx('curl_logger');
-
-      if (date_default_timezone_set($this->confxt('act_timezone')) === false) {
-        throw new \InvalidArgumentException(sprintf(
-          'Not a valid timezone: "%s"', $this->confx('act_timezone')));
-      }
 
       SkippableFeaturesManager::setInstance(
         new SkippableFeaturesManager($this->confx('skip_if', array())));

@@ -31,7 +31,7 @@ use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\CustomAudienceFields;
 use FacebookAds\Object\Values\CustomAudienceClaimObjectiveValues;
 use FacebookAds\Object\Values\CustomAudienceContentTypeValues;
-use FacebookAds\Object\Values\CustomAudienceFieldsValues;
+use FacebookAds\Object\Values\CustomAudienceCustomerFileSourceValues;
 use FacebookAds\Object\Values\CustomAudienceSubtypeValues;
 use FacebookAds\Object\Values\CustomAudienceTypes;
 use FacebookAds\Object\CustomAudienceNormalizers\EmailNormalizer;
@@ -66,8 +66,8 @@ class CustomAudience extends AbstractCrudObject {
     $ref_enums = array();
     $ref_enums['ClaimObjective'] = CustomAudienceClaimObjectiveValues::getInstance()->getValues();
     $ref_enums['ContentType'] = CustomAudienceContentTypeValues::getInstance()->getValues();
+    $ref_enums['CustomerFileSource'] = CustomAudienceCustomerFileSourceValues::getInstance()->getValues();
     $ref_enums['Subtype'] = CustomAudienceSubtypeValues::getInstance()->getValues();
-    $ref_enums['Fields'] = CustomAudienceFieldsValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -126,6 +126,7 @@ class CustomAudience extends AbstractCrudObject {
     $param_types = array(
       'adaccounts' => 'list<string>',
       'permissions' => 'string',
+      'relationship_type' => 'list<string>',
       'replace' => 'bool',
     );
     $enums = array(
@@ -136,9 +137,9 @@ class CustomAudience extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/adaccounts',
-      new AdAccount(),
+      new CustomAudience(),
       'EDGE',
-      AdAccount::getFieldsEnum()->getValues(),
+      CustomAudience::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -164,6 +165,81 @@ class CustomAudience extends AbstractCrudObject {
       new Ad(),
       'EDGE',
       Ad::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createCapability(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'accounts_capabilities' => 'string',
+      'relationship_type' => 'list<string>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/capabilities',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createDatum(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'action_type' => 'action_type_enum',
+      'batch_seq' => 'unsigned int',
+      'encoding' => 'encoding_enum',
+      'entries' => 'list<string>',
+      'entry_type' => 'entry_type_enum',
+      'last_batch_flag' => 'bool',
+      'session_id' => 'unsigned int',
+    );
+    $enums = array(
+      'action_type_enum' => array(
+        'add',
+        'match',
+        'optout',
+        'remove',
+      ),
+      'encoding_enum' => array(
+        'md5',
+        'plain',
+        'sha256',
+      ),
+      'entry_type_enum' => array(
+        '0',
+        '1',
+        '2',
+        '3',
+        '4',
+        '5',
+        '6',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/data',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -218,6 +294,81 @@ class CustomAudience extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getSharedAccountInfo(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/shared_account_info',
+      new CustomAudiencesharedAccountInfo(),
+      'EDGE',
+      CustomAudiencesharedAccountInfo::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function deleteUpload(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'namespace' => 'string',
+      'payload' => 'Object',
+      'session' => 'Object',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/upload',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createUpload(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'namespace' => 'string',
+      'payload' => 'Object',
+      'session' => 'Object',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/upload',
+      new CustomAudience(),
+      'EDGE',
+      CustomAudience::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function deleteUsers(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -260,9 +411,9 @@ class CustomAudience extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/users',
-      new User(),
+      new CustomAudience(),
       'EDGE',
-      User::getFieldsEnum()->getValues(),
+      CustomAudience::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -297,6 +448,7 @@ class CustomAudience extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'ad_account_id' => 'string',
     );
     $enums = array(
     );
@@ -320,22 +472,47 @@ class CustomAudience extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'accountID' => 'string',
+      'additionalMetadata' => 'string',
       'allowed_domains' => 'list<string>',
       'claim_objective' => 'claim_objective_enum',
       'content_type' => 'content_type_enum',
+      'countries' => 'string',
+      'customer_file_source' => 'customer_file_source_enum',
       'description' => 'string',
+      'details' => 'string',
+      'enable_fetch_or_create' => 'bool',
       'event_source_group' => 'string',
+      'event_sources' => 'list<map>',
+      'exclusions' => 'list<Object>',
+      'expectedSize' => 'unsigned int',
+      'gender' => 'string',
+      'inclusions' => 'list<Object>',
+      'isPrivate' => 'bool',
+      'is_household' => 'bool',
+      'is_household_exclusion' => 'bool',
       'lookalike_spec' => 'string',
+      'maxAge' => 'unsigned int',
+      'minAge' => 'unsigned int',
       'name' => 'string',
       'opt_out_link' => 'string',
+      'parent_audience_id' => 'unsigned int',
+      'partnerID' => 'string',
+      'partner_reference_key' => 'string',
       'product_set_id' => 'string',
       'retention_days' => 'unsigned int',
+      'rev_share_policy_id' => 'unsigned int',
       'rule' => 'string',
       'rule_aggregation' => 'string',
+      'seed_audience' => 'unsigned int',
+      'source' => 'string',
+      'study_spec' => 'map',
+      'tags' => 'list<string>',
     );
     $enums = array(
       'claim_objective_enum' => CustomAudienceClaimObjectiveValues::getInstance()->getValues(),
       'content_type_enum' => CustomAudienceContentTypeValues::getInstance()->getValues(),
+      'customer_file_source_enum' => CustomAudienceCustomerFileSourceValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

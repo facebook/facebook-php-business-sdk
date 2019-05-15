@@ -38,6 +38,6 @@ use FacebookAds\Enum\AbstractEnum;
 class AdRecommendationConfidenceValues extends AbstractEnum {
 
   const HIGH = 'HIGH';
-  const MEDIUM = 'MEDIUM';
   const LOW = 'LOW';
+  const MEDIUM = 'MEDIUM';
 }

@@ -108,12 +108,12 @@ $someObject->{SomeObjectFields::ID} = 123;
 $someObject->id = 123;
 ```
 
-###The Cursor Class
+### The Cursor Class
 When requesting multiple objects from the Graph, responses may be returned in pages of data which can be traversed using cursors. We encapsulate this information into a `Cursor` class which represents the set of objects in the current page along with information about how to access subsequent pages of objects. This class implements the `\Iterable` and `\Countable` interfaces.  
 
-##Reading Objects
+## Reading Objects
 
-###Reading a single object 
+### Reading a single object
 To read an object from the Graph you will need its `id`. By default, only the `id` field of an object is queried and you should specify when reading an object the fields you need. It is not recommended that you request all fields unless you require them all. 
 
 ```php
@@ -131,7 +131,7 @@ $adaccount = (new AdAccount($id))->read($required_fields);
 See [Defining Default Fields](#default_fields) within the section about Extending the SDK for an example of how to avoid defining the fields you require every request.
 
 
-###Reading multiple objects 
+### Reading multiple objects
 We provide the static method `readIds($ids = array(...), $fields = array(...))` to enable you to request many objects of a single type and will return a `Cursor`:
 
 ```php
@@ -150,7 +150,7 @@ foreach($adaccounts as $account) {
 }
 ```
 
-##Creating Objects
+## Creating Objects
 
 When creating objects on the Graph, they are generally created by making a POST request to an edge of a parent object. For example, ads are created using the endpoint `https://graph.facebook.com/act_123123/ads`. Therefore when creating an object, you must know the `id` of the parent object which is generally the id of an AdAccount. You should consult the [Facebook Developer Documentation](https://developers.facebook.com/docs/ads-api) to see which parent object to use.
  
@@ -172,7 +172,7 @@ $ad->create(array(
 echo $ad->{AdFields::ID};
 ```
 
-##Updating Objects
+## Updating Objects
 
 When you mutate an AdObject, we record which variables have changed and make it easy for you to write these change to the Graph API by calling the `update` method. 
 
@@ -202,7 +202,7 @@ $ad = new Ad($id);
 $ad->delete();
 ```
 
-###Deleting multiple objects
+### Deleting multiple objects
 
 We provide the static method `deleteIds($ids = array(...))` to enable you to delete many objects at the same time. This method returns a boolean value and will only return `true` if all objects were successfully deleted. A return value of `false` means one or more failed to be deleted. Please also note that we do not verify the type of the `id` you have passed into this function.
 

@@ -43,7 +43,7 @@ class BusinessPageRequestFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'id' => 'string',
-      'page' => 'Object',
+      'page' => 'Page',
     );
   }
 }

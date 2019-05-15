@@ -29,7 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdAccountRoasFields;
-use FacebookAds\Object\Values\AdAccountRoasFieldsValues;
 
 /**
  * This class is auto-generated.
@@ -51,7 +50,6 @@ class AdAccountRoas extends AbstractObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Fields'] = AdAccountRoasFieldsValues::getInstance()->getValues();
     return $ref_enums;
   }
 

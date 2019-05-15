@@ -49,7 +49,7 @@ class ProductFeedTest extends AbstractCrudObjectTestCase {
 
   public function tearDown() {
     if ($this->productCatalog) {
-      $this->productCatalog->delete();
+      $this->productCatalog->deleteSelf();
       $this->productCatalog = null;
     }
 

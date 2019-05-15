@@ -37,7 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
 
 class OfflineConversionDataSetFields extends AbstractEnum {
 
-  const ATTRIBUTE_STATS = 'attribute_stats';
   const BUSINESS = 'business';
   const CONFIG = 'config';
   const CREATION_TIME = 'creation_time';
@@ -48,10 +47,12 @@ class OfflineConversionDataSetFields extends AbstractEnum {
   const EVENT_TIME_MAX = 'event_time_max';
   const EVENT_TIME_MIN = 'event_time_min';
   const ID = 'id';
+  const IS_MTA_USE = 'is_mta_use';
   const IS_RESTRICTED_USE = 'is_restricted_use';
   const LAST_UPLOAD_APP = 'last_upload_app';
+  const LAST_UPLOAD_APP_CHANGED_TIME = 'last_upload_app_changed_time';
+  const MATCH_RATE_APPROX = 'match_rate_approx';
   const MATCHED_ENTRIES = 'matched_entries';
-  const MATCHED_UNIQUE_USERS = 'matched_unique_users';
   const NAME = 'name';
   const USAGE = 'usage';
   const VALID_ENTRIES = 'valid_entries';
@@ -59,7 +60,6 @@ class OfflineConversionDataSetFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'attribute_stats' => 'string',
       'business' => 'Business',
       'config' => 'string',
       'creation_time' => 'datetime',
@@ -70,10 +70,12 @@ class OfflineConversionDataSetFields extends AbstractEnum {
       'event_time_max' => 'int',
       'event_time_min' => 'int',
       'id' => 'string',
+      'is_mta_use' => 'bool',
       'is_restricted_use' => 'bool',
       'last_upload_app' => 'string',
+      'last_upload_app_changed_time' => 'int',
+      'match_rate_approx' => 'int',
       'matched_entries' => 'int',
-      'matched_unique_users' => 'int',
       'name' => 'string',
       'usage' => 'Object',
       'valid_entries' => 'int',
