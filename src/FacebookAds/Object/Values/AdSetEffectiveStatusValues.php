@@ -38,14 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class AdSetEffectiveStatusValues extends AbstractEnum {
 
   const ACTIVE = 'ACTIVE';
-  const ADSET_PAUSED = 'ADSET_PAUSED';
   const ARCHIVED = 'ARCHIVED';
-  const CAMPAIGN_PAUSED = 'CAMPAIGN_PAUSED';
   const DELETED = 'DELETED';
-  const DISAPPROVED = 'DISAPPROVED';
   const PAUSED = 'PAUSED';
-  const PENDING_BILLING_INFO = 'PENDING_BILLING_INFO';
-  const PENDING_REVIEW = 'PENDING_REVIEW';
-  const PREAPPROVED = 'PREAPPROVED';
-  const WITH_ISSUES = 'WITH_ISSUES';
 }

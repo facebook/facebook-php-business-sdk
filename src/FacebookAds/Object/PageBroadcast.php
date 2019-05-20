@@ -30,6 +30,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\PageBroadcastFields;
 use FacebookAds\Object\Values\InsightsResultMetricValues;
+use FacebookAds\Object\Values\PageBroadcastOperationValues;
 
 /**
  * This class is auto-generated.
@@ -51,6 +52,7 @@ class PageBroadcast extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['Operation'] = PageBroadcastOperationValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -92,6 +94,31 @@ class PageBroadcast extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
+      '/',
+      new PageBroadcast(),
+      'NODE',
+      PageBroadcast::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'operation' => 'operation_enum',
+    );
+    $enums = array(
+      'operation_enum' => PageBroadcastOperationValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
       '/',
       new PageBroadcast(),
       'NODE',

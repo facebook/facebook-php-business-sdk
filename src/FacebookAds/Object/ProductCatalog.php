@@ -39,6 +39,7 @@ use FacebookAds\Object\Values\ProductEventStatBreakdownsValues;
 use FacebookAds\Object\Values\ProductFeedDelimiterValues;
 use FacebookAds\Object\Values\ProductFeedEncodingValues;
 use FacebookAds\Object\Values\ProductFeedFeedTypeValues;
+use FacebookAds\Object\Values\ProductFeedOverrideTypeValues;
 use FacebookAds\Object\Values\ProductFeedQuotedFieldsModeValues;
 use FacebookAds\Object\Values\ProductItemAvailabilityValues;
 use FacebookAds\Object\Values\ProductItemConditionValues;
@@ -857,6 +858,7 @@ class ProductCatalog extends AbstractCrudObject {
       'feed_type' => 'feed_type_enum',
       'file_name' => 'string',
       'name' => 'string',
+      'override_type' => 'override_type_enum',
       'quoted_fields_mode' => 'quoted_fields_mode_enum',
       'rules' => 'list<string>',
       'schedule' => 'string',
@@ -866,6 +868,7 @@ class ProductCatalog extends AbstractCrudObject {
       'delimiter_enum' => ProductFeedDelimiterValues::getInstance()->getValues(),
       'encoding_enum' => ProductFeedEncodingValues::getInstance()->getValues(),
       'feed_type_enum' => ProductFeedFeedTypeValues::getInstance()->getValues(),
+      'override_type_enum' => ProductFeedOverrideTypeValues::getInstance()->getValues(),
       'quoted_fields_mode_enum' => ProductFeedQuotedFieldsModeValues::getInstance()->getValues(),
     );
 

@@ -38,6 +38,7 @@ use FacebookAds\Object\Values\AdVideoSwapModeValues;
 use FacebookAds\Object\Values\AdVideoTypeValues;
 use FacebookAds\Object\Values\AdVideoUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\AdVideoUploadPhaseValues;
+use FacebookAds\Object\Values\AdVideoVideoPollWwwPlacementValues;
 use FacebookAds\Object\Values\CommentCommentPrivacyValueValues;
 use FacebookAds\Object\Values\CommentFilterValues;
 use FacebookAds\Object\Values\CommentLiveFilterValues;
@@ -84,6 +85,7 @@ class AdVideo extends AbstractCrudObject {
     $ref_enums['UploadPhase'] = AdVideoUploadPhaseValues::getInstance()->getValues();
     $ref_enums['Type'] = AdVideoTypeValues::getInstance()->getValues();
     $ref_enums['BackdatedTimeGranularity'] = AdVideoBackdatedTimeGranularityValues::getInstance()->getValues();
+    $ref_enums['VideoPollWwwPlacement'] = AdVideoVideoPollWwwPlacementValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -292,6 +294,55 @@ class AdVideo extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/likes',
+      new AdVideo(),
+      'EDGE',
+      AdVideo::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getPollSettings(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/poll_settings',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createPollSetting(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'enable_was_live_voting' => 'bool',
+      'video_poll_www_placement' => 'video_poll_www_placement_enum',
+    );
+    $enums = array(
+      'video_poll_www_placement_enum' => AdVideoVideoPollWwwPlacementValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/poll_settings',
       new AdVideo(),
       'EDGE',
       AdVideo::getFieldsEnum()->getValues(),

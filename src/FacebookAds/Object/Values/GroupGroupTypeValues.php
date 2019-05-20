@@ -78,6 +78,7 @@ class GroupGroupTypeValues extends AbstractEnum {
   const WORK_LEARNING = 'WORK_LEARNING';
   const WORK_MENTORSHIP = 'WORK_MENTORSHIP';
   const WORK_MULTI_COMPANY = 'WORK_MULTI_COMPANY';
+  const WORK_RECRUITING = 'WORK_RECRUITING';
   const WORK_SOCIAL = 'WORK_SOCIAL';
   const WORK_TEAM = 'WORK_TEAM';
   const WORK_TEAMWORK = 'WORK_TEAMWORK';

@@ -46,6 +46,7 @@ class LeadGenFormPreviewDetailsFields extends AbstractEnum {
   const PERSONAL_INFO_TEXT = 'personal_info_text';
   const PHONE_NUMBER_INLINE_CONTEXT_TEXT = 'phone_number_inline_context_text';
   const REVIEW_YOUR_INFO_TEXT = 'review_your_info_text';
+  const SECURE_SHARING_TEXT = 'secure_sharing_text';
   const SLIDE_TO_SUBMIT_TEXT = 'slide_to_submit_text';
   const SUBMIT_BUTTON_TEXT = 'submit_button_text';
 
@@ -60,6 +61,7 @@ class LeadGenFormPreviewDetailsFields extends AbstractEnum {
       'personal_info_text' => 'string',
       'phone_number_inline_context_text' => 'string',
       'review_your_info_text' => 'string',
+      'secure_sharing_text' => 'string',
       'slide_to_submit_text' => 'string',
       'submit_button_text' => 'string',
     );
