@@ -91,7 +91,6 @@ use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
 use FacebookAds\Object\Values\UserTasksValues;
 use FacebookAds\Object\Values\VideoCopyrightContentCategoryValues;
 use FacebookAds\Object\Values\VideoCopyrightMonitoringTypeValues;
-use FacebookAds\Object\Values\VideoCopyrightRuleSourceValues;
 
 /**
  * This class is auto-generated.
@@ -139,29 +138,6 @@ class Page extends AbstractCrudObject {
     return $ref_enums;
   }
 
-
-  public function getAdminNotes(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/admin_notes',
-      new PageAdminNote(),
-      'EDGE',
-      PageAdminNote::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
 
   public function createAdminSetting(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
@@ -733,6 +709,7 @@ class Page extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'is_hidden' => 'bool',
       'is_published' => 'bool',
     );
     $enums = array(
@@ -993,6 +970,29 @@ class Page extends AbstractCrudObject {
       new Profile(),
       'EDGE',
       Profile::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getCustomLabels(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/custom_labels',
+      new PageUserMessageThreadLabel(),
+      'EDGE',
+      PageUserMessageThreadLabel::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1713,45 +1713,6 @@ class Page extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
-      '/locations',
-      new Page(),
-      'EDGE',
-      Page::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createLocation(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'always_open' => 'bool',
-      'hours' => 'map',
-      'ignore_warnings' => 'bool',
-      'location' => 'Object',
-      'location_page_id' => 'string',
-      'old_store_number' => 'unsigned int',
-      'page_username' => 'string',
-      'permanently_closed' => 'bool',
-      'phone' => 'string',
-      'place_topics' => 'list<string>',
-      'price_range' => 'string',
-      'store_code' => 'string',
-      'store_location_descriptor' => 'string',
-      'store_name' => 'string',
-      'store_number' => 'unsigned int',
-      'website' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
       '/locations',
       new Page(),
       'EDGE',
@@ -2544,29 +2505,6 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getRatings(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/ratings',
-      new Recommendation(),
-      'EDGE',
-      Recommendation::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function createRequestThreadControl(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -2926,29 +2864,6 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getThreadSettings(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/thread_settings',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function createThreadSetting(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -3053,32 +2968,6 @@ class Page extends AbstractCrudObject {
       new Page(),
       'EDGE',
       Page::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getVideoCopyrightRules(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'selected_rule_id' => 'string',
-      'source' => 'source_enum',
-    );
-    $enums = array(
-      'source_enum' => VideoCopyrightRuleSourceValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/video_copyright_rules',
-      new VideoCopyrightRule(),
-      'EDGE',
-      VideoCopyrightRule::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

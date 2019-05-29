@@ -35,27 +35,31 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class RecommendationFields extends AbstractEnum {
+class WhatsAppBusinessAccountFields extends AbstractEnum {
 
-  const CREATED_TIME = 'created_time';
-  const HAS_RATING = 'has_rating';
-  const HAS_REVIEW = 'has_review';
-  const OPEN_GRAPH_STORY = 'open_graph_story';
-  const RATING = 'rating';
-  const RECOMMENDATION_TYPE = 'recommendation_type';
-  const REVIEW_TEXT = 'review_text';
-  const REVIEWER = 'reviewer';
+  const ANALYTICS = 'analytics';
+  const CURRENCY = 'currency';
+  const ELIGIBLE_FOR_SENDING_NOTIFICATIONS = 'eligible_for_sending_notifications';
+  const ID = 'id';
+  const INELIGIBLE_FOR_SENDING_NOTIFICATIONS_REASON = 'ineligible_for_sending_notifications_reason';
+  const MESSAGE_TEMPLATE_NAMESPACE = 'message_template_namespace';
+  const NAME = 'name';
+  const ON_BEHALF_OF_BUSINESS_INFO = 'on_behalf_of_business_info';
+  const STATUS = 'status';
+  const TIMEZONE_ID = 'timezone_id';
 
   public function getFieldTypes() {
     return array(
-      'created_time' => 'datetime',
-      'has_rating' => 'bool',
-      'has_review' => 'bool',
-      'open_graph_story' => 'Object',
-      'rating' => 'int',
-      'recommendation_type' => 'string',
-      'review_text' => 'string',
-      'reviewer' => 'User',
+      'analytics' => 'Object',
+      'currency' => 'string',
+      'eligible_for_sending_notifications' => 'bool',
+      'id' => 'string',
+      'ineligible_for_sending_notifications_reason' => 'string',
+      'message_template_namespace' => 'string',
+      'name' => 'string',
+      'on_behalf_of_business_info' => 'Object',
+      'status' => 'string',
+      'timezone_id' => 'string',
     );
   }
 }

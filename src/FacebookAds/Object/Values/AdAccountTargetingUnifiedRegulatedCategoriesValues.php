@@ -22,13 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Values;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\RecommendationFields;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-generated.
@@ -37,21 +33,12 @@ use FacebookAds\Object\Fields\RecommendationFields;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static AdAccountTargetingUnifiedRegulatedCategoriesValues getInstance()
  */
+class AdAccountTargetingUnifiedRegulatedCategoriesValues extends AbstractEnum {
 
-class Recommendation extends AbstractObject {
-
-  /**
-   * @return RecommendationFields
-   */
-  public static function getFieldsEnum() {
-    return RecommendationFields::getInstance();
-  }
-
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
+  const EMPLOYMENT = 'EMPLOYMENT';
+  const FINANCING = 'FINANCING';
+  const HOUSING = 'HOUSING';
+  const NONE = 'NONE';
 }

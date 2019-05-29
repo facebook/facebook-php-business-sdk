@@ -29,7 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\VideoCopyrightRuleFields;
-use FacebookAds\Object\Values\VideoCopyrightRuleSourceValues;
 
 /**
  * This class is auto-generated.
@@ -51,7 +50,6 @@ class VideoCopyrightRule extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Source'] = VideoCopyrightRuleSourceValues::getInstance()->getValues();
     return $ref_enums;
   }
 

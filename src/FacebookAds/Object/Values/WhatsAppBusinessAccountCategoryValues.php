@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,25 +33,18 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static WhatsAppBusinessAccountCategoryValues getInstance()
  */
+class WhatsAppBusinessAccountCategoryValues extends AbstractEnum {
 
-class MeasurementReportFields extends AbstractEnum {
-
-  const DOWNLOAD_URLS = 'download_urls';
-  const ID = 'id';
-  const METADATA = 'metadata';
-  const REPORT_TYPE = 'report_type';
-  const STATUS = 'status';
-  const UPLOAD_URLS = 'upload_urls';
-
-  public function getFieldTypes() {
-    return array(
-      'download_urls' => 'list<string>',
-      'id' => 'string',
-      'metadata' => 'map',
-      'report_type' => 'string',
-      'status' => 'string',
-      'upload_urls' => 'list<string>',
-    );
-  }
+  const ACCOUNT_UPDATE = 'ACCOUNT_UPDATE';
+  const ALERT_UPDATE = 'ALERT_UPDATE';
+  const APPOINTMENT_UPDATE = 'APPOINTMENT_UPDATE';
+  const ISSUE_RESOLUTION = 'ISSUE_RESOLUTION';
+  const PAYMENT_UPDATE = 'PAYMENT_UPDATE';
+  const PERSONAL_FINANCE_UPDATE = 'PERSONAL_FINANCE_UPDATE';
+  const RESERVATION_UPDATE = 'RESERVATION_UPDATE';
+  const SHIPPING_UPDATE = 'SHIPPING_UPDATE';
+  const TICKET_UPDATE = 'TICKET_UPDATE';
+  const TRANSPORTATION_UPDATE = 'TRANSPORTATION_UPDATE';
 }

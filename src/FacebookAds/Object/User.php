@@ -561,32 +561,6 @@ class User extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getConversations(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'folder' => 'string',
-      'tags' => 'list<string>',
-      'user_id' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/conversations',
-      new UnifiedThread(),
-      'EDGE',
-      UnifiedThread::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getEvents(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -629,29 +603,6 @@ class User extends AbstractCrudObject {
       new User(),
       'EDGE',
       User::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getFavoriteRequests(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/favorite_requests',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2169,7 +2120,6 @@ class User extends AbstractCrudObject {
     $param_types = array(
       'emoji_color_pref' => 'unsigned int',
       'firstname' => 'string',
-      'label_cohort' => 'Object',
       'lastname' => 'string',
       'local_news_megaphone_dismiss_status' => 'local_news_megaphone_dismiss_status_enum',
       'local_news_subscription_status' => 'local_news_subscription_status_enum',

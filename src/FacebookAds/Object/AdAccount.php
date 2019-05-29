@@ -41,6 +41,7 @@ use FacebookAds\Object\Values\AdAccountSubtypeValues;
 use FacebookAds\Object\Values\AdAccountTargetingUnifiedLimitTypeValues;
 use FacebookAds\Object\Values\AdAccountTargetingUnifiedModeValues;
 use FacebookAds\Object\Values\AdAccountTargetingUnifiedObjectiveValues;
+use FacebookAds\Object\Values\AdAccountTargetingUnifiedRegulatedCategoriesValues;
 use FacebookAds\Object\Values\AdAccountTargetingUnifiedWhitelistedTypesValues;
 use FacebookAds\Object\Values\AdAccountTasksValues;
 use FacebookAds\Object\Values\AdActivityCategoryValues;
@@ -225,6 +226,82 @@ class AdAccount extends AbstractCrudObject {
       new AdPlacePageSet(),
       'EDGE',
       AdPlacePageSet::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createAdSet(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'ad_keywords' => 'Object',
+      'adlabels' => 'list<Object>',
+      'adset_schedule' => 'list<Object>',
+      'attribution_spec' => 'list<map>',
+      'bid_adjustments' => 'Object',
+      'bid_amount' => 'int',
+      'bid_constraints' => 'map<string, Object>',
+      'bid_strategy' => 'bid_strategy_enum',
+      'billing_event' => 'billing_event_enum',
+      'campaign_id' => 'string',
+      'campaign_spec' => 'Object',
+      'creative_sequence' => 'list<string>',
+      'daily_budget' => 'unsigned int',
+      'daily_imps' => 'unsigned int',
+      'daily_min_spend_target' => 'unsigned int',
+      'daily_spend_cap' => 'unsigned int',
+      'date_format' => 'string',
+      'destination_type' => 'destination_type_enum',
+      'end_time' => 'datetime',
+      'execution_options' => 'list<execution_options_enum>',
+      'frequency_control_specs' => 'list<Object>',
+      'full_funnel_exploration_mode' => 'full_funnel_exploration_mode_enum',
+      'is_dynamic_creative' => 'bool',
+      'lifetime_budget' => 'unsigned int',
+      'lifetime_imps' => 'unsigned int',
+      'lifetime_min_spend_target' => 'unsigned int',
+      'lifetime_spend_cap' => 'unsigned int',
+      'line_number' => 'unsigned int',
+      'name' => 'string',
+      'optimization_goal' => 'optimization_goal_enum',
+      'optimization_sub_event' => 'optimization_sub_event_enum',
+      'pacing_type' => 'list<string>',
+      'promoted_object' => 'Object',
+      'rb_prediction_id' => 'string',
+      'rf_prediction_id' => 'string',
+      'source_adset_id' => 'string',
+      'start_time' => 'datetime',
+      'status' => 'status_enum',
+      'targeting' => 'Targeting',
+      'time_based_ad_rotation_id_blocks' => 'list<list<unsigned int>>',
+      'time_based_ad_rotation_intervals' => 'list<unsigned int>',
+      'time_start' => 'datetime',
+      'time_stop' => 'datetime',
+      'topline_id' => 'string',
+      'upstream_events' => 'map',
+    );
+    $enums = array(
+      'bid_strategy_enum' => AdSetBidStrategyValues::getInstance()->getValues(),
+      'billing_event_enum' => AdSetBillingEventValues::getInstance()->getValues(),
+      'destination_type_enum' => AdSetDestinationTypeValues::getInstance()->getValues(),
+      'execution_options_enum' => AdSetExecutionOptionsValues::getInstance()->getValues(),
+      'full_funnel_exploration_mode_enum' => AdSetFullFunnelExplorationModeValues::getInstance()->getValues(),
+      'optimization_goal_enum' => AdSetOptimizationGoalValues::getInstance()->getValues(),
+      'optimization_sub_event_enum' => AdSetOptimizationSubEventValues::getInstance()->getValues(),
+      'status_enum' => AdSetStatusValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/ad_sets',
+      new AdSet(),
+      'EDGE',
+      AdSet::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -598,29 +675,6 @@ class AdAccount extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getAdReportRuns(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/adreportruns',
-      new AdReportRun(),
-      'EDGE',
-      AdReportRun::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getAdReportSchedules(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -946,6 +1000,7 @@ class AdAccount extends AbstractCrudObject {
       'include_drafts' => 'bool',
       'time_range' => 'Object',
       'updated_since' => 'int',
+      'use_employee_draft' => 'bool',
     );
     $enums = array(
       'date_preset_enum' => AdDatePresetValues::getInstance()->getValues(),
@@ -1078,6 +1133,7 @@ class AdAccount extends AbstractCrudObject {
       'include_drafts' => 'bool',
       'is_completed' => 'bool',
       'time_range' => 'Object',
+      'use_employee_draft' => 'bool',
     );
     $enums = array(
       'date_preset_enum' => AdSetDatePresetValues::getInstance()->getValues(),
@@ -1088,82 +1144,6 @@ class AdAccount extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
-      '/adsets',
-      new AdSet(),
-      'EDGE',
-      AdSet::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createAdSet(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'ad_keywords' => 'Object',
-      'adlabels' => 'list<Object>',
-      'adset_schedule' => 'list<Object>',
-      'attribution_spec' => 'list<map>',
-      'bid_adjustments' => 'Object',
-      'bid_amount' => 'int',
-      'bid_constraints' => 'map<string, Object>',
-      'bid_strategy' => 'bid_strategy_enum',
-      'billing_event' => 'billing_event_enum',
-      'campaign_id' => 'string',
-      'campaign_spec' => 'Object',
-      'creative_sequence' => 'list<string>',
-      'daily_budget' => 'unsigned int',
-      'daily_imps' => 'unsigned int',
-      'daily_min_spend_target' => 'unsigned int',
-      'daily_spend_cap' => 'unsigned int',
-      'date_format' => 'string',
-      'destination_type' => 'destination_type_enum',
-      'end_time' => 'datetime',
-      'execution_options' => 'list<execution_options_enum>',
-      'frequency_control_specs' => 'list<Object>',
-      'full_funnel_exploration_mode' => 'full_funnel_exploration_mode_enum',
-      'is_dynamic_creative' => 'bool',
-      'lifetime_budget' => 'unsigned int',
-      'lifetime_imps' => 'unsigned int',
-      'lifetime_min_spend_target' => 'unsigned int',
-      'lifetime_spend_cap' => 'unsigned int',
-      'line_number' => 'unsigned int',
-      'name' => 'string',
-      'optimization_goal' => 'optimization_goal_enum',
-      'optimization_sub_event' => 'optimization_sub_event_enum',
-      'pacing_type' => 'list<string>',
-      'promoted_object' => 'Object',
-      'rb_prediction_id' => 'string',
-      'rf_prediction_id' => 'string',
-      'source_adset_id' => 'string',
-      'start_time' => 'datetime',
-      'status' => 'status_enum',
-      'targeting' => 'Targeting',
-      'time_based_ad_rotation_id_blocks' => 'list<list<unsigned int>>',
-      'time_based_ad_rotation_intervals' => 'list<unsigned int>',
-      'time_start' => 'datetime',
-      'time_stop' => 'datetime',
-      'topline_id' => 'string',
-      'upstream_events' => 'map',
-    );
-    $enums = array(
-      'bid_strategy_enum' => AdSetBidStrategyValues::getInstance()->getValues(),
-      'billing_event_enum' => AdSetBillingEventValues::getInstance()->getValues(),
-      'destination_type_enum' => AdSetDestinationTypeValues::getInstance()->getValues(),
-      'execution_options_enum' => AdSetExecutionOptionsValues::getInstance()->getValues(),
-      'full_funnel_exploration_mode_enum' => AdSetFullFunnelExplorationModeValues::getInstance()->getValues(),
-      'optimization_goal_enum' => AdSetOptimizationGoalValues::getInstance()->getValues(),
-      'optimization_sub_event_enum' => AdSetOptimizationSubEventValues::getInstance()->getValues(),
-      'status_enum' => AdSetStatusValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
       '/adsets',
       new AdSet(),
       'EDGE',
@@ -3023,10 +3003,12 @@ class AdAccount extends AbstractCrudObject {
       'include_nodes' => 'bool',
       'is_exclusion' => 'bool',
       'limit_type' => 'limit_type_enum',
+      'regulated_categories' => 'list<regulated_categories_enum>',
       'whitelisted_types' => 'list<whitelisted_types_enum>',
     );
     $enums = array(
       'limit_type_enum' => AdAccountTargetingUnifiedLimitTypeValues::getInstance()->getValues(),
+      'regulated_categories_enum' => AdAccountTargetingUnifiedRegulatedCategoriesValues::getInstance()->getValues(),
       'whitelisted_types_enum' => AdAccountTargetingUnifiedWhitelistedTypesValues::getInstance()->getValues(),
     );
 
@@ -3054,12 +3036,14 @@ class AdAccount extends AbstractCrudObject {
       'is_exclusion' => 'bool',
       'limit_type' => 'limit_type_enum',
       'q' => 'string',
+      'regulated_categories' => 'list<regulated_categories_enum>',
       'session_id' => 'unsigned int',
       'targeting_list' => 'list<Object>',
       'whitelisted_types' => 'list<whitelisted_types_enum>',
     );
     $enums = array(
       'limit_type_enum' => AdAccountTargetingUnifiedLimitTypeValues::getInstance()->getValues(),
+      'regulated_categories_enum' => AdAccountTargetingUnifiedRegulatedCategoriesValues::getInstance()->getValues(),
       'whitelisted_types_enum' => AdAccountTargetingUnifiedWhitelistedTypesValues::getInstance()->getValues(),
     );
 
@@ -3114,6 +3098,7 @@ class AdAccount extends AbstractCrudObject {
       'mode' => 'mode_enum',
       'objective' => 'objective_enum',
       'objects' => 'Object',
+      'regulated_categories' => 'list<regulated_categories_enum>',
       'session_id' => 'unsigned int',
       'targeting_list' => 'list<Object>',
       'whitelisted_types' => 'list<whitelisted_types_enum>',
@@ -3122,6 +3107,7 @@ class AdAccount extends AbstractCrudObject {
       'limit_type_enum' => AdAccountTargetingUnifiedLimitTypeValues::getInstance()->getValues(),
       'mode_enum' => AdAccountTargetingUnifiedModeValues::getInstance()->getValues(),
       'objective_enum' => AdAccountTargetingUnifiedObjectiveValues::getInstance()->getValues(),
+      'regulated_categories_enum' => AdAccountTargetingUnifiedRegulatedCategoriesValues::getInstance()->getValues(),
       'whitelisted_types_enum' => AdAccountTargetingUnifiedWhitelistedTypesValues::getInstance()->getValues(),
     );
 

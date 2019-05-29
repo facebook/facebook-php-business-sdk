@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,14 +33,29 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static MeasurementReportReportTypeValues getInstance()
  */
-class MeasurementReportReportTypeValues extends AbstractEnum {
 
-  const FRUIT_ROLLUP_REPORT = 'fruit_rollup_report';
-  const MMM_REPORT = 'mmm_report';
-  const MULTI_CHANNEL_REPORT = 'multi_channel_report';
-  const PARTNER_LIFT_STUDY_REPORT = 'partner_lift_study_report';
-  const THIRD_PARTY_MTA_REPORT = 'third_party_mta_report';
-  const VIDEO_METRICS_REPORT = 'video_metrics_report';
+class InvoiceCampaignFields extends AbstractEnum {
+
+  const AD_ACCOUNT_ID = 'ad_account_id';
+  const BILLED_AMOUNT_DETAILS = 'billed_amount_details';
+  const CAMPAIGN_ID = 'campaign_id';
+  const CAMPAIGN_NAME = 'campaign_name';
+  const CLICKS = 'clicks';
+  const CONVERSIONS = 'conversions';
+  const IMPRESSIONS = 'impressions';
+  const TAGS = 'tags';
+
+  public function getFieldTypes() {
+    return array(
+      'ad_account_id' => 'string',
+      'billed_amount_details' => 'BilledAmountDetails',
+      'campaign_id' => 'string',
+      'campaign_name' => 'string',
+      'clicks' => 'unsigned int',
+      'conversions' => 'unsigned int',
+      'impressions' => 'unsigned int',
+      'tags' => 'list<string>',
+    );
+  }
 }

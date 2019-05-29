@@ -60,8 +60,8 @@ class AdStudy extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['AudienceType'] = AdStudyAudienceTypeValues::getInstance()->getValues();
     $ref_enums['Type'] = AdStudyTypeValues::getInstance()->getValues();
+    $ref_enums['AudienceType'] = AdStudyAudienceTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -280,9 +280,11 @@ class AdStudy extends AbstractCrudObject {
       'objectives' => 'list<Object>',
       'observation_end_time' => 'int',
       'start_time' => 'int',
+      'type' => 'type_enum',
       'viewers' => 'list<int>',
     );
     $enums = array(
+      'type_enum' => AdStudyTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
