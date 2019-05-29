@@ -131,8 +131,7 @@ Facebook Ads entities are defined as classes under the `FacebookAds/Object` dire
 ```php
 use FacebookAds\Object\AdAccount;
 
-$account = new AdAccount($account_id);
-$account->read();
+$account = (new AdAccount($account_id))->getSelf();
 ```
 
 For some objects, the Ads API doesn't return all available fields by default. The first argument of the object's read method is an array of field names to be requested.
@@ -144,11 +143,9 @@ use FacebookAds\Object\Fields\AdAccountFields;
 $fields = array(
   AdAccountFields::ID,
   AdAccountFields::NAME,
-  AdAccountFields::DAILY_SPEND_LIMIT,
 );
 
-$account = new AdAccount($account_id);
-$account->read($fields);
+$account = (new AdAccount($account_id))->getSelf($fields);
 ```
 Requesting an high number of fields may cause the response time to visibly increase, you should always request only the fields you really need.
 
@@ -189,8 +186,12 @@ use FacebookAds\Object\Fields\AdSetFields;
 $ad_set_id = '123456';
 
 $set = new AdSet($ad_set_id);
-$set->{AdSetFields::NAME} = 'My new AdSet name';
-$set->update();
+$fields = array(
+);
+$params = array(
+  AdSetFields::NAME => 'My new AdSet name',
+);
+$set->updateSelf($fields, $params);
 ```
 
 #### Delete Objects
@@ -201,7 +202,7 @@ use FacebookAds\Object\AdSet;
 $ad_set_id = '123456';
 
 $set = new AdSet($ad_set_id);
-$set->delete();
+$set->deleteSelf();
 ```
 
 ### Cursors
