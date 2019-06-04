@@ -102,8 +102,8 @@ class CustomAudienceMultiKey extends AbstractCrudObject {
     array $types,
     $is_hashed = false,
     $is_normalized = false) {
-    $warning_message = 'CustomAudienceMultiKey is being deprecated, please use'
-      .'`new CustomAudience(...)->addUsers(..)` instead';
+    $warning_message = 'CustomAudienceMultiKey is being deprecated, please use'.
+      '`new CustomAudience(...)->addUsers(..)` instead';
     trigger_error($warning_message, E_USER_DEPRECATED);
 
     $params = $this->formatParams($users, $types, $is_hashed, $is_normalized);
@@ -129,7 +129,7 @@ class CustomAudienceMultiKey extends AbstractCrudObject {
     $is_hashed = false,
     $is_normalized = false) {
     $warning_message = 'CustomAudienceMultiKey is being deprecated, please use'.
-      .'`new CustomAudience(...)->removeUsers(..)` instead';
+      '`new CustomAudience(...)->removeUsers(..)` instead';
     trigger_error($warning_message, E_USER_DEPRECATED);
     $params = $this->formatParams($users, $types, $is_hashed, $is_normalized);
     return $this->getApi()->call(
