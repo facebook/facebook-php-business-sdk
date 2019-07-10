@@ -22,13 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Values;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\ReachEstimateFields;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-generated.
@@ -37,28 +33,9 @@ use FacebookAds\Object\Fields\ReachEstimateFields;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static LiveEncoderCapVideoCodecsValues getInstance()
  */
+class LiveEncoderCapVideoCodecsValues extends AbstractEnum {
 
-class ReachEstimate extends AbstractObject {
-
-  /**
-   * @deprecated getEndpoint function is deprecated
-   */
-  protected function getEndpoint() {
-    return 'reachestimate';
-  }
-
-  /**
-   * @return ReachEstimateFields
-   */
-  public static function getFieldsEnum() {
-    return ReachEstimateFields::getInstance();
-  }
-
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
+  const H264 = 'H264';
 }

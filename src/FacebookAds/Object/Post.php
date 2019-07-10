@@ -38,6 +38,7 @@ use FacebookAds\Object\Values\InsightsResultPeriodValues;
 use FacebookAds\Object\Values\PostBackdatedTimeGranularityValues;
 use FacebookAds\Object\Values\PostFeedStoryVisibilityValues;
 use FacebookAds\Object\Values\PostTimelineVisibilityValues;
+use FacebookAds\Object\Values\PostWithValues;
 use FacebookAds\Object\Values\ProfileTypeValues;
 
 /**
@@ -63,6 +64,7 @@ class Post extends AbstractCrudObject {
     $ref_enums['BackdatedTimeGranularity'] = PostBackdatedTimeGranularityValues::getInstance()->getValues();
     $ref_enums['FeedStoryVisibility'] = PostFeedStoryVisibilityValues::getInstance()->getValues();
     $ref_enums['TimelineVisibility'] = PostTimelineVisibilityValues::getInstance()->getValues();
+    $ref_enums['With'] = PostWithValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -312,6 +314,7 @@ class Post extends AbstractCrudObject {
         'EVENT_ENGAGEMENT',
         'FANS',
         'GROUPER',
+        'HEC_AUDIENCE',
         'IG_PROMOTED_POST_AUTO',
         'LOCAL',
         'LOOKALIKE',

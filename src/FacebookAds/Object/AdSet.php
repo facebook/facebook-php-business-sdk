@@ -180,58 +180,6 @@ class AdSet extends AbstractArchivableCrudObject
     return $pending ? $request : $request->execute();
   }
 
-  public function deleteAdLabels(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'adlabels' => 'list<Object>',
-      'execution_options' => 'list<execution_options_enum>',
-    );
-    $enums = array(
-      'execution_options_enum' => AdSetExecutionOptionsValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_DELETE,
-      '/adlabels',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createAdLabel(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'adlabels' => 'list<Object>',
-      'execution_options' => 'list<execution_options_enum>',
-    );
-    $enums = array(
-      'execution_options_enum' => AdSetExecutionOptionsValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/adlabels',
-      new AdSet(),
-      'EDGE',
-      AdSet::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getAdRulesGoverned(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -280,6 +228,35 @@ class AdSet extends AbstractArchivableCrudObject
       new Ad(),
       'EDGE',
       Ad::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getCopies(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'date_preset' => 'date_preset_enum',
+      'effective_status' => 'list<effective_status_enum>',
+      'is_completed' => 'bool',
+      'time_range' => 'Object',
+    );
+    $enums = array(
+      'date_preset_enum' => AdSetDatePresetValues::getInstance()->getValues(),
+      'effective_status_enum' => AdSetEffectiveStatusValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/copies',
+      new AdSet(),
+      'EDGE',
+      AdSet::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -445,6 +422,58 @@ class AdSet extends AbstractArchivableCrudObject
     return $pending ? $request : $request->execute();
   }
 
+  public function deleteLabels(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'adlabels' => 'list<Object>',
+      'execution_options' => 'list<execution_options_enum>',
+    );
+    $enums = array(
+      'execution_options_enum' => AdSetExecutionOptionsValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/labels',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createLabel(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'adlabels' => 'list<Object>',
+      'execution_options' => 'list<execution_options_enum>',
+    );
+    $enums = array(
+      'execution_options_enum' => AdSetExecutionOptionsValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/labels',
+      new AdSet(),
+      'EDGE',
+      AdSet::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getTargetingSentenceLines(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -544,7 +573,6 @@ class AdSet extends AbstractArchivableCrudObject
 
     $param_types = array(
       'account_id' => 'string',
-      'ad_keywords' => 'Object',
       'adlabels' => 'list<Object>',
       'adset_schedule' => 'list<Object>',
       'attribution_spec' => 'list<map>',

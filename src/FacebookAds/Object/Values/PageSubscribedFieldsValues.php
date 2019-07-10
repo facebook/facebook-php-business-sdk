@@ -45,6 +45,7 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const BRANDED_CAMERA = 'branded_camera';
   const CATEGORY = 'category';
   const CHECKINS = 'checkins';
+  const COMMERCE_ORDER = 'commerce_order';
   const COMPANY_OVERVIEW = 'company_overview';
   const CONVERSATIONS = 'conversations';
   const CULINARY_TEAM = 'culinary_team';

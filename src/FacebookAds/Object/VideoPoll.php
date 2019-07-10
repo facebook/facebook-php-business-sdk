@@ -30,6 +30,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\VideoPollFields;
 use FacebookAds\Object\Values\VideoPollActionValues;
+use FacebookAds\Object\Values\VideoPollStatusValues;
 
 /**
  * This class is auto-generated.
@@ -51,6 +52,7 @@ class VideoPoll extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['Status'] = VideoPollStatusValues::getInstance()->getValues();
     $ref_enums['Action'] = VideoPollActionValues::getInstance()->getValues();
     return $ref_enums;
   }

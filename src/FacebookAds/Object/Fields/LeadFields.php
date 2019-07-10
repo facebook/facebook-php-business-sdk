@@ -47,12 +47,14 @@ class LeadFields extends AbstractEnum {
   const CUSTOM_DISCLAIMER_RESPONSES = 'custom_disclaimer_responses';
   const FIELD_DATA = 'field_data';
   const FORM_ID = 'form_id';
+  const HOME_LISTING = 'home_listing';
   const ID = 'id';
   const IS_ORGANIC = 'is_organic';
   const PARTNER_NAME = 'partner_name';
   const PLATFORM = 'platform';
   const POST = 'post';
   const RETAILER_ITEM_ID = 'retailer_item_id';
+  const VEHICLE = 'vehicle';
 
   public function getFieldTypes() {
     return array(
@@ -66,12 +68,14 @@ class LeadFields extends AbstractEnum {
       'custom_disclaimer_responses' => 'list<UserLeadGenDisclaimerResponse>',
       'field_data' => 'list<UserLeadGenFieldData>',
       'form_id' => 'string',
+      'home_listing' => 'HomeListing',
       'id' => 'string',
       'is_organic' => 'bool',
       'partner_name' => 'string',
       'platform' => 'string',
       'post' => 'Link',
       'retailer_item_id' => 'string',
+      'vehicle' => 'Vehicle',
     );
   }
 }

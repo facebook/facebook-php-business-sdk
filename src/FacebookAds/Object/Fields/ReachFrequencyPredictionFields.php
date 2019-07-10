@@ -120,7 +120,6 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const TIMEZONE_NAME = 'timezone_name';
   const TOPLINE_ID = 'topline_id';
   const TV_VIEWER_CLUSTER_MAP = 'tv_viewer_cluster_map';
-  const VIDEO_VIEW_BENCHMARK_MAP = 'video_view_benchmark_map';
   const VIDEO_VIEW_LENGTH_CONSTRAINT = 'video_view_length_constraint';
   const VIEWTAG = 'viewtag';
   const ACTION = 'action';
@@ -225,7 +224,6 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'timezone_name' => 'string',
       'topline_id' => 'unsigned int',
       'tv_viewer_cluster_map' => 'map<unsigned int, Object>',
-      'video_view_benchmark_map' => 'map<string, ReachFrequencyEstimatesCurve>',
       'video_view_length_constraint' => 'unsigned int',
       'viewtag' => 'string',
       'action' => 'Action',

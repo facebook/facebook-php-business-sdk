@@ -169,7 +169,6 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'business' => 'string',
       'user' => 'int',
     );
     $enums = array(
@@ -218,7 +217,6 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'business' => 'string',
       'tasks' => 'list<tasks_enum>',
       'user' => 'int',
     );
@@ -412,6 +410,29 @@ class ProductCatalog extends AbstractCrudObject {
       new CheckBatchRequestStatus(),
       'EDGE',
       CheckBatchRequestStatus::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getCollaborativeAdsShareSettings(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/collaborative_ads_share_settings',
+      new CollaborativeAdsShareSettings(),
+      'EDGE',
+      CollaborativeAdsShareSettings::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

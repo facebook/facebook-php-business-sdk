@@ -41,6 +41,7 @@ class UserFields extends AbstractEnum {
   const ADDRESS = 'address';
   const ADMIN_NOTES = 'admin_notes';
   const AGE_RANGE = 'age_range';
+  const AUTH_METHOD = 'auth_method';
   const BIRTHDAY = 'birthday';
   const CAN_REVIEW_MEASUREMENT_REQUEST = 'can_review_measurement_request';
   const COVER = 'cover';
@@ -48,7 +49,6 @@ class UserFields extends AbstractEnum {
   const DEVICES = 'devices';
   const EDUCATION = 'education';
   const EMAIL = 'email';
-  const EMPLOYEE_NUMBER = 'employee_number';
   const FAVORITE_ATHLETES = 'favorite_athletes';
   const FAVORITE_TEAMS = 'favorite_teams';
   const FIRST_NAME = 'first_name';
@@ -103,6 +103,7 @@ class UserFields extends AbstractEnum {
       'address' => 'Location',
       'admin_notes' => 'list<PageAdminNote>',
       'age_range' => 'AgeRange',
+      'auth_method' => 'string',
       'birthday' => 'string',
       'can_review_measurement_request' => 'bool',
       'cover' => 'UserCoverPhoto',
@@ -110,7 +111,6 @@ class UserFields extends AbstractEnum {
       'devices' => 'list<UserDevice>',
       'education' => 'list<Object>',
       'email' => 'string',
-      'employee_number' => 'string',
       'favorite_athletes' => 'list<Experience>',
       'favorite_teams' => 'list<Experience>',
       'first_name' => 'string',

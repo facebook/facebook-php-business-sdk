@@ -35,25 +35,47 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class VideoPollFields extends AbstractEnum {
+class PartnerStudyFields extends AbstractEnum {
 
-  const CLOSE_AFTER_VOTING = 'close_after_voting';
-  const DEFAULT_OPEN = 'default_open';
+  const ADDITIONAL_INFO = 'additional_info';
+  const BRAND = 'brand';
+  const CLIENT_NAME = 'client_name';
+  const EMAILS = 'emails';
   const ID = 'id';
-  const QUESTION = 'question';
-  const SHOW_GRADIENT = 'show_gradient';
-  const SHOW_RESULTS = 'show_results';
+  const INPUT_IDS = 'input_ids';
+  const IS_EXPORT = 'is_export';
+  const LIFT_STUDY = 'lift_study';
+  const LOCATION = 'location';
+  const MATCH_FILE_DS = 'match_file_ds';
+  const NAME = 'name';
+  const PARTNER_DEFINED_ID = 'partner_defined_id';
+  const PARTNER_HOUSEHOLD_GRAPH_DATASET_ID = 'partner_household_graph_dataset_id';
   const STATUS = 'status';
+  const STUDY_END_DATE = 'study_end_date';
+  const STUDY_START_DATE = 'study_start_date';
+  const STUDY_TYPE = 'study_type';
+  const SUBMIT_DATE = 'submit_date';
 
   public function getFieldTypes() {
     return array(
-      'close_after_voting' => 'bool',
-      'default_open' => 'bool',
+      'additional_info' => 'string',
+      'brand' => 'string',
+      'client_name' => 'string',
+      'emails' => 'string',
       'id' => 'string',
-      'question' => 'string',
-      'show_gradient' => 'bool',
-      'show_results' => 'bool',
-      'status' => 'Status',
+      'input_ids' => 'list<string>',
+      'is_export' => 'bool',
+      'lift_study' => 'AdStudy',
+      'location' => 'string',
+      'match_file_ds' => 'string',
+      'name' => 'string',
+      'partner_defined_id' => 'string',
+      'partner_household_graph_dataset_id' => 'string',
+      'status' => 'string',
+      'study_end_date' => 'datetime',
+      'study_start_date' => 'datetime',
+      'study_type' => 'string',
+      'submit_date' => 'datetime',
     );
   }
 }

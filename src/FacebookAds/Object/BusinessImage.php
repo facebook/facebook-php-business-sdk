@@ -28,7 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AdReportRunFields;
+use FacebookAds\Object\Fields\BusinessImageFields;
 
 /**
  * This class is auto-generated.
@@ -39,20 +39,13 @@ use FacebookAds\Object\Fields\AdReportRunFields;
  *
  */
 
-class AdReportRun extends AbstractCrudObject {
+class BusinessImage extends AbstractCrudObject {
 
   /**
-   * @deprecated getEndpoint function is deprecated
-   */
-  protected function getEndpoint() {
-    return 'insights';
-  }
-
-  /**
-   * @return AdReportRunFields
+   * @return BusinessImageFields
    */
   public static function getFieldsEnum() {
-    return AdReportRunFields::getInstance();
+    return BusinessImageFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -74,9 +67,9 @@ class AdReportRun extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/insights',
-      new AdsInsights(),
+      new AbstractCrudObject(),
       'EDGE',
-      AdsInsights::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -120,9 +113,9 @@ class AdReportRun extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new AdReportRun(),
+      new BusinessImage(),
       'NODE',
-      AdReportRun::getFieldsEnum()->getValues(),
+      BusinessImage::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -130,39 +123,4 @@ class AdReportRun extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'emails' => 'list<string>',
-      'is_bookmarked' => 'bool',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/',
-      new AdReportRun(),
-      'NODE',
-      AdReportRun::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function setDataTrigger(array $data) {
-    if (array_key_exists('report_run_id', $data)) {
-      $this->data['id'] = $data['report_run_id'];
-    }
-  }
-
-  public function isComplete() {
-    return $this->{AdReportRunFields::ASYNC_PERCENT_COMPLETION} === 100 &&
-      $this->{AdReportRunFields::ASYNC_STATUS} ===  'Job Completed';
-  }
 }

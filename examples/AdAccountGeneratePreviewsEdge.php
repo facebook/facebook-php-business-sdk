@@ -19,27 +19,30 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
- *
  */
 
-namespace FacebookAds\Object\Fields;
+require __DIR__ . '/vendor/autoload.php';
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\Object\AdAccount;
+use FacebookAds\Object\AdPreview;
+use FacebookAds\Api;
+use FacebookAds\Logger\CurlLogger;
 
-/**
- * This class is auto-generated.
- *
- * For any issues or feature requests related to this class, please let us know
- * on github and we'll fix in our codegen framework. We'll not be able to accept
- * pull request for this class.
- *
- */
+$access_token = '<ACCESS_TOKEN>';
+$app_secret = '<APP_SECRET>';
+$app_id = '<APP_ID>';
+$id = '<AD_ACCOUNT_ID>';
 
-class NullNodeFields extends AbstractEnum {
+$api = Api::init($app_id, $app_secret, $access_token);
+$api->setLogger(new CurlLogger());
 
-
-  public function getFieldTypes() {
-    return array(
-    );
-  }
-}
+$fields = array(
+);
+$params = array(
+  'creative' => '<adCreativeSpec>',
+  'ad_format' => '<adFormat>',
+);
+echo json_encode((new AdAccount($id))->getGeneratePreviews(
+  $fields,
+  $params
+)->getResponse()->getContent(), JSON_PRETTY_PRINT);

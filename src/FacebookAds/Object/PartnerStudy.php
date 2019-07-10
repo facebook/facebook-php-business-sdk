@@ -28,7 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AdReportRunFields;
+use FacebookAds\Object\Fields\PartnerStudyFields;
 
 /**
  * This class is auto-generated.
@@ -39,20 +39,13 @@ use FacebookAds\Object\Fields\AdReportRunFields;
  *
  */
 
-class AdReportRun extends AbstractCrudObject {
+class PartnerStudy extends AbstractCrudObject {
 
   /**
-   * @deprecated getEndpoint function is deprecated
-   */
-  protected function getEndpoint() {
-    return 'insights';
-  }
-
-  /**
-   * @return AdReportRunFields
+   * @return PartnerStudyFields
    */
   public static function getFieldsEnum() {
-    return AdReportRunFields::getInstance();
+    return PartnerStudyFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -61,7 +54,7 @@ class AdReportRun extends AbstractCrudObject {
   }
 
 
-  public function getInsights(array $fields = array(), array $params = array(), $pending = false) {
+  public function getSubmitters(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -73,33 +66,10 @@ class AdReportRun extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
-      '/insights',
-      new AdsInsights(),
+      '/submitters',
+      new User(),
       'EDGE',
-      AdsInsights::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function deleteSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_DELETE,
-      '/',
-      new AbstractCrudObject(),
-      'NODE',
-      array(),
+      User::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -120,9 +90,9 @@ class AdReportRun extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new AdReportRun(),
+      new PartnerStudy(),
       'NODE',
-      AdReportRun::getFieldsEnum()->getValues(),
+      PartnerStudy::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -130,39 +100,4 @@ class AdReportRun extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'emails' => 'list<string>',
-      'is_bookmarked' => 'bool',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/',
-      new AdReportRun(),
-      'NODE',
-      AdReportRun::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function setDataTrigger(array $data) {
-    if (array_key_exists('report_run_id', $data)) {
-      $this->data['id'] = $data['report_run_id'];
-    }
-  }
-
-  public function isComplete() {
-    return $this->{AdReportRunFields::ASYNC_PERCENT_COMPLETION} === 100 &&
-      $this->{AdReportRunFields::ASYNC_STATUS} ===  'Job Completed';
-  }
 }

@@ -60,6 +60,7 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'business' => 'string',
     );
     $enums = array(
     );

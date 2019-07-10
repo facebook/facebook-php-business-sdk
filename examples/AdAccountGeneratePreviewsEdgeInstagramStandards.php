@@ -19,27 +19,30 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
- *
  */
 
-namespace FacebookAds\Object\Values;
+require __DIR__ . '/vendor/autoload.php';
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\Object\AdAccount;
+use FacebookAds\Object\AdPreview;
+use FacebookAds\Api;
+use FacebookAds\Logger\CurlLogger;
 
-/**
- * This class is auto-generated.
- *
- * For any issues or feature requests related to this class, please let us know
- * on github and we'll fix in our codegen framework. We'll not be able to accept
- * pull request for this class.
- *
- * @method static AdAccountPermittedTasksValues getInstance()
- */
-class AdAccountPermittedTasksValues extends AbstractEnum {
+$access_token = '<ACCESS_TOKEN>';
+$app_secret = '<APP_SECRET>';
+$app_id = '<APP_ID>';
+$id = '<AD_ACCOUNT_ID>';
 
-  const ADVERTISE = 'ADVERTISE';
-  const ANALYZE = 'ANALYZE';
-  const CREATIVE = 'CREATIVE';
-  const FB_EMPLOYEE_DSO_ADVERTISE = 'FB_EMPLOYEE_DSO_ADVERTISE';
-  const MANAGE = 'MANAGE';
-}
+$api = Api::init($app_id, $app_secret, $access_token);
+$api->setLogger(new CurlLogger());
+
+$fields = array(
+);
+$params = array(
+  'creative' => array('instagram_actor_id' => '<instagramActorID>','object_story_spec' => array('link_data' => array('call_to_action' => array('type' => 'LEARN_MORE','value' => array('link' => '<url>')),'caption' => 'www.example.com','image_hash' => '<imageHash>','link' => '<url>','message' => 'Message'),'page_id' => '<pageID>')),
+  'ad_format' => 'INSTAGRAM_STANDARD',
+);
+echo json_encode((new AdAccount($id))->getGeneratePreviews(
+  $fields,
+  $params
+)->getResponse()->getContent(), JSON_PRETTY_PRINT);

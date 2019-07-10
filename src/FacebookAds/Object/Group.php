@@ -648,7 +648,7 @@ class Group extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_POST,
-      '/opengraphactionfeed',
+      '/open_graph_action_feed',
       new AbstractCrudObject(),
       'EDGE',
       array(),

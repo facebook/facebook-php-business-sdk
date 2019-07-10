@@ -33,13 +33,13 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdAccountPermittedTasksValues getInstance()
+ * @method static BusinessCreativeFolderTasksValues getInstance()
  */
-class AdAccountPermittedTasksValues extends AbstractEnum {
+class BusinessCreativeFolderTasksValues extends AbstractEnum {
 
-  const ADVERTISE = 'ADVERTISE';
-  const ANALYZE = 'ANALYZE';
-  const CREATIVE = 'CREATIVE';
-  const FB_EMPLOYEE_DSO_ADVERTISE = 'FB_EMPLOYEE_DSO_ADVERTISE';
-  const MANAGE = 'MANAGE';
+  const CREATE_CONTENT = 'CREATE_CONTENT';
+  const MANAGE_CONTENT = 'MANAGE_CONTENT';
+  const MANAGE_PERMISSIONS = 'MANAGE_PERMISSIONS';
+  const VIEW_CONTENT = 'VIEW_CONTENT';
+  const VIEW_INSIGHTS = 'VIEW_INSIGHTS';
 }

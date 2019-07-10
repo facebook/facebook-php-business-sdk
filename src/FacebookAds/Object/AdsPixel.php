@@ -76,7 +76,6 @@ class AdsPixel extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'business' => 'string',
       'user' => 'int',
     );
     $enums = array(
@@ -125,7 +124,6 @@ class AdsPixel extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'business' => 'string',
       'tasks' => 'list<tasks_enum>',
       'user' => 'int',
     );

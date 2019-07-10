@@ -28,8 +28,9 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AdStudyObjectiveFields;
-use FacebookAds\Object\Values\AdStudyObjectiveTypeValues;
+use FacebookAds\Object\Fields\BusinessCreativeFolderFields;
+use FacebookAds\Object\Values\BusinessCreativeFolderPermittedTasksValues;
+use FacebookAds\Object\Values\BusinessCreativeFolderTasksValues;
 
 /**
  * This class is auto-generated.
@@ -40,26 +41,35 @@ use FacebookAds\Object\Values\AdStudyObjectiveTypeValues;
  *
  */
 
-class AdStudyObjective extends AbstractCrudObject {
+class BusinessCreativeFolder extends AbstractCrudObject {
 
   /**
-   * @return AdStudyObjectiveFields
+   * @deprecated getEndpoint function is deprecated
+   */
+  protected function getEndpoint() {
+    return 'creative_folders';
+  }
+
+  /**
+   * @return BusinessCreativeFolderFields
    */
   public static function getFieldsEnum() {
-    return AdStudyObjectiveFields::getInstance();
+    return BusinessCreativeFolderFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Type'] = AdStudyObjectiveTypeValues::getInstance()->getValues();
+    $ref_enums['PermittedTasks'] = BusinessCreativeFolderPermittedTasksValues::getInstance()->getValues();
+    $ref_enums['Tasks'] = BusinessCreativeFolderTasksValues::getInstance()->getValues();
     return $ref_enums;
   }
 
 
-  public function getAdPlacePageSets(array $fields = array(), array $params = array(), $pending = false) {
+  public function deleteAgencies(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
+      'business' => 'string',
     );
     $enums = array(
     );
@@ -67,11 +77,11 @@ class AdStudyObjective extends AbstractCrudObject {
     $request = new ApiRequest(
       $this->api,
       $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/ad_place_page_sets',
-      new AdPlacePageSet(),
+      RequestInterface::METHOD_DELETE,
+      '/agencies',
+      new AbstractCrudObject(),
       'EDGE',
-      AdPlacePageSet::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -79,7 +89,7 @@ class AdStudyObjective extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getAdsPixels(array $fields = array(), array $params = array(), $pending = false) {
+  public function getAgencies(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -91,10 +101,10 @@ class AdStudyObjective extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
-      '/adspixels',
-      new AdsPixel(),
+      '/agencies',
+      new Business(),
       'EDGE',
-      AdsPixel::getFieldsEnum()->getValues(),
+      Business::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -102,22 +112,25 @@ class AdStudyObjective extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getApplications(array $fields = array(), array $params = array(), $pending = false) {
+  public function createAgency(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
+      'business' => 'string',
+      'permitted_tasks' => 'list<permitted_tasks_enum>',
     );
     $enums = array(
+      'permitted_tasks_enum' => BusinessCreativeFolderPermittedTasksValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
       $this->api,
       $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/applications',
-      new Application(),
+      RequestInterface::METHOD_POST,
+      '/agencies',
+      new BusinessCreativeFolder(),
       'EDGE',
-      Application::getFieldsEnum()->getValues(),
+      BusinessCreativeFolder::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -125,10 +138,11 @@ class AdStudyObjective extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getCustomConversions(array $fields = array(), array $params = array(), $pending = false) {
+  public function deleteAssignedUsers(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
+      'user' => 'int',
     );
     $enums = array(
     );
@@ -136,11 +150,11 @@ class AdStudyObjective extends AbstractCrudObject {
     $request = new ApiRequest(
       $this->api,
       $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/customconversions',
-      new CustomConversion(),
+      RequestInterface::METHOD_DELETE,
+      '/assigned_users',
+      new AbstractCrudObject(),
       'EDGE',
-      CustomConversion::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -148,10 +162,11 @@ class AdStudyObjective extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getOfflineConversionDataSets(array $fields = array(), array $params = array(), $pending = false) {
+  public function getAssignedUsers(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
+      'business' => 'string',
     );
     $enums = array(
     );
@@ -160,10 +175,10 @@ class AdStudyObjective extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
-      '/offline_conversion_data_sets',
-      new OfflineConversionDataSet(),
+      '/assigned_users',
+      new AssignedUser(),
       'EDGE',
-      OfflineConversionDataSet::getFieldsEnum()->getValues(),
+      AssignedUser::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -171,45 +186,25 @@ class AdStudyObjective extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getOffsitePixels(array $fields = array(), array $params = array(), $pending = false) {
+  public function createAssignedUser(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
+      'tasks' => 'list<tasks_enum>',
+      'user' => 'int',
     );
     $enums = array(
+      'tasks_enum' => BusinessCreativeFolderTasksValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
       $this->api,
       $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/offsitepixels',
-      new OffsitePixel(),
+      RequestInterface::METHOD_POST,
+      '/assigned_users',
+      new BusinessCreativeFolder(),
       'EDGE',
-      OffsitePixel::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getPartnerStudies(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/partnerstudies',
-      new PartnerStudy(),
-      'EDGE',
-      PartnerStudy::getFieldsEnum()->getValues(),
+      BusinessCreativeFolder::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -244,15 +239,8 @@ class AdStudyObjective extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'breakdowns' => 'list<breakdowns_enum>',
     );
     $enums = array(
-      'breakdowns_enum' => array(
-        'age',
-        'cell_id',
-        'country',
-        'gender',
-      ),
     );
 
     $request = new ApiRequest(
@@ -260,9 +248,9 @@ class AdStudyObjective extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new AdStudyObjective(),
+      new BusinessCreativeFolder(),
       'NODE',
-      AdStudyObjective::getFieldsEnum()->getValues(),
+      BusinessCreativeFolder::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -274,18 +262,9 @@ class AdStudyObjective extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'adspixels' => 'list<Object>',
-      'applications' => 'list<Object>',
-      'customconversions' => 'list<Object>',
-      'is_primary' => 'bool',
       'name' => 'string',
-      'offline_conversion_data_sets' => 'list<Object>',
-      'offsitepixels' => 'list<Object>',
-      'product_sets' => 'list<Object>',
-      'type' => 'type_enum',
     );
     $enums = array(
-      'type_enum' => AdStudyObjectiveTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -293,9 +272,9 @@ class AdStudyObjective extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/',
-      new AdStudyObjective(),
+      new BusinessCreativeFolder(),
       'NODE',
-      AdStudyObjective::getFieldsEnum()->getValues(),
+      BusinessCreativeFolder::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

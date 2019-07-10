@@ -51,6 +51,7 @@ class LeadgenFormFields extends AbstractEnum {
   const IS_OPTIMIZED_FOR_QUALITY = 'is_optimized_for_quality';
   const LEADGEN_EXPORT_CSV_URL = 'leadgen_export_csv_url';
   const LEADS_COUNT = 'leads_count';
+  const LEGAL_CONTENT = 'legal_content';
   const LOCALE = 'locale';
   const MESSENGER_WELCOME_MESSAGE = 'messenger_welcome_message';
   const NAME = 'name';
@@ -81,6 +82,7 @@ class LeadgenFormFields extends AbstractEnum {
       'is_optimized_for_quality' => 'bool',
       'leadgen_export_csv_url' => 'string',
       'leads_count' => 'unsigned int',
+      'legal_content' => 'Object',
       'locale' => 'string',
       'messenger_welcome_message' => 'string',
       'name' => 'string',

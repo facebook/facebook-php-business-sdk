@@ -22,13 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Values;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AdCreativeOptimizationSpecFields;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-generated.
@@ -37,21 +33,9 @@ use FacebookAds\Object\Fields\AdCreativeOptimizationSpecFields;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static LiveEncoderCapAudioCodecsValues getInstance()
  */
+class LiveEncoderCapAudioCodecsValues extends AbstractEnum {
 
-class AdCreativeOptimizationSpec extends AbstractObject {
-
-  /**
-   * @return AdCreativeOptimizationSpecFields
-   */
-  public static function getFieldsEnum() {
-    return AdCreativeOptimizationSpecFields::getInstance();
-  }
-
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
+  const AAC = 'AAC';
 }

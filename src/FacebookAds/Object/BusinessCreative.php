@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\BusinessCreativeFields;
 
 /**
  * This class is auto-generated.
@@ -33,20 +37,21 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static UserTasksValues getInstance()
  */
-class UserTasksValues extends AbstractEnum {
 
-  const ADVERTISE = 'ADVERTISE';
-  const ANALYZE = 'ANALYZE';
-  const CREATE_CONTENT = 'CREATE_CONTENT';
-  const MANAGE = 'MANAGE';
-  const MANAGE_JOBS = 'MANAGE_JOBS';
-  const MANAGE_LEADS = 'MANAGE_LEADS';
-  const MODERATE = 'MODERATE';
-  const MODERATE_COMMUNITY = 'MODERATE_COMMUNITY';
-  const PAGES_MESSAGING = 'PAGES_MESSAGING';
-  const PAGES_MESSAGING_SUBSCRIPTIONS = 'PAGES_MESSAGING_SUBSCRIPTIONS';
-  const READ_PAGE_MAILBOXES = 'READ_PAGE_MAILBOXES';
-  const VIEW_MONETIZATION_INSIGHTS = 'VIEW_MONETIZATION_INSIGHTS';
+class BusinessCreative extends AbstractCrudObject {
+
+  /**
+   * @return BusinessCreativeFields
+   */
+  public static function getFieldsEnum() {
+    return BusinessCreativeFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
 }

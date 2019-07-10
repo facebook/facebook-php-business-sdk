@@ -29,6 +29,9 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\LiveEncoderFields;
+use FacebookAds\Object\Values\LiveEncoderCapAudioCodecsValues;
+use FacebookAds\Object\Values\LiveEncoderCapStreamingProtocolsValues;
+use FacebookAds\Object\Values\LiveEncoderCapVideoCodecsValues;
 use FacebookAds\Object\Values\LiveEncoderStatusValues;
 
 /**
@@ -51,6 +54,9 @@ class LiveEncoder extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['CapAudioCodecs'] = LiveEncoderCapAudioCodecsValues::getInstance()->getValues();
+    $ref_enums['CapStreamingProtocols'] = LiveEncoderCapStreamingProtocolsValues::getInstance()->getValues();
+    $ref_enums['CapVideoCodecs'] = LiveEncoderCapVideoCodecsValues::getInstance()->getValues();
     $ref_enums['Status'] = LiveEncoderStatusValues::getInstance()->getValues();
     return $ref_enums;
   }
@@ -160,9 +166,9 @@ class LiveEncoder extends AbstractCrudObject {
 
     $param_types = array(
       'broadcast_id' => 'string',
-      'cap_audio_codecs' => 'list<string>',
-      'cap_streaming_protocols' => 'list<string>',
-      'cap_video_codecs' => 'list<string>',
+      'cap_audio_codecs' => 'list<cap_audio_codecs_enum>',
+      'cap_streaming_protocols' => 'list<cap_streaming_protocols_enum>',
+      'cap_video_codecs' => 'list<cap_video_codecs_enum>',
       'error_code' => 'unsigned int',
       'error_msg' => 'string',
       'input_audio_channels' => 'unsigned int',
@@ -178,6 +184,9 @@ class LiveEncoder extends AbstractCrudObject {
       'version' => 'string',
     );
     $enums = array(
+      'cap_audio_codecs_enum' => LiveEncoderCapAudioCodecsValues::getInstance()->getValues(),
+      'cap_streaming_protocols_enum' => LiveEncoderCapStreamingProtocolsValues::getInstance()->getValues(),
+      'cap_video_codecs_enum' => LiveEncoderCapVideoCodecsValues::getInstance()->getValues(),
       'status_enum' => LiveEncoderStatusValues::getInstance()->getValues(),
     );
 

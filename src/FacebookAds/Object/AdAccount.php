@@ -233,11 +233,42 @@ class AdAccount extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function deleteAdSets(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'before_date' => 'datetime',
+      'delete_offset' => 'unsigned int',
+      'delete_strategy' => 'delete_strategy_enum',
+      'object_count' => 'int',
+    );
+    $enums = array(
+      'delete_strategy_enum' => array(
+        'DELETE_ANY',
+        'DELETE_ARCHIVED_BEFORE',
+        'DELETE_OLDEST',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/ad_sets',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createAdSet(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
-      'ad_keywords' => 'Object',
       'adlabels' => 'list<Object>',
       'adset_schedule' => 'list<Object>',
       'attribution_spec' => 'list<map>',
@@ -1090,38 +1121,6 @@ class AdAccount extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function deleteAdSets(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'before_date' => 'datetime',
-      'delete_offset' => 'unsigned int',
-      'delete_strategy' => 'delete_strategy_enum',
-      'object_count' => 'int',
-    );
-    $enums = array(
-      'delete_strategy_enum' => array(
-        'DELETE_ANY',
-        'DELETE_ARCHIVED_BEFORE',
-        'DELETE_OLDEST',
-      ),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_DELETE,
-      '/adsets',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getAdSets(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1823,33 +1822,6 @@ class AdAccount extends AbstractCrudObject {
       new AdAccount(),
       'EDGE',
       AdAccount::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createBrandAudience(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'description' => 'string',
-      'name' => 'string',
-      'target_size' => 'int',
-      'targeting' => 'Object',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/brand_audiences',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2650,35 +2622,6 @@ class AdAccount extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createPartnerRequest(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'account_ids' => 'list<int>',
-      'category_ids' => 'list<string>',
-      'type' => 'type_enum',
-    );
-    $enums = array(
-      'type_enum' => array(
-        'SHARE_PC',
-      ),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/partnerrequests',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function createProductAudience(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -2818,9 +2761,9 @@ class AdAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/reachestimate',
-      new ReachEstimate(),
+      new AdAccountReachEstimate(),
       'EDGE',
-      ReachEstimate::getFieldsEnum()->getValues(),
+      AdAccountReachEstimate::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -3224,31 +3167,6 @@ class AdAccount extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function deleteUsers(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'uid' => 'int',
-      'uids' => 'list<string>',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_DELETE,
-      '/users',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getUsers(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -3265,32 +3183,6 @@ class AdAccount extends AbstractCrudObject {
       new AdAccountUser(),
       'EDGE',
       AdAccountUser::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createUser(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'tasks' => 'list<tasks_enum>',
-      'uid' => 'int',
-    );
-    $enums = array(
-      'tasks_enum' => AdAccountTasksValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/users',
-      new AdAccount(),
-      'EDGE',
-      AdAccount::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

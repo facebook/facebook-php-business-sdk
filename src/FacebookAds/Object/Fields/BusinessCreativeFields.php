@@ -35,17 +35,33 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class AdCreativeOptimizationSpecFields extends AbstractEnum {
+class BusinessCreativeFields extends AbstractEnum {
 
-  const BODIES = 'bodies';
-  const DESCRIPTIONS = 'descriptions';
-  const TITLES = 'titles';
+  const CREATION_TIME = 'creation_time';
+  const DURATION = 'duration';
+  const HASH = 'hash';
+  const HEIGHT = 'height';
+  const ID = 'id';
+  const NAME = 'name';
+  const THUMBNAIL = 'thumbnail';
+  const TYPE = 'type';
+  const URL = 'url';
+  const VIDEO_ID = 'video_id';
+  const WIDTH = 'width';
 
   public function getFieldTypes() {
     return array(
-      'bodies' => 'list<string>',
-      'descriptions' => 'list<string>',
-      'titles' => 'list<string>',
+      'creation_time' => 'datetime',
+      'duration' => 'int',
+      'hash' => 'string',
+      'height' => 'int',
+      'id' => 'string',
+      'name' => 'string',
+      'thumbnail' => 'string',
+      'type' => 'string',
+      'url' => 'string',
+      'video_id' => 'string',
+      'width' => 'int',
     );
   }
 }

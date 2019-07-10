@@ -47,6 +47,7 @@ class AdsPixelFields extends AbstractEnum {
   const FIRST_PARTY_COOKIE_STATUS = 'first_party_cookie_status';
   const ID = 'id';
   const IS_CREATED_BY_BUSINESS = 'is_created_by_business';
+  const IS_UNAVAILABLE = 'is_unavailable';
   const LAST_FIRED_TIME = 'last_fired_time';
   const NAME = 'name';
   const OWNER_AD_ACCOUNT = 'owner_ad_account';
@@ -64,6 +65,7 @@ class AdsPixelFields extends AbstractEnum {
       'first_party_cookie_status' => 'string',
       'id' => 'string',
       'is_created_by_business' => 'bool',
+      'is_unavailable' => 'bool',
       'last_fired_time' => 'datetime',
       'name' => 'string',
       'owner_ad_account' => 'AdAccount',

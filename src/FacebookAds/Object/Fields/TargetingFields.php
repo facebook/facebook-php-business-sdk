@@ -68,6 +68,7 @@ class TargetingFields extends AbstractEnum {
   const ENGAGEMENT_SPECS = 'engagement_specs';
   const ETHNIC_AFFINITY = 'ethnic_affinity';
   const EXCLUDE_REACHED_SINCE = 'exclude_reached_since';
+  const EXCLUDED_BRAND_SAFETY_CONTENT_TYPES = 'excluded_brand_safety_content_types';
   const EXCLUDED_CONNECTIONS = 'excluded_connections';
   const EXCLUDED_CUSTOM_AUDIENCES = 'excluded_custom_audiences';
   const EXCLUDED_DYNAMIC_AUDIENCE_IDS = 'excluded_dynamic_audience_ids';
@@ -159,6 +160,7 @@ class TargetingFields extends AbstractEnum {
       'engagement_specs' => 'list<TargetingDynamicRule>',
       'ethnic_affinity' => 'list<IDName>',
       'exclude_reached_since' => 'list<string>',
+      'excluded_brand_safety_content_types' => 'list<string>',
       'excluded_connections' => 'list<IDName>',
       'excluded_custom_audiences' => 'list<IDName>',
       'excluded_dynamic_audience_ids' => 'list<string>',

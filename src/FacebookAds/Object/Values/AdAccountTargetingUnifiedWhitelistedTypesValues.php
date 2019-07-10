@@ -73,6 +73,7 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const ETHNIC_AFFINITY = 'ethnic_affinity';
   const EXCLUDE_PREVIOUS_DAYS = 'exclude_previous_days';
   const EXCLUDE_REACHED_SINCE = 'exclude_reached_since';
+  const EXCLUDED_BRAND_SAFETY_CONTENT_TYPES = 'excluded_brand_safety_content_types';
   const EXCLUDED_CONNECTIONS = 'excluded_connections';
   const EXCLUDED_CUSTOM_AUDIENCES = 'excluded_custom_audiences';
   const EXCLUDED_DYNAMIC_AUDIENCE_IDS = 'excluded_dynamic_audience_ids';

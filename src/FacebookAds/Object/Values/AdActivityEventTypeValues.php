@@ -58,6 +58,7 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const BILLING_EVENT = 'billing_event';
   const CAMPAIGN_ENDED = 'campaign_ended';
   const CAMPAIGN_SPENDING_LIMIT_REACHED = 'campaign_spending_limit_reached';
+  const CONVERSION_EVENT_UPDATED = 'conversion_event_updated';
   const CREATE_AD = 'create_ad';
   const CREATE_AD_SET = 'create_ad_set';
   const CREATE_AUDIENCE = 'create_audience';

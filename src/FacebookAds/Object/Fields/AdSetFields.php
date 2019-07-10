@@ -38,7 +38,6 @@ use FacebookAds\Enum\AbstractEnum;
 class AdSetFields extends AbstractEnum {
 
   const ACCOUNT_ID = 'account_id';
-  const AD_KEYWORDS = 'ad_keywords';
   const ADLABELS = 'adlabels';
   const ADSET_SCHEDULE = 'adset_schedule';
   const ASSET_FEED_ID = 'asset_feed_id';
@@ -104,7 +103,6 @@ class AdSetFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'account_id' => 'string',
-      'ad_keywords' => 'AdKeywords',
       'adlabels' => 'list<AdLabel>',
       'adset_schedule' => 'list<DayPart>',
       'asset_feed_id' => 'string',
