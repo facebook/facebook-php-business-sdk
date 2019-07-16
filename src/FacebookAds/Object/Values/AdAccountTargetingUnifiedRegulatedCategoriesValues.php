@@ -37,8 +37,8 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdAccountTargetingUnifiedRegulatedCategoriesValues extends AbstractEnum {
 
+  const CREDIT = 'CREDIT';
   const EMPLOYMENT = 'EMPLOYMENT';
-  const FINANCING = 'FINANCING';
   const HOUSING = 'HOUSING';
   const NONE = 'NONE';
 }

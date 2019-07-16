@@ -103,6 +103,7 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const RATINGS = 'ratings';
   const REGISTRATION = 'registration';
   const STANDBY = 'standby';
+  const VIDEO_TEXT_QUESTION_RESPONSES = 'video_text_question_responses';
   const VIDEOS = 'videos';
   const WEBSITE = 'website';
 }

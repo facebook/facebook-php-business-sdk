@@ -40,7 +40,7 @@ $fields = array(
 );
 $params = array(
   'name' => 'Image crop creative',
-  'object_story_spec' => array('page_id' => '<pageID>','link_data' => array('image_crops' => array('191x100' => array(array(63,0),array(617,290))),'image_hash' => '<imageHash>','link' => '<url>','message' => 'Ad message')),
+  'object_story_spec' => array('page_id' => '<pageID>','link_data' => array('image_crops' => array('100x100' => array(array(0,0),array(100,100))),'image_hash' => '<imageHash>','link' => '<url>','message' => 'Ad message')),
 );
 echo json_encode((new AdAccount($id))->createAdCreative(
   $fields,

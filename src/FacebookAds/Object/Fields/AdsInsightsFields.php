@@ -157,6 +157,7 @@ class AdsInsightsFields extends AbstractEnum {
   const DWELL_5_SEC = 'dwell_5_sec';
   const DWELL_7_SEC = 'dwell_7_sec';
   const DWELL_RATE = 'dwell_rate';
+  const EARNED_IMPRESSION = 'earned_impression';
   const ESTIMATED_AD_RECALL_RATE = 'estimated_ad_recall_rate';
   const ESTIMATED_AD_RECALL_RATE_LOWER_BOUND = 'estimated_ad_recall_rate_lower_bound';
   const ESTIMATED_AD_RECALL_RATE_UPPER_BOUND = 'estimated_ad_recall_rate_upper_bound';
@@ -393,6 +394,7 @@ class AdsInsightsFields extends AbstractEnum {
       'dwell_5_sec' => 'string',
       'dwell_7_sec' => 'string',
       'dwell_rate' => 'string',
+      'earned_impression' => 'string',
       'estimated_ad_recall_rate' => 'string',
       'estimated_ad_recall_rate_lower_bound' => 'string',
       'estimated_ad_recall_rate_upper_bound' => 'string',

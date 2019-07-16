@@ -39,6 +39,7 @@ class LeadgenFormFields extends AbstractEnum {
 
   const ALLOW_ORGANIC_LEAD = 'allow_organic_lead';
   const BLOCK_DISPLAY_FOR_NON_TARGETED_VIEWER = 'block_display_for_non_targeted_viewer';
+  const CONTEXT_CARD = 'context_card';
   const CREATED_TIME = 'created_time';
   const CREATOR = 'creator';
   const CREATOR_ID = 'creator_id';
@@ -64,12 +65,14 @@ class LeadgenFormFields extends AbstractEnum {
   const QUESTIONS = 'questions';
   const STATUS = 'status';
   const TCPA_COMPLIANCE = 'tcpa_compliance';
+  const THANK_YOU_PAGE = 'thank_you_page';
   const TRACKING_PARAMETERS = 'tracking_parameters';
 
   public function getFieldTypes() {
     return array(
       'allow_organic_lead' => 'bool',
       'block_display_for_non_targeted_viewer' => 'bool',
+      'context_card' => 'Object',
       'created_time' => 'datetime',
       'creator' => 'User',
       'creator_id' => 'int',
@@ -95,6 +98,7 @@ class LeadgenFormFields extends AbstractEnum {
       'questions' => 'list<LeadGenQuestion>',
       'status' => 'string',
       'tcpa_compliance' => 'bool',
+      'thank_you_page' => 'Object',
       'tracking_parameters' => 'map<string, string>',
     );
   }

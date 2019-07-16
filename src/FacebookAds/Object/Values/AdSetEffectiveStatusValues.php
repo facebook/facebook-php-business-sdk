@@ -41,4 +41,5 @@ class AdSetEffectiveStatusValues extends AbstractEnum {
   const ARCHIVED = 'ARCHIVED';
   const DELETED = 'DELETED';
   const PAUSED = 'PAUSED';
+  const WITH_ISSUES = 'WITH_ISSUES';
 }

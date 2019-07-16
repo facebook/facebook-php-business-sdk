@@ -92,7 +92,6 @@ class ApplicationFields extends AbstractEnum {
   const IOS_SUPPORTS_SYSTEM_AUTH = 'ios_supports_system_auth';
   const IPAD_APP_STORE_ID = 'ipad_app_store_id';
   const IPHONE_APP_STORE_ID = 'iphone_app_store_id';
-  const IS_VIEWER_ADMIN = 'is_viewer_admin';
   const LATEST_SDK_VERSION = 'latest_sdk_version';
   const LINK = 'link';
   const LOGGING_TOKEN = 'logging_token';
@@ -194,7 +193,6 @@ class ApplicationFields extends AbstractEnum {
       'ios_supports_system_auth' => 'bool',
       'ipad_app_store_id' => 'string',
       'iphone_app_store_id' => 'string',
-      'is_viewer_admin' => 'bool',
       'latest_sdk_version' => 'Object',
       'link' => 'string',
       'logging_token' => 'string',

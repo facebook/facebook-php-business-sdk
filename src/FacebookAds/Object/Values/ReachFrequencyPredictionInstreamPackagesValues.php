@@ -49,5 +49,6 @@ class ReachFrequencyPredictionInstreamPackagesValues extends AbstractEnum {
   const REGULAR_SPORTS = 'REGULAR_SPORTS';
   const REGULAR_STYLE = 'REGULAR_STYLE';
   const REGULAR_TV_MOVIES = 'REGULAR_TV_MOVIES';
+  const SPANISH = 'SPANISH';
   const SPORTS = 'SPORTS';
 }
