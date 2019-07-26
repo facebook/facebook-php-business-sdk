@@ -46,7 +46,6 @@ class ProductCatalogFields extends AbstractEnum {
   const ID = 'id';
   const NAME = 'name';
   const PRODUCT_COUNT = 'product_count';
-  const QUALIFIED_PRODUCT_COUNT = 'qualified_product_count';
   const VERTICAL = 'vertical';
   const DESTINATION_CATALOG_SETTINGS = 'destination_catalog_settings';
   const FLIGHT_CATALOG_SETTINGS = 'flight_catalog_settings';
@@ -62,7 +61,6 @@ class ProductCatalogFields extends AbstractEnum {
       'id' => 'string',
       'name' => 'string',
       'product_count' => 'int',
-      'qualified_product_count' => 'unsigned int',
       'vertical' => 'string',
       'destination_catalog_settings' => 'map',
       'flight_catalog_settings' => 'map',

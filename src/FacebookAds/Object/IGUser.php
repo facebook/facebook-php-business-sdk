@@ -113,11 +113,12 @@ class IGUser extends AbstractCrudObject {
 
     $param_types = array(
       'caption' => 'string',
-      'children' => 'list<unsigned int>',
       'image_url' => 'string',
       'location_id' => 'string',
       'media_type' => 'string',
+      'thumb_offset' => 'string',
       'user_tags' => 'list<map>',
+      'video_url' => 'string',
     );
     $enums = array(
     );

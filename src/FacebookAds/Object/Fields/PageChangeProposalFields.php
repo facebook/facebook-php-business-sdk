@@ -42,7 +42,6 @@ class PageChangeProposalFields extends AbstractEnum {
   const CURRENT_VALUE = 'current_value';
   const ID = 'id';
   const PROPOSED_VALUE = 'proposed_value';
-  const UPCOMING_CHANGE_INFO = 'upcoming_change_info';
 
   public function getFieldTypes() {
     return array(
@@ -51,7 +50,6 @@ class PageChangeProposalFields extends AbstractEnum {
       'current_value' => 'string',
       'id' => 'string',
       'proposed_value' => 'string',
-      'upcoming_change_info' => 'PageUpcomingChange',
     );
   }
 }

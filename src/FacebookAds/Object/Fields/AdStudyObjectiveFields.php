@@ -37,7 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdStudyObjectiveFields extends AbstractEnum {
 
-  const CUSTOM_ATTRIBUTES = 'custom_attributes';
   const ID = 'id';
   const IS_PRIMARY = 'is_primary';
   const LAST_UPDATED_RESULTS = 'last_updated_results';
@@ -47,7 +46,6 @@ class AdStudyObjectiveFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'custom_attributes' => 'list<string>',
       'id' => 'string',
       'is_primary' => 'bool',
       'last_updated_results' => 'string',

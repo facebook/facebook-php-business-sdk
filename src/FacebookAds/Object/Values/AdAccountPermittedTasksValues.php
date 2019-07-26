@@ -40,6 +40,7 @@ class AdAccountPermittedTasksValues extends AbstractEnum {
   const ADVERTISE = 'ADVERTISE';
   const ANALYZE = 'ANALYZE';
   const CREATIVE = 'CREATIVE';
+  const DRAFT = 'DRAFT';
   const FB_EMPLOYEE_DSO_ADVERTISE = 'FB_EMPLOYEE_DSO_ADVERTISE';
   const MANAGE = 'MANAGE';
 }

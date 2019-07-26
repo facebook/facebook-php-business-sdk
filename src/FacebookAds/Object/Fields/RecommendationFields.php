@@ -35,21 +35,27 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class CopyrightAttributionInsightsFields extends AbstractEnum {
+class RecommendationFields extends AbstractEnum {
 
-  const L7_ATTRIBUTION_PAGE_VIEW = 'l7_attribution_page_view';
-  const L7_ATTRIBUTION_PAGE_VIEW_DELTA = 'l7_attribution_page_view_delta';
-  const L7_ATTRIBUTION_VIDEO_VIEW = 'l7_attribution_video_view';
-  const L7_ATTRIBUTION_VIDEO_VIEW_DELTA = 'l7_attribution_video_view_delta';
-  const METRICS_ENDING_DATE = 'metrics_ending_date';
+  const CREATED_TIME = 'created_time';
+  const HAS_RATING = 'has_rating';
+  const HAS_REVIEW = 'has_review';
+  const OPEN_GRAPH_STORY = 'open_graph_story';
+  const RATING = 'rating';
+  const RECOMMENDATION_TYPE = 'recommendation_type';
+  const REVIEW_TEXT = 'review_text';
+  const REVIEWER = 'reviewer';
 
   public function getFieldTypes() {
     return array(
-      'l7_attribution_page_view' => 'int',
-      'l7_attribution_page_view_delta' => 'float',
-      'l7_attribution_video_view' => 'int',
-      'l7_attribution_video_view_delta' => 'float',
-      'metrics_ending_date' => 'string',
+      'created_time' => 'datetime',
+      'has_rating' => 'bool',
+      'has_review' => 'bool',
+      'open_graph_story' => 'Object',
+      'rating' => 'int',
+      'recommendation_type' => 'string',
+      'review_text' => 'string',
+      'reviewer' => 'User',
     );
   }
 }

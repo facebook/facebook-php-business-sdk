@@ -29,8 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ThirdPartyMeasurementReportDatasetFields;
-use FacebookAds\Object\Values\ThirdPartyMeasurementReportDatasetCategoryValues;
-use FacebookAds\Object\Values\ThirdPartyMeasurementReportDatasetProductValues;
 
 /**
  * This class is auto-generated.
@@ -44,13 +42,6 @@ use FacebookAds\Object\Values\ThirdPartyMeasurementReportDatasetProductValues;
 class ThirdPartyMeasurementReportDataset extends AbstractCrudObject {
 
   /**
-   * @deprecated getEndpoint function is deprecated
-   */
-  protected function getEndpoint() {
-    return 'third_party_measurement_report_dataset';
-  }
-
-  /**
    * @return ThirdPartyMeasurementReportDatasetFields
    */
   public static function getFieldsEnum() {
@@ -59,8 +50,6 @@ class ThirdPartyMeasurementReportDataset extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Category'] = ThirdPartyMeasurementReportDatasetCategoryValues::getInstance()->getValues();
-    $ref_enums['Product'] = ThirdPartyMeasurementReportDatasetProductValues::getInstance()->getValues();
     return $ref_enums;
   }
 

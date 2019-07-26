@@ -506,7 +506,6 @@ class Group extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'attribution_app_id' => 'string',
       'content_tags' => 'list<string>',
       'description' => 'string',
       'encoding_settings' => 'string',

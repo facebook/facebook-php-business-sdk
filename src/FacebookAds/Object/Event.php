@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\EventFields;
+use FacebookAds\Object\Values\EventCategoryValues;
 use FacebookAds\Object\Values\EventEventStateFilterValues;
 use FacebookAds\Object\Values\EventPromotableEventTypesValues;
 use FacebookAds\Object\Values\EventTimeFilterValues;
@@ -62,6 +63,7 @@ class Event extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['Category'] = EventCategoryValues::getInstance()->getValues();
     $ref_enums['Type'] = EventTypeValues::getInstance()->getValues();
     $ref_enums['EventStateFilter'] = EventEventStateFilterValues::getInstance()->getValues();
     $ref_enums['TimeFilter'] = EventTimeFilterValues::getInstance()->getValues();
@@ -276,7 +278,6 @@ class Event extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'attribution_app_id' => 'string',
       'content_tags' => 'list<string>',
       'description' => 'string',
       'encoding_settings' => 'string',

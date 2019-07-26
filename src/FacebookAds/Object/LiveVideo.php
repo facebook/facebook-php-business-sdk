@@ -74,6 +74,30 @@ class LiveVideo extends AbstractCrudObject {
   }
 
 
+  public function getBlockedUsers(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'uid' => 'Object',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/blocked_users',
+      new User(),
+      'EDGE',
+      User::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getComments(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -333,14 +357,12 @@ class LiveVideo extends AbstractCrudObject {
       'ad_break_time_offset' => 'float',
       'allow_bm_crossposting' => 'bool',
       'attribution_app_id' => 'string',
-      'attribution_app_metadata' => 'string',
       'commercial_break_durations' => 'list<unsigned int>',
       'content_tags' => 'list<string>',
       'crossposting_actions' => 'list<map>',
       'custom_labels' => 'list<string>',
       'description' => 'string',
       'direct_share_status' => 'unsigned int',
-      'disturbing' => 'bool',
       'embeddable' => 'bool',
       'end_live_video' => 'bool',
       'is_audio_only' => 'bool',
@@ -352,7 +374,6 @@ class LiveVideo extends AbstractCrudObject {
       'place' => 'Object',
       'planned_start_time' => 'int',
       'privacy' => 'string',
-      'product_items' => 'list<string>',
       'published' => 'bool',
       'schedule_custom_profile_image' => 'file',
       'schedule_feed_background_image' => 'file',

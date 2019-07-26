@@ -62,7 +62,6 @@ class PageFields extends AbstractEnum {
   const COMPANY_OVERVIEW = 'company_overview';
   const CONNECTED_INSTAGRAM_ACCOUNT = 'connected_instagram_account';
   const CONTACT_ADDRESS = 'contact_address';
-  const COPYRIGHT_ATTRIBUTION_INSIGHTS = 'copyright_attribution_insights';
   const COPYRIGHT_WHITELISTED_IG_PARTNERS = 'copyright_whitelisted_ig_partners';
   const COUNTRY_PAGE_LIKES = 'country_page_likes';
   const COVER = 'cover';
@@ -207,7 +206,6 @@ class PageFields extends AbstractEnum {
       'company_overview' => 'string',
       'connected_instagram_account' => 'IGUser',
       'contact_address' => 'MailingAddress',
-      'copyright_attribution_insights' => 'CopyrightAttributionInsights',
       'copyright_whitelisted_ig_partners' => 'list<string>',
       'country_page_likes' => 'unsigned int',
       'cover' => 'CoverPhoto',

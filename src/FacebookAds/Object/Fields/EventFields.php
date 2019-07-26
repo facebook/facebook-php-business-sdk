@@ -72,7 +72,7 @@ class EventFields extends AbstractEnum {
     return array(
       'attending_count' => 'int',
       'can_guests_invite' => 'bool',
-      'category' => 'string',
+      'category' => 'Category',
       'cover' => 'CoverPhoto',
       'declined_count' => 'int',
       'description' => 'string',

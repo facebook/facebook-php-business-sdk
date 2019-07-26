@@ -39,7 +39,6 @@ class AdCreativePhotoDataFields extends AbstractEnum {
 
   const BRANDED_CONTENT_SHARED_TO_SPONSOR_STATUS = 'branded_content_shared_to_sponsor_status';
   const BRANDED_CONTENT_SPONSOR_PAGE_ID = 'branded_content_sponsor_page_id';
-  const BRANDED_CONTENT_SPONSOR_RELATIONSHIP = 'branded_content_sponsor_relationship';
   const CAPTION = 'caption';
   const IMAGE_HASH = 'image_hash';
   const PAGE_WELCOME_MESSAGE = 'page_welcome_message';
@@ -49,7 +48,6 @@ class AdCreativePhotoDataFields extends AbstractEnum {
     return array(
       'branded_content_shared_to_sponsor_status' => 'string',
       'branded_content_sponsor_page_id' => 'string',
-      'branded_content_sponsor_relationship' => 'string',
       'caption' => 'string',
       'image_hash' => 'string',
       'page_welcome_message' => 'string',

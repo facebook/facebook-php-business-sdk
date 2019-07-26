@@ -262,6 +262,7 @@ class BusinessCreativeFolder extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'description' => 'string',
       'name' => 'string',
     );
     $enums = array(

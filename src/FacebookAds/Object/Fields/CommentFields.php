@@ -44,6 +44,7 @@ class CommentFields extends AbstractEnum {
   const CAN_HIDE = 'can_hide';
   const CAN_LIKE = 'can_like';
   const CAN_REMOVE = 'can_remove';
+  const CAN_REPLY_PRIVATELY = 'can_reply_privately';
   const COMMENT_COUNT = 'comment_count';
   const CREATED_TIME = 'created_time';
   const FROM = 'from';
@@ -57,6 +58,7 @@ class CommentFields extends AbstractEnum {
   const OBJECT = 'object';
   const PARENT = 'parent';
   const PERMALINK_URL = 'permalink_url';
+  const PRIVATE_REPLY_CONVERSATION = 'private_reply_conversation';
   const USER_LIKES = 'user_likes';
 
   public function getFieldTypes() {
@@ -68,6 +70,7 @@ class CommentFields extends AbstractEnum {
       'can_hide' => 'bool',
       'can_like' => 'bool',
       'can_remove' => 'bool',
+      'can_reply_privately' => 'bool',
       'comment_count' => 'unsigned int',
       'created_time' => 'datetime',
       'from' => 'Object',
@@ -81,6 +84,7 @@ class CommentFields extends AbstractEnum {
       'object' => 'Object',
       'parent' => 'Comment',
       'permalink_url' => 'string',
+      'private_reply_conversation' => 'Object',
       'user_likes' => 'bool',
     );
   }

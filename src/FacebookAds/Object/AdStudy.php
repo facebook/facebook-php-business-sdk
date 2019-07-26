@@ -29,7 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdStudyFields;
-use FacebookAds\Object\Values\AdStudyAudienceTypeValues;
 use FacebookAds\Object\Values\AdStudyObjectiveTypeValues;
 use FacebookAds\Object\Values\AdStudyTypeValues;
 
@@ -61,7 +60,6 @@ class AdStudy extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['Type'] = AdStudyTypeValues::getInstance()->getValues();
-    $ref_enums['AudienceType'] = AdStudyAudienceTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -82,35 +80,6 @@ class AdStudy extends AbstractCrudObject {
       new AdStudyCell(),
       'EDGE',
       AdStudyCell::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createCustomAudience(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'account_id' => 'string',
-      'audience_name' => 'string',
-      'audience_type' => 'audience_type_enum',
-      'cell_id' => 'string',
-      'objective_id' => 'string',
-    );
-    $enums = array(
-      'audience_type_enum' => AdStudyAudienceTypeValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/customaudiences',
-      new AdStudy(),
-      'EDGE',
-      AdStudy::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

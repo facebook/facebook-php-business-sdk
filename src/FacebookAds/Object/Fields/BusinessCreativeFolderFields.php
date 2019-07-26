@@ -41,6 +41,7 @@ class BusinessCreativeFolderFields extends AbstractEnum {
   const CREATION_TIME = 'creation_time';
   const ID = 'id';
   const NAME = 'name';
+  const DESCRIPTION = 'description';
 
   public function getFieldTypes() {
     return array(
@@ -48,6 +49,7 @@ class BusinessCreativeFolderFields extends AbstractEnum {
       'creation_time' => 'datetime',
       'id' => 'string',
       'name' => 'string',
+      'description' => 'string',
     );
   }
 }

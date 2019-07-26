@@ -46,13 +46,6 @@ use FacebookAds\Object\Values\AdReportSpecFormatValues;
 class AdReportSpec extends AbstractCrudObject {
 
   /**
-   * @deprecated getEndpoint function is deprecated
-   */
-  protected function getEndpoint() {
-    return 'adreportspecs';
-  }
-
-  /**
    * @return AdReportSpecFields
    */
   public static function getFieldsEnum() {

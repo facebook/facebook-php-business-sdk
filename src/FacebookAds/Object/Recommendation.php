@@ -28,7 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\CopyrightAttributionInsightsFields;
+use FacebookAds\Object\Fields\RecommendationFields;
 
 /**
  * This class is auto-generated.
@@ -39,13 +39,13 @@ use FacebookAds\Object\Fields\CopyrightAttributionInsightsFields;
  *
  */
 
-class CopyrightAttributionInsights extends AbstractObject {
+class Recommendation extends AbstractObject {
 
   /**
-   * @return CopyrightAttributionInsightsFields
+   * @return RecommendationFields
    */
   public static function getFieldsEnum() {
-    return CopyrightAttributionInsightsFields::getInstance();
+    return RecommendationFields::getInstance();
   }
 
   protected static function getReferencedEnums() {

@@ -147,7 +147,6 @@ class AdCreative extends AbstractCrudObject {
       'dynamic_customization' => 'Object',
       'end_date' => 'datetime',
       'height' => 'unsigned int',
-      'interactive' => 'bool',
       'locale' => 'string',
       'place_page_id' => 'int',
       'post' => 'Object',

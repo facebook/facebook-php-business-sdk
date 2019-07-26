@@ -178,7 +178,6 @@ class AdsInsightsFields extends AbstractEnum {
   const IMPRESSION_DEVICE = 'impression_device';
   const IMPRESSIONS = 'impressions';
   const IMPRESSIONS_AUTO_REFRESH = 'impressions_auto_refresh';
-  const IMPRESSIONS_DUMMY = 'impressions_dummy';
   const IMPRESSIONS_GROSS = 'impressions_gross';
   const INLINE_LINK_CLICK_CTR = 'inline_link_click_ctr';
   const INLINE_LINK_CLICKS = 'inline_link_clicks';
@@ -415,7 +414,6 @@ class AdsInsightsFields extends AbstractEnum {
       'impression_device' => 'string',
       'impressions' => 'string',
       'impressions_auto_refresh' => 'string',
-      'impressions_dummy' => 'string',
       'impressions_gross' => 'string',
       'inline_link_click_ctr' => 'string',
       'inline_link_clicks' => 'string',

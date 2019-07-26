@@ -197,56 +197,6 @@ class CustomAudience extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createDatum(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'action_type' => 'action_type_enum',
-      'batch_seq' => 'unsigned int',
-      'encoding' => 'encoding_enum',
-      'entries' => 'list<string>',
-      'entry_type' => 'entry_type_enum',
-      'last_batch_flag' => 'bool',
-      'session_id' => 'unsigned int',
-    );
-    $enums = array(
-      'action_type_enum' => array(
-        'add',
-        'match',
-        'optout',
-        'remove',
-      ),
-      'encoding_enum' => array(
-        'md5',
-        'plain',
-        'sha256',
-      ),
-      'entry_type_enum' => array(
-        '0',
-        '1',
-        '2',
-        '3',
-        '4',
-        '5',
-        '6',
-      ),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/data',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getPrefills(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
