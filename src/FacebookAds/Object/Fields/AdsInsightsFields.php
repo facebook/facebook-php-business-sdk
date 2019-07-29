@@ -249,7 +249,6 @@ class AdsInsightsFields extends AbstractEnum {
   const VIDEO_15_SEC_WATCHED_ACTIONS = 'video_15_sec_watched_actions';
   const VIDEO_30_SEC_WATCHED_ACTIONS = 'video_30_sec_watched_actions';
   const VIDEO_ASSET = 'video_asset';
-  const VIDEO_AVG_PERCENT_WATCHED_ACTIONS = 'video_avg_percent_watched_actions';
   const VIDEO_AVG_TIME_WATCHED_ACTIONS = 'video_avg_time_watched_actions';
   const VIDEO_COMPLETE_WATCHED_ACTIONS = 'video_complete_watched_actions';
   const VIDEO_COMPLETED_VIEW_OR_15S_PASSED_ACTIONS = 'video_completed_view_or_15s_passed_actions';
@@ -258,7 +257,6 @@ class AdsInsightsFields extends AbstractEnum {
   const VIDEO_P25_WATCHED_ACTIONS = 'video_p25_watched_actions';
   const VIDEO_P50_WATCHED_ACTIONS = 'video_p50_watched_actions';
   const VIDEO_P75_WATCHED_ACTIONS = 'video_p75_watched_actions';
-  const VIDEO_P95_WATCHED_ACTIONS = 'video_p95_watched_actions';
   const VIDEO_PLAY_ACTIONS = 'video_play_actions';
   const VIDEO_PLAY_CURVE_ACTIONS = 'video_play_curve_actions';
   const VIDEO_PLAY_RETENTION_0_TO_15S_ACTIONS = 'video_play_retention_0_to_15s_actions';
@@ -485,7 +483,6 @@ class AdsInsightsFields extends AbstractEnum {
       'video_15_sec_watched_actions' => 'list<AdsActionStats>',
       'video_30_sec_watched_actions' => 'list<AdsActionStats>',
       'video_asset' => 'Object',
-      'video_avg_percent_watched_actions' => 'list<AdsActionStats>',
       'video_avg_time_watched_actions' => 'list<AdsActionStats>',
       'video_complete_watched_actions' => 'list<AdsActionStats>',
       'video_completed_view_or_15s_passed_actions' => 'list<AdsActionStats>',
@@ -494,7 +491,6 @@ class AdsInsightsFields extends AbstractEnum {
       'video_p25_watched_actions' => 'list<AdsActionStats>',
       'video_p50_watched_actions' => 'list<AdsActionStats>',
       'video_p75_watched_actions' => 'list<AdsActionStats>',
-      'video_p95_watched_actions' => 'list<AdsActionStats>',
       'video_play_actions' => 'list<AdsActionStats>',
       'video_play_curve_actions' => 'list<Object>',
       'video_play_retention_0_to_15s_actions' => 'list<Object>',

@@ -59,7 +59,6 @@ use FacebookAds\Object\Values\UserLocalNewsMegaphoneDismissStatusValues;
 use FacebookAds\Object\Values\UserLocalNewsSubscriptionStatusValues;
 use FacebookAds\Object\Values\UserResumeTypeValues;
 use FacebookAds\Object\Values\UserServiceTypeValues;
-use FacebookAds\Object\Values\UserTasksValues;
 use FacebookAds\Object\Values\UserTypeValues;
 
 /**
@@ -82,7 +81,6 @@ class User extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Tasks'] = UserTasksValues::getInstance()->getValues();
     $ref_enums['LocalNewsMegaphoneDismissStatus'] = UserLocalNewsMegaphoneDismissStatusValues::getInstance()->getValues();
     $ref_enums['LocalNewsSubscriptionStatus'] = UserLocalNewsSubscriptionStatusValues::getInstance()->getValues();
     $ref_enums['ResumeType'] = UserResumeTypeValues::getInstance()->getValues();
@@ -604,6 +602,29 @@ class User extends AbstractCrudObject {
       new PageUserMessageThreadLabel(),
       'EDGE',
       PageUserMessageThreadLabel::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getDomains(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/domains',
+      new Domain(),
+      'EDGE',
+      Domain::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1870,6 +1891,30 @@ class User extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getRichMediaDocuments(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'query' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/rich_media_documents',
+      new Canvas(),
+      'EDGE',
+      Canvas::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createScreenName(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1889,6 +1934,29 @@ class User extends AbstractCrudObject {
       new User(),
       'EDGE',
       User::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getSessionKeys(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/session_keys',
+      new PlatformSessionKey(),
+      'EDGE',
+      PlatformSessionKey::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

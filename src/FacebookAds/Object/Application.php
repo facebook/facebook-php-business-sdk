@@ -428,6 +428,90 @@ class Application extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getAppInsights(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'aggregateBy' => 'aggregateBy_enum',
+      'breakdowns' => 'list<string>',
+      'ecosystem' => 'ecosystem_enum',
+      'event_name' => 'string',
+      'intervals_to_aggregate' => 'int',
+      'metric_key' => 'string',
+      'period' => 'period_enum',
+      'since' => 'datetime',
+      'until' => 'datetime',
+    );
+    $enums = array(
+      'aggregateBy_enum' => array(
+        'AVERAGE_JOURNEY_LENGTH',
+        'CONVERTED_JOURNEY_PERCENT',
+        'COUNT',
+        'COUNT_IDENTIFIED_USERS',
+        'COUNT_PER_USER',
+        'DAU',
+        'EVENT_SOURCE_IDS',
+        'JOURNEY_CHANNEL_INCLUSION',
+        'JOURNEY_INCLUSION',
+        'MAU',
+        'MEDIAN_JOURNEY_LENGTH',
+        'MEDIAN_VALUE',
+        'MEDIAN_VALUE_PER_USER',
+        'OVERLAP',
+        'PERCENTILES_COUNT',
+        'PERCENTILES_USD_VALUE',
+        'PERCENTILES_VALUE',
+        'SCORE',
+        'SESSIONS_PER_JOURNEY',
+        'SESSION_BOUNCE_RATE',
+        'SUM',
+        'SUM_IDENTIFIED_USERS',
+        'SUM_PER_EVENT',
+        'TOPK',
+        'UNKNOWN_USERS',
+        'USD_SUM',
+        'USD_SUM_IDENTIFIED_USERS',
+        'USD_SUM_PER_EVENT',
+        'USD_SUM_PER_USER',
+        'USD_VALUE_PER_USER',
+        'USERS',
+        'USER_PROPERTY_USER_COUNT',
+        'VALUE_PER_USER',
+        'WAU',
+      ),
+      'ecosystem_enum' => array(
+        'GAME',
+        'NON_GAME',
+      ),
+      'period_enum' => array(
+        'daily',
+        'days_28',
+        'days_60',
+        'days_90',
+        'hourly',
+        'lifetime',
+        'mins_15',
+        'monthly',
+        'range',
+        'weekly',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/app_insights',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getAppInstalledGroups(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 

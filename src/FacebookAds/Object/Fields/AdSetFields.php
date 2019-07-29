@@ -42,7 +42,6 @@ class AdSetFields extends AbstractEnum {
   const ADSET_SCHEDULE = 'adset_schedule';
   const ASSET_FEED_ID = 'asset_feed_id';
   const ATTRIBUTION_SPEC = 'attribution_spec';
-  const BEST_CREATIVE = 'best_creative';
   const BID_ADJUSTMENTS = 'bid_adjustments';
   const BID_AMOUNT = 'bid_amount';
   const BID_CONSTRAINTS = 'bid_constraints';
@@ -107,7 +106,6 @@ class AdSetFields extends AbstractEnum {
       'adset_schedule' => 'list<DayPart>',
       'asset_feed_id' => 'string',
       'attribution_spec' => 'list<AttributionSpec>',
-      'best_creative' => 'AdDynamicCreative',
       'bid_adjustments' => 'AdBidAdjustments',
       'bid_amount' => 'unsigned int',
       'bid_constraints' => 'AdCampaignBidConstraint',

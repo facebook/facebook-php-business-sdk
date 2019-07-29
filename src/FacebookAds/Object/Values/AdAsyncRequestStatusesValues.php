@@ -46,4 +46,6 @@ class AdAsyncRequestStatusesValues extends AbstractEnum {
   const IN_PROGRESS = 'IN_PROGRESS';
   const PENDING_DEPENDENCY = 'PENDING_DEPENDENCY';
   const SUCCESS = 'SUCCESS';
+  const USER_CANCELED = 'USER_CANCELED';
+  const USER_CANCELED_DEPENDENCY = 'USER_CANCELED_DEPENDENCY';
 }
