@@ -256,6 +256,7 @@ class Event extends AbstractCrudObject {
         'INLINE_CREATED',
         'PUBLISHED',
         'SCHEDULED',
+        'SCHEDULED_RECURRING',
       ),
     );
 

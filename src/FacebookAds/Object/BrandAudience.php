@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\BrandAudienceFields;
 
 /**
  * This class is auto-generated.
@@ -33,20 +37,44 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdEffectiveStatusValues getInstance()
  */
-class AdEffectiveStatusValues extends AbstractEnum {
 
-  const ACTIVE = 'ACTIVE';
-  const ADSET_PAUSED = 'ADSET_PAUSED';
-  const ARCHIVED = 'ARCHIVED';
-  const CAMPAIGN_PAUSED = 'CAMPAIGN_PAUSED';
-  const DELETED = 'DELETED';
-  const DISAPPROVED = 'DISAPPROVED';
-  const IN_PROCESS = 'IN_PROCESS';
-  const PAUSED = 'PAUSED';
-  const PENDING_BILLING_INFO = 'PENDING_BILLING_INFO';
-  const PENDING_REVIEW = 'PENDING_REVIEW';
-  const PREAPPROVED = 'PREAPPROVED';
-  const WITH_ISSUES = 'WITH_ISSUES';
+class BrandAudience extends AbstractCrudObject {
+
+  /**
+   * @return BrandAudienceFields
+   */
+  public static function getFieldsEnum() {
+    return BrandAudienceFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new BrandAudience(),
+      'NODE',
+      BrandAudience::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
 }

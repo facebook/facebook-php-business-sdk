@@ -38,7 +38,6 @@ use FacebookAds\Enum\AbstractEnum;
 class ReachFrequencyEstimatesCurveFields extends AbstractEnum {
 
   const BUDGET = 'budget';
-  const CLICK = 'click';
   const CONVERSION = 'conversion';
   const IMPRESSION = 'impression';
   const INTERPOLATED_REACH = 'interpolated_reach';
@@ -50,7 +49,6 @@ class ReachFrequencyEstimatesCurveFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'budget' => 'list<int>',
-      'click' => 'list<int>',
       'conversion' => 'list<int>',
       'impression' => 'list<int>',
       'interpolated_reach' => 'float',

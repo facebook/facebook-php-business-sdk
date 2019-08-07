@@ -39,6 +39,7 @@ class AdSetDestinationTypeValues extends AbstractEnum {
 
   const APP = 'APP';
   const APPLINKS_AUTOMATIC = 'APPLINKS_AUTOMATIC';
+  const FACEBOOK = 'FACEBOOK';
   const MESSENGER = 'MESSENGER';
   const UNDEFINED = 'UNDEFINED';
   const WEBSITE = 'WEBSITE';

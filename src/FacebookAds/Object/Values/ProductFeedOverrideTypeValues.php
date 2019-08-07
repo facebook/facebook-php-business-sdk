@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ProductFeedOverrideTypeValues extends AbstractEnum {
 
+  const CATALOG_SEGMENT_CUSTOMIZE_DEFAULT = 'CATALOG_SEGMENT_CUSTOMIZE_DEFAULT';
   const COUNTRY = 'COUNTRY';
   const LANGUAGE = 'LANGUAGE';
 }

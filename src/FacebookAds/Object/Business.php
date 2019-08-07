@@ -46,6 +46,7 @@ use FacebookAds\Object\Values\AdVideoUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\AdVideoUploadPhaseValues;
 use FacebookAds\Object\Values\AdsPixelSortByValues;
 use FacebookAds\Object\Values\BusinessAgreementRequestStatusValues;
+use FacebookAds\Object\Values\BusinessAssetSharingAgreementRequestStatusValues;
 use FacebookAds\Object\Values\BusinessPagePermittedTasksValues;
 use FacebookAds\Object\Values\BusinessPermittedTasksValues;
 use FacebookAds\Object\Values\BusinessSurveyBusinessTypeValues;
@@ -1240,6 +1241,32 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getInitiatedAudienceSharingRequests(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'recipient_id' => 'string',
+      'request_status' => 'request_status_enum',
+    );
+    $enums = array(
+      'request_status_enum' => BusinessAssetSharingAgreementRequestStatusValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/initiated_audience_sharing_requests',
+      new BusinessAssetSharingAgreement(),
+      'EDGE',
+      BusinessAssetSharingAgreement::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getInitiatedSharingAgreements(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -2044,6 +2071,32 @@ class Business extends AbstractCrudObject {
       new AudiencePermission(),
       'EDGE',
       AudiencePermission::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getReceivedAudienceSharingRequests(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'initiator_id' => 'string',
+      'request_status' => 'request_status_enum',
+    );
+    $enums = array(
+      'request_status_enum' => BusinessAssetSharingAgreementRequestStatusValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/received_audience_sharing_requests',
+      new BusinessAssetSharingAgreement(),
+      'EDGE',
+      BusinessAssetSharingAgreement::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

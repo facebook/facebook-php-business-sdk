@@ -40,7 +40,7 @@ class CheckBatchRequestStatusFields extends AbstractEnum {
   const ERRORS = 'errors';
   const ERRORS_TOTAL_COUNT = 'errors_total_count';
   const HANDLE = 'handle';
-  const INVALID_ITEM_IDS = 'invalid_item_ids';
+  const IDS_OF_INVALID_REQUESTS = 'ids_of_invalid_requests';
   const STATUS = 'status';
   const WARNINGS = 'warnings';
   const WARNINGS_TOTAL_COUNT = 'warnings_total_count';
@@ -50,7 +50,7 @@ class CheckBatchRequestStatusFields extends AbstractEnum {
       'errors' => 'list<Object>',
       'errors_total_count' => 'int',
       'handle' => 'string',
-      'invalid_item_ids' => 'list<string>',
+      'ids_of_invalid_requests' => 'list<string>',
       'status' => 'string',
       'warnings' => 'list<Object>',
       'warnings_total_count' => 'int',

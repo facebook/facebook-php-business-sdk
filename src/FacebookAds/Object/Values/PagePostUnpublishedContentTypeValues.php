@@ -42,4 +42,5 @@ class PagePostUnpublishedContentTypeValues extends AbstractEnum {
   const INLINE_CREATED = 'INLINE_CREATED';
   const PUBLISHED = 'PUBLISHED';
   const SCHEDULED = 'SCHEDULED';
+  const SCHEDULED_RECURRING = 'SCHEDULED_RECURRING';
 }

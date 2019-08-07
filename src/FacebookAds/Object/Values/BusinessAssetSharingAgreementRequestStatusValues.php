@@ -33,20 +33,12 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdEffectiveStatusValues getInstance()
+ * @method static BusinessAssetSharingAgreementRequestStatusValues getInstance()
  */
-class AdEffectiveStatusValues extends AbstractEnum {
+class BusinessAssetSharingAgreementRequestStatusValues extends AbstractEnum {
 
-  const ACTIVE = 'ACTIVE';
-  const ADSET_PAUSED = 'ADSET_PAUSED';
-  const ARCHIVED = 'ARCHIVED';
-  const CAMPAIGN_PAUSED = 'CAMPAIGN_PAUSED';
-  const DELETED = 'DELETED';
-  const DISAPPROVED = 'DISAPPROVED';
-  const IN_PROCESS = 'IN_PROCESS';
-  const PAUSED = 'PAUSED';
-  const PENDING_BILLING_INFO = 'PENDING_BILLING_INFO';
-  const PENDING_REVIEW = 'PENDING_REVIEW';
-  const PREAPPROVED = 'PREAPPROVED';
-  const WITH_ISSUES = 'WITH_ISSUES';
+  const APPROVE = 'APPROVE';
+  const DECLINE = 'DECLINE';
+  const EXPIRED = 'EXPIRED';
+  const IN_PROGRESS = 'IN_PROGRESS';
 }

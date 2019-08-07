@@ -39,6 +39,7 @@ class AdRuleExecutionSpecExecutionTypeValues extends AbstractEnum {
 
   const CHANGE_BID = 'CHANGE_BID';
   const CHANGE_BUDGET = 'CHANGE_BUDGET';
+  const CHANGE_CAMPAIGN_BUDGET = 'CHANGE_CAMPAIGN_BUDGET';
   const NOTIFICATION = 'NOTIFICATION';
   const PAUSE = 'PAUSE';
   const PING_ENDPOINT = 'PING_ENDPOINT';

@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,20 +33,33 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdEffectiveStatusValues getInstance()
  */
-class AdEffectiveStatusValues extends AbstractEnum {
 
-  const ACTIVE = 'ACTIVE';
-  const ADSET_PAUSED = 'ADSET_PAUSED';
-  const ARCHIVED = 'ARCHIVED';
-  const CAMPAIGN_PAUSED = 'CAMPAIGN_PAUSED';
-  const DELETED = 'DELETED';
-  const DISAPPROVED = 'DISAPPROVED';
-  const IN_PROCESS = 'IN_PROCESS';
-  const PAUSED = 'PAUSED';
-  const PENDING_BILLING_INFO = 'PENDING_BILLING_INFO';
-  const PENDING_REVIEW = 'PENDING_REVIEW';
-  const PREAPPROVED = 'PREAPPROVED';
-  const WITH_ISSUES = 'WITH_ISSUES';
+class BrandAudienceFields extends AbstractEnum {
+
+  const ACCOUNT = 'account';
+  const DELIVERY_TARGETING = 'delivery_targeting';
+  const DESCRIPTION = 'description';
+  const ID = 'id';
+  const NAME = 'name';
+  const SENTENCE_LINES = 'sentence_lines';
+  const STATUS = 'status';
+  const TARGETING = 'targeting';
+  const TIME_CREATED = 'time_created';
+  const TIME_UPDATED = 'time_updated';
+
+  public function getFieldTypes() {
+    return array(
+      'account' => 'AdAccount',
+      'delivery_targeting' => 'Targeting',
+      'description' => 'string',
+      'id' => 'string',
+      'name' => 'string',
+      'sentence_lines' => 'list',
+      'status' => 'string',
+      'targeting' => 'Targeting',
+      'time_created' => 'datetime',
+      'time_updated' => 'datetime',
+    );
+  }
 }

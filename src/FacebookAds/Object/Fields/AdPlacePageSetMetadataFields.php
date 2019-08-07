@@ -38,12 +38,14 @@ use FacebookAds\Enum\AbstractEnum;
 class AdPlacePageSetMetadataFields extends AbstractEnum {
 
   const AUDIENCE = 'audience';
+  const CUSTOM = 'custom';
   const EXTRA_DATA = 'extra_data';
   const FIXED_RADIUS = 'fixed_radius';
 
   public function getFieldTypes() {
     return array(
       'audience' => 'Object',
+      'custom' => 'Object',
       'extra_data' => 'string',
       'fixed_radius' => 'Object',
     );

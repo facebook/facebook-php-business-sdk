@@ -37,6 +37,8 @@ use FacebookAds\Enum\AbstractEnum;
 
 class BusinessAdvertisableApplicationsResultFields extends AbstractEnum {
 
+  const ARE_APP_EVENTS_UNAVAILABLE = 'are_app_events_unavailable';
+  const BUSINESS = 'business';
   const HAS_INSIGHT_PERMISSION = 'has_insight_permission';
   const ID = 'id';
   const NAME = 'name';
@@ -44,6 +46,8 @@ class BusinessAdvertisableApplicationsResultFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'are_app_events_unavailable' => 'bool',
+      'business' => 'Business',
       'has_insight_permission' => 'bool',
       'id' => 'string',
       'name' => 'string',

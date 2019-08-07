@@ -40,6 +40,7 @@ class CampaignEffectiveStatusValues extends AbstractEnum {
   const ACTIVE = 'ACTIVE';
   const ARCHIVED = 'ARCHIVED';
   const DELETED = 'DELETED';
+  const IN_PROCESS = 'IN_PROCESS';
   const PAUSED = 'PAUSED';
   const WITH_ISSUES = 'WITH_ISSUES';
 }

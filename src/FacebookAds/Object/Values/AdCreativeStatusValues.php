@@ -39,4 +39,6 @@ class AdCreativeStatusValues extends AbstractEnum {
 
   const ACTIVE = 'ACTIVE';
   const DELETED = 'DELETED';
+  const IN_PROCESS = 'IN_PROCESS';
+  const WITH_ISSUES = 'WITH_ISSUES';
 }
