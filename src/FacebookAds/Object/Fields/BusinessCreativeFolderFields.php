@@ -39,17 +39,17 @@ class BusinessCreativeFolderFields extends AbstractEnum {
 
   const BUSINESS = 'business';
   const CREATION_TIME = 'creation_time';
+  const DESCRIPTION = 'description';
   const ID = 'id';
   const NAME = 'name';
-  const DESCRIPTION = 'description';
 
   public function getFieldTypes() {
     return array(
       'business' => 'Business',
       'creation_time' => 'datetime',
+      'description' => 'string',
       'id' => 'string',
       'name' => 'string',
-      'description' => 'string',
     );
   }
 }

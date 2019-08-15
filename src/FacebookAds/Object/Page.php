@@ -53,6 +53,7 @@ use FacebookAds\Object\Values\LiveVideoStatusValues;
 use FacebookAds\Object\Values\LiveVideoStereoscopicModeValues;
 use FacebookAds\Object\Values\LiveVideoStreamTypeValues;
 use FacebookAds\Object\Values\MediaFingerprintFingerprintContentTypeValues;
+use FacebookAds\Object\Values\MediaFingerprintFingerprintValidityValues;
 use FacebookAds\Object\Values\NativeOfferBarcodeTypeValues;
 use FacebookAds\Object\Values\NativeOfferLocationTypeValues;
 use FacebookAds\Object\Values\PageAttireValues;
@@ -89,6 +90,7 @@ use FacebookAds\Object\Values\PhotoUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
 use FacebookAds\Object\Values\VideoCopyrightContentCategoryValues;
 use FacebookAds\Object\Values\VideoCopyrightMonitoringTypeValues;
+use FacebookAds\Object\Values\VideoCopyrightRuleSourceValues;
 
 /**
  * This class is auto-generated.
@@ -1693,6 +1695,32 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getMediaFingerprints(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'fingerprint_validity' => 'fingerprint_validity_enum',
+      'universal_content_id' => 'string',
+    );
+    $enums = array(
+      'fingerprint_validity_enum' => MediaFingerprintFingerprintValidityValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/media_fingerprints',
+      new MediaFingerprint(),
+      'EDGE',
+      MediaFingerprint::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createMediaFingerprint(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -2875,6 +2903,35 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createTab(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'app_id' => 'int',
+      'custom_image_url' => 'string',
+      'custom_name' => 'string',
+      'is_non_connection_landing_tab' => 'bool',
+      'position' => 'int',
+      'tab' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/tabs',
+      new Page(),
+      'EDGE',
+      Page::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getTagged(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -3102,6 +3159,32 @@ class Page extends AbstractCrudObject {
       new PageUpcomingChange(),
       'EDGE',
       PageUpcomingChange::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getVideoCopyrightRules(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'selected_rule_id' => 'string',
+      'source' => 'source_enum',
+    );
+    $enums = array(
+      'source_enum' => VideoCopyrightRuleSourceValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/video_copyright_rules',
+      new VideoCopyrightRule(),
+      'EDGE',
+      VideoCopyrightRule::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

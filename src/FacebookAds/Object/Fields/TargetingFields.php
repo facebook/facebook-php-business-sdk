@@ -161,7 +161,7 @@ class TargetingFields extends AbstractEnum {
       'exclude_reached_since' => 'list<string>',
       'excluded_brand_safety_content_types' => 'list<string>',
       'excluded_connections' => 'list<IDName>',
-      'excluded_custom_audiences' => 'list<IDName>',
+      'excluded_custom_audiences' => 'list<RawCustomAudience>',
       'excluded_dynamic_audience_ids' => 'list<string>',
       'excluded_engagement_specs' => 'list<TargetingDynamicRule>',
       'excluded_geo_locations' => 'TargetingGeoLocation',

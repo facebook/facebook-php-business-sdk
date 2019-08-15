@@ -556,6 +556,29 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getBusinessAssetGroups(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/business_asset_groups',
+      new BusinessAssetGroup(),
+      'EDGE',
+      BusinessAssetGroup::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getBusinessInvoices(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
