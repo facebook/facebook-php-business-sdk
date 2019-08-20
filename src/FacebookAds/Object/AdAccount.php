@@ -1411,6 +1411,7 @@ class AdAccount extends AbstractCrudObject {
       'video_file_chunk' => 'string',
       'video_start_time_ms' => 'unsigned int',
       'waterfall_id' => 'string',
+      'source' => 'file',
     );
     $enums = array(
       'container_type_enum' => AdVideoContainerTypeValues::getInstance()->getValues(),
