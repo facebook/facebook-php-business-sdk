@@ -13,6 +13,20 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Graph API call upgrade to [v3.3](https://developers.facebook.com/docs/graph-api/changelog/version3.3)
 ### Deprecated
-- `parentID` in `AbstractCrudObject`.
-- Function `create`, `read`, `update` for `AbstractCrudObject`. Check out our [recommended way](https://github.com/facebook/facebook-php-business-sdk#object-classes) to make API call.
+- Deprecated `parentID` in `AbstractCrudObject`.
 - Deprecated `CustomAudienceMultiKey`, use class `CustomAudience` instead.
+- Deprecated functions `create`, `read`, `update` in `AbstractCrudObject`. Check out our [recommended way](https://github.com/facebook/facebook-php-business-sdk#object-classes) to make API call.
+***`read` will reset the object fields, while `getSelf` will get a new object.*** For example : 
+### 
+  ```
+  $async_job = $adaccount->getInsightsAsync($fields, $params);
+
+  $async_job = $async_job->getSelf();
+
+  while (!$async_job->isComplete()) {
+    sleep(1);
+    $async_job = $async_job->getSelf();
+  }
+  ```
+
+
