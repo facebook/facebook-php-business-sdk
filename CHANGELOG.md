@@ -17,7 +17,6 @@ All notable changes to this project will be documented in this file.
 - Deprecated `CustomAudienceMultiKey`, use class `CustomAudience` instead.
 - Deprecated functions `create`, `read`, `update` in `AbstractCrudObject`. Check out our [recommended way](https://github.com/facebook/facebook-php-business-sdk#object-classes) to make API call.
 ***`read` will reset the object fields, while `getSelf` will get a new object.*** For example : 
-### 
   ```
   $async_job = $adaccount->getInsightsAsync($fields, $params);
 
