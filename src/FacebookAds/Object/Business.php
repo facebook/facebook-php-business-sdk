@@ -206,7 +206,6 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'billing_address_id' => 'string',
       'currency' => 'string',
       'end_advertiser' => 'Object',
       'funding_id' => 'string',
@@ -214,12 +213,10 @@ class Business extends AbstractCrudObject {
       'invoice_group_id' => 'string',
       'invoicing_emails' => 'list<string>',
       'io' => 'bool',
-      'liable_address_id' => 'string',
       'media_agency' => 'string',
       'name' => 'string',
       'partner' => 'string',
       'po_number' => 'string',
-      'sold_to_address_id' => 'string',
       'timezone_id' => 'unsigned int',
     );
     $enums = array(

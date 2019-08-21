@@ -636,6 +636,30 @@ class Application extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function deleteBanned(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'uids' => 'list<int>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/banned',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getBanned(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -883,6 +907,64 @@ class Application extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/full_app_indexing_infos',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createInsightsPushSchedule(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'ad_account_ids' => 'list',
+      'breakdowns' => 'list<string>',
+      'date_preset' => 'string',
+      'level' => 'level_enum',
+      'metrics' => 'list<string>',
+      'object_id' => 'string',
+      'owner_id' => 'Object',
+      'schedule' => 'schedule_enum',
+      'status' => 'status_enum',
+      'time_created' => 'datetime',
+      'time_increment' => 'unsigned int',
+      'time_last_fail' => 'datetime',
+      'time_last_run' => 'datetime',
+      'time_last_success' => 'datetime',
+      'time_start' => 'datetime',
+      'time_stop' => 'datetime',
+      'time_updated' => 'datetime',
+    );
+    $enums = array(
+      'level_enum' => array(
+        'ACCOUNT',
+        'AD',
+        'ADSET',
+        'CAMPAIGN',
+      ),
+      'schedule_enum' => array(
+        'DAILY',
+        'FINE_15_MIN',
+        'FINE_5_MIN',
+        'MONTHLY',
+        'WEEKLY',
+      ),
+      'status_enum' => array(
+        'ACTIVE',
+        'DISABLED',
+        'ERROR',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/insights_push_schedule',
       new AbstractCrudObject(),
       'EDGE',
       array(),

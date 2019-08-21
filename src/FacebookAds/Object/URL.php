@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\URLFields;
+use FacebookAds\Object\Values\URLScopesValues;
 
 /**
  * This class is auto-generated.
@@ -50,6 +51,7 @@ class URL extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['Scopes'] = URLScopesValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -81,11 +83,14 @@ class URL extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'blacklist' => 'bool',
       'hmac' => 'string',
       'locale' => 'list',
+      'scopes' => 'list<scopes_enum>',
       'ts' => 'datetime',
     );
     $enums = array(
+      'scopes_enum' => URLScopesValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

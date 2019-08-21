@@ -58,6 +58,7 @@ class BusinessImage extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'time_range' => 'Object',
     );
     $enums = array(
     );
