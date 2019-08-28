@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\PartnerCouponOfferFields;
 
 /**
  * This class is auto-generated.
@@ -33,22 +37,44 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static PageTasksValues getInstance()
  */
-class PageTasksValues extends AbstractEnum {
 
-  const ADVERTISE = 'ADVERTISE';
-  const ANALYZE = 'ANALYZE';
-  const CREATE_CONTENT = 'CREATE_CONTENT';
-  const MANAGE = 'MANAGE';
-  const MANAGE_JOBS = 'MANAGE_JOBS';
-  const MANAGE_LEADS = 'MANAGE_LEADS';
-  const MODERATE = 'MODERATE';
-  const MODERATE_COMMUNITY = 'MODERATE_COMMUNITY';
-  const PAGES_MESSAGING = 'PAGES_MESSAGING';
-  const PAGES_MESSAGING_SUBSCRIPTIONS = 'PAGES_MESSAGING_SUBSCRIPTIONS';
-  const PLATFORM_MANAGE_PAGES = 'PLATFORM_MANAGE_PAGES';
-  const PLATFORM_READ_INSIGHTS = 'PLATFORM_READ_INSIGHTS';
-  const READ_PAGE_MAILBOXES = 'READ_PAGE_MAILBOXES';
-  const VIEW_MONETIZATION_INSIGHTS = 'VIEW_MONETIZATION_INSIGHTS';
+class PartnerCouponOffer extends AbstractCrudObject {
+
+  /**
+   * @return PartnerCouponOfferFields
+   */
+  public static function getFieldsEnum() {
+    return PartnerCouponOfferFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new PartnerCouponOffer(),
+      'NODE',
+      PartnerCouponOffer::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
 }

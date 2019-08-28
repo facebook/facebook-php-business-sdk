@@ -39,6 +39,7 @@ class AdPromotedObjectFields extends AbstractEnum {
 
   const APPLICATION_ID = 'application_id';
   const CUSTOM_CONVERSION_ID = 'custom_conversion_id';
+  const CUSTOM_EVENT_STR = 'custom_event_str';
   const CUSTOM_EVENT_TYPE = 'custom_event_type';
   const EVENT_ID = 'event_id';
   const FUNDRAISER_CAMPAIGN_ID = 'fundraiser_campaign_id';
@@ -59,6 +60,7 @@ class AdPromotedObjectFields extends AbstractEnum {
     return array(
       'application_id' => 'string',
       'custom_conversion_id' => 'string',
+      'custom_event_str' => 'string',
       'custom_event_type' => 'CustomEventType',
       'event_id' => 'string',
       'fundraiser_campaign_id' => 'string',

@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,22 +33,25 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static PageTasksValues getInstance()
  */
-class PageTasksValues extends AbstractEnum {
 
-  const ADVERTISE = 'ADVERTISE';
-  const ANALYZE = 'ANALYZE';
-  const CREATE_CONTENT = 'CREATE_CONTENT';
-  const MANAGE = 'MANAGE';
-  const MANAGE_JOBS = 'MANAGE_JOBS';
-  const MANAGE_LEADS = 'MANAGE_LEADS';
-  const MODERATE = 'MODERATE';
-  const MODERATE_COMMUNITY = 'MODERATE_COMMUNITY';
-  const PAGES_MESSAGING = 'PAGES_MESSAGING';
-  const PAGES_MESSAGING_SUBSCRIPTIONS = 'PAGES_MESSAGING_SUBSCRIPTIONS';
-  const PLATFORM_MANAGE_PAGES = 'PLATFORM_MANAGE_PAGES';
-  const PLATFORM_READ_INSIGHTS = 'PLATFORM_READ_INSIGHTS';
-  const READ_PAGE_MAILBOXES = 'READ_PAGE_MAILBOXES';
-  const VIEW_MONETIZATION_INSIGHTS = 'VIEW_MONETIZATION_INSIGHTS';
+class PartnerCouponOfferFields extends AbstractEnum {
+
+  const CLAIM_BY = 'claim_by';
+  const CURRENCY = 'currency';
+  const EXPIRATION_DAYS = 'expiration_days';
+  const ID = 'id';
+  const MINIMUM_SPEND = 'minimum_spend';
+  const OFFER_AMOUNT = 'offer_amount';
+
+  public function getFieldTypes() {
+    return array(
+      'claim_by' => 'datetime',
+      'currency' => 'string',
+      'expiration_days' => 'int',
+      'id' => 'string',
+      'minimum_spend' => 'int',
+      'offer_amount' => 'int',
+    );
+  }
 }

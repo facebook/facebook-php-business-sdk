@@ -44,9 +44,11 @@ use FacebookAds\Object\Values\AdVideoOriginalProjectionTypeValues;
 use FacebookAds\Object\Values\AdVideoSwapModeValues;
 use FacebookAds\Object\Values\AdVideoUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\AdVideoUploadPhaseValues;
+use FacebookAds\Object\Values\AdVideoValidationAdPlacementValues;
 use FacebookAds\Object\Values\AdsPixelSortByValues;
 use FacebookAds\Object\Values\BusinessAgreementRequestStatusValues;
 use FacebookAds\Object\Values\BusinessAssetSharingAgreementRequestStatusValues;
+use FacebookAds\Object\Values\BusinessImageValidationAdPlacementsValues;
 use FacebookAds\Object\Values\BusinessPagePermittedTasksValues;
 use FacebookAds\Object\Values\BusinessPermittedTasksValues;
 use FacebookAds\Object\Values\BusinessSurveyBusinessTypeValues;
@@ -1242,8 +1244,10 @@ class Business extends AbstractCrudObject {
       'bytes' => 'Object',
       'creative_folder_id' => 'string',
       'name' => 'string',
+      'validation_ad_placements' => 'list<validation_ad_placements_enum>',
     );
     $enums = array(
+      'validation_ad_placements_enum' => BusinessImageValidationAdPlacementsValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1251,9 +1255,9 @@ class Business extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/images',
-      new AbstractCrudObject(),
+      new BusinessImage(),
       'EDGE',
-      array(),
+      BusinessImage::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1383,6 +1387,31 @@ class Business extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/managed_businesses',
+      new Business(),
+      'EDGE',
+      Business::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createMoveAsset(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'asset_id' => 'string',
+      'client_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/move_asset',
       new Business(),
       'EDGE',
       Business::getFieldsEnum()->getValues(),
@@ -2426,6 +2455,7 @@ class Business extends AbstractCrudObject {
       'upload_phase' => 'upload_phase_enum',
       'upload_session_id' => 'string',
       'upload_setting_properties' => 'string',
+      'validation_ad_placement' => 'validation_ad_placement_enum',
       'video_file_chunk' => 'string',
       'video_start_time_ms' => 'unsigned int',
       'waterfall_id' => 'string',
@@ -2438,6 +2468,7 @@ class Business extends AbstractCrudObject {
       'swap_mode_enum' => AdVideoSwapModeValues::getInstance()->getValues(),
       'unpublished_content_type_enum' => AdVideoUnpublishedContentTypeValues::getInstance()->getValues(),
       'upload_phase_enum' => AdVideoUploadPhaseValues::getInstance()->getValues(),
+      'validation_ad_placement_enum' => AdVideoValidationAdPlacementValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

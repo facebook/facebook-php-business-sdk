@@ -33,9 +33,9 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdPreviewAdFormatValues getInstance()
+ * @method static AdVideoValidationAdPlacementValues getInstance()
  */
-class AdPreviewAdFormatValues extends AbstractEnum {
+class AdVideoValidationAdPlacementValues extends AbstractEnum {
 
   const AUDIENCE_NETWORK_INSTREAM_VIDEO = 'AUDIENCE_NETWORK_INSTREAM_VIDEO';
   const AUDIENCE_NETWORK_INSTREAM_VIDEO_MOBILE = 'AUDIENCE_NETWORK_INSTREAM_VIDEO_MOBILE';
