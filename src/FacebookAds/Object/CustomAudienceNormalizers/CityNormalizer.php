@@ -24,7 +24,6 @@
 
 namespace FacebookAds\Object\CustomAudienceNormalizers;
 
-use FacebookAds\Object\CustomAudienceMultiKey;
 use FacebookAds\Object\Fields\CustomAudienceMultikeySchemaFields;
 use FacebookAds\Object\CustomAudienceNormalizers\ValueNormalizerInterface;
 
