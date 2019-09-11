@@ -135,6 +135,7 @@ class ApplicationFields extends AbstractEnum {
   const USER_SUPPORT_URL = 'user_support_url';
   const WEBSITE_URL = 'website_url';
   const WEEKLY_ACTIVE_USERS = 'weekly_active_users';
+  const APP_ID = 'app_id';
 
   public function getFieldTypes() {
     return array(
@@ -236,6 +237,7 @@ class ApplicationFields extends AbstractEnum {
       'user_support_url' => 'string',
       'website_url' => 'string',
       'weekly_active_users' => 'string',
+      'app_id' => 'string',
     );
   }
 }

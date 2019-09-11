@@ -55,10 +55,10 @@ class GroupGroupTypeValues extends AbstractEnum {
   const HIGH_SCHOOL_FORUM = 'HIGH_SCHOOL_FORUM';
   const JOBS = 'JOBS';
   const LEARNING = 'LEARNING';
-  const MEME = 'MEME';
   const MENTORSHIP = 'MENTORSHIP';
   const NEIGHBORS = 'NEIGHBORS';
   const NONE = 'NONE';
+  const PARENTING = 'PARENTING';
   const PARENTS = 'PARENTS';
   const PROJECT = 'PROJECT';
   const REAL_WORLD = 'REAL_WORLD';

@@ -373,7 +373,7 @@ class Page extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'asid' => 'Object',
+      'asid' => 'string',
       'psid' => 'Object',
       'uid' => 'Object',
       'user' => 'Object',

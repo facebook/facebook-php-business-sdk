@@ -31,6 +31,7 @@ use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\NativeOfferFields;
 use FacebookAds\Object\Values\NativeOfferBarcodeTypeValues;
 use FacebookAds\Object\Values\NativeOfferLocationTypeValues;
+use FacebookAds\Object\Values\NativeOfferUniqueCodesFileCodeTypeValues;
 
 /**
  * This class is auto-generated.
@@ -52,11 +53,38 @@ class NativeOffer extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['UniqueCodesFileCodeType'] = NativeOfferUniqueCodesFileCodeTypeValues::getInstance()->getValues();
     $ref_enums['BarcodeType'] = NativeOfferBarcodeTypeValues::getInstance()->getValues();
     $ref_enums['LocationType'] = NativeOfferLocationTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 
+
+  public function createCode(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'file' => 'file',
+      'unique_codes_file_code_type' => 'unique_codes_file_code_type_enum',
+    );
+    $enums = array(
+      'unique_codes_file_code_type_enum' => NativeOfferUniqueCodesFileCodeTypeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/codes',
+      new NativeOffer(),
+      'EDGE',
+      NativeOffer::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
   public function createNativeOfferView(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();

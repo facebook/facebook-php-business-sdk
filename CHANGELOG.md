@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 
 ## Unreleased
+
+## v4.0.5
+
 ### Fixed
  - Introduce `addUsersMultiKey` and `removeUsersMultiKey` in `CustomAudience` to still allow add users to `CustomAudience` with multiple keys after `CustomAudienceMultiKey` been deprecated.
 
@@ -33,3 +36,4 @@ All notable changes to this project will be documented in this file.
     $async_job = $async_job->getSelf();
   }
   ```
+

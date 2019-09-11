@@ -44,7 +44,7 @@ use FacebookAds\Object\Values\AdVideoOriginalProjectionTypeValues;
 use FacebookAds\Object\Values\AdVideoSwapModeValues;
 use FacebookAds\Object\Values\AdVideoUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\AdVideoUploadPhaseValues;
-use FacebookAds\Object\Values\AdVideoValidationAdPlacementValues;
+use FacebookAds\Object\Values\AdVideoValidationAdPlacementsValues;
 use FacebookAds\Object\Values\AdsPixelSortByValues;
 use FacebookAds\Object\Values\BusinessAgreementRequestStatusValues;
 use FacebookAds\Object\Values\BusinessAssetSharingAgreementRequestStatusValues;
@@ -1241,6 +1241,7 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'ad_placements_validation_only' => 'bool',
       'bytes' => 'Object',
       'creative_folder_id' => 'string',
       'name' => 'string',
@@ -1822,6 +1823,7 @@ class Business extends AbstractCrudObject {
       'destination_catalog_settings' => 'map',
       'flight_catalog_settings' => 'map',
       'name' => 'string',
+      'store_catalog_settings' => 'map',
       'vertical' => 'vertical_enum',
     );
     $enums = array(
@@ -2387,6 +2389,7 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'ad_placements_validation_only' => 'bool',
       'adaptive_type' => 'string',
       'animated_effect_id' => 'unsigned int',
       'application_id' => 'string',
@@ -2455,7 +2458,7 @@ class Business extends AbstractCrudObject {
       'upload_phase' => 'upload_phase_enum',
       'upload_session_id' => 'string',
       'upload_setting_properties' => 'string',
-      'validation_ad_placement' => 'validation_ad_placement_enum',
+      'validation_ad_placements' => 'list<validation_ad_placements_enum>',
       'video_file_chunk' => 'string',
       'video_start_time_ms' => 'unsigned int',
       'waterfall_id' => 'string',
@@ -2468,7 +2471,7 @@ class Business extends AbstractCrudObject {
       'swap_mode_enum' => AdVideoSwapModeValues::getInstance()->getValues(),
       'unpublished_content_type_enum' => AdVideoUnpublishedContentTypeValues::getInstance()->getValues(),
       'upload_phase_enum' => AdVideoUploadPhaseValues::getInstance()->getValues(),
-      'validation_ad_placement_enum' => AdVideoValidationAdPlacementValues::getInstance()->getValues(),
+      'validation_ad_placements_enum' => AdVideoValidationAdPlacementsValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

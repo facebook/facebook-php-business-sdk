@@ -58,6 +58,13 @@ use FacebookAds\Object\Values\EventTypeValues;
 class Application extends AbstractCrudObject {
 
   /**
+   * @deprecated getEndpoint function is deprecated
+   */
+  protected function getEndpoint() {
+    return 'subscribed_apps';
+  }
+
+  /**
    * @return ApplicationFields
    */
   public static function getFieldsEnum() {

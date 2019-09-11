@@ -96,6 +96,7 @@ class AdsInsightsFields extends AbstractEnum {
   const CONDITIONAL_TIME_SPENT_MS_OVER_6S_ACTIONS = 'conditional_time_spent_ms_over_6s_actions';
   const CONTACT_ACTIONS = 'contact_actions';
   const CONTACT_VALUE = 'contact_value';
+  const CONVERSION_RATE_RANKING = 'conversion_rate_ranking';
   const CONVERSION_VALUES = 'conversion_values';
   const CONVERSIONS = 'conversions';
   const COST_PER_10_SEC_VIDEO_VIEW = 'cost_per_10_sec_video_view';
@@ -158,6 +159,7 @@ class AdsInsightsFields extends AbstractEnum {
   const DWELL_7_SEC = 'dwell_7_sec';
   const DWELL_RATE = 'dwell_rate';
   const EARNED_IMPRESSION = 'earned_impression';
+  const ENGAGEMENT_RATE_RANKING = 'engagement_rate_ranking';
   const ESTIMATED_AD_RECALL_RATE = 'estimated_ad_recall_rate';
   const ESTIMATED_AD_RECALL_RATE_LOWER_BOUND = 'estimated_ad_recall_rate_lower_bound';
   const ESTIMATED_AD_RECALL_RATE_UPPER_BOUND = 'estimated_ad_recall_rate_upper_bound';
@@ -206,6 +208,7 @@ class AdsInsightsFields extends AbstractEnum {
   const PRODUCT_ID = 'product_id';
   const PUBLISHER_PLATFORM = 'publisher_platform';
   const PURCHASE_ROAS = 'purchase_roas';
+  const QUALITY_RANKING = 'quality_ranking';
   const QUALITY_SCORE_ECTR = 'quality_score_ectr';
   const QUALITY_SCORE_ECVR = 'quality_score_ecvr';
   const QUALITY_SCORE_ENFBR = 'quality_score_enfbr';
@@ -330,6 +333,7 @@ class AdsInsightsFields extends AbstractEnum {
       'conditional_time_spent_ms_over_6s_actions' => 'list<AdsActionStats>',
       'contact_actions' => 'list<AdsActionStats>',
       'contact_value' => 'list<AdsActionStats>',
+      'conversion_rate_ranking' => 'string',
       'conversion_values' => 'list<AdsActionStats>',
       'conversions' => 'list<AdsActionStats>',
       'cost_per_10_sec_video_view' => 'list<AdsActionStats>',
@@ -392,6 +396,7 @@ class AdsInsightsFields extends AbstractEnum {
       'dwell_7_sec' => 'string',
       'dwell_rate' => 'string',
       'earned_impression' => 'string',
+      'engagement_rate_ranking' => 'string',
       'estimated_ad_recall_rate' => 'string',
       'estimated_ad_recall_rate_lower_bound' => 'string',
       'estimated_ad_recall_rate_upper_bound' => 'string',
@@ -440,6 +445,7 @@ class AdsInsightsFields extends AbstractEnum {
       'product_id' => 'string',
       'publisher_platform' => 'string',
       'purchase_roas' => 'list<AdsActionStats>',
+      'quality_ranking' => 'string',
       'quality_score_ectr' => 'string',
       'quality_score_ecvr' => 'string',
       'quality_score_enfbr' => 'string',

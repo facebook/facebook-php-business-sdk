@@ -38,7 +38,7 @@ use FacebookAds\Object\Values\AdVideoSwapModeValues;
 use FacebookAds\Object\Values\AdVideoTypeValues;
 use FacebookAds\Object\Values\AdVideoUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\AdVideoUploadPhaseValues;
-use FacebookAds\Object\Values\AdVideoValidationAdPlacementValues;
+use FacebookAds\Object\Values\AdVideoValidationAdPlacementsValues;
 use FacebookAds\Object\Values\AdVideoVideoPollWwwPlacementValues;
 use FacebookAds\Object\Values\CommentCommentPrivacyValueValues;
 use FacebookAds\Object\Values\CommentFilterValues;
@@ -84,7 +84,7 @@ class AdVideo extends AbstractCrudObject {
     $ref_enums['SwapMode'] = AdVideoSwapModeValues::getInstance()->getValues();
     $ref_enums['UnpublishedContentType'] = AdVideoUnpublishedContentTypeValues::getInstance()->getValues();
     $ref_enums['UploadPhase'] = AdVideoUploadPhaseValues::getInstance()->getValues();
-    $ref_enums['ValidationAdPlacement'] = AdVideoValidationAdPlacementValues::getInstance()->getValues();
+    $ref_enums['ValidationAdPlacements'] = AdVideoValidationAdPlacementsValues::getInstance()->getValues();
     $ref_enums['Type'] = AdVideoTypeValues::getInstance()->getValues();
     $ref_enums['BackdatedTimeGranularity'] = AdVideoBackdatedTimeGranularityValues::getInstance()->getValues();
     $ref_enums['VideoPollWwwPlacement'] = AdVideoVideoPollWwwPlacementValues::getInstance()->getValues();

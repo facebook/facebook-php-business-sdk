@@ -33,23 +33,15 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static PageTasksValues getInstance()
+ * @method static NativeOfferUniqueCodesFileCodeTypeValues getInstance()
  */
-class PageTasksValues extends AbstractEnum {
+class NativeOfferUniqueCodesFileCodeTypeValues extends AbstractEnum {
 
-  const ADVERTISE = 'ADVERTISE';
-  const ANALYZE = 'ANALYZE';
-  const CREATE_CONTENT = 'CREATE_CONTENT';
-  const MANAGE = 'MANAGE';
-  const MANAGE_JOBS = 'MANAGE_JOBS';
-  const MANAGE_LEADS = 'MANAGE_LEADS';
-  const MODERATE = 'MODERATE';
-  const MODERATE_COMMUNITY = 'MODERATE_COMMUNITY';
-  const PAGES_MESSAGING = 'PAGES_MESSAGING';
-  const PAGES_MESSAGING_SUBSCRIPTIONS = 'PAGES_MESSAGING_SUBSCRIPTIONS';
-  const PLATFORM_MANAGE_PAGES = 'PLATFORM_MANAGE_PAGES';
-  const PLATFORM_PAGES_MANAGE_INSTANT_ARTICLES = 'PLATFORM_PAGES_MANAGE_INSTANT_ARTICLES';
-  const PLATFORM_READ_INSIGHTS = 'PLATFORM_READ_INSIGHTS';
-  const READ_PAGE_MAILBOXES = 'READ_PAGE_MAILBOXES';
-  const VIEW_MONETIZATION_INSIGHTS = 'VIEW_MONETIZATION_INSIGHTS';
+  const BARCODES = 'barcodes';
+  const DISCOUNT_AND_BARCODES = 'discount_and_barcodes';
+  const DISCOUNT_AND_DISCOUNT = 'discount_and_discount';
+  const DISCOUNT_CODES = 'discount_codes';
+  const INSTORE_BARCODES = 'instore_barcodes';
+  const INSTORE_DISCOUNT_CODES = 'instore_discount_codes';
+  const ONLINE_DISCOUNT_CODES = 'online_discount_codes';
 }
