@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## v4.0.6
+
+
 ### Fixed
  - Add back `source` param in `Adaccount->createAdVideo`.
 
@@ -39,3 +42,4 @@ All notable changes to this project will be documented in this file.
     $async_job = $async_job->getSelf();
   }
   ```
+

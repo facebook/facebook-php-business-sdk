@@ -41,6 +41,7 @@ class PhotoUnpublishedContentTypeValues extends AbstractEnum {
   const DRAFT = 'DRAFT';
   const INLINE_CREATED = 'INLINE_CREATED';
   const PUBLISHED = 'PUBLISHED';
+  const REVIEWABLE_BRANDED_CONTENT = 'REVIEWABLE_BRANDED_CONTENT';
   const SCHEDULED = 'SCHEDULED';
   const SCHEDULED_RECURRING = 'SCHEDULED_RECURRING';
 }

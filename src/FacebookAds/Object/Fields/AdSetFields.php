@@ -97,6 +97,7 @@ class AdSetFields extends AbstractEnum {
   const TIME_START = 'time_start';
   const TIME_STOP = 'time_stop';
   const TOPLINE_ID = 'topline_id';
+  const TUNE_FOR_CATEGORY = 'tune_for_category';
   const UPSTREAM_EVENTS = 'upstream_events';
 
   public function getFieldTypes() {
@@ -161,6 +162,7 @@ class AdSetFields extends AbstractEnum {
       'time_start' => 'datetime',
       'time_stop' => 'datetime',
       'topline_id' => 'string',
+      'tune_for_category' => 'TuneForCategory',
       'upstream_events' => 'map',
     );
   }

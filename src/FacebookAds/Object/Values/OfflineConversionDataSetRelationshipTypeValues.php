@@ -39,6 +39,7 @@ class OfflineConversionDataSetRelationshipTypeValues extends AbstractEnum {
 
   const AD_MANAGER = 'AD_MANAGER';
   const AGENCY = 'AGENCY';
+  const AGGREGATOR = 'AGGREGATOR';
   const AUDIENCE_MANAGER = 'AUDIENCE_MANAGER';
   const OTHER = 'OTHER';
 }

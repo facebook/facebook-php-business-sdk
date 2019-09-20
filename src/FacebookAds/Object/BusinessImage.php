@@ -67,9 +67,15 @@ class BusinessImage extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'breakdowns' => 'list<breakdowns_enum>',
       'time_range' => 'Object',
     );
     $enums = array(
+      'breakdowns_enum' => array(
+        'age',
+        'country',
+        'gender',
+      ),
     );
 
     $request = new ApiRequest(

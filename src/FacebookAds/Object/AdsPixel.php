@@ -198,11 +198,9 @@ class AdsPixel extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'agent' => 'string',
       'data' => 'list<string>',
       'test_event_code' => 'string',
       'trace' => 'unsigned int',
-      'upload_tag' => 'string',
     );
     $enums = array(
     );

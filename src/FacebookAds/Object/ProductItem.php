@@ -31,6 +31,7 @@ use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProductItemFields;
 use FacebookAds\Object\Values\ProductItemAgeGroupValues;
 use FacebookAds\Object\Values\ProductItemAvailabilityValues;
+use FacebookAds\Object\Values\ProductItemCommerceTaxCategoryValues;
 use FacebookAds\Object\Values\ProductItemConditionValues;
 use FacebookAds\Object\Values\ProductItemGenderValues;
 use FacebookAds\Object\Values\ProductItemReviewStatusValues;
@@ -71,6 +72,7 @@ class ProductItem extends AbstractCrudObject {
     $ref_enums['ReviewStatus'] = ProductItemReviewStatusValues::getInstance()->getValues();
     $ref_enums['ShippingWeightUnit'] = ProductItemShippingWeightUnitValues::getInstance()->getValues();
     $ref_enums['Visibility'] = ProductItemVisibilityValues::getInstance()->getValues();
+    $ref_enums['CommerceTaxCategory'] = ProductItemCommerceTaxCategoryValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -150,6 +152,7 @@ class ProductItem extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'additional_image_files' => 'list<file>',
       'additional_image_urls' => 'list<string>',
       'additional_variant_attributes' => 'map',
       'android_app_name' => 'string',
@@ -161,6 +164,7 @@ class ProductItem extends AbstractCrudObject {
       'category' => 'string',
       'checkout_url' => 'string',
       'color' => 'string',
+      'commerce_tax_category' => 'commerce_tax_category_enum',
       'condition' => 'condition_enum',
       'currency' => 'string',
       'custom_data' => 'map',
@@ -197,6 +201,7 @@ class ProductItem extends AbstractCrudObject {
       'price' => 'unsigned int',
       'product_type' => 'string',
       'retailer_id' => 'string',
+      'return_policy_days' => 'unsigned int',
       'sale_price' => 'unsigned int',
       'sale_price_end_date' => 'datetime',
       'sale_price_start_date' => 'datetime',
@@ -211,6 +216,7 @@ class ProductItem extends AbstractCrudObject {
     );
     $enums = array(
       'availability_enum' => ProductItemAvailabilityValues::getInstance()->getValues(),
+      'commerce_tax_category_enum' => ProductItemCommerceTaxCategoryValues::getInstance()->getValues(),
       'condition_enum' => ProductItemConditionValues::getInstance()->getValues(),
       'gender_enum' => ProductItemGenderValues::getInstance()->getValues(),
       'visibility_enum' => ProductItemVisibilityValues::getInstance()->getValues(),

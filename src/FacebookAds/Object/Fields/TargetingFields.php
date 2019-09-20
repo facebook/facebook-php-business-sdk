@@ -111,7 +111,6 @@ class TargetingFields extends AbstractEnum {
   const PRODUCT_AUDIENCE_SPECS = 'product_audience_specs';
   const PROSPECTING_AUDIENCE = 'prospecting_audience';
   const PUBLISHER_PLATFORMS = 'publisher_platforms';
-  const PUBLISHER_VISIBILITY_CATEGORIES = 'publisher_visibility_categories';
   const RADIUS = 'radius';
   const REGIONS = 'regions';
   const RELATIONSHIP_STATUSES = 'relationship_statuses';
@@ -202,7 +201,6 @@ class TargetingFields extends AbstractEnum {
       'product_audience_specs' => 'list<TargetingProductAudienceSpec>',
       'prospecting_audience' => 'TargetingProspectingAudience',
       'publisher_platforms' => 'list<string>',
-      'publisher_visibility_categories' => 'list<string>',
       'radius' => 'string',
       'regions' => 'list<IDName>',
       'relationship_statuses' => 'list<unsigned int>',

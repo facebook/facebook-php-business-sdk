@@ -42,6 +42,7 @@ use FacebookAds\Object\Values\ProductFeedFeedTypeValues;
 use FacebookAds\Object\Values\ProductFeedOverrideTypeValues;
 use FacebookAds\Object\Values\ProductFeedQuotedFieldsModeValues;
 use FacebookAds\Object\Values\ProductItemAvailabilityValues;
+use FacebookAds\Object\Values\ProductItemCommerceTaxCategoryValues;
 use FacebookAds\Object\Values\ProductItemConditionValues;
 use FacebookAds\Object\Values\ProductItemGenderValues;
 use FacebookAds\Object\Values\ProductItemVisibilityValues;
@@ -1092,6 +1093,7 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'additional_image_files' => 'list<file>',
       'additional_image_urls' => 'list<string>',
       'additional_variant_attributes' => 'map',
       'android_app_name' => 'string',
@@ -1103,6 +1105,7 @@ class ProductCatalog extends AbstractCrudObject {
       'category' => 'string',
       'checkout_url' => 'string',
       'color' => 'string',
+      'commerce_tax_category' => 'commerce_tax_category_enum',
       'condition' => 'condition_enum',
       'currency' => 'string',
       'custom_data' => 'map',
@@ -1140,6 +1143,7 @@ class ProductCatalog extends AbstractCrudObject {
       'product_type' => 'string',
       'retailer_id' => 'string',
       'retailer_product_group_id' => 'string',
+      'return_policy_days' => 'unsigned int',
       'sale_price' => 'unsigned int',
       'sale_price_end_date' => 'datetime',
       'sale_price_start_date' => 'datetime',
@@ -1154,6 +1158,7 @@ class ProductCatalog extends AbstractCrudObject {
     );
     $enums = array(
       'availability_enum' => ProductItemAvailabilityValues::getInstance()->getValues(),
+      'commerce_tax_category_enum' => ProductItemCommerceTaxCategoryValues::getInstance()->getValues(),
       'condition_enum' => ProductItemConditionValues::getInstance()->getValues(),
       'gender_enum' => ProductItemGenderValues::getInstance()->getValues(),
       'visibility_enum' => ProductItemVisibilityValues::getInstance()->getValues(),

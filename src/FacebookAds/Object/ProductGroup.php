@@ -30,6 +30,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProductGroupFields;
 use FacebookAds\Object\Values\ProductItemAvailabilityValues;
+use FacebookAds\Object\Values\ProductItemCommerceTaxCategoryValues;
 use FacebookAds\Object\Values\ProductItemConditionValues;
 use FacebookAds\Object\Values\ProductItemGenderValues;
 use FacebookAds\Object\Values\ProductItemVisibilityValues;
@@ -103,6 +104,7 @@ class ProductGroup extends AbstractCrudObject {
       'category' => 'string',
       'checkout_url' => 'string',
       'color' => 'string',
+      'commerce_tax_category' => 'commerce_tax_category_enum',
       'condition' => 'condition_enum',
       'currency' => 'string',
       'custom_data' => 'map',
@@ -139,6 +141,7 @@ class ProductGroup extends AbstractCrudObject {
       'price' => 'unsigned int',
       'product_type' => 'string',
       'retailer_id' => 'string',
+      'return_policy_days' => 'unsigned int',
       'sale_price' => 'unsigned int',
       'sale_price_end_date' => 'datetime',
       'sale_price_start_date' => 'datetime',
@@ -153,6 +156,7 @@ class ProductGroup extends AbstractCrudObject {
     );
     $enums = array(
       'availability_enum' => ProductItemAvailabilityValues::getInstance()->getValues(),
+      'commerce_tax_category_enum' => ProductItemCommerceTaxCategoryValues::getInstance()->getValues(),
       'condition_enum' => ProductItemConditionValues::getInstance()->getValues(),
       'gender_enum' => ProductItemGenderValues::getInstance()->getValues(),
       'visibility_enum' => ProductItemVisibilityValues::getInstance()->getValues(),

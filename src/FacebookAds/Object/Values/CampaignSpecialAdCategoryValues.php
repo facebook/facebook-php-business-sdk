@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,31 +33,12 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static CampaignSpecialAdCategoryValues getInstance()
  */
+class CampaignSpecialAdCategoryValues extends AbstractEnum {
 
-class FoodDrinkOrderFields extends AbstractEnum {
-
-  const ADMIN_NOTE = 'admin_note';
-  const CREATION_TIME = 'creation_time';
-  const CUSTOMER_NAME = 'customer_name';
-  const CUSTOMER_PHONE_NUMBER = 'customer_phone_number';
-  const ID = 'id';
-  const NOTE = 'note';
-  const ORDER_DETAILS = 'order_details';
-  const STATE = 'state';
-  const UPDATE_TIME = 'update_time';
-
-  public function getFieldTypes() {
-    return array(
-      'admin_note' => 'string',
-      'creation_time' => 'datetime',
-      'customer_name' => 'string',
-      'customer_phone_number' => 'string',
-      'id' => 'string',
-      'note' => 'string',
-      'order_details' => 'list<Object>',
-      'state' => 'string',
-      'update_time' => 'datetime',
-    );
-  }
+  const CREDIT = 'CREDIT';
+  const EMPLOYMENT = 'EMPLOYMENT';
+  const HOUSING = 'HOUSING';
+  const NONE = 'NONE';
 }

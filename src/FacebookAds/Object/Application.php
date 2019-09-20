@@ -58,13 +58,6 @@ use FacebookAds\Object\Values\EventTypeValues;
 class Application extends AbstractCrudObject {
 
   /**
-   * @deprecated getEndpoint function is deprecated
-   */
-  protected function getEndpoint() {
-    return 'subscribed_apps';
-  }
-
-  /**
    * @return ApplicationFields
    */
   public static function getFieldsEnum() {
@@ -924,6 +917,29 @@ class Application extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getInsightsPushSchedule(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/insights_push_schedule',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createInsightsPushSchedule(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -937,14 +953,9 @@ class Application extends AbstractCrudObject {
       'owner_id' => 'Object',
       'schedule' => 'schedule_enum',
       'status' => 'status_enum',
-      'time_created' => 'datetime',
       'time_increment' => 'unsigned int',
-      'time_last_fail' => 'datetime',
-      'time_last_run' => 'datetime',
-      'time_last_success' => 'datetime',
       'time_start' => 'datetime',
       'time_stop' => 'datetime',
-      'time_updated' => 'datetime',
     );
     $enums = array(
       'level_enum' => array(
@@ -1454,30 +1465,6 @@ class Application extends AbstractCrudObject {
       new AbstractCrudObject(),
       'EDGE',
       array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createStagingResource(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'file' => 'file',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/staging_resources',
-      new Application(),
-      'EDGE',
-      Application::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

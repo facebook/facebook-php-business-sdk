@@ -33,16 +33,12 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static FoodDrinkOrderStateValues getInstance()
+ * @method static AdSetTuneForCategoryValues getInstance()
  */
-class FoodDrinkOrderStateValues extends AbstractEnum {
+class AdSetTuneForCategoryValues extends AbstractEnum {
 
-  const CANCELLED = 'CANCELLED';
-  const CONFIRMED = 'CONFIRMED';
-  const DRAFT = 'DRAFT';
-  const EXPIRED = 'EXPIRED';
-  const ON_DELIVERY = 'ON_DELIVERY';
-  const PENDING = 'PENDING';
-  const READY_FOR_PICKUP = 'READY_FOR_PICKUP';
-  const SERVING = 'SERVING';
+  const CREDIT = 'CREDIT';
+  const EMPLOYMENT = 'EMPLOYMENT';
+  const HOUSING = 'HOUSING';
+  const NONE = 'NONE';
 }

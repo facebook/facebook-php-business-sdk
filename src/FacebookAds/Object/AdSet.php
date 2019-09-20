@@ -46,6 +46,7 @@ use FacebookAds\Object\Values\AdSetOptimizationGoalValues;
 use FacebookAds\Object\Values\AdSetOptimizationSubEventValues;
 use FacebookAds\Object\Values\AdSetStatusOptionValues;
 use FacebookAds\Object\Values\AdSetStatusValues;
+use FacebookAds\Object\Values\AdSetTuneForCategoryValues;
 use FacebookAds\Object\Values\AdsInsightsActionAttributionWindowsValues;
 use FacebookAds\Object\Values\AdsInsightsActionBreakdownsValues;
 use FacebookAds\Object\Values\AdsInsightsActionReportTimeValues;
@@ -97,6 +98,7 @@ class AdSet extends AbstractArchivableCrudObject
     $ref_enums['ExecutionOptions'] = AdSetExecutionOptionsValues::getInstance()->getValues();
     $ref_enums['FullFunnelExplorationMode'] = AdSetFullFunnelExplorationModeValues::getInstance()->getValues();
     $ref_enums['OptimizationSubEvent'] = AdSetOptimizationSubEventValues::getInstance()->getValues();
+    $ref_enums['TuneForCategory'] = AdSetTuneForCategoryValues::getInstance()->getValues();
     $ref_enums['DatePreset'] = AdSetDatePresetValues::getInstance()->getValues();
     $ref_enums['Operator'] = AdSetOperatorValues::getInstance()->getValues();
     $ref_enums['StatusOption'] = AdSetStatusOptionValues::getInstance()->getValues();
@@ -636,6 +638,7 @@ class AdSet extends AbstractArchivableCrudObject
       'time_based_ad_rotation_intervals' => 'list<unsigned int>',
       'time_start' => 'datetime',
       'time_stop' => 'datetime',
+      'tune_for_category' => 'tune_for_category_enum',
       'upstream_events' => 'map',
     );
     $enums = array(
@@ -647,6 +650,7 @@ class AdSet extends AbstractArchivableCrudObject
       'optimization_goal_enum' => AdSetOptimizationGoalValues::getInstance()->getValues(),
       'optimization_sub_event_enum' => AdSetOptimizationSubEventValues::getInstance()->getValues(),
       'status_enum' => AdSetStatusValues::getInstance()->getValues(),
+      'tune_for_category_enum' => AdSetTuneForCategoryValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

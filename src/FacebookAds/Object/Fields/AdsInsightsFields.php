@@ -260,6 +260,7 @@ class AdsInsightsFields extends AbstractEnum {
   const VIDEO_P25_WATCHED_ACTIONS = 'video_p25_watched_actions';
   const VIDEO_P50_WATCHED_ACTIONS = 'video_p50_watched_actions';
   const VIDEO_P75_WATCHED_ACTIONS = 'video_p75_watched_actions';
+  const VIDEO_P95_WATCHED_ACTIONS = 'video_p95_watched_actions';
   const VIDEO_PLAY_ACTIONS = 'video_play_actions';
   const VIDEO_PLAY_CURVE_ACTIONS = 'video_play_curve_actions';
   const VIDEO_PLAY_RETENTION_0_TO_15S_ACTIONS = 'video_play_retention_0_to_15s_actions';
@@ -497,6 +498,7 @@ class AdsInsightsFields extends AbstractEnum {
       'video_p25_watched_actions' => 'list<AdsActionStats>',
       'video_p50_watched_actions' => 'list<AdsActionStats>',
       'video_p75_watched_actions' => 'list<AdsActionStats>',
+      'video_p95_watched_actions' => 'list<AdsActionStats>',
       'video_play_actions' => 'list<AdsActionStats>',
       'video_play_curve_actions' => 'list<Object>',
       'video_play_retention_0_to_15s_actions' => 'list<Object>',

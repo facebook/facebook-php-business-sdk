@@ -89,11 +89,13 @@ class ProductItemFields extends AbstractEnum {
   const START_DATE = 'start_date';
   const URL = 'url';
   const VISIBILITY = 'visibility';
+  const ADDITIONAL_IMAGE_FILES = 'additional_image_files';
   const ANDROID_APP_NAME = 'android_app_name';
   const ANDROID_CLASS = 'android_class';
   const ANDROID_PACKAGE = 'android_package';
   const ANDROID_URL = 'android_url';
   const CHECKOUT_URL = 'checkout_url';
+  const COMMERCE_TAX_CATEGORY = 'commerce_tax_category';
   const IOS_APP_NAME = 'ios_app_name';
   const IOS_APP_STORE_ID = 'ios_app_store_id';
   const IOS_URL = 'ios_url';
@@ -107,6 +109,7 @@ class ProductItemFields extends AbstractEnum {
   const OFFER_PRICE_AMOUNT = 'offer_price_amount';
   const OFFER_PRICE_END_DATE = 'offer_price_end_date';
   const OFFER_PRICE_START_DATE = 'offer_price_start_date';
+  const RETURN_POLICY_DAYS = 'return_policy_days';
   const WINDOWS_PHONE_APP_ID = 'windows_phone_app_id';
   const WINDOWS_PHONE_APP_NAME = 'windows_phone_app_name';
   const WINDOWS_PHONE_URL = 'windows_phone_url';
@@ -165,11 +168,13 @@ class ProductItemFields extends AbstractEnum {
       'start_date' => 'string',
       'url' => 'string',
       'visibility' => 'Visibility',
+      'additional_image_files' => 'list<file>',
       'android_app_name' => 'string',
       'android_class' => 'string',
       'android_package' => 'string',
       'android_url' => 'string',
       'checkout_url' => 'string',
+      'commerce_tax_category' => 'CommerceTaxCategory',
       'ios_app_name' => 'string',
       'ios_app_store_id' => 'unsigned int',
       'ios_url' => 'string',
@@ -183,6 +188,7 @@ class ProductItemFields extends AbstractEnum {
       'offer_price_amount' => 'unsigned int',
       'offer_price_end_date' => 'datetime',
       'offer_price_start_date' => 'datetime',
+      'return_policy_days' => 'unsigned int',
       'windows_phone_app_id' => 'string',
       'windows_phone_app_name' => 'string',
       'windows_phone_url' => 'string',

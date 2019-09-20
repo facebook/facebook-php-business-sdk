@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class ApplicationFields extends AbstractEnum {
 
+  const AAM_RULES = 'aam_rules';
   const AN_AD_SPACE_LIMIT = 'an_ad_space_limit';
   const AN_PLATFORMS = 'an_platforms';
   const ANDROID_KEY_HASH = 'android_key_hash';
@@ -135,10 +136,10 @@ class ApplicationFields extends AbstractEnum {
   const USER_SUPPORT_URL = 'user_support_url';
   const WEBSITE_URL = 'website_url';
   const WEEKLY_ACTIVE_USERS = 'weekly_active_users';
-  const APP_ID = 'app_id';
 
   public function getFieldTypes() {
     return array(
+      'aam_rules' => 'string',
       'an_ad_space_limit' => 'unsigned int',
       'an_platforms' => 'list<string>',
       'android_key_hash' => 'list<string>',
@@ -237,7 +238,6 @@ class ApplicationFields extends AbstractEnum {
       'user_support_url' => 'string',
       'website_url' => 'string',
       'weekly_active_users' => 'string',
-      'app_id' => 'string',
     );
   }
 }
