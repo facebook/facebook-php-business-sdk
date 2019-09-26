@@ -5,6 +5,7 @@ GIT_RAW_TAG=$(git describe --abbrev=0 --tags)
 
 echo $VERSION
 echo $GIT_RAW_TAG
+
 if [ "$VERSION" == "$GIT_RAW_TAG" ]; then
   echo 'versions are updated, no need to add new tag.'
 else
