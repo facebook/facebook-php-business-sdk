@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\UserFields;
+use FacebookAds\Object\Values\AdStudyTypeValues;
 use FacebookAds\Object\Values\AdVideoContainerTypeValues;
 use FacebookAds\Object\Values\AdVideoContentCategoryValues;
 use FacebookAds\Object\Values\AdVideoFormattingValues;
@@ -270,6 +271,42 @@ class User extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
+      '/ad_studies',
+      new AdStudy(),
+      'EDGE',
+      AdStudy::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createAdStudy(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'cells' => 'list<Object>',
+      'client_business' => 'string',
+      'confidence_level' => 'float',
+      'cooldown_start_time' => 'int',
+      'description' => 'string',
+      'end_time' => 'int',
+      'name' => 'string',
+      'objectives' => 'list<Object>',
+      'observation_end_time' => 'int',
+      'start_time' => 'int',
+      'type' => 'type_enum',
+      'viewers' => 'list<int>',
+    );
+    $enums = array(
+      'type_enum' => AdStudyTypeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
       '/ad_studies',
       new AdStudy(),
       'EDGE',

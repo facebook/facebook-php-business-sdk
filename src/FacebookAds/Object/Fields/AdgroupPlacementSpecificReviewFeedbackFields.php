@@ -48,6 +48,7 @@ class AdgroupPlacementSpecificReviewFeedbackFields extends AbstractEnum {
   const FACEBOOK = 'facebook';
   const INSTAGRAM = 'instagram';
   const INSTAGRAM_SHOP = 'instagram_shop';
+  const LEAD_GEN_HONEYPOT = 'lead_gen_honeypot';
   const MARKETPLACE = 'marketplace';
   const MARKETPLACE_HOME_RENTALS = 'marketplace_home_rentals';
   const MARKETPLACE_HOME_SALES = 'marketplace_home_sales';
@@ -76,6 +77,7 @@ class AdgroupPlacementSpecificReviewFeedbackFields extends AbstractEnum {
       'facebook' => 'map<string, string>',
       'instagram' => 'map<string, string>',
       'instagram_shop' => 'map<string, string>',
+      'lead_gen_honeypot' => 'map<string, string>',
       'marketplace' => 'map<string, string>',
       'marketplace_home_rentals' => 'map<string, string>',
       'marketplace_home_sales' => 'map<string, string>',

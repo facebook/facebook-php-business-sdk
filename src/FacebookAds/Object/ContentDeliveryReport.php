@@ -22,9 +22,15 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\ContentDeliveryReportFields;
+use FacebookAds\Object\Values\ContentDeliveryReportPlatformValues;
+use FacebookAds\Object\Values\ContentDeliveryReportPositionValues;
 
 /**
  * This class is auto-generated.
@@ -33,28 +39,23 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdAccountCreationRequestVerticalValues getInstance()
  */
-class AdAccountCreationRequestVerticalValues extends AbstractEnum {
 
-  const ADVERTISING_AND_MARKETING = 'ADVERTISING_AND_MARKETING';
-  const AUTOMOTIVE = 'AUTOMOTIVE';
-  const AUTO_AGENCY = 'AUTO_AGENCY';
-  const CONSUMER_PACKAGED_GOODS = 'CONSUMER_PACKAGED_GOODS';
-  const CPG_AND_BEVERAGE = 'CPG_AND_BEVERAGE';
-  const ECOMMERCE = 'ECOMMERCE';
-  const EDUCATION = 'EDUCATION';
-  const ENERGY_AND_UTILITIES = 'ENERGY_AND_UTILITIES';
-  const ENTERTAINMENT_AND_MEDIA = 'ENTERTAINMENT_AND_MEDIA';
-  const FINANCIAL_SERVICES = 'FINANCIAL_SERVICES';
-  const GAMING = 'GAMING';
-  const GOVERMENT_AND_POLITICS = 'GOVERMENT_AND_POLITICS';
-  const MOTORCYCLES = 'MOTORCYCLES';
-  const ORGANIZATIONS_AND_ASSOCIATIONS = 'ORGANIZATIONS_AND_ASSOCIATIONS';
-  const OTHER = 'OTHER';
-  const PROFESSIONAL_SERVICES = 'PROFESSIONAL_SERVICES';
-  const RETAIL = 'RETAIL';
-  const TECHNOLOGY = 'TECHNOLOGY';
-  const TELECOM = 'TELECOM';
-  const TRAVEL = 'TRAVEL';
+class ContentDeliveryReport extends AbstractObject {
+
+  /**
+   * @return ContentDeliveryReportFields
+   */
+  public static function getFieldsEnum() {
+    return ContentDeliveryReportFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    $ref_enums['Platform'] = ContentDeliveryReportPlatformValues::getInstance()->getValues();
+    $ref_enums['Position'] = ContentDeliveryReportPositionValues::getInstance()->getValues();
+    return $ref_enums;
+  }
+
+
 }

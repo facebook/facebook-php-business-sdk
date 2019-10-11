@@ -38,4 +38,5 @@ use FacebookAds\Enum\AbstractEnum;
 class URLScopesValues extends AbstractEnum {
 
   const NEWS_TAB = 'NEWS_TAB';
+  const NEWS_TAB_DEV_ENV = 'NEWS_TAB_DEV_ENV';
 }

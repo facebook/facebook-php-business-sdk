@@ -21,9 +21,37 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
-namespace FacebookAds;
-class ApiConfig {
-  const APIVersion = '4.0';
-  const SDKVersion = '4.0.7';
-  const TYPE_CHECKER_STRICT_MODE = false;
+
+namespace FacebookAds\Object\Fields;
+
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * This class is auto-generated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
+ */
+
+class AdAccountAdVolumeFields extends AbstractEnum {
+
+  const ACTOR_ID = 'actor_id';
+  const HAS_HIT_TOTAL_LIVE_ADS_LIMIT = 'has_hit_total_live_ads_limit';
+  const LIVE_ADS_QUOTA_LEFT = 'live_ads_quota_left';
+  const TOTAL_LIVE_ADS = 'total_live_ads';
+  const TOTAL_LIVE_ADS_IN_CURRENT_ACCOUNT = 'total_live_ads_in_current_account';
+  const TOTAL_LIVE_ADS_LIMIT = 'total_live_ads_limit';
+
+  public function getFieldTypes() {
+    return array(
+      'actor_id' => 'string',
+      'has_hit_total_live_ads_limit' => 'bool',
+      'live_ads_quota_left' => 'int',
+      'total_live_ads' => 'unsigned int',
+      'total_live_ads_in_current_account' => 'unsigned int',
+      'total_live_ads_limit' => 'unsigned int',
+    );
+  }
 }

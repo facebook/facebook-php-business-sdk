@@ -58,6 +58,7 @@ class GroupPurposeValues extends AbstractEnum {
   const MENTORSHIP = 'MENTORSHIP';
   const NEIGHBORS = 'NEIGHBORS';
   const NONE = 'NONE';
+  const OCULUS = 'OCULUS';
   const PARENTING = 'PARENTING';
   const PARENTS = 'PARENTS';
   const PROJECT = 'PROJECT';

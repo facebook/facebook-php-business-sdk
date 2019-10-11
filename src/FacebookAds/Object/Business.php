@@ -29,8 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\BusinessFields;
-use FacebookAds\Object\Values\AdAccountCreationRequestSubverticalValues;
-use FacebookAds\Object\Values\AdAccountCreationRequestVerticalValues;
 use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultAggregationPeriodValues;
 use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultBreakdownsValues;
 use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultMetricsValues;
@@ -55,6 +53,8 @@ use FacebookAds\Object\Values\BusinessSurveyBusinessTypeValues;
 use FacebookAds\Object\Values\BusinessTwoFactorTypeValues;
 use FacebookAds\Object\Values\BusinessUserRoleValues;
 use FacebookAds\Object\Values\BusinessVerticalValues;
+use FacebookAds\Object\Values\ContentDeliveryReportPlatformValues;
+use FacebookAds\Object\Values\ContentDeliveryReportPositionValues;
 use FacebookAds\Object\Values\CustomConversionCustomEventTypeValues;
 use FacebookAds\Object\Values\DirectDealStatusValues;
 use FacebookAds\Object\Values\MeasurementUploadEventAggregationLevelValues;
@@ -239,54 +239,6 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createAdAccountCreationRequest(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'ad_accounts_info' => 'list<map>',
-      'additional_comment' => 'string',
-      'address_in_chinese' => 'string',
-      'address_in_english' => 'map',
-      'address_in_local_language' => 'string',
-      'advertiser_business_id' => 'string',
-      'business_registration' => 'file',
-      'business_registration_id' => 'string',
-      'chinese_legal_entity_name' => 'string',
-      'contact' => 'map',
-      'english_legal_entity_name' => 'string',
-      'extended_credit_id' => 'string',
-      'is_smb' => 'bool',
-      'is_test' => 'bool',
-      'legal_entity_name_in_local_language' => 'string',
-      'official_website_url' => 'string',
-      'planning_agency_business_id' => 'string',
-      'promotable_app_ids' => 'list<string>',
-      'promotable_page_ids' => 'list<int>',
-      'promotable_page_urls' => 'list<string>',
-      'promotable_urls' => 'list<string>',
-      'subvertical' => 'subvertical_enum',
-      'vertical' => 'vertical_enum',
-    );
-    $enums = array(
-      'subvertical_enum' => AdAccountCreationRequestSubverticalValues::getInstance()->getValues(),
-      'vertical_enum' => AdAccountCreationRequestVerticalValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/adaccountcreationrequests',
-      new AdAccountCreationRequest(),
-      'EDGE',
-      AdAccountCreationRequest::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getAdNetworkAnalytics(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -429,31 +381,6 @@ class Business extends AbstractCrudObject {
       new AdsPixel(),
       'EDGE',
       AdsPixel::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getAdvertisableApplications(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'adaccount_id' => 'unsigned int',
-      'offset' => 'unsigned int',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/advertisable_applications',
-      new BusinessAdvertisableApplicationsResult(),
-      'EDGE',
-      BusinessAdvertisableApplicationsResult::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -984,6 +911,36 @@ class Business extends AbstractCrudObject {
       new Business(),
       'EDGE',
       Business::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getContentDeliveryReport(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'end_date' => 'datetime',
+      'platform' => 'platform_enum',
+      'position' => 'position_enum',
+      'start_date' => 'datetime',
+      'summary' => 'bool',
+    );
+    $enums = array(
+      'platform_enum' => ContentDeliveryReportPlatformValues::getInstance()->getValues(),
+      'position_enum' => ContentDeliveryReportPositionValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/content_delivery_report',
+      new ContentDeliveryReport(),
+      'EDGE',
+      ContentDeliveryReport::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

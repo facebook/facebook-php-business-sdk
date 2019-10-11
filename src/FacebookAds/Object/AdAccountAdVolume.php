@@ -28,7 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\BusinessAdvertisableApplicationsResultFields;
+use FacebookAds\Object\Fields\AdAccountAdVolumeFields;
 
 /**
  * This class is auto-generated.
@@ -39,13 +39,13 @@ use FacebookAds\Object\Fields\BusinessAdvertisableApplicationsResultFields;
  *
  */
 
-class BusinessAdvertisableApplicationsResult extends AbstractCrudObject {
+class AdAccountAdVolume extends AbstractObject {
 
   /**
-   * @return BusinessAdvertisableApplicationsResultFields
+   * @return AdAccountAdVolumeFields
    */
   public static function getFieldsEnum() {
-    return BusinessAdvertisableApplicationsResultFields::getInstance();
+    return AdAccountAdVolumeFields::getInstance();
   }
 
   protected static function getReferencedEnums() {

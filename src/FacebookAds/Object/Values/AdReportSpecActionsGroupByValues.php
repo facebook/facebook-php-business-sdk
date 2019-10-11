@@ -53,6 +53,7 @@ class AdReportSpecActionsGroupByValues extends AbstractEnum {
   const ACTION_TYPE = 'action_type';
   const ACTION_VIDEO_SOUND = 'action_video_sound';
   const ACTION_VIDEO_TYPE = 'action_video_type';
+  const ATTRIBUTION_MODEL_TYPE = 'attribution_model_type';
   const INTERACTIVE_COMPONENT_STICKER_ID = 'interactive_component_sticker_id';
   const INTERACTIVE_COMPONENT_STICKER_RESPONSE = 'interactive_component_sticker_response';
 }

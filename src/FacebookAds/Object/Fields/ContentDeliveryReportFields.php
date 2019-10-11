@@ -21,9 +21,35 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
-namespace FacebookAds;
-class ApiConfig {
-  const APIVersion = '4.0';
-  const SDKVersion = '4.0.7';
-  const TYPE_CHECKER_STRICT_MODE = false;
+
+namespace FacebookAds\Object\Fields;
+
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * This class is auto-generated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
+ */
+
+class ContentDeliveryReportFields extends AbstractEnum {
+
+  const CONTENT_NAME = 'content_name';
+  const CONTENT_URL = 'content_url';
+  const CREATOR_NAME = 'creator_name';
+  const CREATOR_URL = 'creator_url';
+  const ESTIMATED_IMPRESSIONS = 'estimated_impressions';
+
+  public function getFieldTypes() {
+    return array(
+      'content_name' => 'string',
+      'content_url' => 'string',
+      'creator_name' => 'string',
+      'creator_url' => 'string',
+      'estimated_impressions' => 'unsigned int',
+    );
+  }
 }

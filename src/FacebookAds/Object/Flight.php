@@ -77,4 +77,34 @@ class Flight extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'currency' => 'string',
+      'description' => 'string',
+      'destination_airport' => 'string',
+      'images' => 'list<Object>',
+      'origin_airport' => 'string',
+      'price' => 'unsigned int',
+      'url' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/',
+      new Flight(),
+      'NODE',
+      Flight::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
 }

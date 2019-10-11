@@ -406,6 +406,7 @@ class ProductFeed extends AbstractCrudObject {
       'quoted_fields_mode' => 'quoted_fields_mode_enum',
       'schedule' => 'string',
       'update_schedule' => 'string',
+      'upload_schedule' => 'string',
     );
     $enums = array(
       'delimiter_enum' => ProductFeedDelimiterValues::getInstance()->getValues(),

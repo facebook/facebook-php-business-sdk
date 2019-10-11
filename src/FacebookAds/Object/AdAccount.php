@@ -99,6 +99,8 @@ use FacebookAds\Object\Values\CampaignObjectiveValues;
 use FacebookAds\Object\Values\CampaignOperatorValues;
 use FacebookAds\Object\Values\CampaignSpecialAdCategoryValues;
 use FacebookAds\Object\Values\CampaignStatusValues;
+use FacebookAds\Object\Values\ContentDeliveryReportPlatformValues;
+use FacebookAds\Object\Values\ContentDeliveryReportPositionValues;
 use FacebookAds\Object\Values\CustomAudienceClaimObjectiveValues;
 use FacebookAds\Object\Values\CustomAudienceContentTypeValues;
 use FacebookAds\Object\Values\CustomAudienceCustomerFileSourceValues;
@@ -285,83 +287,6 @@ class AdAccount extends AbstractCrudObject {
       new AbstractCrudObject(),
       'EDGE',
       array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createAdSet(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'adlabels' => 'list<Object>',
-      'adset_schedule' => 'list<Object>',
-      'attribution_spec' => 'list<map>',
-      'bid_adjustments' => 'Object',
-      'bid_amount' => 'int',
-      'bid_constraints' => 'map<string, Object>',
-      'bid_strategy' => 'bid_strategy_enum',
-      'billing_event' => 'billing_event_enum',
-      'campaign_id' => 'string',
-      'campaign_spec' => 'Object',
-      'creative_sequence' => 'list<string>',
-      'daily_budget' => 'unsigned int',
-      'daily_imps' => 'unsigned int',
-      'daily_min_spend_target' => 'unsigned int',
-      'daily_spend_cap' => 'unsigned int',
-      'date_format' => 'string',
-      'destination_type' => 'destination_type_enum',
-      'end_time' => 'datetime',
-      'execution_options' => 'list<execution_options_enum>',
-      'frequency_control_specs' => 'list<Object>',
-      'full_funnel_exploration_mode' => 'full_funnel_exploration_mode_enum',
-      'is_dynamic_creative' => 'bool',
-      'lifetime_budget' => 'unsigned int',
-      'lifetime_imps' => 'unsigned int',
-      'lifetime_min_spend_target' => 'unsigned int',
-      'lifetime_spend_cap' => 'unsigned int',
-      'line_number' => 'unsigned int',
-      'name' => 'string',
-      'optimization_goal' => 'optimization_goal_enum',
-      'optimization_sub_event' => 'optimization_sub_event_enum',
-      'pacing_type' => 'list<string>',
-      'promoted_object' => 'Object',
-      'rb_prediction_id' => 'string',
-      'rf_prediction_id' => 'string',
-      'source_adset_id' => 'string',
-      'start_time' => 'datetime',
-      'status' => 'status_enum',
-      'targeting' => 'Targeting',
-      'time_based_ad_rotation_id_blocks' => 'list<list<unsigned int>>',
-      'time_based_ad_rotation_intervals' => 'list<unsigned int>',
-      'time_start' => 'datetime',
-      'time_stop' => 'datetime',
-      'topline_id' => 'string',
-      'tune_for_category' => 'tune_for_category_enum',
-      'upstream_events' => 'map',
-    );
-    $enums = array(
-      'bid_strategy_enum' => AdSetBidStrategyValues::getInstance()->getValues(),
-      'billing_event_enum' => AdSetBillingEventValues::getInstance()->getValues(),
-      'destination_type_enum' => AdSetDestinationTypeValues::getInstance()->getValues(),
-      'execution_options_enum' => AdSetExecutionOptionsValues::getInstance()->getValues(),
-      'full_funnel_exploration_mode_enum' => AdSetFullFunnelExplorationModeValues::getInstance()->getValues(),
-      'optimization_goal_enum' => AdSetOptimizationGoalValues::getInstance()->getValues(),
-      'optimization_sub_event_enum' => AdSetOptimizationSubEventValues::getInstance()->getValues(),
-      'status_enum' => AdSetStatusValues::getInstance()->getValues(),
-      'tune_for_category_enum' => AdSetTuneForCategoryValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/ad_sets',
-      new AdSet(),
-      'EDGE',
-      AdSet::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -785,6 +710,7 @@ class AdAccount extends AbstractCrudObject {
         'action_type',
         'action_video_sound',
         'action_video_type',
+        'attribution_model_type',
         'interactive_component_sticker_id',
         'interactive_component_sticker_response',
       ),
@@ -1057,6 +983,29 @@ class AdAccount extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getAdsVolume(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/ads_volume',
+      new AdAccountAdVolume(),
+      'EDGE',
+      AdAccountAdVolume::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getAdsByLabels(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1105,6 +1054,83 @@ class AdAccount extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
+      '/adsets',
+      new AdSet(),
+      'EDGE',
+      AdSet::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createAdSet(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'adlabels' => 'list<Object>',
+      'adset_schedule' => 'list<Object>',
+      'attribution_spec' => 'list<map>',
+      'bid_adjustments' => 'Object',
+      'bid_amount' => 'int',
+      'bid_constraints' => 'map<string, Object>',
+      'bid_strategy' => 'bid_strategy_enum',
+      'billing_event' => 'billing_event_enum',
+      'campaign_id' => 'string',
+      'campaign_spec' => 'Object',
+      'creative_sequence' => 'list<string>',
+      'daily_budget' => 'unsigned int',
+      'daily_imps' => 'unsigned int',
+      'daily_min_spend_target' => 'unsigned int',
+      'daily_spend_cap' => 'unsigned int',
+      'date_format' => 'string',
+      'destination_type' => 'destination_type_enum',
+      'end_time' => 'datetime',
+      'execution_options' => 'list<execution_options_enum>',
+      'frequency_control_specs' => 'list<Object>',
+      'full_funnel_exploration_mode' => 'full_funnel_exploration_mode_enum',
+      'is_dynamic_creative' => 'bool',
+      'lifetime_budget' => 'unsigned int',
+      'lifetime_imps' => 'unsigned int',
+      'lifetime_min_spend_target' => 'unsigned int',
+      'lifetime_spend_cap' => 'unsigned int',
+      'line_number' => 'unsigned int',
+      'name' => 'string',
+      'optimization_goal' => 'optimization_goal_enum',
+      'optimization_sub_event' => 'optimization_sub_event_enum',
+      'pacing_type' => 'list<string>',
+      'promoted_object' => 'Object',
+      'rb_prediction_id' => 'string',
+      'rf_prediction_id' => 'string',
+      'source_adset_id' => 'string',
+      'start_time' => 'datetime',
+      'status' => 'status_enum',
+      'targeting' => 'Targeting',
+      'time_based_ad_rotation_id_blocks' => 'list<list<unsigned int>>',
+      'time_based_ad_rotation_intervals' => 'list<unsigned int>',
+      'time_start' => 'datetime',
+      'time_stop' => 'datetime',
+      'topline_id' => 'string',
+      'tune_for_category' => 'tune_for_category_enum',
+      'upstream_events' => 'map',
+    );
+    $enums = array(
+      'bid_strategy_enum' => AdSetBidStrategyValues::getInstance()->getValues(),
+      'billing_event_enum' => AdSetBillingEventValues::getInstance()->getValues(),
+      'destination_type_enum' => AdSetDestinationTypeValues::getInstance()->getValues(),
+      'execution_options_enum' => AdSetExecutionOptionsValues::getInstance()->getValues(),
+      'full_funnel_exploration_mode_enum' => AdSetFullFunnelExplorationModeValues::getInstance()->getValues(),
+      'optimization_goal_enum' => AdSetOptimizationGoalValues::getInstance()->getValues(),
+      'optimization_sub_event_enum' => AdSetOptimizationSubEventValues::getInstance()->getValues(),
+      'status_enum' => AdSetStatusValues::getInstance()->getValues(),
+      'tune_for_category_enum' => AdSetTuneForCategoryValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
       '/adsets',
       new AdSet(),
       'EDGE',
@@ -2014,6 +2040,36 @@ class AdAccount extends AbstractCrudObject {
       new Campaign(),
       'EDGE',
       Campaign::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getContentDeliveryReport(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'end_date' => 'datetime',
+      'platform' => 'platform_enum',
+      'position' => 'position_enum',
+      'start_date' => 'datetime',
+      'summary' => 'bool',
+    );
+    $enums = array(
+      'platform_enum' => ContentDeliveryReportPlatformValues::getInstance()->getValues(),
+      'position_enum' => ContentDeliveryReportPositionValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/content_delivery_report',
+      new ContentDeliveryReport(),
+      'EDGE',
+      ContentDeliveryReport::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

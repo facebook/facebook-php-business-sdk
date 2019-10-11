@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,15 +33,30 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static ContentDeliveryReportPositionValues getInstance()
  */
+class ContentDeliveryReportPositionValues extends AbstractEnum {
 
-class AdCreativeDegreesOfFreedomSpecFields extends AbstractEnum {
-
-  const DEGREES_OF_FREEDOM_TYPE = 'degrees_of_freedom_type';
-
-  public function getFieldTypes() {
-    return array(
-      'degrees_of_freedom_type' => 'string',
-    );
-  }
+  const ALL_PLACEMENTS = 'ALL_PLACEMENTS';
+  const AN_CLASSIC = 'AN_CLASSIC';
+  const FACEBOOK_GROUPS = 'FACEBOOK_GROUPS';
+  const FACEBOOK_STORIES = 'FACEBOOK_STORIES';
+  const FEED = 'FEED';
+  const GROUPS = 'GROUPS';
+  const INSTAGRAM_EXPLORE = 'INSTAGRAM_EXPLORE';
+  const INSTAGRAM_STORIES = 'INSTAGRAM_STORIES';
+  const INSTANT_ARTICLE = 'INSTANT_ARTICLE';
+  const INSTREAM_VIDEO = 'INSTREAM_VIDEO';
+  const MARKETPLACE = 'MARKETPLACE';
+  const MESSENGER_INBOX = 'MESSENGER_INBOX';
+  const MESSENGER_STORIES = 'MESSENGER_STORIES';
+  const OTHERS = 'OTHERS';
+  const REWARDED_VIDEO = 'REWARDED_VIDEO';
+  const RIGHT_HAND_COLUMN = 'RIGHT_HAND_COLUMN';
+  const SEARCH = 'SEARCH';
+  const SEARCH_SERP = 'SEARCH_SERP';
+  const STATUS = 'STATUS';
+  const SUGGESTED_VIDEO = 'SUGGESTED_VIDEO';
+  const UNKNOWN = 'UNKNOWN';
+  const VIDEO_FEEDS = 'VIDEO_FEEDS';
 }

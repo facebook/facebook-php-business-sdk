@@ -38,6 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class AdAccountMatchedSearchApplicationsEdgeDataFields extends AbstractEnum {
 
   const APP_ID = 'app_id';
+  const ARE_APP_EVENTS_UNAVAILABLE = 'are_app_events_unavailable';
   const ICON_URL = 'icon_url';
   const NAME = 'name';
   const SEARCH_SOURCE_STORE = 'search_source_store';
@@ -48,6 +49,7 @@ class AdAccountMatchedSearchApplicationsEdgeDataFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'app_id' => 'string',
+      'are_app_events_unavailable' => 'bool',
       'icon_url' => 'string',
       'name' => 'string',
       'search_source_store' => 'string',

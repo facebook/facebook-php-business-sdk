@@ -19,29 +19,35 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
+ *
  */
 
-require __DIR__ . '/vendor/autoload.php';
+namespace FacebookAds\Object\Fields;
 
-use FacebookAds\Object\Page;
-use FacebookAds\Object\PageLabel;
-use FacebookAds\Api;
-use FacebookAds\Logger\CurlLogger;
+use FacebookAds\Enum\AbstractEnum;
 
-$access_token = '<ACCESS_TOKEN>';
-$app_secret = '<APP_SECRET>';
-$app_id = '<APP_ID>';
-$id = '<ID>';
+/**
+ * This class is auto-generated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
+ */
 
-$api = Api::init($app_id, $app_secret, $access_token);
-$api->setLogger(new CurlLogger());
+class AdAccountContentFilterLevelsInheritanceFields extends AbstractEnum {
 
-$fields = array(
-);
-$params = array(
-  'name' => 'This is a test value',
-);
-echo json_encode((new Page($id))->createLabel(
-  $fields,
-  $params
-)->exportAllData(), JSON_PRETTY_PRINT);
+  const AN_BUSINESS_IDS = 'an_business_ids';
+  const AN_LEVEL = 'an_level';
+  const FACEBOOK_BUSINESS_IDS = 'facebook_business_ids';
+  const FACEBOOK_LEVEL = 'facebook_level';
+
+  public function getFieldTypes() {
+    return array(
+      'an_business_ids' => 'list<string>',
+      'an_level' => 'string',
+      'facebook_business_ids' => 'list<string>',
+      'facebook_level' => 'string',
+    );
+  }
+}

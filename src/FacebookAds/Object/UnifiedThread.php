@@ -156,6 +156,7 @@ class UnifiedThread extends AbstractCrudObject {
         'no_border',
       ),
       'montage_supported_features_enum' => array(
+        'AUTHOR_IN_PRODUCER_QE_FOR_SMART_REPLIES',
         'LIGHTWEIGHT_REPLY',
         'SHOW_STORY_IN_MESSENGER_THREAD',
       ),

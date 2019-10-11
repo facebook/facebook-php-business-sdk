@@ -54,6 +54,7 @@ class ProductFeedFields extends AbstractEnum {
   const UPDATE_SCHEDULE = 'update_schedule';
   const FEED_TYPE = 'feed_type';
   const RULES = 'rules';
+  const UPLOAD_SCHEDULE = 'upload_schedule';
 
   public function getFieldTypes() {
     return array(
@@ -74,6 +75,7 @@ class ProductFeedFields extends AbstractEnum {
       'update_schedule' => 'ProductFeedSchedule',
       'feed_type' => 'FeedType',
       'rules' => 'list<string>',
+      'upload_schedule' => 'string',
     );
   }
 }

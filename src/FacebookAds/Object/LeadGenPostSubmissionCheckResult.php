@@ -21,9 +21,37 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
-namespace FacebookAds;
-class ApiConfig {
-  const APIVersion = '4.0';
-  const SDKVersion = '4.0.7';
-  const TYPE_CHECKER_STRICT_MODE = false;
+
+namespace FacebookAds\Object;
+
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\LeadGenPostSubmissionCheckResultFields;
+
+/**
+ * This class is auto-generated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
+ */
+
+class LeadGenPostSubmissionCheckResult extends AbstractObject {
+
+  /**
+   * @return LeadGenPostSubmissionCheckResultFields
+   */
+  public static function getFieldsEnum() {
+    return LeadGenPostSubmissionCheckResultFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
 }

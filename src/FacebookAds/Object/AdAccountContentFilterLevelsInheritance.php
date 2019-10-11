@@ -19,30 +19,39 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
+ *
  */
 
-require __DIR__ . '/vendor/autoload.php';
+namespace FacebookAds\Object;
 
-use FacebookAds\Object\Page;
-use FacebookAds\Object\PageAdminNote;
-use FacebookAds\Api;
-use FacebookAds\Logger\CurlLogger;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\AdAccountContentFilterLevelsInheritanceFields;
 
-$access_token = '<ACCESS_TOKEN>';
-$app_secret = '<APP_SECRET>';
-$app_id = '<APP_ID>';
-$id = '<ID>';
+/**
+ * This class is auto-generated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
+ */
 
-$api = Api::init($app_id, $app_secret, $access_token);
-$api->setLogger(new CurlLogger());
+class AdAccountContentFilterLevelsInheritance extends AbstractObject {
 
-$fields = array(
-);
-$params = array(
-  'body' => 'text',
-  'user_id' => '<customerID>',
-);
-echo json_encode((new Page($id))->createAdminNote(
-  $fields,
-  $params
-)->exportAllData(), JSON_PRETTY_PRINT);
+  /**
+   * @return AdAccountContentFilterLevelsInheritanceFields
+   */
+  public static function getFieldsEnum() {
+    return AdAccountContentFilterLevelsInheritanceFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
+}

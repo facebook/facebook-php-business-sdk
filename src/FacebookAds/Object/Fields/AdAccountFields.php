@@ -96,6 +96,7 @@ class AdAccountFields extends AbstractEnum {
   const TIMEZONE_OFFSET_HOURS_UTC = 'timezone_offset_hours_utc';
   const TOS_ACCEPTED = 'tos_accepted';
   const USER_ROLE = 'user_role';
+  const USER_TASKS = 'user_tasks';
   const USER_TOS_ACCEPTED = 'user_tos_accepted';
 
   public function getFieldTypes() {
@@ -159,6 +160,7 @@ class AdAccountFields extends AbstractEnum {
       'timezone_offset_hours_utc' => 'float',
       'tos_accepted' => 'map<string, int>',
       'user_role' => 'string',
+      'user_tasks' => 'list<string>',
       'user_tos_accepted' => 'map<string, int>',
     );
   }

@@ -19,39 +19,28 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
- *
  */
 
-namespace FacebookAds\Object;
+require __DIR__ . '/vendor/autoload.php';
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AdCreativeDegreesOfFreedomSpecFields;
+use FacebookAds\Object\AdsPixel;
+use FacebookAds\Api;
+use FacebookAds\Logger\CurlLogger;
 
-/**
- * This class is auto-generated.
- *
- * For any issues or feature requests related to this class, please let us know
- * on github and we'll fix in our codegen framework. We'll not be able to accept
- * pull request for this class.
- *
- */
+$access_token = '<ACCESS_TOKEN>';
+$app_secret = '<APP_SECRET>';
+$app_id = '<APP_ID>';
+$id = '<ADS_PIXEL_ID>';
 
-class AdCreativeDegreesOfFreedomSpec extends AbstractObject {
+$api = Api::init($app_id, $app_secret, $access_token);
+$api->setLogger(new CurlLogger());
 
-  /**
-   * @return AdCreativeDegreesOfFreedomSpecFields
-   */
-  public static function getFieldsEnum() {
-    return AdCreativeDegreesOfFreedomSpecFields::getInstance();
-  }
-
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
-}
+$fields = array(
+);
+$params = array(
+  'data' => array(array('event_name' => 'PageView','event_time' => 1569260711,'user_data' => array('fbc' => 'fb.1.1554763741205.AbCdEfGhIjKlMnOpQrStUvWxYz1234567890','fbp' => 'fb.1.1558571054389.1098115397','em' => '309a0a5c3e211326ae75ca18196d301a9bdbd1a882a4d2569511033da23f0abd'))),
+);
+echo json_encode((new AdsPixel($id))->createEvent(
+  $fields,
+  $params
+)->exportAllData(), JSON_PRETTY_PRINT);

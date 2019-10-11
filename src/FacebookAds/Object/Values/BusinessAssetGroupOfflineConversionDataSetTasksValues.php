@@ -40,4 +40,5 @@ class BusinessAssetGroupOfflineConversionDataSetTasksValues extends AbstractEnum
   const ADVERTISE = 'ADVERTISE';
   const MANAGE = 'MANAGE';
   const UPLOAD = 'UPLOAD';
+  const VIEW = 'VIEW';
 }
