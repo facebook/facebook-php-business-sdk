@@ -25,12 +25,30 @@
 namespace FacebookAds;
 
 use FacebookAds\Api;
+use FacebookAds\Exception\Exception;
+use FacebookAds\Http\RequestInterface;
+
+/**
+ * Class CrashReasons
+ * @package FacebookAds
+ */
+class CrashReasons {
+    const SDK = 'SDK';
+    const API = 'API';
+}
 
 /**
  * Class CrashReporter
  * @package FacebookAds
  */
 class CrashReporter {
+    const E_FATAL =
+      E_ERROR |
+      E_USER_ERROR |
+      E_PARSE |
+      E_CORE_ERROR |
+      E_COMPILE_ERROR |
+      E_RECOVERABLE_ERROR;
 
     /**
      * @var CrashReporter
@@ -85,10 +103,14 @@ class CrashReporter {
      */
     private function registerExceptionHandler() {
         $lastHandler = set_exception_handler(
-            function (\Exception $e) use (&$lastHandler) {
+            function (\Throwable $e) use (&$lastHandler) {
                 print('CrashReporter: Exception detected!' . PHP_EOL);
-                // send back to server
-
+                $params = $this->buildParamsFromException($e);
+                if ($params != null) {
+                    $this->sendReport(array(
+                        'bizsdk_crash_report' => $params
+                    ));
+                }
                 // restore the previous exception
                 if (is_callable($lastHandler)) {
                     return call_user_func_array($lastHandler, [$e]);
@@ -101,8 +123,15 @@ class CrashReporter {
         $lastError = set_error_handler(
             function ($errno, $errstr, $errfile, $errline) use (&$lastError) {
                 print('CrashReporter: Error detected!' . PHP_EOL);
-                // send back to server
-
+                if (($errno & self::E_FATAL) && strpos($errfile, 'FacebookAds') != false) {
+                    $e = new \ErrorException($errstr, 0, $errno, $errfile, $errline);
+                    $params = $this->buildParamsFromException($e);
+                    if ($params != null) {
+                        $this->sendReport(array(
+                            'bizsdk_crash_report' => $params
+                        ));
+                    }
+                }
                 if (is_callable($lastError)) {
                     return call_user_func_array($lastError, [$errno, $errstr, $errfile, $errline]);
                 } else {
@@ -111,5 +140,51 @@ class CrashReporter {
                 }
             }
         );
+    }
+
+    /**
+     * @param \Throwable $e
+     * @return array|null
+     */
+    private function buildParamsFromException(\Throwable $e) {
+        if (!($e instanceof Exception || $e instanceof \ErrorException)) {
+            return NULL;
+        }
+        $reason = CrashReasons::SDK;
+        if ($e instanceof RequestException) {
+            $reason = CrashReasons::API;
+        }
+        $callstack = explode(PHP_EOL, $e->getTraceAsString());
+        array_splice($callstack, 0, 0, $e->getMessage());
+        return array(
+            'reason' => $reason,
+            'callstack' => $callstack,
+            'platform' => phpversion()
+        );
+    }
+
+    /**
+     * @param $params
+     */
+    private function sendReport($params) {
+        try {
+            $session = new AnonymousSession();
+            $api = new Api(Api::instance()->getHttpClient(), $session);
+            $request = $api->prepareRequest(
+                '/' . $this->app_id . '/instruments',
+                RequestInterface::METHOD_POST,
+                $params
+            );
+
+            $response = $api->executeRequest($request);
+            $data = $response->getContent();
+            if ($data && $data['success']) {
+                print('CrashReporter: Successfully sent report' . PHP_EOL);
+            } else {
+                print('CrashReporter: Failed to send report' . PHP_EOL);
+            }
+        } catch (\Exception $e) {
+            print('CrashReporter: Exception on sending report' . PHP_EOL);
+        }
     }
 }
