@@ -56,6 +56,11 @@ class CrashReporter {
     private static $instance;
 
     /**
+     * @var resource
+     */
+    private static $handle;
+
+    /**
      * @var int
      */
     private $app_id;
@@ -68,21 +73,27 @@ class CrashReporter {
     private function __construct(
       $app_id
     ) {
-      $this->app_id = $app_id;
+        $this->app_id = $app_id;
     }
 
     /**
      * @return void
      */
     public static function enable() {
+        if (!defined('STDOUT')) {
+          define('STDOUT', fopen('php://stdout', 'w'));
+        }
+        if (!static::$handle) {
+          static::$handle = STDOUT;
+        }
         if (!static::$instance) {
             $api = Api::instance();
             if ($api == null) {
-              print('CrashReporter: Could not initialize API' . PHP_EOL);
+              self::log('Could not initialize API' . PHP_EOL);
             }
             static::$instance = new static($api->getSession()->getAppId());
             static::$instance->registerExceptionHandler();
-            print('CrashReporter: Enabled' . PHP_EOL);
+            self::log('Enabled' . PHP_EOL);
         }
     }
 
@@ -94,8 +105,15 @@ class CrashReporter {
             static::$instance = null;
             restore_exception_handler();
             restore_error_handler();
-            print('CrashReporter: Disabled' . PHP_EOL);
+            self::log('Disabled');
         }
+    }
+
+    /**
+     * @param $handle
+     */
+    public static function setLogger($handle) {
+        static::$handle = is_resource($handle) ? $handle : STDOUT;
     }
 
     /**
@@ -104,7 +122,7 @@ class CrashReporter {
     private function registerExceptionHandler() {
         $lastHandler = set_exception_handler(
             function (\Throwable $e) use (&$lastHandler) {
-                print('CrashReporter: Exception detected!' . PHP_EOL);
+                self::log('Exception detected!');
                 $params = $this->buildParamsFromException($e);
                 if ($params != null) {
                     $this->sendReport(array(
@@ -122,7 +140,7 @@ class CrashReporter {
 
         $lastError = set_error_handler(
             function ($errno, $errstr, $errfile, $errline) use (&$lastError) {
-                print('CrashReporter: Error detected!' . PHP_EOL);
+                self::log('Error detected!');
                 if (($errno & self::E_FATAL) && strpos($errfile, 'FacebookAds') != false) {
                     $e = new \ErrorException($errstr, 0, $errno, $errfile, $errline);
                     $params = $this->buildParamsFromException($e);
@@ -179,12 +197,20 @@ class CrashReporter {
             $response = $api->executeRequest($request);
             $data = $response->getContent();
             if ($data && $data['success']) {
-                print('CrashReporter: Successfully sent report' . PHP_EOL);
+                self::log('Successfully sent report' . PHP_EOL);
             } else {
-                print('CrashReporter: Failed to send report' . PHP_EOL);
+                self::log('Failed to send report' . PHP_EOL);
             }
         } catch (\Exception $e) {
-            print('CrashReporter: Exception on sending report' . PHP_EOL);
+            self::log('Exception on sending report' . PHP_EOL);
         }
+    }
+
+    /**
+     * @param $message
+     */
+    private static function log($message) {
+      $content = sprintf("%s : %s%s",static::class, $message, PHP_EOL);
+      fwrite(static::$handle, $content);
     }
 }
