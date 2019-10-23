@@ -28,7 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AdContractFields;
+use FacebookAds\Object\Fields\CampaignGroupCollaborativeAdsPartnerInfoFields;
 
 /**
  * This class is auto-generated.
@@ -39,13 +39,13 @@ use FacebookAds\Object\Fields\AdContractFields;
  *
  */
 
-class AdContract extends AbstractObject {
+class CampaignGroupCollaborativeAdsPartnerInfo extends AbstractObject {
 
   /**
-   * @return AdContractFields
+   * @return CampaignGroupCollaborativeAdsPartnerInfoFields
    */
   public static function getFieldsEnum() {
-    return AdContractFields::getInstance();
+    return CampaignGroupCollaborativeAdsPartnerInfoFields::getInstance();
   }
 
   protected static function getReferencedEnums() {

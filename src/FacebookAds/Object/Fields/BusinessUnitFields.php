@@ -39,15 +39,25 @@ class BusinessUnitFields extends AbstractEnum {
 
   const BUSINESS = 'business';
   const CREATION_TIME = 'creation_time';
+  const CURRENCY = 'currency';
+  const EXCLUDED_SOURCES = 'excluded_sources';
   const ID = 'id';
+  const IS_ENABLED_FOR_MEASUREMENT = 'is_enabled_for_measurement';
   const NAME = 'name';
+  const TIME_ZONE = 'time_zone';
+  const VISITS_AVAILABLE_DATE = 'visits_available_date';
 
   public function getFieldTypes() {
     return array(
       'business' => 'Business',
       'creation_time' => 'datetime',
+      'currency' => 'string',
+      'excluded_sources' => 'Object',
       'id' => 'string',
+      'is_enabled_for_measurement' => 'bool',
       'name' => 'string',
+      'time_zone' => 'string',
+      'visits_available_date' => 'int',
     );
   }
 }

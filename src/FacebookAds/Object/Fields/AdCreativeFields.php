@@ -53,6 +53,7 @@ class AdCreativeFields extends AbstractEnum {
   const DESTINATION_SET_ID = 'destination_set_id';
   const DYNAMIC_AD_VOICE = 'dynamic_ad_voice';
   const EFFECTIVE_AUTHORIZATION_CATEGORY = 'effective_authorization_category';
+  const EFFECTIVE_INSTAGRAM_MEDIA_ID = 'effective_instagram_media_id';
   const EFFECTIVE_INSTAGRAM_STORY_ID = 'effective_instagram_story_id';
   const EFFECTIVE_OBJECT_STORY_ID = 'effective_object_story_id';
   const ENABLE_DIRECT_INSTALL = 'enable_direct_install';
@@ -112,6 +113,7 @@ class AdCreativeFields extends AbstractEnum {
       'destination_set_id' => 'string',
       'dynamic_ad_voice' => 'string',
       'effective_authorization_category' => 'string',
+      'effective_instagram_media_id' => 'string',
       'effective_instagram_story_id' => 'string',
       'effective_object_story_id' => 'string',
       'enable_direct_install' => 'bool',

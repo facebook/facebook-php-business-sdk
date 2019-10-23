@@ -58,9 +58,14 @@ class UnifiedThread extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'source' => 'source_enum',
       'user' => 'int',
     );
     $enums = array(
+      'source_enum' => array(
+        'ALL',
+        'USER',
+      ),
     );
 
     $request = new ApiRequest(

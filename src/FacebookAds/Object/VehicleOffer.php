@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\VehicleOfferFields;
 
 /**
  * This class is auto-generated.
@@ -33,27 +37,44 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdReportSpecDatePresetValues getInstance()
  */
-class AdReportSpecDatePresetValues extends AbstractEnum {
 
-  const LAST_14D = 'last_14d';
-  const LAST_28D = 'last_28d';
-  const LAST_30D = 'last_30d';
-  const LAST_3D = 'last_3d';
-  const LAST_7D = 'last_7d';
-  const LAST_90D = 'last_90d';
-  const LAST_MONTH = 'last_month';
-  const LAST_QUARTER = 'last_quarter';
-  const LAST_WEEK_MON_SUN = 'last_week_mon_sun';
-  const LAST_WEEK_SUN_SAT = 'last_week_sun_sat';
-  const LAST_YEAR = 'last_year';
-  const LIFETIME = 'lifetime';
-  const THIS_MONTH = 'this_month';
-  const THIS_QUARTER = 'this_quarter';
-  const THIS_WEEK_MON_TODAY = 'this_week_mon_today';
-  const THIS_WEEK_SUN_TODAY = 'this_week_sun_today';
-  const THIS_YEAR = 'this_year';
-  const TODAY = 'today';
-  const YESTERDAY = 'yesterday';
+class VehicleOffer extends AbstractCrudObject {
+
+  /**
+   * @return VehicleOfferFields
+   */
+  public static function getFieldsEnum() {
+    return VehicleOfferFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new VehicleOffer(),
+      'NODE',
+      VehicleOffer::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
 }

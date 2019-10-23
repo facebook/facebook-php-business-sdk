@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,12 +33,17 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdReportSpecFormatValues getInstance()
  */
-class AdReportSpecFormatValues extends AbstractEnum {
 
-  const CSV = 'CSV';
-  const JSON = 'JSON';
-  const XLS = 'XLS';
-  const XLSX = 'XLSX';
+class AdAccountSubscribedAppsFields extends AbstractEnum {
+
+  const APP_ID = 'app_id';
+  const APP_NAME = 'app_name';
+
+  public function getFieldTypes() {
+    return array(
+      'app_id' => 'string',
+      'app_name' => 'string',
+    );
+  }
 }

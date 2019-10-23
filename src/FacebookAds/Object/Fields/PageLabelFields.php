@@ -46,7 +46,7 @@ class PageLabelFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'creation_time' => 'datetime',
-      'creator_id' => 'Profile',
+      'creator_id' => 'string',
       'from' => 'Page',
       'id' => 'string',
       'name' => 'string',

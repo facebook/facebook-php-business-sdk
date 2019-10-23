@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\AdAccountSubscribedAppsFields;
 
 /**
  * This class is auto-generated.
@@ -35,41 +39,26 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class AdToplineDetailFields extends AbstractEnum {
+class AdAccountSubscribedApps extends AbstractObject {
 
-  const ACTIVE_STATUS = 'active_status';
-  const AD_ACCOUNT_ID = 'ad_account_id';
-  const FLIGHT_END_DATE = 'flight_end_date';
-  const FLIGHT_START_DATE = 'flight_start_date';
-  const ID = 'id';
-  const IO_NUMBER = 'io_number';
-  const LINE_NUMBER = 'line_number';
-  const PRICE = 'price';
-  const QUANTITY = 'quantity';
-  const SF_DETAIL_LINE_ID = 'sf_detail_line_id';
-  const SUBLINE_ID = 'subline_id';
-  const TARGETS = 'targets';
-  const TIME_CREATED = 'time_created';
-  const TIME_UPDATED = 'time_updated';
-  const TOPLINE_ID = 'topline_id';
-
-  public function getFieldTypes() {
-    return array(
-      'active_status' => 'int',
-      'ad_account_id' => 'string',
-      'flight_end_date' => 'datetime',
-      'flight_start_date' => 'datetime',
-      'id' => 'string',
-      'io_number' => 'int',
-      'line_number' => 'int',
-      'price' => 'float',
-      'quantity' => 'float',
-      'sf_detail_line_id' => 'string',
-      'subline_id' => 'string',
-      'targets' => 'string',
-      'time_created' => 'datetime',
-      'time_updated' => 'datetime',
-      'topline_id' => 'AdTopline',
-    );
+  /**
+   * @deprecated getEndpoint function is deprecated
+   */
+  protected function getEndpoint() {
+    return 'subscribed_apps';
   }
+
+  /**
+   * @return AdAccountSubscribedAppsFields
+   */
+  public static function getFieldsEnum() {
+    return AdAccountSubscribedAppsFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
 }

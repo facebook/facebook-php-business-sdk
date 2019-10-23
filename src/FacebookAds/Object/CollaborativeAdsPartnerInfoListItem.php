@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\CollaborativeAdsPartnerInfoListItemFields;
 
 /**
  * This class is auto-generated.
@@ -33,11 +37,21 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdReportSpecCreationSourceValues getInstance()
  */
-class AdReportSpecCreationSourceValues extends AbstractEnum {
 
-  const ADSEXCELADDIN = 'adsExcelAddin';
-  const ADSMANAGERREPORTING = 'adsManagerReporting';
-  const NEWADSMANAGER = 'newAdsManager';
+class CollaborativeAdsPartnerInfoListItem extends AbstractObject {
+
+  /**
+   * @return CollaborativeAdsPartnerInfoListItemFields
+   */
+  public static function getFieldsEnum() {
+    return CollaborativeAdsPartnerInfoListItemFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
 }

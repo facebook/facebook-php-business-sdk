@@ -38,18 +38,18 @@ use FacebookAds\Enum\AbstractEnum;
 class AdAccountAdVolumeFields extends AbstractEnum {
 
   const ACTOR_ID = 'actor_id';
+  const ADS_RUNNING_OR_IN_REVIEW_COUNT = 'ads_running_or_in_review_count';
   const HAS_HIT_TOTAL_LIVE_ADS_LIMIT = 'has_hit_total_live_ads_limit';
   const LIVE_ADS_QUOTA_LEFT = 'live_ads_quota_left';
-  const TOTAL_LIVE_ADS = 'total_live_ads';
   const TOTAL_LIVE_ADS_IN_CURRENT_ACCOUNT = 'total_live_ads_in_current_account';
   const TOTAL_LIVE_ADS_LIMIT = 'total_live_ads_limit';
 
   public function getFieldTypes() {
     return array(
       'actor_id' => 'string',
+      'ads_running_or_in_review_count' => 'unsigned int',
       'has_hit_total_live_ads_limit' => 'bool',
       'live_ads_quota_left' => 'int',
-      'total_live_ads' => 'unsigned int',
       'total_live_ads_in_current_account' => 'unsigned int',
       'total_live_ads_limit' => 'unsigned int',
     );

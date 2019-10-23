@@ -208,6 +208,7 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'ad_account_created_from_bm_flag' => 'bool',
       'currency' => 'string',
       'end_advertiser' => 'Object',
       'funding_id' => 'string',

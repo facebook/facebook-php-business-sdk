@@ -794,54 +794,6 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function deleteCopyrightWhitelistedIgPartners(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'usernames' => 'list<string>',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_DELETE,
-      '/copyright_whitelisted_ig_partners',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createCopyrightWhitelistedIgPartner(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'usernames' => 'list<string>',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/copyright_whitelisted_ig_partners',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getCopyrightWhitelistedPartners(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1916,6 +1868,7 @@ class Page extends AbstractCrudObject {
         'GET_STARTED',
         'GREETING',
         'HOME_URL',
+        'ICE_BREAKERS',
         'PAYMENT_SETTINGS',
         'PERSISTENT_MENU',
         'TARGET_AUDIENCE',
@@ -1969,6 +1922,7 @@ class Page extends AbstractCrudObject {
       'get_started' => 'Object',
       'greeting' => 'list<Object>',
       'home_url' => 'Object',
+      'ice_breakers' => 'list<map>',
       'payment_settings' => 'Object',
       'persistent_menu' => 'list<Object>',
       'target_audience' => 'Object',
@@ -2158,6 +2112,31 @@ class Page extends AbstractCrudObject {
       new InstagramUser(),
       'EDGE',
       InstagramUser::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createPageWhatsappNumberVerification(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'verification_code' => 'string',
+      'whatsapp_number' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/page_whatsapp_number_verification',
+      new Page(),
+      'EDGE',
+      Page::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

@@ -28,7 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AdToplineFields;
+use FacebookAds\Object\Fields\AdCreativeInsightsFields;
 
 /**
  * This class is auto-generated.
@@ -39,13 +39,13 @@ use FacebookAds\Object\Fields\AdToplineFields;
  *
  */
 
-class AdTopline extends AbstractCrudObject {
+class AdCreativeInsights extends AbstractObject {
 
   /**
-   * @return AdToplineFields
+   * @return AdCreativeInsightsFields
    */
   public static function getFieldsEnum() {
-    return AdToplineFields::getInstance();
+    return AdCreativeInsightsFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -53,28 +53,5 @@ class AdTopline extends AbstractCrudObject {
     return $ref_enums;
   }
 
-
-  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/',
-      new AdTopline(),
-      'NODE',
-      AdTopline::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
 
 }

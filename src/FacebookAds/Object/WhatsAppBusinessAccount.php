@@ -120,6 +120,7 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       'status_enum' => array(
         'APPROVED',
         'DELETED',
+        'DISABLED',
         'PENDING',
         'PENDING_DELETION',
         'REJECTED',

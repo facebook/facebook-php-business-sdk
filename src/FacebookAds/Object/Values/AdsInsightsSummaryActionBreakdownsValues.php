@@ -40,7 +40,6 @@ class AdsInsightsSummaryActionBreakdownsValues extends AbstractEnum {
   const ACTION_CANVAS_COMPONENT_NAME = 'action_canvas_component_name';
   const ACTION_CAROUSEL_CARD_ID = 'action_carousel_card_id';
   const ACTION_CAROUSEL_CARD_NAME = 'action_carousel_card_name';
-  const ACTION_CONVERTED_PRODUCT_ID = 'action_converted_product_id';
   const ACTION_DESTINATION = 'action_destination';
   const ACTION_DEVICE = 'action_device';
   const ACTION_REACTION = 'action_reaction';

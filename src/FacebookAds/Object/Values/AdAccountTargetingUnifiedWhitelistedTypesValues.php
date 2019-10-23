@@ -102,6 +102,7 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const HOME_TYPE = 'home_type';
   const HOME_VALUE = 'home_value';
   const HOUSEHOLD_COMPOSITION = 'household_composition';
+  const ID = 'id';
   const INCOME = 'income';
   const INDUSTRIES = 'industries';
   const INSTAGRAM_POSITIONS = 'instagram_positions';
@@ -109,6 +110,7 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const INTEREST_DEFAULTS_SOURCE = 'interest_defaults_source';
   const INTERESTED_IN = 'interested_in';
   const INTERESTS = 'interests';
+  const IS_INSTAGRAM_DESTINATION_AD = 'is_instagram_destination_ad';
   const IS_WHATSAPP_DESTINATION_AD = 'is_whatsapp_destination_ad';
   const KEYWORDS = 'keywords';
   const LIFE_EVENTS = 'life_events';

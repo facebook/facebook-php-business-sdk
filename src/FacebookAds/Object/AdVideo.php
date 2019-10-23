@@ -92,31 +92,6 @@ class AdVideo extends AbstractCrudObject {
   }
 
 
-  public function createAutoTrim(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'auto_trim_type' => 'string',
-      'target_id' => 'unsigned int',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/auto_trims',
-      new AdVideo(),
-      'EDGE',
-      AdVideo::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getCaptions(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -472,31 +447,6 @@ class AdVideo extends AbstractCrudObject {
       new Page(),
       'EDGE',
       Page::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createSummarization(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'summarization_type' => 'string',
-      'target_id' => 'unsigned int',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/summarizations',
-      new AdVideo(),
-      'EDGE',
-      AdVideo::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

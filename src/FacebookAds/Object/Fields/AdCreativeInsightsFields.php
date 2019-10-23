@@ -22,13 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Fields;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AdToplineDetailFields;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-generated.
@@ -39,42 +35,13 @@ use FacebookAds\Object\Fields\AdToplineDetailFields;
  *
  */
 
-class AdToplineDetail extends AbstractCrudObject {
+class AdCreativeInsightsFields extends AbstractEnum {
 
-  /**
-   * @return AdToplineDetailFields
-   */
-  public static function getFieldsEnum() {
-    return AdToplineDetailFields::getInstance();
-  }
+  const AESTHETICS = 'aesthetics';
 
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
-  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
+  public function getFieldTypes() {
+    return array(
+      'aesthetics' => 'map<string, string>',
     );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/',
-      new AdToplineDetail(),
-      'NODE',
-      AdToplineDetail::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
   }
-
 }

@@ -317,29 +317,6 @@ class AdAccount extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getAdContracts(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/adcontracts',
-      new AdContract(),
-      'EDGE',
-      AdContract::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getAdCreatives(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1210,52 +1187,6 @@ class AdAccount extends AbstractCrudObject {
       new AdsPixel(),
       'EDGE',
       AdsPixel::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getAdToplineDetails(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/adtoplinedetails',
-      new AdToplineDetail(),
-      'EDGE',
-      AdToplineDetail::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getAdTopLines(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/adtoplines',
-      new AdTopline(),
-      'EDGE',
-      AdTopline::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -3053,6 +2984,29 @@ class AdAccount extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getSubscribedApps(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/subscribed_apps',
+      new AdAccountSubscribedApps(),
+      'EDGE',
+      AdAccountSubscribedApps::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createSubscribedApp(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -3067,9 +3021,9 @@ class AdAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/subscribed_apps',
-      new AbstractCrudObject(),
+      new AdAccountSubscribedApps(),
       'EDGE',
-      array(),
+      AdAccountSubscribedApps::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

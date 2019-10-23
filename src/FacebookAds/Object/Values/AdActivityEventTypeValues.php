@@ -108,4 +108,5 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const UPDATE_CAMPAIGN_GROUP_SPEND_CAP = 'update_campaign_group_spend_cap';
   const UPDATE_CAMPAIGN_NAME = 'update_campaign_name';
   const UPDATE_CAMPAIGN_RUN_STATUS = 'update_campaign_run_status';
+  const UPDATE_CAMPAIGN_SCHEDULE = 'update_campaign_schedule';
 }

@@ -1205,6 +1205,31 @@ class ProductCatalog extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getVehicleOffers(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'bulk_pagination' => 'bool',
+      'filter' => 'Object',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/vehicle_offers',
+      new VehicleOffer(),
+      'EDGE',
+      VehicleOffer::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getVehicles(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1247,6 +1272,7 @@ class ProductCatalog extends AbstractCrudObject {
       'description' => 'string',
       'drivetrain' => 'drivetrain_enum',
       'exterior_color' => 'string',
+      'fb_page_id' => 'string',
       'fuel_type' => 'fuel_type_enum',
       'images' => 'list<Object>',
       'interior_color' => 'string',
