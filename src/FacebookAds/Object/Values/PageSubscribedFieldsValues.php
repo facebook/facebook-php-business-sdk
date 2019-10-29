@@ -69,6 +69,7 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const MESSAGE_DELIVERIES = 'message_deliveries';
   const MESSAGE_ECHOES = 'message_echoes';
   const MESSAGE_MENTION = 'message_mention';
+  const MESSAGE_REACTIONS = 'message_reactions';
   const MESSAGE_READS = 'message_reads';
   const MESSAGES = 'messages';
   const MESSAGING_ACCOUNT_LINKING = 'messaging_account_linking';

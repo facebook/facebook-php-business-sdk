@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,10 +33,17 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static PostFeedStoryVisibilityValues getInstance()
  */
-class PostFeedStoryVisibilityValues extends AbstractEnum {
 
-  const HIDDEN = 'hidden';
-  const VISIBLE = 'visible';
+class BusinessPixelTOSFields extends AbstractEnum {
+
+  const ACCEPT_TIME = 'accept_time';
+  const ID = 'id';
+
+  public function getFieldTypes() {
+    return array(
+      'accept_time' => 'int',
+      'id' => 'string',
+    );
+  }
 }

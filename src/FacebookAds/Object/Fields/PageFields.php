@@ -108,8 +108,6 @@ class PageFields extends AbstractEnum {
   const IS_WEBHOOKS_SUBSCRIBED = 'is_webhooks_subscribed';
   const KEYWORDS = 'keywords';
   const LEADGEN_FORM_PREVIEW_DETAILS = 'leadgen_form_preview_details';
-  const LEADGEN_HAS_CRM_INTEGRATION = 'leadgen_has_crm_integration';
-  const LEADGEN_HAS_FAT_PING_CRM_INTEGRATION = 'leadgen_has_fat_ping_crm_integration';
   const LEADGEN_TOS_ACCEPTANCE_TIME = 'leadgen_tos_acceptance_time';
   const LEADGEN_TOS_ACCEPTED = 'leadgen_tos_accepted';
   const LEADGEN_TOS_ACCEPTING_USER = 'leadgen_tos_accepting_user';
@@ -252,8 +250,6 @@ class PageFields extends AbstractEnum {
       'is_webhooks_subscribed' => 'bool',
       'keywords' => 'Object',
       'leadgen_form_preview_details' => 'LeadGenFormPreviewDetails',
-      'leadgen_has_crm_integration' => 'bool',
-      'leadgen_has_fat_ping_crm_integration' => 'bool',
       'leadgen_tos_acceptance_time' => 'datetime',
       'leadgen_tos_accepted' => 'bool',
       'leadgen_tos_accepting_user' => 'User',

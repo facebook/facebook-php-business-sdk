@@ -345,30 +345,6 @@ class Ad extends AbstractArchivableCrudObject
     return $pending ? $request : $request->execute();
   }
 
-  public function getKeywordStats(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'date' => 'datetime',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/keywordstats',
-      new AdKeywordStats(),
-      'EDGE',
-      AdKeywordStats::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getLeads(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 

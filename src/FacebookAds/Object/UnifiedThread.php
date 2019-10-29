@@ -64,7 +64,7 @@ class UnifiedThread extends AbstractCrudObject {
     $enums = array(
       'source_enum' => array(
         'ALL',
-        'USER',
+        'PARTICIPANTS',
       ),
     );
 

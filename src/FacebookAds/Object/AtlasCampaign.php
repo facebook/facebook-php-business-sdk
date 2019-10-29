@@ -28,7 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\BusinessUnitFields;
+use FacebookAds\Object\Fields\AtlasCampaignFields;
 
 /**
  * This class is auto-generated.
@@ -39,13 +39,13 @@ use FacebookAds\Object\Fields\BusinessUnitFields;
  *
  */
 
-class BusinessUnit extends AbstractCrudObject {
+class AtlasCampaign extends AbstractCrudObject {
 
   /**
-   * @return BusinessUnitFields
+   * @return AtlasCampaignFields
    */
   public static function getFieldsEnum() {
-    return BusinessUnitFields::getInstance();
+    return AtlasCampaignFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -54,7 +54,7 @@ class BusinessUnit extends AbstractCrudObject {
   }
 
 
-  public function getAdPlatforms(array $fields = array(), array $params = array(), $pending = false) {
+  public function getAdSets(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -69,7 +69,7 @@ class BusinessUnit extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
-      '/ad_platforms',
+      '/ad_sets',
       new AbstractCrudObject(),
       'EDGE',
       array(),
@@ -80,7 +80,7 @@ class BusinessUnit extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getAtlasSalesAccesses(array $fields = array(), array $params = array(), $pending = false) {
+  public function getBusinessUnit(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -92,10 +92,10 @@ class BusinessUnit extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
-      '/atlas_sales_accesses',
-      new AbstractCrudObject(),
+      '/business_unit',
+      new BusinessUnit(),
       'EDGE',
-      array(),
+      BusinessUnit::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -103,12 +103,14 @@ class BusinessUnit extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createAtlasSalesAccess(array $fields = array(), array $params = array(), $pending = false) {
+  public function createImportTemplate(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
-      'access_request_id' => 'string',
-      'status' => 'string',
+      'export' => 'string',
+      'filename' => 'string',
+      'format' => 'string',
+      'template' => 'string',
     );
     $enums = array(
     );
@@ -117,10 +119,10 @@ class BusinessUnit extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_POST,
-      '/atlas_sales_accesses',
-      new AbstractCrudObject(),
+      '/importtemplate',
+      new AtlasCampaign(),
       'EDGE',
-      array(),
+      AtlasCampaign::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -128,71 +130,34 @@ class BusinessUnit extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getCustomBreakdowns(array $fields = array(), array $params = array(), $pending = false) {
+  public function getMetricsBreakdown(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
-      'filter_by' => 'string',
-      'order_by' => 'string',
+      'dimensions' => 'list<dimensions_enum>',
+      'granularity' => 'granularity_enum',
+      'metric_scope' => 'map',
+      'order_by' => 'list',
     );
     $enums = array(
+      'dimensions_enum' => array(
+        'DEVICE_TYPE',
+        'SOURCE_CHANNEL',
+      ),
+      'granularity_enum' => array(
+        'DAY',
+        'HOUR',
+        'MONTH',
+        'WEEK',
+        'YEAR',
+      ),
     );
 
     $request = new ApiRequest(
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
-      '/custom_breakdowns',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getDiagnostics(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'filter_by' => 'string',
-      'order_by' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/diagnostics',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getExternalImportFile(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'filter_by' => 'string',
-      'order_by' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/external_import_file',
+      '/metrics_breakdown',
       new AbstractCrudObject(),
       'EDGE',
       array(),
@@ -207,6 +172,7 @@ class BusinessUnit extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'metric_scope' => 'map',
     );
     $enums = array(
     );
@@ -216,9 +182,9 @@ class BusinessUnit extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new BusinessUnit(),
+      new AtlasCampaign(),
       'NODE',
-      BusinessUnit::getFieldsEnum()->getValues(),
+      AtlasCampaign::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
