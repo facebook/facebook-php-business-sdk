@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,19 +33,14 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static PostBackdatedTimeGranularityValues getInstance()
  */
+class PostBackdatedTimeGranularityValues extends AbstractEnum {
 
-class ScreenNameFields extends AbstractEnum {
-
-  const SERVICE_NAME = 'service_name';
-  const SERVICE_TYPE = 'service_type';
-  const VALUE = 'value';
-
-  public function getFieldTypes() {
-    return array(
-      'service_name' => 'string',
-      'service_type' => 'string',
-      'value' => 'string',
-    );
-  }
+  const DAY = 'day';
+  const HOUR = 'hour';
+  const MIN = 'min';
+  const MONTH = 'month';
+  const NONE = 'none';
+  const YEAR = 'year';
 }

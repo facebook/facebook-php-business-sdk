@@ -43,8 +43,6 @@ class AdAccountActivityFields extends AbstractEnum {
   const CREATED_TIME = 'created_time';
   const CREDIT_NEW = 'credit_new';
   const CREDIT_OLD = 'credit_old';
-  const CREDIT_STATUS_NEW = 'credit_status_new';
-  const CREDIT_STATUS_OLD = 'credit_status_old';
   const CURRENCY_NEW = 'currency_new';
   const CURRENCY_OLD = 'currency_old';
   const DAILY_SPEND_LIMIT_NEW = 'daily_spend_limit_new';
@@ -79,8 +77,6 @@ class AdAccountActivityFields extends AbstractEnum {
       'created_time' => 'datetime',
       'credit_new' => 'Object',
       'credit_old' => 'Object',
-      'credit_status_new' => 'string',
-      'credit_status_old' => 'string',
       'currency_new' => 'string',
       'currency_old' => 'string',
       'daily_spend_limit_new' => 'Object',

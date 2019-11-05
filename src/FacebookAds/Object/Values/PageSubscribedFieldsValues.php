@@ -63,6 +63,7 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const LEADGEN_FAT = 'leadgen_fat';
   const LIVE_VIDEOS = 'live_videos';
   const LOCATION = 'location';
+  const MCOM_INVOICE_CHANGE = 'mcom_invoice_change';
   const MEMBERS = 'members';
   const MENTION = 'mention';
   const MERCHANT_REVIEW = 'merchant_review';

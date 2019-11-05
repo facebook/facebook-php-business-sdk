@@ -37,7 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
 
 class LifeEventFields extends AbstractEnum {
 
-  const CREATED_TIME = 'created_time';
   const DESCRIPTION = 'description';
   const END_TIME = 'end_time';
   const FROM = 'from';
@@ -49,7 +48,6 @@ class LifeEventFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'created_time' => 'datetime',
       'description' => 'string',
       'end_time' => 'datetime',
       'from' => 'Page',

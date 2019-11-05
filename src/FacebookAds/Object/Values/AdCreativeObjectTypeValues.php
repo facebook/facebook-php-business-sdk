@@ -44,6 +44,7 @@ class AdCreativeObjectTypeValues extends AbstractEnum {
   const OFFER = 'OFFER';
   const PAGE = 'PAGE';
   const PHOTO = 'PHOTO';
+  const POST_DELETED = 'POST_DELETED';
   const SHARE = 'SHARE';
   const STATUS = 'STATUS';
   const STORE_ITEM = 'STORE_ITEM';

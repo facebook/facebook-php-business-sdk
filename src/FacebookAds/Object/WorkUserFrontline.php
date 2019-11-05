@@ -28,7 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\ScreenNameFields;
+use FacebookAds\Object\Fields\WorkUserFrontlineFields;
 
 /**
  * This class is auto-generated.
@@ -39,13 +39,13 @@ use FacebookAds\Object\Fields\ScreenNameFields;
  *
  */
 
-class ScreenName extends AbstractObject {
+class WorkUserFrontline extends AbstractObject {
 
   /**
-   * @return ScreenNameFields
+   * @return WorkUserFrontlineFields
    */
   public static function getFieldsEnum() {
-    return ScreenNameFields::getInstance();
+    return WorkUserFrontlineFields::getInstance();
   }
 
   protected static function getReferencedEnums() {

@@ -62,7 +62,6 @@ class UserFields extends AbstractEnum {
   const IS_FAMEDEEPLINKINGUSER = 'is_famedeeplinkinguser';
   const IS_SHARED_LOGIN = 'is_shared_login';
   const IS_VERIFIED = 'is_verified';
-  const LABELS = 'labels';
   const LANGUAGES = 'languages';
   const LAST_NAME = 'last_name';
   const LINK = 'link';
@@ -124,7 +123,6 @@ class UserFields extends AbstractEnum {
       'is_famedeeplinkinguser' => 'bool',
       'is_shared_login' => 'bool',
       'is_verified' => 'bool',
-      'labels' => 'list<PageLabel>',
       'languages' => 'list<Experience>',
       'last_name' => 'string',
       'link' => 'string',

@@ -374,9 +374,9 @@ class Page extends AbstractCrudObject {
 
     $param_types = array(
       'asid' => 'string',
-      'psid' => 'Object',
-      'uid' => 'Object',
-      'user' => 'Object',
+      'psid' => 'int',
+      'uid' => 'int',
+      'user' => 'int',
     );
     $enums = array(
     );
@@ -426,7 +426,7 @@ class Page extends AbstractCrudObject {
 
     $param_types = array(
       'asid' => 'list',
-      'psid' => 'list<Object>',
+      'psid' => 'list<int>',
       'uid' => 'list<string>',
       'user' => 'list<string>',
     );
@@ -2557,7 +2557,7 @@ class Page extends AbstractCrudObject {
 
     $param_types = array(
       'include_deactivated' => 'bool',
-      'uid' => 'Object',
+      'uid' => 'int',
     );
     $enums = array(
     );
@@ -2616,29 +2616,6 @@ class Page extends AbstractCrudObject {
       new PagePost(),
       'EDGE',
       PagePost::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getScreenNames(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/screennames',
-      new ScreenName(),
-      'EDGE',
-      ScreenName::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

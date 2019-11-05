@@ -22,13 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Fields;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\BusinessPixelTOSFields;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-generated.
@@ -39,49 +35,13 @@ use FacebookAds\Object\Fields\BusinessPixelTOSFields;
  *
  */
 
-class BusinessPixelTOS extends AbstractCrudObject {
+class WorkUserFrontlineFields extends AbstractEnum {
 
-  /**
-   * @deprecated getEndpoint function is deprecated
-   */
-  protected function getEndpoint() {
-    return 'pixel_tos';
-  }
+  const IS_FRONTLINE = 'is_frontline';
 
-  /**
-   * @return BusinessPixelTOSFields
-   */
-  public static function getFieldsEnum() {
-    return BusinessPixelTOSFields::getInstance();
-  }
-
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
-  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
+  public function getFieldTypes() {
+    return array(
+      'is_frontline' => 'bool',
     );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/',
-      new BusinessPixelTOS(),
-      'NODE',
-      BusinessPixelTOS::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
   }
-
 }

@@ -97,7 +97,10 @@ class BusinessImage extends AbstractCrudObject {
       'breakdowns_enum' => array(
         'age',
         'country',
+        'device_platform',
         'gender',
+        'platform_position',
+        'publisher_platform',
       ),
     );
 

@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 
 ## Unreleased
+
+## v5.0.1
+
   - Added strongly typed Server-Side API for Web (https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/using-the-api)
 
 ## v5.0.0
@@ -47,3 +50,4 @@ All notable changes to this project will be documented in this file.
     $async_job = $async_job->getSelf();
   }
   ```
+

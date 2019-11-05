@@ -19,32 +19,29 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
- *
  */
 
-namespace FacebookAds\Object\Values;
+require __DIR__ . '/vendor/autoload.php';
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\Object\AdCreative;
+use FacebookAds\Object\AdCreativeInsights;
+use FacebookAds\Api;
+use FacebookAds\Logger\CurlLogger;
 
-/**
- * This class is auto-generated.
- *
- * For any issues or feature requests related to this class, please let us know
- * on github and we'll fix in our codegen framework. We'll not be able to accept
- * pull request for this class.
- *
- * @method static AdAccountContentTypeValues getInstance()
- */
-class AdAccountContentTypeValues extends AbstractEnum {
+$access_token = '<ACCESS_TOKEN>';
+$app_secret = '<APP_SECRET>';
+$app_id = '<APP_ID>';
+$id = '<CREATIVE_ID>';
 
-  const AUTOMOTIVE_MODEL = 'AUTOMOTIVE_MODEL';
-  const DESTINATION = 'DESTINATION';
-  const FLIGHT = 'FLIGHT';
-  const HOME_LISTING = 'HOME_LISTING';
-  const HOTEL = 'HOTEL';
-  const MEDIA_TITLE = 'MEDIA_TITLE';
-  const OFFLINE_PRODUCT = 'OFFLINE_PRODUCT';
-  const PRODUCT = 'PRODUCT';
-  const VEHICLE = 'VEHICLE';
-  const VEHICLE_OFFER = 'VEHICLE_OFFER';
-}
+$api = Api::init($app_id, $app_secret, $access_token);
+$api->setLogger(new CurlLogger());
+
+$fields = array(
+  'creative_compass_scores',
+);
+$params = array(
+);
+echo json_encode((new AdCreative($id))->getCreativeInsights(
+  $fields,
+  $params
+)->getResponse()->getContent(), JSON_PRETTY_PRINT);
