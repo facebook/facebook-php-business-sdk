@@ -469,16 +469,16 @@ class UserData implements ArrayAccess
     {
         $normalized_payload = array();
 
-        $normalized_payload['em'] = Util::hash(Util::normalize($this->getEmail()));
-        $normalized_payload['ph'] = Util::hash(Util::normalize($this->getPhone()));
-        $normalized_payload['ge'] = Util::hash(Util::normalize($this->getGender()));
-        $normalized_payload['db'] = Util::hash(Util::normalize($this->getDateOfBirth()));
-        $normalized_payload['ln'] = Util::hash(Util::normalize($this->getLastName()));
-        $normalized_payload['fn'] = Util::hash(Util::normalize($this->getFirstName()));
-        $normalized_payload['ct'] = Util::hash(Util::normalize($this->getCity()));
-        $normalized_payload['st'] = Util::hash(Util::normalize($this->getState()));
-        $normalized_payload['zp'] = Util::hash(Util::normalize($this->getZipCode()));
-        $normalized_payload['country'] = Util::hash(Util::normalize($this->getCountryCode()));
+        $normalized_payload['em'] = Util::hash(Util::normalize('em', $this->getEmail()));
+        $normalized_payload['ph'] = Util::hash(Util::normalize('ph', $this->getPhone()));
+        $normalized_payload['ge'] = Util::hash(Util::normalize('ge', $this->getGender()));
+        $normalized_payload['db'] = Util::hash(Util::normalize('db', $this->getDateOfBirth()));
+        $normalized_payload['ln'] = Util::hash(Util::normalize('ln', $this->getLastName()));
+        $normalized_payload['fn'] = Util::hash(Util::normalize('fn', $this->getFirstName()));
+        $normalized_payload['ct'] = Util::hash(Util::normalize('ct', $this->getCity()));
+        $normalized_payload['st'] = Util::hash(Util::normalize('st', $this->getState()));
+        $normalized_payload['zp'] = Util::hash(Util::normalize('zp', $this->getZipCode()));
+        $normalized_payload['country'] = Util::hash(Util::normalize('country', $this->getCountryCode()));
         $normalized_payload['external_id'] = $this->getExternalId();
         $normalized_payload['client_ip_address'] = $this->getClientIpAddress();
         $normalized_payload['client_user_agent'] = $this->getClientUserAgent();

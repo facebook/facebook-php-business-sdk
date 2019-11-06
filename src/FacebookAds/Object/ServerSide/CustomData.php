@@ -363,7 +363,7 @@ class CustomData implements ArrayAccess
         $normalized_payload['content_category'] = $this->getContentCategory();
         $normalized_payload['content_ids'] = $this->getContentIds();
         $normalized_payload['contents'] =
-            isset($tis->container['contents']) ? $this->getContents()->normalize() : null;
+            isset($this->container['contents']) ? $this->getContents()->normalize() : null;
         $normalized_payload['content_type'] = $this->getContentType();
         $normalized_payload['order_id'] = $this->getOrderId();
         $normalized_payload['predicted_ltv'] = $this->getPredictedLtv();
