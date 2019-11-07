@@ -27,6 +27,7 @@ namespace FacebookAds;
 use FacebookAds\Api;
 use FacebookAds\Exception\Exception;
 use FacebookAds\Http\RequestInterface;
+use FacebookAds\Http\Exception\RequestException;
 
 /**
  * Class CrashReasons
@@ -172,8 +173,8 @@ class CrashReporter {
         if ($e instanceof RequestException) {
             $reason = CrashReasons::API;
         }
+        $reason .= ' : ' . $e->getMessage();
         $callstack = explode(PHP_EOL, $e->getTraceAsString());
-        array_splice($callstack, 0, 0, $e->getMessage());
         return array(
             'reason' => $reason,
             'callstack' => $callstack,

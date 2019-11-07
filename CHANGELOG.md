@@ -4,13 +4,14 @@ All notable changes to this project will be documented in this file.
 
 
 ## Unreleased
+### Added
+  - Added `CrashRepoter`, more context available [here](https://developers.facebook.com/docs/business-sdk/guides/crash-reports)
 
 ## v5.0.1
-
+### Added
   - Added strongly typed Server-Side API for Web (https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/using-the-api)
 
 ## v5.0.0
-
 ### Changed
 - Graph API call upgrade to [v5.0](https://developers.facebook.com/docs/graph-api/changelog/version5.0)
 
@@ -50,4 +51,3 @@ All notable changes to this project will be documented in this file.
     $async_job = $async_job->getSelf();
   }
   ```
-

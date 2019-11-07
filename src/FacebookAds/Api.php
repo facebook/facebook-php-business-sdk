@@ -29,6 +29,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\Http\ResponseInterface;
 use FacebookAds\Logger\LoggerInterface;
 use FacebookAds\Logger\NullLogger;
+use FacebookAds\CrashReporter;
 
 class Api {
 
@@ -79,11 +80,13 @@ class Api {
    * @param string $access_token
    * @return static
    */
-  public static function init($app_id, $app_secret, $access_token) {
+  public static function init($app_id, $app_secret, $access_token, $log_crash=true) {
     $session = new Session($app_id, $app_secret, $access_token);
     $api = new static(new Client(), $session);
     static::setInstance($api);
-
+    if ($log_crash) {
+      CrashReporter::enable();
+    }
     return $api;
   }
 
