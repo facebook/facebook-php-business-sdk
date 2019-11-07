@@ -3,6 +3,11 @@
         <testsuite name="Facebook AdsAPI PHP SDK">
             <directory>./FacebookAdsTest</directory>
             <exclude>./FacebookAdsTest/Object</exclude>
+            <exclude>./FacebookAdsTest/Logger</exclude>
+            <exclude>./FacebookAdsTest/Http</exclude>
+            <exclude>./FacebookAdsTest/Exception</exclude>
+            <exclude>./FacebookAdsTest/Enum</exclude>
+            <exclude>./FacebookAdsTest/Config</exclude>
         </testsuite>
     </testsuites>
     <logging>
