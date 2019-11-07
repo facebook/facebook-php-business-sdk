@@ -9,6 +9,7 @@
             <exclude>./FacebookAdsTest/Enum</exclude>
             <exclude>./FacebookAdsTest/Config</exclude>
             <exclude>./FacebookAdsTest/CursorTest.php</exclude>
+            <exclude>./FacebookAdsTest/AbstractTestCase.php</exclude>
         </testsuite>
     </testsuites>
     <logging>
