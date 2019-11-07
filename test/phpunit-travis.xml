@@ -8,6 +8,7 @@
             <exclude>./FacebookAdsTest/Exception</exclude>
             <exclude>./FacebookAdsTest/Enum</exclude>
             <exclude>./FacebookAdsTest/Config</exclude>
+            <exclude>./FacebookAdsTest/CursorTest.php</exclude>
         </testsuite>
     </testsuites>
     <logging>
