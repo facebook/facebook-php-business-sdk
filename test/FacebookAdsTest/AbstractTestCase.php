@@ -102,7 +102,9 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
     \PHPUnit_Framework_MockObject_MockObject $mock, array $data = array()) {
 
     /** @var Mock $mock */
-    $mock->method('count')->willReturn(count($data));
+    if(is_array($data)) {
+      $mock->method('count')->willReturn(count($data));
+    }
     $mock->method('getIterator')->willReturn(new \ArrayIterator($data));
     $mock->method('getArrayCopy')->willReturn($data);
     $mock->method('export')->willReturn($data);
