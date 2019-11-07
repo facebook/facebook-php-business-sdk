@@ -180,10 +180,10 @@ abstract class AbstractCrudObjectTestCase extends AbstractIntegrationTestCase {
         $sub_diff[$key] = $val;
       }
     }
-
+    $count = is_array($diff) ? count($diff) : 0;
     return $sub_diff + array_combine(
       array_keys($diff),
-      array_fill(0, count($diff), null));
+      array_fill(0, $count, null));
   }
 
   /**
