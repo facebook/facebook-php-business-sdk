@@ -133,7 +133,7 @@ class Util
    */
   private static function normalizeCity($city)
   {
-    return trim(preg_replace('/[0-9-()]/', '', $city));
+    return trim(preg_replace('/[0-9.\s\-()]/', '', $city));
   }
 
    /**
