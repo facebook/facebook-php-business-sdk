@@ -37,10 +37,12 @@ use FacebookAds\Enum\AbstractEnum;
 
 class WorkUserFrontlineFields extends AbstractEnum {
 
+  const HAS_ACCESS = 'has_access';
   const IS_FRONTLINE = 'is_frontline';
 
   public function getFieldTypes() {
     return array(
+      'has_access' => 'bool',
       'is_frontline' => 'bool',
     );
   }

@@ -40,6 +40,5 @@ class AdSetTuneForCategoryValues extends AbstractEnum {
   const CREDIT = 'CREDIT';
   const EMPLOYMENT = 'EMPLOYMENT';
   const HOUSING = 'HOUSING';
-  const ISSUES_ELECTIONS_POLITICS = 'ISSUES_ELECTIONS_POLITICS';
   const NONE = 'NONE';
 }

@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdVideoContainerTypeValues extends AbstractEnum {
 
+  const ACO_VIDEO_VARIATION = 'ACO_VIDEO_VARIATION';
   const AD_BREAK_PREVIEW = 'AD_BREAK_PREVIEW';
   const AD_DERIVATIVE = 'AD_DERIVATIVE';
   const AGE_UP = 'AGE_UP';

@@ -59,11 +59,11 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const GENERAL_MANAGER = 'general_manager';
   const HOMETOWN = 'hometown';
   const HOURS = 'hours';
+  const INVOICE_ACCESS_INVOICE_CHANGE = 'invoice_access_invoice_change';
   const LEADGEN = 'leadgen';
   const LEADGEN_FAT = 'leadgen_fat';
   const LIVE_VIDEOS = 'live_videos';
   const LOCATION = 'location';
-  const MCOM_INVOICE_CHANGE = 'mcom_invoice_change';
   const MEMBERS = 'members';
   const MENTION = 'mention';
   const MERCHANT_REVIEW = 'merchant_review';

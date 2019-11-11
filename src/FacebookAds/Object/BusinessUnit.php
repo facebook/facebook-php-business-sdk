@@ -180,6 +180,62 @@ class BusinessUnit extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getConversionPaths(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'click_lookback_window' => 'unsigned int',
+      'date_range' => 'Object',
+      'fb_conversion_event_id' => 'unsigned int',
+      'limit' => 'unsigned int',
+      'metric_context' => 'map',
+      'time_period' => 'time_period_enum',
+      'view_lookback_window' => 'unsigned int',
+    );
+    $enums = array(
+      'time_period_enum' => array(
+        'all_available',
+        'all_dates',
+        'custom',
+        'date_range',
+        'fifteen_days',
+        'last_fourteen_days',
+        'last_hundred_fourty_four_hours',
+        'last_month',
+        'last_ninety_days',
+        'last_quarter',
+        'last_seven_days',
+        'last_sixty_days',
+        'last_thirty_days',
+        'last_twenty_four_hours',
+        'last_year',
+        'month_to_date',
+        'quarter_to_date',
+        'seven_days',
+        'thirty_days',
+        'this_month_whole_days',
+        'today',
+        'week_to_date',
+        'year_to_date',
+        'yesterday',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/conversion_paths',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getCustomBreakdowns(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 

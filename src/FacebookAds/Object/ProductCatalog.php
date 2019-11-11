@@ -885,7 +885,6 @@ class ProductCatalog extends AbstractCrudObject {
       'rules' => 'list<string>',
       'schedule' => 'string',
       'update_schedule' => 'string',
-      'upload_schedule' => 'string',
     );
     $enums = array(
       'delimiter_enum' => ProductFeedDelimiterValues::getInstance()->getValues(),

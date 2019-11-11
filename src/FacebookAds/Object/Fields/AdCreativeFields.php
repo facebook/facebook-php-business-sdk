@@ -67,6 +67,7 @@ class AdCreativeFields extends AbstractEnum {
   const INSTAGRAM_STORY_ID = 'instagram_story_id';
   const INTERACTIVE_COMPONENTS_SPEC = 'interactive_components_spec';
   const LINK_DEEP_LINK_URL = 'link_deep_link_url';
+  const LINK_DESTINATION_DISPLAY_URL = 'link_destination_display_url';
   const LINK_OG_ID = 'link_og_id';
   const LINK_URL = 'link_url';
   const MESSENGER_SPONSORED_MESSAGE = 'messenger_sponsored_message';
@@ -127,6 +128,7 @@ class AdCreativeFields extends AbstractEnum {
       'instagram_story_id' => 'string',
       'interactive_components_spec' => 'AdCreativeInteractiveComponentsSpec',
       'link_deep_link_url' => 'string',
+      'link_destination_display_url' => 'string',
       'link_og_id' => 'string',
       'link_url' => 'string',
       'messenger_sponsored_message' => 'string',

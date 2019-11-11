@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 
 ## Unreleased
+
+## v5.0.2
+
 ### Added
   - Added `CrashRepoter`, more context available [here](https://developers.facebook.com/docs/business-sdk/guides/crash-reports)
 
@@ -51,3 +54,4 @@ All notable changes to this project will be documented in this file.
     $async_job = $async_job->getSelf();
   }
   ```
+

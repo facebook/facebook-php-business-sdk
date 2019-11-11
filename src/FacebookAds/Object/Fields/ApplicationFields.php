@@ -125,6 +125,7 @@ class ApplicationFields extends AbstractEnum {
   const SMART_LOGIN_MENU_ICON_URL = 'smart_login_menu_icon_url';
   const SOCIAL_DISCOVERY = 'social_discovery';
   const SUBCATEGORY = 'subcategory';
+  const SUGGESTED_EVENTS_SETTING = 'suggested_events_setting';
   const SUPPORTED_PLATFORMS = 'supported_platforms';
   const SUPPORTS_APPREQUESTS_FAST_APP_SWITCH = 'supports_apprequests_fast_app_switch';
   const SUPPORTS_ATTRIBUTION = 'supports_attribution';
@@ -227,6 +228,7 @@ class ApplicationFields extends AbstractEnum {
       'smart_login_menu_icon_url' => 'string',
       'social_discovery' => 'unsigned int',
       'subcategory' => 'string',
+      'suggested_events_setting' => 'string',
       'supported_platforms' => 'list<SupportedPlatforms>',
       'supports_apprequests_fast_app_switch' => 'Object',
       'supports_attribution' => 'bool',
