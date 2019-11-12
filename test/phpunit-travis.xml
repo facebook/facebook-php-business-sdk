@@ -13,7 +13,6 @@
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">../src</directory>
             <exclude>
-                <directory>../src/FacebookAds/Http/Adapter/Curl/</directory>
                 <directory>../src/FacebookAds/Object/</directory>
             </exclude>
         </whitelist>
