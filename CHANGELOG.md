@@ -5,6 +5,8 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+- Added function `getHeaders` in RequestException class which provides header information
+
 ## v5.0.2
 
 ### Added
@@ -54,4 +56,3 @@ All notable changes to this project will be documented in this file.
     $async_job = $async_job->getSelf();
   }
   ```
-

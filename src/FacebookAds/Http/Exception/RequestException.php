@@ -35,6 +35,11 @@ class RequestException extends Exception {
   protected $response;
 
   /**
+   * @var Headers
+   */
+  protected $headers;
+
+  /**
    * @var int|null
    */
   protected $errorCode;
@@ -78,6 +83,7 @@ class RequestException extends Exception {
    * @param ResponseInterface $response
    */
   public function __construct(ResponseInterface $response) {
+    $this->headers = $response->getHeaders();
     $this->response = $response;
     $error_data = static::getErrorData($response);
 
@@ -231,5 +237,12 @@ class RequestException extends Exception {
     return array_key_exists('error', $body)
       && array_key_exists('is_transient', $body['error'])
       && $body['error']['is_transient'];
+  }
+
+  /**
+   * @return Headers
+   */
+  public function getHeaders() {
+    return $this->headers;
   }
 }
