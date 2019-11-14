@@ -358,17 +358,25 @@ class CustomData implements ArrayAccess
         $normalized_payload = array();
 
         $normalized_payload['value'] = $this->getValue();
-        $normalized_payload['currency'] = $this->getCurrency();
+        $normalized_payload['currency'] =
+            Util::normalize('currency', $this->getCurrency());
         $normalized_payload['content_name'] = $this->getContentName();
         $normalized_payload['content_category'] = $this->getContentCategory();
         $normalized_payload['content_ids'] = $this->getContentIds();
-        $normalized_payload['contents'] =
-            isset($this->container['contents']) ? $this->getContents()->normalize() : null;
         $normalized_payload['content_type'] = $this->getContentType();
         $normalized_payload['order_id'] = $this->getOrderId();
         $normalized_payload['predicted_ltv'] = $this->getPredictedLtv();
         $normalized_payload['num_items'] = $this->getNumItems();
         $normalized_payload['status'] = $this->getStatus();
+
+        if (isset($this->container['contents'])) {
+            $contents = [];
+            foreach ($this->getContents() as $content) {
+                array_push($contents, $content->normalize());
+            }
+            $normalized_payload['contents'] = $contents;
+        }
+
         $normalized_payload = array_filter($normalized_payload);
 
         return $normalized_payload;
@@ -490,4 +498,3 @@ class CustomData implements ArrayAccess
         return json_encode($this);
     }
 }
-
