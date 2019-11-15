@@ -5,7 +5,11 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## v5.0.3
+### Added
 - Added function `getHeaders` in RequestException class which provides header information
+### Fixed
+- Server Side API CustomData model normalization fix
 
 ## v5.0.2
 
