@@ -50,7 +50,7 @@ to get an access token.
 
 ## Installation
 
-The Facebook Business SDK requires PHP 5.4 or greater.
+The Facebook Business SDK requires PHP 5.6 or greater.
 
 ### Composer
 
