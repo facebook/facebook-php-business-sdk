@@ -67,7 +67,6 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const EXTERNAL_MINIMUM_IMPRESSION = 'external_minimum_impression';
   const EXTERNAL_MINIMUM_REACH = 'external_minimum_reach';
   const EXTERNAL_REACH = 'external_reach';
-  const EXTERNAL_VALUES_BREAKDOWN = 'external_values_breakdown';
   const FEED_RATIO_0000 = 'feed_ratio_0000';
   const FREQUENCY_CAP = 'frequency_cap';
   const FREQUENCY_DISTRIBUTION = 'frequency_distribution';
@@ -171,7 +170,6 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'external_minimum_impression' => 'unsigned int',
       'external_minimum_reach' => 'unsigned int',
       'external_reach' => 'unsigned int',
-      'external_values_breakdown' => 'string',
       'feed_ratio_0000' => 'unsigned int',
       'frequency_cap' => 'unsigned int',
       'frequency_distribution' => 'list<float>',

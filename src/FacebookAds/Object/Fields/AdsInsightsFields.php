@@ -210,7 +210,6 @@ class AdsInsightsFields extends AbstractEnum {
   const QUALITY_RANKING = 'quality_ranking';
   const QUALITY_SCORE_ECTR = 'quality_score_ectr';
   const QUALITY_SCORE_ECVR = 'quality_score_ecvr';
-  const QUALITY_SCORE_ENFBR = 'quality_score_enfbr';
   const QUALITY_SCORE_ORGANIC = 'quality_score_organic';
   const REACH = 'reach';
   const RECURRING_SUBSCRIPTION_PAYMENT_ACTIONS = 'recurring_subscription_payment_actions';
@@ -444,7 +443,6 @@ class AdsInsightsFields extends AbstractEnum {
       'quality_ranking' => 'string',
       'quality_score_ectr' => 'string',
       'quality_score_ecvr' => 'string',
-      'quality_score_enfbr' => 'string',
       'quality_score_organic' => 'string',
       'reach' => 'string',
       'recurring_subscription_payment_actions' => 'list<AdsActionStats>',

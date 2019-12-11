@@ -53,6 +53,7 @@ class LiveVideoFields extends AbstractEnum {
   const IS_REFERENCE_ONLY = 'is_reference_only';
   const LIVE_ENCODERS = 'live_encoders';
   const LIVE_VIEWS = 'live_views';
+  const OVERLAY_URL = 'overlay_url';
   const PERMALINK_URL = 'permalink_url';
   const PLANNED_START_TIME = 'planned_start_time';
   const SECONDS_LEFT = 'seconds_left';
@@ -82,6 +83,7 @@ class LiveVideoFields extends AbstractEnum {
       'is_reference_only' => 'bool',
       'live_encoders' => 'list<LiveEncoder>',
       'live_views' => 'unsigned int',
+      'overlay_url' => 'string',
       'permalink_url' => 'string',
       'planned_start_time' => 'datetime',
       'seconds_left' => 'int',

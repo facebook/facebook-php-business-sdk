@@ -39,6 +39,7 @@ $api->setLogger(new CurlLogger());
 $fields = array(
 );
 $params = array(
+  'special_ad_category' => 'NONE',
   'name' => 'My First Campaign',
   'objective' => 'PAGE_LIKES',
   'status' => 'PAUSED',

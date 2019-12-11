@@ -41,13 +41,13 @@ $fields = array(
 $params = array(
   'name' => 'My First Adset',
   'lifetime_budget' => '20000',
-  'start_time' => '2019-08-07T02:19:37-0700',
-  'end_time' => '2019-08-17T02:19:37-0700',
+  'start_time' => '2019-12-05T23:43:27-0800',
+  'end_time' => '2019-12-15T23:43:27-0800',
   'campaign_id' => '<adCampaignLinkClicksID>',
   'bid_amount' => '500',
   'billing_event' => 'IMPRESSIONS',
   'optimization_goal' => 'POST_ENGAGEMENT',
-  'targeting' => array('geo_locations' => array('countries' => array('US'),'regions' => array(array('key' => '4081')),'cities' => array(array('key' => 777934,'radius' => 10,'distance_unit' => 'mile'))),'genders' => array(1),'age_max' => 24,'age_min' => 20,'behaviors' => array(array('id' => 6002714895372,'name' => 'All travelers')),'life_events' => array(array('id' => 6002714398172,'name' => 'Newlywed (1 year)')),'publisher_platforms' => array('facebook'),'device_platforms' => array('desktop')),
+  'targeting' => array('facebook_positions' => array('feed'),'geo_locations' => array('countries' => array('US'),'regions' => array(array('key' => '4081')),'cities' => array(array('key' => 777934,'radius' => 10,'distance_unit' => 'mile'))),'genders' => array(1),'age_max' => 24,'age_min' => 20,'behaviors' => array(array('id' => 6002714895372,'name' => 'All travelers')),'life_events' => array(array('id' => 6002714398172,'name' => 'Newlywed (1 year)')),'publisher_platforms' => array('facebook'),'device_platforms' => array('desktop')),
   'status' => 'PAUSED',
 );
 echo json_encode((new AdAccount($id))->createAdSet(

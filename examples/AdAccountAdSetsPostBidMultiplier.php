@@ -47,7 +47,7 @@ $params = array(
   'bid_amount' => '500',
   'bid_adjustments' => array('user_groups' => array('gender' => array('male' => 0.8,'female' => 1))),
   'promoted_object' => array('product_set_id' => '<productSetID>','custom_event_type' => 'ADD_TO_CART'),
-  'targeting' => array('geo_locations' => array('countries' => array('US'))),
+  'targeting' => array('facebook_positions' => array('feed'),'geo_locations' => array('countries' => array('US'))),
   'status' => 'PAUSED',
 );
 echo json_encode((new AdAccount($id))->createAdSet(

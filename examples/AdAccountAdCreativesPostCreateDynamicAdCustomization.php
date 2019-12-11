@@ -24,7 +24,7 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use FacebookAds\Object\AdAccount;
-use FacebookAds\Object\Campaign;
+use FacebookAds\Object\AdCreative;
 use FacebookAds\Api;
 use FacebookAds\Logger\CurlLogger;
 
@@ -39,12 +39,12 @@ $api->setLogger(new CurlLogger());
 $fields = array(
 );
 $params = array(
-  'special_ad_category' => 'NONE',
-  'name' => 'My First Campaign',
-  'objective' => 'POST_ENGAGEMENT',
-  'status' => 'PAUSED',
+  'name' => 'Dynamic Ad Template Creative Sample',
+  'object_story_spec' => array('page_id' => '<pageID>','template_data' => array('message' => 'English Test array(array(product.name | titleize))','link' => 'http://www.example.com/englishurl','name' => 'English Headline array(array(product.price))','description' => 'English Description array(array(product.description))','customization_rules_spec' => array(array('customization_spec' => array('language' => 'en_XX')),array('customization_spec' => array('language' => 'fr_XX'),'message' => 'French Test array(array(product.name | titleize))','link' => 'http://www.example.com/frenchurl','name' => 'French Headline array(array(product.price))','description' => 'French Description array(array(product.description))','template_url_spec' => array('web' => array('url' => 'http://www.example.com/frenchdeeplink')))))),
+  'product_set_id' => '<productSetID>',
+  'template_url_spec' => array('web' => array('url' => 'http://www.example.com/englishdeeplink')),
 );
-echo json_encode((new AdAccount($id))->createCampaign(
+echo json_encode((new AdAccount($id))->createAdCreative(
   $fields,
   $params
 )->exportAllData(), JSON_PRETTY_PRINT);

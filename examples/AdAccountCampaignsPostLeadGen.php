@@ -39,6 +39,7 @@ $api->setLogger(new CurlLogger());
 $fields = array(
 );
 $params = array(
+  'special_ad_category' => 'NONE',
   'name' => 'Lead generation campaign',
   'objective' => 'LEAD_GENERATION',
   'status' => 'PAUSED',

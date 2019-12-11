@@ -40,26 +40,26 @@ class ProductFeedScheduleFields extends AbstractEnum {
   const DAY_OF_MONTH = 'day_of_month';
   const DAY_OF_WEEK = 'day_of_week';
   const HOUR = 'hour';
+  const ID = 'id';
   const INTERVAL = 'interval';
   const INTERVAL_COUNT = 'interval_count';
   const MINUTE = 'minute';
   const TIMEZONE = 'timezone';
   const URL = 'url';
   const USERNAME = 'username';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'day_of_month' => 'unsigned int',
       'day_of_week' => 'DayOfWeek',
       'hour' => 'unsigned int',
+      'id' => 'string',
       'interval' => 'Interval',
       'interval_count' => 'unsigned int',
       'minute' => 'unsigned int',
       'timezone' => 'string',
       'url' => 'string',
       'username' => 'string',
-      'id' => 'string',
     );
   }
 }

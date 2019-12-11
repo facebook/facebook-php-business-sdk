@@ -42,14 +42,14 @@ $params = array(
   'name' => 'A CPA Ad Set optimized for App Events',
   'campaign_id' => '<adCampaignAppInstallsID>',
   'daily_budget' => '300',
-  'start_time' => '2019-08-14T02:19:49-0700',
-  'end_time' => '2019-08-21T02:19:49-0700',
+  'start_time' => '2019-12-12T23:43:36-0800',
+  'end_time' => '2019-12-19T23:43:36-0800',
   'billing_event' => 'IMPRESSIONS',
   'optimization_goal' => 'OFFSITE_CONVERSIONS',
   'bid_amount' => '100',
   'status' => 'PAUSED',
   'promoted_object' => array('application_id' => '<appID>','object_store_url' => '<appLink>','custom_event_type' => 'PURCHASE'),
-  'targeting' => array('geo_locations' => array('countries' => array('US')),'user_os' => array('iOS')),
+  'targeting' => array('facebook_positions' => array('feed'),'geo_locations' => array('countries' => array('US')),'user_os' => array('iOS')),
 );
 echo json_encode((new AdAccount($id))->createAdSet(
   $fields,

@@ -45,7 +45,7 @@ $params = array(
   'bid_amount' => '2',
   'daily_budget' => '1000',
   'campaign_id' => '<adCampaignConversionsID>',
-  'targeting' => array('geo_locations' => array('countries' => array('US')),'behaviors' => array(array('id' => 6007101597783,'name' => 'Business Travelers'),array('id' => 6004386044572,'name' => 'Android Owners (All)'))),
+  'targeting' => array('facebook_positions' => array('feed'),'geo_locations' => array('countries' => array('US')),'behaviors' => array(array('id' => 6007101597783,'name' => 'Business Travelers'),array('id' => 6004386044572,'name' => 'Android Owners (All)'))),
 );
 echo json_encode((new AdAccount($id))->createAdSet(
   $fields,

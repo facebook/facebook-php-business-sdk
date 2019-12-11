@@ -45,7 +45,7 @@ $params = array(
   'bid_amount' => '2',
   'daily_budget' => '1000',
   'campaign_id' => '<adCampaignLinkClicksID>',
-  'targeting' => array('geo_locations' => array('countries' => array('US')),'publisher_platforms' => array('facebook')),
+  'targeting' => array('geo_locations' => array('countries' => array('US')),'publisher_platforms' => array('facebook'),'facebook_positions' => array('feed')),
   'promoted_object' => array('page_id' => '<pageID>'),
 );
 echo json_encode((new AdAccount($id))->createAdSet(

@@ -63,6 +63,7 @@ class UserServiceTypeValues extends AbstractEnum {
   const MSN = 'MSN';
   const MYSPACE = 'MYSPACE';
   const NATEON = 'NATEON';
+  const OCULUS = 'OCULUS';
   const OK = 'OK';
   const ORKUT = 'ORKUT';
   const OTHERS = 'OTHERS';

@@ -38,7 +38,7 @@ $api->setLogger(new CurlLogger());
 $fields = array(
 );
 $params = array(
-  'bid_adjustments' => array('user_groups' => array('user_bucket' => array('event_sources' => array('<pixelID>','<appID>'),'1' => 0.01,'2' => 0.02,'3' => 0.03,'default' => array('gender' => array('male' => 0.9996,'female' => 0.0129))))),
+  'bid_adjustments' => array('user_groups' => array('user_bucket' => array('event_sources' => array('<pixelID>','<appID>'),'1' => 0.1,'2' => 0.2,'3' => 0.3,'default' => array('gender' => array('male' => 0.99,'female' => 0.12))))),
 );
 echo json_encode((new AdSet($id))->updateSelf(
   $fields,

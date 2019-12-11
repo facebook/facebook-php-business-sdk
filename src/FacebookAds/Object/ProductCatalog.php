@@ -270,6 +270,7 @@ class ProductCatalog extends AbstractCrudObject {
 
     $param_types = array(
       'allow_upsert' => 'bool',
+      'fbe_external_business_id' => 'string',
       'requests' => 'list<map>',
     );
     $enums = array(

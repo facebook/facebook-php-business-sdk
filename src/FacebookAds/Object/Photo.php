@@ -312,7 +312,6 @@ class Photo extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'pid' => 'string',
     );
     $enums = array(
     );

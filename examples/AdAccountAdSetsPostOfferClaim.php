@@ -41,14 +41,14 @@ $fields = array(
 $params = array(
   'name' => 'My Offer Claim AdSet',
   'lifetime_budget' => '56000',
-  'start_time' => '2019-08-07T02:19:01-0700',
-  'end_time' => '2019-08-14T02:19:01-0700',
+  'start_time' => '2019-12-05T23:42:58-0800',
+  'end_time' => '2019-12-12T23:42:58-0800',
   'campaign_id' => '<adCampaignLinkClicksID>',
   'billing_event' => 'LINK_CLICKS',
   'optimization_goal' => 'LINK_CLICKS',
   'bid_amount' => '1000',
   'promoted_object' => array('page_id' => '<pageID>','offer_id' => '<offerID>'),
-  'targeting' => array('geo_locations' => array('countries' => array('US')),'genders' => array(1),'age_min' => '25','age_max' => '55'),
+  'targeting' => array('geo_locations' => array('countries' => array('US')),'genders' => array(1),'age_min' => '25','age_max' => '55','facebook_positions' => array('feed')),
 );
 echo json_encode((new AdAccount($id))->createAdSet(
   $fields,

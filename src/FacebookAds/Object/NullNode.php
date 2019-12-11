@@ -19,32 +19,39 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
+ *
  */
 
-require __DIR__ . '/vendor/autoload.php';
+namespace FacebookAds\Object;
 
-use FacebookAds\Object\AdAccount;
-use FacebookAds\Object\Campaign;
-use FacebookAds\Api;
-use FacebookAds\Logger\CurlLogger;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\NullNodeFields;
 
-$access_token = '<ACCESS_TOKEN>';
-$app_secret = '<APP_SECRET>';
-$app_id = '<APP_ID>';
-$id = '<AD_ACCOUNT_ID>';
+/**
+ * This class is auto-generated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
+ */
 
-$api = Api::init($app_id, $app_secret, $access_token);
-$api->setLogger(new CurlLogger());
+class NullNode extends AbstractObject {
 
-$fields = array(
-);
-$params = array(
-  'special_ad_category' => 'NONE',
-  'name' => 'My First Campaign',
-  'objective' => 'POST_ENGAGEMENT',
-  'status' => 'PAUSED',
-);
-echo json_encode((new AdAccount($id))->createCampaign(
-  $fields,
-  $params
-)->exportAllData(), JSON_PRETTY_PRINT);
+  /**
+   * @return NullNodeFields
+   */
+  public static function getFieldsEnum() {
+    return NullNodeFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
+}

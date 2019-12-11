@@ -45,7 +45,7 @@ $params = array(
   'bid_amount' => '2',
   'daily_budget' => '1000',
   'campaign_id' => '<adCampaignLinkClicksID>',
-  'targeting' => array('excluded_geo_locations' => array('regions' => array(array('key' => '3847'))),'geo_locations' => array('countries' => array('US'))),
+  'targeting' => array('excluded_geo_locations' => array('regions' => array(array('key' => '3847'))),'geo_locations' => array('countries' => array('US')),'facebook_positions' => array('feed')),
   'status' => 'PAUSED',
   'promoted_object' => array('page_id' => '<pageID>'),
 );

@@ -23,28 +23,32 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-use FacebookAds\Object\AdAccount;
-use FacebookAds\Object\Campaign;
 use FacebookAds\Api;
 use FacebookAds\Logger\CurlLogger;
+use FacebookAds\Object\ServerSide\Event;
+use FacebookAds\Object\ServerSide\EventRequest;
+use FacebookAds\Object\ServerSide\UserData;
 
 $access_token = '<ACCESS_TOKEN>';
-$app_secret = '<APP_SECRET>';
-$app_id = '<APP_ID>';
-$id = '<AD_ACCOUNT_ID>';
+$pixel_id = '<ADS_PIXEL_ID>';
 
-$api = Api::init($app_id, $app_secret, $access_token);
+$api = Api::init(null, null, $access_token);
 $api->setLogger(new CurlLogger());
 
-$fields = array(
-);
-$params = array(
-  'special_ad_category' => 'NONE',
-  'name' => 'My First Campaign',
-  'objective' => 'POST_ENGAGEMENT',
-  'status' => 'PAUSED',
-);
-echo json_encode((new AdAccount($id))->createCampaign(
-  $fields,
-  $params
-)->exportAllData(), JSON_PRETTY_PRINT);
+$user_data = (new UserData())
+    ->setFbc('fb.1.1554763741205.AbCdEfGhIjKlMnOpQrStUvWxYz1234567890')
+    ->setFbp('fb.1.1558571054389.1098115397')
+    ->setEmail('joe@eg.com');
+
+$event = (new Event())
+    ->setEventName('PageView')
+    ->setEventTime(time())
+    ->setUserData($user_data);
+
+$events = array();
+array_push($events, $event);
+
+$request = (new EventRequest($pixel_id))
+    ->setEvents($events);
+$response = $request->execute();
+print_r($response);

@@ -41,6 +41,7 @@ $params = array(
   'billing_event' => 'IMPRESSIONS',
   'optimization_goal' => 'LINK_CLICKS',
   'bid_amount' => '200',
+  'targeting' => array('geo_locations' => array('countries' => array('US')),'facebook_positions' => array('feed')),
 );
 echo json_encode((new AdSet($id))->updateSelf(
   $fields,

@@ -38,6 +38,8 @@ use FacebookAds\Object\Values\AdVideoSwapModeValues;
 use FacebookAds\Object\Values\AdVideoTypeValues;
 use FacebookAds\Object\Values\AdVideoUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\AdVideoUploadPhaseValues;
+use FacebookAds\Object\Values\BusinessSurveyBusinessTypeValues;
+use FacebookAds\Object\Values\BusinessVerticalValues;
 use FacebookAds\Object\Values\EventPromotableEventTypesValues;
 use FacebookAds\Object\Values\EventTypeValues;
 use FacebookAds\Object\Values\InsightsResultDatePresetValues;
@@ -610,6 +612,40 @@ class User extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
+      '/businesses',
+      new Business(),
+      'EDGE',
+      Business::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createBusiness(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'email' => 'string',
+      'name' => 'string',
+      'primary_page' => 'string',
+      'sales_rep_email' => 'string',
+      'survey_business_type' => 'survey_business_type_enum',
+      'survey_num_assets' => 'unsigned int',
+      'survey_num_people' => 'unsigned int',
+      'timezone_id' => 'unsigned int',
+      'vertical' => 'vertical_enum',
+    );
+    $enums = array(
+      'survey_business_type_enum' => BusinessSurveyBusinessTypeValues::getInstance()->getValues(),
+      'vertical_enum' => BusinessVerticalValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
       '/businesses',
       new Business(),
       'EDGE',
@@ -1703,6 +1739,7 @@ class User extends AbstractCrudObject {
       'ios_bundle_id' => 'string',
       'is_explicit_location' => 'bool',
       'is_explicit_place' => 'bool',
+      'is_visual_search' => 'bool',
       'manual_privacy' => 'bool',
       'message' => 'string',
       'name' => 'string',

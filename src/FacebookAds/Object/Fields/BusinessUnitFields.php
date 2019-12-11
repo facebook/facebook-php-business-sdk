@@ -46,6 +46,7 @@ class BusinessUnitFields extends AbstractEnum {
   const NAME = 'name';
   const TIME_ZONE = 'time_zone';
   const VISITS_AVAILABLE_DATE = 'visits_available_date';
+  const BUSINESS_UNITS = 'business_units';
 
   public function getFieldTypes() {
     return array(
@@ -58,6 +59,7 @@ class BusinessUnitFields extends AbstractEnum {
       'name' => 'string',
       'time_zone' => 'string',
       'visits_available_date' => 'int',
+      'business_units' => 'list<Object>',
     );
   }
 }

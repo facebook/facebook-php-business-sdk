@@ -39,6 +39,7 @@ $api->setLogger(new CurlLogger());
 $fields = array(
 );
 $params = array(
+  'special_ad_category' => 'NONE',
   'name' => 'Mobile App Installs Campaign',
   'objective' => 'APP_INSTALLS',
   'status' => 'PAUSED',
