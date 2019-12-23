@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 
 
 ## Unreleased
+- Server-side API added search_string to CustomData and fixed setLastName in UserData object.
 
 ## v5.0.3
 ### Added

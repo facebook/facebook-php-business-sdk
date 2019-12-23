@@ -88,12 +88,12 @@ class UserData implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'email' => 'setEm',
-        'phone' => 'setPh',
-        'gender' => 'setGe',
-        'date_of_birth' => 'setDb',
-        'last_name' => 'setLn',
-        'first_name' => 'setFn',
+        'email' => 'setEmail',
+        'phone' => 'setPhone',
+        'gender' => 'setGender',
+        'date_of_birth' => 'setDateOfBirth',
+        'last_name' => 'setLastName',
+        'first_name' => 'setFirstName',
         'city' => 'setCity',
         'state' => 'setState',
         'country_code' => 'setCountryCode',
@@ -110,12 +110,12 @@ class UserData implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'email' => 'getEm',
-        'phone' => 'getPh',
-        'gender' => 'getGe',
-        'date_of_birth' => 'getDb',
-        'last_name' => 'getLn',
-        'first_name' => 'getFn',
+        'email' => 'getEmail',
+        'phone' => 'getPhone',
+        'gender' => 'getGender',
+        'date_of_birth' => 'getDateOfBirth',
+        'last_name' => 'getLastName',
+        'first_name' => 'getFirstName',
         'city' => 'getCity',
         'state' => 'getState',
         'country_code' => 'getCountryCode',
@@ -260,7 +260,7 @@ class UserData implements ArrayAccess
      * @param string $last_name A last name in lowercase.
      * @return $this
      */
-    public function settLastName($last_name)
+    public function setLastName($last_name)
     {
         $this->container['last_name'] = $last_name;
 
@@ -647,5 +647,3 @@ class UserData implements ArrayAccess
         return json_encode($this);
     }
 }
-
-

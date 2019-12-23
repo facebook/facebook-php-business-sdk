@@ -219,9 +219,11 @@ class Event implements ArrayAccess
 
     /**
      * Sets an ID used by Facebook to deduplicate the same event sent from both server and browser.
-     * @param string $event_id An ID used by Facebook to deduplicate the same event sent from both server and browser.
-     *        The ID sent by server and browser for a given event should match.
-     *        IDs cannot be reused elsewhere in your application, even with a different event_name or event_time.
+     * @param string $event_id This ID can be any unique string chosen by the advertiser.
+     * event_id is used to deduplicate events sent by both Facebook Pixel and Server-Side API.
+     * event_name is also used in the deduplication process.
+     * For deduplication, the eventID from Facebook pixel must match the
+     * event_id in the corresponding Server-Side API event.
      * @return $this
      */
     public function setEventId($event_id)
@@ -399,5 +401,3 @@ class Event implements ArrayAccess
         return json_encode($this);
     }
 }
-
-

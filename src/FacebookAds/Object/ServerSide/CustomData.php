@@ -45,7 +45,8 @@ class CustomData implements ArrayAccess
         'order_id' => 'string',
         'predicted_ltv' => 'float',
         'num_items' => 'string',
-        'status' => 'string'
+        'status' => 'string',
+        'search_string' => 'string'
     );
     /**
      * Array of attributes where the key is the local name, and the value is the original name
@@ -62,7 +63,8 @@ class CustomData implements ArrayAccess
         'order_id' => 'order_id',
         'predicted_ltv' => 'predicted_ltv',
         'num_items' => 'num_items',
-        'status' => 'status'
+        'status' => 'status',
+        'search_string' => 'search_string'
     );
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -79,7 +81,8 @@ class CustomData implements ArrayAccess
         'order_id' => 'setOrderId',
         'predicted_ltv' => 'setPredictedLtv',
         'num_items' => 'setNumItems',
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'search_string' => 'setSearchString'
     );
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -96,7 +99,8 @@ class CustomData implements ArrayAccess
         'order_id' => 'getOrderId',
         'predicted_ltv' => 'getPredictedLtv',
         'num_items' => 'getNumItems',
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'search_string' => 'getSearchString'
     );
     /**
      * Associative array for storing property values
@@ -121,6 +125,7 @@ class CustomData implements ArrayAccess
         $this->container['predicted_ltv'] = isset($data['predicted_ltv']) ? $data['predicted_ltv'] : null;
         $this->container['num_items'] = isset($data['num_items']) ? $data['num_items'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['search_string'] = isset($data['search_string']) ? $data['search_string'] : null;
     }
 
     public static function paramTypes()
@@ -308,6 +313,19 @@ class CustomData implements ArrayAccess
     }
 
     /**
+     * Sets a search query made by a user. Use only with Search events.
+     * @param string $search_string Use only with Search events.
+     *      A search query made by a user.
+     * @return $this
+     */
+    public function setSearchString($search_string)
+    {
+        $this->container['search_string'] = $search_string;
+
+        return $this;
+    }
+
+    /**
      * Returns true if offset exists. False otherwise.
      * @param integer $offset Offset
      * @return boolean
@@ -368,6 +386,7 @@ class CustomData implements ArrayAccess
         $normalized_payload['predicted_ltv'] = $this->getPredictedLtv();
         $normalized_payload['num_items'] = $this->getNumItems();
         $normalized_payload['status'] = $this->getStatus();
+        $normalized_payload['search_string'] = $this->getSearchString();
 
         if (isset($this->container['contents'])) {
             $contents = [];
@@ -483,6 +502,15 @@ class CustomData implements ArrayAccess
     public function getStatus()
     {
         return $this->container['status'];
+    }
+
+    /**
+     * Gets a search query made by a user.
+     * @return string
+     */
+    public function getSearchString()
+    {
+        return $this->container['search_string'];
     }
 
     /**
