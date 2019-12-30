@@ -270,10 +270,10 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   protected function createUndirectionalizedRequest() {
     $request = $this->getLastResponse()->getRequest()->createClone();
     $params = $request->getQueryParams();
-    if (array_key_exists('before', $params)) {
+    if (isset($params['before'])) {
       unset($params['before']);
     }
-    if (array_key_exists('after', $params)) {
+    if (isset($params['after'])) {
       unset($params['after']);
     }
 
