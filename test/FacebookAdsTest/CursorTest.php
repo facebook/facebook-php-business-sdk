@@ -144,12 +144,12 @@ class CursorTest extends AbstractUnitTestCase {
     return $response;
   }
 
-  public function setup() {
+  public function setup(): void {
     parent::setup();
     $this->objectPrototype = new EmptyObject();
   }
 
-  public function tearDown() {
+  public function tearDown(): void {
     $this->objectPrototype = null;
     parent::tearDown();
   }
