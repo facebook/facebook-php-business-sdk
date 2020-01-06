@@ -111,73 +111,75 @@ abstract class AbstractUnitTestCase extends AbstractTestCase {
    * @return Mocker|Mock|ResponseInterface
    */
   protected function createResponseMock() {
-    return $this->getMock(static::FQN_RESPONSE_INTERFACE);
+    return $this->createMock(static::FQN_RESPONSE_INTERFACE);
   }
 
   /**
    * @return Mocker|Mock|Client
    */
   protected function createClientMock() {
-    return $this->getMock(static::FQN_CLIENT);
+    return $this->createMock(static::FQN_CLIENT);
   }
 
   /**
    * @return Mocker|Mock|CurlInterface
    */
   protected function createCurlMock() {
-    return $this->getMock(static::FQN_CURL_INTERFACE);
+    return $this->createMock(static::FQN_CURL_INTERFACE);
   }
 
   /**
    * @return Mocker|Mock|Headers
    */
   protected function createHeadersMock() {
-    return $this->getMock(static::FQN_HEADERS);
+    return $this->createMock(static::FQN_HEADERS);
   }
 
   /**
    * @return Mocker|Mock|LoggerInterface
    */
   protected function createLoggerMock() {
-    return $this->getMock(static::FQN_LOGGER_INTERFACE);
+    return $this->createMock(static::FQN_LOGGER_INTERFACE);
   }
 
   /**
    * @return Mocker|Mock|Parameters
    */
   protected function createParametersMock() {
-    return $this->getMock(static::FQN_PARAMETERS);
+    return $this->createMock(static::FQN_PARAMETERS);
   }
 
   /**
    * @return Mocker|Mock|Parameters
    */
   protected function createJsonAwareParametersMock() {
-    return $this->getMock(static::FQN_JSON_AWARE_PARAMETERS);
+    return $this->createMock(static::FQN_JSON_AWARE_PARAMETERS);
   }
 
   /**
    * @return Mocker|Mock|RequestInterface
    */
   protected function createRequestMock() {
-    return $this->getMock(static::FQN_REQUEST_INTERFACE);
+    return $this->createMock(static::FQN_REQUEST_INTERFACE);
   }
 
   /**
    * @return Mocker|Mock|AdapterInterface
    */
   protected function createAdapterMock() {
-    return $this->getMock(static::FQN_ADAPTER_INTERFACE);
+    return $this->createMock(static::FQN_ADAPTER_INTERFACE);
   }
 
   /**
    * @return Mocker|Mock|Session
    */
   protected function createSessionMock() {
-    return $this->getMock(static::FQN_SESSION, array(), array(
-      static::VALUE_SESSION_APP_ID,
-      static::VALUE_SESSION_APP_SECRET,
-      static::VALUE_SESSION_ACCESS_TOKEN,
-    ));
+    return $this->getMockBuilder(static::FQN_SESSION)
+                ->setConstructorArgs(array(
+                  static::VALUE_SESSION_APP_ID,
+                  static::VALUE_SESSION_APP_SECRET,
+                  static::VALUE_SESSION_ACCESS_TOKEN,
+                ))
+                ->getMock();
   }
 }

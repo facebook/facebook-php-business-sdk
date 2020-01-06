@@ -35,11 +35,11 @@ class CurlLoggerTest extends AbstractLoggerTest {
    */
   protected $handle;
 
-  public function setup() {
+  public function setup(): void {
     $this->handle = fopen('php://temp', 'w+');
   }
 
-  public function tearDown() {
+  public function tearDown(): void {
     fclose($this->handle);
   }
 

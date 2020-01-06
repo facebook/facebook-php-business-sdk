@@ -27,12 +27,13 @@ namespace FacebookAdsTest;
 use FacebookAdsTest\Config\Config;
 use FacebookAdsTest\Config\SkippableFeaturesManager;
 use \PHPUnit_Framework_MockObject_Builder_InvocationMocker as Mock;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Base class for the unit test cases, providing the functions for AdsAPI
  * initialization etc.
  */
-class AbstractTestCase extends \PHPUnit_Framework_TestCase {
+class AbstractTestCase extends TestCase {
 
   /**
    * @return SkippableFeaturesManager
@@ -95,11 +96,11 @@ class AbstractTestCase extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @param \PHPUnit_Framework_MockObject_MockObject|Mock $mock
+   * @param mixed $mock
    * @param array $data
    */
   protected function makeMockIterable(
-    \PHPUnit_Framework_MockObject_MockObject $mock, array $data = array()) {
+    $mock, array $data = array()) {
 
     /** @var Mock $mock */
     $mock->method('count')->willReturn(count($data));
