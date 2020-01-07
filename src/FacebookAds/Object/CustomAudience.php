@@ -445,7 +445,6 @@ class CustomAudience extends AbstractCrudObject {
       'rule_aggregation' => 'string',
       'seed_audience' => 'unsigned int',
       'source' => 'string',
-      'study_spec' => 'map',
       'tags' => 'list<string>',
     );
     $enums = array(

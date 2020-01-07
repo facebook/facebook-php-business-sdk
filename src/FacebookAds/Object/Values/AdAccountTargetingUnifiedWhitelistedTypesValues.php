@@ -48,6 +48,7 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const BRAND_SAFETY_CONTENT_SEVERITY_LEVELS = 'brand_safety_content_severity_levels';
   const CATALOG_BASED_TARGETING = 'catalog_based_targeting';
   const CITIES = 'cities';
+  const CITY_KEYS = 'city_keys';
   const COLLEGE_YEARS = 'college_years';
   const CONJUNCTIVE_USER_ADCLUSTERS = 'conjunctive_user_adclusters';
   const CONNECTIONS = 'connections';
@@ -132,6 +133,7 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const PROSPECTING_AUDIENCE = 'prospecting_audience';
   const PUBLISHER_PLATFORMS = 'publisher_platforms';
   const RADIUS = 'radius';
+  const REGION_KEYS = 'region_keys';
   const REGIONS = 'regions';
   const RELATIONSHIP_STATUSES = 'relationship_statuses';
   const RTB_FLAG = 'rtb_flag';

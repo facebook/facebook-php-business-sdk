@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 
 ## Unreleased
+
+## v5.0.5
+
 - Server-side API added search_string to CustomData and fixed setLastName in UserData object.
 
 ## v5.0.3
@@ -61,3 +64,4 @@ All notable changes to this project will be documented in this file.
     $async_job = $async_job->getSelf();
   }
   ```
+

@@ -29,6 +29,8 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\BusinessFields;
+use FacebookAds\Object\Values\AdAccountCreationRequestSubverticalValues;
+use FacebookAds\Object\Values\AdAccountCreationRequestVerticalValues;
 use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultAggregationPeriodValues;
 use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultBreakdownsValues;
 use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultMetricsValues;
@@ -63,6 +65,7 @@ use FacebookAds\Object\Values\MeasurementUploadEventLookbackWindowValues;
 use FacebookAds\Object\Values\MeasurementUploadEventMatchUniverseValues;
 use FacebookAds\Object\Values\MeasurementUploadEventTimezoneValues;
 use FacebookAds\Object\Values\OracleTransactionTypeValues;
+use FacebookAds\Object\Values\PartnerIntegrationLinkedPartnerValues;
 use FacebookAds\Object\Values\ProductCatalogVerticalValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
 use FacebookAds\Object\Values\SystemUserRoleValues;
@@ -102,6 +105,7 @@ class Business extends AbstractCrudObject {
     $param_types = array(
       'app_id' => 'string',
       'scope' => 'list<Permission>',
+      'system_user_name' => 'string',
     );
     $enums = array(
     );
@@ -233,6 +237,29 @@ class Business extends AbstractCrudObject {
       new AdAccount(),
       'EDGE',
       AdAccount::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getAdAccountCreationRequests(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/adaccountcreationrequests',
+      new AdAccountCreationRequest(),
+      'EDGE',
+      AdAccountCreationRequest::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1299,6 +1326,30 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function deleteManagedBusinesses(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'existing_client_business_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/managed_businesses',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createManagedBusiness(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1608,6 +1659,76 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getOwnedCustomConversions(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/owned_custom_conversions',
+      new CustomConversion(),
+      'EDGE',
+      CustomConversion::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getOwnedDomains(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/owned_domains',
+      new OwnedDomain(),
+      'EDGE',
+      OwnedDomain::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createOwnedDomain(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'domain_name' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/owned_domains',
+      new OwnedDomain(),
+      'EDGE',
+      OwnedDomain::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getOwnedInstagramAccounts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1772,6 +1893,59 @@ class Business extends AbstractCrudObject {
       new AbstractCrudObject(),
       'EDGE',
       array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getPartnerIntegrations(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/partner_integrations',
+      new PartnerIntegrationLinked(),
+      'EDGE',
+      PartnerIntegrationLinked::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createPartnerIntegration(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'external_id' => 'string',
+      'gtm_account_id' => 'string',
+      'gtm_container_id' => 'string',
+      'name' => 'string',
+      'page_id' => 'string',
+      'partner' => 'partner_enum',
+    );
+    $enums = array(
+      'partner_enum' => PartnerIntegrationLinkedPartnerValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/partner_integrations',
+      new PartnerIntegrationLinked(),
+      'EDGE',
+      PartnerIntegrationLinked::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2232,6 +2406,30 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createSpacoDataSetCollection(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'spaco_data_collections' => 'list<string>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/spaco_dataset_collections',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getSystemUsers(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -2298,6 +2496,29 @@ class Business extends AbstractCrudObject {
       new ThirdPartyMeasurementReportDataset(),
       'EDGE',
       ThirdPartyMeasurementReportDataset::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getUploadEvent(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/upload_event',
+      new MeasurementUploadEvent(),
+      'EDGE',
+      MeasurementUploadEvent::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2438,6 +2659,54 @@ class Business extends AbstractCrudObject {
       new AdVideo(),
       'EDGE',
       AdVideo::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createVietnamAdAccountCreationRequest(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'ad_accounts_currency' => 'string',
+      'ad_accounts_info' => 'list<Object>',
+      'additional_comment' => 'string',
+      'address_in_english' => 'Object',
+      'address_in_local_language' => 'string',
+      'advertiser_business_id' => 'string',
+      'business_registration' => 'file',
+      'business_registration_id' => 'string',
+      'contact' => 'Object',
+      'credit_card_id' => 'string',
+      'english_legal_entity_name' => 'string',
+      'extended_credit_id' => 'string',
+      'is_smb' => 'bool',
+      'is_test' => 'bool',
+      'legal_entity_name_in_local_language' => 'string',
+      'official_website_url' => 'string',
+      'planning_agency_business_id' => 'string',
+      'promotable_app_ids' => 'list<string>',
+      'promotable_page_ids' => 'list<int>',
+      'promotable_page_urls' => 'list<string>',
+      'promotable_urls' => 'list<string>',
+      'subvertical' => 'subvertical_enum',
+      'vertical' => 'vertical_enum',
+    );
+    $enums = array(
+      'subvertical_enum' => AdAccountCreationRequestSubverticalValues::getInstance()->getValues(),
+      'vertical_enum' => AdAccountCreationRequestVerticalValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/vietnamadaccountcreationrequests',
+      new AdAccountCreationRequest(),
+      'EDGE',
+      AdAccountCreationRequest::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

@@ -101,7 +101,6 @@ class CustomAudienceFields extends AbstractEnum {
   const PREFILL = 'prefill';
   const PRODUCT_SET_ID = 'product_set_id';
   const SOURCE = 'source';
-  const STUDY_SPEC = 'study_spec';
   const TAGS = 'tags';
   const VIDEO_GROUP_IDS = 'video_group_ids';
 
@@ -171,7 +170,6 @@ class CustomAudienceFields extends AbstractEnum {
       'prefill' => 'bool',
       'product_set_id' => 'string',
       'source' => 'string',
-      'study_spec' => 'map',
       'tags' => 'list<string>',
       'video_group_ids' => 'list<string>',
     );

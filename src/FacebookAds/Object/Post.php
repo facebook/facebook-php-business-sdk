@@ -35,6 +35,8 @@ use FacebookAds\Object\Values\CommentLiveFilterValues;
 use FacebookAds\Object\Values\CommentOrderValues;
 use FacebookAds\Object\Values\InsightsResultDatePresetValues;
 use FacebookAds\Object\Values\InsightsResultPeriodValues;
+use FacebookAds\Object\Values\PhotoBackdatedTimeGranularityValues;
+use FacebookAds\Object\Values\PhotoUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\PostBackdatedTimeGranularityValues;
 use FacebookAds\Object\Values\PostFeedStoryVisibilityValues;
 use FacebookAds\Object\Values\PostTimelineVisibilityValues;
@@ -307,6 +309,83 @@ class Post extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createPhoto(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'aid' => 'string',
+      'allow_spherical_photo' => 'bool',
+      'alt_text_custom' => 'string',
+      'android_key_hash' => 'string',
+      'application_id' => 'string',
+      'attempt' => 'unsigned int',
+      'audience_exp' => 'bool',
+      'backdated_time' => 'datetime',
+      'backdated_time_granularity' => 'backdated_time_granularity_enum',
+      'caption' => 'string',
+      'composer_session_id' => 'string',
+      'direct_share_status' => 'unsigned int',
+      'feed_targeting' => 'Object',
+      'filter_type' => 'unsigned int',
+      'full_res_is_coming_later' => 'bool',
+      'initial_view_heading_override_degrees' => 'unsigned int',
+      'initial_view_pitch_override_degrees' => 'unsigned int',
+      'initial_view_vertical_fov_override_degrees' => 'unsigned int',
+      'ios_bundle_id' => 'string',
+      'is_explicit_location' => 'bool',
+      'is_explicit_place' => 'bool',
+      'is_visual_search' => 'bool',
+      'manual_privacy' => 'bool',
+      'message' => 'string',
+      'name' => 'string',
+      'no_story' => 'bool',
+      'offline_id' => 'unsigned int',
+      'og_action_type_id' => 'string',
+      'og_icon_id' => 'string',
+      'og_object_id' => 'string',
+      'og_phrase' => 'string',
+      'og_set_profile_badge' => 'bool',
+      'og_suggestion_mechanism' => 'string',
+      'place' => 'Object',
+      'privacy' => 'string',
+      'profile_id' => 'int',
+      'proxied_app_id' => 'string',
+      'published' => 'bool',
+      'qn' => 'string',
+      'scheduled_publish_time' => 'unsigned int',
+      'spherical_metadata' => 'map',
+      'sponsor_id' => 'string',
+      'sponsor_relationship' => 'unsigned int',
+      'tags' => 'list<Object>',
+      'target_id' => 'int',
+      'targeting' => 'Object',
+      'time_since_original_post' => 'unsigned int',
+      'uid' => 'int',
+      'unpublished_content_type' => 'unpublished_content_type_enum',
+      'url' => 'string',
+      'user_selected_tags' => 'bool',
+      'vault_image_id' => 'string',
+    );
+    $enums = array(
+      'backdated_time_granularity_enum' => PhotoBackdatedTimeGranularityValues::getInstance()->getValues(),
+      'unpublished_content_type_enum' => PhotoUnpublishedContentTypeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/photos',
+      new Photo(),
+      'EDGE',
+      Photo::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createPromotion(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -482,6 +561,52 @@ class Post extends AbstractCrudObject {
       new Page(),
       'EDGE',
       Page::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function deleteSubscribed(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/subscribed',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createSubscribed(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/subscribed',
+      new Post(),
+      'EDGE',
+      Post::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

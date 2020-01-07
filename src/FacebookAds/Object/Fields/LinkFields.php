@@ -47,6 +47,7 @@ class LinkFields extends AbstractEnum {
   const MESSAGE = 'message';
   const MULTI_SHARE_OPTIMIZED = 'multi_share_optimized';
   const NAME = 'name';
+  const PICTURE = 'picture';
   const PRIVACY = 'privacy';
   const VIA = 'via';
 
@@ -62,6 +63,7 @@ class LinkFields extends AbstractEnum {
       'message' => 'string',
       'multi_share_optimized' => 'bool',
       'name' => 'string',
+      'picture' => 'string',
       'privacy' => 'Privacy',
       'via' => 'Object',
     );

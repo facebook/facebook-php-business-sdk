@@ -238,6 +238,7 @@ class BusinessCreativeFolder extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'creative_insight_permissions' => 'map',
       'description' => 'string',
       'name' => 'string',
     );

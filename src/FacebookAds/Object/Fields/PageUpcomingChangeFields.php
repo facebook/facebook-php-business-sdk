@@ -41,6 +41,7 @@ class PageUpcomingChangeFields extends AbstractEnum {
   const EFFECTIVE_TIME = 'effective_time';
   const ID = 'id';
   const PAGE = 'page';
+  const PROPOSAL = 'proposal';
   const TIMER_STATUS = 'timer_status';
 
   public function getFieldTypes() {
@@ -49,6 +50,7 @@ class PageUpcomingChangeFields extends AbstractEnum {
       'effective_time' => 'datetime',
       'id' => 'string',
       'page' => 'Page',
+      'proposal' => 'PageChangeProposal',
       'timer_status' => 'string',
     );
   }

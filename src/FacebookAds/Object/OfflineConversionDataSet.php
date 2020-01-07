@@ -65,6 +65,73 @@ class OfflineConversionDataSet extends AbstractCrudObject {
   }
 
 
+  public function getActivities(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'business_id' => 'string',
+      'end_time' => 'datetime',
+      'event_type' => 'event_type_enum',
+      'start_time' => 'datetime',
+    );
+    $enums = array(
+      'event_type_enum' => array(
+        'add_dataset_to_business',
+        'add_user_to_dataset',
+        'create_custom_audience',
+        'create_custom_conversion',
+        'dataset_assign_to_adacct',
+        'dataset_autotrack_on_adacct',
+        'dataset_disable_autotrack_on_adacct',
+        'dataset_unassign_from_adacct',
+        'remove_user_from_dataset',
+        'share_custom_audience',
+        'unshare_custom_audience',
+        'update_custom_conversion',
+        'update_user_role_on_dataset',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/activities',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function deleteAdAccounts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'account_id' => 'string',
+      'business' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/adaccounts',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getAdAccounts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -215,6 +282,30 @@ class OfflineConversionDataSet extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getDaChecks(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'checks' => 'list<string>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/da_checks',
+      new DACheck(),
+      'EDGE',
+      DACheck::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createEvent(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -337,6 +428,30 @@ class OfflineConversionDataSet extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/uploads',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function deleteUsers(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'data' => 'list<Object>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/users',
       new AbstractCrudObject(),
       'EDGE',
       array(),

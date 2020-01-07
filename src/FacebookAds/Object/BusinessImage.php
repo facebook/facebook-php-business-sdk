@@ -100,6 +100,8 @@ class BusinessImage extends AbstractCrudObject {
         'country',
         'device_platform',
         'gender',
+        'objective',
+        'optimization_goal',
         'platform_position',
         'publisher_platform',
       ),
