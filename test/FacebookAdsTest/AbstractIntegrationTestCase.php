@@ -125,7 +125,7 @@ class AbstractIntegrationTestCase extends AbstractTestCase {
     Api::setInstance($this->api);
   }
 
-  public function setup() {
+  public function setup() : void {
     parent::setup();
 
     $this->getSkippableFeaturesManager()->enforceSkipTest($this);
@@ -136,7 +136,7 @@ class AbstractIntegrationTestCase extends AbstractTestCase {
     $this->setupApi();
   }
 
-  public function tearDown() {
+  public function tearDown() : void {
     $this->api = null;
     $this->httpClient = null;
     $this->session = null;
@@ -148,10 +148,10 @@ class AbstractIntegrationTestCase extends AbstractTestCase {
   /**
    * This method is called when a test method did not execute successfully.
    *
-   * @param \Exception $e
-   * @throws \Exception
+   * @param \Throwable $e
+   * @throws \Throwable
    */
-  protected function onNotSuccessfulTest(\Exception $e) {
+  protected function onNotSuccessfulTest(\Throwable $e) : void {
     if ($e instanceof RequestException) {
       throw new PHPUnitRequestExceptionWrapper($e);
     } else {
