@@ -61,7 +61,7 @@ Add the following to your `composer.json` file:
 ```json
 {
     "require": {
-        "facebook/php-business-sdk": "3.1.*"
+        "facebook/php-business-sdk": "5.0.5"
     }
 }
 ```
