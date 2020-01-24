@@ -40,7 +40,8 @@ class EventRequest implements ArrayAccess
      */
     protected static $param_types = array(
         'events' => '\FacebookAds\Object\ServerSide\Event[]',
-        'test_event_code' => 'string'
+        'test_event_code' => 'string',
+        'partner_agent' => 'string'
     );
     /**
      * Array of attributes where the key is the local name, and the value is the original name
@@ -48,7 +49,8 @@ class EventRequest implements ArrayAccess
      */
     protected static $attributeMap = array(
         'events' => 'events',
-        'test_event_code' => 'test_event_code'
+        'test_event_code' => 'test_event_code',
+        'partner_agent' => 'partner_agent'
     );
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -56,7 +58,8 @@ class EventRequest implements ArrayAccess
      */
     protected static $setters = array(
         'events' => 'setEvents',
-        'test_event_code' => 'setTestEventCode'
+        'test_event_code' => 'setTestEventCode',
+        'partner_agent' => 'setPartnerAgent'
     );
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -64,7 +67,8 @@ class EventRequest implements ArrayAccess
      */
     protected static $getters = array(
         'events' => 'getEvents',
-        'test_event_code' => 'getTestEventCode'
+        'test_event_code' => 'getTestEventCode',
+        'partner_agent' => 'getPartnerAgent'
     );
     /**
      * Associative array for storing property values
@@ -82,6 +86,7 @@ class EventRequest implements ArrayAccess
         $this->container['pixel_id'] = $pixel_id;
         $this->container['events'] = isset($data['events']) ? $data['events'] : null;
         $this->container['test_event_code'] = isset($data['test_event_code']) ? $data['test_event_code'] : null;
+        $this->container['partner_agent'] = isset($data['partner_agent']) ? $data['partner_agent'] : null;
     }
 
     public static function paramTypes()
@@ -175,6 +180,18 @@ class EventRequest implements ArrayAccess
     }
 
     /**
+     * Sets Partner Agent, which specifies who is sending the event.
+     * @param string $partner_agent The partner agent who is sending the event
+     * @return $this
+     */
+    public function setPartnerAgent($partner_agent)
+    {
+        $this->container['partner_agent'] = $partner_agent;
+
+        return $this;
+    }
+
+    /**
      * Execute the request
      * @return EventResponse
      */
@@ -209,6 +226,7 @@ class EventRequest implements ArrayAccess
         $normalized_payload = array(
             'data' => $normalized_events,
             'test_event_code' => $this->container['test_event_code'],
+            'partner_agent' => $this->container['partner_agent'],
         );
         $normalized_payload = array_filter($normalized_payload);
 
@@ -222,6 +240,15 @@ class EventRequest implements ArrayAccess
     public function getEvents()
     {
         return $this->container['events'];
+    }
+
+    /**
+     * Gets Partner Agent, which specifies who is sending the event.
+     * @return string
+     */
+    public function getPartnerAgent()
+    {
+        return $this->container['partner_agent'];
     }
 
     /**
