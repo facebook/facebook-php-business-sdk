@@ -44,6 +44,7 @@ class AdAssetFeedSpecFields extends AbstractEnum {
   const BODIES = 'bodies';
   const CALL_TO_ACTION_TYPES = 'call_to_action_types';
   const CAPTIONS = 'captions';
+  const CAROUSELS = 'carousels';
   const DESCRIPTIONS = 'descriptions';
   const GROUPS = 'groups';
   const IMAGES = 'images';
@@ -61,6 +62,7 @@ class AdAssetFeedSpecFields extends AbstractEnum {
       'bodies' => 'list<AdAssetFeedSpecBody>',
       'call_to_action_types' => 'list<CallToActionTypes>',
       'captions' => 'list<AdAssetFeedSpecCaption>',
+      'carousels' => 'list<Object>',
       'descriptions' => 'list<AdAssetFeedSpecDescription>',
       'groups' => 'list<AdAssetFeedSpecGroupRule>',
       'images' => 'list<AdAssetFeedSpecImage>',

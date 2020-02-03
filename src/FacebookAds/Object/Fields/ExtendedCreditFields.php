@@ -52,6 +52,7 @@ class ExtendedCreditFields extends AbstractEnum {
   const OWNER_BUSINESS = 'owner_business';
   const OWNER_BUSINESS_NAME = 'owner_business_name';
   const PARTITION_FROM = 'partition_from';
+  const RECEIVING_CREDIT_ALLOCATION_CONFIG = 'receiving_credit_allocation_config';
   const SEND_BILL_TO_BIZ_NAME = 'send_bill_to_biz_name';
 
   public function getFieldTypes() {
@@ -71,6 +72,7 @@ class ExtendedCreditFields extends AbstractEnum {
       'owner_business' => 'Business',
       'owner_business_name' => 'string',
       'partition_from' => 'string',
+      'receiving_credit_allocation_config' => 'ExtendedCreditAllocationConfig',
       'send_bill_to_biz_name' => 'string',
     );
   }

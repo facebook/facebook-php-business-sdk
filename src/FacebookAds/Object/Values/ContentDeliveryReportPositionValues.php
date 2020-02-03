@@ -39,7 +39,7 @@ class ContentDeliveryReportPositionValues extends AbstractEnum {
 
   const ALL_PLACEMENTS = 'ALL_PLACEMENTS';
   const AN_CLASSIC = 'AN_CLASSIC';
-  const FACEBOOK_GROUPS = 'FACEBOOK_GROUPS';
+  const FACEBOOK_GROUPS_FEED = 'FACEBOOK_GROUPS_FEED';
   const FACEBOOK_STORIES = 'FACEBOOK_STORIES';
   const FEED = 'FEED';
   const GROUPS = 'GROUPS';

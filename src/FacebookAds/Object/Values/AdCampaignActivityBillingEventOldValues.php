@@ -46,5 +46,4 @@ class AdCampaignActivityBillingEventOldValues extends AbstractEnum {
   const PAGE_LIKES = 'PAGE_LIKES';
   const POST_ENGAGEMENT = 'POST_ENGAGEMENT';
   const THRUPLAY = 'THRUPLAY';
-  const VIDEO_VIEWS = 'VIDEO_VIEWS';
 }

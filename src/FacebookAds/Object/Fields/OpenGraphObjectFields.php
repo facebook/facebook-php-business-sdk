@@ -40,7 +40,6 @@ class OpenGraphObjectFields extends AbstractEnum {
   const ADMINS = 'admins';
   const APPLICATION = 'application';
   const AUDIO = 'audio';
-  const CONTEXT = 'context';
   const CREATED_TIME = 'created_time';
   const DESCRIPTION = 'description';
   const DETERMINER = 'determiner';
@@ -65,7 +64,6 @@ class OpenGraphObjectFields extends AbstractEnum {
       'admins' => 'list<Object>',
       'application' => 'Object',
       'audio' => 'list<Object>',
-      'context' => 'OpenGraphContext',
       'created_time' => 'datetime',
       'description' => 'string',
       'determiner' => 'string',

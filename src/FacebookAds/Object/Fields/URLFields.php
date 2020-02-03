@@ -37,7 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
 
 class URLFields extends AbstractEnum {
 
-  const APP_LINKS = 'app_links';
   const DEVELOPMENT_INSTANT_ARTICLE = 'development_instant_article';
   const ENGAGEMENT = 'engagement';
   const ID = 'id';
@@ -48,7 +47,6 @@ class URLFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'app_links' => 'AppLinks',
       'development_instant_article' => 'InstantArticle',
       'engagement' => 'Object',
       'id' => 'string',

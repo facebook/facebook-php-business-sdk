@@ -30,7 +30,6 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\InsightsResultFields;
 use FacebookAds\Object\Values\InsightsResultDatePresetValues;
-use FacebookAds\Object\Values\InsightsResultMetricValues;
 use FacebookAds\Object\Values\InsightsResultPeriodValues;
 
 /**
@@ -53,7 +52,6 @@ class InsightsResult extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Metric'] = InsightsResultMetricValues::getInstance()->getValues();
     $ref_enums['DatePreset'] = InsightsResultDatePresetValues::getInstance()->getValues();
     $ref_enums['Period'] = InsightsResultPeriodValues::getInstance()->getValues();
     return $ref_enums;

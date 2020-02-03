@@ -37,7 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
 
 class FlightFields extends AbstractEnum {
 
-  const APPLINKS = 'applinks';
   const CURRENCY = 'currency';
   const DESCRIPTION = 'description';
   const DESTINATION_AIRPORT = 'destination_airport';
@@ -55,7 +54,6 @@ class FlightFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'applinks' => 'AppLinks',
       'currency' => 'string',
       'description' => 'string',
       'destination_airport' => 'string',

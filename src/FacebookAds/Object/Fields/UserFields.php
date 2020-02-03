@@ -44,7 +44,6 @@ class UserFields extends AbstractEnum {
   const AUTH_METHOD = 'auth_method';
   const BIRTHDAY = 'birthday';
   const CAN_REVIEW_MEASUREMENT_REQUEST = 'can_review_measurement_request';
-  const CONTEXT = 'context';
   const COVER = 'cover';
   const CURRENCY = 'currency';
   const DEVICES = 'devices';
@@ -107,11 +106,10 @@ class UserFields extends AbstractEnum {
       'auth_method' => 'string',
       'birthday' => 'string',
       'can_review_measurement_request' => 'bool',
-      'context' => 'UserContext',
       'cover' => 'UserCoverPhoto',
       'currency' => 'Currency',
       'devices' => 'list<UserDevice>',
-      'education' => 'list<EducationExperience>',
+      'education' => 'list<Object>',
       'email' => 'string',
       'favorite_athletes' => 'list<Experience>',
       'favorite_teams' => 'list<Experience>',
@@ -159,7 +157,7 @@ class UserFields extends AbstractEnum {
       'video_upload_limits' => 'VideoUploadLimits',
       'viewer_can_send_gift' => 'bool',
       'website' => 'string',
-      'work' => 'list<WorkExperience>',
+      'work' => 'list<Object>',
     );
   }
 }

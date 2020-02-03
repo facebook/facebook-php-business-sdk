@@ -43,13 +43,6 @@ use FacebookAds\Object\Values\BusinessOwnedObjectOnBehalfOfRequestStatusValues;
 class BusinessOwnedObjectOnBehalfOfRequest extends AbstractCrudObject {
 
   /**
-   * @deprecated getEndpoint function is deprecated
-   */
-  protected function getEndpoint() {
-    return 'sent_inprogress_onbehalf_requests';
-  }
-
-  /**
    * @return BusinessOwnedObjectOnBehalfOfRequestFields
    */
   public static function getFieldsEnum() {

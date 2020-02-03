@@ -39,17 +39,23 @@ class BusinessCreativeFolderFields extends AbstractEnum {
 
   const BUSINESS = 'business';
   const CREATION_TIME = 'creation_time';
+  const CREATIVE_INSIGHT_PERMISSIONS = 'creative_insight_permissions';
   const DESCRIPTION = 'description';
   const ID = 'id';
   const NAME = 'name';
+  const PARENT_FOLDER = 'parent_folder';
+  const PARENT_FOLDER_ID = 'parent_folder_id';
 
   public function getFieldTypes() {
     return array(
       'business' => 'Business',
       'creation_time' => 'datetime',
+      'creative_insight_permissions' => 'map<string, string>',
       'description' => 'string',
       'id' => 'string',
       'name' => 'string',
+      'parent_folder' => 'BusinessCreativeFolder',
+      'parent_folder_id' => 'string',
     );
   }
 }

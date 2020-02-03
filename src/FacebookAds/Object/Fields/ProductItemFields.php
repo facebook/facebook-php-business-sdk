@@ -41,7 +41,6 @@ class ProductItemFields extends AbstractEnum {
   const ADDITIONAL_IMAGE_URLS = 'additional_image_urls';
   const ADDITIONAL_VARIANT_ATTRIBUTES = 'additional_variant_attributes';
   const AGE_GROUP = 'age_group';
-  const APPLINKS = 'applinks';
   const AVAILABILITY = 'availability';
   const BRAND = 'brand';
   const CAPABILITY_TO_REVIEW_STATUS = 'capability_to_review_status';
@@ -120,7 +119,6 @@ class ProductItemFields extends AbstractEnum {
       'additional_image_urls' => 'list<string>',
       'additional_variant_attributes' => 'map<string, string>',
       'age_group' => 'AgeGroup',
-      'applinks' => 'AppLinks',
       'availability' => 'Availability',
       'brand' => 'string',
       'capability_to_review_status' => 'map<Object, Object>',

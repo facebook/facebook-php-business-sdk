@@ -5,8 +5,12 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-## v5.0.5
+## v6.0.0
+### Changed
+- Graph API call upgrade to [v6.0](https://developers.facebook.com/docs/graph-api/changelog/version6.0)
 
+## v5.0.5
+### Added
 - Server-side API added search_string to CustomData and fixed setLastName in UserData object.
 
 ## v5.0.3
@@ -44,7 +48,7 @@ All notable changes to this project will be documented in this file.
 
 ## v3.3.1
 ### Changed
-- Remove list of API call from Business SDK, any [these APIs](https://developers.facebook.com/docs/graph-api/changelog/4-30-2019-endpoint-deprecations) included in Business SDK will be deprecated.   
+- Remove list of API call from Business SDK, any [these APIs](https://developers.facebook.com/docs/graph-api/changelog/4-30-2019-endpoint-deprecations) included in Business SDK will be deprecated.
 
 ## v3.3.0
 ### Changed

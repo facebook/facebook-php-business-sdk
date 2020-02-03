@@ -37,12 +37,16 @@ $api->setLogger(new CurlLogger());
 
 $user_data = (new UserData())
     ->setFbc('fb.1.1554763741205.AbCdEfGhIjKlMnOpQrStUvWxYz1234567890')
+    // It is recommended to send Client IP and User Agent for ServerSide API Events.
+    ->setClientIpAddress($_SERVER['REMOTE_ADDR'])
+    ->setClientUserAgent($_SERVER['HTTP_USER_AGENT'])
     ->setFbp('fb.1.1558571054389.1098115397')
     ->setEmail('joe@eg.com');
 
 $event = (new Event())
     ->setEventName('PageView')
     ->setEventTime(time())
+    ->setEventSourceUrl('http://jaspers-market.com/product/123')
     ->setUserData($user_data);
 
 $events = array();

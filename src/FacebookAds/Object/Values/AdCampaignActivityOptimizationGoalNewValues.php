@@ -61,5 +61,4 @@ class AdCampaignActivityOptimizationGoalNewValues extends AbstractEnum {
   const THRUPLAY = 'THRUPLAY';
   const TWO_SECOND_CONTINUOUS_VIDEO_VIEWS = 'TWO_SECOND_CONTINUOUS_VIDEO_VIEWS';
   const VALUE = 'VALUE';
-  const VIDEO_VIEWS = 'VIDEO_VIEWS';
 }

@@ -29,8 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdAccountCreationRequestFields;
-use FacebookAds\Object\Values\AdAccountCreationRequestSubverticalValues;
-use FacebookAds\Object\Values\AdAccountCreationRequestVerticalValues;
 
 /**
  * This class is auto-generated.
@@ -44,13 +42,6 @@ use FacebookAds\Object\Values\AdAccountCreationRequestVerticalValues;
 class AdAccountCreationRequest extends AbstractCrudObject {
 
   /**
-   * @deprecated getEndpoint function is deprecated
-   */
-  protected function getEndpoint() {
-    return 'vietnamadaccountcreationrequests';
-  }
-
-  /**
    * @return AdAccountCreationRequestFields
    */
   public static function getFieldsEnum() {
@@ -59,8 +50,6 @@ class AdAccountCreationRequest extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Subvertical'] = AdAccountCreationRequestSubverticalValues::getInstance()->getValues();
-    $ref_enums['Vertical'] = AdAccountCreationRequestVerticalValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -81,49 +70,6 @@ class AdAccountCreationRequest extends AbstractCrudObject {
       new AdAccount(),
       'EDGE',
       AdAccount::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createVietnam(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'ad_accounts_info' => 'list<Object>',
-      'additional_comment' => 'string',
-      'address_in_english' => 'Object',
-      'address_in_local_language' => 'string',
-      'advertiser_business_id' => 'string',
-      'business_registration' => 'file',
-      'business_registration_id' => 'string',
-      'contact' => 'Object',
-      'english_legal_entity_name' => 'string',
-      'legal_entity_name_in_local_language' => 'string',
-      'official_website_url' => 'string',
-      'planning_agency_business_id' => 'string',
-      'promotable_app_ids' => 'list<string>',
-      'promotable_page_ids' => 'list<int>',
-      'promotable_page_urls' => 'list<string>',
-      'promotable_urls' => 'list<string>',
-      'subvertical' => 'subvertical_enum',
-      'vertical' => 'vertical_enum',
-    );
-    $enums = array(
-      'subvertical_enum' => AdAccountCreationRequestSubverticalValues::getInstance()->getValues(),
-      'vertical_enum' => AdAccountCreationRequestVerticalValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/vietnam',
-      new AdAccountCreationRequest(),
-      'EDGE',
-      AdAccountCreationRequest::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

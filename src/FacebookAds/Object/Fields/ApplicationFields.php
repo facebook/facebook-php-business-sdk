@@ -69,7 +69,6 @@ class ApplicationFields extends AbstractEnum {
   const COMPANY = 'company';
   const CONFIGURED_IOS_SSO = 'configured_ios_sso';
   const CONTACT_EMAIL = 'contact_email';
-  const CONTEXT = 'context';
   const CREATED_TIME = 'created_time';
   const CREATOR_UID = 'creator_uid';
   const DAILY_ACTIVE_USERS = 'daily_active_users';
@@ -173,7 +172,6 @@ class ApplicationFields extends AbstractEnum {
       'company' => 'string',
       'configured_ios_sso' => 'bool',
       'contact_email' => 'string',
-      'context' => 'Object',
       'created_time' => 'datetime',
       'creator_uid' => 'string',
       'daily_active_users' => 'string',

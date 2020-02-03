@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdNetworkAnalyticsSyncQueryResultBreakdownsValues extends AbstractEnum {
 
+  const AD_SPACE = 'AD_SPACE';
   const AGE = 'AGE';
   const APP = 'APP';
   const CLICKED_VIEW_TAG = 'CLICKED_VIEW_TAG';

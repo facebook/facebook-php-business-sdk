@@ -268,7 +268,6 @@ class AdSet extends AbstractArchivableCrudObject
       'ad_draft_id' => 'string',
       'date_preset' => 'date_preset_enum',
       'effective_status' => 'list<string>',
-      'include_deleted' => 'bool',
       'include_drafts' => 'bool',
       'time_range' => 'Object',
       'updated_since' => 'int',

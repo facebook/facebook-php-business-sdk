@@ -42,7 +42,6 @@ class PageFields extends AbstractEnum {
   const AD_CAMPAIGN = 'ad_campaign';
   const AFFILIATION = 'affiliation';
   const APP_ID = 'app_id';
-  const APP_LINKS = 'app_links';
   const ARTISTS_WE_LIKE = 'artists_we_like';
   const ATTIRE = 'attire';
   const AWARDS = 'awards';
@@ -62,7 +61,6 @@ class PageFields extends AbstractEnum {
   const COMPANY_OVERVIEW = 'company_overview';
   const CONNECTED_INSTAGRAM_ACCOUNT = 'connected_instagram_account';
   const CONTACT_ADDRESS = 'contact_address';
-  const CONTEXT = 'context';
   const COPYRIGHT_WHITELISTED_IG_PARTNERS = 'copyright_whitelisted_ig_partners';
   const COUNTRY_PAGE_LIKES = 'country_page_likes';
   const COVER = 'cover';
@@ -185,7 +183,6 @@ class PageFields extends AbstractEnum {
       'ad_campaign' => 'AdSet',
       'affiliation' => 'string',
       'app_id' => 'string',
-      'app_links' => 'AppLinks',
       'artists_we_like' => 'string',
       'attire' => 'string',
       'awards' => 'string',
@@ -205,7 +202,6 @@ class PageFields extends AbstractEnum {
       'company_overview' => 'string',
       'connected_instagram_account' => 'IGUser',
       'contact_address' => 'MailingAddress',
-      'context' => 'OpenGraphContext',
       'copyright_whitelisted_ig_partners' => 'list<string>',
       'country_page_likes' => 'unsigned int',
       'cover' => 'CoverPhoto',

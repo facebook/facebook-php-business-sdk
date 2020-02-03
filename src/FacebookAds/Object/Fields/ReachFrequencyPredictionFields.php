@@ -54,7 +54,6 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const DAILY_IMPRESSION_CURVE = 'daily_impression_curve';
   const DAILY_IMPRESSION_CURVE_MAP = 'daily_impression_curve_map';
   const DAY_PARTING_SCHEDULE = 'day_parting_schedule';
-  const DEMO_BREAKDOWN = 'demo_breakdown';
   const DESTINATION_ID = 'destination_id';
   const END_TIME = 'end_time';
   const EXPIRATION_TIME = 'expiration_time';
@@ -157,7 +156,6 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'daily_impression_curve' => 'list<float>',
       'daily_impression_curve_map' => 'map<unsigned int, list<float>>',
       'day_parting_schedule' => 'list<ReachFrequencyDayPart>',
-      'demo_breakdown' => 'ReachFrequencyEstimatesDemoBreakdown',
       'destination_id' => 'string',
       'end_time' => 'datetime',
       'expiration_time' => 'datetime',

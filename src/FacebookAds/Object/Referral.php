@@ -42,13 +42,6 @@ use FacebookAds\Object\Fields\ReferralFields;
 class Referral extends AbstractCrudObject {
 
   /**
-   * @deprecated getEndpoint function is deprecated
-   */
-  protected function getEndpoint() {
-    return 'referral';
-  }
-
-  /**
    * @return ReferralFields
    */
   public static function getFieldsEnum() {

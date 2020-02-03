@@ -122,6 +122,7 @@ class AdsInsightsFields extends AbstractEnum {
   const COST_PER_OUTBOUND_CLICK = 'cost_per_outbound_click';
   const COST_PER_SCHEDULE = 'cost_per_schedule';
   const COST_PER_START_TRIAL = 'cost_per_start_trial';
+  const COST_PER_STORE_VISIT_ACTION = 'cost_per_store_visit_action';
   const COST_PER_SUBMIT_APPLICATION = 'cost_per_submit_application';
   const COST_PER_SUBSCRIBE = 'cost_per_subscribe';
   const COST_PER_THRUPLAY = 'cost_per_thruplay';
@@ -221,6 +222,7 @@ class AdsInsightsFields extends AbstractEnum {
   const SPEND = 'spend';
   const START_TRIAL_ACTIONS = 'start_trial_actions';
   const START_TRIAL_VALUE = 'start_trial_value';
+  const STORE_VISIT_ACTIONS = 'store_visit_actions';
   const SUBMIT_APPLICATION_ACTIONS = 'submit_application_actions';
   const SUBMIT_APPLICATION_VALUE = 'submit_application_value';
   const SUBSCRIBE_ACTIONS = 'subscribe_actions';
@@ -355,6 +357,7 @@ class AdsInsightsFields extends AbstractEnum {
       'cost_per_outbound_click' => 'list<AdsActionStats>',
       'cost_per_schedule' => 'list<AdsActionStats>',
       'cost_per_start_trial' => 'list<AdsActionStats>',
+      'cost_per_store_visit_action' => 'list<AdsActionStats>',
       'cost_per_submit_application' => 'list<AdsActionStats>',
       'cost_per_subscribe' => 'list<AdsActionStats>',
       'cost_per_thruplay' => 'list<AdsActionStats>',
@@ -454,6 +457,7 @@ class AdsInsightsFields extends AbstractEnum {
       'spend' => 'string',
       'start_trial_actions' => 'list<AdsActionStats>',
       'start_trial_value' => 'list<AdsActionStats>',
+      'store_visit_actions' => 'list<AdsActionStats>',
       'submit_application_actions' => 'list<AdsActionStats>',
       'submit_application_value' => 'list<AdsActionStats>',
       'subscribe_actions' => 'list<AdsActionStats>',
