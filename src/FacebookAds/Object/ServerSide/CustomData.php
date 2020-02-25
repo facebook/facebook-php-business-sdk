@@ -46,7 +46,8 @@ class CustomData implements ArrayAccess
         'predicted_ltv' => 'float',
         'num_items' => 'string',
         'status' => 'string',
-        'search_string' => 'string'
+        'search_string' => 'string',
+        'custom_properties' => 'array'
     );
     /**
      * Array of attributes where the key is the local name, and the value is the original name
@@ -64,7 +65,8 @@ class CustomData implements ArrayAccess
         'predicted_ltv' => 'predicted_ltv',
         'num_items' => 'num_items',
         'status' => 'status',
-        'search_string' => 'search_string'
+        'search_string' => 'search_string',
+        'custom_properties' => 'custom_properties'
     );
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -82,7 +84,8 @@ class CustomData implements ArrayAccess
         'predicted_ltv' => 'setPredictedLtv',
         'num_items' => 'setNumItems',
         'status' => 'setStatus',
-        'search_string' => 'setSearchString'
+        'search_string' => 'setSearchString',
+        'custom_properties' => 'setCustomProperties'
     );
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -100,7 +103,8 @@ class CustomData implements ArrayAccess
         'predicted_ltv' => 'getPredictedLtv',
         'num_items' => 'getNumItems',
         'status' => 'getStatus',
-        'search_string' => 'getSearchString'
+        'search_string' => 'getSearchString',
+        'custom_properties' => 'getCustomProperties'
     );
     /**
      * Associative array for storing property values
@@ -126,6 +130,7 @@ class CustomData implements ArrayAccess
         $this->container['num_items'] = isset($data['num_items']) ? $data['num_items'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['search_string'] = isset($data['search_string']) ? $data['search_string'] : null;
+        $this->container['custom_properties'] = isset($data['custom_properties']) ? $data['custom_properties'] : null;
     }
 
     public static function paramTypes()
@@ -326,6 +331,17 @@ class CustomData implements ArrayAccess
     }
 
     /**
+     * Sets custom_properties that are not defined as the standard properties list in custom data.
+     * @param array custom_properties dictionary to include custom properties that are not defined in custom data.
+     * @return $this
+     */
+    public function setCustomProperties($custom_properties)
+    {        
+        $this->container['custom_properties'] = $custom_properties;
+        return $this;
+    }
+
+    /**
      * Returns true if offset exists. False otherwise.
      * @param integer $offset Offset
      * @return boolean
@@ -370,6 +386,17 @@ class CustomData implements ArrayAccess
         unset($this->container[$offset]);
     }
 
+     /**
+     * Adds the Custom Property($key, $value) to the $custom_property bag.
+     * @param $key of the property to be added 
+     * @param $value of the property to be added 
+     * @return void
+     */
+    public function add_custom_property($key, $value)
+    {
+        $this->container['custom_properties'][$key] = $value;        
+    }
+
     public function normalize()
     {
 
@@ -394,6 +421,17 @@ class CustomData implements ArrayAccess
                 array_push($contents, $content->normalize());
             }
             $normalized_payload['contents'] = $contents;
+        }
+
+        if (isset($this->container['custom_properties'])) {            
+            foreach ($this->getCustomProperties() as $key => $val) {    
+                if (array_key_exists($key, $normalized_payload))
+                {
+                    throw new \Exception('Duplicate key defined as part of the custom_properties. key: "' . $key . '". Please make sure the keys defined in the custom_properties are not already available in standard custom_data property list.');
+                }
+
+                $normalized_payload[$key] = $val;                
+            }
         }
 
         $normalized_payload = array_filter($normalized_payload);
@@ -511,6 +549,15 @@ class CustomData implements ArrayAccess
     public function getSearchString()
     {
         return $this->container['search_string'];
+    }
+
+    /**
+     * Gets Custom Properties dictionary to add properties that are not defined as part of the custom data.
+     * @return array
+     */
+    public function getCustomProperties()
+    {
+        return $this->container['custom_properties'];
     }
 
     /**
