@@ -41,4 +41,5 @@ class BusinessAssetSharingAgreementRequestStatusValues extends AbstractEnum {
   const DECLINE = 'DECLINE';
   const EXPIRED = 'EXPIRED';
   const IN_PROGRESS = 'IN_PROGRESS';
+  const PENDING = 'PENDING';
 }

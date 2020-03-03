@@ -86,6 +86,7 @@ class UserFields extends AbstractEnum {
   const SHORT_NAME = 'short_name';
   const SIGNIFICANT_OTHER = 'significant_other';
   const SPORTS = 'sports';
+  const SUPPORTS_DONATE_BUTTON_IN_LIVE_VIDEO = 'supports_donate_button_in_live_video';
   const TEST_GROUP = 'test_group';
   const THIRD_PARTY_ID = 'third_party_id';
   const TIMEZONE = 'timezone';
@@ -148,6 +149,7 @@ class UserFields extends AbstractEnum {
       'short_name' => 'string',
       'significant_other' => 'User',
       'sports' => 'list<Experience>',
+      'supports_donate_button_in_live_video' => 'bool',
       'test_group' => 'unsigned int',
       'third_party_id' => 'string',
       'timezone' => 'float',

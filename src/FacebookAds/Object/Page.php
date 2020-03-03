@@ -3073,6 +3073,7 @@ class Page extends AbstractCrudObject {
       'monitoring_type' => 'monitoring_type_enum',
       'ownership_countries' => 'list<string>',
       'rule_id' => 'string',
+      'tags' => 'list<string>',
       'whitelisted_ids' => 'list<string>',
       'whitelisted_ig_user_ids' => 'list<string>',
     );

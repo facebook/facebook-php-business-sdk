@@ -1537,6 +1537,7 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'code' => 'string',
       'ig_password' => 'string',
       'page_id' => 'int',
     );

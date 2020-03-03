@@ -43,6 +43,7 @@ class GroupPurposeValues extends AbstractEnum {
   const COUPLE = 'COUPLE';
   const COWORKERS = 'COWORKERS';
   const CUSTOM = 'CUSTOM';
+  const DEALS = 'DEALS';
   const EPHEMERAL = 'EPHEMERAL';
   const EVENT_PLANNING = 'EVENT_PLANNING';
   const FAMILY = 'FAMILY';

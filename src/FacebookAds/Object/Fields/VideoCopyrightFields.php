@@ -52,6 +52,7 @@ class VideoCopyrightFields extends AbstractEnum {
   const REFERENCE_FILE_EXPIRED = 'reference_file_expired';
   const REFERENCE_OWNER_ID = 'reference_owner_id';
   const RULE_IDS = 'rule_ids';
+  const TAGS = 'tags';
   const WHITELISTED_IDS = 'whitelisted_ids';
 
   public function getFieldTypes() {
@@ -71,6 +72,7 @@ class VideoCopyrightFields extends AbstractEnum {
       'reference_file_expired' => 'bool',
       'reference_owner_id' => 'string',
       'rule_ids' => 'list<VideoCopyrightRule>',
+      'tags' => 'list<string>',
       'whitelisted_ids' => 'list<string>',
     );
   }

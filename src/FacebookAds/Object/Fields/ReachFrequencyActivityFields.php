@@ -41,12 +41,6 @@ class ReachFrequencyActivityFields extends AbstractEnum {
   const CAMPAIGN_ACTIVE = 'campaign_active';
   const CAMPAIGN_STARTED = 'campaign_started';
   const CREATIVE_UPLOADED = 'creative_uploaded';
-  const DELIVERED_BUDGET = 'delivered_budget';
-  const DELIVERED_DAILY_GRP = 'delivered_daily_grp';
-  const DELIVERED_DAILY_IMPRESSION = 'delivered_daily_impression';
-  const DELIVERED_IMPRESSION = 'delivered_impression';
-  const DELIVERED_REACH = 'delivered_reach';
-  const DELIVERED_TOTAL_IMPRESSION = 'delivered_total_impression';
   const IO_APPROVED = 'io_approved';
   const SF_LINK = 'sf_link';
 
@@ -56,12 +50,6 @@ class ReachFrequencyActivityFields extends AbstractEnum {
       'campaign_active' => 'bool',
       'campaign_started' => 'bool',
       'creative_uploaded' => 'bool',
-      'delivered_budget' => 'int',
-      'delivered_daily_grp' => 'list<float>',
-      'delivered_daily_impression' => 'list<float>',
-      'delivered_impression' => 'unsigned int',
-      'delivered_reach' => 'unsigned int',
-      'delivered_total_impression' => 'unsigned int',
       'io_approved' => 'bool',
       'sf_link' => 'string',
     );

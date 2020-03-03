@@ -97,6 +97,7 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
         'APPROVED',
         'DELETED',
         'DISABLED',
+        'IN_APPEAL',
         'PENDING',
         'PENDING_DELETION',
         'REJECTED',

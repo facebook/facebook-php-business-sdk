@@ -68,7 +68,6 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const EXTERNAL_REACH = 'external_reach';
   const FEED_RATIO_0000 = 'feed_ratio_0000';
   const FREQUENCY_CAP = 'frequency_cap';
-  const FREQUENCY_DISTRIBUTION = 'frequency_distribution';
   const FREQUENCY_DISTRIBUTION_MAP = 'frequency_distribution_map';
   const FREQUENCY_DISTRIBUTION_MAP_AGG = 'frequency_distribution_map_agg';
   const GRP_AUDIENCE_SIZE = 'grp_audience_size';
@@ -170,7 +169,6 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'external_reach' => 'unsigned int',
       'feed_ratio_0000' => 'unsigned int',
       'frequency_cap' => 'unsigned int',
-      'frequency_distribution' => 'list<float>',
       'frequency_distribution_map' => 'map<unsigned int, list<float>>',
       'frequency_distribution_map_agg' => 'map<unsigned int, list<unsigned int>>',
       'grp_audience_size' => 'float',

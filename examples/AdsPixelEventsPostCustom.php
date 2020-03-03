@@ -28,6 +28,7 @@ use FacebookAds\Logger\CurlLogger;
 use FacebookAds\Object\ServerSide\Event;
 use FacebookAds\Object\ServerSide\EventRequest;
 use FacebookAds\Object\ServerSide\UserData;
+use FacebookAds\Object\ServerSide\CustomData;
 
 $access_token = '<ACCESS_TOKEN>';
 $pixel_id = '<ADS_PIXEL_ID>';
@@ -43,11 +44,16 @@ $user_data = (new UserData())
     ->setFbp('fb.1.1558571054389.1098115397')
     ->setEmail('joe@eg.com');
 
+$custom_data = (new CustomData())
+    ->setCurrency('usd')
+    ->setValue(123.45);
+
 $event = (new Event())
-    ->setEventName('PageView')
+    ->setEventName('Purchase')
     ->setEventTime(time())
     ->setEventSourceUrl('http://jaspers-market.com/product/123')
-    ->setUserData($user_data);
+    ->setUserData($user_data)
+    ->setCustomData($custom_data);
 
 $events = array();
 array_push($events, $event);

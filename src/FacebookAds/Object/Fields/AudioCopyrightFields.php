@@ -46,6 +46,7 @@ class AudioCopyrightFields extends AbstractEnum {
   const OWNERSHIP_COUNTRIES = 'ownership_countries';
   const REFERENCE_FILE_STATUS = 'reference_file_status';
   const RIDGE_MONITORING_STATUS = 'ridge_monitoring_status';
+  const TAGS = 'tags';
   const UPDATE_TIME = 'update_time';
   const WHITELISTED_FB_USERS = 'whitelisted_fb_users';
   const WHITELISTED_IG_USERS = 'whitelisted_ig_users';
@@ -61,6 +62,7 @@ class AudioCopyrightFields extends AbstractEnum {
       'ownership_countries' => 'list<string>',
       'reference_file_status' => 'string',
       'ridge_monitoring_status' => 'string',
+      'tags' => 'list<string>',
       'update_time' => 'datetime',
       'whitelisted_fb_users' => 'list<Object>',
       'whitelisted_ig_users' => 'list<string>',

@@ -41,8 +41,6 @@ use FacebookAds\Object\Values\AdVideoUploadPhaseValues;
 use FacebookAds\Object\Values\BusinessSurveyBusinessTypeValues;
 use FacebookAds\Object\Values\BusinessVerticalValues;
 use FacebookAds\Object\Values\EventTypeValues;
-use FacebookAds\Object\Values\InsightsResultDatePresetValues;
-use FacebookAds\Object\Values\InsightsResultPeriodValues;
 use FacebookAds\Object\Values\LiveVideoBroadcastStatusValues;
 use FacebookAds\Object\Values\LiveVideoProjectionValues;
 use FacebookAds\Object\Values\LiveVideoSourceValues;
@@ -54,13 +52,10 @@ use FacebookAds\Object\Values\PermissionStatusValues;
 use FacebookAds\Object\Values\PhotoBackdatedTimeGranularityValues;
 use FacebookAds\Object\Values\PhotoTypeValues;
 use FacebookAds\Object\Values\PhotoUnpublishedContentTypeValues;
-use FacebookAds\Object\Values\PostWithValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
 use FacebookAds\Object\Values\UserFilteringValues;
 use FacebookAds\Object\Values\UserLocalNewsMegaphoneDismissStatusValues;
 use FacebookAds\Object\Values\UserLocalNewsSubscriptionStatusValues;
-use FacebookAds\Object\Values\UserResumeTypeValues;
-use FacebookAds\Object\Values\UserServiceTypeValues;
 use FacebookAds\Object\Values\UserTypeValues;
 
 /**
@@ -85,10 +80,8 @@ class User extends AbstractCrudObject {
     $ref_enums = array();
     $ref_enums['LocalNewsMegaphoneDismissStatus'] = UserLocalNewsMegaphoneDismissStatusValues::getInstance()->getValues();
     $ref_enums['LocalNewsSubscriptionStatus'] = UserLocalNewsSubscriptionStatusValues::getInstance()->getValues();
-    $ref_enums['ResumeType'] = UserResumeTypeValues::getInstance()->getValues();
     $ref_enums['Filtering'] = UserFilteringValues::getInstance()->getValues();
     $ref_enums['Type'] = UserTypeValues::getInstance()->getValues();
-    $ref_enums['ServiceType'] = UserServiceTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -1223,37 +1216,6 @@ class User extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getInsights(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'date_preset' => 'date_preset_enum',
-      'metric' => 'list<Object>',
-      'period' => 'period_enum',
-      'show_description_from_api_doc' => 'bool',
-      'since' => 'datetime',
-      'until' => 'datetime',
-    );
-    $enums = array(
-      'date_preset_enum' => InsightsResultDatePresetValues::getInstance()->getValues(),
-      'period_enum' => InsightsResultPeriodValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/insights',
-      new InsightsResult(),
-      'EDGE',
-      InsightsResult::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getLikes(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1398,35 +1360,6 @@ class User extends AbstractCrudObject {
       new LiveVideo(),
       'EDGE',
       LiveVideo::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createMfsAccountPinReset(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'password_token' => 'string',
-      'provider_id' => 'string',
-      'resume_payload' => 'string',
-      'resume_type' => 'resume_type_enum',
-      'should_bypass_token_proxy' => 'bool',
-    );
-    $enums = array(
-      'resume_type_enum' => UserResumeTypeValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/mfs_account_pin_reset',
-      new User(),
-      'EDGE',
-      User::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1718,33 +1651,6 @@ class User extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getPosts(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'include_hidden' => 'bool',
-      'show_expired' => 'bool',
-      'with' => 'with_enum',
-    );
-    $enums = array(
-      'with_enum' => PostWithValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/posts',
-      new Post(),
-      'EDGE',
-      Post::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getRequestHistory(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1785,32 +1691,6 @@ class User extends AbstractCrudObject {
       new Canvas(),
       'EDGE',
       Canvas::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createScreenName(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'service_type' => 'service_type_enum',
-      'value' => 'string',
-    );
-    $enums = array(
-      'service_type_enum' => UserServiceTypeValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/screennames',
-      new User(),
-      'EDGE',
-      User::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

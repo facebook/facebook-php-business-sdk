@@ -39,19 +39,15 @@ class AdCampaignLearningStageInfoFields extends AbstractEnum {
 
   const ATTRIBUTION_WINDOWS = 'attribution_windows';
   const CONVERSIONS = 'conversions';
-  const EXIT_REASON = 'exit_reason';
   const LAST_SIG_EDIT_TS = 'last_sig_edit_ts';
   const STATUS = 'status';
-  const TYPES = 'types';
 
   public function getFieldTypes() {
     return array(
       'attribution_windows' => 'list<string>',
       'conversions' => 'unsigned int',
-      'exit_reason' => 'string',
       'last_sig_edit_ts' => 'int',
       'status' => 'string',
-      'types' => 'list<string>',
     );
   }
 }

@@ -40,7 +40,7 @@ $fields = array(
 );
 $params = array(
   'special_ad_category' => 'NONE',
-  'name' => 'Store Visits Campaign',
+  'name' => 'Store Traffic Campaign',
   'objective' => 'STORE_VISITS',
   'promoted_object' => array('page_id' => '<pageID>'),
   'status' => 'PAUSED',
