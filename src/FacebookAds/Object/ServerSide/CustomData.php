@@ -386,20 +386,33 @@ class CustomData implements ArrayAccess
         unset($this->container[$offset]);
     }
 
-     /**
-     * Adds the Custom Property($key, $value) to the $custom_property bag.
-     * @param $key of the property to be added 
-     * @param $value of the property to be added 
+    /**
+     * Add a custom property to the custom_properties bag
+     * @param $key Custom property name
+     * @param $value Custom property value
      * @return void
      */
-    public function add_custom_property($key, $value)
+    public function addCustomProperty($key, $value)
     {
         $this->container['custom_properties'][$key] = $value;        
     }
 
+    /**
+     * Gets the value of a custom property from the custom_properties bag
+     * @param $key Custom property name
+     * @return string
+     */
+    public function getCustomProperty($key) {
+        if (array_key_exists(
+            $key, $this->container['custom_properties'])) {
+            return $this->container['custom_properties'][$key];    
+        } else {
+            throw new \Exception("Key not found in custom properties:'" . $key . "'");
+        }
+    }
+
     public function normalize()
     {
-
         $normalized_payload = array();
 
         $normalized_payload['value'] = $this->getValue();
