@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 
 ## Unreleased
+## v6.0.2
+### Added
+- Add support for custom properties in the Server-Side API
 
 ## v6.0.0
 ### Changed
