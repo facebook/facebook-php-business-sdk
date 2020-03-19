@@ -25,7 +25,7 @@
 namespace FacebookAdsTest\Object;
 
 use FacebookAdsTest\AbstractUnitTestCase;
-use FacebookAds\Object\ServerSide\Util;
+use FacebookAds\Object\ServerSide\Normalizer;
 
 
 class ServerSideNormalizeTest extends AbstractUnitTestCase {
@@ -56,7 +56,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
     public function testEmailNormalize($input, $expected) {
         $this->assertEquals(
             $expected,
-            Util::normalize('em', $input));
+            Normalizer::normalize('em', $input));
     }
 
     /**
@@ -89,7 +89,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
     public function testPhoneNormalize($input, $expected) {
         $this->assertEquals(
             $expected,
-            Util::normalize('ph', $input));
+            Normalizer::normalize('ph', $input));
     }
 
     /**
@@ -122,7 +122,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
     public function testPostalCodeNormalize($input, $expected) {
         $this->assertEquals(
             $expected,
-            Util::normalize('zp', $input));
+            Normalizer::normalize('zp', $input));
     }
 
     /**
@@ -151,7 +151,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
     public function testCityNormalize($input, $expected) {
         $this->assertEquals(
             $expected,
-            Util::normalize('ct', $input));
+            Normalizer::normalize('ct', $input));
     }
 
     /**
@@ -176,7 +176,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
     public function testCountryNormalize($input, $expected) {
         $this->assertEquals(
             $expected,
-            Util::normalize('country', $input));
+            Normalizer::normalize('country', $input));
     }
 
     /**
@@ -201,45 +201,45 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
     public function testCurrencyNormalize($input, $expected) {
         $this->assertEquals(
             $expected,
-            Util::normalize('currency', $input));
+            Normalizer::normalize('currency', $input));
     }
 
     /**
      * test for asserting valid exception is thrown for invalid (ISO)currency format
      */
     public function testCurrencyException() {
-    $has_throw_exception = false;
-    try {
-      Util::normalize('currency', 'Us Dollar');
-    } catch (\Exception $e) {
-      $has_throw_exception = true;
+        $has_throw_exception = false;
+        try {
+            Normalizer::normalize('currency', 'Us Dollar');
+        } catch (\Exception $e) {
+            $has_throw_exception = true;
+        }
+        $this->assertTrue($has_throw_exception);
     }
-    $this->assertTrue($has_throw_exception);
-  }
 
-  /**
+    /**
      * test for asserting valid exception is thrown for invalid (ISO)country format
      */
     public function testCountryException() {
-    $has_throw_exception = false;
-    try {
-      Util::normalize('country', 'United States of America');
-    } catch (\Exception $e) {
-      $has_throw_exception = true;
+        $has_throw_exception = false;
+        try {
+            Normalizer::normalize('country', 'United States of America');
+        } catch (\Exception $e) {
+            $has_throw_exception = true;
+        }
+        $this->assertTrue($has_throw_exception);
     }
-    $this->assertTrue($has_throw_exception);
-  }
 
-  /**
+    /**
      * test for asserting valid exception is thrown for invalid Email format
      */
     public function testEmailException() {
-    $has_throw_exception = false;
-    try {
-      Util::normalize('em', '324342@@@@bar.com');
-    } catch (\Exception $e) {
-      $has_throw_exception = true;
+        $has_throw_exception = false;
+        try {
+            Normalizer::normalize('em', '324342@@@@bar.com');
+        } catch (\Exception $e) {
+            $has_throw_exception = true;
+        }
+        $this->assertTrue($has_throw_exception);
     }
-    $this->assertTrue($has_throw_exception);
-  }
 }

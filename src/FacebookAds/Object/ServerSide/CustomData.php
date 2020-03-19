@@ -417,7 +417,7 @@ class CustomData implements ArrayAccess
 
         $normalized_payload['value'] = $this->getValue();
         $normalized_payload['currency'] =
-            Util::normalize('currency', $this->getCurrency());
+            Normalizer::normalize('currency', $this->getCurrency());
         $normalized_payload['content_name'] = $this->getContentName();
         $normalized_payload['content_category'] = $this->getContentCategory();
         $normalized_payload['content_ids'] = $this->getContentIds();
