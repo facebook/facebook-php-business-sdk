@@ -41,7 +41,7 @@ $params = array(
   'account_id' => '<adAccountID>',
   'business' => '<businessID>',
 );
-echo json_encode((new AdsPixel($id))->createShareDAccount(
+echo json_encode((new AdsPixel($id))->createSharedAccount(
   $fields,
   $params
 )->exportAllData(), JSON_PRETTY_PRINT);

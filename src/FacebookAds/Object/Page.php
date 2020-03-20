@@ -78,6 +78,7 @@ use FacebookAds\Object\Values\PageSenderActionValues;
 use FacebookAds\Object\Values\PageSettingTypeValues;
 use FacebookAds\Object\Values\PageSubscribedFieldsValues;
 use FacebookAds\Object\Values\PageTasksValues;
+use FacebookAds\Object\Values\PageTemporaryStatusValues;
 use FacebookAds\Object\Values\PageThreadStateValues;
 use FacebookAds\Object\Values\PhotoBackdatedTimeGranularityValues;
 use FacebookAds\Object\Values\PhotoTypeValues;
@@ -116,6 +117,7 @@ class Page extends AbstractCrudObject {
     $ref_enums = array();
     $ref_enums['Attire'] = PageAttireValues::getInstance()->getValues();
     $ref_enums['FoodStyles'] = PageFoodStylesValues::getInstance()->getValues();
+    $ref_enums['TemporaryStatus'] = PageTemporaryStatusValues::getInstance()->getValues();
     $ref_enums['PermittedTasks'] = PagePermittedTasksValues::getInstance()->getValues();
     $ref_enums['Tasks'] = PageTasksValues::getInstance()->getValues();
     $ref_enums['PublishStatus'] = PagePublishStatusValues::getInstance()->getValues();
@@ -3369,6 +3371,7 @@ class Page extends AbstractCrudObject {
       'spherical_metadata' => 'map',
       'start_info' => 'Object',
       'store_location_descriptor' => 'string',
+      'temporary_status' => 'temporary_status_enum',
       'website' => 'string',
       'zoom_scale_x' => 'float',
       'zoom_scale_y' => 'float',
@@ -3376,6 +3379,7 @@ class Page extends AbstractCrudObject {
     $enums = array(
       'attire_enum' => PageAttireValues::getInstance()->getValues(),
       'food_styles_enum' => PageFoodStylesValues::getInstance()->getValues(),
+      'temporary_status_enum' => PageTemporaryStatusValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

@@ -192,6 +192,7 @@ class Application extends AbstractCrudObject {
       'include_video_data' => 'bool',
       'install_referrer' => 'string',
       'installer_package' => 'string',
+      'limited_data_use' => 'bool',
       'migration_bundle' => 'string',
       'page_id' => 'unsigned int',
       'page_scoped_user_id' => 'unsigned int',
@@ -785,55 +786,6 @@ class Application extends AbstractCrudObject {
       new Event(),
       'EDGE',
       Event::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getFullAppIndexingInfos(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'app_version' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/full_app_indexing_infos',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createFullAppIndexingInfo(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'app_version' => 'string',
-      'full_app_indexing_info_classes' => 'list<map>',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/full_app_indexing_infos',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1564,6 +1516,7 @@ class Application extends AbstractCrudObject {
 
     $param_types = array(
       'data' => 'list<Object>',
+      'limited_data_use' => 'bool',
     );
     $enums = array(
     );

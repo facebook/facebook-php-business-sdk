@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,30 +33,27 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static PageTasksValues getInstance()
  */
-class PageTasksValues extends AbstractEnum {
 
-  const ADVERTISE = 'ADVERTISE';
-  const ANALYZE = 'ANALYZE';
-  const CASHIER_ROLE = 'CASHIER_ROLE';
-  const CREATE_CONTENT = 'CREATE_CONTENT';
-  const MANAGE = 'MANAGE';
-  const MANAGE_JOBS = 'MANAGE_JOBS';
-  const MANAGE_LEADS = 'MANAGE_LEADS';
-  const MODERATE = 'MODERATE';
-  const MODERATE_COMMUNITY = 'MODERATE_COMMUNITY';
-  const PAGES_MESSAGING = 'PAGES_MESSAGING';
-  const PAGES_MESSAGING_SUBSCRIPTIONS = 'PAGES_MESSAGING_SUBSCRIPTIONS';
-  const PLATFORM_MANAGE_PAGES = 'PLATFORM_MANAGE_PAGES';
-  const PLATFORM_PAGES_MANAGE_INSTANT_ARTICLES = 'PLATFORM_PAGES_MANAGE_INSTANT_ARTICLES';
-  const PLATFORM_READ_INSIGHTS = 'PLATFORM_READ_INSIGHTS';
-  const PROFILE_PLUS_ADVERTISE = 'PROFILE_PLUS_ADVERTISE';
-  const PROFILE_PLUS_ANALYZE = 'PROFILE_PLUS_ANALYZE';
-  const PROFILE_PLUS_CREATE_CONTENT = 'PROFILE_PLUS_CREATE_CONTENT';
-  const PROFILE_PLUS_MANAGE = 'PROFILE_PLUS_MANAGE';
-  const PROFILE_PLUS_MESSAGING = 'PROFILE_PLUS_MESSAGING';
-  const PROFILE_PLUS_MODERATE = 'PROFILE_PLUS_MODERATE';
-  const READ_PAGE_MAILBOXES = 'READ_PAGE_MAILBOXES';
-  const VIEW_MONETIZATION_INSIGHTS = 'VIEW_MONETIZATION_INSIGHTS';
+class AdsInterestFields extends AbstractEnum {
+
+  const AUDIENCE_SIZE = 'audience_size';
+  const DESCRIPTION = 'description';
+  const DISAMBIGUATION_CATEGORY = 'disambiguation_category';
+  const ID = 'id';
+  const NAME = 'name';
+  const PATH = 'path';
+  const TOPIC = 'topic';
+
+  public function getFieldTypes() {
+    return array(
+      'audience_size' => 'unsigned int',
+      'description' => 'string',
+      'disambiguation_category' => 'string',
+      'id' => 'string',
+      'name' => 'string',
+      'path' => 'list<string>',
+      'topic' => 'string',
+    );
+  }
 }

@@ -92,9 +92,11 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const UPDATE_AD_SET_BIDDING = 'update_ad_set_bidding';
   const UPDATE_AD_SET_BUDGET = 'update_ad_set_budget';
   const UPDATE_AD_SET_DURATION = 'update_ad_set_duration';
+  const UPDATE_AD_SET_MIN_SPEND_TARGET = 'update_ad_set_min_spend_target';
   const UPDATE_AD_SET_NAME = 'update_ad_set_name';
   const UPDATE_AD_SET_OPTIMIZATION_GOAL = 'update_ad_set_optimization_goal';
   const UPDATE_AD_SET_RUN_STATUS = 'update_ad_set_run_status';
+  const UPDATE_AD_SET_SPEND_CAP = 'update_ad_set_spend_cap';
   const UPDATE_AD_SET_TARGET_SPEC = 'update_ad_set_target_spec';
   const UPDATE_AD_TARGETS_SPEC = 'update_ad_targets_spec';
   const UPDATE_ADGROUP_STOP_DELIVERY = 'update_adgroup_stop_delivery';

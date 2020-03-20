@@ -53,11 +53,11 @@ class AppRequestFields extends AbstractEnum {
       'application' => 'Application',
       'created_time' => 'datetime',
       'data' => 'string',
-      'from' => 'User',
+      'from' => 'Object',
       'id' => 'string',
       'message' => 'string',
       'object' => 'Object',
-      'to' => 'User',
+      'to' => 'Object',
     );
   }
 }

@@ -165,6 +165,7 @@ class PageFields extends AbstractEnum {
   const SUPPORTS_DONATE_BUTTON_IN_LIVE_VIDEO = 'supports_donate_button_in_live_video';
   const SUPPORTS_INSTANT_ARTICLES = 'supports_instant_articles';
   const TALKING_ABOUT_COUNT = 'talking_about_count';
+  const TEMPORARY_STATUS = 'temporary_status';
   const UNREAD_MESSAGE_COUNT = 'unread_message_count';
   const UNREAD_NOTIF_COUNT = 'unread_notif_count';
   const UNSEEN_MESSAGE_COUNT = 'unseen_message_count';
@@ -306,6 +307,7 @@ class PageFields extends AbstractEnum {
       'supports_donate_button_in_live_video' => 'bool',
       'supports_instant_articles' => 'bool',
       'talking_about_count' => 'unsigned int',
+      'temporary_status' => 'string',
       'unread_message_count' => 'unsigned int',
       'unread_notif_count' => 'unsigned int',
       'unseen_message_count' => 'unsigned int',

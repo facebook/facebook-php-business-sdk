@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\CreativeAssetTagFields;
 
 /**
  * This class is auto-generated.
@@ -33,12 +37,21 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdVideoVideoPollWwwPlacementValues getInstance()
  */
-class AdVideoVideoPollWwwPlacementValues extends AbstractEnum {
 
-  const BOTTOM_LEFT = 'BOTTOM_LEFT';
-  const BOTTOM_RIGHT = 'BOTTOM_RIGHT';
-  const TOP_LEFT = 'TOP_LEFT';
-  const TOP_RIGHT = 'TOP_RIGHT';
+class CreativeAssetTag extends AbstractObject {
+
+  /**
+   * @return CreativeAssetTagFields
+   */
+  public static function getFieldsEnum() {
+    return CreativeAssetTagFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
 }

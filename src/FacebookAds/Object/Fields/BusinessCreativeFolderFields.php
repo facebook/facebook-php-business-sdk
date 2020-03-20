@@ -42,6 +42,7 @@ class BusinessCreativeFolderFields extends AbstractEnum {
   const CREATIVE_INSIGHT_PERMISSIONS = 'creative_insight_permissions';
   const DESCRIPTION = 'description';
   const ID = 'id';
+  const MEDIA_LIBRARY_URL = 'media_library_url';
   const NAME = 'name';
   const PARENT_FOLDER = 'parent_folder';
   const PARENT_FOLDER_ID = 'parent_folder_id';
@@ -53,6 +54,7 @@ class BusinessCreativeFolderFields extends AbstractEnum {
       'creative_insight_permissions' => 'map<string, string>',
       'description' => 'string',
       'id' => 'string',
+      'media_library_url' => 'string',
       'name' => 'string',
       'parent_folder' => 'BusinessCreativeFolder',
       'parent_folder_id' => 'string',

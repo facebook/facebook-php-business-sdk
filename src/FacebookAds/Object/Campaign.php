@@ -237,6 +237,7 @@ class Campaign extends AbstractArchivableCrudObject {
 
     $param_types = array(
       'end_date' => 'datetime',
+      'page_id' => 'unsigned int',
       'platform' => 'platform_enum',
       'position' => 'position_enum',
       'start_date' => 'datetime',

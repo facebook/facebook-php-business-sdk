@@ -106,6 +106,7 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const ID = 'id';
   const INCOME = 'income';
   const INDUSTRIES = 'industries';
+  const INSTAGRAM_HASHTAGS = 'instagram_hashtags';
   const INSTAGRAM_POSITIONS = 'instagram_positions';
   const INSTREAM_VIDEO_SPONSORSHIP_PLACEMENTS = 'instream_video_sponsorship_placements';
   const INTEREST_DEFAULTS_SOURCE = 'interest_defaults_source';

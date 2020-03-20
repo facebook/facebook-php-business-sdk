@@ -37,14 +37,10 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class GroupSuggestionCategoryValues extends AbstractEnum {
 
-  const CLOSE_FRIENDS_GENERIC = 'CLOSE_FRIENDS_GENERIC';
   const EVENT = 'EVENT';
-  const FAMILY = 'FAMILY';
-  const LIFE_EVENT = 'LIFE_EVENT';
   const MESSENGER = 'MESSENGER';
   const WORK = 'WORK';
   const WORKPLACE = 'WORKPLACE';
   const WORKPLACE_1_1 = 'WORKPLACE_1_1';
   const WORKPLACE_MANAGER = 'WORKPLACE_MANAGER';
-  const WORK_GENERIC = 'WORK_GENERIC';
 }

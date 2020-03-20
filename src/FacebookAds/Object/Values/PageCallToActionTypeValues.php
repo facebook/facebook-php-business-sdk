@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class PageCallToActionTypeValues extends AbstractEnum {
 
+  const BECOME_A_VOLUNTEER = 'BECOME_A_VOLUNTEER';
   const BOOK_APPOINTMENT = 'BOOK_APPOINTMENT';
   const BOOK_NOW = 'BOOK_NOW';
   const BUY_TICKETS = 'BUY_TICKETS';

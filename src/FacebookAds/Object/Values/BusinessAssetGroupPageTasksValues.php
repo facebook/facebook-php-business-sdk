@@ -39,6 +39,7 @@ class BusinessAssetGroupPageTasksValues extends AbstractEnum {
 
   const ADVERTISE = 'ADVERTISE';
   const ANALYZE = 'ANALYZE';
+  const CASHIER_ROLE = 'CASHIER_ROLE';
   const CREATE_CONTENT = 'CREATE_CONTENT';
   const MANAGE = 'MANAGE';
   const MANAGE_JOBS = 'MANAGE_JOBS';

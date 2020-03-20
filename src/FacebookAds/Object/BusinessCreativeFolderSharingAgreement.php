@@ -28,8 +28,8 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\VideoGameShowFields;
-use FacebookAds\Object\Values\VideoGameShowActionValues;
+use FacebookAds\Object\Fields\BusinessCreativeFolderSharingAgreementFields;
+use FacebookAds\Object\Values\BusinessCreativeFolderSharingAgreementRequestStatusValues;
 
 /**
  * This class is auto-generated.
@@ -40,18 +40,18 @@ use FacebookAds\Object\Values\VideoGameShowActionValues;
  *
  */
 
-class VideoGameShow extends AbstractCrudObject {
+class BusinessCreativeFolderSharingAgreement extends AbstractCrudObject {
 
   /**
-   * @return VideoGameShowFields
+   * @return BusinessCreativeFolderSharingAgreementFields
    */
   public static function getFieldsEnum() {
-    return VideoGameShowFields::getInstance();
+    return BusinessCreativeFolderSharingAgreementFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Action'] = VideoGameShowActionValues::getInstance()->getValues();
+    $ref_enums['RequestStatus'] = BusinessCreativeFolderSharingAgreementRequestStatusValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -69,34 +69,9 @@ class VideoGameShow extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new VideoGameShow(),
+      new BusinessCreativeFolderSharingAgreement(),
       'NODE',
-      VideoGameShow::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'action' => 'action_enum',
-    );
-    $enums = array(
-      'action_enum' => VideoGameShowActionValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/',
-      new VideoGameShow(),
-      'NODE',
-      VideoGameShow::getFieldsEnum()->getValues(),
+      BusinessCreativeFolderSharingAgreement::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

@@ -44,6 +44,7 @@ class ProductCatalogFields extends AbstractEnum {
   const FALLBACK_IMAGE_URL = 'fallback_image_url';
   const FEED_COUNT = 'feed_count';
   const ID = 'id';
+  const IS_CATALOG_SEGMENT = 'is_catalog_segment';
   const NAME = 'name';
   const PRODUCT_COUNT = 'product_count';
   const STORE_CATALOG_SETTINGS = 'store_catalog_settings';
@@ -60,6 +61,7 @@ class ProductCatalogFields extends AbstractEnum {
       'fallback_image_url' => 'list<string>',
       'feed_count' => 'int',
       'id' => 'string',
+      'is_catalog_segment' => 'bool',
       'name' => 'string',
       'product_count' => 'int',
       'store_catalog_settings' => 'StoreCatalogSettings',

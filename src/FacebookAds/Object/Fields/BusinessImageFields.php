@@ -42,6 +42,7 @@ class BusinessImageFields extends AbstractEnum {
   const HASH = 'hash';
   const HEIGHT = 'height';
   const ID = 'id';
+  const MEDIA_LIBRARY_URL = 'media_library_url';
   const NAME = 'name';
   const URL = 'url';
   const URL_128 = 'url_128';
@@ -58,6 +59,7 @@ class BusinessImageFields extends AbstractEnum {
       'hash' => 'string',
       'height' => 'int',
       'id' => 'string',
+      'media_library_url' => 'string',
       'name' => 'string',
       'url' => 'string',
       'url_128' => 'string',
