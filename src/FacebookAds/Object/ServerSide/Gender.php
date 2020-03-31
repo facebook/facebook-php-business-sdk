@@ -30,17 +30,15 @@ use FacebookAds\Enum\AbstractEnum;
  * Class Gender
  * @package FacebookAds\Object\ServerSide
  */
-class Gender extends AbstractEnum
-{
+class Gender extends AbstractEnum {
 
-    const MALE = 'm';
-    const FEMALE = 'f';
+  const MALE = 'm';
+  const FEMALE = 'f';
 
-    public function getFieldTypes()
-    {
-        return array(
-            'm' => 'string',
-            'f' => 'string',
-        );
-    }
+  public function getFieldTypes() {
+    return array(
+      'm' => 'string',
+      'f' => 'string',
+    );
+  }
 }

@@ -30,216 +30,216 @@ use FacebookAds\Object\ServerSide\Normalizer;
 
 class ServerSideNormalizeTest extends AbstractUnitTestCase {
 
-    /**
-     * Test cases for Email Normalization
-     */
-    public function testEmailNormalizeData() {
-        return array(
-            array(
-                "foo(.bar)@baz.com/",
-                'foo.bar@baz.com',
-            ),
-            array(
-                'foo"@bar.com',
-                'foo@bar.com',
-            ),
-            array(
-                'foo()@bar.com',
-                'foo@bar.com',
-            ),
-        );
-    }
+  /**
+   * Test cases for Email Normalization
+   */
+  public function testEmailNormalizeData() {
+    return array(
+      array(
+        "foo(.bar)@baz.com/",
+        'foo.bar@baz.com',
+      ),
+      array(
+        'foo"@bar.com',
+        'foo@bar.com',
+      ),
+      array(
+        'foo()@bar.com',
+        'foo@bar.com',
+      ),
+    );
+  }
 
-    /**
-     * @dataProvider testEmailNormalizeData
-     */
-    public function testEmailNormalize($input, $expected) {
-        $this->assertEquals(
-            $expected,
-            Normalizer::normalize('em', $input));
-    }
+  /**
+   * @dataProvider testEmailNormalizeData
+   */
+  public function testEmailNormalize($input, $expected) {
+    $this->assertEquals(
+      $expected,
+      Normalizer::normalize('em', $input));
+  }
 
-    /**
-     * Test cases for Phone Normalization
-     */
-    public function testPhoneNormalizeData() {
-        return array(
-            array(
-                '123-456-7890',
-                '1234567890',
-            ),
-            array(
-                '777 747 (3515)',
-                '7777473515',
-            ),
-            array(
-                '+442071838750',
-                '442071838750',
-            ),
-            array(
-                '44-12390821300A',
-                '4412390821300',
-            )
-        );
-    }
+  /**
+   * Test cases for Phone Normalization
+   */
+  public function testPhoneNormalizeData() {
+    return array(
+      array(
+        '123-456-7890',
+        '1234567890',
+      ),
+      array(
+        '777 747 (3515)',
+        '7777473515',
+      ),
+      array(
+        '+442071838750',
+        '442071838750',
+      ),
+      array(
+        '44-12390821300A',
+        '4412390821300',
+      )
+    );
+  }
 
-    /**
-     * @dataProvider testPhoneNormalizeData
-     */
-    public function testPhoneNormalize($input, $expected) {
-        $this->assertEquals(
-            $expected,
-            Normalizer::normalize('ph', $input));
-    }
+  /**
+   * @dataProvider testPhoneNormalizeData
+   */
+  public function testPhoneNormalize($input, $expected) {
+    $this->assertEquals(
+      $expected,
+      Normalizer::normalize('ph', $input));
+  }
 
-    /**
-     * Test cases for Postal Code Normalization
-     */
-    public function testPostalCodeNormalizeData() {
-        return array(
-            array(
-                '  98121',
-                '98121',
-            ),
-            array(
-                '98121-4892',
-                '98121',
-            ),
-            array(
-                'NR9 5AL',
-                'nr95al',
-            ),
-            array(
-                '98-121-4892',
-                '98',
-            ),
-        );
-    }
+  /**
+   * Test cases for Postal Code Normalization
+   */
+  public function testPostalCodeNormalizeData() {
+    return array(
+      array(
+        '  98121',
+        '98121',
+      ),
+      array(
+        '98121-4892',
+        '98121',
+      ),
+      array(
+        'NR9 5AL',
+        'nr95al',
+      ),
+      array(
+        '98-121-4892',
+        '98',
+      ),
+    );
+  }
 
-    /**
-     * @dataProvider testPostalCodeNormalizeData
-     */
-    public function testPostalCodeNormalize($input, $expected) {
-        $this->assertEquals(
-            $expected,
-            Normalizer::normalize('zp', $input));
-    }
+  /**
+   * @dataProvider testPostalCodeNormalizeData
+   */
+  public function testPostalCodeNormalize($input, $expected) {
+    $this->assertEquals(
+      $expected,
+      Normalizer::normalize('zp', $input));
+  }
 
-    /**
-     * Test cases for City Normalization
-     */
-    public function testCityNormalizeData() {
-        return array(
-            array(
-                'Menlo Park',
-                'menlopark',
-            ),
-            array(
-                'Seattle-98121',
-                'seattle',
-            ),
-            array(
-                'Washington D.C',
-                'washingtondc',
-            ),
-        );
-    }
+  /**
+   * Test cases for City Normalization
+   */
+  public function testCityNormalizeData() {
+    return array(
+      array(
+        'Menlo Park',
+        'menlopark',
+      ),
+      array(
+        'Seattle-98121',
+        'seattle',
+      ),
+      array(
+        'Washington D.C',
+        'washingtondc',
+      ),
+    );
+  }
 
-    /**
-     * @dataProvider testCityNormalizeData
-     */
-    public function testCityNormalize($input, $expected) {
-        $this->assertEquals(
-            $expected,
-            Normalizer::normalize('ct', $input));
-    }
+  /**
+   * @dataProvider testCityNormalizeData
+   */
+  public function testCityNormalize($input, $expected) {
+    $this->assertEquals(
+      $expected,
+      Normalizer::normalize('ct', $input));
+  }
 
-    /**
-     * Test cases for Country Normalization
-     */
-    public function testCountryNormalizeData() {
-        return array(
-            array(
-                '   US   ',
-                'us',
-            ),
-            array(
-                '*****UU*****', // Can't validate, just normalizes
-                'uu',
-            ),
-        );
-    }
+  /**
+   * Test cases for Country Normalization
+   */
+  public function testCountryNormalizeData() {
+    return array(
+      array(
+        '   US   ',
+        'us',
+      ),
+      array(
+        '*****UU*****', // Can't validate, just normalizes
+        'uu',
+      ),
+    );
+  }
 
-    /**
-     * @dataProvider testCountryNormalizeData
-     */
-    public function testCountryNormalize($input, $expected) {
-        $this->assertEquals(
-            $expected,
-            Normalizer::normalize('country', $input));
-    }
+  /**
+   * @dataProvider testCountryNormalizeData
+   */
+  public function testCountryNormalize($input, $expected) {
+    $this->assertEquals(
+      $expected,
+      Normalizer::normalize('country', $input));
+  }
 
-    /**
-     * Test cases for Currency Normalization
-     */
-    public function testCurrencyNormalizeData() {
-        return array(
-            array(
-                '   ABC   ', // Can't validate the data, just normalizes.
-                'abc',
-            ),
-            array(
-                'INR',
-                'inr',
-            ),
-        );
-    }
+  /**
+   * Test cases for Currency Normalization
+   */
+  public function testCurrencyNormalizeData() {
+    return array(
+      array(
+        '   ABC   ', // Can't validate the data, just normalizes.
+        'abc',
+      ),
+      array(
+        'INR',
+        'inr',
+      ),
+    );
+  }
 
-    /**
-     * @dataProvider testCurrencyNormalizeData
-     */
-    public function testCurrencyNormalize($input, $expected) {
-        $this->assertEquals(
-            $expected,
-            Normalizer::normalize('currency', $input));
-    }
+  /**
+   * @dataProvider testCurrencyNormalizeData
+   */
+  public function testCurrencyNormalize($input, $expected) {
+    $this->assertEquals(
+      $expected,
+      Normalizer::normalize('currency', $input));
+  }
 
-    /**
-     * test for asserting valid exception is thrown for invalid (ISO)currency format
-     */
-    public function testCurrencyException() {
-        $has_throw_exception = false;
-        try {
-            Normalizer::normalize('currency', 'Us Dollar');
-        } catch (\Exception $e) {
-            $has_throw_exception = true;
-        }
-        $this->assertTrue($has_throw_exception);
+  /**
+   * test for asserting valid exception is thrown for invalid (ISO)currency format
+   */
+  public function testCurrencyException() {
+    $has_throw_exception = false;
+    try {
+      Normalizer::normalize('currency', 'Us Dollar');
+    } catch (\Exception $e) {
+      $has_throw_exception = true;
     }
+    $this->assertTrue($has_throw_exception);
+  }
 
-    /**
-     * test for asserting valid exception is thrown for invalid (ISO)country format
-     */
-    public function testCountryException() {
-        $has_throw_exception = false;
-        try {
-            Normalizer::normalize('country', 'United States of America');
-        } catch (\Exception $e) {
-            $has_throw_exception = true;
-        }
-        $this->assertTrue($has_throw_exception);
+  /**
+   * test for asserting valid exception is thrown for invalid (ISO)country format
+   */
+  public function testCountryException() {
+    $has_throw_exception = false;
+    try {
+      Normalizer::normalize('country', 'United States of America');
+    } catch (\Exception $e) {
+      $has_throw_exception = true;
     }
+    $this->assertTrue($has_throw_exception);
+  }
 
-    /**
-     * test for asserting valid exception is thrown for invalid Email format
-     */
-    public function testEmailException() {
-        $has_throw_exception = false;
-        try {
-            Normalizer::normalize('em', '324342@@@@bar.com');
-        } catch (\Exception $e) {
-            $has_throw_exception = true;
-        }
-        $this->assertTrue($has_throw_exception);
+  /**
+   * test for asserting valid exception is thrown for invalid Email format
+   */
+  public function testEmailException() {
+    $has_throw_exception = false;
+    try {
+      Normalizer::normalize('em', '324342@@@@bar.com');
+    } catch (\Exception $e) {
+      $has_throw_exception = true;
     }
+    $this->assertTrue($has_throw_exception);
+  }
 }

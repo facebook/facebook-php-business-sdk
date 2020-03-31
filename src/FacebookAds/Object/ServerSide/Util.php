@@ -30,14 +30,12 @@ namespace FacebookAds\Object\ServerSide;
  * @category    Class
  * @package     FacebookAds\Object\ServerSide
  */
-class Util
-{
+class Util {
   /**
    * @param string $data hash input data using SHA256 algorithm.
    * @return string
    */
-  public static function hash($data)
-  {
+  public static function hash($data) {
     if ($data == null || Util::isHashed($data)) {
       return $data;
     }
@@ -48,8 +46,7 @@ class Util
    * @param string $pii PII data to check if its hashed.
    * @return bool
    */
-  public static function isHashed($pii)
-  {
+  public static function isHashed($pii) {
     // it could be sha256 or md5
     return preg_match('/^[A-Fa-f0-9]{64}$/', $pii) ||
       preg_match('/^[a-f0-9]{32}$/', $pii);
