@@ -33,10 +33,12 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static PagePostFormattingValues getInstance()
+ * @method static PageCheckinEntryPointValues getInstance()
  */
-class PagePostFormattingValues extends AbstractEnum {
+class PageCheckinEntryPointValues extends AbstractEnum {
 
-  const MARKDOWN = 'MARKDOWN';
-  const PLAINTEXT = 'PLAINTEXT';
+  const BRANDING_CHECKIN = 'BRANDING_CHECKIN';
+  const BRANDING_OTHER = 'BRANDING_OTHER';
+  const BRANDING_PHOTO = 'BRANDING_PHOTO';
+  const BRANDING_STATUS = 'BRANDING_STATUS';
 }

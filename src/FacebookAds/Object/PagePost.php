@@ -36,15 +36,8 @@ use FacebookAds\Object\Values\CommentOrderValues;
 use FacebookAds\Object\Values\InsightsResultDatePresetValues;
 use FacebookAds\Object\Values\InsightsResultPeriodValues;
 use FacebookAds\Object\Values\PagePostBackdatedTimeGranularityValues;
-use FacebookAds\Object\Values\PagePostCheckinEntryPointValues;
 use FacebookAds\Object\Values\PagePostFeedStoryVisibilityValues;
-use FacebookAds\Object\Values\PagePostFormattingValues;
-use FacebookAds\Object\Values\PagePostPlaceAttachmentSettingValues;
-use FacebookAds\Object\Values\PagePostPostSurfacesBlacklistValues;
-use FacebookAds\Object\Values\PagePostPostingToRedspaceValues;
-use FacebookAds\Object\Values\PagePostTargetSurfaceValues;
 use FacebookAds\Object\Values\PagePostTimelineVisibilityValues;
-use FacebookAds\Object\Values\PagePostUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\PagePostWithValues;
 use FacebookAds\Object\Values\ProfileTypeValues;
 
@@ -68,15 +61,8 @@ class PagePost extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['BackdatedTimeGranularity'] = PagePostBackdatedTimeGranularityValues::getInstance()->getValues();
-    $ref_enums['CheckinEntryPoint'] = PagePostCheckinEntryPointValues::getInstance()->getValues();
-    $ref_enums['Formatting'] = PagePostFormattingValues::getInstance()->getValues();
-    $ref_enums['PlaceAttachmentSetting'] = PagePostPlaceAttachmentSettingValues::getInstance()->getValues();
-    $ref_enums['PostSurfacesBlacklist'] = PagePostPostSurfacesBlacklistValues::getInstance()->getValues();
-    $ref_enums['PostingToRedspace'] = PagePostPostingToRedspaceValues::getInstance()->getValues();
-    $ref_enums['TargetSurface'] = PagePostTargetSurfaceValues::getInstance()->getValues();
-    $ref_enums['UnpublishedContentType'] = PagePostUnpublishedContentTypeValues::getInstance()->getValues();
     $ref_enums['With'] = PagePostWithValues::getInstance()->getValues();
+    $ref_enums['BackdatedTimeGranularity'] = PagePostBackdatedTimeGranularityValues::getInstance()->getValues();
     $ref_enums['FeedStoryVisibility'] = PagePostFeedStoryVisibilityValues::getInstance()->getValues();
     $ref_enums['TimelineVisibility'] = PagePostTimelineVisibilityValues::getInstance()->getValues();
     return $ref_enums;

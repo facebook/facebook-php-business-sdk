@@ -245,6 +245,7 @@ class AdStudyObjective extends AbstractCrudObject {
 
     $param_types = array(
       'breakdowns' => 'list<breakdowns_enum>',
+      'ds' => 'string',
     );
     $enums = array(
       'breakdowns_enum' => array(

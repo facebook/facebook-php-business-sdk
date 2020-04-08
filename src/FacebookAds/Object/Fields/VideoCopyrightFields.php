@@ -49,7 +49,6 @@ class VideoCopyrightFields extends AbstractEnum {
   const REFERENCE_FILE = 'reference_file';
   const REFERENCE_FILE_DISABLED = 'reference_file_disabled';
   const REFERENCE_FILE_DISABLED_BY_OPS = 'reference_file_disabled_by_ops';
-  const REFERENCE_FILE_EXPIRED = 'reference_file_expired';
   const REFERENCE_OWNER_ID = 'reference_owner_id';
   const RULE_IDS = 'rule_ids';
   const TAGS = 'tags';
@@ -69,7 +68,6 @@ class VideoCopyrightFields extends AbstractEnum {
       'reference_file' => 'CopyrightReferenceContainer',
       'reference_file_disabled' => 'bool',
       'reference_file_disabled_by_ops' => 'bool',
-      'reference_file_expired' => 'bool',
       'reference_owner_id' => 'string',
       'rule_ids' => 'list<VideoCopyrightRule>',
       'tags' => 'list<string>',

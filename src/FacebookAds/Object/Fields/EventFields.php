@@ -51,6 +51,7 @@ class EventFields extends AbstractEnum {
   const INTERESTED_COUNT = 'interested_count';
   const IS_CANCELED = 'is_canceled';
   const IS_DRAFT = 'is_draft';
+  const IS_ONLINE = 'is_online';
   const IS_PAGE_OWNED = 'is_page_owned';
   const MAYBE_COUNT = 'maybe_count';
   const NAME = 'name';
@@ -84,6 +85,7 @@ class EventFields extends AbstractEnum {
       'interested_count' => 'int',
       'is_canceled' => 'bool',
       'is_draft' => 'bool',
+      'is_online' => 'bool',
       'is_page_owned' => 'bool',
       'maybe_count' => 'int',
       'name' => 'string',

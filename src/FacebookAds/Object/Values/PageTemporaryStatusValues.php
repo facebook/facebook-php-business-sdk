@@ -38,6 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class PageTemporaryStatusValues extends AbstractEnum {
 
   const DIFFERENTLY_OPEN = 'DIFFERENTLY_OPEN';
+  const NO_DATA = 'NO_DATA';
   const OPERATING_AS_USUAL = 'OPERATING_AS_USUAL';
   const TEMPORARILY_CLOSED = 'TEMPORARILY_CLOSED';
 }

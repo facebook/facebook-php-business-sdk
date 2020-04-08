@@ -38,6 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class PageCallToActionIphoneDestinationTypeValues extends AbstractEnum {
 
   const APP_DEEPLINK = 'APP_DEEPLINK';
+  const BECOME_A_VOLUNTEER = 'BECOME_A_VOLUNTEER';
   const EMAIL = 'EMAIL';
   const FACEBOOK_APP = 'FACEBOOK_APP';
   const MESSENGER = 'MESSENGER';

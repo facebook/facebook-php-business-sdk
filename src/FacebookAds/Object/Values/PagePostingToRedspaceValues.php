@@ -33,10 +33,10 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static PagePostPlaceAttachmentSettingValues getInstance()
+ * @method static PagePostingToRedspaceValues getInstance()
  */
-class PagePostPlaceAttachmentSettingValues extends AbstractEnum {
+class PagePostingToRedspaceValues extends AbstractEnum {
 
-  const VALUE_1 = '1';
-  const VALUE_2 = '2';
+  const DISABLED = 'disabled';
+  const ENABLED = 'enabled';
 }

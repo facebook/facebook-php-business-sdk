@@ -94,6 +94,7 @@ class AdCreativeFields extends AbstractEnum {
   const VIDEO_ID = 'video_id';
   const CALL_TO_ACTION = 'call_to_action';
   const IMAGE_FILE = 'image_file';
+  const INSTANT_CHECKOUT_SETTING = 'instant_checkout_setting';
   const IS_DCO_INTERNAL = 'is_dco_internal';
 
   public function getFieldTypes() {
@@ -155,6 +156,7 @@ class AdCreativeFields extends AbstractEnum {
       'video_id' => 'string',
       'call_to_action' => 'Object',
       'image_file' => 'string',
+      'instant_checkout_setting' => 'InstantCheckoutSetting',
       'is_dco_internal' => 'bool',
     );
   }

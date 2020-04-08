@@ -41,7 +41,6 @@ class CopyrightReferenceContainerFields extends AbstractEnum {
   const COPYRIGHT_CREATION_TIME = 'copyright_creation_time';
   const DOWNLOAD_HD_URL = 'download_hd_url';
   const DURATION_IN_SEC = 'duration_in_sec';
-  const FINGERPRINT_VALIDITY = 'fingerprint_validity';
   const ID = 'id';
   const ISWC = 'iswc';
   const METADATA = 'metadata';
@@ -57,7 +56,6 @@ class CopyrightReferenceContainerFields extends AbstractEnum {
       'copyright_creation_time' => 'datetime',
       'download_hd_url' => 'string',
       'duration_in_sec' => 'float',
-      'fingerprint_validity' => 'string',
       'id' => 'string',
       'iswc' => 'string',
       'metadata' => 'Object',

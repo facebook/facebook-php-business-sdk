@@ -68,6 +68,7 @@ class PageFields extends AbstractEnum {
   const CURRENT_LOCATION = 'current_location';
   const DESCRIPTION = 'description';
   const DESCRIPTION_HTML = 'description_html';
+  const DIFFERENTLY_OPEN_OFFERINGS = 'differently_open_offerings';
   const DIRECTED_BY = 'directed_by';
   const DISPLAY_SUBTEXT = 'display_subtext';
   const DISPLAYED_MESSAGE_RESPONSE_TIME = 'displayed_message_response_time';
@@ -210,6 +211,7 @@ class PageFields extends AbstractEnum {
       'current_location' => 'string',
       'description' => 'string',
       'description_html' => 'string',
+      'differently_open_offerings' => 'map<string, bool>',
       'directed_by' => 'string',
       'display_subtext' => 'string',
       'displayed_message_response_time' => 'string',

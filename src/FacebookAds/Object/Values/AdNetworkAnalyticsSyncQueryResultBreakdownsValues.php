@@ -49,6 +49,8 @@ class AdNetworkAnalyticsSyncQueryResultBreakdownsValues extends AbstractEnum {
   const DISPLAY_FORMAT = 'DISPLAY_FORMAT';
   const FAIL_REASON = 'FAIL_REASON';
   const GENDER = 'GENDER';
+  const INSTANT_ARTICLE_ID = 'INSTANT_ARTICLE_ID';
+  const INSTANT_ARTICLE_PAGE_ID = 'INSTANT_ARTICLE_PAGE_ID';
   const PLACEMENT = 'PLACEMENT';
   const PLACEMENT_NAME = 'PLACEMENT_NAME';
   const PLATFORM = 'PLATFORM';

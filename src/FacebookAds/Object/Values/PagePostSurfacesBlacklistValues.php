@@ -33,15 +33,13 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static PagePostUnpublishedContentTypeValues getInstance()
+ * @method static PagePostSurfacesBlacklistValues getInstance()
  */
-class PagePostUnpublishedContentTypeValues extends AbstractEnum {
+class PagePostSurfacesBlacklistValues extends AbstractEnum {
 
-  const ADS_POST = 'ADS_POST';
-  const DRAFT = 'DRAFT';
-  const INLINE_CREATED = 'INLINE_CREATED';
-  const PUBLISHED = 'PUBLISHED';
-  const REVIEWABLE_BRANDED_CONTENT = 'REVIEWABLE_BRANDED_CONTENT';
-  const SCHEDULED = 'SCHEDULED';
-  const SCHEDULED_RECURRING = 'SCHEDULED_RECURRING';
+  const VALUE_1 = '1';
+  const VALUE_2 = '2';
+  const VALUE_3 = '3';
+  const VALUE_4 = '4';
+  const VALUE_5 = '5';
 }

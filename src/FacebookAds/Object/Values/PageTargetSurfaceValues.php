@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,25 +33,10 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static PageTargetSurfaceValues getInstance()
  */
+class PageTargetSurfaceValues extends AbstractEnum {
 
-class DynamicItemDisplayBundleFolderFields extends AbstractEnum {
-
-  const CATEGORIZATION_CRITERIA = 'categorization_criteria';
-  const ID = 'id';
-  const NAME = 'name';
-  const PRODUCT_CATALOG = 'product_catalog';
-  const PRODUCT_SET = 'product_set';
-  const VALID_LABELS = 'valid_labels';
-
-  public function getFieldTypes() {
-    return array(
-      'categorization_criteria' => 'string',
-      'id' => 'string',
-      'name' => 'string',
-      'product_catalog' => 'ProductCatalog',
-      'product_set' => 'ProductSet',
-      'valid_labels' => 'map<string, list<string>>',
-    );
-  }
+  const STORY = 'STORY';
+  const TIMELINE = 'TIMELINE';
 }
