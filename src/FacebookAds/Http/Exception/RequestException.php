@@ -134,6 +134,10 @@ class RequestException extends Exception {
         json_decode(stripslashes(static::idx($error_data, 'error_data')), true);
     }
 
+    if (is_null(static::idx($error_data, 'error_data'))) {
+      $error_data["error_data"] = array();
+    }
+
     return array(
       'code' =>
         static::idx($error_data, 'code', static::idx($response_data, 'code')),
