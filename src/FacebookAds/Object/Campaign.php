@@ -175,10 +175,8 @@ class Campaign extends AbstractArchivableCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'ad_draft_id' => 'string',
       'date_preset' => 'date_preset_enum',
       'effective_status' => 'list<string>',
-      'include_drafts' => 'bool',
       'time_range' => 'Object',
       'updated_since' => 'int',
     );
@@ -205,10 +203,8 @@ class Campaign extends AbstractArchivableCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'ad_draft_id' => 'string',
       'date_preset' => 'date_preset_enum',
       'effective_status' => 'list<effective_status_enum>',
-      'include_drafts' => 'bool',
       'is_completed' => 'bool',
       'time_range' => 'Object',
     );

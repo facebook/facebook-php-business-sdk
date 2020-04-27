@@ -60,6 +60,7 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const HOMETOWN = 'hometown';
   const HOURS = 'hours';
   const INVOICE_ACCESS_INVOICE_CHANGE = 'invoice_access_invoice_change';
+  const INVOICE_ACCESS_ONBOARDING_STATUS_ACTIVE = 'invoice_access_onboarding_status_active';
   const LEADGEN = 'leadgen';
   const LEADGEN_FAT = 'leadgen_fat';
   const LIVE_VIDEOS = 'live_videos';
@@ -107,6 +108,7 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const RATINGS = 'ratings';
   const REGISTRATION = 'registration';
   const STANDBY = 'standby';
+  const USER_ACTION = 'user_action';
   const VIDEO_TEXT_QUESTION_RESPONSES = 'video_text_question_responses';
   const VIDEOS = 'videos';
   const WEBSITE = 'website';

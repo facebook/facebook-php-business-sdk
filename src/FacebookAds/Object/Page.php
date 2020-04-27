@@ -430,8 +430,8 @@ class Page extends AbstractCrudObject {
     $param_types = array(
       'asid' => 'list',
       'psid' => 'list<int>',
-      'uid' => 'list<string>',
-      'user' => 'list<string>',
+      'uid' => 'list',
+      'user' => 'list',
     );
     $enums = array(
     );

@@ -85,4 +85,5 @@ class GroupGroupTypeValues extends AbstractEnum {
   const WORK_SOCIAL = 'WORK_SOCIAL';
   const WORK_TEAM = 'WORK_TEAM';
   const WORK_TEAMWORK = 'WORK_TEAMWORK';
+  const WORK_VC_CALL = 'WORK_VC_CALL';
 }

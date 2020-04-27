@@ -54,6 +54,7 @@ class AdAssetFeedSpecCallToActionTypesValues extends AbstractEnum {
   const FIND_A_GROUP = 'FIND_A_GROUP';
   const FIND_YOUR_GROUPS = 'FIND_YOUR_GROUPS';
   const FOLLOW_NEWS_STORYLINE = 'FOLLOW_NEWS_STORYLINE';
+  const FOLLOW_USER = 'FOLLOW_USER';
   const GET_DIRECTIONS = 'GET_DIRECTIONS';
   const GET_OFFER = 'GET_OFFER';
   const GET_OFFER_VIEW = 'GET_OFFER_VIEW';
@@ -71,8 +72,10 @@ class AdAssetFeedSpecCallToActionTypesValues extends AbstractEnum {
   const NO_BUTTON = 'NO_BUTTON';
   const OPEN_LINK = 'OPEN_LINK';
   const ORDER_NOW = 'ORDER_NOW';
+  const PAY_TO_ACCESS = 'PAY_TO_ACCESS';
   const PLAY_GAME = 'PLAY_GAME';
   const RECORD_NOW = 'RECORD_NOW';
+  const REQUEST_TIME = 'REQUEST_TIME';
   const SAY_THANKS = 'SAY_THANKS';
   const SEE_MORE = 'SEE_MORE';
   const SELL_NOW = 'SELL_NOW';

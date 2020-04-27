@@ -19,41 +19,30 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
- *
  */
 
-namespace FacebookAds\Object\Fields;
+require __DIR__ . '/vendor/autoload.php';
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\Object\AdAccount;
+use FacebookAds\Object\AdCreative;
+use FacebookAds\Api;
+use FacebookAds\Logger\CurlLogger;
 
-/**
- * This class is auto-generated.
- *
- * For any issues or feature requests related to this class, please let us know
- * on github and we'll fix in our codegen framework. We'll not be able to accept
- * pull request for this class.
- *
- */
+$access_token = '<ACCESS_TOKEN>';
+$app_secret = '<APP_SECRET>';
+$app_id = '<APP_ID>';
+$id = '<AD_ACCOUNT_ID>';
 
-class InstagramCommentFields extends AbstractEnum {
+$api = Api::init($app_id, $app_secret, $access_token);
+$api->setLogger(new CurlLogger());
 
-  const COMMENT_TYPE = 'comment_type';
-  const CREATED_AT = 'created_at';
-  const ID = 'id';
-  const INSTAGRAM_COMMENT_ID = 'instagram_comment_id';
-  const INSTAGRAM_USER = 'instagram_user';
-  const MENTIONED_INSTAGRAM_USERS = 'mentioned_instagram_users';
-  const MESSAGE = 'message';
-
-  public function getFieldTypes() {
-    return array(
-      'comment_type' => 'string',
-      'created_at' => 'datetime',
-      'id' => 'string',
-      'instagram_comment_id' => 'string',
-      'instagram_user' => 'InstagramUser',
-      'mentioned_instagram_users' => 'list<InstagramUser>',
-      'message' => 'string',
-    );
-  }
-}
+$fields = array(
+);
+$params = array(
+  'name' => 'Sample Creative',
+  'object_story_spec' => array('page_id' => '<pageID>','video_data' => array('image_url' => '<imageURL>','video_id' => '<videoID>','call_to_action' => array('type' => 'LIKE_PAGE','value' => array('page' => '<pageID>')))),
+);
+echo json_encode((new AdAccount($id))->createAdCreative(
+  $fields,
+  $params
+)->exportAllData(), JSON_PRETTY_PRINT);

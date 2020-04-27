@@ -39,11 +39,11 @@ $api->setLogger(new CurlLogger());
 $fields = array(
 );
 $params = array(
-  'special_ad_category' => 'NONE',
   'name' => 'Store Traffic Campaign',
   'objective' => 'STORE_VISITS',
   'promoted_object' => array('page_id' => '<pageID>'),
   'status' => 'PAUSED',
+  'special_ad_categories' => array(),
 );
 echo json_encode((new AdAccount($id))->createCampaign(
   $fields,

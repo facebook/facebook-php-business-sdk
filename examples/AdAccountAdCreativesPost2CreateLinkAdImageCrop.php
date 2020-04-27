@@ -24,7 +24,7 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use FacebookAds\Object\AdAccount;
-use FacebookAds\Object\Campaign;
+use FacebookAds\Object\AdCreative;
 use FacebookAds\Api;
 use FacebookAds\Logger\CurlLogger;
 
@@ -39,12 +39,10 @@ $api->setLogger(new CurlLogger());
 $fields = array(
 );
 $params = array(
-  'name' => 'Conversions Campaign',
-  'objective' => 'CONVERSIONS',
-  'status' => 'PAUSED',
-  'special_ad_categories' => array(),
+  'name' => 'Image crop creative',
+  'object_story_spec' => array('page_id' => '<pageID>','link_data' => array('image_crops' => array('100x100' => array(array(0,0),array(100,100))),'image_hash' => '<imageHash>','link' => '<url>','message' => 'Ad message')),
 );
-echo json_encode((new AdAccount($id))->createCampaign(
+echo json_encode((new AdAccount($id))->createAdCreative(
   $fields,
   $params
 )->exportAllData(), JSON_PRETTY_PRINT);

@@ -1107,6 +1107,7 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'order_by_is_owned_credential' => 'bool',
     );
     $enums = array(
     );
@@ -1900,29 +1901,6 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getPixelTos(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/pixel_tos',
-      new BusinessPixelTOS(),
-      'EDGE',
-      BusinessPixelTOS::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function createPixelTo(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1936,9 +1914,9 @@ class Business extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/pixel_tos',
-      new BusinessPixelTOS(),
+      new AbstractCrudObject(),
       'EDGE',
-      BusinessPixelTOS::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

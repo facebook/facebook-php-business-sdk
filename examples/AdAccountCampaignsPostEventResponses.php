@@ -39,10 +39,10 @@ $api->setLogger(new CurlLogger());
 $fields = array(
 );
 $params = array(
-  'special_ad_category' => 'NONE',
   'name' => 'My First Event Campaign',
   'objective' => 'EVENT_RESPONSES',
   'status' => 'PAUSED',
+  'special_ad_categories' => array(),
 );
 echo json_encode((new AdAccount($id))->createCampaign(
   $fields,

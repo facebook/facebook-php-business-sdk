@@ -66,6 +66,7 @@ class PageFields extends AbstractEnum {
   const COVER = 'cover';
   const CULINARY_TEAM = 'culinary_team';
   const CURRENT_LOCATION = 'current_location';
+  const DELIVERY_AND_PICKUP_OPTION_INFO = 'delivery_and_pickup_option_info';
   const DESCRIPTION = 'description';
   const DESCRIPTION_HTML = 'description_html';
   const DIFFERENTLY_OPEN_OFFERINGS = 'differently_open_offerings';
@@ -209,6 +210,7 @@ class PageFields extends AbstractEnum {
       'cover' => 'CoverPhoto',
       'culinary_team' => 'string',
       'current_location' => 'string',
+      'delivery_and_pickup_option_info' => 'list<string>',
       'description' => 'string',
       'description_html' => 'string',
       'differently_open_offerings' => 'map<string, bool>',

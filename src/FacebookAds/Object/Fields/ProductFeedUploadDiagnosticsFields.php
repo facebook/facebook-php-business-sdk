@@ -35,15 +35,15 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class BusinessPixelTOSFields extends AbstractEnum {
+class ProductFeedUploadDiagnosticsFields extends AbstractEnum {
 
-  const ACCEPT_TIME = 'accept_time';
-  const ID = 'id';
+  const LAST_MODIFIED_TIME = 'last_modified_time';
+  const REPORT_URL = 'report_url';
 
   public function getFieldTypes() {
     return array(
-      'accept_time' => 'int',
-      'id' => 'string',
+      'last_modified_time' => 'string',
+      'report_url' => 'string',
     );
   }
 }

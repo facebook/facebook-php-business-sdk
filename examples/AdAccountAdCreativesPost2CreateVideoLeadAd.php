@@ -24,7 +24,7 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use FacebookAds\Object\AdAccount;
-use FacebookAds\Object\Campaign;
+use FacebookAds\Object\AdCreative;
 use FacebookAds\Api;
 use FacebookAds\Logger\CurlLogger;
 
@@ -39,12 +39,9 @@ $api->setLogger(new CurlLogger());
 $fields = array(
 );
 $params = array(
-  'name' => 'Conversions Campaign',
-  'objective' => 'CONVERSIONS',
-  'status' => 'PAUSED',
-  'special_ad_categories' => array(),
+  'object_story_spec' => array('page_id' => '<pageID>','video_data' => array('link_description' => 'try it out','image_url' => '<imageURL>','video_id' => '<videoID>','call_to_action' => array('type' => 'SIGN_UP','value' => array('link' => 'http:\/\/fb.me\/','lead_gen_form_id' => '<formID>')))),
 );
-echo json_encode((new AdAccount($id))->createCampaign(
+echo json_encode((new AdAccount($id))->createAdCreative(
   $fields,
   $params
 )->exportAllData(), JSON_PRETTY_PRINT);

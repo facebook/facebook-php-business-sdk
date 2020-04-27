@@ -39,10 +39,10 @@ $api->setLogger(new CurlLogger());
 $fields = array(
 );
 $params = array(
-  'special_ad_category' => 'NONE',
   'name' => 'Video Views campaign',
   'objective' => 'VIDEO_VIEWS',
   'status' => 'PAUSED',
+  'special_ad_categories' => array(),
 );
 echo json_encode((new AdAccount($id))->createCampaign(
   $fields,

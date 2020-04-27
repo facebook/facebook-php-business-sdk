@@ -57,11 +57,13 @@ class PageCallToActionTypeValues extends AbstractEnum {
   const OPEN_APP = 'OPEN_APP';
   const PLAY_MUSIC = 'PLAY_MUSIC';
   const PLAY_NOW = 'PLAY_NOW';
+  const PURCHASE_GIFT_CARDS = 'PURCHASE_GIFT_CARDS';
   const REQUEST_APPOINTMENT = 'REQUEST_APPOINTMENT';
   const REQUEST_QUOTE = 'REQUEST_QUOTE';
   const SHOP_NOW = 'SHOP_NOW';
   const SHOP_ON_FACEBOOK = 'SHOP_ON_FACEBOOK';
   const SIGN_UP = 'SIGN_UP';
+  const VIEW_SHOP = 'VIEW_SHOP';
   const VISIT_GROUP = 'VISIT_GROUP';
   const WATCH_NOW = 'WATCH_NOW';
   const WOODHENGE_SUPPORT = 'WOODHENGE_SUPPORT';

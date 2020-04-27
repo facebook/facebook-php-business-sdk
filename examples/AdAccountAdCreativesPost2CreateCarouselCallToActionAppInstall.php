@@ -24,7 +24,7 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use FacebookAds\Object\AdAccount;
-use FacebookAds\Object\Campaign;
+use FacebookAds\Object\AdCreative;
 use FacebookAds\Api;
 use FacebookAds\Logger\CurlLogger;
 
@@ -39,12 +39,10 @@ $api->setLogger(new CurlLogger());
 $fields = array(
 );
 $params = array(
-  'name' => 'Conversions Campaign',
-  'objective' => 'CONVERSIONS',
-  'status' => 'PAUSED',
-  'special_ad_categories' => array(),
+  'name' => 'Carousel app ad',
+  'object_story_spec' => array('page_id' => '<pageID>','link_data' => array('message' => 'My message','link' => 'http://www.example.com/appstoreurl','caption' => 'WWW.ITUNES.COM','name' => 'The link name','description' => 'The link description','child_attachments' => array(array('link' => 'http://www.example.com/appstoreurl','image_hash' => '<imageHash>','call_to_action' => array('type' => 'USE_MOBILE_APP','value' => array('app_link' => '<deepLink>'))),array('link' => 'http://www.example.com/appstoreurl','image_hash' => '<imageHash>','call_to_action' => array('type' => 'USE_MOBILE_APP','value' => array('app_link' => '<deepLink>'))),array('link' => 'http://www.example.com/appstoreurl','image_hash' => '<imageHash>','call_to_action' => array('type' => 'USE_MOBILE_APP','value' => array('app_link' => '<deepLink>'))),array('link' => 'http://www.example.com/appstoreurl','image_hash' => '<imageHash>','call_to_action' => array('type' => 'USE_MOBILE_APP','value' => array('app_link' => '<deepLink>')))),'multi_share_optimized' => true)),
 );
-echo json_encode((new AdAccount($id))->createCampaign(
+echo json_encode((new AdAccount($id))->createAdCreative(
   $fields,
   $params
 )->exportAllData(), JSON_PRETTY_PRINT);

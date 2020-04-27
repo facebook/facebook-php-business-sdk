@@ -64,6 +64,7 @@ class PostFields extends AbstractEnum {
   const IS_ELIGIBLE_FOR_PROMOTION = 'is_eligible_for_promotion';
   const IS_EXPIRED = 'is_expired';
   const IS_HIDDEN = 'is_hidden';
+  const IS_INLINE_CREATED = 'is_inline_created';
   const IS_INSTAGRAM_ELIGIBLE = 'is_instagram_eligible';
   const IS_POPULAR = 'is_popular';
   const IS_PUBLISHED = 'is_published';
@@ -128,6 +129,7 @@ class PostFields extends AbstractEnum {
       'is_eligible_for_promotion' => 'bool',
       'is_expired' => 'bool',
       'is_hidden' => 'bool',
+      'is_inline_created' => 'bool',
       'is_instagram_eligible' => 'bool',
       'is_popular' => 'bool',
       'is_published' => 'bool',
