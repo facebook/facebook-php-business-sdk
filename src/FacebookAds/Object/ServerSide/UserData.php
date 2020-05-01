@@ -58,7 +58,8 @@ class UserData implements ArrayAccess {
     'client_user_agent' => 'string',
     'fbc' => 'string',
     'fbp' => 'string',
-    'subscription_id' => 'string'
+    'subscription_id' => 'string',
+    'fb_login_id' => 'string'
   );
   /**
    * Array of attributes where the key is the local name, and the value is the original name
@@ -80,7 +81,8 @@ class UserData implements ArrayAccess {
     'client_user_agent' => 'client_user_agent',
     'fbc' => 'fbc',
     'fbp' => 'fbp',
-    'subscription_id' => 'subscription_id'
+    'subscription_id' => 'subscription_id',
+    'fb_login_id' => 'fb_login_id'
   );
   /**
    * Array of attributes to setter functions (for deserialization of responses)
@@ -102,7 +104,8 @@ class UserData implements ArrayAccess {
     'client_user_agent' => 'setClientUserAgent',
     'fbc' => 'setFbc',
     'fbp' => 'setFbp',
-    'subscription_id' => 'setSubscriptionId'
+    'subscription_id' => 'setSubscriptionId',
+    'fb_login_id' => 'setFbLoginId'
   );
   /**
    * Array of attributes to getter functions (for serialization of requests)
@@ -124,7 +127,8 @@ class UserData implements ArrayAccess {
     'client_user_agent' => 'getClientUserAgent',
     'fbc' => 'getFbc',
     'fbp' => 'getFbp',
-    'subscription_id' => 'getSubscriptionId'
+    'subscription_id' => 'getSubscriptionId',
+    'fb_login_id' => 'getFbLoginId'
   );
   /**
    * Associative array for storing property values
@@ -153,6 +157,7 @@ class UserData implements ArrayAccess {
     $this->container['fbc'] = isset($data['fbc']) ? $data['fbc'] : null;
     $this->container['fbp'] = isset($data['fbp']) ? $data['fbp'] : null;
     $this->container['subscription_id'] = isset($data['subscription_id']) ? $data['subscription_id'] : null;
+    $this->container['fb_login_id'] = isset($data['fb_login_id']) ? $data['fb_login_id'] : null;
   }
 
   public static function paramTypes() {
@@ -397,6 +402,19 @@ class UserData implements ArrayAccess {
   }
 
   /**
+   * Sets FbLogin ID for the user in this transaction.
+   * ID issued by Facebook when a person first logs into an instance of an app.
+   * This is also known as App-Scoped ID.
+   * @param string $fb_login_id The Fb_Login_Id for the user in this transaction.
+   * @return $this
+   */
+  public function setFbLoginId($fb_login_id) {
+    $this->container['fb_login_id'] = $fb_login_id;
+
+    return $this;
+  }
+
+  /**
    * Returns true if offset exists. False otherwise.
    * @param integer $offset Offset
    * @return boolean
@@ -456,7 +474,7 @@ class UserData implements ArrayAccess {
     $normalized_payload['fbc'] = $this->getFbc();
     $normalized_payload['fbp'] = $this->getFbp();
     $normalized_payload['subscription_id'] = $this->getSubscriptionId();
-
+    $normalized_payload['fb_login_id'] = $this->getFbLoginId();
     $normalized_payload = array_filter($normalized_payload);
     return $normalized_payload;
   }
@@ -589,6 +607,13 @@ class UserData implements ArrayAccess {
     return $this->container['subscription_id'];
   }
 
+  /**
+   * Gets the FbLogin ID for the user in this transaction.
+   * @return string
+   */
+  public function getFbLoginId() {
+    return $this->container['fb_login_id'];
+  }
   /**
    * Gets the string presentation of the object
    * @return string

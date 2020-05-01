@@ -59,7 +59,8 @@ $user_data
   ->setEmail('joe@eg.com')
   ->setPhone('16505551212')
   ->setCountryCode('us')
-  ->setGender(Gender::FEMALE);
+  ->setGender(Gender::FEMALE)
+  ->setFbLoginId('987654321');
 
 $custom_content = new Content();
 $custom_content
