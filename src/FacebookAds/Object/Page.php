@@ -264,40 +264,6 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createAlbum(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'contributors' => 'list<int>',
-      'description' => 'string',
-      'is_default' => 'bool',
-      'location' => 'string',
-      'make_shared_album' => 'bool',
-      'message' => 'string',
-      'name' => 'string',
-      'place' => 'Object',
-      'privacy' => 'string',
-      'tags' => 'list<int>',
-      'visible' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/albums',
-      new Album(),
-      'EDGE',
-      Album::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function deleteAssignedUsers(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -925,29 +891,6 @@ class Page extends AbstractCrudObject {
       new Event(),
       'EDGE',
       Event::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getFeaturedVideosCollection(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/featured_videos_collection',
-      new AdVideo(),
-      'EDGE',
-      AdVideo::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1862,7 +1805,6 @@ class Page extends AbstractCrudObject {
       'account_linking_url' => 'string',
       'get_started' => 'Object',
       'greeting' => 'list<Object>',
-      'home_url' => 'Object',
       'ice_breakers' => 'list<map>',
       'payment_settings' => 'Object',
       'persistent_menu' => 'list<Object>',
@@ -3013,30 +2955,6 @@ class Page extends AbstractCrudObject {
       new Page(),
       'EDGE',
       Page::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getUpcomingChanges(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'include_inactive' => 'bool',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/upcoming_changes',
-      new PageUpcomingChange(),
-      'EDGE',
-      PageUpcomingChange::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

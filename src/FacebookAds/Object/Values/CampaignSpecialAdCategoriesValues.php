@@ -22,13 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Values;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\OpenGraphContextFields;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-generated.
@@ -37,44 +33,12 @@ use FacebookAds\Object\Fields\OpenGraphContextFields;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static CampaignSpecialAdCategoriesValues getInstance()
  */
+class CampaignSpecialAdCategoriesValues extends AbstractEnum {
 
-class OpenGraphContext extends AbstractCrudObject {
-
-  /**
-   * @return OpenGraphContextFields
-   */
-  public static function getFieldsEnum() {
-    return OpenGraphContextFields::getInstance();
-  }
-
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
-  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/',
-      new OpenGraphContext(),
-      'NODE',
-      OpenGraphContext::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
+  const CREDIT = 'CREDIT';
+  const EMPLOYMENT = 'EMPLOYMENT';
+  const HOUSING = 'HOUSING';
+  const NONE = 'NONE';
 }

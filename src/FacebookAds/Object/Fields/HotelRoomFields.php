@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class HotelRoomFields extends AbstractEnum {
 
+  const APPLINKS = 'applinks';
   const BASE_PRICE = 'base_price';
   const CURRENCY = 'currency';
   const DESCRIPTION = 'description';
@@ -50,6 +51,7 @@ class HotelRoomFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'applinks' => 'CatalogItemAppLinks',
       'base_price' => 'string',
       'currency' => 'string',
       'description' => 'string',

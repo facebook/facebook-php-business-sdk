@@ -38,7 +38,6 @@ use FacebookAds\Enum\AbstractEnum;
 class ProductCatalogFields extends AbstractEnum {
 
   const BUSINESS = 'business';
-  const CPAS_PARENT_CATALOG_SETTINGS = 'cpas_parent_catalog_settings';
   const DA_DISPLAY_SETTINGS = 'da_display_settings';
   const DEFAULT_IMAGE_URL = 'default_image_url';
   const FALLBACK_IMAGE_URL = 'fallback_image_url';
@@ -55,7 +54,6 @@ class ProductCatalogFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'business' => 'Business',
-      'cpas_parent_catalog_settings' => 'CPASParentCatalogSettings',
       'da_display_settings' => 'ProductCatalogImageSettings',
       'default_image_url' => 'string',
       'fallback_image_url' => 'list<string>',

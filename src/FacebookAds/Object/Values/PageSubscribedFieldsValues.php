@@ -59,6 +59,7 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const GENERAL_MANAGER = 'general_manager';
   const HOMETOWN = 'hometown';
   const HOURS = 'hours';
+  const INBOX_LABELS = 'inbox_labels';
   const INVOICE_ACCESS_INVOICE_CHANGE = 'invoice_access_invoice_change';
   const INVOICE_ACCESS_ONBOARDING_STATUS_ACTIVE = 'invoice_access_onboarding_status_active';
   const LEADGEN = 'leadgen';

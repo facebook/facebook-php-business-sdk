@@ -99,7 +99,7 @@ use FacebookAds\Object\Values\CampaignEffectiveStatusValues;
 use FacebookAds\Object\Values\CampaignExecutionOptionsValues;
 use FacebookAds\Object\Values\CampaignObjectiveValues;
 use FacebookAds\Object\Values\CampaignOperatorValues;
-use FacebookAds\Object\Values\CampaignSpecialAdCategoryValues;
+use FacebookAds\Object\Values\CampaignSpecialAdCategoriesValues;
 use FacebookAds\Object\Values\CampaignStatusValues;
 use FacebookAds\Object\Values\ContentDeliveryReportPlatformValues;
 use FacebookAds\Object\Values\ContentDeliveryReportPositionValues;
@@ -1649,7 +1649,6 @@ class AdAccount extends AbstractCrudObject {
     $param_types = array(
       'adlabels' => 'list<Object>',
       'bid_strategy' => 'bid_strategy_enum',
-      'budget_rebalance_flag' => 'bool',
       'buying_type' => 'string',
       'daily_budget' => 'unsigned int',
       'execution_options' => 'list<execution_options_enum>',
@@ -1660,7 +1659,7 @@ class AdAccount extends AbstractCrudObject {
       'pacing_type' => 'list<string>',
       'promoted_object' => 'Object',
       'source_campaign_id' => 'string',
-      'special_ad_category' => 'special_ad_category_enum',
+      'special_ad_categories' => 'list<special_ad_categories_enum>',
       'spend_cap' => 'unsigned int',
       'status' => 'status_enum',
       'topline_id' => 'string',
@@ -1670,7 +1669,7 @@ class AdAccount extends AbstractCrudObject {
       'bid_strategy_enum' => CampaignBidStrategyValues::getInstance()->getValues(),
       'execution_options_enum' => CampaignExecutionOptionsValues::getInstance()->getValues(),
       'objective_enum' => CampaignObjectiveValues::getInstance()->getValues(),
-      'special_ad_category_enum' => CampaignSpecialAdCategoryValues::getInstance()->getValues(),
+      'special_ad_categories_enum' => CampaignSpecialAdCategoriesValues::getInstance()->getValues(),
       'status_enum' => CampaignStatusValues::getInstance()->getValues(),
     );
 

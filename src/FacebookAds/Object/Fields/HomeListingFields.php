@@ -45,6 +45,7 @@ class HomeListingFields extends AbstractEnum {
   const AGENT_FB_PAGE_ID = 'agent_fb_page_id';
   const AGENT_NAME = 'agent_name';
   const AGENT_PHONE = 'agent_phone';
+  const APPLINKS = 'applinks';
   const AREA_SIZE = 'area_size';
   const AREA_UNIT = 'area_unit';
   const AVAILABILITY = 'availability';
@@ -89,6 +90,7 @@ class HomeListingFields extends AbstractEnum {
       'agent_fb_page_id' => 'Page',
       'agent_name' => 'string',
       'agent_phone' => 'string',
+      'applinks' => 'CatalogItemAppLinks',
       'area_size' => 'unsigned int',
       'area_unit' => 'string',
       'availability' => 'string',

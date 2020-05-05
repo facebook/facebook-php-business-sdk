@@ -22,13 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Fields;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\OpenGraphContextFields;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-generated.
@@ -39,42 +35,27 @@ use FacebookAds\Object\Fields\OpenGraphContextFields;
  *
  */
 
-class OpenGraphContext extends AbstractCrudObject {
+class CatalogItemAppLinksFields extends AbstractEnum {
 
-  /**
-   * @return OpenGraphContextFields
-   */
-  public static function getFieldsEnum() {
-    return OpenGraphContextFields::getInstance();
-  }
+  const ANDROID = 'android';
+  const IOS = 'ios';
+  const IPAD = 'ipad';
+  const IPHONE = 'iphone';
+  const WEB = 'web';
+  const WINDOWS = 'windows';
+  const WINDOWS_PHONE = 'windows_phone';
+  const WINDOWS_UNIVERSAL = 'windows_universal';
 
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
-  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
+  public function getFieldTypes() {
+    return array(
+      'android' => 'list<AndroidAppLink>',
+      'ios' => 'list<IosAppLink>',
+      'ipad' => 'list<IosAppLink>',
+      'iphone' => 'list<IosAppLink>',
+      'web' => 'WebAppLink',
+      'windows' => 'list<WindowsAppLink>',
+      'windows_phone' => 'list<WindowsPhoneAppLink>',
+      'windows_universal' => 'list<WindowsAppLink>',
     );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/',
-      new OpenGraphContext(),
-      'NODE',
-      OpenGraphContext::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
   }
-
 }

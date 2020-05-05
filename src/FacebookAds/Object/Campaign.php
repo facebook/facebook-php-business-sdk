@@ -46,6 +46,7 @@ use FacebookAds\Object\Values\CampaignEffectiveStatusValues;
 use FacebookAds\Object\Values\CampaignExecutionOptionsValues;
 use FacebookAds\Object\Values\CampaignObjectiveValues;
 use FacebookAds\Object\Values\CampaignOperatorValues;
+use FacebookAds\Object\Values\CampaignSpecialAdCategoriesValues;
 use FacebookAds\Object\Values\CampaignSpecialAdCategoryValues;
 use FacebookAds\Object\Values\CampaignStatusOptionValues;
 use FacebookAds\Object\Values\CampaignStatusValues;
@@ -91,8 +92,9 @@ class Campaign extends AbstractArchivableCrudObject {
     $ref_enums['DatePreset'] = CampaignDatePresetValues::getInstance()->getValues();
     $ref_enums['ExecutionOptions'] = CampaignExecutionOptionsValues::getInstance()->getValues();
     $ref_enums['Objective'] = CampaignObjectiveValues::getInstance()->getValues();
-    $ref_enums['SpecialAdCategory'] = CampaignSpecialAdCategoryValues::getInstance()->getValues();
+    $ref_enums['SpecialAdCategories'] = CampaignSpecialAdCategoriesValues::getInstance()->getValues();
     $ref_enums['Operator'] = CampaignOperatorValues::getInstance()->getValues();
+    $ref_enums['SpecialAdCategory'] = CampaignSpecialAdCategoryValues::getInstance()->getValues();
     $ref_enums['StatusOption'] = CampaignStatusOptionValues::getInstance()->getValues();
     return $ref_enums;
   }
@@ -505,6 +507,7 @@ class Campaign extends AbstractArchivableCrudObject {
       'objective' => 'objective_enum',
       'pacing_type' => 'list<string>',
       'promoted_object' => 'Object',
+      'special_ad_categories' => 'list<special_ad_categories_enum>',
       'special_ad_category' => 'special_ad_category_enum',
       'spend_cap' => 'unsigned int',
       'status' => 'status_enum',
@@ -514,6 +517,7 @@ class Campaign extends AbstractArchivableCrudObject {
       'bid_strategy_enum' => CampaignBidStrategyValues::getInstance()->getValues(),
       'execution_options_enum' => CampaignExecutionOptionsValues::getInstance()->getValues(),
       'objective_enum' => CampaignObjectiveValues::getInstance()->getValues(),
+      'special_ad_categories_enum' => CampaignSpecialAdCategoriesValues::getInstance()->getValues(),
       'special_ad_category_enum' => CampaignSpecialAdCategoryValues::getInstance()->getValues(),
       'status_enum' => CampaignStatusValues::getInstance()->getValues(),
     );

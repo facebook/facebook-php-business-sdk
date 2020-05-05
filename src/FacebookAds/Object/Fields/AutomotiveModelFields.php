@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AutomotiveModelFields extends AbstractEnum {
 
+  const APPLINKS = 'applinks';
   const AUTOMOTIVE_MODEL_ID = 'automotive_model_id';
   const AVAILABILITY = 'availability';
   const BODY_STYLE = 'body_style';
@@ -65,6 +66,7 @@ class AutomotiveModelFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'applinks' => 'CatalogItemAppLinks',
       'automotive_model_id' => 'string',
       'availability' => 'string',
       'body_style' => 'string',

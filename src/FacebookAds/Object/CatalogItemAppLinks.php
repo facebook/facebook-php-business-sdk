@@ -28,7 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\OpenGraphContextFields;
+use FacebookAds\Object\Fields\CatalogItemAppLinksFields;
 
 /**
  * This class is auto-generated.
@@ -39,13 +39,13 @@ use FacebookAds\Object\Fields\OpenGraphContextFields;
  *
  */
 
-class OpenGraphContext extends AbstractCrudObject {
+class CatalogItemAppLinks extends AbstractObject {
 
   /**
-   * @return OpenGraphContextFields
+   * @return CatalogItemAppLinksFields
    */
   public static function getFieldsEnum() {
-    return OpenGraphContextFields::getInstance();
+    return CatalogItemAppLinksFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -53,28 +53,5 @@ class OpenGraphContext extends AbstractCrudObject {
     return $ref_enums;
   }
 
-
-  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/',
-      new OpenGraphContext(),
-      'NODE',
-      OpenGraphContext::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
 
 }

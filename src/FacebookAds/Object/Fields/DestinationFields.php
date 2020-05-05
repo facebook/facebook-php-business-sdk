@@ -38,6 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class DestinationFields extends AbstractEnum {
 
   const ADDRESS = 'address';
+  const APPLINKS = 'applinks';
   const CURRENCY = 'currency';
   const DESCRIPTION = 'description';
   const DESTINATION_ID = 'destination_id';
@@ -53,6 +54,7 @@ class DestinationFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'address' => 'string',
+      'applinks' => 'CatalogItemAppLinks',
       'currency' => 'string',
       'description' => 'string',
       'destination_id' => 'string',

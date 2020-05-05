@@ -45,6 +45,7 @@ class AdgroupPlacementSpecificReviewFeedbackFields extends AbstractEnum {
   const DAILY_DEALS = 'daily_deals';
   const DAILY_DEALS_LEGACY = 'daily_deals_legacy';
   const DPA = 'dpa';
+  const DRI_COUNTERFEIT = 'dri_counterfeit';
   const FACEBOOK = 'facebook';
   const FACEBOOK_PAGES_LIVE_SHOPPING = 'facebook_pages_live_shopping';
   const INSTAGRAM = 'instagram';
@@ -75,6 +76,7 @@ class AdgroupPlacementSpecificReviewFeedbackFields extends AbstractEnum {
       'daily_deals' => 'map<string, string>',
       'daily_deals_legacy' => 'map<string, string>',
       'dpa' => 'map<string, string>',
+      'dri_counterfeit' => 'map<string, string>',
       'facebook' => 'map<string, string>',
       'facebook_pages_live_shopping' => 'map<string, string>',
       'instagram' => 'map<string, string>',
