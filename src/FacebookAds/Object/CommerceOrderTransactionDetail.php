@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\CommerceOrderTransactionDetailFields;
 
 /**
  * This class is auto-generated.
@@ -35,15 +39,42 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class ProductFeedUploadDiagnosticsFields extends AbstractEnum {
+class CommerceOrderTransactionDetail extends AbstractCrudObject {
 
-  const LAST_MODIFIED_TIME = 'last_modified_time';
-  const REPORT_URL = 'report_url';
-
-  public function getFieldTypes() {
-    return array(
-      'last_modified_time' => 'string',
-      'report_url' => 'string',
-    );
+  /**
+   * @return CommerceOrderTransactionDetailFields
+   */
+  public static function getFieldsEnum() {
+    return CommerceOrderTransactionDetailFields::getInstance();
   }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
+  public function getTaxDetails(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/tax_details',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
 }

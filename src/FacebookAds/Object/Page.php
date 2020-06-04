@@ -37,6 +37,8 @@ use FacebookAds\Object\Values\AdVideoSwapModeValues;
 use FacebookAds\Object\Values\AdVideoTypeValues;
 use FacebookAds\Object\Values\AdVideoUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\AdVideoUploadPhaseValues;
+use FacebookAds\Object\Values\CommerceOrderFiltersValues;
+use FacebookAds\Object\Values\CommerceOrderStateValues;
 use FacebookAds\Object\Values\EventEventStateFilterValues;
 use FacebookAds\Object\Values\EventTimeFilterValues;
 use FacebookAds\Object\Values\EventTypeValues;
@@ -140,6 +142,31 @@ class Page extends AbstractCrudObject {
     return $ref_enums;
   }
 
+
+  public function createAcknowledgeOrder(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'idempotency_key' => 'string',
+      'orders' => 'list<map>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/acknowledge_orders',
+      new Page(),
+      'EDGE',
+      Page::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
   public function getAdsPosts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
@@ -615,6 +642,109 @@ class Page extends AbstractCrudObject {
       new Page(),
       'EDGE',
       Page::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getCommerceMerchantSettings(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/commerce_merchant_settings',
+      new CommerceMerchantSettings(),
+      'EDGE',
+      CommerceMerchantSettings::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getCommerceOrders(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'filters' => 'list<filters_enum>',
+      'state' => 'list<state_enum>',
+      'updated_after' => 'datetime',
+      'updated_before' => 'datetime',
+    );
+    $enums = array(
+      'filters_enum' => CommerceOrderFiltersValues::getInstance()->getValues(),
+      'state_enum' => CommerceOrderStateValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/commerce_orders',
+      new CommerceOrder(),
+      'EDGE',
+      CommerceOrder::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getCommercePayouts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'end_time' => 'datetime',
+      'start_time' => 'datetime',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/commerce_payouts',
+      new CommercePayout(),
+      'EDGE',
+      CommercePayout::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getCommerceTransactions(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'end_time' => 'datetime',
+      'payout_reference_id' => 'string',
+      'start_time' => 'datetime',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/commerce_transactions',
+      new CommerceOrderTransactionDetail(),
+      'EDGE',
+      CommerceOrderTransactionDetail::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1547,6 +1677,7 @@ class Page extends AbstractCrudObject {
 
     $param_types = array(
       'always_open' => 'bool',
+      'delivery_and_pickup_option_info' => 'list<string>',
       'differently_open_offerings' => 'map',
       'hours' => 'map',
       'ignore_warnings' => 'bool',
@@ -2360,36 +2491,6 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createPromotion(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'ad_account_id' => 'string',
-      'budget' => 'unsigned int',
-      'duration' => 'string',
-      'gender' => 'unsigned int',
-      'geo_level' => 'string',
-      'max_age' => 'unsigned int',
-      'min_age' => 'unsigned int',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/promotions',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getPublishedPosts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -2597,6 +2698,29 @@ class Page extends AbstractCrudObject {
       new Page(),
       'EDGE',
       Page::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getShopSetupStatus(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/shop_setup_status',
+      new CommerceMerchantSettingsSetupStatus(),
+      'EDGE',
+      CommerceMerchantSettingsSetupStatus::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2988,31 +3112,6 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createVideoCopyrightRule(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'condition_groups' => 'list<Object>',
-      'name' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/video_copyright_rules',
-      new VideoCopyrightRule(),
-      'EDGE',
-      VideoCopyrightRule::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function createVideoCopyright(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -3285,6 +3384,7 @@ class Page extends AbstractCrudObject {
       'contact_address' => 'Object',
       'cover' => 'string',
       'culinary_team' => 'string',
+      'delivery_and_pickup_option_info' => 'list<string>',
       'description' => 'string',
       'differently_open_offerings' => 'map',
       'directed_by' => 'string',

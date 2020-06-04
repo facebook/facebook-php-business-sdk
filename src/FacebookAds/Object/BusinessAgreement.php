@@ -28,11 +28,8 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\OpenGraphObjectFields;
-use FacebookAds\Object\Values\CommentFilterValues;
-use FacebookAds\Object\Values\CommentLiveFilterValues;
-use FacebookAds\Object\Values\CommentOrderValues;
-use FacebookAds\Object\Values\ProfileTypeValues;
+use FacebookAds\Object\Fields\BusinessAgreementFields;
+use FacebookAds\Object\Values\BusinessAgreementRequestStatusValues;
 
 /**
  * This class is auto-generated.
@@ -43,75 +40,21 @@ use FacebookAds\Object\Values\ProfileTypeValues;
  *
  */
 
-class OpenGraphObject extends AbstractCrudObject {
+class BusinessAgreement extends AbstractCrudObject {
 
   /**
-   * @return OpenGraphObjectFields
+   * @return BusinessAgreementFields
    */
   public static function getFieldsEnum() {
-    return OpenGraphObjectFields::getInstance();
+    return BusinessAgreementFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['RequestStatus'] = BusinessAgreementRequestStatusValues::getInstance()->getValues();
     return $ref_enums;
   }
 
-
-  public function getComments(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'filter' => 'filter_enum',
-      'live_filter' => 'live_filter_enum',
-      'order' => 'order_enum',
-      'since' => 'datetime',
-    );
-    $enums = array(
-      'filter_enum' => CommentFilterValues::getInstance()->getValues(),
-      'live_filter_enum' => CommentLiveFilterValues::getInstance()->getValues(),
-      'order_enum' => CommentOrderValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/comments',
-      new Comment(),
-      'EDGE',
-      Comment::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getReactions(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'type' => 'type_enum',
-    );
-    $enums = array(
-      'type_enum' => ProfileTypeValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/reactions',
-      new Profile(),
-      'EDGE',
-      Profile::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
 
   public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
@@ -126,9 +69,35 @@ class OpenGraphObject extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new OpenGraphObject(),
+      new BusinessAgreement(),
       'NODE',
-      OpenGraphObject::getFieldsEnum()->getValues(),
+      BusinessAgreement::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'asset_id' => 'unsigned int',
+      'request_status' => 'request_status_enum',
+    );
+    $enums = array(
+      'request_status_enum' => BusinessAgreementRequestStatusValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/',
+      new BusinessAgreement(),
+      'NODE',
+      BusinessAgreement::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

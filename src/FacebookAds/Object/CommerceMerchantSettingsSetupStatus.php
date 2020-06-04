@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\CommerceMerchantSettingsSetupStatusFields;
 
 /**
  * This class is auto-generated.
@@ -35,17 +39,19 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class CustomAudiencePrefillStateFields extends AbstractEnum {
+class CommerceMerchantSettingsSetupStatus extends AbstractObject {
 
-  const DESCRIPTION = 'description';
-  const NUM_ADDED = 'num_added';
-  const STATUS = 'status';
-
-  public function getFieldTypes() {
-    return array(
-      'description' => 'string',
-      'num_added' => 'unsigned int',
-      'status' => 'string',
-    );
+  /**
+   * @return CommerceMerchantSettingsSetupStatusFields
+   */
+  public static function getFieldsEnum() {
+    return CommerceMerchantSettingsSetupStatusFields::getInstance();
   }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
 }

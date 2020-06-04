@@ -22,13 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Fields;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\VideoGameShowFields;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-generated.
@@ -39,42 +35,15 @@ use FacebookAds\Object\Fields\VideoGameShowFields;
  *
  */
 
-class VideoGameShow extends AbstractCrudObject {
+class BusinessAgreementFields extends AbstractEnum {
 
-  /**
-   * @return VideoGameShowFields
-   */
-  public static function getFieldsEnum() {
-    return VideoGameShowFields::getInstance();
-  }
+  const ID = 'id';
+  const REQUEST_STATUS = 'request_status';
 
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
-  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
+  public function getFieldTypes() {
+    return array(
+      'id' => 'string',
+      'request_status' => 'string',
     );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/',
-      new VideoGameShow(),
-      'NODE',
-      VideoGameShow::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
   }
-
 }

@@ -38,6 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class ProfileTypeValues extends AbstractEnum {
 
   const ANGRY = 'ANGRY';
+  const CARE = 'CARE';
   const HAHA = 'HAHA';
   const LIKE = 'LIKE';
   const LOVE = 'LOVE';

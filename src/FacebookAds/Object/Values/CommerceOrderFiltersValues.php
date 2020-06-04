@@ -22,13 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Values;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\CustomAudiencePrefillStateFields;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-generated.
@@ -37,21 +33,14 @@ use FacebookAds\Object\Fields\CustomAudiencePrefillStateFields;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static CommerceOrderFiltersValues getInstance()
  */
+class CommerceOrderFiltersValues extends AbstractEnum {
 
-class CustomAudiencePrefillState extends AbstractObject {
-
-  /**
-   * @return CustomAudiencePrefillStateFields
-   */
-  public static function getFieldsEnum() {
-    return CustomAudiencePrefillStateFields::getInstance();
-  }
-
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
+  const HAS_CANCELLATIONS = 'HAS_CANCELLATIONS';
+  const HAS_FULFILLMENTS = 'HAS_FULFILLMENTS';
+  const HAS_REFUNDS = 'HAS_REFUNDS';
+  const NO_CANCELLATIONS = 'NO_CANCELLATIONS';
+  const NO_REFUNDS = 'NO_REFUNDS';
+  const NO_SHIPMENTS = 'NO_SHIPMENTS';
 }

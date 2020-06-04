@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,40 +33,37 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static PageCallToActionTypeValues getInstance()
  */
-class PageCallToActionTypeValues extends AbstractEnum {
 
-  const BECOME_A_VOLUNTEER = 'BECOME_A_VOLUNTEER';
-  const BOOK_APPOINTMENT = 'BOOK_APPOINTMENT';
-  const BOOK_NOW = 'BOOK_NOW';
-  const BUY_TICKETS = 'BUY_TICKETS';
-  const CALL_NOW = 'CALL_NOW';
-  const CHARITY_DONATE = 'CHARITY_DONATE';
-  const CONTACT_US = 'CONTACT_US';
-  const DONATE_NOW = 'DONATE_NOW';
-  const EMAIL = 'EMAIL';
-  const FOLLOW_PAGE = 'FOLLOW_PAGE';
-  const GET_DIRECTIONS = 'GET_DIRECTIONS';
-  const GET_OFFER = 'GET_OFFER';
-  const GET_OFFER_VIEW = 'GET_OFFER_VIEW';
-  const INTERESTED = 'INTERESTED';
-  const LEARN_MORE = 'LEARN_MORE';
-  const LISTEN = 'LISTEN';
-  const LOCAL_DEV_PLATFORM = 'LOCAL_DEV_PLATFORM';
-  const MESSAGE = 'MESSAGE';
-  const OPEN_APP = 'OPEN_APP';
-  const ORDER_FOOD = 'ORDER_FOOD';
-  const PLAY_MUSIC = 'PLAY_MUSIC';
-  const PLAY_NOW = 'PLAY_NOW';
-  const PURCHASE_GIFT_CARDS = 'PURCHASE_GIFT_CARDS';
-  const REQUEST_APPOINTMENT = 'REQUEST_APPOINTMENT';
-  const REQUEST_QUOTE = 'REQUEST_QUOTE';
-  const SHOP_NOW = 'SHOP_NOW';
-  const SHOP_ON_FACEBOOK = 'SHOP_ON_FACEBOOK';
-  const SIGN_UP = 'SIGN_UP';
-  const VIEW_SHOP = 'VIEW_SHOP';
-  const VISIT_GROUP = 'VISIT_GROUP';
-  const WATCH_NOW = 'WATCH_NOW';
-  const WOODHENGE_SUPPORT = 'WOODHENGE_SUPPORT';
+class CommerceOrderFields extends AbstractEnum {
+
+  const BUYER_DETAILS = 'buyer_details';
+  const CHANNEL = 'channel';
+  const CREATED = 'created';
+  const ESTIMATED_PAYMENT_DETAILS = 'estimated_payment_details';
+  const ID = 'id';
+  const IS_GROUP_BUY = 'is_group_buy';
+  const LAST_UPDATED = 'last_updated';
+  const MERCHANT_ORDER_ID = 'merchant_order_id';
+  const ORDER_STATUS = 'order_status';
+  const SELECTED_SHIPPING_OPTION = 'selected_shipping_option';
+  const SHIP_BY_DATE = 'ship_by_date';
+  const SHIPPING_ADDRESS = 'shipping_address';
+
+  public function getFieldTypes() {
+    return array(
+      'buyer_details' => 'Object',
+      'channel' => 'string',
+      'created' => 'string',
+      'estimated_payment_details' => 'Object',
+      'id' => 'string',
+      'is_group_buy' => 'bool',
+      'last_updated' => 'string',
+      'merchant_order_id' => 'string',
+      'order_status' => 'Object',
+      'selected_shipping_option' => 'Object',
+      'ship_by_date' => 'string',
+      'shipping_address' => 'Object',
+    );
+  }
 }

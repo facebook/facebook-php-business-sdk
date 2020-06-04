@@ -22,13 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Values;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\ProductFeedUploadDiagnosticsFields;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-generated.
@@ -37,21 +33,18 @@ use FacebookAds\Object\Fields\ProductFeedUploadDiagnosticsFields;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static CommerceOrderReasonCodeValues getInstance()
  */
+class CommerceOrderReasonCodeValues extends AbstractEnum {
 
-class ProductFeedUploadDiagnostics extends AbstractObject {
-
-  /**
-   * @return ProductFeedUploadDiagnosticsFields
-   */
-  public static function getFieldsEnum() {
-    return ProductFeedUploadDiagnosticsFields::getInstance();
-  }
-
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
+  const BUYERS_REMORSE = 'BUYERS_REMORSE';
+  const DAMAGED_GOODS = 'DAMAGED_GOODS';
+  const NOT_AS_DESCRIBED = 'NOT_AS_DESCRIBED';
+  const QUALITY_ISSUE = 'QUALITY_ISSUE';
+  const REFUND_COMPROMISED = 'REFUND_COMPROMISED';
+  const REFUND_FOR_RETURN = 'REFUND_FOR_RETURN';
+  const REFUND_REASON_OTHER = 'REFUND_REASON_OTHER';
+  const REFUND_SFI_FAKE = 'REFUND_SFI_FAKE';
+  const REFUND_SFI_REAL = 'REFUND_SFI_REAL';
+  const WRONG_ITEM = 'WRONG_ITEM';
 }

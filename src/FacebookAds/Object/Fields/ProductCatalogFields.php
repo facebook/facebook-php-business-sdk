@@ -38,6 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class ProductCatalogFields extends AbstractEnum {
 
   const BUSINESS = 'business';
+  const COMMERCE_MERCHANT_SETTINGS = 'commerce_merchant_settings';
   const DA_DISPLAY_SETTINGS = 'da_display_settings';
   const DEFAULT_IMAGE_URL = 'default_image_url';
   const FALLBACK_IMAGE_URL = 'fallback_image_url';
@@ -50,10 +51,12 @@ class ProductCatalogFields extends AbstractEnum {
   const VERTICAL = 'vertical';
   const DESTINATION_CATALOG_SETTINGS = 'destination_catalog_settings';
   const FLIGHT_CATALOG_SETTINGS = 'flight_catalog_settings';
+  const ONSITE_COMMERCE_MERCHANT = 'onsite_commerce_merchant';
 
   public function getFieldTypes() {
     return array(
       'business' => 'Business',
+      'commerce_merchant_settings' => 'CommerceMerchantSettings',
       'da_display_settings' => 'ProductCatalogImageSettings',
       'default_image_url' => 'string',
       'fallback_image_url' => 'list<string>',
@@ -66,6 +69,7 @@ class ProductCatalogFields extends AbstractEnum {
       'vertical' => 'string',
       'destination_catalog_settings' => 'map',
       'flight_catalog_settings' => 'map',
+      'onsite_commerce_merchant' => 'Object',
     );
   }
 }

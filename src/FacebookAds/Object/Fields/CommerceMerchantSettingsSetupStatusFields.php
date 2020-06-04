@@ -22,14 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Fields;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\RequestHistoryFields;
-use FacebookAds\Object\Values\RequestHistoryHttpMethodValues;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-generated.
@@ -40,20 +35,21 @@ use FacebookAds\Object\Values\RequestHistoryHttpMethodValues;
  *
  */
 
-class RequestHistory extends AbstractObject {
+class CommerceMerchantSettingsSetupStatusFields extends AbstractEnum {
 
-  /**
-   * @return RequestHistoryFields
-   */
-  public static function getFieldsEnum() {
-    return RequestHistoryFields::getInstance();
+  const DEALS_SETUP = 'deals_setup';
+  const MARKETPLACE_APPROVAL_STATUS = 'marketplace_approval_status';
+  const MARKETPLACE_APPROVAL_STATUS_DETAILS = 'marketplace_approval_status_details';
+  const PAYMENT_SETUP = 'payment_setup';
+  const SHOP_SETUP = 'shop_setup';
+
+  public function getFieldTypes() {
+    return array(
+      'deals_setup' => 'string',
+      'marketplace_approval_status' => 'string',
+      'marketplace_approval_status_details' => 'Object',
+      'payment_setup' => 'string',
+      'shop_setup' => 'string',
+    );
   }
-
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    $ref_enums['HttpMethod'] = RequestHistoryHttpMethodValues::getInstance()->getValues();
-    return $ref_enums;
-  }
-
-
 }

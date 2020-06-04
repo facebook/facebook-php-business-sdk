@@ -57,7 +57,6 @@ class AdAccountCreationRequestFields extends AbstractEnum {
   const ID = 'id';
   const IS_SMB = 'is_smb';
   const IS_TEST = 'is_test';
-  const IS_UNDER_AUTHORIZATION = 'is_under_authorization';
   const LEGAL_ENTITY_NAME_IN_LOCAL_LANGUAGE = 'legal_entity_name_in_local_language';
   const OE_REQUEST_ID = 'oe_request_id';
   const OFFICIAL_WEBSITE_URL = 'official_website_url';
@@ -94,7 +93,6 @@ class AdAccountCreationRequestFields extends AbstractEnum {
       'id' => 'string',
       'is_smb' => 'bool',
       'is_test' => 'bool',
-      'is_under_authorization' => 'bool',
       'legal_entity_name_in_local_language' => 'string',
       'oe_request_id' => 'string',
       'official_website_url' => 'string',

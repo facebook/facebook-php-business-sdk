@@ -40,6 +40,7 @@ class PageCallToActionWebDestinationTypeValues extends AbstractEnum {
   const BECOME_A_VOLUNTEER = 'BECOME_A_VOLUNTEER';
   const BECOME_SUPPORTER = 'BECOME_SUPPORTER';
   const EMAIL = 'EMAIL';
+  const FOLLOW = 'FOLLOW';
   const MESSENGER = 'MESSENGER';
   const NONE = 'NONE';
   const SHOP_ON_FACEBOOK = 'SHOP_ON_FACEBOOK';

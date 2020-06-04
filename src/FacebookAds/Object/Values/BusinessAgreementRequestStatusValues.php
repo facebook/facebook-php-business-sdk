@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,27 +33,13 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static BusinessAgreementRequestStatusValues getInstance()
  */
+class BusinessAgreementRequestStatusValues extends AbstractEnum {
 
-class RequestHistoryFields extends AbstractEnum {
-
-  const API_VERSION = 'api_version';
-  const CREATED_TIME = 'created_time';
-  const ERROR_CODE = 'error_code';
-  const GRAPH_PATH = 'graph_path';
-  const HTTP_METHOD = 'http_method';
-  const POST_PARAMS = 'post_params';
-  const QUERY_PARAMS = 'query_params';
-
-  public function getFieldTypes() {
-    return array(
-      'api_version' => 'string',
-      'created_time' => 'datetime',
-      'error_code' => 'unsigned int',
-      'graph_path' => 'string',
-      'http_method' => 'HttpMethod',
-      'post_params' => 'map<string, string>',
-      'query_params' => 'map<string, string>',
-    );
-  }
+  const APPROVE = 'APPROVE';
+  const DECLINE = 'DECLINE';
+  const EXPIRED = 'EXPIRED';
+  const IN_PROGRESS = 'IN_PROGRESS';
+  const PENDING = 'PENDING';
 }

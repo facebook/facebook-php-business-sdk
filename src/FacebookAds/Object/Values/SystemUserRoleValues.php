@@ -39,6 +39,7 @@ class SystemUserRoleValues extends AbstractEnum {
 
   const ADMIN = 'ADMIN';
   const ADS_RIGHTS_REVIEWER = 'ADS_RIGHTS_REVIEWER';
+  const DEVELOPER = 'DEVELOPER';
   const EMPLOYEE = 'EMPLOYEE';
   const FINANCE_ANALYST = 'FINANCE_ANALYST';
   const FINANCE_EDITOR = 'FINANCE_EDITOR';

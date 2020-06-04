@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\CommercePayoutFields;
 
 /**
  * This class is auto-generated.
@@ -35,21 +39,19 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class VideoGameShowFields extends AbstractEnum {
+class CommercePayout extends AbstractObject {
 
-  const END_TIME = 'end_time';
-  const GAME_STATUS = 'game_status';
-  const GAME_TYPE = 'game_type';
-  const ID = 'id';
-  const START_TIME = 'start_time';
-
-  public function getFieldTypes() {
-    return array(
-      'end_time' => 'datetime',
-      'game_status' => 'string',
-      'game_type' => 'string',
-      'id' => 'string',
-      'start_time' => 'datetime',
-    );
+  /**
+   * @return CommercePayoutFields
+   */
+  public static function getFieldsEnum() {
+    return CommercePayoutFields::getInstance();
   }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
 }

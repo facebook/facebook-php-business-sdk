@@ -50,5 +50,6 @@ class AdAccountTargetingUnifiedObjectiveValues extends AbstractEnum {
   const POST_ENGAGEMENT = 'POST_ENGAGEMENT';
   const PRODUCT_CATALOG_SALES = 'PRODUCT_CATALOG_SALES';
   const REACH = 'REACH';
+  const STORE_VISITS = 'STORE_VISITS';
   const VIDEO_VIEWS = 'VIDEO_VIEWS';
 }

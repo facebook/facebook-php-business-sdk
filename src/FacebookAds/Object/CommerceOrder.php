@@ -28,9 +28,10 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\OfflineConversionDataSetFields;
-use FacebookAds\Object\Values\OfflineConversionDataSetPermittedRolesValues;
-use FacebookAds\Object\Values\OfflineConversionDataSetRelationshipTypeValues;
+use FacebookAds\Object\Fields\CommerceOrderFields;
+use FacebookAds\Object\Values\CommerceOrderFiltersValues;
+use FacebookAds\Object\Values\CommerceOrderReasonCodeValues;
+use FacebookAds\Object\Values\CommerceOrderStateValues;
 
 /**
  * This class is auto-generated.
@@ -41,61 +42,30 @@ use FacebookAds\Object\Values\OfflineConversionDataSetRelationshipTypeValues;
  *
  */
 
-class OfflineConversionDataSet extends AbstractCrudObject {
+class CommerceOrder extends AbstractCrudObject {
 
   /**
-   * @deprecated getEndpoint function is deprecated
-   */
-  protected function getEndpoint() {
-    return 'offline_conversion_data_sets';
-  }
-
-  /**
-   * @return OfflineConversionDataSetFields
+   * @return CommerceOrderFields
    */
   public static function getFieldsEnum() {
-    return OfflineConversionDataSetFields::getInstance();
+    return CommerceOrderFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['PermittedRoles'] = OfflineConversionDataSetPermittedRolesValues::getInstance()->getValues();
-    $ref_enums['RelationshipType'] = OfflineConversionDataSetRelationshipTypeValues::getInstance()->getValues();
+    $ref_enums['ReasonCode'] = CommerceOrderReasonCodeValues::getInstance()->getValues();
+    $ref_enums['Filters'] = CommerceOrderFiltersValues::getInstance()->getValues();
+    $ref_enums['State'] = CommerceOrderStateValues::getInstance()->getValues();
     return $ref_enums;
   }
 
 
-  public function getAdAccounts(array $fields = array(), array $params = array(), $pending = false) {
+  public function createAcknowledgeOrder(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
-      'business' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/adaccounts',
-      new AdAccount(),
-      'EDGE',
-      AdAccount::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createAdAccount(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'account_id' => 'string',
-      'auto_track_for_ads' => 'bool',
-      'business' => 'string',
+      'idempotency_key' => 'string',
+      'merchant_order_reference' => 'string',
     );
     $enums = array(
     );
@@ -104,10 +74,10 @@ class OfflineConversionDataSet extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_POST,
-      '/adaccounts',
-      new OfflineConversionDataSet(),
+      '/acknowledge_order',
+      new CommerceOrder(),
       'EDGE',
-      OfflineConversionDataSet::getFieldsEnum()->getValues(),
+      CommerceOrder::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -115,7 +85,7 @@ class OfflineConversionDataSet extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getAgencies(array $fields = array(), array $params = array(), $pending = false) {
+  public function getCancellations(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -127,113 +97,7 @@ class OfflineConversionDataSet extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
-      '/agencies',
-      new Business(),
-      'EDGE',
-      Business::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createAgency(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'business' => 'string',
-      'other_relationship' => 'string',
-      'permitted_roles' => 'list<permitted_roles_enum>',
-      'relationship_type' => 'list<relationship_type_enum>',
-    );
-    $enums = array(
-      'permitted_roles_enum' => OfflineConversionDataSetPermittedRolesValues::getInstance()->getValues(),
-      'relationship_type_enum' => OfflineConversionDataSetRelationshipTypeValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/agencies',
-      new OfflineConversionDataSet(),
-      'EDGE',
-      OfflineConversionDataSet::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getAudiences(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'ad_account' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/audiences',
-      new CustomAudience(),
-      'EDGE',
-      CustomAudience::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getCustomConversions(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'ad_account' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/customconversions',
-      new CustomConversion(),
-      'EDGE',
-      CustomConversion::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createEvent(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'data' => 'list<string>',
-      'namespace_id' => 'string',
-      'progress' => 'Object',
-      'upload_id' => 'string',
-      'upload_source' => 'string',
-      'upload_tag' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/events',
+      '/cancellations',
       new AbstractCrudObject(),
       'EDGE',
       array(),
@@ -244,34 +108,46 @@ class OfflineConversionDataSet extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getStats(array $fields = array(), array $params = array(), $pending = false) {
+  public function createCancellation(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
-      'aggr_time' => 'aggr_time_enum',
-      'end' => 'int',
-      'granularity' => 'granularity_enum',
-      'skip_empty_values' => 'bool',
-      'start' => 'int',
-      'user_timezone_id' => 'unsigned int',
+      'cancel_reason' => 'map',
+      'idempotency_key' => 'string',
+      'items' => 'list<map>',
+      'restock_items' => 'bool',
     );
     $enums = array(
-      'aggr_time_enum' => array(
-        'event_time',
-        'upload_time',
-      ),
-      'granularity_enum' => array(
-        'daily',
-        'hourly',
-        'six_hourly',
-      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/cancellations',
+      new CommerceOrder(),
+      'EDGE',
+      CommerceOrder::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getItems(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
     );
 
     $request = new ApiRequest(
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
-      '/stats',
+      '/items',
       new AbstractCrudObject(),
       'EDGE',
       array(),
@@ -282,29 +158,120 @@ class OfflineConversionDataSet extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getUploads(array $fields = array(), array $params = array(), $pending = false) {
+  public function getPayments(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
-      'end_time' => 'datetime',
-      'order' => 'order_enum',
-      'sort_by' => 'sort_by_enum',
-      'start_time' => 'datetime',
-      'upload_tag' => 'string',
     );
     $enums = array(
-      'order_enum' => array(
-        'ASCENDING',
-        'DESCENDING',
-      ),
-      'sort_by_enum' => array(
-        'API_CALLS',
-        'CREATION_TIME',
-        'EVENT_TIME_MAX',
-        'EVENT_TIME_MIN',
-        'FIRST_UPLOAD_TIME',
-        'IS_EXCLUDED_FOR_LIFT',
-        'LAST_UPLOAD_TIME',
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/payments',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getPromotions(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/promotions',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getRefunds(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/refunds',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createRefund(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'deductions' => 'list<map>',
+      'idempotency_key' => 'string',
+      'items' => 'list<map>',
+      'reason_code' => 'reason_code_enum',
+      'reason_text' => 'string',
+      'return_id' => 'string',
+      'shipping' => 'map',
+    );
+    $enums = array(
+      'reason_code_enum' => CommerceOrderReasonCodeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/refunds',
+      new CommerceOrder(),
+      'EDGE',
+      CommerceOrder::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getReturns(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'merchant_return_id' => 'string',
+      'statuses' => 'list<statuses_enum>',
+    );
+    $enums = array(
+      'statuses_enum' => array(
+        'APPROVED',
+        'DISAPPROVED',
+        'MERCHANT_MARKED_COMPLETED',
+        'REFUNDED',
+        'REQUESTED',
       ),
     );
 
@@ -312,7 +279,7 @@ class OfflineConversionDataSet extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
-      '/uploads',
+      '/returns',
       new AbstractCrudObject(),
       'EDGE',
       array(),
@@ -323,11 +290,42 @@ class OfflineConversionDataSet extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createUpload(array $fields = array(), array $params = array(), $pending = false) {
+  public function getShipments(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
-      'upload_tag' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/shipments',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createShipment(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'external_redemption_link' => 'string',
+      'external_shipment_id' => 'string',
+      'fulfillment' => 'map',
+      'idempotency_key' => 'string',
+      'items' => 'list<map>',
+      'merchant_order_reference' => 'string',
+      'shipment_origin_postal_code' => 'string',
+      'shipping_tax_details' => 'map',
+      'tracking_info' => 'map',
     );
     $enums = array(
     );
@@ -336,10 +334,10 @@ class OfflineConversionDataSet extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_POST,
-      '/uploads',
-      new AbstractCrudObject(),
+      '/shipments',
+      new CommerceOrder(),
       'EDGE',
-      array(),
+      CommerceOrder::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -347,12 +345,13 @@ class OfflineConversionDataSet extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createValidate(array $fields = array(), array $params = array(), $pending = false) {
+  public function createUpdateShipment(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
-      'data' => 'list<string>',
-      'namespace_id' => 'string',
+      'fulfillment_id' => 'string',
+      'idempotency_key' => 'string',
+      'tracking_info' => 'map',
     );
     $enums = array(
     );
@@ -361,33 +360,10 @@ class OfflineConversionDataSet extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_POST,
-      '/validate',
-      new OfflineConversionDataSet(),
+      '/update_shipment',
+      new CommerceOrder(),
       'EDGE',
-      OfflineConversionDataSet::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function deleteSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_DELETE,
-      '/',
-      new AbstractCrudObject(),
-      'NODE',
-      array(),
+      CommerceOrder::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -408,36 +384,9 @@ class OfflineConversionDataSet extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new OfflineConversionDataSet(),
+      new CommerceOrder(),
       'NODE',
-      OfflineConversionDataSet::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'auto_assign_to_new_accounts_only' => 'bool',
-      'description' => 'string',
-      'enable_auto_assign_to_accounts' => 'bool',
-      'name' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/',
-      new OfflineConversionDataSet(),
-      'NODE',
-      OfflineConversionDataSet::getFieldsEnum()->getValues(),
+      CommerceOrder::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

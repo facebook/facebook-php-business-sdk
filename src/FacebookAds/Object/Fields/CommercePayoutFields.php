@@ -35,53 +35,21 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class OpenGraphObjectFields extends AbstractEnum {
+class CommercePayoutFields extends AbstractEnum {
 
-  const ADMINS = 'admins';
-  const APPLICATION = 'application';
-  const AUDIO = 'audio';
-  const CREATED_TIME = 'created_time';
-  const DESCRIPTION = 'description';
-  const DETERMINER = 'determiner';
-  const ENGAGEMENT = 'engagement';
-  const ID = 'id';
-  const IMAGE = 'image';
-  const IS_SCRAPED = 'is_scraped';
-  const LOCALE = 'locale';
-  const LOCATION = 'location';
-  const POST_ACTION_ID = 'post_action_id';
-  const PROFILE_ID = 'profile_id';
-  const RESTRICTIONS = 'restrictions';
-  const SEE_ALSO = 'see_also';
-  const SITE_NAME = 'site_name';
-  const TITLE = 'title';
-  const TYPE = 'type';
-  const UPDATED_TIME = 'updated_time';
-  const VIDEO = 'video';
+  const AMOUNT = 'amount';
+  const PAYOUT_DATE = 'payout_date';
+  const PAYOUT_REFERENCE_ID = 'payout_reference_id';
+  const STATUS = 'status';
+  const TRANSFER_ID = 'transfer_id';
 
   public function getFieldTypes() {
     return array(
-      'admins' => 'list<Object>',
-      'application' => 'Object',
-      'audio' => 'list<Object>',
-      'created_time' => 'datetime',
-      'description' => 'string',
-      'determiner' => 'string',
-      'engagement' => 'Engagement',
-      'id' => 'string',
-      'image' => 'list<Object>',
-      'is_scraped' => 'bool',
-      'locale' => 'Object',
-      'location' => 'Location',
-      'post_action_id' => 'string',
-      'profile_id' => 'Object',
-      'restrictions' => 'Object',
-      'see_also' => 'list<string>',
-      'site_name' => 'string',
-      'title' => 'string',
-      'type' => 'string',
-      'updated_time' => 'datetime',
-      'video' => 'list<Object>',
+      'amount' => 'Object',
+      'payout_date' => 'string',
+      'payout_reference_id' => 'string',
+      'status' => 'string',
+      'transfer_id' => 'string',
     );
   }
 }
