@@ -44,7 +44,10 @@ class Event implements ArrayAccess {
     'opt_out' => 'bool',
     'event_id' => 'string',
     'user_data' => 'FacebookAds\Object\ServerSide\UserData',
-    'custom_data' => 'FacebookAds\Object\ServerSide\CustomData'
+    'custom_data' => 'FacebookAds\Object\ServerSide\CustomData',
+    'data_processing_options' => 'string[]',
+    'data_processing_options_country' => 'int',
+    'data_processing_options_state' => 'int',
   );
   /**
    * Array of attributes where the key is the local name, and the value is the original name
@@ -57,8 +60,12 @@ class Event implements ArrayAccess {
     'opt_out' => 'opt_out',
     'event_id' => 'event_id',
     'user_data' => 'user_data',
-    'custom_data' => 'custom_data'
+    'custom_data' => 'custom_data',
+    'data_processing_options' => 'data_processing_options',
+    'data_processing_options_country' => 'data_processing_options_country',
+    'data_processing_options_state' => 'data_processing_options_state'
   );
+
   /**
    * Array of attributes to setter functions (for deserialization of responses)
    * @var string[]
@@ -70,7 +77,10 @@ class Event implements ArrayAccess {
     'opt_out' => 'setOptOut',
     'event_id' => 'setEventId',
     'user_data' => 'setUserData',
-    'custom_data' => 'setCustomData'
+    'custom_data' => 'setCustomData',
+    'data_processing_options' => 'setDataProcessingOptions',
+    'data_processing_options_country' => 'setDataProcessingOptionsCountry',
+    'data_processing_options_state' => 'setDataProcessingOptionsState',
   );
   /**
    * Array of attributes to getter functions (for serialization of requests)
@@ -83,7 +93,10 @@ class Event implements ArrayAccess {
     'opt_out' => 'getOptOut',
     'event_id' => 'getEventId',
     'user_data' => 'getUserData',
-    'custom_data' => 'getCustomData'
+    'custom_data' => 'getCustomData',
+    'data_processing_options' => 'getDataProcessingOptions',
+    'data_processing_options_country' => 'getDataProcessingOptionsCountry',
+    'data_processing_options_state' => 'getDataProcessingOptionsState',
   );
   /**
    * Associative array for storing property values
@@ -103,6 +116,9 @@ class Event implements ArrayAccess {
     $this->container['event_id'] = isset($data['event_id']) ? $data['event_id'] : null;
     $this->container['user_data'] = isset($data['user_data']) ? $data['user_data'] : null;
     $this->container['custom_data'] = isset($data['custom_data']) ? $data['custom_data'] : null;
+    $this->container['data_processing_options'] = isset($data['data_processing_options']) ? $data['data_processing_options'] : null;
+    $this->container['data_processing_options_country'] = isset($data['data_processing_options_country']) ? $data['data_processing_options_country'] : null;
+    $this->container['data_processing_options_state'] = isset($data['data_processing_options_state']) ? $data['data_processing_options_state'] : null;
   }
 
   public static function paramTypes() {
@@ -243,6 +259,43 @@ class Event implements ArrayAccess {
   }
 
   /**
+   * Sets the processing options you would like to enable for a specific event.
+   * For more details see: https://developers.facebook.com/docs/marketing-apis/data-processing-options
+   * @param string[], e.g. [] or ['LDU']
+   * @return $this
+   */
+  public function setDataProcessingOptions($data_processing_options) {
+    $this->container['data_processing_options'] = $data_processing_options;
+
+    return $this;
+  }
+
+  /**
+   * Sets a country that you want to associate to this data processing option. If you set a country, you must also set a state.
+   * For more details see: https://developers.facebook.com/docs/marketing-apis/data-processing-options
+   * @param int
+   * @return $this
+   */
+  public function setDataProcessingOptionsCountry($data_processing_options_country) {
+    $this->container['data_processing_options_country'] = $data_processing_options_country;
+
+    return $this;
+  }
+
+  /**
+   * Sets a state that you want to associate with this data processing option.
+   * For more details see: https://developers.facebook.com/docs/marketing-apis/data-processing-options
+   * @param int
+   * @return $this
+   *
+   */
+  public function setDataProcessingOptionsState($data_processing_options_state) {
+    $this->container['data_processing_options_state'] = $data_processing_options_state;
+
+    return $this;
+  }
+
+  /**
    * Returns true if offset exists. False otherwise.
    * @param integer $offset Offset
    * @return boolean
@@ -299,6 +352,9 @@ class Event implements ArrayAccess {
     $normalized_payload['custom_data'] = isset($this->container['custom_data']) ? $this->getCustomData()
       ->normalize() : null;
 
+    $normalized_payload['data_processing_options'] = $this->getDataProcessingOptions();
+    $normalized_payload['data_processing_options_country'] = $this->getDataProcessingOptionsCountry();
+    $normalized_payload['data_processing_options_state'] = $this->getDataProcessingOptionsState();
     $normalized_payload = array_filter($normalized_payload);
 
     return $normalized_payload;
@@ -363,7 +419,31 @@ class Event implements ArrayAccess {
   }
 
   /**
-   * Gets the string presentation of the object
+   * Gets DataProcessionOptions value of Processing options you would like to enable for a specific event.
+   * @return string[]
+   */
+  public function getDataProcessingOptions() {
+    return $this->container['data_processing_options'];
+  }
+
+  /**
+   * Gets DataProcessionOptionsState value that represents the state that you want to associate with this data processing option.
+   * @return int
+   */
+  public function getDataProcessingOptionsState() {
+    return $this->container['data_processing_options_state'];
+  }
+
+  /**
+   * Gets DataProcessionOptionsCountry value that represents the country that you want to associate to this data processing option.
+   * @return int
+   */
+  public function getDataProcessingOptionsCountry() {
+    return $this->container['data_processing_options_country'];
+  }
+
+  /**
+   * Gets the string representation of the object
    * @return string
    */
   public function __toString() {
