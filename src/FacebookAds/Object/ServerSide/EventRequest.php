@@ -214,7 +214,7 @@ class EventRequest implements ArrayAccess {
       'test_event_code' => $this->container['test_event_code'],
       'partner_agent' => $this->container['partner_agent'],
     );
-    $normalized_payload = array_filter($normalized_payload, 'strlen');
+    $normalized_payload = array_filter($normalized_payload, function($val) { if(is_array($val) { return true; } else { return strlen($val); });
 
     return $normalized_payload;
   }
