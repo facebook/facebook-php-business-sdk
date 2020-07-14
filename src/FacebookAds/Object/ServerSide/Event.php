@@ -355,7 +355,7 @@ class Event implements ArrayAccess {
     $normalized_payload['data_processing_options'] = $this->getDataProcessingOptions();
     $normalized_payload['data_processing_options_country'] = $this->getDataProcessingOptionsCountry();
     $normalized_payload['data_processing_options_state'] = $this->getDataProcessingOptionsState();
-    $normalized_payload = array_filter($normalized_payload);
+    $normalized_payload = array_filter($normalized_payload, function($val) { if(is_array($val)) { return true; } else { return strlen($val); }});
 
     return $normalized_payload;
   }
