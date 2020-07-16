@@ -41,6 +41,10 @@ class Content implements ArrayAccess {
     $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;;
     $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
     $this->container['item_price'] = isset($data['item_price']) ? $data['item_price'] : null;
+    $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+    $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+    $this->container['brand'] = isset($data['brand']) ? $data['brand'] : null;
+    $this->container['category'] = isset($data['category']) ? $data['category'] : null;
   }
 
 
@@ -98,6 +102,82 @@ class Content implements ArrayAccess {
    */
   public function setItemPrice($item_price) {
     $this->container['item_price'] = $item_price;
+    return $this;
+  }
+
+
+  /**
+   * Get title.
+   * @return string title
+   */
+  public function getTitle() {
+    return $this->container['title'];
+  }
+
+  /**
+   * Sets title.
+   * @param string $title title
+   * @return $this
+   */
+  public function setTitle($title) {
+    $this->container['title'] = $title;
+    return $this;
+  }
+
+
+  /**
+   * Get description.
+   * @return string description
+   */
+  public function getDescription() {
+    return $this->container['description'];
+  }
+
+  /**
+   * Sets description.
+   * @param string $description description
+   * @return $this
+   */
+  public function setDescription($description) {
+    $this->container['description'] = $description;
+    return $this;
+  }
+
+
+  /**
+   * Get brand.
+   * @return string brand
+   */
+  public function getBrand() {
+    return $this->container['brand'];
+  }
+
+  /**
+   * Sets brand.
+   * @param string $brand brand
+   * @return $this
+   */
+  public function setBrand($brand) {
+    $this->container['brand'] = $brand;
+    return $this;
+  }
+
+
+  /**
+   * Get category.
+   * @return string category
+   */
+  public function getCategory() {
+    return $this->container['category'];
+  }
+
+  /**
+   * Sets category.
+   * @param string $category category
+   * @return $this
+   */
+  public function setCategory($category) {
+    $this->container['category'] = $category;
     return $this;
   }
 
@@ -163,6 +243,10 @@ class Content implements ArrayAccess {
       'id' => $this->container['product_id'],
       'quantity' => $this->container['quantity'],
       'item_price' => $this->container['item_price'],
+      'title' => $this->container['title'],
+      'description' => $this->container['description'],
+      'brand' => $this->container['brand'],
+      'category' => $this->container['category'],
     );
 
     $normalized_payload = array_filter($normalized_payload);
