@@ -46,6 +46,7 @@ class CustomData implements ArrayAccess {
     'num_items' => 'string',
     'status' => 'string',
     'search_string' => 'string',
+    'item_number' => 'string',
     'custom_properties' => 'array'
   );
   /**
@@ -65,6 +66,7 @@ class CustomData implements ArrayAccess {
     'num_items' => 'num_items',
     'status' => 'status',
     'search_string' => 'search_string',
+    'item_number' => 'item_number',
     'custom_properties' => 'custom_properties'
   );
   /**
@@ -84,6 +86,7 @@ class CustomData implements ArrayAccess {
     'num_items' => 'setNumItems',
     'status' => 'setStatus',
     'search_string' => 'setSearchString',
+    'item_number' => 'setItemNumber',
     'custom_properties' => 'setCustomProperties'
   );
   /**
@@ -103,6 +106,7 @@ class CustomData implements ArrayAccess {
     'num_items' => 'getNumItems',
     'status' => 'getStatus',
     'search_string' => 'getSearchString',
+    'item_number' => 'getItemNumber',
     'custom_properties' => 'getCustomProperties'
   );
   /**
@@ -128,6 +132,7 @@ class CustomData implements ArrayAccess {
     $this->container['num_items'] = isset($data['num_items']) ? $data['num_items'] : null;
     $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     $this->container['search_string'] = isset($data['search_string']) ? $data['search_string'] : null;
+    $this->container['item_number'] = isset($data['item_number']) ? $data['item_number'] : null;
     $this->container['custom_properties'] = isset($data['custom_properties']) ? $data['custom_properties'] : null;
   }
 
@@ -311,6 +316,17 @@ class CustomData implements ArrayAccess {
   }
 
   /**
+   * Sets the item_number.
+   * @param string $item_number The item number.
+   * @return $this
+   */
+  public function setItemNumber($item_number) {
+    $this->container['item_number'] = $item_number;
+
+    return $this;
+  }
+
+  /**
    * Sets custom_properties that are not defined as the standard properties list in custom data.
    * @param array custom_properties dictionary to include custom properties that are not defined in custom data.
    * @return $this
@@ -400,6 +416,7 @@ class CustomData implements ArrayAccess {
     $normalized_payload['num_items'] = $this->getNumItems();
     $normalized_payload['status'] = $this->getStatus();
     $normalized_payload['search_string'] = $this->getSearchString();
+    $normalized_payload['item_number'] = $this->getItemNumber();
 
     if (isset($this->container['contents'])) {
       $contents = [];
@@ -522,6 +539,14 @@ class CustomData implements ArrayAccess {
    */
   public function getSearchString() {
     return $this->container['search_string'];
+  }
+
+  /**
+   * Gets the item number.
+   * @return string
+   */
+  public function getItemNumber() {
+    return $this->container['item_number'];
   }
 
   /**
