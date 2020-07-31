@@ -33,7 +33,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   /**
    * Test cases for Email Normalization
    */
-  public function testEmailNormalizeData() {
+  public function emailNormalizeData() {
     return array(
       array(
         "foo(.bar)@baz.com/",
@@ -51,7 +51,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   }
 
   /**
-   * @dataProvider testEmailNormalizeData
+   * @dataProvider emailNormalizeData
    */
   public function testEmailNormalize($input, $expected) {
     $this->assertEquals(
@@ -62,7 +62,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   /**
    * Test cases for Phone Normalization
    */
-  public function testPhoneNormalizeData() {
+  public function phoneNormalizeData() {
     return array(
       array(
         '123-456-7890',
@@ -84,7 +84,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   }
 
   /**
-   * @dataProvider testPhoneNormalizeData
+   * @dataProvider phoneNormalizeData
    */
   public function testPhoneNormalize($input, $expected) {
     $this->assertEquals(
@@ -95,7 +95,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   /**
    * Test cases for Postal Code Normalization
    */
-  public function testPostalCodeNormalizeData() {
+  public function postalCodeNormalizeData() {
     return array(
       array(
         '  98121',
@@ -117,7 +117,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   }
 
   /**
-   * @dataProvider testPostalCodeNormalizeData
+   * @dataProvider postalCodeNormalizeData
    */
   public function testPostalCodeNormalize($input, $expected) {
     $this->assertEquals(
@@ -128,7 +128,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   /**
    * Test cases for City Normalization
    */
-  public function testCityNormalizeData() {
+  public function cityNormalizeData() {
     return array(
       array(
         'Menlo Park',
@@ -146,7 +146,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   }
 
   /**
-   * @dataProvider testCityNormalizeData
+   * @dataProvider cityNormalizeData
    */
   public function testCityNormalize($input, $expected) {
     $this->assertEquals(
@@ -157,7 +157,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   /**
    * Test cases for Country Normalization
    */
-  public function testCountryNormalizeData() {
+  public function countryNormalizeData() {
     return array(
       array(
         '   US   ',
@@ -171,7 +171,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   }
 
   /**
-   * @dataProvider testCountryNormalizeData
+   * @dataProvider countryNormalizeData
    */
   public function testCountryNormalize($input, $expected) {
     $this->assertEquals(
@@ -182,7 +182,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   /**
    * Test cases for Currency Normalization
    */
-  public function testCurrencyNormalizeData() {
+  public function currencyNormalizeData() {
     return array(
       array(
         '   ABC   ', // Can't validate the data, just normalizes.
@@ -196,7 +196,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   }
 
   /**
-   * @dataProvider testCurrencyNormalizeData
+   * @dataProvider currencyNormalizeData
    */
   public function testCurrencyNormalize($input, $expected) {
     $this->assertEquals(
@@ -243,7 +243,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
     $this->assertTrue($has_throw_exception);
   }
 
-  public function testF5firstData() {
+  public function f5firstData() {
     return array(
       array(
         'George',
@@ -265,7 +265,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   }
 
   /**
-   * @dataProvider testF5firstData
+   * @dataProvider f5firstData
    */
   public function testF5first($input, $expected) {
     $this->assertEquals(
@@ -274,7 +274,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
     );
   }
 
-  public function testF5lastData() {
+  public function f5lastData() {
     return array(
       array(
         'Washington',
@@ -296,7 +296,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   }
 
   /**
-   * @dataProvider testF5lastData
+   * @dataProvider f5lastData
    */
   public function testF5last($input, $expected) {
     $this->assertEquals(
@@ -305,7 +305,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
     );
   }
 
-  public function testFiData() {
+  public function fiData() {
     return array(
       array(
         'GW',
@@ -327,7 +327,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   }
 
   /**
-   * @dataProvider testFiData
+   * @dataProvider fiData
    */
   public function testFi($input, $expected) {
     $this->assertEquals(
@@ -336,7 +336,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
     );
   }
 
-  public function testDobdData() {
+  public function dobdData() {
     return array(
       array(
         '1',
@@ -362,7 +362,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   }
 
   /**
-   * @dataProvider testDobdData
+   * @dataProvider dobdData
    */
   public function testDobd($input, $expected) {
     $this->assertEquals(
@@ -391,7 +391,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
     $this->assertEquals(count($failure_cases), $exceptions_counter);
   }
 
-  public function testDobmData() {
+  public function dobmData() {
     return array(
       array(
         '1',
@@ -417,7 +417,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   }
 
   /**
-   * @dataProvider testDobmData
+   * @dataProvider dobmData
    */
   public function testDobm($input, $expected) {
     $this->assertEquals(
@@ -447,7 +447,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
     $this->assertEquals(count($failure_cases), $exceptions_counter);
   }
 
-  public function testDobyData() {
+  public function dobyData() {
     return array(
       array(
         '1995',
@@ -473,7 +473,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   }
 
   /**
-   * @dataProvider testDobyData
+   * @dataProvider dobyData
    */
   public function testDoby($input, $expected) {
     $this->assertEquals(
