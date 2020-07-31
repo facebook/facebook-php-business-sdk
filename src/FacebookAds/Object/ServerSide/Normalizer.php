@@ -79,6 +79,30 @@ class Normalizer {
       case 'currency':
         $normalized_data = Normalizer::normalizeCurrency($data);
         break;
+
+      case 'f5first':
+        $normalized_data = Normalizer::normalizeF5($data);
+        break;
+
+      case 'f5last':
+        $normalized_data = Normalizer::normalizeF5($data);
+        break;
+
+      case 'fi':
+        $normalized_data = Normalizer::normalizeFi($data);
+        break;
+
+      case 'dobd':
+        $normalized_data = Normalizer::normalizeDobd($data);
+        break;
+
+      case 'dobm':
+        $normalized_data = Normalizer::normalizeDobm($data);
+        break;
+
+      case 'doby':
+        $normalized_data = Normalizer::normalizeDoby($data);
+        break;
       default:
     }
 
@@ -169,6 +193,78 @@ class Normalizer {
     }
 
     return $result;
+  }
+
+  /**
+   *  @param string $name A first or last name to be normalized.
+   *  @return string
+   */
+  private static function normalizeF5($name) {
+    return substr($name, 0, 5);
+  }
+
+  /**
+   *  @param string $fi A first initial to be normalized.
+   *  @return string
+   */
+  private static function normalizeFi($fi) {
+    return substr($fi, 0, 1);
+  }
+
+  /**
+   *  @param string $dobd A date of birth day to be normalized.
+   *  @return string
+   */
+  private static function normalizeDobd($dobd) {
+    if (strlen($dobd) == 1) {
+      $dobd = '0' . $dobd;
+    }
+
+    if (!preg_match('/^[0-9]{2}$/', $dobd)) {
+      throw new InvalidArgumentException('Invalid dobd passed(' . $dobd . '). Date of birth day should be in format "DD".');
+    }
+
+    $dobd_int = intval($dobd);
+    $in_day_range = ($dobd_int >= 1) && ($dobd_int <= 31);
+    if (!$in_day_range) {
+      throw new InvalidArgumentException('Invalid dobd passed(' . $dobd . '). Date of birth day should be in format "DD".');
+    }
+
+    return $dobd;
+  }
+
+  /**
+   *  @param string $dobm A date of birth month to be normalized.
+   *  @return string
+   */
+  private static function normalizeDobm($dobm) {
+    if (strlen($dobm) == 1) {
+      $dobm = '0' . $dobm;
+    }
+
+    if (!preg_match('/^[0-9]{2}$/', $dobm)) {
+      throw new InvalidArgumentException('Invalid dobm passed(' . $dobm . '). Date of birth month should be in format "MM".');
+    }
+
+    $dobm_int = intval($dobm);
+    $in_month_range = ($dobm_int >= 1) && ($dobm_int <= 12);
+    if (!$in_month_range) {
+      throw new InvalidArgumentException('Invalid dobm passed(' . $dobm . '). Date of birth month should be in format "MM".');
+    }
+
+    return $dobm;
+  }
+
+  /**
+   *  @param string $doby A date of birth year to be normalized.
+   *  @return string
+   */
+  private static function normalizeDoby($doby) {
+    if (!preg_match('/^[0-9]{4}$/', $doby)) {
+      throw new InvalidArgumentException('Invalid doby passed(' . $doby . '). Date of birth year should be in format "YYYY".');
+    }
+
+    return $doby;
   }
 
   /**

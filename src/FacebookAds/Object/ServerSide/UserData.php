@@ -59,7 +59,13 @@ class UserData implements ArrayAccess {
     'fbc' => 'string',
     'fbp' => 'string',
     'subscription_id' => 'string',
-    'fb_login_id' => 'string'
+    'fb_login_id' => 'string',
+    'f5first' => 'string',
+    'f5last' => 'string',
+    'fi' => 'string',
+    'dobd' => 'string',
+    'dobm' => 'string',
+    'doby' => 'string'
   );
   /**
    * Array of attributes where the key is the local name, and the value is the original name
@@ -82,7 +88,13 @@ class UserData implements ArrayAccess {
     'fbc' => 'fbc',
     'fbp' => 'fbp',
     'subscription_id' => 'subscription_id',
-    'fb_login_id' => 'fb_login_id'
+    'fb_login_id' => 'fb_login_id',
+    'f5first' => 'f5first',
+    'f5last' => 'f5last',
+    'fi' => 'fi',
+    'dobd' => 'dobd',
+    'dobm' => 'dobm',
+    'doby' => 'doby'
   );
   /**
    * Array of attributes to setter functions (for deserialization of responses)
@@ -105,7 +117,13 @@ class UserData implements ArrayAccess {
     'fbc' => 'setFbc',
     'fbp' => 'setFbp',
     'subscription_id' => 'setSubscriptionId',
-    'fb_login_id' => 'setFbLoginId'
+    'fb_login_id' => 'setFbLoginId',
+    'f5first' => 'setF5first',
+    'f5last' => 'setF5last',
+    'fi' => 'setFi',
+    'dobd' => 'setDobd',
+    'dobm' => 'setDobm',
+    'doby' => 'setDoby'
   );
   /**
    * Array of attributes to getter functions (for serialization of requests)
@@ -128,7 +146,13 @@ class UserData implements ArrayAccess {
     'fbc' => 'getFbc',
     'fbp' => 'getFbp',
     'subscription_id' => 'getSubscriptionId',
-    'fb_login_id' => 'getFbLoginId'
+    'fb_login_id' => 'getFbLoginId',
+    'f5first' => 'getF5first',
+    'f5last' => 'getF5last',
+    'fi' => 'getFi',
+    'dobd' => 'getDobd',
+    'dobm' => 'getDobm',
+    'doby' => 'getDoby'
   );
   /**
    * Associative array for storing property values
@@ -158,6 +182,12 @@ class UserData implements ArrayAccess {
     $this->container['fbp'] = isset($data['fbp']) ? $data['fbp'] : null;
     $this->container['subscription_id'] = isset($data['subscription_id']) ? $data['subscription_id'] : null;
     $this->container['fb_login_id'] = isset($data['fb_login_id']) ? $data['fb_login_id'] : null;
+    $this->container['f5first'] = isset($data['f5first']) ? $data['f5first'] : null;
+    $this->container['f5last'] = isset($data['f5last']) ? $data['f5last'] : null;
+    $this->container['fi'] = isset($data['fi']) ? $data['fi'] : null;
+    $this->container['dobd'] = isset($data['dobd']) ? $data['dobd'] : null;
+    $this->container['dobm'] = isset($data['dobm']) ? $data['dobm'] : null;
+    $this->container['doby'] = isset($data['doby']) ? $data['doby'] : null;
   }
 
   public static function paramTypes() {
@@ -415,6 +445,72 @@ class UserData implements ArrayAccess {
   }
 
   /**
+   * Sets the first 5 letters of the first name.
+   * @param string $f5first The first 5 letters of the first name.
+   * @return $this
+   */
+  public function setF5first($f5first) {
+    $this->container['f5first'] = $f5first;
+
+    return $this;
+  }
+
+  /**
+   * Sets the first 5 letters of the last name.
+   * @param string $f5last The first 5 letters of the last name.
+   * @return $this
+   */
+  public function setF5last($f5last) {
+    $this->container['f5last'] = $f5last;
+
+    return $this;
+  }
+
+  /**
+   * Sets the first initial.
+   * @param string $fi The first initial.
+   * @return $this
+   */
+  public function setFi($fi) {
+    $this->container['fi'] = $fi;
+
+    return $this;
+  }
+
+  /**
+   * Sets the date of birth day.
+   * @param string $dobd The date of birth day.
+   * @return $this
+   */
+  public function setDobd($dobd) {
+    $this->container['dobd'] = $dobd;
+
+    return $this;
+  }
+
+  /**
+   * Sets the date of birth month.
+   * @param string $dobm The date of birth month.
+   * @return $this
+   */
+  public function setDobm($dobm) {
+    $this->container['dobm'] = $dobm;
+
+    return $this;
+  }
+
+  /**
+   * Sets the date of birth year.
+   * @param string $doby The date of birth year.
+   * @return $this
+   */
+  public function setDoby($doby) {
+    $this->container['doby'] = $doby;
+
+    return $this;
+  }
+
+  /**
    * Returns true if offset exists. False otherwise.
    * @param integer $offset Offset
    * @return boolean
@@ -475,6 +571,12 @@ class UserData implements ArrayAccess {
     $normalized_payload['fbp'] = $this->getFbp();
     $normalized_payload['subscription_id'] = $this->getSubscriptionId();
     $normalized_payload['fb_login_id'] = $this->getFbLoginId();
+    $normalized_payload['f5first'] = Util::hash(Normalizer::normalize('f5first', $this->getF5first()));
+    $normalized_payload['f5last'] = Util::hash(Normalizer::normalize('f5last', $this->getF5last()));
+    $normalized_payload['fi'] = Util::hash(Normalizer::normalize('fi', $this->getFi()));
+    $normalized_payload['dobd'] = Util::hash(Normalizer::normalize('dobd', $this->getDobd()));
+    $normalized_payload['dobm'] = Util::hash(Normalizer::normalize('dobm', $this->getDobm()));
+    $normalized_payload['doby'] = Util::hash(Normalizer::normalize('doby', $this->getDoby()));
     $normalized_payload = array_filter($normalized_payload);
     return $normalized_payload;
   }
@@ -614,6 +716,55 @@ class UserData implements ArrayAccess {
   public function getFbLoginId() {
     return $this->container['fb_login_id'];
   }
+
+  /**
+   * Gets the first 5 letters of the first name.
+   * @return string
+   */
+  public function getF5first() {
+    return $this->container['f5first'];
+  }
+
+  /**
+   * Gets the first 5 letters of the last name.
+   * @return string
+   */
+  public function getF5last() {
+    return $this->container['f5last'];
+  }
+
+  /**
+   * Gets the first initial.
+   * @return string
+   */
+  public function getFi() {
+    return $this->container['fi'];
+  }
+
+  /**
+   * Gets the date of birth day.
+   * @return string
+   */
+  public function getDobd() {
+    return $this->container['dobd'];
+  }
+
+  /**
+   * Gets the date of birth month.
+   * @return string
+   */
+  public function getDobm() {
+    return $this->container['dobm'];
+  }
+
+  /**
+   * Gets the date of birth year.
+   * @return string
+   */
+  public function getDoby() {
+    return $this->container['doby'];
+  }
+
   /**
    * Gets the string presentation of the object
    * @return string
