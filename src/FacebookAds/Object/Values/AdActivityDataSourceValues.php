@@ -22,13 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Values;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\BusinessCreativeFields;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-generated.
@@ -37,44 +33,10 @@ use FacebookAds\Object\Fields\BusinessCreativeFields;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static AdActivityDataSourceValues getInstance()
  */
+class AdActivityDataSourceValues extends AbstractEnum {
 
-class BusinessCreative extends AbstractCrudObject {
-
-  /**
-   * @return BusinessCreativeFields
-   */
-  public static function getFieldsEnum() {
-    return BusinessCreativeFields::getInstance();
-  }
-
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
-  public function getAdPlacementValidationResults(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/ad_placement_validation_results',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
+  const CALYPSO = 'CALYPSO';
+  const TAO = 'TAO';
 }

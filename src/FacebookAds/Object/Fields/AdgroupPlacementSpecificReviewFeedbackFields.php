@@ -39,12 +39,16 @@ class AdgroupPlacementSpecificReviewFeedbackFields extends AbstractEnum {
 
   const ACCOUNT_ADMIN = 'account_admin';
   const AD = 'ad';
+  const ADS_CONVERSION_EXPERIENCES = 'ads_conversion_experiences';
   const B2C = 'b2c';
+  const B2C_COMMERCE_UNIFIED = 'b2c_commerce_unified';
   const BSG = 'bsg';
   const CITY_COMMUNITY = 'city_community';
+  const COMMERCE = 'commerce';
   const DAILY_DEALS = 'daily_deals';
   const DAILY_DEALS_LEGACY = 'daily_deals_legacy';
   const DPA = 'dpa';
+  const DRI_COPYRIGHT = 'dri_copyright';
   const DRI_COUNTERFEIT = 'dri_counterfeit';
   const FACEBOOK = 'facebook';
   const FACEBOOK_PAGES_LIVE_SHOPPING = 'facebook_pages_live_shopping';
@@ -70,12 +74,16 @@ class AdgroupPlacementSpecificReviewFeedbackFields extends AbstractEnum {
     return array(
       'account_admin' => 'map<string, string>',
       'ad' => 'map<string, string>',
+      'ads_conversion_experiences' => 'map<string, string>',
       'b2c' => 'map<string, string>',
+      'b2c_commerce_unified' => 'map<string, string>',
       'bsg' => 'map<string, string>',
       'city_community' => 'map<string, string>',
+      'commerce' => 'map<string, string>',
       'daily_deals' => 'map<string, string>',
       'daily_deals_legacy' => 'map<string, string>',
       'dpa' => 'map<string, string>',
+      'dri_copyright' => 'map<string, string>',
       'dri_counterfeit' => 'map<string, string>',
       'facebook' => 'map<string, string>',
       'facebook_pages_live_shopping' => 'map<string, string>',

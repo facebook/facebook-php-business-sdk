@@ -35,25 +35,51 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class AdsInterestFields extends AbstractEnum {
+class AdoptablePetFields extends AbstractEnum {
 
-  const AUDIENCE_SIZE = 'audience_size';
+  const ADDRESS = 'address';
+  const ADOPTABLE_PET_ID = 'adoptable_pet_id';
+  const ADOPTION_APPLICATION_FORM_URL = 'adoption_application_form_url';
+  const AGE_BUCKET = 'age_bucket';
+  const ANIMAL_TYPE = 'animal_type';
+  const APPLINKS = 'applinks';
+  const AVAILABILITY = 'availability';
+  const BREED = 'breed';
+  const CURRENCY = 'currency';
   const DESCRIPTION = 'description';
-  const DISAMBIGUATION_CATEGORY = 'disambiguation_category';
+  const GENDER = 'gender';
   const ID = 'id';
+  const IMAGES = 'images';
   const NAME = 'name';
-  const PATH = 'path';
-  const TOPIC = 'topic';
+  const PRICE = 'price';
+  const SANITIZED_IMAGES = 'sanitized_images';
+  const SHELTER_NAME = 'shelter_name';
+  const SHELTER_PAGE_ID = 'shelter_page_id';
+  const SIZE = 'size';
+  const URL = 'url';
 
   public function getFieldTypes() {
     return array(
-      'audience_size' => 'unsigned int',
+      'address' => 'Object',
+      'adoptable_pet_id' => 'string',
+      'adoption_application_form_url' => 'string',
+      'age_bucket' => 'string',
+      'animal_type' => 'string',
+      'applinks' => 'CatalogItemAppLinks',
+      'availability' => 'string',
+      'breed' => 'string',
+      'currency' => 'string',
       'description' => 'string',
-      'disambiguation_category' => 'string',
+      'gender' => 'string',
       'id' => 'string',
+      'images' => 'list<string>',
       'name' => 'string',
-      'path' => 'list<string>',
-      'topic' => 'string',
+      'price' => 'string',
+      'sanitized_images' => 'list<string>',
+      'shelter_name' => 'string',
+      'shelter_page_id' => 'Page',
+      'size' => 'string',
+      'url' => 'string',
     );
   }
 }

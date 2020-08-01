@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ProductCatalogVerticalValues extends AbstractEnum {
 
+  const ADOPTABLE_PETS = 'adoptable_pets';
   const BOOKABLE = 'bookable';
   const COMMERCE = 'commerce';
   const DESTINATIONS = 'destinations';

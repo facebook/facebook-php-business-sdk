@@ -38,7 +38,6 @@ use FacebookAds\Enum\AbstractEnum;
 class AdVideoOriginalProjectionTypeValues extends AbstractEnum {
 
   const CUBEMAP = 'cubemap';
-  const EQUIANGULAR_CUBEMAP = 'equiangular_cubemap';
   const EQUIRECTANGULAR = 'equirectangular';
   const HALF_EQUIRECTANGULAR = 'half_equirectangular';
 }

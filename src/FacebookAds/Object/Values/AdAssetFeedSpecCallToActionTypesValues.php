@@ -81,6 +81,7 @@ class AdAssetFeedSpecCallToActionTypesValues extends AbstractEnum {
   const SAY_THANKS = 'SAY_THANKS';
   const SEE_MORE = 'SEE_MORE';
   const SELL_NOW = 'SELL_NOW';
+  const SEND_A_GIFT = 'SEND_A_GIFT';
   const SHARE = 'SHARE';
   const SHOP_NOW = 'SHOP_NOW';
   const SIGN_UP = 'SIGN_UP';

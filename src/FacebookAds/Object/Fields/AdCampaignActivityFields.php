@@ -53,8 +53,6 @@ class AdCampaignActivityFields extends AbstractEnum {
   const BID_TYPE_OLD = 'bid_type_old';
   const BILLING_EVENT_NEW = 'billing_event_new';
   const BILLING_EVENT_OLD = 'billing_event_old';
-  const BRANDE_AUDIENCE_ID_NEW = 'brande_audience_id_new';
-  const BRANDE_AUDIENCE_ID_OLD = 'brande_audience_id_old';
   const BUDGET_LIMIT_NEW = 'budget_limit_new';
   const BUDGET_LIMIT_OLD = 'budget_limit_old';
   const CREATED_TIME = 'created_time';
@@ -112,8 +110,6 @@ class AdCampaignActivityFields extends AbstractEnum {
       'bid_type_old' => 'string',
       'billing_event_new' => 'BillingEventNew',
       'billing_event_old' => 'BillingEventOld',
-      'brande_audience_id_new' => 'BrandAudience',
-      'brande_audience_id_old' => 'BrandAudience',
       'budget_limit_new' => 'Object',
       'budget_limit_old' => 'Object',
       'created_time' => 'datetime',

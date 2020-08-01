@@ -22,13 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Fields;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\UserInfluenceFields;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-generated.
@@ -39,19 +35,17 @@ use FacebookAds\Object\Fields\UserInfluenceFields;
  *
  */
 
-class UserInfluence extends AbstractObject {
+class ProductSetMetadataFields extends AbstractEnum {
 
-  /**
-   * @return UserInfluenceFields
-   */
-  public static function getFieldsEnum() {
-    return UserInfluenceFields::getInstance();
+  const COVER_IMAGE_URL = 'cover_image_url';
+  const DESCRIPTION = 'description';
+  const INTEGRITY_REVIEW_STATUS = 'integrity_review_status';
+
+  public function getFieldTypes() {
+    return array(
+      'cover_image_url' => 'string',
+      'description' => 'string',
+      'integrity_review_status' => 'string',
+    );
   }
-
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
 }

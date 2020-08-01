@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,33 +33,13 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static EventOnlineEventFormatValues getInstance()
  */
+class EventOnlineEventFormatValues extends AbstractEnum {
 
-class BrandAudienceFields extends AbstractEnum {
-
-  const ACCOUNT = 'account';
-  const DELIVERY_TARGETING = 'delivery_targeting';
-  const DESCRIPTION = 'description';
-  const ID = 'id';
-  const NAME = 'name';
-  const SENTENCE_LINES = 'sentence_lines';
-  const STATUS = 'status';
-  const TARGETING = 'targeting';
-  const TIME_CREATED = 'time_created';
-  const TIME_UPDATED = 'time_updated';
-
-  public function getFieldTypes() {
-    return array(
-      'account' => 'AdAccount',
-      'delivery_targeting' => 'Targeting',
-      'description' => 'string',
-      'id' => 'string',
-      'name' => 'string',
-      'sentence_lines' => 'list',
-      'status' => 'string',
-      'targeting' => 'Targeting',
-      'time_created' => 'datetime',
-      'time_updated' => 'datetime',
-    );
-  }
+  const FB_LIVE = 'fb_live';
+  const MESSENGER_ROOM = 'messenger_room';
+  const NONE = 'none';
+  const OTHER = 'other';
+  const THIRD_PARTY = 'third_party';
 }

@@ -102,4 +102,31 @@ class MediaFingerprint extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'metadata' => 'list',
+      'source' => 'file',
+      'title' => 'string',
+      'universal_content_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/',
+      new MediaFingerprint(),
+      'NODE',
+      MediaFingerprint::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
 }

@@ -56,6 +56,8 @@ class EventFields extends AbstractEnum {
   const MAYBE_COUNT = 'maybe_count';
   const NAME = 'name';
   const NOREPLY_COUNT = 'noreply_count';
+  const ONLINE_EVENT_FORMAT = 'online_event_format';
+  const ONLINE_EVENT_THIRD_PARTY_URL = 'online_event_third_party_url';
   const OWNER = 'owner';
   const PARENT_GROUP = 'parent_group';
   const PLACE = 'place';
@@ -90,6 +92,8 @@ class EventFields extends AbstractEnum {
       'maybe_count' => 'int',
       'name' => 'string',
       'noreply_count' => 'int',
+      'online_event_format' => 'OnlineEventFormat',
+      'online_event_third_party_url' => 'string',
       'owner' => 'Object',
       'parent_group' => 'Group',
       'place' => 'Place',

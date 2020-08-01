@@ -84,6 +84,7 @@ use FacebookAds\Object\Values\PageUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\PhotoBackdatedTimeGranularityValues;
 use FacebookAds\Object\Values\PhotoTypeValues;
 use FacebookAds\Object\Values\PhotoUnpublishedContentTypeValues;
+use FacebookAds\Object\Values\ProfilePictureSourceBreakingChangeValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
 use FacebookAds\Object\Values\VideoCopyrightContentCategoryValues;
 use FacebookAds\Object\Values\VideoCopyrightMonitoringTypeValues;
@@ -2033,6 +2034,7 @@ class Page extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'api_version' => 'Object',
       'custom_token' => 'string',
       'model' => 'model_enum',
       'n_best' => 'unsigned int',
@@ -2281,7 +2283,6 @@ class Page extends AbstractCrudObject {
       'initial_view_heading_override_degrees' => 'unsigned int',
       'initial_view_pitch_override_degrees' => 'unsigned int',
       'initial_view_vertical_fov_override_degrees' => 'unsigned int',
-      'instagram_product_tags' => 'list<map>',
       'ios_bundle_id' => 'string',
       'is_explicit_location' => 'bool',
       'is_explicit_place' => 'bool',
@@ -2345,12 +2346,14 @@ class Page extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'breaking_change' => 'breaking_change_enum',
       'height' => 'int',
       'redirect' => 'bool',
       'type' => 'type_enum',
       'width' => 'int',
     );
     $enums = array(
+      'breaking_change_enum' => ProfilePictureSourceBreakingChangeValues::getInstance()->getValues(),
       'type_enum' => ProfilePictureSourceTypeValues::getInstance()->getValues(),
     );
 
@@ -3221,6 +3224,7 @@ class Page extends AbstractCrudObject {
       'container_type' => 'container_type_enum',
       'content_category' => 'content_category_enum',
       'content_tags' => 'list<string>',
+      'creative_tools' => 'string',
       'crossposted_video_id' => 'string',
       'custom_labels' => 'list<string>',
       'description' => 'string',
@@ -3293,6 +3297,7 @@ class Page extends AbstractCrudObject {
       'upload_setting_properties' => 'string',
       'video_asset_id' => 'string',
       'video_file_chunk' => 'string',
+      'video_id_original' => 'string',
       'video_start_time_ms' => 'unsigned int',
       'waterfall_id' => 'string',
     );

@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\WorkMeetingLinkFields;
 
 /**
  * This class is auto-generated.
@@ -35,15 +39,42 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class StreamingReactionFields extends AbstractEnum {
+class WorkMeetingLink extends AbstractCrudObject {
 
-  const COUNT = 'count';
-  const REACTION_TYPE = 'reaction_type';
-
-  public function getFieldTypes() {
-    return array(
-      'count' => 'unsigned int',
-      'reaction_type' => 'ReactionType',
-    );
+  /**
+   * @return WorkMeetingLinkFields
+   */
+  public static function getFieldsEnum() {
+    return WorkMeetingLinkFields::getInstance();
   }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new WorkMeetingLink(),
+      'NODE',
+      WorkMeetingLink::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
 }

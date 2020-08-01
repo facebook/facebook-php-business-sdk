@@ -963,6 +963,7 @@ class ProductCatalog extends AbstractCrudObject {
 
     $param_types = array(
       'filter' => 'Object',
+      'metadata' => 'map',
       'name' => 'string',
     );
     $enums = array(
@@ -1261,8 +1262,15 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'segment_use_cases' => 'list<segment_use_cases_enum>',
     );
     $enums = array(
+      'segment_use_cases_enum' => array(
+        'COLLAB_ADS',
+        'COLLAB_ADS_FOR_MARKETPLACE_PARTNER',
+        'IG_SHOPPING',
+        'TEST',
+      ),
     );
 
     $request = new ApiRequest(

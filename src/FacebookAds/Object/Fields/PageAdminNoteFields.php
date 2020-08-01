@@ -40,6 +40,7 @@ class PageAdminNoteFields extends AbstractEnum {
   const BODY = 'body';
   const FROM = 'from';
   const ID = 'id';
+  const NOTE_LABEL = 'note_label';
   const USER = 'user';
 
   public function getFieldTypes() {
@@ -47,6 +48,7 @@ class PageAdminNoteFields extends AbstractEnum {
       'body' => 'string',
       'from' => 'Page',
       'id' => 'string',
+      'note_label' => 'string',
       'user' => 'User',
     );
   }

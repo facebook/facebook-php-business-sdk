@@ -58,6 +58,7 @@ class CommerceMerchantSettingsFields extends AbstractEnum {
   const SUPPORTED_CARD_TYPES = 'supported_card_types';
   const TERMS = 'terms';
   const TERMS_URL_BY_LOCALE = 'terms_url_by_locale';
+  const WHATSAPP_CHANNEL = 'whatsapp_channel';
 
   public function getFieldTypes() {
     return array(
@@ -82,6 +83,7 @@ class CommerceMerchantSettingsFields extends AbstractEnum {
       'supported_card_types' => 'list<string>',
       'terms' => 'string',
       'terms_url_by_locale' => 'map<string, string>',
+      'whatsapp_channel' => 'Object',
     );
   }
 }

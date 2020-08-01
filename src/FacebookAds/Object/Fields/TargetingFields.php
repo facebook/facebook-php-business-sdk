@@ -95,6 +95,7 @@ class TargetingFields extends AbstractEnum {
   const INCOME = 'income';
   const INDUSTRIES = 'industries';
   const INSTAGRAM_POSITIONS = 'instagram_positions';
+  const INSTREAM_VIDEO_SKIPPABLE_EXCLUDED = 'instream_video_skippable_excluded';
   const INTERESTED_IN = 'interested_in';
   const INTERESTS = 'interests';
   const IS_WHATSAPP_DESTINATION_AD = 'is_whatsapp_destination_ad';
@@ -185,6 +186,7 @@ class TargetingFields extends AbstractEnum {
       'income' => 'list<IDName>',
       'industries' => 'list<IDName>',
       'instagram_positions' => 'list<string>',
+      'instream_video_skippable_excluded' => 'bool',
       'interested_in' => 'list<unsigned int>',
       'interests' => 'list<IDName>',
       'is_whatsapp_destination_ad' => 'bool',

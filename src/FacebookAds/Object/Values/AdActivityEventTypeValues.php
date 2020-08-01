@@ -92,6 +92,7 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const UPDATE_AD_SET_BIDDING = 'update_ad_set_bidding';
   const UPDATE_AD_SET_BUDGET = 'update_ad_set_budget';
   const UPDATE_AD_SET_DURATION = 'update_ad_set_duration';
+  const UPDATE_AD_SET_LEARNING_STAGE_STATUS = 'update_ad_set_learning_stage_status';
   const UPDATE_AD_SET_MIN_SPEND_TARGET = 'update_ad_set_min_spend_target';
   const UPDATE_AD_SET_NAME = 'update_ad_set_name';
   const UPDATE_AD_SET_OPTIMIZATION_GOAL = 'update_ad_set_optimization_goal';
@@ -112,4 +113,5 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const UPDATE_CAMPAIGN_NAME = 'update_campaign_name';
   const UPDATE_CAMPAIGN_RUN_STATUS = 'update_campaign_run_status';
   const UPDATE_CAMPAIGN_SCHEDULE = 'update_campaign_schedule';
+  const UPDATE_DELIVERY_TYPE_CROSS_LEVEL_SHIFT = 'update_delivery_type_cross_level_shift';
 }

@@ -31,6 +31,7 @@ use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\EventFields;
 use FacebookAds\Object\Values\EventCategoryValues;
 use FacebookAds\Object\Values\EventEventStateFilterValues;
+use FacebookAds\Object\Values\EventOnlineEventFormatValues;
 use FacebookAds\Object\Values\EventTimeFilterValues;
 use FacebookAds\Object\Values\EventTypeValues;
 use FacebookAds\Object\Values\LiveVideoProjectionValues;
@@ -60,6 +61,7 @@ class Event extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['Category'] = EventCategoryValues::getInstance()->getValues();
+    $ref_enums['OnlineEventFormat'] = EventOnlineEventFormatValues::getInstance()->getValues();
     $ref_enums['Type'] = EventTypeValues::getInstance()->getValues();
     $ref_enums['EventStateFilter'] = EventEventStateFilterValues::getInstance()->getValues();
     $ref_enums['TimeFilter'] = EventTimeFilterValues::getInstance()->getValues();

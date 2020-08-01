@@ -45,6 +45,7 @@ use FacebookAds\Object\Values\AdAccountTargetingUnifiedRegulatedCategoriesValues
 use FacebookAds\Object\Values\AdAccountTargetingUnifiedWhitelistedTypesValues;
 use FacebookAds\Object\Values\AdAccountTasksValues;
 use FacebookAds\Object\Values\AdActivityCategoryValues;
+use FacebookAds\Object\Values\AdActivityDataSourceValues;
 use FacebookAds\Object\Values\AdAsyncRequestSetNotificationModeValues;
 use FacebookAds\Object\Values\AdCreativeApplinkTreatmentValues;
 use FacebookAds\Object\Values\AdCreativeAuthorizationCategoryValues;
@@ -100,6 +101,7 @@ use FacebookAds\Object\Values\CampaignExecutionOptionsValues;
 use FacebookAds\Object\Values\CampaignObjectiveValues;
 use FacebookAds\Object\Values\CampaignOperatorValues;
 use FacebookAds\Object\Values\CampaignSpecialAdCategoriesValues;
+use FacebookAds\Object\Values\CampaignSpecialAdCategoryCountryValues;
 use FacebookAds\Object\Values\CampaignStatusValues;
 use FacebookAds\Object\Values\ContentDeliveryReportPlatformValues;
 use FacebookAds\Object\Values\ContentDeliveryReportPositionValues;
@@ -157,6 +159,7 @@ class AdAccount extends AbstractCrudObject {
       'after' => 'string',
       'business_id' => 'string',
       'category' => 'category_enum',
+      'data_source' => 'data_source_enum',
       'extra_oids' => 'list<string>',
       'limit' => 'int',
       'oid' => 'string',
@@ -166,6 +169,7 @@ class AdAccount extends AbstractCrudObject {
     );
     $enums = array(
       'category_enum' => AdActivityCategoryValues::getInstance()->getValues(),
+      'data_source_enum' => AdActivityDataSourceValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1129,6 +1133,7 @@ class AdAccount extends AbstractCrudObject {
       'composer_type' => 'string',
       'container_type' => 'container_type_enum',
       'content_category' => 'content_category_enum',
+      'creative_tools' => 'string',
       'description' => 'string',
       'embeddable' => 'bool',
       'end_offset' => 'unsigned int',
@@ -1182,6 +1187,7 @@ class AdAccount extends AbstractCrudObject {
       'upload_session_id' => 'string',
       'upload_setting_properties' => 'string',
       'video_file_chunk' => 'file',
+      'video_id_original' => 'string',
       'video_start_time_ms' => 'unsigned int',
       'waterfall_id' => 'string',
     );
@@ -1660,6 +1666,7 @@ class AdAccount extends AbstractCrudObject {
       'promoted_object' => 'Object',
       'source_campaign_id' => 'string',
       'special_ad_categories' => 'list<special_ad_categories_enum>',
+      'special_ad_category_country' => 'list<special_ad_category_country_enum>',
       'spend_cap' => 'unsigned int',
       'status' => 'status_enum',
       'topline_id' => 'string',
@@ -1670,6 +1677,7 @@ class AdAccount extends AbstractCrudObject {
       'execution_options_enum' => CampaignExecutionOptionsValues::getInstance()->getValues(),
       'objective_enum' => CampaignObjectiveValues::getInstance()->getValues(),
       'special_ad_categories_enum' => CampaignSpecialAdCategoriesValues::getInstance()->getValues(),
+      'special_ad_category_country_enum' => CampaignSpecialAdCategoryCountryValues::getInstance()->getValues(),
       'status_enum' => CampaignStatusValues::getInstance()->getValues(),
     );
 

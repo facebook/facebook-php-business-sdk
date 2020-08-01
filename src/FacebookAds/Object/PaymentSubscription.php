@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\PaymentSubscriptionFields;
 
 /**
  * This class is auto-generated.
@@ -35,21 +39,42 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class MessengerPlatformReferralFields extends AbstractEnum {
+class PaymentSubscription extends AbstractCrudObject {
 
-  const AD_ID = 'ad_id';
-  const ID = 'id';
-  const REF = 'ref';
-  const SOURCE = 'source';
-  const TYPE = 'type';
-
-  public function getFieldTypes() {
-    return array(
-      'ad_id' => 'string',
-      'id' => 'string',
-      'ref' => 'string',
-      'source' => 'string',
-      'type' => 'string',
-    );
+  /**
+   * @return PaymentSubscriptionFields
+   */
+  public static function getFieldsEnum() {
+    return PaymentSubscriptionFields::getInstance();
   }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new PaymentSubscription(),
+      'NODE',
+      PaymentSubscription::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
 }

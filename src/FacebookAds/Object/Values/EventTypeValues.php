@@ -38,6 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class EventTypeValues extends AbstractEnum {
 
   const COMMUNITY = 'community';
+  const FRIENDS = 'friends';
   const GROUP = 'group';
   const VALUE_PRIVATE = 'private';
   const VALUE_PUBLIC = 'public';

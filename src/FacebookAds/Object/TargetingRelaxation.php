@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\TargetingRelaxationFields;
 
 /**
  * This class is auto-generated.
@@ -35,29 +39,19 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class BusinessCreativeFolderFields extends AbstractEnum {
+class TargetingRelaxation extends AbstractObject {
 
-  const BUSINESS = 'business';
-  const CREATION_TIME = 'creation_time';
-  const CREATIVE_INSIGHT_PERMISSIONS = 'creative_insight_permissions';
-  const DESCRIPTION = 'description';
-  const ID = 'id';
-  const MEDIA_LIBRARY_URL = 'media_library_url';
-  const NAME = 'name';
-  const PARENT_FOLDER = 'parent_folder';
-  const PARENT_FOLDER_ID = 'parent_folder_id';
-
-  public function getFieldTypes() {
-    return array(
-      'business' => 'Business',
-      'creation_time' => 'datetime',
-      'creative_insight_permissions' => 'map<string, string>',
-      'description' => 'string',
-      'id' => 'string',
-      'media_library_url' => 'string',
-      'name' => 'string',
-      'parent_folder' => 'BusinessCreativeFolder',
-      'parent_folder_id' => 'string',
-    );
+  /**
+   * @return TargetingRelaxationFields
+   */
+  public static function getFieldsEnum() {
+    return TargetingRelaxationFields::getInstance();
   }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
 }

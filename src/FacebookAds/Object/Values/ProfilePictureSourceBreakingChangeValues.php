@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,35 +33,9 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static ProfilePictureSourceBreakingChangeValues getInstance()
  */
+class ProfilePictureSourceBreakingChangeValues extends AbstractEnum {
 
-class BusinessCreativeFields extends AbstractEnum {
-
-  const CREATION_TIME = 'creation_time';
-  const DURATION = 'duration';
-  const HASH = 'hash';
-  const HEIGHT = 'height';
-  const ID = 'id';
-  const NAME = 'name';
-  const THUMBNAIL = 'thumbnail';
-  const TYPE = 'type';
-  const URL = 'url';
-  const VIDEO_ID = 'video_id';
-  const WIDTH = 'width';
-
-  public function getFieldTypes() {
-    return array(
-      'creation_time' => 'datetime',
-      'duration' => 'int',
-      'hash' => 'string',
-      'height' => 'int',
-      'id' => 'string',
-      'name' => 'string',
-      'thumbnail' => 'string',
-      'type' => 'string',
-      'url' => 'string',
-      'video_id' => 'string',
-      'width' => 'int',
-    );
-  }
+  const PROFILE_PICTURE = 'PROFILE_PICTURE';
 }

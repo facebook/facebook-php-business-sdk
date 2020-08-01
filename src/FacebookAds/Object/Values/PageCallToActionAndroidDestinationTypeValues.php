@@ -42,6 +42,7 @@ class PageCallToActionAndroidDestinationTypeValues extends AbstractEnum {
   const EMAIL = 'EMAIL';
   const FACEBOOK_APP = 'FACEBOOK_APP';
   const FOLLOW = 'FOLLOW';
+  const MARKETPLACE_INVENTORY_PAGE = 'MARKETPLACE_INVENTORY_PAGE';
   const MESSENGER = 'MESSENGER';
   const MINI_SHOP = 'MINI_SHOP';
   const NONE = 'NONE';

@@ -47,6 +47,7 @@ use FacebookAds\Object\Values\CampaignExecutionOptionsValues;
 use FacebookAds\Object\Values\CampaignObjectiveValues;
 use FacebookAds\Object\Values\CampaignOperatorValues;
 use FacebookAds\Object\Values\CampaignSpecialAdCategoriesValues;
+use FacebookAds\Object\Values\CampaignSpecialAdCategoryCountryValues;
 use FacebookAds\Object\Values\CampaignSpecialAdCategoryValues;
 use FacebookAds\Object\Values\CampaignStatusOptionValues;
 use FacebookAds\Object\Values\CampaignStatusValues;
@@ -93,6 +94,7 @@ class Campaign extends AbstractArchivableCrudObject {
     $ref_enums['ExecutionOptions'] = CampaignExecutionOptionsValues::getInstance()->getValues();
     $ref_enums['Objective'] = CampaignObjectiveValues::getInstance()->getValues();
     $ref_enums['SpecialAdCategories'] = CampaignSpecialAdCategoriesValues::getInstance()->getValues();
+    $ref_enums['SpecialAdCategoryCountry'] = CampaignSpecialAdCategoryCountryValues::getInstance()->getValues();
     $ref_enums['Operator'] = CampaignOperatorValues::getInstance()->getValues();
     $ref_enums['SpecialAdCategory'] = CampaignSpecialAdCategoryValues::getInstance()->getValues();
     $ref_enums['StatusOption'] = CampaignStatusOptionValues::getInstance()->getValues();
@@ -509,6 +511,7 @@ class Campaign extends AbstractArchivableCrudObject {
       'promoted_object' => 'Object',
       'special_ad_categories' => 'list<special_ad_categories_enum>',
       'special_ad_category' => 'special_ad_category_enum',
+      'special_ad_category_country' => 'list<special_ad_category_country_enum>',
       'spend_cap' => 'unsigned int',
       'status' => 'status_enum',
       'upstream_events' => 'map',
@@ -519,6 +522,7 @@ class Campaign extends AbstractArchivableCrudObject {
       'objective_enum' => CampaignObjectiveValues::getInstance()->getValues(),
       'special_ad_categories_enum' => CampaignSpecialAdCategoriesValues::getInstance()->getValues(),
       'special_ad_category_enum' => CampaignSpecialAdCategoryValues::getInstance()->getValues(),
+      'special_ad_category_country_enum' => CampaignSpecialAdCategoryCountryValues::getInstance()->getValues(),
       'status_enum' => CampaignStatusValues::getInstance()->getValues(),
     );
 

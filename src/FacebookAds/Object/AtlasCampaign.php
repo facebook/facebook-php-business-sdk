@@ -114,6 +114,9 @@ class AtlasCampaign extends AbstractCrudObject {
     );
     $enums = array(
       'dimensions_enum' => array(
+        'AD_ID',
+        'AD_SET_ID',
+        'CAMPAIGN_ID',
         'DEVICE_TYPE',
         'SOURCE_CHANNEL',
       ),
@@ -121,7 +124,7 @@ class AtlasCampaign extends AbstractCrudObject {
         'DAY',
         'HOUR',
         'MONTH',
-        'WEEK',
+        'WEEK_SUNDAY',
         'YEAR',
       ),
     );

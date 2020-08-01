@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,18 +33,17 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static StreamingReactionReactionTypeValues getInstance()
  */
-class StreamingReactionReactionTypeValues extends AbstractEnum {
 
-  const ANGRY = 'ANGRY';
-  const CARE = 'CARE';
-  const HAHA = 'HAHA';
-  const LIKE = 'LIKE';
-  const LOVE = 'LOVE';
-  const NONE = 'NONE';
-  const PRIDE = 'PRIDE';
-  const SAD = 'SAD';
-  const THANKFUL = 'THANKFUL';
-  const WOW = 'WOW';
+class WorkMeetingLinkFields extends AbstractEnum {
+
+  const ID = 'id';
+  const OWNER = 'owner';
+
+  public function getFieldTypes() {
+    return array(
+      'id' => 'string',
+      'owner' => 'User',
+    );
+  }
 }

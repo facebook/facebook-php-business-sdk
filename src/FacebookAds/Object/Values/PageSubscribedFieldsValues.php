@@ -45,7 +45,6 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const BRANDED_CAMERA = 'branded_camera';
   const CATEGORY = 'category';
   const CHECKINS = 'checkins';
-  const COMMERCE_ORDER = 'commerce_order';
   const COMPANY_OVERVIEW = 'company_overview';
   const CONVERSATIONS = 'conversations';
   const CULINARY_TEAM = 'culinary_team';
@@ -81,6 +80,7 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const MESSAGING_CHECKOUT_UPDATES = 'messaging_checkout_updates';
   const MESSAGING_DIRECT_SENDS = 'messaging_direct_sends';
   const MESSAGING_FBLOGIN_ACCOUNT_LINKING = 'messaging_fblogin_account_linking';
+  const MESSAGING_FEEDBACK = 'messaging_feedback';
   const MESSAGING_GAME_PLAYS = 'messaging_game_plays';
   const MESSAGING_HANDOVERS = 'messaging_handovers';
   const MESSAGING_OPTINS = 'messaging_optins';

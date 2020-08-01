@@ -40,18 +40,24 @@ class ProductSetFields extends AbstractEnum {
   const AUTO_CREATION_URL = 'auto_creation_url';
   const FILTER = 'filter';
   const ID = 'id';
+  const LATEST_METADATA = 'latest_metadata';
+  const LIVE_METADATA = 'live_metadata';
   const NAME = 'name';
   const PRODUCT_CATALOG = 'product_catalog';
   const PRODUCT_COUNT = 'product_count';
+  const METADATA = 'metadata';
 
   public function getFieldTypes() {
     return array(
       'auto_creation_url' => 'string',
       'filter' => 'string',
       'id' => 'string',
+      'latest_metadata' => 'ProductSetMetadata',
+      'live_metadata' => 'ProductSetMetadata',
       'name' => 'string',
       'product_catalog' => 'ProductCatalog',
       'product_count' => 'unsigned int',
+      'metadata' => 'map',
     );
   }
 }

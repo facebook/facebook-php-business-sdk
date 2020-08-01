@@ -28,7 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\BrandAudienceFields;
+use FacebookAds\Object\Fields\AdoptablePetFields;
 
 /**
  * This class is auto-generated.
@@ -39,13 +39,13 @@ use FacebookAds\Object\Fields\BrandAudienceFields;
  *
  */
 
-class BrandAudience extends AbstractCrudObject {
+class AdoptablePet extends AbstractCrudObject {
 
   /**
-   * @return BrandAudienceFields
+   * @return AdoptablePetFields
    */
   public static function getFieldsEnum() {
-    return BrandAudienceFields::getInstance();
+    return AdoptablePetFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -67,9 +67,9 @@ class BrandAudience extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new BrandAudience(),
+      new AdoptablePet(),
       'NODE',
-      BrandAudience::getFieldsEnum()->getValues(),
+      AdoptablePet::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

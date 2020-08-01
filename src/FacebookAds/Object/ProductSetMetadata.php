@@ -28,7 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\CreativeAssetTagFields;
+use FacebookAds\Object\Fields\ProductSetMetadataFields;
 
 /**
  * This class is auto-generated.
@@ -39,13 +39,13 @@ use FacebookAds\Object\Fields\CreativeAssetTagFields;
  *
  */
 
-class CreativeAssetTag extends AbstractObject {
+class ProductSetMetadata extends AbstractObject {
 
   /**
-   * @return CreativeAssetTagFields
+   * @return ProductSetMetadataFields
    */
   public static function getFieldsEnum() {
-    return CreativeAssetTagFields::getInstance();
+    return ProductSetMetadataFields::getInstance();
   }
 
   protected static function getReferencedEnums() {

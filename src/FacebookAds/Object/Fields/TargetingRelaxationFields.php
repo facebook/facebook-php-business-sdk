@@ -35,19 +35,13 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class ClientTransparencyStatusFields extends AbstractEnum {
+class TargetingRelaxationFields extends AbstractEnum {
 
-  const GRACE_PERIOD_EXPIRATION_DATE = 'grace_period_expiration_date';
-  const HAS_OWNING_BUSINESS = 'has_owning_business';
-  const IS_SATISFIED = 'is_satisfied';
-  const OWNING_BUSINESS_REQUIREMENTS = 'owning_business_requirements';
+  const LOOKALIKE = 'lookalike';
 
   public function getFieldTypes() {
     return array(
-      'grace_period_expiration_date' => 'datetime',
-      'has_owning_business' => 'bool',
-      'is_satisfied' => 'bool',
-      'owning_business_requirements' => 'Object',
+      'lookalike' => 'unsigned int',
     );
   }
 }
