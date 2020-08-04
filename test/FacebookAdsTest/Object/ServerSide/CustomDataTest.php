@@ -27,6 +27,7 @@ namespace FacebookAdsTest\Object;
 use FacebookAdsTest\AbstractUnitTestCase;
 use FacebookAds\Object\ServerSide\CustomData;
 use FacebookAds\Object\ServerSide\Content;
+use FacebookAds\Object\ServerSide\DeliveryCategory;
 
 class CustomDataTest extends AbstractUnitTestCase {
   public function testBuilderAndConstructor() {
@@ -49,6 +50,7 @@ class CustomDataTest extends AbstractUnitTestCase {
       'status' => 'status-8',
       'search_string' => 'search-string-9',
       'item_number' => 'item-number-10',
+      'delivery_category' => DeliveryCategory::CURBSIDE,
     );
     $expected = array_merge(
       $state,
@@ -69,6 +71,7 @@ class CustomDataTest extends AbstractUnitTestCase {
       ->setStatus($state['status'])
       ->setSearchString($state['search_string'])
       ->setItemNumber($state['item_number'])
+      ->setDeliveryCategory($state['delivery_category'])
       ->setCustomProperties($custom_properties);
     $this->assertEquals($expected, $builder->normalize());
 
@@ -86,8 +89,25 @@ class CustomDataTest extends AbstractUnitTestCase {
       'status' => $state['status'],
       'search_string' => $state['search_string'],
       'item_number' => $state['item_number'],
+      'delivery_category' => $state['delivery_category'],
       'custom_properties' => $custom_properties
     ));
     $this->assertEquals($expected, $constructor->normalize());
+  }
+
+  public function testInvalidDeliveryCategory() {
+    $test_delivery_category = 'invalid_delivery_category';
+
+    $custom_data = (new CustomData())->setDeliveryCategory($test_delivery_category);
+
+    try {
+     $normalized_payload = $custom_data->normalize();
+    } catch (\Exception $exception) {
+      $has_throw_exception = true;
+      $expected_string = sprintf("Invalid delivery_category passed: %s",$test_delivery_category);
+      $this->assertStringContainsString($expected_string, $exception->getMessage());
+    }
+
+    $this->assertTrue($has_throw_exception);
   }
 }

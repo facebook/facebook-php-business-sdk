@@ -103,6 +103,10 @@ class Normalizer {
       case 'doby':
         $normalized_data = Normalizer::normalizeDoby($data);
         break;
+
+      case 'delivery_category':
+        $normalized_data = Normalizer::normalizeDeliveryCategory($data);
+        break;
       default:
     }
 
@@ -265,6 +269,21 @@ class Normalizer {
     }
 
     return $doby;
+  }
+
+  /**
+   * Normalizes the type of DeliveryCategory and throws error if invalid.
+   * @param string $delivery_category type of DeliveryCategory.
+   * @return string
+   */
+  private static function normalizeDeliveryCategory($delivery_category) {
+
+    $delivery_categories = DeliveryCategory::getInstance()->getValues();
+      if(!DeliveryCategory::getInstance()->isValidValue($delivery_category))
+        throw new InvalidArgumentException('Invalid delivery_category passed: ' . $delivery_category .
+                          '.Allowed values are one of ' . implode(",",$delivery_categories));
+
+    return $delivery_category;
   }
 
   /**

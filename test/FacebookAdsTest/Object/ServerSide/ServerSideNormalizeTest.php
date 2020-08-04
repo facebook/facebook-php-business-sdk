@@ -501,4 +501,33 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
     }
     $this->assertEquals(count($failure_cases), $exceptions_counter);
   }
+
+  /**
+   * Test cases for DeliveryCategory Normalization
+   */
+  public function deliveryCategoryNormalizeData() {
+    return array(
+      array(
+        'home_delivery',
+        'home_delivery',
+      ),
+      array(
+        'CURBSIDE',
+        'curbside',
+      ),
+      array(
+        ' IN_STORE ',
+        'in_store',
+      ),
+    );
+  }
+
+  /**
+   * @dataProvider deliveryCategoryNormalizeData
+   */
+  public function testDeliveryCategoryNormalize($input, $expected) {
+    $this->assertEquals(
+      $expected,
+      Normalizer::normalize('delivery_category', $input));
+  }
 }

@@ -25,6 +25,7 @@
 namespace FacebookAds\Object\ServerSide;
 
 use ArrayAccess;
+use InvalidArgumentException;
 
 
 class CustomData implements ArrayAccess {
@@ -47,6 +48,7 @@ class CustomData implements ArrayAccess {
     'status' => 'string',
     'search_string' => 'string',
     'item_number' => 'string',
+    'delivery_category' => 'string',
     'custom_properties' => 'array'
   );
   /**
@@ -67,6 +69,7 @@ class CustomData implements ArrayAccess {
     'status' => 'status',
     'search_string' => 'search_string',
     'item_number' => 'item_number',
+    'delivery_category' => 'delivery_category',
     'custom_properties' => 'custom_properties'
   );
   /**
@@ -87,6 +90,7 @@ class CustomData implements ArrayAccess {
     'status' => 'setStatus',
     'search_string' => 'setSearchString',
     'item_number' => 'setItemNumber',
+    'delivery_category' => 'setDeliveryCategory',
     'custom_properties' => 'setCustomProperties'
   );
   /**
@@ -107,6 +111,7 @@ class CustomData implements ArrayAccess {
     'status' => 'getStatus',
     'search_string' => 'getSearchString',
     'item_number' => 'getItemNumber',
+    'delivery_category' => 'getDeliveryCategory',
     'custom_properties' => 'getCustomProperties'
   );
   /**
@@ -133,6 +138,7 @@ class CustomData implements ArrayAccess {
     $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     $this->container['search_string'] = isset($data['search_string']) ? $data['search_string'] : null;
     $this->container['item_number'] = isset($data['item_number']) ? $data['item_number'] : null;
+    $this->container['delivery_category'] = isset($data['delivery_category']) ? $data['delivery_category'] : null;
     $this->container['custom_properties'] = isset($data['custom_properties']) ? $data['custom_properties'] : null;
   }
 
@@ -316,6 +322,17 @@ class CustomData implements ArrayAccess {
   }
 
   /**
+   * Sets Type of delivery for a purchase event.
+   * @param string $delivery_category Type of delivery for a purchase event.
+   * @return $this
+   */
+  public function setDeliveryCategory($delivery_category) {
+    $this->container['delivery_category'] = $delivery_category;
+
+    return $this;
+  }
+
+  /**
    * Sets the item_number.
    * @param string $item_number The item number.
    * @return $this
@@ -417,6 +434,8 @@ class CustomData implements ArrayAccess {
     $normalized_payload['status'] = $this->getStatus();
     $normalized_payload['search_string'] = $this->getSearchString();
     $normalized_payload['item_number'] = $this->getItemNumber();
+    $normalized_payload['delivery_category'] =
+      Normalizer::normalize('delivery_category', $this->getDeliveryCategory());
 
     if (isset($this->container['contents'])) {
       $contents = [];
@@ -539,6 +558,14 @@ class CustomData implements ArrayAccess {
    */
   public function getSearchString() {
     return $this->container['search_string'];
+  }
+
+  /**
+   * Gets a delivery_category for a purchase order.
+   * @return string
+   */
+  public function getDeliveryCategory() {
+    return $this->container['delivery_category'];
   }
 
   /**
