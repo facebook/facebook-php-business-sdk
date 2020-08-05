@@ -48,7 +48,6 @@ class AdReportSpecFields extends AbstractEnum {
   const ID = 'id';
   const INSIGHTS_SECTION = 'insights_section';
   const NAME = 'name';
-  const REPORT_SCHEDULE = 'report_schedule';
   const REPORT_SCHEDULE_ID = 'report_schedule_id';
   const SORT_BY = 'sort_by';
   const SORT_DIR = 'sort_dir';
@@ -69,7 +68,6 @@ class AdReportSpecFields extends AbstractEnum {
       'id' => 'string',
       'insights_section' => 'Object',
       'name' => 'string',
-      'report_schedule' => 'Object',
       'report_schedule_id' => 'string',
       'sort_by' => 'string',
       'sort_dir' => 'string',

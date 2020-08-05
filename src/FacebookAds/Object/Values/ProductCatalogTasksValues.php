@@ -39,4 +39,5 @@ class ProductCatalogTasksValues extends AbstractEnum {
 
   const ADVERTISE = 'ADVERTISE';
   const MANAGE = 'MANAGE';
+  const MANAGE_AR = 'MANAGE_AR';
 }

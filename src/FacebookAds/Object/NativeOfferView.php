@@ -54,29 +54,6 @@ class NativeOfferView extends AbstractCrudObject {
   }
 
 
-  public function getPhotos(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/photos',
-      new Photo(),
-      'EDGE',
-      Photo::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function createPhoto(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 

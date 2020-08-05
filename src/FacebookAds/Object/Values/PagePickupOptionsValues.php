@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,27 +33,11 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static PagePickupOptionsValues getInstance()
  */
+class PagePickupOptionsValues extends AbstractEnum {
 
-class PageAboutStoryFields extends AbstractEnum {
-
-  const COMPOSED_TEXT = 'composed_text';
-  const COVER_PHOTO = 'cover_photo';
-  const ENTITY_MAP = 'entity_map';
-  const ID = 'id';
-  const IS_PUBLISHED = 'is_published';
-  const PAGE_ID = 'page_id';
-  const TITLE = 'title';
-
-  public function getFieldTypes() {
-    return array(
-      'composed_text' => 'list<Object>',
-      'cover_photo' => 'Photo',
-      'entity_map' => 'list<Object>',
-      'id' => 'string',
-      'is_published' => 'bool',
-      'page_id' => 'string',
-      'title' => 'string',
-    );
-  }
+  const CURBSIDE = 'CURBSIDE';
+  const IN_STORE = 'IN_STORE';
+  const OTHER = 'OTHER';
 }

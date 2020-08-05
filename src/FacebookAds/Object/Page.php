@@ -60,26 +60,23 @@ use FacebookAds\Object\Values\NativeOfferLocationTypeValues;
 use FacebookAds\Object\Values\PageAttireValues;
 use FacebookAds\Object\Values\PageBackdatedTimeGranularityValues;
 use FacebookAds\Object\Values\PageCheckinEntryPointValues;
-use FacebookAds\Object\Values\PageDomainActionTypeValues;
 use FacebookAds\Object\Values\PageFoodStylesValues;
 use FacebookAds\Object\Values\PageFormattingValues;
 use FacebookAds\Object\Values\PageMessagingTypeValues;
 use FacebookAds\Object\Values\PageModelValues;
 use FacebookAds\Object\Values\PageNotificationTypeValues;
-use FacebookAds\Object\Values\PagePaymentDevModeActionValues;
 use FacebookAds\Object\Values\PagePermittedTasksValues;
+use FacebookAds\Object\Values\PagePickupOptionsValues;
 use FacebookAds\Object\Values\PagePlaceAttachmentSettingValues;
 use FacebookAds\Object\Values\PagePostSurfacesBlacklistValues;
 use FacebookAds\Object\Values\PagePostWithValues;
 use FacebookAds\Object\Values\PagePostingToRedspaceValues;
 use FacebookAds\Object\Values\PagePublishStatusValues;
 use FacebookAds\Object\Values\PageSenderActionValues;
-use FacebookAds\Object\Values\PageSettingTypeValues;
 use FacebookAds\Object\Values\PageSubscribedFieldsValues;
 use FacebookAds\Object\Values\PageTargetSurfaceValues;
 use FacebookAds\Object\Values\PageTasksValues;
 use FacebookAds\Object\Values\PageTemporaryStatusValues;
-use FacebookAds\Object\Values\PageThreadStateValues;
 use FacebookAds\Object\Values\PageUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\PhotoBackdatedTimeGranularityValues;
 use FacebookAds\Object\Values\PhotoTypeValues;
@@ -119,6 +116,7 @@ class Page extends AbstractCrudObject {
     $ref_enums = array();
     $ref_enums['Attire'] = PageAttireValues::getInstance()->getValues();
     $ref_enums['FoodStyles'] = PageFoodStylesValues::getInstance()->getValues();
+    $ref_enums['PickupOptions'] = PagePickupOptionsValues::getInstance()->getValues();
     $ref_enums['TemporaryStatus'] = PageTemporaryStatusValues::getInstance()->getValues();
     $ref_enums['PermittedTasks'] = PagePermittedTasksValues::getInstance()->getValues();
     $ref_enums['Tasks'] = PageTasksValues::getInstance()->getValues();
@@ -136,10 +134,6 @@ class Page extends AbstractCrudObject {
     $ref_enums['SenderAction'] = PageSenderActionValues::getInstance()->getValues();
     $ref_enums['Model'] = PageModelValues::getInstance()->getValues();
     $ref_enums['SubscribedFields'] = PageSubscribedFieldsValues::getInstance()->getValues();
-    $ref_enums['DomainActionType'] = PageDomainActionTypeValues::getInstance()->getValues();
-    $ref_enums['PaymentDevModeAction'] = PagePaymentDevModeActionValues::getInstance()->getValues();
-    $ref_enums['SettingType'] = PageSettingTypeValues::getInstance()->getValues();
-    $ref_enums['ThreadState'] = PageThreadStateValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -1592,7 +1586,6 @@ class Page extends AbstractCrudObject {
       'privacy' => 'string',
       'projection' => 'projection_enum',
       'published' => 'bool',
-      'save_vod' => 'bool',
       'schedule_custom_profile_image' => 'file',
       'spatial_audio_format' => 'spatial_audio_format_enum',
       'status' => 'status_enum',
@@ -1688,6 +1681,7 @@ class Page extends AbstractCrudObject {
       'page_username' => 'string',
       'permanently_closed' => 'bool',
       'phone' => 'string',
+      'pickup_options' => 'list<pickup_options_enum>',
       'place_topics' => 'list<string>',
       'price_range' => 'string',
       'store_code' => 'string',
@@ -1698,6 +1692,7 @@ class Page extends AbstractCrudObject {
       'website' => 'string',
     );
     $enums = array(
+      'pickup_options_enum' => PagePickupOptionsValues::getInstance()->getValues(),
       'temporary_status_enum' => PageTemporaryStatusValues::getInstance()->getValues(),
     );
 
@@ -2061,34 +2056,6 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createPageAboutStory(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'composed_text' => 'list<map>',
-      'cover_photo' => 'map',
-      'entity_map' => 'list<map>',
-      'is_published' => 'bool',
-      'title' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/page_about_story',
-      new Page(),
-      'EDGE',
-      Page::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getPageBackedInstagramAccounts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -2412,29 +2379,6 @@ class Page extends AbstractCrudObject {
       new ProfilePictureSource(),
       'EDGE',
       ProfilePictureSource::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getPlaceTopics(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/place_topics',
-      new PlaceTopic(),
-      'EDGE',
-      PlaceTopic::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2802,30 +2746,6 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function deleteTabs(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'tab' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_DELETE,
-      '/tabs',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getTabs(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -2944,71 +2864,6 @@ class Page extends AbstractCrudObject {
       new PageThreadOwner(),
       'EDGE',
       PageThreadOwner::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function deleteThreadSettings(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'setting_type' => 'setting_type_enum',
-      'thread_state' => 'thread_state_enum',
-    );
-    $enums = array(
-      'setting_type_enum' => PageSettingTypeValues::getInstance()->getValues(),
-      'thread_state_enum' => PageThreadStateValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_DELETE,
-      '/thread_settings',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createThreadSetting(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'account_linking_url' => 'string',
-      'call_to_actions' => 'list<Object>',
-      'domain_action_type' => 'domain_action_type_enum',
-      'greeting' => 'Object',
-      'payment_dev_mode_action' => 'payment_dev_mode_action_enum',
-      'payment_privacy_url' => 'string',
-      'payment_public_key' => 'string',
-      'payment_testers' => 'list<string>',
-      'setting_type' => 'setting_type_enum',
-      'thread_state' => 'thread_state_enum',
-      'whitelisted_domains' => 'list<string>',
-    );
-    $enums = array(
-      'domain_action_type_enum' => PageDomainActionTypeValues::getInstance()->getValues(),
-      'payment_dev_mode_action_enum' => PagePaymentDevModeActionValues::getInstance()->getValues(),
-      'setting_type_enum' => PageSettingTypeValues::getInstance()->getValues(),
-      'thread_state_enum' => PageThreadStateValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/thread_settings',
-      new Page(),
-      'EDGE',
-      Page::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -3419,6 +3274,7 @@ class Page extends AbstractCrudObject {
       'parking' => 'map',
       'payment_options' => 'map',
       'phone' => 'string',
+      'pickup_options' => 'list<pickup_options_enum>',
       'plot_outline' => 'string',
       'price_range' => 'string',
       'public_transit' => 'string',
@@ -3437,6 +3293,7 @@ class Page extends AbstractCrudObject {
     $enums = array(
       'attire_enum' => PageAttireValues::getInstance()->getValues(),
       'food_styles_enum' => PageFoodStylesValues::getInstance()->getValues(),
+      'pickup_options_enum' => PagePickupOptionsValues::getInstance()->getValues(),
       'temporary_status_enum' => PageTemporaryStatusValues::getInstance()->getValues(),
     );
 

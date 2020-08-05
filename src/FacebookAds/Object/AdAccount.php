@@ -57,6 +57,7 @@ use FacebookAds\Object\Values\AdCreativeOperatorValues;
 use FacebookAds\Object\Values\AdDatePresetValues;
 use FacebookAds\Object\Values\AdExecutionOptionsValues;
 use FacebookAds\Object\Values\AdOperatorValues;
+use FacebookAds\Object\Values\AdPlacePageSetCategoryValues;
 use FacebookAds\Object\Values\AdPlacePageSetLocationTypesValues;
 use FacebookAds\Object\Values\AdPlacePageSetTargetedAreaTypeValues;
 use FacebookAds\Object\Values\AdPreviewAdFormatValues;
@@ -214,12 +215,14 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'category' => 'category_enum',
       'location_types' => 'list<location_types_enum>',
       'name' => 'string',
       'parent_page' => 'string',
       'targeted_area_type' => 'targeted_area_type_enum',
     );
     $enums = array(
+      'category_enum' => AdPlacePageSetCategoryValues::getInstance()->getValues(),
       'location_types_enum' => AdPlacePageSetLocationTypesValues::getInstance()->getValues(),
       'targeted_area_type_enum' => AdPlacePageSetTargetedAreaTypeValues::getInstance()->getValues(),
     );
@@ -243,12 +246,14 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'category' => 'category_enum',
       'location_types' => 'list<location_types_enum>',
       'name' => 'string',
       'parent_page' => 'string',
       'targeted_area_type' => 'targeted_area_type_enum',
     );
     $enums = array(
+      'category_enum' => AdPlacePageSetCategoryValues::getInstance()->getValues(),
       'location_types_enum' => AdPlacePageSetLocationTypesValues::getInstance()->getValues(),
       'targeted_area_type_enum' => AdPlacePageSetTargetedAreaTypeValues::getInstance()->getValues(),
     );
@@ -261,38 +266,6 @@ class AdAccount extends AbstractCrudObject {
       new AdPlacePageSet(),
       'EDGE',
       AdPlacePageSet::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function deleteAdSets(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'before_date' => 'datetime',
-      'delete_offset' => 'unsigned int',
-      'delete_strategy' => 'delete_strategy_enum',
-      'object_count' => 'int',
-    );
-    $enums = array(
-      'delete_strategy_enum' => array(
-        'DELETE_ANY',
-        'DELETE_ARCHIVED_BEFORE',
-        'DELETE_OLDEST',
-      ),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_DELETE,
-      '/ad_sets',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -615,29 +588,6 @@ class AdAccount extends AbstractCrudObject {
       new PlayableContent(),
       'EDGE',
       PlayableContent::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getAdReportSchedules(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/adreportschedules',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

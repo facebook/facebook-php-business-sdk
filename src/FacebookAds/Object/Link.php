@@ -30,7 +30,6 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\LinkFields;
 use FacebookAds\Object\Values\CommentCommentPrivacyValueValues;
-use FacebookAds\Object\Values\ProfileTypeValues;
 
 /**
  * This class is auto-generated.
@@ -106,31 +105,6 @@ class Link extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/likes',
-      new Profile(),
-      'EDGE',
-      Profile::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getReactions(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'type' => 'type_enum',
-    );
-    $enums = array(
-      'type_enum' => ProfileTypeValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/reactions',
       new Profile(),
       'EDGE',
       Profile::getFieldsEnum()->getValues(),

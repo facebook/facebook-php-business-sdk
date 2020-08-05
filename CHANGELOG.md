@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 
 ## Unreleased
+
+## v8.0.0
+
 ### Added
 - `delivery_category` field in custom_data section for Conversions API(formerly Serverside API).
 
@@ -82,3 +85,4 @@ All notable changes to this project will be documented in this file.
     $async_job = $async_job->getSelf();
   }
   ```
+
