@@ -110,12 +110,14 @@ class RequestException extends Exception {
    * @return mixed
    */
   protected static function idx($array, $key, $default = null) {
-    if (is_null($array)) {
-      return null;
-    }
     if (is_string($array)) {
       $array = json_decode($array, true);
     }
+
+    if (is_null($array)) {
+      return null;
+    }
+
     return array_key_exists($key, $array)
       ? $array[$key]
       : $default;
