@@ -11,6 +11,9 @@
     "page"
   ],
   "homepage": "https://developers.facebook.com/",
+  "require": {
+    "guzzlehttp/guzzle": "^6.5"
+  },
   "require-dev": {
     "phpunit/phpunit": "~8",
     "symfony/finder": "~2.6"

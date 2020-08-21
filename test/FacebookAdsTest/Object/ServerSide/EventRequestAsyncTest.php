@@ -26,10 +26,10 @@ namespace FacebookAdsTest\Object\ServerSide;
 
 use FacebookAdsTest\AbstractUnitTestCase;
 use FacebookAds\Object\ServerSide\Event;
-use FacebookAds\Object\ServerSide\EventRequest;
+use FacebookAds\Object\ServerSide\EventRequestAsync;
 use FacebookAds\Api;
 
-class EventRequestTest extends AbstractUnitTestCase {
+class EventRequestAsyncTest extends AbstractUnitTestCase {
   public function testBuilder() {
     $event = new Event(array('event_name' => 'my-event'));
     $expected = array(
@@ -41,7 +41,7 @@ class EventRequestTest extends AbstractUnitTestCase {
       'upload_tag' => 'upload-tag-4',
       'upload_source' => 'upload-source-5',
     );
-    $event_request = (new EventRequest('pixel-id'))
+    $event_request_async = (new EventRequestAsync('pixel-id'))
       ->setEvents(array($event))
       ->setTestEventCode($expected['test_event_code'])
       ->setPartnerAgent($expected['partner_agent'])
@@ -50,7 +50,7 @@ class EventRequestTest extends AbstractUnitTestCase {
       ->setUploadTag($expected['upload_tag'])
       ->setUploadSource($expected['upload_source']);
 
-    $this->assertEquals($expected, $event_request->normalize());
+    $this->assertEquals($expected, $event_request_async->normalize());
   }
 
   public function testConstructor() {
@@ -66,8 +66,32 @@ class EventRequestTest extends AbstractUnitTestCase {
     );
     $data = array_merge(array('events' => array($event)), $state);
     $expected = array_merge($state, $expected_event);
-    $event_request = new EventRequest('pixel-id', $data);
+    $event_request_async = new EventRequestAsync('pixel-id', $data);
 
-    $this->assertEquals($expected, $event_request->normalize());
+    $this->assertEquals($expected, $event_request_async->normalize());
+  }
+
+  public function testPromiseCancel() {
+    Api::init(null, null, 'access-token-123');
+    $event_request_async = new EventRequestAsync('pixel-id-456', array(
+      'test_event_code' => 'test-event-code-0',
+      'events' => array(new Event(array('event_name' => 'my-event')))
+    ));
+    $promise = $event_request_async->execute();
+    $promise->cancel();
+
+    $this->assertEquals('rejected', $promise->getState());
+  }
+
+  public function testPromiseReject() {
+    Api::init(null, null, 'access-token-123');
+    $event_request_async = new EventRequestAsync('pixel-id-456', array(
+      'test_event_code' => 'test-event-code-0',
+      'events' => array(new Event(array('event_name' => 'my-event')))
+    ));
+    $promise = $event_request_async->execute();
+    $promise->reject('some error');
+
+    $this->assertEquals('rejected', $promise->getState());
   }
 }
