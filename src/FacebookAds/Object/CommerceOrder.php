@@ -66,6 +66,7 @@ class CommerceOrder extends AbstractCrudObject {
     $param_types = array(
       'idempotency_key' => 'string',
       'merchant_order_reference' => 'string',
+      'return_error_response' => 'bool',
     );
     $enums = array(
     );

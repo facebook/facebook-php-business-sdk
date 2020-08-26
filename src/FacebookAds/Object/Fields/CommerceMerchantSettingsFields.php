@@ -40,6 +40,7 @@ class CommerceMerchantSettingsFields extends AbstractEnum {
   const BRAINTREE_MERCHANT_ID = 'braintree_merchant_id';
   const CHECKOUT_MESSAGE = 'checkout_message';
   const CONTACT_EMAIL = 'contact_email';
+  const CTA = 'cta';
   const DISABLE_CHECKOUT_URLS = 'disable_checkout_urls';
   const DISPLAY_NAME = 'display_name';
   const FACEBOOK_CHANNEL = 'facebook_channel';
@@ -65,6 +66,7 @@ class CommerceMerchantSettingsFields extends AbstractEnum {
       'braintree_merchant_id' => 'string',
       'checkout_message' => 'string',
       'contact_email' => 'string',
+      'cta' => 'string',
       'disable_checkout_urls' => 'bool',
       'display_name' => 'string',
       'facebook_channel' => 'Object',

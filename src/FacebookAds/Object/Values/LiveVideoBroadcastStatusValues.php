@@ -37,13 +37,13 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class LiveVideoBroadcastStatusValues extends AbstractEnum {
 
-  const LIVE = 'LIVE';
-  const LIVE_STOPPED = 'LIVE_STOPPED';
-  const PROCESSING = 'PROCESSING';
-  const SCHEDULED_CANCELED = 'SCHEDULED_CANCELED';
-  const SCHEDULED_EXPIRED = 'SCHEDULED_EXPIRED';
-  const SCHEDULED_LIVE = 'SCHEDULED_LIVE';
-  const SCHEDULED_UNPUBLISHED = 'SCHEDULED_UNPUBLISHED';
-  const UNPUBLISHED = 'UNPUBLISHED';
-  const VOD = 'VOD';
+  const LIVE = 'live';
+  const LIVE_STOPPED = 'live_stopped';
+  const PROCESSING = 'processing';
+  const SCHEDULED_CANCELED = 'scheduled_canceled';
+  const SCHEDULED_EXPIRED = 'scheduled_expired';
+  const SCHEDULED_LIVE = 'scheduled_live';
+  const SCHEDULED_UNPUBLISHED = 'scheduled_unpublished';
+  const UNPUBLISHED = 'unpublished';
+  const VOD = 'vod';
 }

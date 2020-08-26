@@ -39,12 +39,14 @@ class ProductSetMetadataFields extends AbstractEnum {
 
   const COVER_IMAGE_URL = 'cover_image_url';
   const DESCRIPTION = 'description';
+  const EXTERNAL_URL = 'external_url';
   const INTEGRITY_REVIEW_STATUS = 'integrity_review_status';
 
   public function getFieldTypes() {
     return array(
       'cover_image_url' => 'string',
       'description' => 'string',
+      'external_url' => 'string',
       'integrity_review_status' => 'string',
     );
   }

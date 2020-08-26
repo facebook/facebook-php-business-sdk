@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,41 +33,13 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static WhatsAppBusinessAccountTasksValues getInstance()
  */
+class WhatsAppBusinessAccountTasksValues extends AbstractEnum {
 
-class DestinationFields extends AbstractEnum {
-
-  const ADDRESS = 'address';
-  const APPLINKS = 'applinks';
-  const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
-  const CURRENCY = 'currency';
-  const DESCRIPTION = 'description';
-  const DESTINATION_ID = 'destination_id';
-  const ID = 'id';
-  const IMAGES = 'images';
-  const NAME = 'name';
-  const PRICE = 'price';
-  const PRICE_CHANGE = 'price_change';
-  const SANITIZED_IMAGES = 'sanitized_images';
-  const TYPES = 'types';
-  const URL = 'url';
-
-  public function getFieldTypes() {
-    return array(
-      'address' => 'string',
-      'applinks' => 'CatalogItemAppLinks',
-      'category_specific_fields' => 'CatalogSubVerticalList',
-      'currency' => 'string',
-      'description' => 'string',
-      'destination_id' => 'string',
-      'id' => 'string',
-      'images' => 'list<string>',
-      'name' => 'string',
-      'price' => 'string',
-      'price_change' => 'string',
-      'sanitized_images' => 'list<string>',
-      'types' => 'list<string>',
-      'url' => 'string',
-    );
-  }
+  const DEVELOP = 'DEVELOP';
+  const MANAGE = 'MANAGE';
+  const MANAGE_PHONE = 'MANAGE_PHONE';
+  const MANAGE_TEMPLATES = 'MANAGE_TEMPLATES';
+  const VIEW_COST = 'VIEW_COST';
 }

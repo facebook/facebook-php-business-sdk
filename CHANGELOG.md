@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 
 ## Unreleased
+
+## v8.0.1
+
 ### Added
 - Added async support to Conversions API - Create event request promises by using EventRequestAsync.
 
@@ -90,3 +93,4 @@ All notable changes to this project will be documented in this file.
     $async_job = $async_job->getSelf();
   }
   ```
+

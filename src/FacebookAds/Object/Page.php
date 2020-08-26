@@ -439,6 +439,31 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createBusinessDatum(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'data' => 'list<string>',
+      'partner_agent' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/business_data',
+      new Page(),
+      'EDGE',
+      Page::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getCallToActions(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1574,6 +1599,7 @@ class Page extends AbstractCrudObject {
       'crossposting_actions' => 'list<map>',
       'custom_labels' => 'list<string>',
       'description' => 'string',
+      'enable_backup_ingest' => 'bool',
       'encoding_settings' => 'string',
       'fisheye_video_cropped' => 'bool',
       'front_z_rotation' => 'float',

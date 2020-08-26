@@ -110,7 +110,7 @@ class AtlasCampaign extends AbstractCrudObject {
       'dimensions' => 'list<dimensions_enum>',
       'granularity' => 'granularity_enum',
       'metric_scope' => 'map',
-      'order_by' => 'list',
+      'order_by' => 'list<map>',
     );
     $enums = array(
       'dimensions_enum' => array(

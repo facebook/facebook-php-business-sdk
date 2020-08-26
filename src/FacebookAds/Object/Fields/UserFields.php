@@ -43,7 +43,6 @@ class UserFields extends AbstractEnum {
   const AGE_RANGE = 'age_range';
   const AUTH_METHOD = 'auth_method';
   const BIRTHDAY = 'birthday';
-  const CAN_REVIEW_MEASUREMENT_REQUEST = 'can_review_measurement_request';
   const COVER = 'cover';
   const CURRENCY = 'currency';
   const DEVICES = 'devices';
@@ -59,9 +58,7 @@ class UserFields extends AbstractEnum {
   const INSTALL_TYPE = 'install_type';
   const INSTALLED = 'installed';
   const INTERESTED_IN = 'interested_in';
-  const IS_FAMEDEEPLINKINGUSER = 'is_famedeeplinkinguser';
   const IS_GUEST_USER = 'is_guest_user';
-  const IS_SHARED_LOGIN = 'is_shared_login';
   const IS_VERIFIED = 'is_verified';
   const LANGUAGES = 'languages';
   const LAST_NAME = 'last_name';
@@ -81,20 +78,17 @@ class UserFields extends AbstractEnum {
   const QUOTES = 'quotes';
   const RELATIONSHIP_STATUS = 'relationship_status';
   const RELIGION = 'religion';
-  const SECURITY_SETTINGS = 'security_settings';
   const SHARED_LOGIN_UPGRADE_REQUIRED_BY = 'shared_login_upgrade_required_by';
   const SHORT_NAME = 'short_name';
   const SIGNIFICANT_OTHER = 'significant_other';
   const SPORTS = 'sports';
   const SUPPORTS_DONATE_BUTTON_IN_LIVE_VIDEO = 'supports_donate_button_in_live_video';
-  const TEST_GROUP = 'test_group';
   const THIRD_PARTY_ID = 'third_party_id';
   const TIMEZONE = 'timezone';
   const TOKEN_FOR_BUSINESS = 'token_for_business';
   const UPDATED_TIME = 'updated_time';
   const VERIFIED = 'verified';
   const VIDEO_UPLOAD_LIMITS = 'video_upload_limits';
-  const VIEWER_CAN_SEND_GIFT = 'viewer_can_send_gift';
   const WEBSITE = 'website';
   const WORK = 'work';
 
@@ -106,7 +100,6 @@ class UserFields extends AbstractEnum {
       'age_range' => 'AgeRange',
       'auth_method' => 'string',
       'birthday' => 'string',
-      'can_review_measurement_request' => 'bool',
       'cover' => 'UserCoverPhoto',
       'currency' => 'Currency',
       'devices' => 'list<UserDevice>',
@@ -122,9 +115,7 @@ class UserFields extends AbstractEnum {
       'install_type' => 'string',
       'installed' => 'bool',
       'interested_in' => 'list<string>',
-      'is_famedeeplinkinguser' => 'bool',
       'is_guest_user' => 'bool',
-      'is_shared_login' => 'bool',
       'is_verified' => 'bool',
       'languages' => 'list<Experience>',
       'last_name' => 'string',
@@ -144,20 +135,17 @@ class UserFields extends AbstractEnum {
       'quotes' => 'string',
       'relationship_status' => 'string',
       'religion' => 'string',
-      'security_settings' => 'SecuritySettings',
       'shared_login_upgrade_required_by' => 'datetime',
       'short_name' => 'string',
       'significant_other' => 'User',
       'sports' => 'list<Experience>',
       'supports_donate_button_in_live_video' => 'bool',
-      'test_group' => 'unsigned int',
       'third_party_id' => 'string',
       'timezone' => 'float',
       'token_for_business' => 'string',
       'updated_time' => 'datetime',
       'verified' => 'bool',
       'video_upload_limits' => 'VideoUploadLimits',
-      'viewer_can_send_gift' => 'bool',
       'website' => 'string',
       'work' => 'list<Object>',
     );

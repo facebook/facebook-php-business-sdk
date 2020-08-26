@@ -45,6 +45,7 @@ class ProductFeedFields extends AbstractEnum {
   const ENCODING = 'encoding';
   const FILE_NAME = 'file_name';
   const ID = 'id';
+  const ITEM_SUB_TYPE = 'item_sub_type';
   const LATEST_UPLOAD = 'latest_upload';
   const NAME = 'name';
   const OVERRIDE_TYPE = 'override_type';
@@ -67,6 +68,7 @@ class ProductFeedFields extends AbstractEnum {
       'encoding' => 'string',
       'file_name' => 'string',
       'id' => 'string',
+      'item_sub_type' => 'string',
       'latest_upload' => 'ProductFeedUpload',
       'name' => 'string',
       'override_type' => 'string',

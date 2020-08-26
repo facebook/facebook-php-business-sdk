@@ -62,12 +62,12 @@ class LiveVideo extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['BroadcastStatus'] = LiveVideoBroadcastStatusValues::getInstance()->getValues();
     $ref_enums['Projection'] = LiveVideoProjectionValues::getInstance()->getValues();
     $ref_enums['SpatialAudioFormat'] = LiveVideoSpatialAudioFormatValues::getInstance()->getValues();
     $ref_enums['Status'] = LiveVideoStatusValues::getInstance()->getValues();
     $ref_enums['StereoscopicMode'] = LiveVideoStereoscopicModeValues::getInstance()->getValues();
     $ref_enums['StreamType'] = LiveVideoStreamTypeValues::getInstance()->getValues();
-    $ref_enums['BroadcastStatus'] = LiveVideoBroadcastStatusValues::getInstance()->getValues();
     $ref_enums['Source'] = LiveVideoSourceValues::getInstance()->getValues();
     $ref_enums['LiveCommentModerationSetting'] = LiveVideoLiveCommentModerationSettingValues::getInstance()->getValues();
     return $ref_enums;
@@ -369,6 +369,7 @@ class LiveVideo extends AbstractCrudObject {
       'is_manual_mode' => 'bool',
       'live_comment_moderation_setting' => 'list<live_comment_moderation_setting_enum>',
       'live_encoders' => 'list<string>',
+      'master_ingest_stream_id' => 'string',
       'og_icon_id' => 'string',
       'og_phrase' => 'string',
       'place' => 'Object',

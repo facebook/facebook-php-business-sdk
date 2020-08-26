@@ -32,6 +32,7 @@ use FacebookAds\Object\Fields\ProductFeedFields;
 use FacebookAds\Object\Values\ProductFeedDelimiterValues;
 use FacebookAds\Object\Values\ProductFeedEncodingValues;
 use FacebookAds\Object\Values\ProductFeedFeedTypeValues;
+use FacebookAds\Object\Values\ProductFeedItemSubTypeValues;
 use FacebookAds\Object\Values\ProductFeedOverrideTypeValues;
 use FacebookAds\Object\Values\ProductFeedQuotedFieldsModeValues;
 use FacebookAds\Object\Values\ProductFeedRuleRuleTypeValues;
@@ -67,6 +68,7 @@ class ProductFeed extends AbstractCrudObject {
     $ref_enums['QuotedFieldsMode'] = ProductFeedQuotedFieldsModeValues::getInstance()->getValues();
     $ref_enums['Encoding'] = ProductFeedEncodingValues::getInstance()->getValues();
     $ref_enums['FeedType'] = ProductFeedFeedTypeValues::getInstance()->getValues();
+    $ref_enums['ItemSubType'] = ProductFeedItemSubTypeValues::getInstance()->getValues();
     $ref_enums['OverrideType'] = ProductFeedOverrideTypeValues::getInstance()->getValues();
     return $ref_enums;
   }

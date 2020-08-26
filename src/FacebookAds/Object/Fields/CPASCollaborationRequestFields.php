@@ -35,39 +35,31 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class DestinationFields extends AbstractEnum {
+class CPASCollaborationRequestFields extends AbstractEnum {
 
-  const ADDRESS = 'address';
-  const APPLINKS = 'applinks';
-  const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
-  const CURRENCY = 'currency';
-  const DESCRIPTION = 'description';
-  const DESTINATION_ID = 'destination_id';
+  const BRANDS = 'brands';
+  const CONTACT_EMAIL = 'contact_email';
+  const CONTACT_FIRST_NAME = 'contact_first_name';
+  const CONTACT_LAST_NAME = 'contact_last_name';
   const ID = 'id';
-  const IMAGES = 'images';
-  const NAME = 'name';
-  const PRICE = 'price';
-  const PRICE_CHANGE = 'price_change';
-  const SANITIZED_IMAGES = 'sanitized_images';
-  const TYPES = 'types';
-  const URL = 'url';
+  const PHONE_NUMBER = 'phone_number';
+  const RECEIVER_BUSINESS = 'receiver_business';
+  const REQUESTER_AGENCY_OR_BRAND = 'requester_agency_or_brand';
+  const SENDER_CLIENT_BUSINESS = 'sender_client_business';
+  const STATUS = 'status';
 
   public function getFieldTypes() {
     return array(
-      'address' => 'string',
-      'applinks' => 'CatalogItemAppLinks',
-      'category_specific_fields' => 'CatalogSubVerticalList',
-      'currency' => 'string',
-      'description' => 'string',
-      'destination_id' => 'string',
+      'brands' => 'list<string>',
+      'contact_email' => 'string',
+      'contact_first_name' => 'string',
+      'contact_last_name' => 'string',
       'id' => 'string',
-      'images' => 'list<string>',
-      'name' => 'string',
-      'price' => 'string',
-      'price_change' => 'string',
-      'sanitized_images' => 'list<string>',
-      'types' => 'list<string>',
-      'url' => 'string',
+      'phone_number' => 'string',
+      'receiver_business' => 'Business',
+      'requester_agency_or_brand' => 'string',
+      'sender_client_business' => 'Business',
+      'status' => 'string',
     );
   }
 }

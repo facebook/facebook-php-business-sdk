@@ -45,6 +45,7 @@ class AdoptablePetFields extends AbstractEnum {
   const APPLINKS = 'applinks';
   const AVAILABILITY = 'availability';
   const BREED = 'breed';
+  const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
   const CURRENCY = 'currency';
   const DESCRIPTION = 'description';
   const GENDER = 'gender';
@@ -68,6 +69,7 @@ class AdoptablePetFields extends AbstractEnum {
       'applinks' => 'CatalogItemAppLinks',
       'availability' => 'string',
       'breed' => 'string',
+      'category_specific_fields' => 'CatalogSubVerticalList',
       'currency' => 'string',
       'description' => 'string',
       'gender' => 'string',

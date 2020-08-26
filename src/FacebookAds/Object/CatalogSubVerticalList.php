@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\CatalogSubVerticalListFields;
 
 /**
  * This class is auto-generated.
@@ -35,15 +39,19 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class WorkMeetingLinkFields extends AbstractEnum {
+class CatalogSubVerticalList extends AbstractObject {
 
-  const ID = 'id';
-  const OWNER = 'owner';
-
-  public function getFieldTypes() {
-    return array(
-      'id' => 'string',
-      'owner' => 'User',
-    );
+  /**
+   * @return CatalogSubVerticalListFields
+   */
+  public static function getFieldsEnum() {
+    return CatalogSubVerticalListFields::getInstance();
   }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
 }

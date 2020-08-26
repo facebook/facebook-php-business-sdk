@@ -41,6 +41,7 @@ class AutomotiveModelFields extends AbstractEnum {
   const AUTOMOTIVE_MODEL_ID = 'automotive_model_id';
   const AVAILABILITY = 'availability';
   const BODY_STYLE = 'body_style';
+  const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
   const CURRENCY = 'currency';
   const CUSTOM_LABEL_0 = 'custom_label_0';
   const DESCRIPTION = 'description';
@@ -70,6 +71,7 @@ class AutomotiveModelFields extends AbstractEnum {
       'automotive_model_id' => 'string',
       'availability' => 'string',
       'body_style' => 'string',
+      'category_specific_fields' => 'CatalogSubVerticalList',
       'currency' => 'string',
       'custom_label_0' => 'string',
       'description' => 'string',

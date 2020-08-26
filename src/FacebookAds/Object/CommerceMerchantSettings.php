@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\CommerceMerchantSettingsFields;
+use FacebookAds\Object\Values\CommerceMerchantSettingsCtaValues;
 use FacebookAds\Object\Values\CommerceMerchantSettingsMerchantStatusValues;
 
 /**
@@ -51,6 +52,7 @@ class CommerceMerchantSettings extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['Cta'] = CommerceMerchantSettingsCtaValues::getInstance()->getValues();
     $ref_enums['MerchantStatus'] = CommerceMerchantSettingsMerchantStatusValues::getInstance()->getValues();
     return $ref_enums;
   }
@@ -334,12 +336,14 @@ class CommerceMerchantSettings extends AbstractCrudObject {
 
     $param_types = array(
       'contact_email' => 'string',
+      'cta' => 'cta_enum',
       'merchant_alert_email' => 'string',
       'merchant_status' => 'merchant_status_enum',
       'onsite_commerce_merchant' => 'Object',
       'terms' => 'string',
     );
     $enums = array(
+      'cta_enum' => CommerceMerchantSettingsCtaValues::getInstance()->getValues(),
       'merchant_status_enum' => CommerceMerchantSettingsMerchantStatusValues::getInstance()->getValues(),
     );
 

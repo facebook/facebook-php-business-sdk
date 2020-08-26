@@ -79,6 +79,7 @@ class CustomAudienceDataSourceSubTypeValues extends AbstractEnum {
   const PLATFORM = 'PLATFORM';
   const PLATFORM_USERS = 'PLATFORM_USERS';
   const SEED_LIST = 'SEED_LIST';
+  const SIGNAL_SOURCE = 'SIGNAL_SOURCE';
   const SMART_AUDIENCE = 'SMART_AUDIENCE';
   const STORE_VISIT_EVENTS = 'STORE_VISIT_EVENTS';
   const S_EXPR = 'S_EXPR';

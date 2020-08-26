@@ -80,6 +80,7 @@ class PagePostFields extends AbstractEnum {
   const PERMALINK_URL = 'permalink_url';
   const PICTURE = 'picture';
   const PLACE = 'place';
+  const POLL = 'poll';
   const PRIVACY = 'privacy';
   const PROMOTABLE_ID = 'promotable_id';
   const PROMOTION_STATUS = 'promotion_status';
@@ -146,6 +147,7 @@ class PagePostFields extends AbstractEnum {
       'permalink_url' => 'Object',
       'picture' => 'string',
       'place' => 'Place',
+      'poll' => 'Object',
       'privacy' => 'Privacy',
       'promotable_id' => 'string',
       'promotion_status' => 'string',

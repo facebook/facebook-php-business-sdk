@@ -144,6 +144,7 @@ class Event extends AbstractCrudObject {
     $param_types = array(
       'content_tags' => 'list<string>',
       'description' => 'string',
+      'enable_backup_ingest' => 'bool',
       'encoding_settings' => 'string',
       'fisheye_video_cropped' => 'bool',
       'front_z_rotation' => 'float',

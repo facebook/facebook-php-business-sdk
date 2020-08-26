@@ -31,6 +31,7 @@ use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdAccountFields;
 use FacebookAds\Object\Values\AdAccountAdRulesHistoryActionValues;
 use FacebookAds\Object\Values\AdAccountAdRulesHistoryEvaluationTypeValues;
+use FacebookAds\Object\Values\AdAccountAdVolumeRecommendationTypeValues;
 use FacebookAds\Object\Values\AdAccountClaimObjectiveValues;
 use FacebookAds\Object\Values\AdAccountContentTypeValues;
 use FacebookAds\Object\Values\AdAccountCurrencyValues;
@@ -753,9 +754,11 @@ class AdAccount extends AbstractCrudObject {
 
     $param_types = array(
       'page_id' => 'int',
+      'recommendation_type' => 'recommendation_type_enum',
       'show_breakdown_by_actor' => 'bool',
     );
     $enums = array(
+      'recommendation_type_enum' => AdAccountAdVolumeRecommendationTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1696,6 +1699,32 @@ class AdAccount extends AbstractCrudObject {
       new ContentDeliveryReport(),
       'EDGE',
       ContentDeliveryReport::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createCreateAndApplyPublisherBlockList(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'is_auto_blocking_on' => 'bool',
+      'name' => 'string',
+      'publisher_urls' => 'list<string>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/create_and_apply_publisher_block_list',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

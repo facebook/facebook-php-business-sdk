@@ -46,6 +46,7 @@ class ProductItemFields extends AbstractEnum {
   const BRAND = 'brand';
   const CAPABILITY_TO_REVIEW_STATUS = 'capability_to_review_status';
   const CATEGORY = 'category';
+  const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
   const COLOR = 'color';
   const COMMERCE_INSIGHTS = 'commerce_insights';
   const CONDITION = 'condition';
@@ -58,6 +59,7 @@ class ProductItemFields extends AbstractEnum {
   const CUSTOM_LABEL_4 = 'custom_label_4';
   const DESCRIPTION = 'description';
   const EXPIRATION_DATE = 'expiration_date';
+  const FB_PRODUCT_CATEGORY = 'fb_product_category';
   const GENDER = 'gender';
   const GTIN = 'gtin';
   const ID = 'id';
@@ -125,6 +127,7 @@ class ProductItemFields extends AbstractEnum {
       'brand' => 'string',
       'capability_to_review_status' => 'map<Object, Object>',
       'category' => 'string',
+      'category_specific_fields' => 'CatalogSubVerticalList',
       'color' => 'string',
       'commerce_insights' => 'ProductItemCommerceInsights',
       'condition' => 'Condition',
@@ -137,6 +140,7 @@ class ProductItemFields extends AbstractEnum {
       'custom_label_4' => 'string',
       'description' => 'string',
       'expiration_date' => 'string',
+      'fb_product_category' => 'string',
       'gender' => 'Gender',
       'gtin' => 'string',
       'id' => 'string',

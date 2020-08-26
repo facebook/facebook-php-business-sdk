@@ -45,6 +45,7 @@ use FacebookAds\Object\Values\ApplicationScoreTypeValues;
 use FacebookAds\Object\Values\ApplicationSortOrderValues;
 use FacebookAds\Object\Values\ApplicationSupportedPlatformsValues;
 use FacebookAds\Object\Values\EventTypeValues;
+use FacebookAds\Object\Values\LiveVideoBroadcastStatusValues;
 
 /**
  * This class is auto-generated.
@@ -346,6 +347,29 @@ class Application extends AbstractCrudObject {
       new Business(),
       'EDGE',
       Business::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getAndroidDialogConfigs(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/android_dialog_configs',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -996,6 +1020,31 @@ class Application extends AbstractCrudObject {
       new Application(),
       'EDGE',
       Application::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getLiveVideos(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'broadcast_status' => 'broadcast_status_enum',
+    );
+    $enums = array(
+      'broadcast_status_enum' => LiveVideoBroadcastStatusValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/live_videos',
+      new LiveVideo(),
+      'EDGE',
+      LiveVideo::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

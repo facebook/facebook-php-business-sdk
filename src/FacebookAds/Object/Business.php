@@ -44,6 +44,7 @@ use FacebookAds\Object\Values\BusinessSurveyBusinessTypeValues;
 use FacebookAds\Object\Values\BusinessTwoFactorTypeValues;
 use FacebookAds\Object\Values\BusinessUserRoleValues;
 use FacebookAds\Object\Values\BusinessVerticalValues;
+use FacebookAds\Object\Values\CPASCollaborationRequestRequesterAgencyOrBrandValues;
 use FacebookAds\Object\Values\ContentDeliveryReportPlatformValues;
 use FacebookAds\Object\Values\ContentDeliveryReportPositionValues;
 use FacebookAds\Object\Values\CustomConversionCustomEventTypeValues;
@@ -863,6 +864,85 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getCollaborativeAdsCollaborationRequests(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'status' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/collaborative_ads_collaboration_requests',
+      new CPASCollaborationRequest(),
+      'EDGE',
+      CPASCollaborationRequest::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createCollaborativeAdsCollaborationRequest(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'brands' => 'list<string>',
+      'contact_email' => 'string',
+      'contact_first_name' => 'string',
+      'contact_last_name' => 'string',
+      'phone_number' => 'string',
+      'receiver_business' => 'string',
+      'requester_agency_or_brand' => 'requester_agency_or_brand_enum',
+      'sender_client_business' => 'string',
+    );
+    $enums = array(
+      'requester_agency_or_brand_enum' => CPASCollaborationRequestRequesterAgencyOrBrandValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/collaborative_ads_collaboration_requests',
+      new CPASCollaborationRequest(),
+      'EDGE',
+      CPASCollaborationRequest::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getCollaborativeAdsSuggestedPartners(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/collaborative_ads_suggested_partners',
+      new CPASAdvertiserPartnershipRecommendation(),
+      'EDGE',
+      CPASAdvertiserPartnershipRecommendation::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getCommerceMerchantSettings(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -910,6 +990,32 @@ class Business extends AbstractCrudObject {
       new ContentDeliveryReport(),
       'EDGE',
       ContentDeliveryReport::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createCreateAndApplyPublisherBlockList(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'is_auto_blocking_on' => 'bool',
+      'name' => 'string',
+      'publisher_urls' => 'list<string>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/create_and_apply_publisher_block_list',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1147,6 +1253,7 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'child_business_external_id' => 'string',
       'existing_client_business_id' => 'string',
       'name' => 'string',
       'sales_rep_email' => 'string',
@@ -1398,6 +1505,7 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'child_business_external_id' => 'string',
       'name' => 'string',
       'page_permitted_tasks' => 'list<page_permitted_tasks_enum>',
       'sales_rep_email' => 'string',
@@ -1550,12 +1658,15 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'catalog_segment_filter' => 'Object',
+      'catalog_segment_product_set_id' => 'string',
       'commerce_merchant_settings' => 'Object',
       'da_display_settings' => 'Object',
       'destination_catalog_settings' => 'map',
       'flight_catalog_settings' => 'map',
       'name' => 'string',
       'onsite_commerce_merchant' => 'Object',
+      'parent_catalog_id' => 'string',
       'store_catalog_settings' => 'map',
       'vertical' => 'vertical_enum',
     );

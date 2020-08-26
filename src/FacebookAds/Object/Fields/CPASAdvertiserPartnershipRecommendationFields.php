@@ -35,39 +35,29 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class DestinationFields extends AbstractEnum {
+class CPASAdvertiserPartnershipRecommendationFields extends AbstractEnum {
 
-  const ADDRESS = 'address';
-  const APPLINKS = 'applinks';
-  const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
-  const CURRENCY = 'currency';
-  const DESCRIPTION = 'description';
-  const DESTINATION_ID = 'destination_id';
+  const ADVERTISER_BUSINESS_ID = 'advertiser_business_id';
+  const BRAND_BUSINESS_ID = 'brand_business_id';
+  const BRANDS = 'brands';
+  const COUNTRIES = 'countries';
   const ID = 'id';
-  const IMAGES = 'images';
-  const NAME = 'name';
-  const PRICE = 'price';
-  const PRICE_CHANGE = 'price_change';
-  const SANITIZED_IMAGES = 'sanitized_images';
-  const TYPES = 'types';
-  const URL = 'url';
+  const MERCHANT_BUSINESS_ID = 'merchant_business_id';
+  const MERCHANT_CATEGORIES = 'merchant_categories';
+  const STATUS = 'status';
+  const STATUS_REASON = 'status_reason';
 
   public function getFieldTypes() {
     return array(
-      'address' => 'string',
-      'applinks' => 'CatalogItemAppLinks',
-      'category_specific_fields' => 'CatalogSubVerticalList',
-      'currency' => 'string',
-      'description' => 'string',
-      'destination_id' => 'string',
+      'advertiser_business_id' => 'string',
+      'brand_business_id' => 'string',
+      'brands' => 'list<string>',
+      'countries' => 'list<string>',
       'id' => 'string',
-      'images' => 'list<string>',
-      'name' => 'string',
-      'price' => 'string',
-      'price_change' => 'string',
-      'sanitized_images' => 'list<string>',
-      'types' => 'list<string>',
-      'url' => 'string',
+      'merchant_business_id' => 'string',
+      'merchant_categories' => 'list<string>',
+      'status' => 'string',
+      'status_reason' => 'string',
     );
   }
 }

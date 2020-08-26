@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,41 +33,19 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static AdAccountAdVolumeRecommendationTypeValues getInstance()
  */
+class AdAccountAdVolumeRecommendationTypeValues extends AbstractEnum {
 
-class DestinationFields extends AbstractEnum {
-
-  const ADDRESS = 'address';
-  const APPLINKS = 'applinks';
-  const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
-  const CURRENCY = 'currency';
-  const DESCRIPTION = 'description';
-  const DESTINATION_ID = 'destination_id';
-  const ID = 'id';
-  const IMAGES = 'images';
-  const NAME = 'name';
-  const PRICE = 'price';
-  const PRICE_CHANGE = 'price_change';
-  const SANITIZED_IMAGES = 'sanitized_images';
-  const TYPES = 'types';
-  const URL = 'url';
-
-  public function getFieldTypes() {
-    return array(
-      'address' => 'string',
-      'applinks' => 'CatalogItemAppLinks',
-      'category_specific_fields' => 'CatalogSubVerticalList',
-      'currency' => 'string',
-      'description' => 'string',
-      'destination_id' => 'string',
-      'id' => 'string',
-      'images' => 'list<string>',
-      'name' => 'string',
-      'price' => 'string',
-      'price_change' => 'string',
-      'sanitized_images' => 'list<string>',
-      'types' => 'list<string>',
-      'url' => 'string',
-    );
-  }
+  const AGGREGATED_BID_LIMITED = 'AGGREGATED_BID_LIMITED';
+  const AGGREGATED_BUDGET_LIMITED = 'AGGREGATED_BUDGET_LIMITED';
+  const AGGREGATED_COST_LIMITED = 'AGGREGATED_COST_LIMITED';
+  const AUCTION_OVERLAP = 'AUCTION_OVERLAP';
+  const CREATIVE_FATIGUE = 'CREATIVE_FATIGUE';
+  const FRAGMENTATION = 'FRAGMENTATION';
+  const LEARNING_LIMITED = 'LEARNING_LIMITED';
+  const TOP_ADSETS_WITH_ADS_UNDER_CAP = 'TOP_ADSETS_WITH_ADS_UNDER_CAP';
+  const TOP_CAMPAIGNS_WITH_ADS_UNDER_CAP = 'TOP_CAMPAIGNS_WITH_ADS_UNDER_CAP';
+  const UNECONOMICAL_ADS_THROTTLING = 'UNECONOMICAL_ADS_THROTTLING';
+  const ZERO_IMPRESSION = 'ZERO_IMPRESSION';
 }

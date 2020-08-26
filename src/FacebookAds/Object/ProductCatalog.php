@@ -30,6 +30,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProductCatalogFields;
 use FacebookAds\Object\Values\ProductCatalogCategoryCategorizationCriteriaValues;
+use FacebookAds\Object\Values\ProductCatalogItemSubTypeValues;
 use FacebookAds\Object\Values\ProductCatalogPermittedRolesValues;
 use FacebookAds\Object\Values\ProductCatalogPermittedTasksValues;
 use FacebookAds\Object\Values\ProductCatalogStandardValues;
@@ -39,6 +40,7 @@ use FacebookAds\Object\Values\ProductEventStatBreakdownsValues;
 use FacebookAds\Object\Values\ProductFeedDelimiterValues;
 use FacebookAds\Object\Values\ProductFeedEncodingValues;
 use FacebookAds\Object\Values\ProductFeedFeedTypeValues;
+use FacebookAds\Object\Values\ProductFeedItemSubTypeValues;
 use FacebookAds\Object\Values\ProductFeedOverrideTypeValues;
 use FacebookAds\Object\Values\ProductFeedQuotedFieldsModeValues;
 use FacebookAds\Object\Values\ProductItemAvailabilityValues;
@@ -87,6 +89,7 @@ class ProductCatalog extends AbstractCrudObject {
     $ref_enums['PermittedTasks'] = ProductCatalogPermittedTasksValues::getInstance()->getValues();
     $ref_enums['Tasks'] = ProductCatalogTasksValues::getInstance()->getValues();
     $ref_enums['Standard'] = ProductCatalogStandardValues::getInstance()->getValues();
+    $ref_enums['ItemSubType'] = ProductCatalogItemSubTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -145,6 +148,7 @@ class ProductCatalog extends AbstractCrudObject {
       'business' => 'string',
       'permitted_roles' => 'list<permitted_roles_enum>',
       'permitted_tasks' => 'list<permitted_tasks_enum>',
+      'utm_settings' => 'map',
     );
     $enums = array(
       'permitted_roles_enum' => ProductCatalogPermittedRolesValues::getInstance()->getValues(),
@@ -718,10 +722,12 @@ class ProductCatalog extends AbstractCrudObject {
 
     $param_types = array(
       'allow_upsert' => 'bool',
+      'item_sub_type' => 'item_sub_type_enum',
       'item_type' => 'string',
       'requests' => 'map',
     );
     $enums = array(
+      'item_sub_type_enum' => ProductCatalogItemSubTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -851,6 +857,7 @@ class ProductCatalog extends AbstractCrudObject {
       'encoding' => 'encoding_enum',
       'feed_type' => 'feed_type_enum',
       'file_name' => 'string',
+      'item_sub_type' => 'item_sub_type_enum',
       'name' => 'string',
       'override_type' => 'override_type_enum',
       'override_value' => 'string',
@@ -864,6 +871,7 @@ class ProductCatalog extends AbstractCrudObject {
       'delimiter_enum' => ProductFeedDelimiterValues::getInstance()->getValues(),
       'encoding_enum' => ProductFeedEncodingValues::getInstance()->getValues(),
       'feed_type_enum' => ProductFeedFeedTypeValues::getInstance()->getValues(),
+      'item_sub_type_enum' => ProductFeedItemSubTypeValues::getInstance()->getValues(),
       'override_type_enum' => ProductFeedOverrideTypeValues::getInstance()->getValues(),
       'quoted_fields_mode_enum' => ProductFeedQuotedFieldsModeValues::getInstance()->getValues(),
     );
@@ -1048,6 +1056,7 @@ class ProductCatalog extends AbstractCrudObject {
       'availability' => 'availability_enum',
       'brand' => 'string',
       'category' => 'string',
+      'category_specific_fields' => 'map',
       'checkout_url' => 'string',
       'color' => 'string',
       'commerce_tax_category' => 'commerce_tax_category_enum',
@@ -1061,6 +1070,7 @@ class ProductCatalog extends AbstractCrudObject {
       'custom_label_4' => 'string',
       'description' => 'string',
       'expiration_date' => 'string',
+      'fb_product_category' => 'string',
       'gender' => 'gender_enum',
       'gtin' => 'string',
       'image_url' => 'string',
@@ -1269,6 +1279,7 @@ class ProductCatalog extends AbstractCrudObject {
         'COLLAB_ADS',
         'COLLAB_ADS_FOR_MARKETPLACE_PARTNER',
         'IG_SHOPPING',
+        'MARKETPLACE_SHOPS',
         'TEST',
       ),
     );

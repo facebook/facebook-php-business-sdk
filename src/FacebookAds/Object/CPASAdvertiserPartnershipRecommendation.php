@@ -28,7 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\WorkMeetingLinkFields;
+use FacebookAds\Object\Fields\CPASAdvertiserPartnershipRecommendationFields;
 
 /**
  * This class is auto-generated.
@@ -39,13 +39,13 @@ use FacebookAds\Object\Fields\WorkMeetingLinkFields;
  *
  */
 
-class WorkMeetingLink extends AbstractCrudObject {
+class CPASAdvertiserPartnershipRecommendation extends AbstractCrudObject {
 
   /**
-   * @return WorkMeetingLinkFields
+   * @return CPASAdvertiserPartnershipRecommendationFields
    */
   public static function getFieldsEnum() {
-    return WorkMeetingLinkFields::getInstance();
+    return CPASAdvertiserPartnershipRecommendationFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -67,9 +67,9 @@ class WorkMeetingLink extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new WorkMeetingLink(),
+      new CPASAdvertiserPartnershipRecommendation(),
       'NODE',
-      WorkMeetingLink::getFieldsEnum()->getValues(),
+      CPASAdvertiserPartnershipRecommendation::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

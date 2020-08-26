@@ -28,8 +28,8 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AdAccountAdVolumeFields;
-use FacebookAds\Object\Values\AdAccountAdVolumeRecommendationTypeValues;
+use FacebookAds\Object\Fields\CPASCollaborationRequestFields;
+use FacebookAds\Object\Values\CPASCollaborationRequestRequesterAgencyOrBrandValues;
 
 /**
  * This class is auto-generated.
@@ -40,20 +40,50 @@ use FacebookAds\Object\Values\AdAccountAdVolumeRecommendationTypeValues;
  *
  */
 
-class AdAccountAdVolume extends AbstractObject {
+class CPASCollaborationRequest extends AbstractCrudObject {
 
   /**
-   * @return AdAccountAdVolumeFields
+   * @deprecated getEndpoint function is deprecated
+   */
+  protected function getEndpoint() {
+    return 'collaborative_ads_collaboration_requests';
+  }
+
+  /**
+   * @return CPASCollaborationRequestFields
    */
   public static function getFieldsEnum() {
-    return AdAccountAdVolumeFields::getInstance();
+    return CPASCollaborationRequestFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['RecommendationType'] = AdAccountAdVolumeRecommendationTypeValues::getInstance()->getValues();
+    $ref_enums['RequesterAgencyOrBrand'] = CPASCollaborationRequestRequesterAgencyOrBrandValues::getInstance()->getValues();
     return $ref_enums;
   }
 
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new CPASCollaborationRequest(),
+      'NODE',
+      CPASCollaborationRequest::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
 }

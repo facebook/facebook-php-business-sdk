@@ -43,6 +43,7 @@ class CommerceOrderFields extends AbstractEnum {
   const ESTIMATED_PAYMENT_DETAILS = 'estimated_payment_details';
   const ID = 'id';
   const IS_GROUP_BUY = 'is_group_buy';
+  const IS_TEST_ORDER = 'is_test_order';
   const LAST_UPDATED = 'last_updated';
   const MERCHANT_ORDER_ID = 'merchant_order_id';
   const ORDER_STATUS = 'order_status';
@@ -58,6 +59,7 @@ class CommerceOrderFields extends AbstractEnum {
       'estimated_payment_details' => 'Object',
       'id' => 'string',
       'is_group_buy' => 'bool',
+      'is_test_order' => 'bool',
       'last_updated' => 'string',
       'merchant_order_id' => 'string',
       'order_status' => 'Object',
