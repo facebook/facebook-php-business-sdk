@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+### Added
+- `lead_id` field to the Conversions API `user_data` section.
+
 ## v8.0.1
 
 ### Added
