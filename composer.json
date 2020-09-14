@@ -1,5 +1,5 @@
 {
-  "name": "oraybeheer/facebook-php-business-sdk",
+  "name": "facebook/php-business-sdk",
   "description": "PHP SDK for Facebook Business",
   "type": "library",
   "keywords": [
