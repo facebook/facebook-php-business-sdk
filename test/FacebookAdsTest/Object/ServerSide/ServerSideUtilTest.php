@@ -99,4 +99,8 @@ class ServerSideUtilTest extends TestCase {
 
     $this->assertEquals("_fbp_value", Util::getFbp());
   }
+
+  public function testGetCaBundlePath() {
+    $this->assertTrue(file_exists(Util::getCaBundlePath()));
+  }
 }

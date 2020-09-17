@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+### Added
+- `lead_id` field to the Conversions API `user_data` section.
+- Added HttpServiceInterface to enable the default request object to be overridden by a user-defined HTTP Request Service class. Can be used to create Conversions API event requests.
+
 ## v8.0.1
 
 ### Added
@@ -93,4 +97,3 @@ All notable changes to this project will be documented in this file.
     $async_job = $async_job->getSelf();
   }
   ```
-

@@ -25,6 +25,8 @@
 namespace FacebookAds\Object\ServerSide;
 
 use ArrayAccess;
+use FacebookAds\Api;
+use FacebookAds\ApiConfig;
 use FacebookAds\Object\AdsPixel;
 
 /**
@@ -90,6 +92,8 @@ class EventRequest implements ArrayAccess {
    * @var mixed[]
    */
   protected $container = array();
+
+  protected $http_service_class = null;
 
   /**
    * Constructor
@@ -200,10 +204,38 @@ class EventRequest implements ArrayAccess {
   }
 
   /**
+   * Sets a Custom HTTP Service, which overrides the default HTTP service
+   * used to send the event request.
+   * @param string $http_service_class The class name that implements the HttpServiceInterface
+   * @return $this
+   */
+  public function setHttpService(string $http_service_class) {
+    $this->http_service_class = $http_service_class;
+
+    return $this;
+  }
+
+  /**
    * Execute the request
    * @return EventResponse
    */
   public function execute() {
+    $http_service_class = null;
+
+    if ($this->http_service_class != null) {
+      $http_service_class = $this->http_service_class;
+    } else {
+      $http_service_class = HttpServiceClientConfig::getInstance()->getClient();
+    }
+
+    if ($http_service_class != null) {
+      return $this->customHttpServiceExecute($http_service_class);
+    }
+
+    return $this->defaultExecute();
+  }
+
+  private function defaultExecute() {
     $fields = array();
     $normalized_param = $this->normalize();
     $ads_pixel = new AdsPixel($this->container['pixel_id']);
@@ -213,6 +245,40 @@ class EventRequest implements ArrayAccess {
     );
     $event_response = new EventResponse($response->exportAllData());
     return $event_response;
+  }
+
+  private function customHttpServiceExecute($http_service_class) {
+    $base_url = 'https://graph.facebook.com/v' . ApiConfig::APIVersion;
+    $url = $base_url . '/' . $this->container['pixel_id'] . '/events';
+
+    $headers = array(
+      'User-Agent' => 'fbbizsdk-php-v' . ApiConfig::APIVersion,
+      'Accept-Encoding' => '*',
+    );
+
+    $curl_options = array(
+      CURLOPT_CONNECTTIMEOUT => 10,
+      CURLOPT_TIMEOUT => 60,
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_HEADER => true,
+      CURLOPT_CAINFO => Util::getCaBundlePath(),
+    );
+
+    $params = $this->normalize();
+    if (HttpServiceClientConfig::getInstance()->getAccessToken() == null) {
+      $params['access_token'] = Api::instance()->getSession()->getAccessToken();
+    } else {
+      $params['access_token'] = HttpServiceClientConfig::getInstance()->getAccessToken();
+    }
+
+    $http_service = new $http_service_class();
+    return $http_service->executeRequest(
+      $url,
+      HttpMethod::POST,
+      $curl_options,
+      $headers,
+      $params
+    );
   }
 
   /**

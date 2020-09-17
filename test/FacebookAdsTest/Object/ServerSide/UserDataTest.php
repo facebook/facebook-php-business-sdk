@@ -49,6 +49,7 @@ class UserDataTest extends AbstractUnitTestCase {
       'fbp' => 'fbp-14',
       'subscription_id' => 'subscription_id-15',
       'fb_login_id' => 'fb_login_id-16',
+      'lead_id' => 'lead_id-17',
       'f5first' => 'f5fir',
       'f5last' => 'f5las',
       'fi' => 'f',
@@ -74,6 +75,7 @@ class UserDataTest extends AbstractUnitTestCase {
       'fbp' => 'fbp-14',
       'subscription_id' => 'subscription_id-15',
       'fb_login_id' => 'fb_login_id-16',
+      'lead_id' => 'lead_id-17',
       'f5first' => Util::hash($initial_state['f5first']),
       'f5last' => Util::hash($initial_state['f5last']),
       'fi' => Util::hash($initial_state['fi']),
@@ -99,6 +101,7 @@ class UserDataTest extends AbstractUnitTestCase {
       ->setFbp($initial_state['fbp'])
       ->setSubscriptionId($initial_state['subscription_id'])
       ->setFbLoginId($initial_state['fb_login_id'])
+      ->setLeadId($initial_state['lead_id'])
       ->setF5first($initial_state['f5first'])
       ->setF5last($initial_state['f5last'])
       ->setFi($initial_state['fi'])
