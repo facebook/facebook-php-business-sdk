@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 
 ## Unreleased
+### Added
+- Added batching support to Conversions API. Create batched event requests by using BatchProcessor.
 
 ### Added
 - `lead_id` field to the Conversions API `user_data` section.

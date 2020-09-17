@@ -29,7 +29,6 @@ use FacebookAds\ApiConfig;
 use FacebookAds\Http\Client;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\MultipartStream;
-use FacebookAds\Object\ServerSide\AsyncClient;
 
 class EventRequestAsync extends EventRequest {
   /**
