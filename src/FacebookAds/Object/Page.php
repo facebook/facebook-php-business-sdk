@@ -1048,6 +1048,31 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createExtendThreadControl(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'duration' => 'unsigned int',
+      'recipient' => 'Object',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/extend_thread_control',
+      new Page(),
+      'EDGE',
+      Page::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getFeed(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1908,6 +1933,7 @@ class Page extends AbstractCrudObject {
         'ICE_BREAKERS',
         'PAYMENT_SETTINGS',
         'PERSISTENT_MENU',
+        'PLATFORM',
         'TARGET_AUDIENCE',
         'WHITELISTED_DOMAINS',
       ),
@@ -2370,6 +2396,7 @@ class Page extends AbstractCrudObject {
 
     $param_types = array(
       'android_key_hash' => 'string',
+      'burn_media_effect' => 'bool',
       'caption' => 'string',
       'composer_session_id' => 'string',
       'has_umg' => 'bool',

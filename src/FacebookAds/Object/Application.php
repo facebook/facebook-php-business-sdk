@@ -44,6 +44,7 @@ use FacebookAds\Object\Values\ApplicationRequestTypeValues;
 use FacebookAds\Object\Values\ApplicationScoreTypeValues;
 use FacebookAds\Object\Values\ApplicationSortOrderValues;
 use FacebookAds\Object\Values\ApplicationSupportedPlatformsValues;
+use FacebookAds\Object\Values\DACheckConnectionMethodValues;
 use FacebookAds\Object\Values\EventTypeValues;
 use FacebookAds\Object\Values\LiveVideoBroadcastStatusValues;
 
@@ -183,6 +184,7 @@ class Application extends AbstractCrudObject {
       'bundle_id' => 'string',
       'bundle_short_version' => 'string',
       'bundle_version' => 'string',
+      'click_id' => 'string',
       'consider_views' => 'bool',
       'custom_events' => 'list<Object>',
       'custom_events_file' => 'file',
@@ -195,6 +197,7 @@ class Application extends AbstractCrudObject {
       'include_dwell_data' => 'bool',
       'include_video_data' => 'bool',
       'install_referrer' => 'string',
+      'install_timestamp' => 'unsigned int',
       'installer_package' => 'string',
       'limited_data_use' => 'bool',
       'migration_bundle' => 'string',
@@ -347,6 +350,32 @@ class Application extends AbstractCrudObject {
       new Business(),
       'EDGE',
       Business::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createAggregateRevenue(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'ecpms' => 'list<string>',
+      'query_ids' => 'list<string>',
+      'request_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/aggregate_revenue',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -775,8 +804,10 @@ class Application extends AbstractCrudObject {
 
     $param_types = array(
       'checks' => 'list<string>',
+      'connection_method' => 'connection_method_enum',
     );
     $enums = array(
+      'connection_method_enum' => DACheckConnectionMethodValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1095,6 +1126,7 @@ class Application extends AbstractCrudObject {
     $param_types = array(
       'device_id' => 'string',
       'extinfo' => 'Object',
+      'os_version' => 'string',
       'platform' => 'platform_enum',
       'sdk_version' => 'string',
     );

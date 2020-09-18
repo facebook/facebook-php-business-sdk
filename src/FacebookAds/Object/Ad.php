@@ -449,7 +449,6 @@ class Ad extends AbstractArchivableCrudObject
         'last_week_sun_sat',
         'last_year',
         'lifetime',
-        'maximum',
         'this_month',
         'this_quarter',
         'this_week_mon_today',

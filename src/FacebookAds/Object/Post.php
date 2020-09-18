@@ -295,6 +295,8 @@ class Post extends AbstractCrudObject {
         'LOCAL',
         'LOOKALIKE',
         'MARKETPLACE_DEFAULT',
+        'MARKETPLACE_NATIONWIDE_AUDIENCE',
+        'MARKETPLACE_SAVED_AUDIENCE',
         'MULT_CUSTOM_AUDIENCES',
         'NCPP',
         'SAVED_AUDIENCE',

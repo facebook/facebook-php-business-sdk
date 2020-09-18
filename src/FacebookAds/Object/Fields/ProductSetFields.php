@@ -45,6 +45,7 @@ class ProductSetFields extends AbstractEnum {
   const NAME = 'name';
   const PRODUCT_CATALOG = 'product_catalog';
   const PRODUCT_COUNT = 'product_count';
+  const RETAILER_ID = 'retailer_id';
   const METADATA = 'metadata';
 
   public function getFieldTypes() {
@@ -57,6 +58,7 @@ class ProductSetFields extends AbstractEnum {
       'name' => 'string',
       'product_catalog' => 'ProductCatalog',
       'product_count' => 'unsigned int',
+      'retailer_id' => 'string',
       'metadata' => 'map',
     );
   }

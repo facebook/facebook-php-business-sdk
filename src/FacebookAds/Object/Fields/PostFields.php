@@ -64,6 +64,7 @@ class PostFields extends AbstractEnum {
   const ID = 'id';
   const IMPLICIT_PLACE = 'implicit_place';
   const INSTAGRAM_ELIGIBILITY = 'instagram_eligibility';
+  const INSTREAM_ELIGIBILITY = 'instream_eligibility';
   const IS_APP_SHARE = 'is_app_share';
   const IS_ELIGIBLE_FOR_PROMOTION = 'is_eligible_for_promotion';
   const IS_EXPIRED = 'is_expired';
@@ -138,6 +139,7 @@ class PostFields extends AbstractEnum {
       'id' => 'string',
       'implicit_place' => 'Place',
       'instagram_eligibility' => 'string',
+      'instream_eligibility' => 'string',
       'is_app_share' => 'bool',
       'is_eligible_for_promotion' => 'bool',
       'is_expired' => 'bool',

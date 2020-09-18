@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 
 ## Unreleased
+
+## v8.0.2
+
 ### Added
 - Added batching support to Conversions API. Create batched event requests by using BatchProcessor.
 
@@ -99,3 +102,4 @@ All notable changes to this project will be documented in this file.
     $async_job = $async_job->getSelf();
   }
   ```
+

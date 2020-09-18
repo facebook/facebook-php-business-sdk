@@ -93,6 +93,7 @@ class Business extends AbstractCrudObject {
 
     $param_types = array(
       'app_id' => 'string',
+      'fbe_external_business_id' => 'string',
       'scope' => 'list<Permission>',
       'system_user_name' => 'string',
     );
@@ -398,6 +399,32 @@ class Business extends AbstractCrudObject {
       new Business(),
       'EDGE',
       Business::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createAggregateRevenue(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'ecpms' => 'list<string>',
+      'query_ids' => 'list<string>',
+      'request_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/aggregate_revenue',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -810,6 +837,29 @@ class Business extends AbstractCrudObject {
       new ProductCatalog(),
       'EDGE',
       ProductCatalog::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getClientWhatsAppBusinessAccounts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/client_whatsapp_business_accounts',
+      new WhatsAppBusinessAccount(),
+      'EDGE',
+      WhatsAppBusinessAccount::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1481,6 +1531,7 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'child_business_external_id' => 'string',
       'client_user_id' => 'int',
     );
     $enums = array(

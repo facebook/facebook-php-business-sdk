@@ -35,6 +35,7 @@ use FacebookAds\Object\Values\AdsPixelFirstPartyCookieStatusValues;
 use FacebookAds\Object\Values\AdsPixelSortByValues;
 use FacebookAds\Object\Values\AdsPixelStatsResultAggregationValues;
 use FacebookAds\Object\Values\AdsPixelTasksValues;
+use FacebookAds\Object\Values\DACheckConnectionMethodValues;
 
 /**
  * This class is auto-generated.
@@ -127,8 +128,10 @@ class AdsPixel extends AbstractCrudObject {
 
     $param_types = array(
       'checks' => 'list<string>',
+      'connection_method' => 'connection_method_enum',
     );
     $enums = array(
+      'connection_method_enum' => DACheckConnectionMethodValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

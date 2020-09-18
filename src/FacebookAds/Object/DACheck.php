@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\DACheckFields;
+use FacebookAds\Object\Values\DACheckConnectionMethodValues;
 
 /**
  * This class is auto-generated.
@@ -50,6 +51,7 @@ class DACheck extends AbstractObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['ConnectionMethod'] = DACheckConnectionMethodValues::getInstance()->getValues();
     return $ref_enums;
   }
 

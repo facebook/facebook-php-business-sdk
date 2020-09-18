@@ -37,10 +37,12 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdCreativeInteractiveComponentsSpecFields extends AbstractEnum {
 
+  const CHILD_ATTACHMENTS = 'child_attachments';
   const COMPONENTS = 'components';
 
   public function getFieldTypes() {
     return array(
+      'child_attachments' => 'list<Object>',
       'components' => 'list<Object>',
     );
   }
