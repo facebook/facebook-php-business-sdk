@@ -110,4 +110,11 @@ class CustomDataTest extends AbstractUnitTestCase {
 
     $this->assertTrue($has_throw_exception);
   }
+
+  public function testZeroCustomDataValue() {
+    $custom_data = (new CustomData())->setValue(0.0);
+
+    $normalized_payload = $custom_data->normalize();
+    $this->assertEquals($normalized_payload['value'], 0);
+  }
 }
