@@ -103,4 +103,19 @@ class ServerSideUtilTest extends TestCase {
   public function testGetCaBundlePath() {
     $this->assertTrue(file_exists(Util::getCaBundlePath()));
   }
+
+  public function testGetAppsecretProof() {
+    $access_token = 'accesstoken0';
+    $appsecret = 'appsecret1';
+    $expected_appsecret_proof = hash_hmac(
+      'sha256',
+      $access_token,
+      $appsecret
+    );
+
+    $this->assertEquals(
+      Util::getAppsecretProof($access_token, $appsecret),
+      $expected_appsecret_proof
+    );
+  }
 }

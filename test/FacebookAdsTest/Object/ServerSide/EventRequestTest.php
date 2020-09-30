@@ -58,6 +58,10 @@ class EventRequestTest extends AbstractUnitTestCase {
       CURLOPT_HEADER => true,
       CURLOPT_CAINFO => Util::getCaBundlePath(),
     );
+    HttpServiceClientConfig::getInstance()->setAccessToken(null);
+    HttpServiceClientConfig::getInstance()->setClient(null);
+    HttpServiceClientConfig::getInstance()->setAppsecret(null);
+    Api::init(null, null, null, false);
   }
 
   protected function tearDown(): void {
@@ -130,9 +134,10 @@ class EventRequestTest extends AbstractUnitTestCase {
     $this->assertEquals($expected_event_response, $actual_event_response);
   }
 
-  public function testSetHttpService() {
-    Api::init(null, null, $this->expected_access_token, false);
-    $mock_fake_service_class = m::mock('overload:FacebookAdsTest\Object\ServerSide\TestHelpers\FakeHttpService');
+  public function testSetHttpClient() {
+    $appsecret = 'appsecret-012';
+    Api::init(null, $appsecret, $this->expected_access_token, false);
+    $mock_client = m::mock('FacebookAdsTest\Object\ServerSide\TestHelpers\FakeHttpService');
     $expected_event_response = new EventResponse(
       array(
         'data' => array('events_received' => 1)
@@ -140,8 +145,8 @@ class EventRequestTest extends AbstractUnitTestCase {
     );
     $event_request = new EventRequest($this->expected_pixel_id);
     $event_request->setEvents(array(new Event(array('event_name' => 'event-123'))));
-    $event_request->setHttpService(FakeHttpService::class);
-    $mock_fake_service_class
+    $event_request->setHttpClient($mock_client);
+    $mock_client
       ->shouldReceive('executeRequest')
       ->once()
       ->with(
@@ -149,7 +154,7 @@ class EventRequestTest extends AbstractUnitTestCase {
         'POST',
         $this->expected_curl_options,
         $this->expected_headers,
-        $this->normalize_and_merge($event_request, $this->expected_access_token)
+        $this->normalize_and_merge($event_request, $this->expected_access_token, $appsecret)
       )
       ->andReturn($expected_event_response);
     $actual_event_response = $event_request->execute();
@@ -157,8 +162,8 @@ class EventRequestTest extends AbstractUnitTestCase {
     $this->assertEquals($expected_event_response, $actual_event_response);
   }
 
-  public function testSetHttpServiceClientConfig() {
-    $mock_fake_service_class = m::mock('overload:FacebookAdsTest\Object\ServerSide\TestHelpers\FakeHttpService');
+  public function testSetHttpClientClientConfig() {
+    $mock_client = m::mock('FacebookAdsTest\Object\ServerSide\TestHelpers\FakeHttpService');
     $expected_event_response = new EventResponse(
       array(
         'data' => array('events_received' => 1)
@@ -166,7 +171,7 @@ class EventRequestTest extends AbstractUnitTestCase {
     );
     $event_request = new EventRequest($this->expected_pixel_id);
     $event_request->setEvents(array(new Event(array('event_name' => 'event-123'))));
-    $mock_fake_service_class
+    $mock_client
       ->shouldReceive('executeRequest')
       ->once()
       ->with(
@@ -174,19 +179,21 @@ class EventRequestTest extends AbstractUnitTestCase {
         'POST',
         $this->expected_curl_options,
         $this->expected_headers,
-        $this->normalize_and_merge($event_request, $this->expected_access_token)
+        $this->normalize_and_merge($event_request, $this->expected_access_token, null)
       )
       ->andReturn($expected_event_response);
-    HttpServiceClientConfig::getInstance()->setClient(FakeHttpService::class);
+    HttpServiceClientConfig::getInstance()->setClient($mock_client);
     HttpServiceClientConfig::getInstance()->setAccessToken($this->expected_access_token);
     $actual_event_response = $event_request->execute();
 
     $this->assertEquals($expected_event_response, $actual_event_response);
   }
 
-  public function testEventRequestHttpServiceOverridesClientConfig() {
-    Api::init(null, null, 'a-different-access-token', false);
-    $mock_fake_service_class = m::mock('overload:FacebookAdsTest\Object\ServerSide\TestHelpers\AnotherHttpService');
+  public function testEventRequestHttpClientOverridesClientConfig() {
+    $appsecret = 'appsecret-012';
+    Api::init(null, 'a-different-app-secret', 'a-different-access-token', false);
+    $mock_used_client = m::mock('FacebookAdsTest\Object\ServerSide\TestHelpers\AnotherHttpService');
+    $mock_unused_client = m::mock('FacebookAdsTest\Object\ServerSide\TestHelpers\AnotherHttpService');
     $expected_event_response = new EventResponse(
       array(
         'data' => array('events_received' => 1)
@@ -194,8 +201,8 @@ class EventRequestTest extends AbstractUnitTestCase {
     );
     $event_request = new EventRequest($this->expected_pixel_id);
     $event_request->setEvents(array(new Event(array('event_name' => 'event-123'))));
-    $event_request->setHttpService(AnotherHttpService::class);
-    $mock_fake_service_class
+    $event_request->setHttpClient($mock_used_client);
+    $mock_used_client
       ->shouldReceive('executeRequest')
       ->once()
       ->with(
@@ -203,11 +210,12 @@ class EventRequestTest extends AbstractUnitTestCase {
         'POST',
         $this->expected_curl_options,
         $this->expected_headers,
-        $this->normalize_and_merge($event_request, $this->expected_access_token)
+        $this->normalize_and_merge($event_request, $this->expected_access_token, $appsecret)
       )
       ->andReturn($expected_event_response);
-    HttpServiceClientConfig::getInstance()->setClient(FakeHttpService::class);
+    HttpServiceClientConfig::getInstance()->setClient($mock_unused_client);
     HttpServiceClientConfig::getInstance()->setAccessToken($this->expected_access_token);
+    HttpServiceClientConfig::getInstance()->setAppsecret($appsecret);
     $actual_event_response = $event_request->execute();
 
     $this->assertEquals($expected_event_response, $actual_event_response);
@@ -215,9 +223,12 @@ class EventRequestTest extends AbstractUnitTestCase {
 
   // Test helper functions
 
-  protected function normalize_and_merge($event_request, $access_token) {
+  protected function normalize_and_merge($event_request, $access_token, $appsecret) {
     $normalized_merged = $event_request->normalize();
     $normalized_merged['access_token'] = $access_token;
+    if ($appsecret != null) {
+      $normalized_merged['appsecret_proof'] = Util::getAppsecretProof($access_token, $appsecret);
+    }
     return $normalized_merged;
   }
 }

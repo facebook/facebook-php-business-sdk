@@ -93,7 +93,7 @@ class EventRequest implements ArrayAccess {
    */
   protected $container = array();
 
-  protected $http_service_class = null;
+  protected $http_client = null;
 
   /**
    * Constructor
@@ -204,13 +204,13 @@ class EventRequest implements ArrayAccess {
   }
 
   /**
-   * Sets a Custom HTTP Service, which overrides the default HTTP service
+   * Sets a custom HTTP Client object, which overrides the default HTTP service
    * used to send the event request.
-   * @param string $http_service_class The class name that implements the HttpServiceInterface
+   * @param HttpServiceInterface $http_client An object that implements the HttpServiceInterface
    * @return $this
    */
-  public function setHttpService(string $http_service_class) {
-    $this->http_service_class = $http_service_class;
+  public function setHttpClient($http_client) {
+    $this->http_client = $http_client;
 
     return $this;
   }
@@ -220,16 +220,16 @@ class EventRequest implements ArrayAccess {
    * @return EventResponse
    */
   public function execute() {
-    $http_service_class = null;
+    $http_client = null;
 
-    if ($this->http_service_class != null) {
-      $http_service_class = $this->http_service_class;
+    if ($this->http_client != null) {
+      $http_client = $this->http_client;
     } else {
-      $http_service_class = HttpServiceClientConfig::getInstance()->getClient();
+      $http_client = HttpServiceClientConfig::getInstance()->getClient();
     }
 
-    if ($http_service_class != null) {
-      return $this->customHttpServiceExecute($http_service_class);
+    if ($http_client != null) {
+      return $this->httpClientExecute($http_client);
     }
 
     return $this->defaultExecute();
@@ -247,7 +247,7 @@ class EventRequest implements ArrayAccess {
     return $event_response;
   }
 
-  private function customHttpServiceExecute($http_service_class) {
+  private function httpClientExecute($http_client) {
     $base_url = 'https://graph.facebook.com/v' . ApiConfig::APIVersion;
     $url = $base_url . '/' . $this->container['pixel_id'] . '/events';
 
@@ -271,8 +271,17 @@ class EventRequest implements ArrayAccess {
       $params['access_token'] = HttpServiceClientConfig::getInstance()->getAccessToken();
     }
 
-    $http_service = new $http_service_class();
-    return $http_service->executeRequest(
+    $appsecret = null;
+    if (HttpServiceClientConfig::getInstance()->getAppsecret() == null) {
+      $appsecret = Api::instance()->getSession()->getAppSecret();
+    } else {
+      $appsecret = HttpServiceClientConfig::getInstance()->getAppsecret();
+    }
+    if ($appsecret != null) {
+      $params['appsecret_proof'] = Util::getAppsecretProof($params['access_token'], $appsecret);
+    }
+
+    return $http_client->executeRequest(
       $url,
       HttpMethod::POST,
       $curl_options,

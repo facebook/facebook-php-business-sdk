@@ -25,24 +25,33 @@
 namespace FacebookAds\Object\ServerSide;
 
 class HttpServiceClientConfig extends Singleton {
-  protected $client_class = null;
+  protected $client = null;
   protected $access_token = null;
+  protected $appsecret = null;
 
   public function __construct() {}
 
   public function getClient() {
-    return $this->client_class;
+    return $this->client;
   }
 
   public function getAccessToken() {
     return $this->access_token;
   }
 
-  public function setClient($client_class) {
-    $this->client_class = $client_class;
+  public function getAppsecret() {
+    return $this->appsecret;
+  }
+
+  public function setClient($client) {
+    $this->client = $client;
   }
 
   public function setAccessToken($access_token) {
     $this->access_token = $access_token;
+  }
+
+  public function setAppsecret($appsecret) {
+    $this->appsecret = $appsecret;
   }
 }
