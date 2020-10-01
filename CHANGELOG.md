@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## v8.0.3
+
+### Changed
+- Fixed a normalization issue for zero values in CustomData in Conversions API
+- Start passing in the appsecret_proof to Conversions API custom http_clients when an appsecret is set
+- A Conversions API EventRequest custom http_client must now be an object instead of a class name
+
 ## v8.0.2
 
 ### Added
