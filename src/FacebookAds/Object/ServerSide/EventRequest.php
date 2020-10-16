@@ -252,7 +252,7 @@ class EventRequest implements ArrayAccess {
     $url = $base_url . '/' . $this->container['pixel_id'] . '/events';
 
     $headers = array(
-      'User-Agent' => 'fbbizsdk-php-v' . ApiConfig::APIVersion,
+      'User-Agent' => 'fbbizsdk-php-v' . ApiConfig::SDKVersion,
       'Accept-Encoding' => '*',
     );
 

@@ -24,7 +24,7 @@
 
 namespace FacebookAds\Http;
 
-use FacebookAds\Api;
+use FacebookAds\ApiConfig;
 use FacebookAds\Http\Adapter\AdapterInterface;
 use FacebookAds\Http\Adapter\CurlAdapter;
 use FacebookAds\Http\Exception\EmptyResponseException;
@@ -128,7 +128,7 @@ class Client {
   public function getDefaultRequestHeaderds() {
     if ($this->defaultRequestHeaders === null) {
       $this->defaultRequestHeaders = new Headers(array(
-        'User-Agent' => 'fbbizsdk-php-v'.Api::VERSION,
+        'User-Agent' => 'fbbizsdk-php-v'.ApiConfig::SDKVersion,
         'Accept-Encoding' => '*',
       ));
     }

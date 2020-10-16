@@ -47,7 +47,7 @@ class EventRequestTest extends AbstractUnitTestCase {
       . $this->expected_pixel_id
       . '/events';
     $this->expected_headers = array(
-      'User-Agent' => 'fbbizsdk-php-v' . ApiConfig::APIVersion,
+      'User-Agent' => 'fbbizsdk-php-v' . ApiConfig::SDKVersion,
       'Accept-Encoding' => '*',
     );
     $this->expected_access_token = 'a-test-token';
