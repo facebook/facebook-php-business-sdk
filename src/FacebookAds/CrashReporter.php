@@ -140,8 +140,8 @@ class CrashReporter {
 
         $lastError = set_error_handler(
             function ($errno, $errstr, $errfile, $errline) use (&$lastError) {
-                self::log('Error detected!');
                 if (($errno & self::E_FATAL) && strpos($errfile, 'FacebookAds') != false) {
+                    self::log('Error detected!');
                     $e = new \ErrorException($errstr, 0, $errno, $errfile, $errline);
                     $params = $this->buildParamsFromException($e);
                     if ($params != null) {
