@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Fields;
 
 class Agency extends AbstractObject {
 
