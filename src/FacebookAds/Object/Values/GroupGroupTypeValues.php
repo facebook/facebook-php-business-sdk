@@ -68,6 +68,7 @@ class GroupGroupTypeValues extends AbstractEnum {
   const SCHOOL_CLASS = 'SCHOOL_CLASS';
   const SORORITY = 'SORORITY';
   const SPORTS = 'SPORTS';
+  const STREAMER = 'STREAMER';
   const STUDY_GROUP = 'STUDY_GROUP';
   const SUPPORT = 'SUPPORT';
   const TEAMMATES = 'TEAMMATES';

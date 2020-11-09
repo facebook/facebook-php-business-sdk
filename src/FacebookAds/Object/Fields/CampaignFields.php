@@ -38,6 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class CampaignFields extends AbstractEnum {
 
   const ACCOUNT_ID = 'account_id';
+  const AD_STRATEGY_ID = 'ad_strategy_id';
   const ADLABELS = 'adlabels';
   const BID_STRATEGY = 'bid_strategy';
   const BOOSTED_OBJECT_ID = 'boosted_object_id';
@@ -79,6 +80,7 @@ class CampaignFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'account_id' => 'string',
+      'ad_strategy_id' => 'string',
       'adlabels' => 'list<AdLabel>',
       'bid_strategy' => 'BidStrategy',
       'boosted_object_id' => 'string',

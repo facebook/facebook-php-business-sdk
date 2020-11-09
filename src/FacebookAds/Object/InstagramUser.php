@@ -154,6 +154,7 @@ class InstagramUser extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'adgroup_id' => 'string',
     );
     $enums = array(
     );

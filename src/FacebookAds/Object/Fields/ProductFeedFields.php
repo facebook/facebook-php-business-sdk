@@ -47,6 +47,7 @@ class ProductFeedFields extends AbstractEnum {
   const ID = 'id';
   const ITEM_SUB_TYPE = 'item_sub_type';
   const LATEST_UPLOAD = 'latest_upload';
+  const MIGRATED_FROM_FEED_ID = 'migrated_from_feed_id';
   const NAME = 'name';
   const OVERRIDE_TYPE = 'override_type';
   const PRODUCT_COUNT = 'product_count';
@@ -70,6 +71,7 @@ class ProductFeedFields extends AbstractEnum {
       'id' => 'string',
       'item_sub_type' => 'string',
       'latest_upload' => 'ProductFeedUpload',
+      'migrated_from_feed_id' => 'string',
       'name' => 'string',
       'override_type' => 'string',
       'product_count' => 'int',

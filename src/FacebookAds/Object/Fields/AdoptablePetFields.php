@@ -46,17 +46,24 @@ class AdoptablePetFields extends AbstractEnum {
   const AVAILABILITY = 'availability';
   const BREED = 'breed';
   const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
+  const COAT_LENGTH = 'coat_length';
+  const COLOR = 'color';
   const CURRENCY = 'currency';
   const DESCRIPTION = 'description';
+  const FEATURES = 'features';
   const GENDER = 'gender';
   const ID = 'id';
   const IMAGES = 'images';
   const NAME = 'name';
   const PRICE = 'price';
   const SANITIZED_IMAGES = 'sanitized_images';
+  const SECONDARY_COLOR = 'secondary_color';
+  const SHELTER_EMAIL = 'shelter_email';
   const SHELTER_NAME = 'shelter_name';
   const SHELTER_PAGE_ID = 'shelter_page_id';
+  const SHELTER_PHONE = 'shelter_phone';
   const SIZE = 'size';
+  const TERTIARY_COLOR = 'tertiary_color';
   const URL = 'url';
 
   public function getFieldTypes() {
@@ -70,17 +77,24 @@ class AdoptablePetFields extends AbstractEnum {
       'availability' => 'string',
       'breed' => 'string',
       'category_specific_fields' => 'CatalogSubVerticalList',
+      'coat_length' => 'string',
+      'color' => 'string',
       'currency' => 'string',
       'description' => 'string',
+      'features' => 'list<string>',
       'gender' => 'string',
       'id' => 'string',
       'images' => 'list<string>',
       'name' => 'string',
       'price' => 'string',
       'sanitized_images' => 'list<string>',
+      'secondary_color' => 'string',
+      'shelter_email' => 'string',
       'shelter_name' => 'string',
       'shelter_page_id' => 'Page',
+      'shelter_phone' => 'string',
       'size' => 'string',
+      'tertiary_color' => 'string',
       'url' => 'string',
     );
   }

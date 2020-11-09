@@ -41,6 +41,7 @@ class CommerceMerchantSettingsSetupStatusFields extends AbstractEnum {
   const MARKETPLACE_APPROVAL_STATUS = 'marketplace_approval_status';
   const MARKETPLACE_APPROVAL_STATUS_DETAILS = 'marketplace_approval_status_details';
   const PAYMENT_SETUP = 'payment_setup';
+  const REVIEW_STATUS = 'review_status';
   const SHOP_SETUP = 'shop_setup';
 
   public function getFieldTypes() {
@@ -49,6 +50,7 @@ class CommerceMerchantSettingsSetupStatusFields extends AbstractEnum {
       'marketplace_approval_status' => 'string',
       'marketplace_approval_status_details' => 'Object',
       'payment_setup' => 'string',
+      'review_status' => 'Object',
       'shop_setup' => 'string',
     );
   }

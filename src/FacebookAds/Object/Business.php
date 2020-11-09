@@ -115,6 +115,30 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function deleteAdAccounts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'adaccount_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/ad_accounts',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getAdStudies(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1711,12 +1735,10 @@ class Business extends AbstractCrudObject {
     $param_types = array(
       'catalog_segment_filter' => 'Object',
       'catalog_segment_product_set_id' => 'string',
-      'commerce_merchant_settings' => 'Object',
       'da_display_settings' => 'Object',
       'destination_catalog_settings' => 'map',
       'flight_catalog_settings' => 'map',
       'name' => 'string',
-      'onsite_commerce_merchant' => 'Object',
       'parent_catalog_id' => 'string',
       'store_catalog_settings' => 'map',
       'vertical' => 'vertical_enum',
@@ -1733,6 +1755,29 @@ class Business extends AbstractCrudObject {
       new ProductCatalog(),
       'EDGE',
       ProductCatalog::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getOwnedWhatsAppBusinessAccounts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/owned_whatsapp_business_accounts',
+      new WhatsAppBusinessAccount(),
+      'EDGE',
+      WhatsAppBusinessAccount::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

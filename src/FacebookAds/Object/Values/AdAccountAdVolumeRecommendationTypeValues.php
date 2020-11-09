@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdAccountAdVolumeRecommendationTypeValues extends AbstractEnum {
 
+  const ACO_TOGGLE = 'ACO_TOGGLE';
   const AGGREGATED_BID_LIMITED = 'AGGREGATED_BID_LIMITED';
   const AGGREGATED_BUDGET_LIMITED = 'AGGREGATED_BUDGET_LIMITED';
   const AGGREGATED_COST_LIMITED = 'AGGREGATED_COST_LIMITED';

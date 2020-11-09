@@ -41,6 +41,7 @@ class PlayableContentFields extends AbstractEnum {
   const NAME = 'name';
   const OWNER = 'owner';
   const APP_ID = 'app_id';
+  const SESSION_ID = 'session_id';
   const SOURCE = 'source';
   const SOURCE_URL = 'source_url';
   const SOURCE_ZIP = 'source_zip';
@@ -51,6 +52,7 @@ class PlayableContentFields extends AbstractEnum {
       'name' => 'string',
       'owner' => 'Profile',
       'app_id' => 'string',
+      'session_id' => 'string',
       'source' => 'file',
       'source_url' => 'string',
       'source_zip' => 'file',

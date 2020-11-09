@@ -52,6 +52,14 @@ use FacebookAds\Object\Values\PermissionStatusValues;
 use FacebookAds\Object\Values\PhotoBackdatedTimeGranularityValues;
 use FacebookAds\Object\Values\PhotoTypeValues;
 use FacebookAds\Object\Values\PhotoUnpublishedContentTypeValues;
+use FacebookAds\Object\Values\PostBackdatedTimeGranularityValues;
+use FacebookAds\Object\Values\PostCheckinEntryPointValues;
+use FacebookAds\Object\Values\PostFormattingValues;
+use FacebookAds\Object\Values\PostPlaceAttachmentSettingValues;
+use FacebookAds\Object\Values\PostPostSurfacesBlacklistValues;
+use FacebookAds\Object\Values\PostPostingToRedspaceValues;
+use FacebookAds\Object\Values\PostTargetSurfaceValues;
+use FacebookAds\Object\Values\PostUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\ProfilePictureSourceBreakingChangeValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
 use FacebookAds\Object\Values\UserFilteringValues;
@@ -648,6 +656,35 @@ class User extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getFeed(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'include_hidden' => 'bool',
+      'q' => 'string',
+      'show_expired' => 'bool',
+      'since' => 'datetime',
+      'until' => 'datetime',
+      'with' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/feed',
+      new Post(),
+      'EDGE',
+      Post::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createFeed(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -766,52 +803,14 @@ class User extends AbstractCrudObject {
       'width' => 'unsigned int',
     );
     $enums = array(
-      'backdated_time_granularity_enum' => array(
-        'day',
-        'hour',
-        'min',
-        'month',
-        'none',
-        'year',
-      ),
-      'checkin_entry_point_enum' => array(
-        'BRANDING_CHECKIN',
-        'BRANDING_OTHER',
-        'BRANDING_PHOTO',
-        'BRANDING_STATUS',
-      ),
-      'formatting_enum' => array(
-        'MARKDOWN',
-        'PLAINTEXT',
-      ),
-      'place_attachment_setting_enum' => array(
-        '1',
-        '2',
-      ),
-      'post_surfaces_blacklist_enum' => array(
-        '1',
-        '2',
-        '3',
-        '4',
-        '5',
-      ),
-      'posting_to_redspace_enum' => array(
-        'disabled',
-        'enabled',
-      ),
-      'target_surface_enum' => array(
-        'STORY',
-        'TIMELINE',
-      ),
-      'unpublished_content_type_enum' => array(
-        'ADS_POST',
-        'DRAFT',
-        'INLINE_CREATED',
-        'PUBLISHED',
-        'REVIEWABLE_BRANDED_CONTENT',
-        'SCHEDULED',
-        'SCHEDULED_RECURRING',
-      ),
+      'backdated_time_granularity_enum' => PostBackdatedTimeGranularityValues::getInstance()->getValues(),
+      'checkin_entry_point_enum' => PostCheckinEntryPointValues::getInstance()->getValues(),
+      'formatting_enum' => PostFormattingValues::getInstance()->getValues(),
+      'place_attachment_setting_enum' => PostPlaceAttachmentSettingValues::getInstance()->getValues(),
+      'post_surfaces_blacklist_enum' => PostPostSurfacesBlacklistValues::getInstance()->getValues(),
+      'posting_to_redspace_enum' => PostPostingToRedspaceValues::getInstance()->getValues(),
+      'target_surface_enum' => PostTargetSurfaceValues::getInstance()->getValues(),
+      'unpublished_content_type_enum' => PostUnpublishedContentTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -819,9 +818,9 @@ class User extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/feed',
-      new AbstractCrudObject(),
+      new Post(),
       'EDGE',
-      array(),
+      Post::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

@@ -745,30 +745,6 @@ class ProductCatalog extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createOnsiteCommerceMerchant(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'onsite_commerce_merchant' => 'Object',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/onsite_commerce_merchant',
-      new ProductCatalog(),
-      'EDGE',
-      ProductCatalog::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getPricingVariablesBatch(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -858,6 +834,7 @@ class ProductCatalog extends AbstractCrudObject {
       'feed_type' => 'feed_type_enum',
       'file_name' => 'string',
       'item_sub_type' => 'item_sub_type_enum',
+      'migrated_from_feed_id' => 'string',
       'name' => 'string',
       'override_type' => 'override_type_enum',
       'override_value' => 'string',
@@ -1279,7 +1256,9 @@ class ProductCatalog extends AbstractCrudObject {
       'segment_use_cases_enum' => array(
         'COLLAB_ADS',
         'COLLAB_ADS_FOR_MARKETPLACE_PARTNER',
+        'COLLAB_ADS_SEGMENT_WITHOUT_SEGMENT_SYNCING',
         'IG_SHOPPING',
+        'IG_SHOPPING_SUGGESTED_PRODUCTS',
         'MARKETPLACE_SHOPS',
         'TEST',
       ),

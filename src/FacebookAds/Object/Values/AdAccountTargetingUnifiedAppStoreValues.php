@@ -33,21 +33,21 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdAsyncRequestStatusesValues getInstance()
+ * @method static AdAccountTargetingUnifiedAppStoreValues getInstance()
  */
-class AdAsyncRequestStatusesValues extends AbstractEnum {
+class AdAccountTargetingUnifiedAppStoreValues extends AbstractEnum {
 
-  const CANCELED = 'CANCELED';
-  const CANCELED_DEPENDENCY = 'CANCELED_DEPENDENCY';
-  const ERROR = 'ERROR';
-  const ERROR_CONFLICTS = 'ERROR_CONFLICTS';
-  const ERROR_DEPENDENCY = 'ERROR_DEPENDENCY';
-  const INITIAL = 'INITIAL';
-  const IN_PROGRESS = 'IN_PROGRESS';
-  const PENDING_DEPENDENCY = 'PENDING_DEPENDENCY';
-  const PROCESS_BY_AD_ASYNC_ENGINE = 'PROCESS_BY_AD_ASYNC_ENGINE';
-  const PROCESS_BY_EVENT_PROCESSOR = 'PROCESS_BY_EVENT_PROCESSOR';
-  const SUCCESS = 'SUCCESS';
-  const USER_CANCELED = 'USER_CANCELED';
-  const USER_CANCELED_DEPENDENCY = 'USER_CANCELED_DEPENDENCY';
+  const AMAZON_APP_STORE = 'amazon_app_store';
+  const DOES_NOT_EXIST = 'does_not_exist';
+  const FB_ANDROID_STORE = 'fb_android_store';
+  const FB_CANVAS = 'fb_canvas';
+  const FB_GAMEROOM = 'fb_gameroom';
+  const GOOGLE_PLAY = 'google_play';
+  const INSTANT_GAME = 'instant_game';
+  const ITUNES = 'itunes';
+  const ITUNES_IPAD = 'itunes_ipad';
+  const OCULUS_APP_STORE = 'oculus_app_store';
+  const ROKU_CHANNEL_STORE = 'roku_channel_store';
+  const WINDOWS_10_STORE = 'windows_10_store';
+  const WINDOWS_STORE = 'windows_store';
 }

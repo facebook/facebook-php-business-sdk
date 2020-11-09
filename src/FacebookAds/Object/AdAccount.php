@@ -39,6 +39,7 @@ use FacebookAds\Object\Values\AdAccountDeliveryEstimateOptimizationGoalValues;
 use FacebookAds\Object\Values\AdAccountMatchedSearchApplicationsEdgeDataAppStoreValues;
 use FacebookAds\Object\Values\AdAccountPermittedTasksValues;
 use FacebookAds\Object\Values\AdAccountSubtypeValues;
+use FacebookAds\Object\Values\AdAccountTargetingUnifiedAppStoreValues;
 use FacebookAds\Object\Values\AdAccountTargetingUnifiedLimitTypeValues;
 use FacebookAds\Object\Values\AdAccountTargetingUnifiedModeValues;
 use FacebookAds\Object\Values\AdAccountTargetingUnifiedObjectiveValues;
@@ -574,6 +575,7 @@ class AdAccount extends AbstractCrudObject {
     $param_types = array(
       'app_id' => 'string',
       'name' => 'string',
+      'session_id' => 'string',
       'source' => 'file',
       'source_url' => 'string',
       'source_zip' => 'file',
@@ -2719,9 +2721,12 @@ class AdAccount extends AbstractCrudObject {
 
     $param_types = array(
       'allow_only_fat_head_interests' => 'bool',
+      'app_store' => 'app_store_enum',
       'countries' => 'list<string>',
       'is_exclusion' => 'bool',
       'limit_type' => 'limit_type_enum',
+      'objective' => 'objective_enum',
+      'promoted_object' => 'Object',
       'q' => 'string',
       'regulated_categories' => 'list<regulated_categories_enum>',
       'session_id' => 'unsigned int',
@@ -2729,7 +2734,9 @@ class AdAccount extends AbstractCrudObject {
       'whitelisted_types' => 'list<whitelisted_types_enum>',
     );
     $enums = array(
+      'app_store_enum' => AdAccountTargetingUnifiedAppStoreValues::getInstance()->getValues(),
       'limit_type_enum' => AdAccountTargetingUnifiedLimitTypeValues::getInstance()->getValues(),
+      'objective_enum' => AdAccountTargetingUnifiedObjectiveValues::getInstance()->getValues(),
       'regulated_categories_enum' => AdAccountTargetingUnifiedRegulatedCategoriesValues::getInstance()->getValues(),
       'whitelisted_types_enum' => AdAccountTargetingUnifiedWhitelistedTypesValues::getInstance()->getValues(),
     );
@@ -2780,6 +2787,7 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'app_store' => 'app_store_enum',
       'countries' => 'list<string>',
       'limit_type' => 'limit_type_enum',
       'mode' => 'mode_enum',
@@ -2791,6 +2799,7 @@ class AdAccount extends AbstractCrudObject {
       'whitelisted_types' => 'list<whitelisted_types_enum>',
     );
     $enums = array(
+      'app_store_enum' => AdAccountTargetingUnifiedAppStoreValues::getInstance()->getValues(),
       'limit_type_enum' => AdAccountTargetingUnifiedLimitTypeValues::getInstance()->getValues(),
       'mode_enum' => AdAccountTargetingUnifiedModeValues::getInstance()->getValues(),
       'objective_enum' => AdAccountTargetingUnifiedObjectiveValues::getInstance()->getValues(),
@@ -2833,30 +2842,6 @@ class AdAccount extends AbstractCrudObject {
       new AdAccountTargetingUnified(),
       'EDGE',
       AdAccountTargetingUnified::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function deleteTracking(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'tracking_specs' => 'Object',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_DELETE,
-      '/tracking',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

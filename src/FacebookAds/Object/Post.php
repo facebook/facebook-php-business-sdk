@@ -36,8 +36,15 @@ use FacebookAds\Object\Values\CommentOrderValues;
 use FacebookAds\Object\Values\InsightsResultDatePresetValues;
 use FacebookAds\Object\Values\InsightsResultPeriodValues;
 use FacebookAds\Object\Values\PostBackdatedTimeGranularityValues;
+use FacebookAds\Object\Values\PostCheckinEntryPointValues;
 use FacebookAds\Object\Values\PostFeedStoryVisibilityValues;
+use FacebookAds\Object\Values\PostFormattingValues;
+use FacebookAds\Object\Values\PostPlaceAttachmentSettingValues;
+use FacebookAds\Object\Values\PostPostSurfacesBlacklistValues;
+use FacebookAds\Object\Values\PostPostingToRedspaceValues;
+use FacebookAds\Object\Values\PostTargetSurfaceValues;
 use FacebookAds\Object\Values\PostTimelineVisibilityValues;
+use FacebookAds\Object\Values\PostUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\ProfileTypeValues;
 
 /**
@@ -63,6 +70,13 @@ class Post extends AbstractCrudObject {
     $ref_enums['BackdatedTimeGranularity'] = PostBackdatedTimeGranularityValues::getInstance()->getValues();
     $ref_enums['FeedStoryVisibility'] = PostFeedStoryVisibilityValues::getInstance()->getValues();
     $ref_enums['TimelineVisibility'] = PostTimelineVisibilityValues::getInstance()->getValues();
+    $ref_enums['CheckinEntryPoint'] = PostCheckinEntryPointValues::getInstance()->getValues();
+    $ref_enums['Formatting'] = PostFormattingValues::getInstance()->getValues();
+    $ref_enums['PlaceAttachmentSetting'] = PostPlaceAttachmentSettingValues::getInstance()->getValues();
+    $ref_enums['PostSurfacesBlacklist'] = PostPostSurfacesBlacklistValues::getInstance()->getValues();
+    $ref_enums['PostingToRedspace'] = PostPostingToRedspaceValues::getInstance()->getValues();
+    $ref_enums['TargetSurface'] = PostTargetSurfaceValues::getInstance()->getValues();
+    $ref_enums['UnpublishedContentType'] = PostUnpublishedContentTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -343,6 +357,7 @@ class Post extends AbstractCrudObject {
         'PLAY_GAME',
         'PURCHASE_GIFT_CARDS',
         'RECORD_NOW',
+        'REFER_FRIENDS',
         'REQUEST_TIME',
         'SAY_THANKS',
         'SEE_MORE',
@@ -353,6 +368,8 @@ class Post extends AbstractCrudObject {
         'SIGN_UP',
         'SOTTO_SUBSCRIBE',
         'SUBSCRIBE',
+        'SWIPE_UP_PRODUCT',
+        'SWIPE_UP_SHOP',
         'UPDATE_APP',
         'USE_APP',
         'USE_MOBILE_APP',

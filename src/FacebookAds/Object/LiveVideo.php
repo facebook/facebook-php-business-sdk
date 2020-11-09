@@ -349,15 +349,7 @@ class LiveVideo extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'ad_break_drop_live_stream' => 'bool',
-      'ad_break_duration' => 'unsigned int',
-      'ad_break_encoder_drops_live_stream' => 'bool',
-      'ad_break_intent' => 'bool',
-      'ad_break_start_now' => 'bool',
-      'ad_break_time_offset' => 'float',
       'allow_bm_crossposting' => 'bool',
-      'attribution_app_id' => 'string',
-      'commercial_break_durations' => 'list<unsigned int>',
       'content_tags' => 'list<string>',
       'crossposting_actions' => 'list<map>',
       'custom_labels' => 'list<string>',

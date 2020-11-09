@@ -477,6 +477,7 @@ class ProductFeed extends AbstractCrudObject {
       'deletion_enabled' => 'bool',
       'delimiter' => 'delimiter_enum',
       'encoding' => 'encoding_enum',
+      'migrated_from_feed_id' => 'string',
       'name' => 'string',
       'quoted_fields_mode' => 'quoted_fields_mode_enum',
       'schedule' => 'string',

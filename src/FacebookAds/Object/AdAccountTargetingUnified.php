@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdAccountTargetingUnifiedFields;
+use FacebookAds\Object\Values\AdAccountTargetingUnifiedAppStoreValues;
 use FacebookAds\Object\Values\AdAccountTargetingUnifiedLimitTypeValues;
 use FacebookAds\Object\Values\AdAccountTargetingUnifiedModeValues;
 use FacebookAds\Object\Values\AdAccountTargetingUnifiedObjectiveValues;
@@ -58,8 +59,9 @@ class AdAccountTargetingUnified extends AbstractCrudObject {
     $ref_enums['LimitType'] = AdAccountTargetingUnifiedLimitTypeValues::getInstance()->getValues();
     $ref_enums['RegulatedCategories'] = AdAccountTargetingUnifiedRegulatedCategoriesValues::getInstance()->getValues();
     $ref_enums['WhitelistedTypes'] = AdAccountTargetingUnifiedWhitelistedTypesValues::getInstance()->getValues();
-    $ref_enums['Mode'] = AdAccountTargetingUnifiedModeValues::getInstance()->getValues();
+    $ref_enums['AppStore'] = AdAccountTargetingUnifiedAppStoreValues::getInstance()->getValues();
     $ref_enums['Objective'] = AdAccountTargetingUnifiedObjectiveValues::getInstance()->getValues();
+    $ref_enums['Mode'] = AdAccountTargetingUnifiedModeValues::getInstance()->getValues();
     return $ref_enums;
   }
 

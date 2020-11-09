@@ -22,13 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Values;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AdCreativeInstagramBrandedContentFields;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-generated.
@@ -37,21 +33,15 @@ use FacebookAds\Object\Fields\AdCreativeInstagramBrandedContentFields;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static PostUnpublishedContentTypeValues getInstance()
  */
+class PostUnpublishedContentTypeValues extends AbstractEnum {
 
-class AdCreativeInstagramBrandedContent extends AbstractObject {
-
-  /**
-   * @return AdCreativeInstagramBrandedContentFields
-   */
-  public static function getFieldsEnum() {
-    return AdCreativeInstagramBrandedContentFields::getInstance();
-  }
-
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
+  const ADS_POST = 'ADS_POST';
+  const DRAFT = 'DRAFT';
+  const INLINE_CREATED = 'INLINE_CREATED';
+  const PUBLISHED = 'PUBLISHED';
+  const REVIEWABLE_BRANDED_CONTENT = 'REVIEWABLE_BRANDED_CONTENT';
+  const SCHEDULED = 'SCHEDULED';
+  const SCHEDULED_RECURRING = 'SCHEDULED_RECURRING';
 }

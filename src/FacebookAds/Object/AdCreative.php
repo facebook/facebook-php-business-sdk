@@ -210,7 +210,6 @@ class AdCreative extends AbstractCrudObject {
     $param_types = array(
       'thumbnail_height' => 'unsigned int',
       'thumbnail_width' => 'unsigned int',
-      'with_unified_spec' => 'bool',
     );
     $enums = array(
     );

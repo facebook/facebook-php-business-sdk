@@ -60,6 +60,7 @@ class PageFields extends AbstractEnum {
   const CHECKINS = 'checkins';
   const COMPANY_OVERVIEW = 'company_overview';
   const CONNECTED_INSTAGRAM_ACCOUNT = 'connected_instagram_account';
+  const CONNECTED_PAGE_BACKED_INSTAGRAM_ACCOUNT = 'connected_page_backed_instagram_account';
   const CONTACT_ADDRESS = 'contact_address';
   const COPYRIGHT_WHITELISTED_IG_PARTNERS = 'copyright_whitelisted_ig_partners';
   const COUNTRY_PAGE_LIKES = 'country_page_likes';
@@ -204,6 +205,7 @@ class PageFields extends AbstractEnum {
       'checkins' => 'unsigned int',
       'company_overview' => 'string',
       'connected_instagram_account' => 'IGUser',
+      'connected_page_backed_instagram_account' => 'IGUser',
       'contact_address' => 'MailingAddress',
       'copyright_whitelisted_ig_partners' => 'list<string>',
       'country_page_likes' => 'unsigned int',

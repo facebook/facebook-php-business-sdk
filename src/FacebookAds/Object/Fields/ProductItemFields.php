@@ -65,6 +65,7 @@ class ProductItemFields extends AbstractEnum {
   const ID = 'id';
   const IMAGE_CDN_URLS = 'image_cdn_urls';
   const IMAGE_URL = 'image_url';
+  const IMAGES = 'images';
   const INVENTORY = 'inventory';
   const MANUFACTURER_PART_NUMBER = 'manufacturer_part_number';
   const MATERIAL = 'material';
@@ -146,6 +147,7 @@ class ProductItemFields extends AbstractEnum {
       'id' => 'string',
       'image_cdn_urls' => 'map<string, string>',
       'image_url' => 'string',
+      'images' => 'list<string>',
       'inventory' => 'int',
       'manufacturer_part_number' => 'string',
       'material' => 'string',
