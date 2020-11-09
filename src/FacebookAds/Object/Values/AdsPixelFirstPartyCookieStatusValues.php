@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdsPixelFirstPartyCookieStatusValues extends AbstractEnum {
 
-  const EMPTY = 'EMPTY';
+  const VALUE_EMPTY = 'EMPTY';
   const FIRST_PARTY_COOKIE_DISABLED = 'FIRST_PARTY_COOKIE_DISABLED';
   const FIRST_PARTY_COOKIE_ENABLED = 'FIRST_PARTY_COOKIE_ENABLED';
 }

@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+### Changed
+- Add empty to the list of reserved keywords.
+- Change empty value enum name in AdsPixelFirstPartyCookieStatusValues and AdsPixelDataUseSettingValues
+
 ## v8.0.3
 
 ### Changed
