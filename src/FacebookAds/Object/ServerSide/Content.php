@@ -45,6 +45,7 @@ class Content implements ArrayAccess {
     $this->container['description'] = isset($data['description']) ? $data['description'] : null;
     $this->container['brand'] = isset($data['brand']) ? $data['brand'] : null;
     $this->container['category'] = isset($data['category']) ? $data['category'] : null;
+    $this->container['delivery_category'] = isset($data['delivery_category']) ? $data['delivery_category'] : null;
   }
 
 
@@ -182,6 +183,24 @@ class Content implements ArrayAccess {
   }
 
   /**
+   * Gets Type of delivery for a purchase event.
+   * @return string delivery_category
+   */
+  public function getDeliveryCategory() {
+    return $this->container['delivery_category'];
+  }
+
+  /**
+   * Sets Type of delivery for a purchase event.
+   * @param string $delivery_category
+   * @return $this
+   */
+  public function setDeliveryCategory($delivery_category) {
+    $this->container['delivery_category'] = $delivery_category;
+    return $this;
+  }
+
+  /**
    * Returns true if offset exists. False otherwise.
    * @param integer $offset Offset
    * @return boolean
@@ -247,6 +266,9 @@ class Content implements ArrayAccess {
       'description' => $this->container['description'],
       'brand' => $this->container['brand'],
       'category' => $this->container['category'],
+      'delivery_category' => Normalizer::normalize(
+        'delivery_category', $this->container['delivery_category']
+      ),
     );
 
     $normalized_payload = array_filter($normalized_payload);

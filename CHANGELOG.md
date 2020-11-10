@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+### Added
+- `delivery_category` field to Content for Conversions API.
+
 ### Changed
 - Add empty to the list of reserved keywords.
 - Change empty value enum name in AdsPixelFirstPartyCookieStatusValues and AdsPixelDataUseSettingValues

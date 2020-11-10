@@ -26,6 +26,7 @@ namespace FacebookAdsTest\Object;
 
 use FacebookAdsTest\AbstractUnitTestCase;
 use FacebookAds\Object\ServerSide\Content;
+use FacebookAds\Object\ServerSide\DeliveryCategory;
 
 
 class ContentTest extends AbstractUnitTestCase {
@@ -38,6 +39,7 @@ class ContentTest extends AbstractUnitTestCase {
       'description' => 'description-test',
       'brand' => 'brand-test',
       'category' => 'category-test',
+      'delivery_category' => DeliveryCategory::CURBSIDE,
     );
 
     $content = (new Content())
@@ -47,7 +49,8 @@ class ContentTest extends AbstractUnitTestCase {
       ->setTitle($expected['title'])
       ->setDescription($expected['description'])
       ->setBrand($expected['brand'])
-      ->setCategory($expected['category']);
+      ->setCategory($expected['category'])
+      ->setDeliveryCategory($expected['delivery_category']);
 
     $this->assertEquals($content->normalize(), $expected);
   }
@@ -61,6 +64,7 @@ class ContentTest extends AbstractUnitTestCase {
       'description' => 'description-test',
       'brand' => 'brand-test',
       'category' => 'category-test',
+      'delivery_category' => DeliveryCategory::CURBSIDE,
     );
     $expected = array(
       'id' => $initial['product_id'],
@@ -70,9 +74,24 @@ class ContentTest extends AbstractUnitTestCase {
       'description' => $initial['description'],
       'brand' => $initial['brand'],
       'category' => $initial['category'],
+      'delivery_category' => DeliveryCategory::CURBSIDE,
     );
     $content = new Content($initial);
 
     $this->assertEquals($content->normalize(), $expected);
+  }
+
+  public function testInvalidDeliveryCategory() {
+    $test_delivery_category = 'invalid_delivery_category';
+    $content = (new Content())->setDeliveryCategory($test_delivery_category);
+    try {
+     $normalized_payload = $content->normalize();
+    } catch (\Exception $exception) {
+      $threw_exception = true;
+      $expected_string = sprintf("Invalid delivery_category passed: %s", $test_delivery_category);
+      $this->assertStringContainsString($expected_string, $exception->getMessage());
+    }
+
+    $this->assertTrue($threw_exception);
   }
 }
