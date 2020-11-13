@@ -103,6 +103,7 @@ use FacebookAds\Object\Values\CampaignEffectiveStatusValues;
 use FacebookAds\Object\Values\CampaignExecutionOptionsValues;
 use FacebookAds\Object\Values\CampaignObjectiveValues;
 use FacebookAds\Object\Values\CampaignOperatorValues;
+use FacebookAds\Object\Values\CampaignSmartPromotionTypeValues;
 use FacebookAds\Object\Values\CampaignSpecialAdCategoriesValues;
 use FacebookAds\Object\Values\CampaignSpecialAdCategoryCountryValues;
 use FacebookAds\Object\Values\CampaignStatusValues;
@@ -345,6 +346,7 @@ class AdAccount extends AbstractCrudObject {
       'image_url' => 'string',
       'instagram_actor_id' => 'string',
       'instagram_permalink_url' => 'string',
+      'instagram_user_id' => 'string',
       'instant_checkout_setting' => 'instant_checkout_setting_enum',
       'interactive_components_spec' => 'map',
       'is_dco_internal' => 'bool',
@@ -362,6 +364,7 @@ class AdAccount extends AbstractCrudObject {
       'portrait_customizations' => 'map',
       'product_set_id' => 'string',
       'recommender_settings' => 'map',
+      'source_instagram_media_id' => 'string',
       'template_url' => 'string',
       'template_url_spec' => 'Object',
       'thumbnail_url' => 'string',
@@ -1128,6 +1131,7 @@ class AdAccount extends AbstractCrudObject {
       'sales_promo_id' => 'unsigned int',
       'slideshow_spec' => 'map',
       'source' => 'file',
+      'source_instagram_media_id' => 'string',
       'spherical' => 'bool',
       'start_offset' => 'unsigned int',
       'swap_mode' => 'swap_mode_enum',
@@ -1619,6 +1623,7 @@ class AdAccount extends AbstractCrudObject {
       'objective' => 'objective_enum',
       'pacing_type' => 'list<string>',
       'promoted_object' => 'Object',
+      'smart_promotion_type' => 'smart_promotion_type_enum',
       'source_campaign_id' => 'string',
       'special_ad_categories' => 'list<special_ad_categories_enum>',
       'special_ad_category_country' => 'list<special_ad_category_country_enum>',
@@ -1631,6 +1636,7 @@ class AdAccount extends AbstractCrudObject {
       'bid_strategy_enum' => CampaignBidStrategyValues::getInstance()->getValues(),
       'execution_options_enum' => CampaignExecutionOptionsValues::getInstance()->getValues(),
       'objective_enum' => CampaignObjectiveValues::getInstance()->getValues(),
+      'smart_promotion_type_enum' => CampaignSmartPromotionTypeValues::getInstance()->getValues(),
       'special_ad_categories_enum' => CampaignSpecialAdCategoriesValues::getInstance()->getValues(),
       'special_ad_category_country_enum' => CampaignSpecialAdCategoryCountryValues::getInstance()->getValues(),
       'status_enum' => CampaignStatusValues::getInstance()->getValues(),
@@ -1670,6 +1676,29 @@ class AdAccount extends AbstractCrudObject {
       new Campaign(),
       'EDGE',
       Campaign::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getConnectedInstagramAccounts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/connected_instagram_accounts',
+      new IGUser(),
+      'EDGE',
+      IGUser::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

@@ -75,6 +75,7 @@ class CampaignFields extends AbstractEnum {
   const ADBATCH = 'adbatch';
   const EXECUTION_OPTIONS = 'execution_options';
   const ITERATIVE_SPLIT_TEST_CONFIGS = 'iterative_split_test_configs';
+  const SMART_PROMOTION_TYPE = 'smart_promotion_type';
   const UPSTREAM_EVENTS = 'upstream_events';
 
   public function getFieldTypes() {
@@ -117,6 +118,7 @@ class CampaignFields extends AbstractEnum {
       'adbatch' => 'list<Object>',
       'execution_options' => 'list<ExecutionOptions>',
       'iterative_split_test_configs' => 'list<Object>',
+      'smart_promotion_type' => 'SmartPromotionType',
       'upstream_events' => 'map',
     );
   }

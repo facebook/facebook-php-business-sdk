@@ -93,6 +93,7 @@ class ProductItemFields extends AbstractEnum {
   const URL = 'url';
   const VISIBILITY = 'visibility';
   const ADDITIONAL_IMAGE_FILES = 'additional_image_files';
+  const ADDITIONAL_UPLOADED_IMAGE_IDS = 'additional_uploaded_image_ids';
   const ANDROID_APP_NAME = 'android_app_name';
   const ANDROID_CLASS = 'android_class';
   const ANDROID_PACKAGE = 'android_package';
@@ -175,6 +176,7 @@ class ProductItemFields extends AbstractEnum {
       'url' => 'string',
       'visibility' => 'Visibility',
       'additional_image_files' => 'list<file>',
+      'additional_uploaded_image_ids' => 'list<string>',
       'android_app_name' => 'string',
       'android_class' => 'string',
       'android_package' => 'string',

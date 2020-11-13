@@ -87,6 +87,7 @@ class AdCreativeCallToActionTypeValues extends AbstractEnum {
   const SHOP_NOW = 'SHOP_NOW';
   const SIGN_UP = 'SIGN_UP';
   const SOTTO_SUBSCRIBE = 'SOTTO_SUBSCRIBE';
+  const START_ORDER = 'START_ORDER';
   const SUBSCRIBE = 'SUBSCRIBE';
   const SWIPE_UP_PRODUCT = 'SWIPE_UP_PRODUCT';
   const SWIPE_UP_SHOP = 'SWIPE_UP_SHOP';

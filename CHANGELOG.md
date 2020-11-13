@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## v9.0.0
+
+
 ### Added
 - `delivery_category` field to Content for Conversions API.
 
@@ -116,3 +119,4 @@ All notable changes to this project will be documented in this file.
     $async_job = $async_job->getSelf();
   }
   ```
+

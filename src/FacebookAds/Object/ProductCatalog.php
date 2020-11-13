@@ -1026,6 +1026,7 @@ class ProductCatalog extends AbstractCrudObject {
     $param_types = array(
       'additional_image_files' => 'list<file>',
       'additional_image_urls' => 'list<string>',
+      'additional_uploaded_image_ids' => 'list<string>',
       'additional_variant_attributes' => 'map',
       'android_app_name' => 'string',
       'android_class' => 'string',

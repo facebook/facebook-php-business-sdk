@@ -346,7 +346,6 @@ class BusinessUnit extends AbstractCrudObject {
 
     $param_types = array(
       'filter_by' => 'string',
-      'metric_scope' => 'map',
       'order_by' => 'string',
     );
     $enums = array(

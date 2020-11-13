@@ -118,32 +118,6 @@ class User extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createAccessToken(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'business_app' => 'int',
-      'page_id' => 'string',
-      'scope' => 'list<Permission>',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/access_tokens',
-      new User(),
-      'EDGE',
-      User::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getAccounts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1638,6 +1612,7 @@ class User extends AbstractCrudObject {
       'sales_promo_id' => 'unsigned int',
       'slideshow_spec' => 'map',
       'source' => 'string',
+      'source_instagram_media_id' => 'string',
       'spherical' => 'bool',
       'sponsor_id' => 'string',
       'start_offset' => 'unsigned int',

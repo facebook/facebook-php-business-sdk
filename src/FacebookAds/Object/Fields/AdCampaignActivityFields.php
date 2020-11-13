@@ -91,6 +91,8 @@ class AdCampaignActivityFields extends AbstractEnum {
   const STOP_TIME_OLD = 'stop_time_old';
   const TARGETING_EXPANSION_NEW = 'targeting_expansion_new';
   const TARGETING_EXPANSION_OLD = 'targeting_expansion_old';
+  const TARGETING_NEW = 'targeting_new';
+  const TARGETING_OLD = 'targeting_old';
   const UPDATED_TIME_NEW = 'updated_time_new';
   const UPDATED_TIME_OLD = 'updated_time_old';
 
@@ -150,6 +152,8 @@ class AdCampaignActivityFields extends AbstractEnum {
       'stop_time_old' => 'datetime',
       'targeting_expansion_new' => 'Object',
       'targeting_expansion_old' => 'Object',
+      'targeting_new' => 'Object',
+      'targeting_old' => 'Object',
       'updated_time_new' => 'datetime',
       'updated_time_old' => 'datetime',
     );

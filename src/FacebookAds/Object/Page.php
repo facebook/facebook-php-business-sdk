@@ -3213,6 +3213,7 @@ class Page extends AbstractCrudObject {
       'slideshow_spec' => 'map',
       'social_actions' => 'bool',
       'source' => 'string',
+      'source_instagram_media_id' => 'string',
       'specified_dialect' => 'string',
       'spherical' => 'bool',
       'sponsor_id' => 'string',

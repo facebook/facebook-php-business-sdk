@@ -823,6 +823,7 @@ class Group extends AbstractCrudObject {
       'scheduled_publish_time' => 'unsigned int',
       'slideshow_spec' => 'map',
       'source' => 'string',
+      'source_instagram_media_id' => 'string',
       'spherical' => 'bool',
       'start_offset' => 'unsigned int',
       'swap_mode' => 'swap_mode_enum',
