@@ -17,7 +17,11 @@ jobs:
           coverage: xdebug    
           tools: php-cs-fixer, phpunit
       
-      - uses: php-actions/composer@dynamic-docker
+      - name: Install dependencies
+        uses: php-actions/composer@v4
+        with:
+          dev: yes
+          args: --prefer-source
 
       - name: PHPUnit Tests
         uses: php-actions/phpunit@dynamic-docker
