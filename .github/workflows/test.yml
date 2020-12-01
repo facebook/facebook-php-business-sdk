@@ -26,6 +26,6 @@ jobs:
       - name: PHPUnit Tests
         uses: php-actions/phpunit@dynamic-docker
         with:
-          bootstrap: vendor/bin/phpunit # vendor/autoload.php
+          bootstrap: vendor/autoload.php
           configuration: test/phpunit-travis.xml
           args: --coverage-clover=coverage.clover
