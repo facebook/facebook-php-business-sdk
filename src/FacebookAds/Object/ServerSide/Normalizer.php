@@ -107,6 +107,10 @@ class Normalizer {
       case 'delivery_category':
         $normalized_data = Normalizer::normalizeDeliveryCategory($data);
         break;
+
+      case 'action_source':
+        $normalized_data = Normalizer::normalizeActionSource($data);
+        break;
       default:
     }
 
@@ -284,6 +288,24 @@ class Normalizer {
                           '.Allowed values are one of ' . implode(",",$delivery_categories));
 
     return $delivery_category;
+  }
+
+  /**
+   * Normalizes the action_source and throws an error if invalid.
+   * @param string $action_source type of DeliveryCategory.
+   * @return string
+   */
+  private static function normalizeActionSource($action_source) {
+    $action_sources = ActionSource::getInstance()->getValues();
+      if (!ActionSource::getInstance()->isValidValue($action_source)) {
+        throw new InvalidArgumentException(sprintf(
+          'Invalid action_source passed: %s. Allowed values are one of %s',
+          $action_source,
+          implode(",", $action_sources)
+        ));
+      }
+
+    return $action_source;
   }
 
   /**

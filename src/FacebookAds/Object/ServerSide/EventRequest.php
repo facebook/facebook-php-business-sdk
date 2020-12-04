@@ -46,7 +46,8 @@ class EventRequest implements ArrayAccess {
     'namespace_id' => 'string',
     'upload_id' => 'string',
     'upload_tag' => 'string',
-    'upload_source' => 'string'
+    'upload_source' => 'string',
+    'action_source' => 'string',
   );
   /**
    * Array of attributes where the key is the local name, and the value is the original name
@@ -59,7 +60,8 @@ class EventRequest implements ArrayAccess {
     'namespace_id' => 'namespace_id',
     'upload_id' => 'upload_id',
     'upload_tag' => 'upload_tag',
-    'upload_source' => 'upload_source'
+    'upload_source' => 'upload_source',
+    'action_source' => 'action_source',
   );
   /**
    * Array of attributes to setter functions (for deserialization of responses)
@@ -72,7 +74,8 @@ class EventRequest implements ArrayAccess {
     'namespace_id' => 'setNamespaceId',
     'upload_id' => 'setUploadId',
     'upload_tag' => 'setUploadTag',
-    'upload_source' => 'setUploadSource'
+    'upload_source' => 'setUploadSource',
+    'action_source' => 'setActionSource',
   );
   /**
    * Array of attributes to getter functions (for serialization of requests)
@@ -85,7 +88,8 @@ class EventRequest implements ArrayAccess {
     'namespace_id' => 'getNamespaceId',
     'upload_id' => 'getUploadId',
     'upload_tag' => 'getUploadTag',
-    'upload_source' => 'getUploadSource'
+    'upload_source' => 'getUploadSource',
+    'action_source' => 'getActionSource',
   );
   /**
    * Associative array for storing property values
@@ -109,6 +113,7 @@ class EventRequest implements ArrayAccess {
     $this->container['upload_id'] = isset($data['upload_id']) ? $data['upload_id'] : null;
     $this->container['upload_tag'] = isset($data['upload_tag']) ? $data['upload_tag'] : null;
     $this->container['upload_source'] = isset($data['upload_source']) ? $data['upload_source'] : null;
+    $this->container['action_source'] = isset($data['action_source']) ? $data['action_source'] : null;
   }
 
   public static function paramTypes() {
@@ -304,6 +309,11 @@ class EventRequest implements ArrayAccess {
       }
     }
 
+    $action_source = Normalizer::normalize(
+      'action_source',
+      $this->container['action_source']
+    );
+
     $normalized_payload = array(
       'data' => $normalized_events,
       'test_event_code' => $this->container['test_event_code'],
@@ -312,6 +322,7 @@ class EventRequest implements ArrayAccess {
       'upload_id' => $this->container['upload_id'],
       'upload_tag' => $this->container['upload_tag'],
       'upload_source' => $this->container['upload_source'],
+      'action_source' => $action_source,
     );
     $normalized_payload = array_filter($normalized_payload);
 
@@ -401,6 +412,23 @@ class EventRequest implements ArrayAccess {
    */
   public function setUploadSource($upload_source) {
     $this->container['upload_source'] = $upload_source;
+    return $this;
+  }
+
+  /**
+   * Gets action_source, this is where the Conversion occurred.
+   * @return string
+   */
+  public function getActionSource() {
+    return $this->container['action_source'];
+  }
+
+  /**
+   * Sets action_source, this is where the Conversion occurred.
+   * @return $this
+   */
+  public function setActionSource($action_source) {
+    $this->container['action_source'] = $action_source;
     return $this;
   }
 

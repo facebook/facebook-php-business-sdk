@@ -221,6 +221,36 @@ class EventRequestTest extends AbstractUnitTestCase {
     $this->assertEquals($expected_event_response, $actual_event_response);
   }
 
+  public function testInvalidActionSource() {
+    $action_source = 'invalid action source';
+    $event_request = (new EventRequest('pixel-id'))->setActionSource($action_source);
+
+    try {
+     $normalized_payload = $event_request->normalize();
+    } catch (\Exception $exception) {
+      $has_throw_exception = true;
+      $expected_string = sprintf("Invalid action_source passed: %s",$action_source);
+      $this->assertStringContainsString($expected_string, $exception->getMessage());
+    }
+
+    $this->assertTrue($has_throw_exception);
+  }
+
+  public function testActionSourceGetsNormalized() {
+    $action_source = 'Email';
+    $event_request = (new EventRequest('pixel-id'))->setActionSource($action_source);
+    $normalized_payload = $event_request->normalize();
+
+    $this->assertEquals($normalized_payload['action_source'], 'email');
+  }
+
+  public function testActionSourceIsNull() {
+    $event_request = (new EventRequest('pixel-id'));
+    $normalized_payload = $event_request->normalize();
+
+    $this->assertFalse(array_key_exists('action_source', $normalized_payload));
+  }
+
   // Test helper functions
 
   protected function normalize_and_merge($event_request, $access_token, $appsecret) {
