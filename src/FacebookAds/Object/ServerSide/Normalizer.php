@@ -107,6 +107,11 @@ class Normalizer {
       case 'delivery_category':
         $normalized_data = Normalizer::normalizeDeliveryCategory($data);
         break;
+
+      case 'action_source':
+        $normalized_data = Normalizer::normalizeActionSource($data);
+        break;
+
       default:
     }
 
@@ -305,5 +310,23 @@ class Normalizer {
     $international_number_regex = '/^\d{1,4}\(?\d{2,3}\)?\d{4,}$/';
 
     return preg_match($international_number_regex, $phone_number);
+  }
+
+  /**
+   * Normalizes the action_source and throws an error if invalid.
+   * @param string $action_source type of DeliveryCategory.
+   * @return string
+   */
+  private static function normalizeActionSource($action_source) {
+    $action_sources = ActionSource::getInstance()->getValues();
+      if (!ActionSource::getInstance()->isValidValue($action_source)) {
+        throw new InvalidArgumentException(sprintf(
+          'Invalid action_source passed: %s. Allowed values are one of %s',
+          $action_source,
+          implode(",", $action_sources)
+        ));
+      }
+
+    return $action_source;
   }
 }

@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+### Added
+- `action_source` field to Event for Conversions API.
+
+### Fixed
+- `opt_out` field was being removed when set to false for Conversions API.
+
 ## v9.0.0
 
 
@@ -119,4 +125,3 @@ All notable changes to this project will be documented in this file.
     $async_job = $async_job->getSelf();
   }
   ```
-
