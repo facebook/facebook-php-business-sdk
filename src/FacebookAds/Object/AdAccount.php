@@ -720,6 +720,7 @@ class AdAccount extends AbstractCrudObject {
       'adset_spec' => 'AdSet',
       'audience_id' => 'string',
       'bid_amount' => 'int',
+      'conversion_domain' => 'string',
       'creative' => 'AdCreative',
       'date_format' => 'string',
       'display_sequence' => 'unsigned int',
@@ -1617,6 +1618,7 @@ class AdAccount extends AbstractCrudObject {
       'buying_type' => 'string',
       'daily_budget' => 'unsigned int',
       'execution_options' => 'list<execution_options_enum>',
+      'is_skadnetwork_attribution' => 'bool',
       'iterative_split_test_configs' => 'list<Object>',
       'lifetime_budget' => 'unsigned int',
       'name' => 'string',
@@ -2103,6 +2105,7 @@ class AdAccount extends AbstractCrudObject {
       'time_range' => 'Object',
       'time_ranges' => 'list<Object>',
       'use_account_attribution_setting' => 'bool',
+      'use_unified_attribution_setting' => 'bool',
     );
     $enums = array(
       'action_attribution_windows_enum' => AdsInsightsActionAttributionWindowsValues::getInstance()->getValues(),
@@ -2153,6 +2156,7 @@ class AdAccount extends AbstractCrudObject {
       'time_range' => 'Object',
       'time_ranges' => 'list<Object>',
       'use_account_attribution_setting' => 'bool',
+      'use_unified_attribution_setting' => 'bool',
     );
     $enums = array(
       'action_attribution_windows_enum' => AdsInsightsActionAttributionWindowsValues::getInstance()->getValues(),
@@ -2210,6 +2214,8 @@ class AdAccount extends AbstractCrudObject {
       'app_store' => 'app_store_enum',
       'app_store_country' => 'string',
       'business_id' => 'string',
+      'is_skadnetwork_search' => 'bool',
+      'only_apps_with_permission' => 'bool',
       'query_term' => 'string',
     );
     $enums = array(
@@ -2608,33 +2614,6 @@ class AdAccount extends AbstractCrudObject {
       new SavedAudience(),
       'EDGE',
       SavedAudience::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createSponsoredMessageAd(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'bid_amount' => 'int',
-      'daily_budget' => 'unsigned int',
-      'message_creative_id' => 'string',
-      'targeting' => 'Targeting',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/sponsored_message_ads',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

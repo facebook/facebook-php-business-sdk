@@ -55,6 +55,7 @@ class AdCampaignActivityOptimizationGoalNewValues extends AbstractEnum {
   const PAGE_ENGAGEMENT = 'PAGE_ENGAGEMENT';
   const PAGE_LIKES = 'PAGE_LIKES';
   const POST_ENGAGEMENT = 'POST_ENGAGEMENT';
+  const QUALITY_CALL = 'QUALITY_CALL';
   const QUALITY_LEAD = 'QUALITY_LEAD';
   const REACH = 'REACH';
   const REPLIES = 'REPLIES';

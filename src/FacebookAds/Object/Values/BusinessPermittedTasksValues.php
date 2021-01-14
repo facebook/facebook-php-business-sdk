@@ -39,5 +39,6 @@ class BusinessPermittedTasksValues extends AbstractEnum {
 
   const ADVERTISE = 'ADVERTISE';
   const ANALYZE = 'ANALYZE';
+  const DRAFT = 'DRAFT';
   const MANAGE = 'MANAGE';
 }

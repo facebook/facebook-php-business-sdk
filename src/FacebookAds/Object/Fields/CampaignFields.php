@@ -53,6 +53,7 @@ class CampaignFields extends AbstractEnum {
   const DAILY_BUDGET = 'daily_budget';
   const EFFECTIVE_STATUS = 'effective_status';
   const ID = 'id';
+  const IS_SKADNETWORK_ATTRIBUTION = 'is_skadnetwork_attribution';
   const ISSUES_INFO = 'issues_info';
   const LAST_BUDGET_TOGGLING_TIME = 'last_budget_toggling_time';
   const LIFETIME_BUDGET = 'lifetime_budget';
@@ -61,6 +62,7 @@ class CampaignFields extends AbstractEnum {
   const PACING_TYPE = 'pacing_type';
   const PROMOTED_OBJECT = 'promoted_object';
   const RECOMMENDATIONS = 'recommendations';
+  const SMART_PROMOTION_TYPE = 'smart_promotion_type';
   const SOURCE_CAMPAIGN = 'source_campaign';
   const SOURCE_CAMPAIGN_ID = 'source_campaign_id';
   const SPECIAL_AD_CATEGORIES = 'special_ad_categories';
@@ -75,7 +77,6 @@ class CampaignFields extends AbstractEnum {
   const ADBATCH = 'adbatch';
   const EXECUTION_OPTIONS = 'execution_options';
   const ITERATIVE_SPLIT_TEST_CONFIGS = 'iterative_split_test_configs';
-  const SMART_PROMOTION_TYPE = 'smart_promotion_type';
   const UPSTREAM_EVENTS = 'upstream_events';
 
   public function getFieldTypes() {
@@ -96,6 +97,7 @@ class CampaignFields extends AbstractEnum {
       'daily_budget' => 'string',
       'effective_status' => 'EffectiveStatus',
       'id' => 'string',
+      'is_skadnetwork_attribution' => 'bool',
       'issues_info' => 'list<AdCampaignIssuesInfo>',
       'last_budget_toggling_time' => 'datetime',
       'lifetime_budget' => 'string',
@@ -104,6 +106,7 @@ class CampaignFields extends AbstractEnum {
       'pacing_type' => 'list<string>',
       'promoted_object' => 'AdPromotedObject',
       'recommendations' => 'list<AdRecommendation>',
+      'smart_promotion_type' => 'string',
       'source_campaign' => 'Campaign',
       'source_campaign_id' => 'string',
       'special_ad_categories' => 'list<string>',
@@ -118,7 +121,6 @@ class CampaignFields extends AbstractEnum {
       'adbatch' => 'list<Object>',
       'execution_options' => 'list<ExecutionOptions>',
       'iterative_split_test_configs' => 'list<Object>',
-      'smart_promotion_type' => 'SmartPromotionType',
       'upstream_events' => 'map',
     );
   }

@@ -598,30 +598,6 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function deleteClaimedUrls(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'url' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_DELETE,
-      '/claimed_urls',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getClaimedUrls(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1705,7 +1681,6 @@ class Page extends AbstractCrudObject {
       'location' => 'Object',
       'location_page_id' => 'string',
       'old_store_number' => 'unsigned int',
-      'page_username' => 'string',
       'permanently_closed' => 'bool',
       'phone' => 'string',
       'pickup_options' => 'list<pickup_options_enum>',
@@ -1887,6 +1862,7 @@ class Page extends AbstractCrudObject {
         'PAYMENT_SETTINGS',
         'PERSISTENT_MENU',
         'PLATFORM',
+        'SUBJECT_TO_NEW_EU_PRIVACY_RULES',
         'TARGET_AUDIENCE',
         'WHITELISTED_DOMAINS',
       ),
@@ -2966,9 +2942,9 @@ class Page extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/tours',
-      new EventTour(),
+      new AbstractCrudObject(),
       'EDGE',
-      EventTour::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

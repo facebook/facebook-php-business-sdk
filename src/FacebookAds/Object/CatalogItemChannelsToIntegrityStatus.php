@@ -19,28 +19,39 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
+ *
  */
 
-require __DIR__ . '/vendor/autoload.php';
+namespace FacebookAds\Object;
 
-use FacebookAds\Object\AdsPixel;
-use FacebookAds\Api;
-use FacebookAds\Logger\CurlLogger;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\CatalogItemChannelsToIntegrityStatusFields;
 
-$access_token = '<ACCESS_TOKEN>';
-$app_secret = '<APP_SECRET>';
-$app_id = '<APP_ID>';
-$id = '<ADS_PIXEL_ID>';
+/**
+ * This class is auto-generated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
+ */
 
-$api = Api::init($app_id, $app_secret, $access_token);
-$api->setLogger(new CurlLogger());
+class CatalogItemChannelsToIntegrityStatus extends AbstractObject {
 
-$fields = array(
-  'code',
-);
-$params = array(
-);
-echo json_encode((new AdsPixel($id))->getSelf(
-  $fields,
-  $params
-)->exportAllData(), JSON_PRETTY_PRINT);
+  /**
+   * @return CatalogItemChannelsToIntegrityStatusFields
+   */
+  public static function getFieldsEnum() {
+    return CatalogItemChannelsToIntegrityStatusFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
+}

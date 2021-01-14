@@ -19,31 +19,25 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
+ *
  */
 
-require __DIR__ . '/vendor/autoload.php';
+namespace FacebookAds\Object\Values;
 
-use FacebookAds\Object\AdAccount;
-use FacebookAds\Object\AdCreative;
-use FacebookAds\Api;
-use FacebookAds\Logger\CurlLogger;
+use FacebookAds\Enum\AbstractEnum;
 
-$access_token = '<ACCESS_TOKEN>';
-$app_secret = '<APP_SECRET>';
-$app_id = '<APP_ID>';
-$id = '<AD_ACCOUNT_ID>';
+/**
+ * This class is auto-generated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
+ * @method static PaymentEnginePaymentReasonValues getInstance()
+ */
+class PaymentEnginePaymentReasonValues extends AbstractEnum {
 
-$api = Api::init($app_id, $app_secret, $access_token);
-$api->setLogger(new CurlLogger());
-
-$fields = array(
-);
-$params = array(
-  'name' => 'Dynamic Ad Template Creative Sample',
-  'object_story_spec' => array('page_id' => '<pageID>','template_data' => array('call_to_action' => array('type' => 'INSTALL_MOBILE_APP','value' => array('link' => 'http://www.example.com/appstoreurl')),'message' => 'Test array(array(product.name | titleize))','link' => 'http://www.example.com/appstoreurl','name' => 'Headline array(array(product.price))','description' => 'Description array(array(product.description))')),
-  'product_set_id' => '<productSetID>',
-);
-echo json_encode((new AdAccount($id))->createAdCreative(
-  $fields,
-  $params
-)->exportAllData(), JSON_PRETTY_PRINT);
+  const BANNED_USER = 'BANNED_USER';
+  const DENIED_REFUND = 'DENIED_REFUND';
+  const GRANTED_REPLACEMENT_ITEM = 'GRANTED_REPLACEMENT_ITEM';
+}

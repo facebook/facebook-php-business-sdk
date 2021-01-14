@@ -39,7 +39,6 @@ class AdAccountFields extends AbstractEnum {
 
   const ACCOUNT_ID = 'account_id';
   const ACCOUNT_STATUS = 'account_status';
-  const AD_ACCOUNT_CREATION_REQUEST = 'ad_account_creation_request';
   const AD_ACCOUNT_PROMOTABLE_OBJECTS = 'ad_account_promotable_objects';
   const AGE = 'age';
   const AGENCY_CLIENT_DECLARATION = 'agency_client_declaration';
@@ -102,7 +101,6 @@ class AdAccountFields extends AbstractEnum {
     return array(
       'account_id' => 'string',
       'account_status' => 'unsigned int',
-      'ad_account_creation_request' => 'AdAccountCreationRequest',
       'ad_account_promotable_objects' => 'AdAccountPromotableObjects',
       'age' => 'float',
       'agency_client_declaration' => 'AgencyClientDeclaration',

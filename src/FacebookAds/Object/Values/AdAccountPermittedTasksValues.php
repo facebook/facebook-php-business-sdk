@@ -39,5 +39,6 @@ class AdAccountPermittedTasksValues extends AbstractEnum {
 
   const ADVERTISE = 'ADVERTISE';
   const ANALYZE = 'ANALYZE';
+  const DRAFT = 'DRAFT';
   const MANAGE = 'MANAGE';
 }

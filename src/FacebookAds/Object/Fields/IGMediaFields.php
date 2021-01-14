@@ -37,7 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
 
 class IGMediaFields extends AbstractEnum {
 
-  const ALT_TEXT = 'alt_text';
   const CAPTION = 'caption';
   const COMMENTS_COUNT = 'comments_count';
   const ID = 'id';
@@ -55,7 +54,6 @@ class IGMediaFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'alt_text' => 'string',
       'caption' => 'string',
       'comments_count' => 'int',
       'id' => 'string',

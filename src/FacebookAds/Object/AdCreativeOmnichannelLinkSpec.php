@@ -19,30 +19,39 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
+ *
  */
 
-require __DIR__ . '/vendor/autoload.php';
+namespace FacebookAds\Object;
 
-use FacebookAds\Object\AdAccount;
-use FacebookAds\Object\AdCreative;
-use FacebookAds\Api;
-use FacebookAds\Logger\CurlLogger;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\AdCreativeOmnichannelLinkSpecFields;
 
-$access_token = '<ACCESS_TOKEN>';
-$app_secret = '<APP_SECRET>';
-$app_id = '<APP_ID>';
-$id = '<AD_ACCOUNT_ID>';
+/**
+ * This class is auto-generated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
+ */
 
-$api = Api::init($app_id, $app_secret, $access_token);
-$api->setLogger(new CurlLogger());
+class AdCreativeOmnichannelLinkSpec extends AbstractObject {
 
-$fields = array(
-);
-$params = array(
-  'name' => 'Sample Creative',
-  'object_story_spec' => array('page_id' => '<pageID>','video_data' => array('image_url' => '<imageURL>','video_id' => '<videoID>','call_to_action' => array('type' => 'LIKE_PAGE','value' => array('page' => '<pageID>')))),
-);
-echo json_encode((new AdAccount($id))->createAdCreative(
-  $fields,
-  $params
-)->exportAllData(), JSON_PRETTY_PRINT);
+  /**
+   * @return AdCreativeOmnichannelLinkSpecFields
+   */
+  public static function getFieldsEnum() {
+    return AdCreativeOmnichannelLinkSpecFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
+}

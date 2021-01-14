@@ -242,6 +242,7 @@ class Ad extends AbstractArchivableCrudObject
       'time_range' => 'Object',
       'time_ranges' => 'list<Object>',
       'use_account_attribution_setting' => 'bool',
+      'use_unified_attribution_setting' => 'bool',
     );
     $enums = array(
       'action_attribution_windows_enum' => AdsInsightsActionAttributionWindowsValues::getInstance()->getValues(),
@@ -292,6 +293,7 @@ class Ad extends AbstractArchivableCrudObject
       'time_range' => 'Object',
       'time_ranges' => 'list<Object>',
       'use_account_attribution_setting' => 'bool',
+      'use_unified_attribution_setting' => 'bool',
     );
     $enums = array(
       'action_attribution_windows_enum' => AdsInsightsActionAttributionWindowsValues::getInstance()->getValues(),
@@ -482,6 +484,7 @@ class Ad extends AbstractArchivableCrudObject
       'adset_spec' => 'AdSet',
       'audience_id' => 'string',
       'bid_amount' => 'int',
+      'conversion_domain' => 'string',
       'creative' => 'AdCreative',
       'display_sequence' => 'unsigned int',
       'draft_adgroup_id' => 'string',

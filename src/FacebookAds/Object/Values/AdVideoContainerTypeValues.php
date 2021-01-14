@@ -74,6 +74,7 @@ class AdVideoContainerTypeValues extends AbstractEnum {
   const EVENT_TOUR = 'EVENT_TOUR';
   const FACECAST_DVR = 'FACECAST_DVR';
   const FB_SHORTS = 'FB_SHORTS';
+  const FB_SHORTS_POST = 'FB_SHORTS_POST';
   const FUNDRAISER_COVER_VIDEO = 'FUNDRAISER_COVER_VIDEO';
   const GAME_CLIP = 'GAME_CLIP';
   const GAMING_UPDATE_VIDEO = 'GAMING_UPDATE_VIDEO';

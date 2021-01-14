@@ -103,6 +103,7 @@ $params = array(
   'name' => 'My campaign',
   'objective' => 'LINK_CLICKS',
   'status' => 'PAUSED',
+  'special_ad_categories' => array(),
 );
 $adcampaign = (new AdAccount($adaccount_id))->createCampaign(
   $fields,
@@ -121,7 +122,7 @@ $params = array(
   'bid_amount' => '2',
   'daily_budget' => '1000',
   'campaign_id' => $adcampaign_id,
-  'targeting' => array('geo_locations' => array('countries' => array('US'))),
+  'targeting' => array('geo_locations' => array('countries' => array('US')),'facebook_positions' => array('feed')),
   'status' => 'PAUSED',
   'promoted_object' => array('page_id' => $page_id),
 );
@@ -158,4 +159,4 @@ $params = array(
 echo json_encode((new AdAccount($adaccount_id))->createAd(
   $fields,
   $params
-)->getResponse()->getContent(), JSON_PRETTY_PRINT);
+)->exportAllData(), JSON_PRETTY_PRINT);

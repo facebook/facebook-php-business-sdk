@@ -42,6 +42,7 @@ class AdAccountTargetingUnifiedAppStoreValues extends AbstractEnum {
   const FB_ANDROID_STORE = 'fb_android_store';
   const FB_CANVAS = 'fb_canvas';
   const FB_GAMEROOM = 'fb_gameroom';
+  const GALAXY_STORE = 'galaxy_store';
   const GOOGLE_PLAY = 'google_play';
   const INSTANT_GAME = 'instant_game';
   const ITUNES = 'itunes';

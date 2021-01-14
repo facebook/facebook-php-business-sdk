@@ -72,6 +72,7 @@ class ProductItemFields extends AbstractEnum {
   const MOBILE_LINK = 'mobile_link';
   const NAME = 'name';
   const ORDERING_INDEX = 'ordering_index';
+  const PARENT_PRODUCT_ID = 'parent_product_id';
   const PATTERN = 'pattern';
   const PRICE = 'price';
   const PRODUCT_CATALOG = 'product_catalog';
@@ -155,6 +156,7 @@ class ProductItemFields extends AbstractEnum {
       'mobile_link' => 'string',
       'name' => 'string',
       'ordering_index' => 'int',
+      'parent_product_id' => 'string',
       'pattern' => 'string',
       'price' => 'string',
       'product_catalog' => 'ProductCatalog',

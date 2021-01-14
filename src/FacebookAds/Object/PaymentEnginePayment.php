@@ -28,7 +28,8 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AdAccountCreationRequestFields;
+use FacebookAds\Object\Fields\PaymentEnginePaymentFields;
+use FacebookAds\Object\Values\PaymentEnginePaymentReasonValues;
 
 /**
  * This class is auto-generated.
@@ -39,37 +40,67 @@ use FacebookAds\Object\Fields\AdAccountCreationRequestFields;
  *
  */
 
-class AdAccountCreationRequest extends AbstractCrudObject {
+class PaymentEnginePayment extends AbstractCrudObject {
 
   /**
-   * @return AdAccountCreationRequestFields
+   * @return PaymentEnginePaymentFields
    */
   public static function getFieldsEnum() {
-    return AdAccountCreationRequestFields::getInstance();
+    return PaymentEnginePaymentFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['Reason'] = PaymentEnginePaymentReasonValues::getInstance()->getValues();
     return $ref_enums;
   }
 
 
-  public function getAdAccounts(array $fields = array(), array $params = array(), $pending = false) {
+  public function createDispute(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
+      'reason' => 'reason_enum',
     );
     $enums = array(
+      'reason_enum' => PaymentEnginePaymentReasonValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
       $this->api,
       $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/adaccounts',
-      new AdAccount(),
+      RequestInterface::METHOD_POST,
+      '/dispute',
+      new PaymentEnginePayment(),
       'EDGE',
-      AdAccount::getFieldsEnum()->getValues(),
+      PaymentEnginePayment::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createRefund(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'amount' => 'float',
+      'currency' => 'string',
+      'reason' => 'reason_enum',
+    );
+    $enums = array(
+      'reason_enum' => PaymentEnginePaymentReasonValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/refunds',
+      new PaymentEnginePayment(),
+      'EDGE',
+      PaymentEnginePayment::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -90,9 +121,9 @@ class AdAccountCreationRequest extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new AdAccountCreationRequest(),
+      new PaymentEnginePayment(),
       'NODE',
-      AdAccountCreationRequest::getFieldsEnum()->getValues(),
+      PaymentEnginePayment::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

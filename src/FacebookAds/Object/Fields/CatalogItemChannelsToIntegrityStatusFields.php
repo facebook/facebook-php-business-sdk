@@ -35,39 +35,15 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class EventTourFields extends AbstractEnum {
+class CatalogItemChannelsToIntegrityStatusFields extends AbstractEnum {
 
-  const DESCRIPTION = 'description';
-  const DOMINANT_COLOR = 'dominant_color';
-  const END_TIME = 'end_time';
-  const ID = 'id';
-  const IS_PAST = 'is_past';
-  const LAST_EVENT_TIMESTAMP = 'last_event_timestamp';
-  const NAME = 'name';
-  const NUM_EVENTS = 'num_events';
-  const PHOTO = 'photo';
-  const PUBLISHING_STATE = 'publishing_state';
-  const SCHEDULED_PUBLISH_TIMESTAMP = 'scheduled_publish_timestamp';
-  const START_TIME = 'start_time';
-  const TICKETING_URI = 'ticketing_uri';
-  const VIDEO = 'video';
+  const CHANNELS = 'channels';
+  const REJECTION_INFORMATION = 'rejection_information';
 
   public function getFieldTypes() {
     return array(
-      'description' => 'string',
-      'dominant_color' => 'string',
-      'end_time' => 'string',
-      'id' => 'string',
-      'is_past' => 'bool',
-      'last_event_timestamp' => 'int',
-      'name' => 'string',
-      'num_events' => 'int',
-      'photo' => 'Photo',
-      'publishing_state' => 'string',
-      'scheduled_publish_timestamp' => 'int',
-      'start_time' => 'string',
-      'ticketing_uri' => 'string',
-      'video' => 'AdVideo',
+      'channels' => 'list<string>',
+      'rejection_information' => 'Object',
     );
   }
 }

@@ -66,13 +66,13 @@ class PaymentSubscriptionFields extends AbstractEnum {
     return array(
       'amount' => 'string',
       'app_param_data' => 'string',
-      'application' => 'Profile',
+      'application' => 'Application',
       'billing_period' => 'string',
       'canceled_reason' => 'string',
       'created_time' => 'datetime',
       'currency' => 'string',
       'id' => 'string',
-      'last_payment' => 'string',
+      'last_payment' => 'PaymentEnginePayment',
       'next_bill_time' => 'datetime',
       'next_period_amount' => 'string',
       'next_period_currency' => 'string',
@@ -87,7 +87,7 @@ class PaymentSubscriptionFields extends AbstractEnum {
       'trial_currency' => 'string',
       'trial_expiry_time' => 'datetime',
       'updated_time' => 'datetime',
-      'user' => 'Profile',
+      'user' => 'User',
     );
   }
 }

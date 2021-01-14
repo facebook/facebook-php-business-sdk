@@ -347,6 +347,7 @@ class Campaign extends AbstractArchivableCrudObject {
       'time_range' => 'Object',
       'time_ranges' => 'list<Object>',
       'use_account_attribution_setting' => 'bool',
+      'use_unified_attribution_setting' => 'bool',
     );
     $enums = array(
       'action_attribution_windows_enum' => AdsInsightsActionAttributionWindowsValues::getInstance()->getValues(),
@@ -397,6 +398,7 @@ class Campaign extends AbstractArchivableCrudObject {
       'time_range' => 'Object',
       'time_ranges' => 'list<Object>',
       'use_account_attribution_setting' => 'bool',
+      'use_unified_attribution_setting' => 'bool',
     );
     $enums = array(
       'action_attribution_windows_enum' => AdsInsightsActionAttributionWindowsValues::getInstance()->getValues(),
@@ -505,6 +507,7 @@ class Campaign extends AbstractArchivableCrudObject {
       'budget_rebalance_flag' => 'bool',
       'daily_budget' => 'unsigned int',
       'execution_options' => 'list<execution_options_enum>',
+      'is_skadnetwork_attribution' => 'bool',
       'iterative_split_test_configs' => 'list<Object>',
       'lifetime_budget' => 'unsigned int',
       'name' => 'string',

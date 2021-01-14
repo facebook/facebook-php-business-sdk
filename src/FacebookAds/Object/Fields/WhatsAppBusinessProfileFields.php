@@ -35,19 +35,15 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class FriendListFields extends AbstractEnum {
+class WhatsAppBusinessProfileFields extends AbstractEnum {
 
   const ID = 'id';
-  const LIST_TYPE = 'list_type';
-  const NAME = 'name';
-  const OWNER = 'owner';
+  const NAME_VERIFICATION = 'name_verification';
 
   public function getFieldTypes() {
     return array(
       'id' => 'string',
-      'list_type' => 'string',
-      'name' => 'string',
-      'owner' => 'string',
+      'name_verification' => 'Object',
     );
   }
 }

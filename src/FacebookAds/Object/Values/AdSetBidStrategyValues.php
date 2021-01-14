@@ -40,5 +40,4 @@ class AdSetBidStrategyValues extends AbstractEnum {
   const COST_CAP = 'COST_CAP';
   const LOWEST_COST_WITHOUT_CAP = 'LOWEST_COST_WITHOUT_CAP';
   const LOWEST_COST_WITH_BID_CAP = 'LOWEST_COST_WITH_BID_CAP';
-  const TARGET_COST = 'TARGET_COST';
 }

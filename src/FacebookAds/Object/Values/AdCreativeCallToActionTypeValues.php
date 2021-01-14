@@ -95,6 +95,7 @@ class AdCreativeCallToActionTypeValues extends AbstractEnum {
   const USE_APP = 'USE_APP';
   const USE_MOBILE_APP = 'USE_MOBILE_APP';
   const VIDEO_ANNOTATION = 'VIDEO_ANNOTATION';
+  const VIDEO_CALL = 'VIDEO_CALL';
   const VISIT_PAGES_FEED = 'VISIT_PAGES_FEED';
   const WATCH_MORE = 'WATCH_MORE';
   const WATCH_VIDEO = 'WATCH_VIDEO';
