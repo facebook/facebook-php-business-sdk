@@ -44,7 +44,7 @@ class EventRequestAsync extends EventRequest {
     );
   }
 
-  private function eventPromise(string $pixel_id, array $params = array()) {
+  private function eventPromise($pixel_id, array $params = array()) {
     $access_token = Api::instance()->getSession()->getAccessToken();
     $headers = array(
       'User-Agent' => 'fbbizsdk-php-v'.ApiConfig::APIVersion,
