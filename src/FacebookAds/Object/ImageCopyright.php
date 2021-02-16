@@ -28,8 +28,8 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AdStudyFields;
-use FacebookAds\Object\Values\AdStudyTypeValues;
+use FacebookAds\Object\Fields\ImageCopyrightFields;
+use FacebookAds\Object\Values\ImageCopyrightGeoOwnershipValues;
 
 /**
  * This class is auto-generated.
@@ -40,74 +40,21 @@ use FacebookAds\Object\Values\AdStudyTypeValues;
  *
  */
 
-class AdStudy extends AbstractCrudObject {
+class ImageCopyright extends AbstractCrudObject {
 
   /**
-   * @deprecated getEndpoint function is deprecated
-   */
-  protected function getEndpoint() {
-    return 'ad_studies';
-  }
-
-  /**
-   * @return AdStudyFields
+   * @return ImageCopyrightFields
    */
   public static function getFieldsEnum() {
-    return AdStudyFields::getInstance();
+    return ImageCopyrightFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Type'] = AdStudyTypeValues::getInstance()->getValues();
+    $ref_enums['GeoOwnership'] = ImageCopyrightGeoOwnershipValues::getInstance()->getValues();
     return $ref_enums;
   }
 
-
-  public function getCells(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/cells',
-      new AdStudyCell(),
-      'EDGE',
-      AdStudyCell::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getObjectives(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/objectives',
-      new AdStudyObjective(),
-      'EDGE',
-      AdStudyObjective::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
 
   public function deleteSelf(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
@@ -145,9 +92,9 @@ class AdStudy extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new AdStudy(),
+      new ImageCopyright(),
       'NODE',
-      AdStudy::getFieldsEnum()->getValues(),
+      ImageCopyright::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -159,21 +106,16 @@ class AdStudy extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'cells' => 'list<Object>',
-      'client_business' => 'string',
-      'confidence_level' => 'float',
-      'cooldown_start_time' => 'int',
+      'artist' => 'string',
+      'creator' => 'string',
+      'custom_id' => 'string',
       'description' => 'string',
-      'end_time' => 'int',
-      'name' => 'string',
-      'objectives' => 'list<Object>',
-      'observation_end_time' => 'int',
-      'start_time' => 'int',
-      'type' => 'type_enum',
-      'viewers' => 'list<int>',
+      'geo_ownership' => 'list<geo_ownership_enum>',
+      'original_content_creation_date' => 'unsigned int',
+      'title' => 'string',
     );
     $enums = array(
-      'type_enum' => AdStudyTypeValues::getInstance()->getValues(),
+      'geo_ownership_enum' => ImageCopyrightGeoOwnershipValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -181,9 +123,9 @@ class AdStudy extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/',
-      new AdStudy(),
+      new ImageCopyright(),
       'NODE',
-      AdStudy::getFieldsEnum()->getValues(),
+      ImageCopyright::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

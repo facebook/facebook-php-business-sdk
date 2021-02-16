@@ -33,14 +33,23 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static GroupSuggestionCategoryValues getInstance()
+ * @method static SystemUserRoleValues getInstance()
  */
-class GroupSuggestionCategoryValues extends AbstractEnum {
+class SystemUserRoleValues extends AbstractEnum {
 
-  const EVENT = 'EVENT';
-  const MESSENGER = 'MESSENGER';
-  const WORK = 'WORK';
-  const WORKPLACE = 'WORKPLACE';
-  const WORKPLACE_1_1 = 'WORKPLACE_1_1';
-  const WORKPLACE_MANAGER = 'WORKPLACE_MANAGER';
+  const ADMIN = 'ADMIN';
+  const ADS_RIGHTS_REVIEWER = 'ADS_RIGHTS_REVIEWER';
+  const VALUE_DEFAULT = 'DEFAULT';
+  const DEVELOPER = 'DEVELOPER';
+  const EMPLOYEE = 'EMPLOYEE';
+  const FINANCE_ANALYST = 'FINANCE_ANALYST';
+  const FINANCE_EDIT = 'FINANCE_EDIT';
+  const FINANCE_EDITOR = 'FINANCE_EDITOR';
+  const FINANCE_VIEW = 'FINANCE_VIEW';
+  const MANAGE = 'MANAGE';
+  const PARTNER_CENTER_ADMIN = 'PARTNER_CENTER_ADMIN';
+  const PARTNER_CENTER_ANALYST = 'PARTNER_CENTER_ANALYST';
+  const PARTNER_CENTER_EDUCATION = 'PARTNER_CENTER_EDUCATION';
+  const PARTNER_CENTER_MARKETING = 'PARTNER_CENTER_MARKETING';
+  const PARTNER_CENTER_OPERATIONS = 'PARTNER_CENTER_OPERATIONS';
 }

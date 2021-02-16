@@ -55,6 +55,7 @@ class PageCallToActionTypeValues extends AbstractEnum {
   const LISTEN = 'LISTEN';
   const LOCAL_DEV_PLATFORM = 'LOCAL_DEV_PLATFORM';
   const MESSAGE = 'MESSAGE';
+  const MOBILE_CENTER = 'MOBILE_CENTER';
   const OPEN_APP = 'OPEN_APP';
   const ORDER_FOOD = 'ORDER_FOOD';
   const PLAY_MUSIC = 'PLAY_MUSIC';

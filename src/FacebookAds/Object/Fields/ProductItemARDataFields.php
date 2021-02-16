@@ -35,15 +35,25 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class ReadOnlyAnalyticsUserPropertyConfigFields extends AbstractEnum {
+class ProductItemARDataFields extends AbstractEnum {
 
-  const ACTIVE_PROPERTIES = 'active_properties';
-  const ID = 'id';
+  const CONTAINER_EFFECT = 'container_effect';
+  const EFFECT_ICON = 'effect_icon';
+  const EFFECT_PARAMETERS = 'effect_parameters';
+  const PICKER_ICON = 'picker_icon';
+  const PRODUCT_AR_LINK = 'product_ar_link';
+  const STATE = 'state';
+  const SURFACES = 'surfaces';
 
   public function getFieldTypes() {
     return array(
-      'active_properties' => 'list<string>',
-      'id' => 'string',
+      'container_effect' => 'string',
+      'effect_icon' => 'string',
+      'effect_parameters' => 'Object',
+      'picker_icon' => 'string',
+      'product_ar_link' => 'Object',
+      'state' => 'string',
+      'surfaces' => 'list<Surfaces>',
     );
   }
 }

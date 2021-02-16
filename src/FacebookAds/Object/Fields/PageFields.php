@@ -79,6 +79,7 @@ class PageFields extends AbstractEnum {
   const FAN_COUNT = 'fan_count';
   const FEATURED_VIDEO = 'featured_video';
   const FEATURES = 'features';
+  const FOLLOWERS_COUNT = 'followers_count';
   const FOOD_STYLES = 'food_styles';
   const FOUNDED = 'founded';
   const GENERAL_INFO = 'general_info';
@@ -224,6 +225,7 @@ class PageFields extends AbstractEnum {
       'fan_count' => 'unsigned int',
       'featured_video' => 'AdVideo',
       'features' => 'string',
+      'followers_count' => 'unsigned int',
       'food_styles' => 'list<string>',
       'founded' => 'string',
       'general_info' => 'string',

@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,19 +33,43 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdCampaignActivityBillingEventOldValues getInstance()
  */
-class AdCampaignActivityBillingEventOldValues extends AbstractEnum {
 
-  const APP_INSTALLS = 'APP_INSTALLS';
-  const CLICKS = 'CLICKS';
-  const IMPRESSIONS = 'IMPRESSIONS';
-  const LINK_CLICKS = 'LINK_CLICKS';
-  const LISTING_INTERACTION = 'LISTING_INTERACTION';
-  const NONE = 'NONE';
-  const OFFER_CLAIMS = 'OFFER_CLAIMS';
-  const PAGE_LIKES = 'PAGE_LIKES';
-  const POST_ENGAGEMENT = 'POST_ENGAGEMENT';
-  const PURCHASE = 'PURCHASE';
-  const THRUPLAY = 'THRUPLAY';
+class ImageCopyrightFields extends AbstractEnum {
+
+  const ARTIST = 'artist';
+  const COPYRIGHT_MONITORING_STATUS = 'copyright_monitoring_status';
+  const CREATION_TIME = 'creation_time';
+  const CREATOR = 'creator';
+  const CUSTOM_ID = 'custom_id';
+  const DESCRIPTION = 'description';
+  const FILENAME = 'filename';
+  const ID = 'id';
+  const IMAGE = 'image';
+  const MATCHES_COUNT = 'matches_count';
+  const ORIGINAL_CONTENT_CREATION_DATE = 'original_content_creation_date';
+  const OWNERSHIP_COUNTRIES = 'ownership_countries';
+  const TAGS = 'tags';
+  const TITLE = 'title';
+  const UPDATE_TIME = 'update_time';
+
+  public function getFieldTypes() {
+    return array(
+      'artist' => 'string',
+      'copyright_monitoring_status' => 'string',
+      'creation_time' => 'datetime',
+      'creator' => 'string',
+      'custom_id' => 'string',
+      'description' => 'string',
+      'filename' => 'string',
+      'id' => 'string',
+      'image' => 'Photo',
+      'matches_count' => 'unsigned int',
+      'original_content_creation_date' => 'datetime',
+      'ownership_countries' => 'VideoCopyrightGeoGate',
+      'tags' => 'list<string>',
+      'title' => 'string',
+      'update_time' => 'datetime',
+    );
+  }
 }

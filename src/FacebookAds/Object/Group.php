@@ -41,7 +41,6 @@ use FacebookAds\Object\Values\GroupGroupTypeValues;
 use FacebookAds\Object\Values\GroupJoinSettingValues;
 use FacebookAds\Object\Values\GroupPostPermissionsValues;
 use FacebookAds\Object\Values\GroupPurposeValues;
-use FacebookAds\Object\Values\GroupSuggestionCategoryValues;
 use FacebookAds\Object\Values\LiveVideoBroadcastStatusValues;
 use FacebookAds\Object\Values\LiveVideoProjectionValues;
 use FacebookAds\Object\Values\LiveVideoSourceValues;
@@ -86,7 +85,6 @@ class Group extends AbstractCrudObject {
     $ref_enums['PostPermissions'] = GroupPostPermissionsValues::getInstance()->getValues();
     $ref_enums['Purpose'] = GroupPurposeValues::getInstance()->getValues();
     $ref_enums['GroupType'] = GroupGroupTypeValues::getInstance()->getValues();
-    $ref_enums['SuggestionCategory'] = GroupSuggestionCategoryValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -475,14 +473,11 @@ class Group extends AbstractCrudObject {
       'post_requires_admin_approval' => 'bool',
       'privacy' => 'string',
       'ref' => 'string',
-      'suggestion_category' => 'suggestion_category_enum',
-      'suggestion_identifier' => 'string',
     );
     $enums = array(
       'group_type_enum' => GroupGroupTypeValues::getInstance()->getValues(),
       'join_setting_enum' => GroupJoinSettingValues::getInstance()->getValues(),
       'post_permissions_enum' => GroupPostPermissionsValues::getInstance()->getValues(),
-      'suggestion_category_enum' => GroupSuggestionCategoryValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -792,7 +787,6 @@ class Group extends AbstractCrudObject {
       'animated_effect_id' => 'unsigned int',
       'application_id' => 'string',
       'asked_fun_fact_prompt_id' => 'unsigned int',
-      'attribution_app_id' => 'string',
       'audio_story_wave_animation_handle' => 'string',
       'composer_entry_picker' => 'string',
       'composer_entry_point' => 'string',

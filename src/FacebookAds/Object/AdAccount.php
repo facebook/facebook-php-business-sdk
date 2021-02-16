@@ -359,6 +359,7 @@ class AdAccount extends AbstractCrudObject {
       'object_story_spec' => 'AdCreativeObjectStorySpec',
       'object_type' => 'string',
       'object_url' => 'string',
+      'place_page_set_id' => 'string',
       'platform_customizations' => 'Object',
       'playable_asset_id' => 'string',
       'portrait_customizations' => 'map',
@@ -1080,7 +1081,6 @@ class AdAccount extends AbstractCrudObject {
       'animated_effect_id' => 'unsigned int',
       'application_id' => 'string',
       'asked_fun_fact_prompt_id' => 'unsigned int',
-      'attribution_app_id' => 'string',
       'audio_story_wave_animation_handle' => 'string',
       'chunk_session_id' => 'string',
       'composer_entry_picker' => 'string',
@@ -2561,33 +2561,6 @@ class AdAccount extends AbstractCrudObject {
       new ReachFrequencyPrediction(),
       'EDGE',
       ReachFrequencyPrediction::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getRoas(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'fields' => 'list<string>',
-      'filtering' => 'list<Object>',
-      'time_increment' => 'string',
-      'time_range' => 'Object',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/roas',
-      new AdAccountRoas(),
-      'EDGE',
-      AdAccountRoas::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

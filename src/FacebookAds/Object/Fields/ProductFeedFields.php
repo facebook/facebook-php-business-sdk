@@ -57,7 +57,7 @@ class ProductFeedFields extends AbstractEnum {
   const FEED_TYPE = 'feed_type';
   const OVERRIDE_VALUE = 'override_value';
   const RULES = 'rules';
-  const WHITELISTED_PROPERTIES = 'whitelisted_properties';
+  const SELECTED_OVERRIDE_FIELDS = 'selected_override_fields';
 
   public function getFieldTypes() {
     return array(
@@ -81,7 +81,7 @@ class ProductFeedFields extends AbstractEnum {
       'feed_type' => 'FeedType',
       'override_value' => 'string',
       'rules' => 'list<string>',
-      'whitelisted_properties' => 'list<string>',
+      'selected_override_fields' => 'list<string>',
     );
   }
 }

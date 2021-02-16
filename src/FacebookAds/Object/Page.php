@@ -42,6 +42,7 @@ use FacebookAds\Object\Values\CommerceOrderStateValues;
 use FacebookAds\Object\Values\EventEventStateFilterValues;
 use FacebookAds\Object\Values\EventTimeFilterValues;
 use FacebookAds\Object\Values\EventTypeValues;
+use FacebookAds\Object\Values\ImageCopyrightGeoOwnershipValues;
 use FacebookAds\Object\Values\InsightsResultDatePresetValues;
 use FacebookAds\Object\Values\InsightsResultPeriodValues;
 use FacebookAds\Object\Values\InstantArticleInsightsQueryResultBreakdownValues;
@@ -614,6 +615,29 @@ class Page extends AbstractCrudObject {
       new URL(),
       'EDGE',
       URL::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getCommerceEligibility(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/commerce_eligibility',
+      new PageCommerceEligibility(),
+      'EDGE',
+      PageCommerceEligibility::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1220,6 +1244,62 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getImageCopyrights(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/image_copyrights',
+      new ImageCopyright(),
+      'EDGE',
+      ImageCopyright::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createImageCopyright(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'artist' => 'string',
+      'creator' => 'string',
+      'custom_id' => 'string',
+      'description' => 'string',
+      'filename' => 'string',
+      'geo_ownership' => 'list<geo_ownership_enum>',
+      'original_content_creation_date' => 'unsigned int',
+      'reference_photo' => 'string',
+      'title' => 'string',
+    );
+    $enums = array(
+      'geo_ownership_enum' => ImageCopyrightGeoOwnershipValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/image_copyrights',
+      new ImageCopyright(),
+      'EDGE',
+      ImageCopyright::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getIndexedVideos(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1681,6 +1761,7 @@ class Page extends AbstractCrudObject {
       'location' => 'Object',
       'location_page_id' => 'string',
       'old_store_number' => 'unsigned int',
+      'page_username' => 'string',
       'permanently_closed' => 'bool',
       'phone' => 'string',
       'pickup_options' => 'list<pickup_options_enum>',
@@ -3122,7 +3203,6 @@ class Page extends AbstractCrudObject {
       'animated_effect_id' => 'unsigned int',
       'application_id' => 'string',
       'asked_fun_fact_prompt_id' => 'unsigned int',
-      'attribution_app_id' => 'string',
       'audio_story_wave_animation_handle' => 'string',
       'backdated_post' => 'list',
       'call_to_action' => 'Object',

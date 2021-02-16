@@ -42,6 +42,7 @@ class ProductItemFields extends AbstractEnum {
   const ADDITIONAL_VARIANT_ATTRIBUTES = 'additional_variant_attributes';
   const AGE_GROUP = 'age_group';
   const APPLINKS = 'applinks';
+  const AR_DATA = 'ar_data';
   const AVAILABILITY = 'availability';
   const BRAND = 'brand';
   const CAPABILITY_TO_REVIEW_STATUS = 'capability_to_review_status';
@@ -93,7 +94,6 @@ class ProductItemFields extends AbstractEnum {
   const START_DATE = 'start_date';
   const URL = 'url';
   const VISIBILITY = 'visibility';
-  const ADDITIONAL_IMAGE_FILES = 'additional_image_files';
   const ADDITIONAL_UPLOADED_IMAGE_IDS = 'additional_uploaded_image_ids';
   const ANDROID_APP_NAME = 'android_app_name';
   const ANDROID_CLASS = 'android_class';
@@ -126,6 +126,7 @@ class ProductItemFields extends AbstractEnum {
       'additional_variant_attributes' => 'map<string, string>',
       'age_group' => 'AgeGroup',
       'applinks' => 'CatalogItemAppLinks',
+      'ar_data' => 'ProductItemARData',
       'availability' => 'Availability',
       'brand' => 'string',
       'capability_to_review_status' => 'map<Object, Object>',
@@ -177,7 +178,6 @@ class ProductItemFields extends AbstractEnum {
       'start_date' => 'string',
       'url' => 'string',
       'visibility' => 'Visibility',
-      'additional_image_files' => 'list<file>',
       'additional_uploaded_image_ids' => 'list<string>',
       'android_app_name' => 'string',
       'android_class' => 'string',

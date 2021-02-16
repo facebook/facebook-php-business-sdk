@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdVideoContainerTypeValues extends AbstractEnum {
 
+  const ACO_AUTOEXTRACTED_VIDEO = 'ACO_AUTOEXTRACTED_VIDEO';
   const ACO_VIDEO_VARIATION = 'ACO_VIDEO_VARIATION';
   const AD_BREAK_PREVIEW = 'AD_BREAK_PREVIEW';
   const AD_DERIVATIVE = 'AD_DERIVATIVE';
@@ -74,6 +75,7 @@ class AdVideoContainerTypeValues extends AbstractEnum {
   const EVENT_TOUR = 'EVENT_TOUR';
   const FACECAST_DVR = 'FACECAST_DVR';
   const FB_SHORTS = 'FB_SHORTS';
+  const FB_SHORTS_GROUP_POST = 'FB_SHORTS_GROUP_POST';
   const FB_SHORTS_POST = 'FB_SHORTS_POST';
   const FUNDRAISER_COVER_VIDEO = 'FUNDRAISER_COVER_VIDEO';
   const GAME_CLIP = 'GAME_CLIP';

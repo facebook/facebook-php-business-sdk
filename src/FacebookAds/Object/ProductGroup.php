@@ -66,43 +66,6 @@ class ProductGroup extends AbstractCrudObject {
   }
 
 
-  public function createArDatum(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'effect_icon' => 'file',
-      'state' => 'state_enum',
-      'surfaces' => 'list<surfaces_enum>',
-    );
-    $enums = array(
-      'state_enum' => array(
-        'DISABLED',
-        'ENABLED',
-        'TEST',
-      ),
-      'surfaces_enum' => array(
-        'SHOPS',
-        'TEST_CAPABILITY',
-        'UNIVERSAL_CHECKOUT',
-        'US_MARKETPLACE',
-      ),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/ar_data',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getProducts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 

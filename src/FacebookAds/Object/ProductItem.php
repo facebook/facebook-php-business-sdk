@@ -77,35 +77,6 @@ class ProductItem extends AbstractCrudObject {
   }
 
 
-  public function createArDatum(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'container_effect' => 'container_effect_enum',
-      'effect_parameters' => 'map',
-      'picker_icon' => 'file',
-    );
-    $enums = array(
-      'container_effect_enum' => array(
-        'MAKEUP',
-      ),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/ar_data',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getChannelsToIntegrityStatus(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -204,7 +175,6 @@ class ProductItem extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'additional_image_files' => 'list<file>',
       'additional_image_urls' => 'list<string>',
       'additional_uploaded_image_ids' => 'list<string>',
       'additional_variant_attributes' => 'map',

@@ -22,13 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Values;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AdAccountRoasFields;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-generated.
@@ -37,21 +33,20 @@ use FacebookAds\Object\Fields\AdAccountRoasFields;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static ProductItemARDataSurfacesValues getInstance()
  */
+class ProductItemARDataSurfacesValues extends AbstractEnum {
 
-class AdAccountRoas extends AbstractObject {
-
-  /**
-   * @return AdAccountRoasFields
-   */
-  public static function getFieldsEnum() {
-    return AdAccountRoasFields::getInstance();
-  }
-
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
+  const B2C_MARKETPLACE = 'B2C_MARKETPLACE';
+  const C2C_MARKETPLACE = 'C2C_MARKETPLACE';
+  const DA = 'DA';
+  const DAILY_DEALS = 'DAILY_DEALS';
+  const DAILY_DEALS_LEGACY = 'DAILY_DEALS_LEGACY';
+  const IG_PRODUCT_TAGGING = 'IG_PRODUCT_TAGGING';
+  const MARKETPLACE = 'MARKETPLACE';
+  const MARKETPLACE_ADS_DEPRECATED = 'MARKETPLACE_ADS_DEPRECATED';
+  const MARKETPLACE_SHOPS = 'MARKETPLACE_SHOPS';
+  const OFFLINE_CONVERSIONS = 'OFFLINE_CONVERSIONS';
+  const SHOPS = 'SHOPS';
+  const UNIVERSAL_CHECKOUT = 'UNIVERSAL_CHECKOUT';
 }

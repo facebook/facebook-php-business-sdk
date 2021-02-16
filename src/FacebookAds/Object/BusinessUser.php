@@ -43,6 +43,13 @@ use FacebookAds\Object\Values\BusinessUserRoleValues;
 class BusinessUser extends AbstractCrudObject {
 
   /**
+   * @deprecated getEndpoint function is deprecated
+   */
+  protected function getEndpoint() {
+    return 'business_users';
+  }
+
+  /**
    * @return BusinessUserFields
    */
   public static function getFieldsEnum() {

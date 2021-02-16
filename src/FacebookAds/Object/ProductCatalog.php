@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProductCatalogFields;
+use FacebookAds\Object\Values\AutomotiveModelBodyStyleValues;
 use FacebookAds\Object\Values\ProductCatalogCategoryCategorizationCriteriaValues;
 use FacebookAds\Object\Values\ProductCatalogItemSubTypeValues;
 use FacebookAds\Object\Values\ProductCatalogPermittedRolesValues;
@@ -258,6 +259,41 @@ class ProductCatalog extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
+      '/automotive_models',
+      new AutomotiveModel(),
+      'EDGE',
+      AutomotiveModel::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createAutomotiveModel(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'automotive_model_id' => 'string',
+      'body_style' => 'body_style_enum',
+      'currency' => 'string',
+      'description' => 'string',
+      'images' => 'list<Object>',
+      'make' => 'string',
+      'model' => 'string',
+      'price' => 'unsigned int',
+      'title' => 'string',
+      'url' => 'string',
+      'year' => 'unsigned int',
+    );
+    $enums = array(
+      'body_style_enum' => AutomotiveModelBodyStyleValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
       '/automotive_models',
       new AutomotiveModel(),
       'EDGE',
@@ -841,8 +877,8 @@ class ProductCatalog extends AbstractCrudObject {
       'quoted_fields_mode' => 'quoted_fields_mode_enum',
       'rules' => 'list<string>',
       'schedule' => 'string',
+      'selected_override_fields' => 'list<string>',
       'update_schedule' => 'string',
-      'whitelisted_properties' => 'list<string>',
     );
     $enums = array(
       'delimiter_enum' => ProductFeedDelimiterValues::getInstance()->getValues(),
@@ -1024,7 +1060,6 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'additional_image_files' => 'list<file>',
       'additional_image_urls' => 'list<string>',
       'additional_uploaded_image_ids' => 'list<string>',
       'additional_variant_attributes' => 'map',

@@ -22,9 +22,14 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\ProductItemARDataFields;
+use FacebookAds\Object\Values\ProductItemARDataSurfacesValues;
 
 /**
  * This class is auto-generated.
@@ -33,19 +38,22 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdCampaignActivityBillingEventOldValues getInstance()
  */
-class AdCampaignActivityBillingEventOldValues extends AbstractEnum {
 
-  const APP_INSTALLS = 'APP_INSTALLS';
-  const CLICKS = 'CLICKS';
-  const IMPRESSIONS = 'IMPRESSIONS';
-  const LINK_CLICKS = 'LINK_CLICKS';
-  const LISTING_INTERACTION = 'LISTING_INTERACTION';
-  const NONE = 'NONE';
-  const OFFER_CLAIMS = 'OFFER_CLAIMS';
-  const PAGE_LIKES = 'PAGE_LIKES';
-  const POST_ENGAGEMENT = 'POST_ENGAGEMENT';
-  const PURCHASE = 'PURCHASE';
-  const THRUPLAY = 'THRUPLAY';
+class ProductItemARData extends AbstractObject {
+
+  /**
+   * @return ProductItemARDataFields
+   */
+  public static function getFieldsEnum() {
+    return ProductItemARDataFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    $ref_enums['Surfaces'] = ProductItemARDataSurfacesValues::getInstance()->getValues();
+    return $ref_enums;
+  }
+
+
 }
