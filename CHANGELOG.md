@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+### Changed
+- Graph API call upgrade to [v10.0](https://developers.facebook.com/docs/graph-api/changelog/version10.0)
+
 ## v9.0.2
 
 
@@ -15,7 +18,8 @@ All notable changes to this project will be documented in this file.
 - `opt_out` field was being removed when set to false for Conversions API.
 
 ## v9.0.0
-
+### Changed
+- Graph API call upgrade to [v9.0](https://developers.facebook.com/docs/graph-api/changelog/version9.0)
 
 ### Added
 - `delivery_category` field to Content for Conversions API.
@@ -128,4 +132,3 @@ All notable changes to this project will be documented in this file.
     $async_job = $async_job->getSelf();
   }
   ```
-
