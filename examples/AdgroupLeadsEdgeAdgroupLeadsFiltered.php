@@ -39,7 +39,7 @@ $api->setLogger(new CurlLogger());
 $fields = array(
 );
 $params = array(
-  'filtering' => array(array('field' => 'time_created','operator' => 'GREATER_THAN','value' => 1610489349)),
+  'filtering' => array(array('field' => 'time_created','operator' => 'GREATER_THAN','value' => 1613591600)),
 );
 echo json_encode((new Ad($id))->getLeads(
   $fields,
