@@ -213,17 +213,17 @@ class UserData implements ArrayAccess {
    * @param mixed[] $data Associated array of property value initalizing the model
    */
   public function __construct(array $data = null) {
-    $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-    $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
-    $this->container['gender'] = isset($data['gender']) ? $data['gender'] : null;
-    $this->container['date_of_birth'] = isset($data['date_of_birth']) ? $data['date_of_birth'] : null;
-    $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
-    $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
-    $this->container['city'] = isset($data['city']) ? $data['city'] : null;
-    $this->container['state'] = isset($data['state']) ? $data['state'] : null;
-    $this->container['country_code'] = isset($data['country_code']) ? $data['country_code'] : null;
-    $this->container['zip_code'] = isset($data['zip_code']) ? $data['zip_code'] : null;
-    $this->container['external_id'] = isset($data['external_id']) ? $data['external_id'] : null;
+    $this->container['emails'] = isset($data['email']) ? array($data['email']) : null;
+    $this->container['phones'] = isset($data['phone']) ? array($data['phone']) : null;
+    $this->container['genders'] = isset($data['gender']) ? array($data['gender']) : null;
+    $this->container['dates_of_birth'] = isset($data['date_of_birth']) ? array($data['date_of_birth']) : null;
+    $this->container['last_names'] = isset($data['last_name']) ? array($data['last_name']) : null;
+    $this->container['first_names'] = isset($data['first_name']) ? array($data['first_name']) : null;
+    $this->container['cities'] = isset($data['city']) ? array($data['city']) : null;
+    $this->container['states'] = isset($data['state']) ? array($data['state']) : null;
+    $this->container['country_codes'] = isset($data['country_code']) ? array($data['country_code']) : null;
+    $this->container['zip_codes'] = isset($data['zip_code']) ? array($data['zip_code']) : null;
+    $this->container['external_ids'] = isset($data['external_id']) ? array($data['external_id']) : null;
     $this->container['client_ip_address'] = isset($data['client_ip_address']) ? $data['client_ip_address'] : null;
     $this->container['client_user_agent'] = isset($data['client_user_agent']) ? $data['client_user_agent'] : null;
     $this->container['fbc'] = isset($data['fbc']) ? $data['fbc'] : null;
@@ -283,7 +283,7 @@ class UserData implements ArrayAccess {
    * @return $this
    */
   public function setEmail($email) {
-    $this->container['email'] = $email;
+    $this->container['emails'] = isset($email) ? array($email) : null;
 
     return $this;
   }
@@ -309,7 +309,7 @@ class UserData implements ArrayAccess {
    * @return $this
    */
   public function setPhone($phone) {
-    $this->container['phone'] = $phone;
+    $this->container['phones'] = isset($phone) ? array($phone) : null;
 
     return $this;
   }
@@ -333,7 +333,7 @@ class UserData implements ArrayAccess {
    * @return $this
    */
   public function setGender($gender) {
-    $this->container['gender'] = $gender;
+    $this->container['genders'] = isset($gender) ? array($gender) : null;
 
     return $this;
   }
@@ -358,7 +358,7 @@ class UserData implements ArrayAccess {
    * @return $this
    */
   public function setDateOfBirth($date_of_birth) {
-    $this->container['date_of_birth'] = $date_of_birth;
+    $this->container['dates_of_birth'] = isset($date_of_birth) ? array($date_of_birth) : null;
 
     return $this;
   }
@@ -384,7 +384,7 @@ class UserData implements ArrayAccess {
    * @return $this
    */
   public function setLastName($last_name) {
-    $this->container['last_name'] = $last_name;
+    $this->container['last_names'] = isset($last_name) ? array($last_name) : null;
 
     return $this;
   }
@@ -410,7 +410,7 @@ class UserData implements ArrayAccess {
    * @return $this
    */
   public function setFirstName($first_name) {
-    $this->container['first_name'] = $first_name;
+    $this->container['first_names'] = isset($first_name) ? array($first_name) : null;
 
     return $this;
   }
@@ -436,7 +436,7 @@ class UserData implements ArrayAccess {
    * @return $this
    */
   public function setCity($city) {
-    $this->container['city'] = $city;
+    $this->container['cities'] = isset($city) ? array($city) : null;
 
     return $this;
   }
@@ -462,7 +462,7 @@ class UserData implements ArrayAccess {
    * @return $this
    */
   public function setState($state) {
-    $this->container['state'] = $state;
+    $this->container['states'] = isset($state) ? array($state) : null;
 
     return $this;
   }
@@ -488,7 +488,7 @@ class UserData implements ArrayAccess {
    * @return $this
    */
   public function setCountryCode($country_code) {
-    $this->container['country_code'] = $country_code;
+    $this->container['country_codes'] = isset($country_code) ? array($country_code) : null;
 
     return $this;
   }
@@ -514,7 +514,7 @@ class UserData implements ArrayAccess {
    * @return $this
    */
   public function setZipCode($zip_code) {
-    $this->container['zip_code'] = $zip_code;
+    $this->container['zip_codes'] = isset($zip_code) ? array($zip_code) : null;
 
     return $this;
   }
@@ -542,7 +542,7 @@ class UserData implements ArrayAccess {
    * @return $this
    */
   public function setExternalId($external_id) {
-    $this->container['external_id'] = $external_id;
+    $this->container['external_ids'] = isset($external_id) ? array($external_id) : null;
 
     return $this;
   }
@@ -759,17 +759,17 @@ class UserData implements ArrayAccess {
   public function normalize() {
     $normalized_payload = array();
 
-    $normalized_payload['em'] = Util::hash(Normalizer::normalize('em', $this->getEmail()));
-    $normalized_payload['ph'] = Util::hash(Normalizer::normalize('ph', $this->getPhone()));
-    $normalized_payload['ge'] = Util::hash(Normalizer::normalize('ge', $this->getGender()));
-    $normalized_payload['db'] = Util::hash(Normalizer::normalize('db', $this->getDateOfBirth()));
-    $normalized_payload['ln'] = Util::hash(Normalizer::normalize('ln', $this->getLastName()));
-    $normalized_payload['fn'] = Util::hash(Normalizer::normalize('fn', $this->getFirstName()));
-    $normalized_payload['ct'] = Util::hash(Normalizer::normalize('ct', $this->getCity()));
-    $normalized_payload['st'] = Util::hash(Normalizer::normalize('st', $this->getState()));
-    $normalized_payload['zp'] = Util::hash(Normalizer::normalize('zp', $this->getZipCode()));
-    $normalized_payload['country'] = Util::hash(Normalizer::normalize('country', $this->getCountryCode()));
-    $normalized_payload['external_id'] = $this->getExternalId();
+    $normalized_payload['em'] = $this->normalizeHashDedup('em', $this->getEmails());
+    $normalized_payload['ph'] = $this->normalizeHashDedup('ph', $this->getPhones());
+    $normalized_payload['ge'] = $this->normalizeHashDedup('ge', $this->getGenders());
+    $normalized_payload['db'] = $this->normalizeHashDedup('db', $this->getDatesOfBirth());
+    $normalized_payload['ln'] = $this->normalizeHashDedup('ln', $this->getLastNames());
+    $normalized_payload['fn'] = $this->normalizeHashDedup('fn', $this->getFirstNames());
+    $normalized_payload['ct'] = $this->normalizeHashDedup('ct', $this->getCities());
+    $normalized_payload['st'] = $this->normalizeHashDedup('st', $this->getStates());
+    $normalized_payload['zp'] = $this->normalizeHashDedup('zp', $this->getZipCodes());
+    $normalized_payload['country'] = $this->normalizeHashDedup('country', $this->getCountryCodes());
+    $normalized_payload['external_id'] = $this->dedup($this->getExternalIds());
     $normalized_payload['client_ip_address'] = $this->getClientIpAddress();
     $normalized_payload['client_user_agent'] = $this->getClientUserAgent();
     $normalized_payload['fbc'] = $this->getFbc();
@@ -788,11 +788,40 @@ class UserData implements ArrayAccess {
   }
 
   /**
+  * Simply return a deduped array for the given array, without performing any normalization or hash.
+  */
+  private function dedup($arr){
+    if(empty($arr)) {
+      return null;
+    }
+    $deduped = array();
+    foreach($arr as $val){
+      $deduped[$val] = true;
+    }
+    return array_keys($deduped);
+  }
+
+  /**
+  * Return a normalized, hashed, and deduped array for the given array.
+  */
+  private function normalizeHashDedup($fieldName, $valueList){
+    if(empty($valueList) || !isset($fieldName)) {
+      return null;
+    }
+    $deduped = array();
+    foreach($valueList as $val){
+      $hashedVal = Util::hash(Normalizer::normalize($fieldName, $val));
+      $deduped[$hashedVal] = true;
+    }
+    return array_keys($deduped);
+  }
+
+  /**
    * Gets an email address, in lowercase.
    * @return string
    */
   public function getEmail() {
-    return $this->container['email'];
+    return empty($this->container['emails']) ? null : $this->container['emails'][0];
   }
 
   /**
@@ -808,7 +837,7 @@ class UserData implements ArrayAccess {
    * @return string
    */
   public function getPhone() {
-    return $this->container['phone'];
+    return empty($this->container['phones']) ? null : $this->container['phones'][0];
   }
 
   /**
@@ -824,7 +853,7 @@ class UserData implements ArrayAccess {
    * @return string
    */
   public function getGender() {
-    return $this->container['gender'];
+    return empty($this->container['genders']) ? null : $this->container['genders'][0];
   }
 
   /**
@@ -840,7 +869,7 @@ class UserData implements ArrayAccess {
    * @return string
    */
   public function getDateOfBirth() {
-    return $this->container['date_of_birth'];
+    return empty($this->container['dates_of_birth']) ? null : $this->container['dates_of_birth'][0];
   }
 
   /**
@@ -856,7 +885,7 @@ class UserData implements ArrayAccess {
    * @return string
    */
   public function getLastName() {
-    return $this->container['last_name'];
+    return empty($this->container['last_names']) ? null : $this->container['last_names'][0];
   }
 
   /**
@@ -872,7 +901,7 @@ class UserData implements ArrayAccess {
    * @return string
    */
   public function getFirstName() {
-    return $this->container['first_name'];
+    return empty($this->container['first_names']) ? null : $this->container['first_names'][0];
   }
 
   /**
@@ -888,7 +917,7 @@ class UserData implements ArrayAccess {
    * @return string
    */
   public function getCity() {
-    return $this->container['city'];
+    return empty($this->container['cities']) ? null : $this->container['cities'][0];
   }
 
   /**
@@ -904,7 +933,7 @@ class UserData implements ArrayAccess {
    * @return string
    */
   public function getState() {
-    return $this->container['state'];
+    return empty($this->container['states']) ? null : $this->container['states'][0];
   }
 
   /**
@@ -920,7 +949,7 @@ class UserData implements ArrayAccess {
    * @return string
    */
   public function getZipCode() {
-    return $this->container['zip_code'];
+    return empty($this->container['zip_codes']) ? null : $this->container['zip_codes'][0];
   }
 
   /**
@@ -936,7 +965,7 @@ class UserData implements ArrayAccess {
    * @return string
    */
   public function getCountryCode() {
-    return $this->container['country_code'];
+    return empty($this->container['country_codes']) ? null : $this->container['country_codes'][0];
   }
 
   /**
@@ -952,7 +981,7 @@ class UserData implements ArrayAccess {
    * @return string
    */
   public function getExternalId() {
-    return $this->container['external_id'];
+    return empty($this->container['external_ids']) ? null : $this->container['external_ids'][0];
   }
 
   /**
