@@ -44,16 +44,27 @@ class UserData implements ArrayAccess {
    */
   protected static $param_types = array(
     'email' => 'string',
+    'emails' => 'string[]',
     'phone' => 'string',
+    'phones' => 'string[]',
     'gender' => 'string',
+    'genders' => 'string[]',
     'date_of_birth' => 'string',
+    'dates_of_birth' => 'string[]',
     'last_name' => 'string',
+    'last_names' => 'string[]',
     'first_name' => 'string',
+    'first_names' => 'string[]',
     'ct' => 'string',
+    'cts' => 'string[]',
     'state' => 'string',
+    'states' => 'string[]',
     'country_code' => 'string',
+    'country_codes' => 'string[]',
     'zip_code' => 'string',
+    'zip_codes' => 'string[]',
     'external_id' => 'string',
+    'external_ids' => 'string[]',
     'client_ip_address' => 'string',
     'client_user_agent' => 'string',
     'fbc' => 'string',
@@ -74,16 +85,27 @@ class UserData implements ArrayAccess {
    */
   protected static $attributeMap = array(
     'email' => 'email',
+    'emails' => 'emails',
     'phone' => 'phone',
+    'phones' => 'phones',
     'gender' => 'gender',
+    'genders' => 'genders',
     'date_of_birth' => 'date_of_birth',
+    'dates_of_birth' => 'dates_of_birth',
     'last_name' => 'last_name',
+    'last_names' => 'last_names',
     'first_name' => 'first_name',
+    'first_names' => 'first_names',
     'ct' => 'ct',
+    'cts' => 'cts',
     'state' => 'state',
+    'states' => 'states',
     'country_code' => 'country_code',
+    'country_codes' => 'country_codes',
     'zip_code' => 'zip_code',
+    'zip_codes' => 'zip_codes',
     'external_id' => 'external_id',
+    'external_ids' => 'external_ids',
     'client_ip_address' => 'client_ip_address',
     'client_user_agent' => 'client_user_agent',
     'fbc' => 'fbc',
@@ -104,16 +126,27 @@ class UserData implements ArrayAccess {
    */
   protected static $setters = array(
     'email' => 'setEmail',
+    'emails' => 'setEmails',
     'phone' => 'setPhone',
+    'phones' => 'setPhones',
     'gender' => 'setGender',
+    'genders' => 'setGenders',
     'date_of_birth' => 'setDateOfBirth',
+    'dates_of_birth' => 'setDatesOfBirth',
     'last_name' => 'setLastName',
+    'last_names' => 'setLastNames',
     'first_name' => 'setFirstName',
+    'first_names' => 'setFirstNames',
     'city' => 'setCity',
+    'cities' => 'setCities',
     'state' => 'setState',
+    'states' => 'setStates',
     'country_code' => 'setCountryCode',
+    'country_codes' => 'setCountryCodes',
     'zip_code' => 'setZipCode',
+    'zip_codes' => 'setZipCodes',
     'external_id' => 'setExternalId',
+    'external_ids' => 'setExternalIds',
     'client_ip_address' => 'setClientIpAddress',
     'client_user_agent' => 'setClientUserAgent',
     'fbc' => 'setFbc',
@@ -134,16 +167,27 @@ class UserData implements ArrayAccess {
    */
   protected static $getters = array(
     'email' => 'getEmail',
+    'emails' => 'getEmails',
     'phone' => 'getPhone',
+    'phones' => 'getPhones',
     'gender' => 'getGender',
+    'genders' => 'getGenders',
     'date_of_birth' => 'getDateOfBirth',
+    'dates_of_birth' => 'getDatesOfBirth',
     'last_name' => 'getLastName',
+    'last_names' => 'getLastNames',
     'first_name' => 'getFirstName',
+    'first_names' => 'getFirstNames',
     'city' => 'getCity',
+    'cities' => 'getCities',
     'state' => 'getState',
+    'states' => 'getStates',
     'country_code' => 'getCountryCode',
+    'country_codes' => 'getCountryCodes',
     'zip_code' => 'getZipCode',
+    'zip_codes' => 'getZipCodes',
     'external_id' => 'getExternalId',
+    'external_ids' => 'getExternalIds',
     'client_ip_address' => 'getClientIpAddress',
     'client_user_agent' => 'getClientUserAgent',
     'fbc' => 'getFbc',
@@ -245,6 +289,19 @@ class UserData implements ArrayAccess {
   }
 
   /**
+   * Sets a list of email addresses, in lowercase.
+   *
+   * <p>Example: array('joe@eg.com', 'mary@test.com')
+   * @param string[] $emails A list of email addresses, in lowercase.
+   * @return $this
+   */
+  public function setEmails($emails) {
+    $this->container['emails'] = $emails;
+
+    return $this;
+  }
+
+  /**
    * Sets a phone number. Include only digits with countryCode code, area code, and number.
    *
    * <p>Example: 16505551212
@@ -253,6 +310,19 @@ class UserData implements ArrayAccess {
    */
   public function setPhone($phone) {
     $this->container['phone'] = $phone;
+
+    return $this;
+  }
+
+  /**
+   * Sets a list of phone numbers. Include only digits with countryCode code, area code, and number.
+   *
+   * <p>Example: array('16505551212', '12052062007')
+   * @param string[] $phone A list of phone numbers. Include only digits with country code, area code, and number.
+   * @return $this
+   */
+  public function setPhones($phones) {
+    $this->container['phones'] = $phones;
 
     return $this;
   }
@@ -269,6 +339,18 @@ class UserData implements ArrayAccess {
   }
 
   /**
+   * Sets a list of Genders, in lowercase.
+   * <p>Example: array('f', 'm')
+   * @param FacebookAds\Object\ServerSide\Gender[] $genders A list of Genders, in lowercase.
+   * @return $this
+   */
+  public function setGenders($genders) {
+    $this->container['genders'] = $genders;
+
+    return $this;
+  }
+
+  /**
    * Sets a date of birth given as year, month, and day.
    *
    * <p>Example: 19971226 for December 26, 1997.
@@ -277,6 +359,19 @@ class UserData implements ArrayAccess {
    */
   public function setDateOfBirth($date_of_birth) {
     $this->container['date_of_birth'] = $date_of_birth;
+
+    return $this;
+  }
+
+    /**
+   * Sets a list of dates of birth given as year, month, and day.
+   *
+   * <p>Example: array('19971226', '19880102')
+   * @param string[] $dates_of_birth A list of dates of birth given as year, month, and day.
+   * @return $this
+   */
+  public function setDatesOfBirth($dates_of_birth) {
+    $this->container['dates_of_birth'] = $dates_of_birth;
 
     return $this;
   }
@@ -295,6 +390,19 @@ class UserData implements ArrayAccess {
   }
 
   /**
+   * Sets a list of last names in lowercase.
+   *
+   * <p>Example: array('smith', 'brown')
+   * @param string[] $last_names A list of last names in lowercase.
+   * @return $this
+   */
+  public function setLastNames($last_names) {
+    $this->container['last_names'] = $last_names;
+
+    return $this;
+  }
+
+  /**
    * Sets a first name in lowercase.
    *
    * <p>Example: joe
@@ -303,6 +411,19 @@ class UserData implements ArrayAccess {
    */
   public function setFirstName($first_name) {
     $this->container['first_name'] = $first_name;
+
+    return $this;
+  }
+
+  /**
+   * Sets a list of first names in lowercase.
+   *
+   * <p>Example: array('joe', 'mary')
+   * @param string[] $first_names A list of first names in lowercase.
+   * @return $this
+   */
+  public function setFirstNames($first_names) {
+    $this->container['first_names'] = $first_names;
 
     return $this;
   }
@@ -321,6 +442,19 @@ class UserData implements ArrayAccess {
   }
 
   /**
+   * Sets a list of cities in lower-case without spaces or punctuation.
+   *
+   * <p>Example: array('menlopark', 'seattle')
+   * @param string[] $cities A list of cities in lower-case without spaces or punctuation.
+   * @return $this
+   */
+  public function setCities($cities) {
+    $this->container['cities'] = $cities;
+
+    return $this;
+  }
+
+  /**
    * Sets a two-letter state code in lowercase.
    *
    * <p>Example: ca
@@ -329,6 +463,19 @@ class UserData implements ArrayAccess {
    */
   public function setState($state) {
     $this->container['state'] = $state;
+
+    return $this;
+  }
+
+  /**
+   * Sets a list of two-letter state codes in lowercase.
+   *
+   * <p>Example: array('ca', 'wa')
+   * @param string[] $states A list of two-letter state codes in lowercase.
+   * @return $this
+   */
+  public function setStates($states) {
+    $this->container['states'] = $states;
 
     return $this;
   }
@@ -347,6 +494,19 @@ class UserData implements ArrayAccess {
   }
 
   /**
+   * Sets a list of two-letter country codes in lowercase.
+   *
+   * <p>Example: array('us', 'ca')
+   * @param string[] $country_codes A list of two-letter country codes in lowercase.
+   * @return $this
+   */
+  public function setCountryCodes($country_codes) {
+    $this->container['country_codes'] = $country_codes;
+
+    return $this;
+  }
+
+  /**
    * Sets a five-digit zip code.
    *
    * <p>Example: 94035
@@ -355,6 +515,19 @@ class UserData implements ArrayAccess {
    */
   public function setZipCode($zip_code) {
     $this->container['zip_code'] = $zip_code;
+
+    return $this;
+  }
+
+  /**
+   * Sets a list of five-digit zip codes.
+   *
+   * <p>Example: array('94035', '98001')
+   * @param string[] $zip_codes A list of five-digit zip codes.
+   * @return $this
+   */
+  public function setZipCodes($zip_codes) {
+    $this->container['zip_codes'] = $zip_codes;
 
     return $this;
   }
@@ -370,6 +543,21 @@ class UserData implements ArrayAccess {
    */
   public function setExternalId($external_id) {
     $this->container['external_id'] = $external_id;
+
+    return $this;
+  }
+
+  /**
+   * Sets a list of unique IDs from the advertiser, such as loyalty membership IDs, user IDs, and external
+   * cookie IDs. In the Offline Conversions API, this is known as extern_id. For more information,
+   * see Offline Conversions, Providing External IDs. If External ID is being sent via other
+   * channels, then it should be sent in the same format via the server-side API.
+   * @param string[] $external_ids A list of unique IDs from the advertiser, such as loyalty membership IDs,
+   *      user IDs, and external cookie IDs.
+   * @return $this
+   */
+  public function setExternalIds($external_ids) {
+    $this->container['external_ids'] = $external_ids;
 
     return $this;
   }
@@ -608,11 +796,27 @@ class UserData implements ArrayAccess {
   }
 
   /**
+   * Gets a list of email addresses, in lowercase.
+   * @return string[]
+   */
+  public function getEmails() {
+    return $this->container['emails'];
+  }
+
+  /**
    * Gets a phone number
    * @return string
    */
   public function getPhone() {
     return $this->container['phone'];
+  }
+
+  /**
+   * Gets a list of phone numbers
+   * @return string[]
+   */
+  public function getPhones() {
+    return $this->container['phones'];
   }
 
   /**
@@ -624,11 +828,27 @@ class UserData implements ArrayAccess {
   }
 
   /**
+   * Gets a list of genders.
+   * @return string[]
+   */
+  public function getGenders() {
+    return $this->container['genders'];
+  }
+
+  /**
    * Gets Date Of Birth.
    * @return string
    */
   public function getDateOfBirth() {
     return $this->container['date_of_birth'];
+  }
+
+  /**
+   * Gets a list of dates Of Birth.
+   * @return string[]
+   */
+  public function getDatesOfBirth() {
+    return $this->container['dates_of_birth'];
   }
 
   /**
@@ -640,11 +860,27 @@ class UserData implements ArrayAccess {
   }
 
   /**
+   * Gets a list of Last Names.
+   * @return string[]
+   */
+  public function getLastNames() {
+    return $this->container['last_names'];
+  }
+
+  /**
    * Gets First Name.
    * @return string
    */
   public function getFirstName() {
     return $this->container['first_name'];
+  }
+
+  /**
+   * Gets a list of First Name.
+   * @return string[]
+   */
+  public function getFirstNames() {
+    return $this->container['first_names'];
   }
 
   /**
@@ -656,11 +892,27 @@ class UserData implements ArrayAccess {
   }
 
   /**
+   * Gets a list of cities.
+   * @return string[]
+   */
+  public function getCities() {
+    return $this->container['cities'];
+  }
+
+  /**
    * Gets state.
    * @return string
    */
   public function getState() {
     return $this->container['state'];
+  }
+
+  /**
+   * Gets a list of states.
+   * @return string[]
+   */
+  public function getStates() {
+    return $this->container['states'];
   }
 
   /**
@@ -672,6 +924,14 @@ class UserData implements ArrayAccess {
   }
 
   /**
+   * Gets zip codes
+   * @return string[]
+   */
+  public function getZipCodes() {
+    return $this->container['zip_codes'];
+  }
+
+  /**
    * Gets country code.
    * @return string
    */
@@ -680,11 +940,27 @@ class UserData implements ArrayAccess {
   }
 
   /**
+   * Gets country codes.
+   * @return string[]
+   */
+  public function getCountryCodes() {
+    return $this->container['country_codes'];
+  }
+
+  /**
    * Gets Any unique ID from the advertiser, such as loyalty membership IDs, user IDs, and external cookie IDs.
    * @return string
    */
   public function getExternalId() {
     return $this->container['external_id'];
+  }
+
+  /**
+   * Gets a list of unique IDs from the advertiser, such as loyalty membership IDs, user IDs, and external cookie IDs.
+   * @return string[]
+   */
+  public function getExternalIds() {
+    return $this->container['external_ids'];
   }
 
   /**
