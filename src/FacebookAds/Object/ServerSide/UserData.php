@@ -536,7 +536,7 @@ class UserData implements ArrayAccess {
    * Sets any unique ID from the advertiser, such as loyalty membership IDs, user IDs, and external
    * cookie IDs. In the Offline Conversions API, this is known as extern_id. For more information,
    * see Offline Conversions, Providing External IDs. If External ID is being sent via other
-   * channels, then it should be sent in the same format via the server-side API.
+   * channels, then it should be sent in the same format via the Conversions API.
    * @param string $external_id Any unique ID from the advertiser, such as loyalty membership IDs,
    *      user IDs, and external cookie IDs.
    * @return $this
@@ -551,7 +551,7 @@ class UserData implements ArrayAccess {
    * Sets a list of unique IDs from the advertiser, such as loyalty membership IDs, user IDs, and external
    * cookie IDs. In the Offline Conversions API, this is known as extern_id. For more information,
    * see Offline Conversions, Providing External IDs. If External ID is being sent via other
-   * channels, then it should be sent in the same format via the server-side API.
+   * channels, then it should be sent in the same format via the Conversions API.
    * @param string[] $external_ids A list of unique IDs from the advertiser, such as loyalty membership IDs,
    *      user IDs, and external cookie IDs.
    * @return $this
@@ -587,7 +587,7 @@ class UserData implements ArrayAccess {
   /**
    * Sets Facebook click ID value stored in the _fbc browser cookie under your domain. See Managing
    * fbc and fbp Parameters for how to get this value
-   * (https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc),
+   * (https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/customer-information-parameters#fbc),
    * or generate this value from a fbclid query parameter.
    * @param string $fbc The Facebook click ID value stored in the _fbc browser cookie under your domain.
    * @return $this
@@ -601,7 +601,7 @@ class UserData implements ArrayAccess {
   /**
    * Sets Set Facebook browser ID value stored in the _fbp browser cookie under your domain. See Managing
    * fbc and fbp Parameters for how to get this value
-   * (https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc),
+   * (https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/customer-information-parameters#fbc),
    * or generate this value from a fbclid query parameter.
    * @param string $fbp The Facebook browser ID value stored in the _fbp browser cookie under your domain.
    * @return $this

@@ -30,7 +30,7 @@ use FacebookAds\ApiConfig;
 use FacebookAds\Object\AdsPixel;
 
 /**
- * Server-Side Event Request
+ * Conversions API Event Request
  *
  * @category    Class
  */
@@ -167,7 +167,7 @@ class EventRequest implements ArrayAccess {
    * Gets code used to verify that your server events are received correctly by Facebook. Use this
    * code to test your server events in the Test Events feature in Events Manager.
    * See Test Events Tool
-   * (https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/using-the-api#testEvents)
+   * (https://developers.facebook.com/docs/marketing-api/conversions-api/using-the-api#testEvents)
    * for an example.
    * @return string
    */
@@ -179,11 +179,11 @@ class EventRequest implements ArrayAccess {
    * Sets code used to verify that your server events are received correctly by Facebook. Use this
    * code to test your server events in the Test Events feature in Events Manager.
    * See Test Events Tool
-   * (https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/using-the-api#testEvents)
+   * (https://developers.facebook.com/docs/marketing-api/conversions-api/using-the-api#testEvents)
    * for an example.
    * @param string $test_event_code Code used to verify that your server events are received correctly by Facebook.
    * Use this code to test your server events in the Test Events feature in Events Manager. See Test Events Tool
-   * (https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/using-the-api#testEvents)
+   * (https://developers.facebook.com/docs/marketing-api/conversions-api/using-the-api#testEvents)
    * for an example.
    * @return $this
    */
