@@ -25,6 +25,7 @@
 namespace FacebookAds\Object\ServerSide;
 
 use ArrayAccess;
+use InvalidArgumentException;
 
 /**
  * UserData is a set of identifiers Facebook can use for targeted attribution.
@@ -37,6 +38,12 @@ class UserData implements ArrayAccess {
    * @var string
    */
   protected static $swaggerModelName = 'server_side_pixel_user_data';
+
+  /**
+   * Error message for when both singular and plural values are set via constructor.
+   * @var string
+  */
+  private static $multiVariableConstructorError = 'Cannot set both %s and %s parameters via constructor. Please set either the singular or plural parameter, not both.';
 
   /**
    * Array of property to type mappings. Used for (de)serialization
@@ -213,17 +220,99 @@ class UserData implements ArrayAccess {
    * @param mixed[] $data Associated array of property value initalizing the model
    */
   public function __construct(array $data = null) {
-    $this->container['emails'] = isset($data['email']) ? array($data['email']) : null;
-    $this->container['phones'] = isset($data['phone']) ? array($data['phone']) : null;
-    $this->container['genders'] = isset($data['gender']) ? array($data['gender']) : null;
-    $this->container['dates_of_birth'] = isset($data['date_of_birth']) ? array($data['date_of_birth']) : null;
-    $this->container['last_names'] = isset($data['last_name']) ? array($data['last_name']) : null;
-    $this->container['first_names'] = isset($data['first_name']) ? array($data['first_name']) : null;
-    $this->container['cities'] = isset($data['city']) ? array($data['city']) : null;
-    $this->container['states'] = isset($data['state']) ? array($data['state']) : null;
-    $this->container['country_codes'] = isset($data['country_code']) ? array($data['country_code']) : null;
-    $this->container['zip_codes'] = isset($data['zip_code']) ? array($data['zip_code']) : null;
-    $this->container['external_ids'] = isset($data['external_id']) ? array($data['external_id']) : null;
+
+    # Let's make sure not both singular and plural parameters are set
+    if(isset($data['email']) And isset($data['emails'])) {
+      throw new InvalidArgumentException(sprintf(self::$multiVariableConstructorError, 'email', 'emails'));
+    }
+    if(isset($data['phone']) And isset($data['phones'])) {
+      throw new InvalidArgumentException(sprintf(self::$multiVariableConstructorError, 'phone', 'phones'));
+    }
+    if (isset($data['gender']) and isset($data['genders'])) {
+      throw new InvalidArgumentException(sprintf(self::$multiVariableConstructorError, 'gender', 'genders'));
+    }
+    if (isset($data['date_of_birth']) and isset($data['dates_of_birth'])) {
+      throw new InvalidArgumentException(sprintf(self::$multiVariableConstructorError, 'date_of_birth', 'dates_of_birth'));
+    }
+    if (isset($data['last_name']) and isset($data['last_names'])) {
+      throw new InvalidArgumentException(sprintf(self::$multiVariableConstructorError, 'last_name', 'last_names'));
+    }
+    if (isset($data['first_name']) and isset($data['first_names'])) {
+      throw new InvalidArgumentException(sprintf(self::$multiVariableConstructorError, 'first_name', 'first_names'));
+    }
+    if (isset($data['city']) and isset($data['cities'])) {
+      throw new InvalidArgumentException(sprintf(self::$multiVariableConstructorError, 'city', 'cities'));
+    }
+    if (isset($data['state']) and isset($data['states'])) {
+      throw new InvalidArgumentException(sprintf(self::$multiVariableConstructorError, 'state', 'states'));
+    }
+    if (isset($data['country_code']) and isset($data['country_codes'])) {
+      throw new InvalidArgumentException(sprintf(self::$multiVariableConstructorError, 'country_code', 'country_codes'));
+    }
+    if (isset($data['zip_code']) and isset($data['zip_codes'])) {
+      throw new InvalidArgumentException(sprintf(self::$multiVariableConstructorError, 'zip_code', 'zip_codes'));
+    }
+    if (isset($data['external_id']) and isset($data['external_ids'])) {
+      throw new InvalidArgumentException(sprintf(self::$multiVariableConstructorError, 'external_id', 'external_ids'));
+    }
+
+    # Set the parameters depending on which one is passed in.
+    if (isset($data['email'])) {
+      $this->setEmail($data['email']);
+    } else if(isset($data['emails'])) {
+      $this->setEmails($data['emails']);
+    }
+    if (isset($data['phone'])) {
+      $this->setPhone($data['phone']);
+    } else if(isset($data['phones'])) {
+      $this->setPhones($data['phones']);
+    }
+    if (isset($data['gender'])) {
+      $this->setGender($data['gender']);
+    } else if(isset($data['genders'])) {
+      $this->setGenders($data['genders']);
+    }
+    if (isset($data['date_of_birth'])) {
+      $this->setDateOfBirth($data['date_of_birth']);
+    } else if(isset($data['dates_of_birth'])) {
+      $this->setDatesOfBirth($data['dates_of_birth']);
+    }
+    if (isset($data['last_name'])) {
+      $this->setLastName($data['last_name']);
+    } else if(isset($data['last_names'])) {
+      $this->setLastNames($data['last_names']);
+    }
+    if (isset($data['first_name'])) {
+      $this->setFirstName($data['first_name']);
+    } else if(isset($data['first_names'])) {
+      $this->setFirstNames($data['first_names']);
+    }
+    if (isset($data['city'])) {
+      $this->setCity($data['city']);
+    } else if(isset($data['cities'])) {
+      $this->setCities($data['cities']);
+    }
+    if (isset($data['state'])) {
+      $this->setState($data['state']);
+    } else if(isset($data['states'])) {
+      $this->setStates($data['states']);
+    }
+    if (isset($data['country_code'])) {
+      $this->setCountryCode($data['country_code']);
+    } else if(isset($data['country_codes'])) {
+      $this->setCountryCodes($data['country_codes']);
+    }
+    if (isset($data['zip_code'])) {
+      $this->setZipCode($data['zip_code']);
+    } else if(isset($data['zip_codes'])) {
+      $this->setZipCodes($data['zip_codes']);
+    }
+    if (isset($data['external_id'])) {
+      $this->setExternalId($data['external_id']);
+    } else if(isset($data['external_ids'])) {
+      $this->setExternalIds($data['external_ids']);
+    }
+
     $this->container['client_ip_address'] = isset($data['client_ip_address']) ? $data['client_ip_address'] : null;
     $this->container['client_user_agent'] = isset($data['client_user_agent']) ? $data['client_user_agent'] : null;
     $this->container['fbc'] = isset($data['fbc']) ? $data['fbc'] : null;
@@ -829,7 +918,7 @@ class UserData implements ArrayAccess {
    * @return string[]
    */
   public function getEmails() {
-    return $this->container['emails'];
+    return empty($this->container['emails']) ? null : $this->container['emails'];
   }
 
   /**
@@ -845,7 +934,7 @@ class UserData implements ArrayAccess {
    * @return string[]
    */
   public function getPhones() {
-    return $this->container['phones'];
+    return empty($this->container['phones']) ? null : $this->container['phones'];
   }
 
   /**
@@ -861,7 +950,7 @@ class UserData implements ArrayAccess {
    * @return string[]
    */
   public function getGenders() {
-    return $this->container['genders'];
+    return empty($this->container['genders']) ? null : $this->container['genders'];
   }
 
   /**
@@ -877,7 +966,7 @@ class UserData implements ArrayAccess {
    * @return string[]
    */
   public function getDatesOfBirth() {
-    return $this->container['dates_of_birth'];
+    return empty($this->container['dates_of_birth']) ? null : $this->container['dates_of_birth'];
   }
 
   /**
@@ -893,7 +982,7 @@ class UserData implements ArrayAccess {
    * @return string[]
    */
   public function getLastNames() {
-    return $this->container['last_names'];
+    return empty($this->container['last_names']) ? null : $this->container['last_names'];
   }
 
   /**
@@ -909,7 +998,7 @@ class UserData implements ArrayAccess {
    * @return string[]
    */
   public function getFirstNames() {
-    return $this->container['first_names'];
+    return empty($this->container['first_names']) ? null : $this->container['first_names'];
   }
 
   /**
@@ -925,7 +1014,7 @@ class UserData implements ArrayAccess {
    * @return string[]
    */
   public function getCities() {
-    return $this->container['cities'];
+    return empty($this->container['cities']) ? null : $this->container['cities'];
   }
 
   /**
@@ -941,7 +1030,7 @@ class UserData implements ArrayAccess {
    * @return string[]
    */
   public function getStates() {
-    return $this->container['states'];
+    return empty($this->container['states']) ? null : $this->container['states'];
   }
 
   /**
@@ -957,7 +1046,7 @@ class UserData implements ArrayAccess {
    * @return string[]
    */
   public function getZipCodes() {
-    return $this->container['zip_codes'];
+    return empty($this->container['zip_codes']) ? null : $this->container['zip_codes'];
   }
 
   /**
@@ -973,7 +1062,7 @@ class UserData implements ArrayAccess {
    * @return string[]
    */
   public function getCountryCodes() {
-    return $this->container['country_codes'];
+    return empty($this->container['country_codes']) ? null : $this->container['country_codes'];
   }
 
   /**
@@ -989,7 +1078,7 @@ class UserData implements ArrayAccess {
    * @return string[]
    */
   public function getExternalIds() {
-    return $this->container['external_ids'];
+    return empty($this->container['external_ids']) ? null : $this->container['external_ids'];
   }
 
   /**

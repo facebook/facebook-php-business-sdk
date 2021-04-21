@@ -27,6 +27,7 @@ namespace FacebookAdsTest\Object;
 use FacebookAdsTest\AbstractUnitTestCase;
 use FacebookAds\Object\ServerSide\UserData;
 use FacebookAds\Object\ServerSide\Util;
+use InvalidArgumentException;
 
 
 class UserDataTest extends AbstractUnitTestCase {
@@ -155,6 +156,47 @@ class UserDataTest extends AbstractUnitTestCase {
       ->setCountryCodes($initial_state['country_codes'])
       ->setZipCodes($initial_state['zip_codes'])
       ->setExternalIds($initial_state['external_ids']);
+
+    $this->assertEquals($initial_state['emails'], $userData->getEmails());
+    $this->assertEquals($initial_state['phones'], $userData->getPhones());
+    $this->assertEquals($initial_state['genders'], $userData->getGenders());
+    $this->assertEquals($initial_state['dates_of_birth'], $userData->getDatesOfBirth());
+    $this->assertEquals($initial_state['last_names'], $userData->getLastNames());
+    $this->assertEquals($initial_state['first_names'], $userData->getFirstNames());
+    $this->assertEquals($initial_state['cities'], $userData->getCities());
+    $this->assertEquals($initial_state['states'], $userData->getStates());
+    $this->assertEquals($initial_state['country_codes'], $userData->getCountryCodes());
+    $this->assertEquals($initial_state['zip_codes'], $userData->getZipCodes());
+    $this->assertEquals($initial_state['external_ids'], $userData->getExternalIds());
+  }
+
+  public function testConstructorWithBothSingularAndPluralParams() {
+    $initial_state = array(
+      'email' => 'email-0@test.com',
+      'emails' => array('email-0@test.com', 'email-1@eg.com')
+    );
+
+    $this->expectException(InvalidArgumentException::class);
+
+    $userData = new UserData($initial_state);
+  }
+
+  public function testConstructorWithOnlyPluralParams() {
+    $initial_state = array(
+      'emails' => array('email-0@test.com', 'email-1@eg.com'),
+      'phones' => array('1234567890', '10000000000'),
+      'genders' => array('f', 'm'),
+      'dates_of_birth' => array('01/01/2001', '02/09/2008'),
+      'last_names' => array('last_name-4', 'smith'),
+      'first_names' => array('first_name-5', 'joe'),
+      'cities' => array('seattle', 'san fransisco'),
+      'states' => array('WA', 'CA'),
+      'country_codes' => array('us', 'ca'),
+      'zip_codes' => array('12345', '00000'),
+      'external_ids' => array('external_id-10', '123')
+    );
+
+    $userData = new UserData($initial_state);
 
     $this->assertEquals($initial_state['emails'], $userData->getEmails());
     $this->assertEquals($initial_state['phones'], $userData->getPhones());
@@ -309,6 +351,13 @@ class UserDataTest extends AbstractUnitTestCase {
     );
 
     $this->assertEquals($expected, $userData->normalize());
+  }
+
+  public function testMultiValueFieldsCanNormalizeEmpty() {
+    $userData = new UserData();
+    $normalized = $userData->normalize();
+
+    $this->assertEquals(array(), $normalized);
   }
 
   private function hashList($arr){
