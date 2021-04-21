@@ -328,20 +328,32 @@ class UserData implements ArrayAccess {
     $this->container['doby'] = isset($data['doby']) ? $data['doby'] : null;
   }
 
+  /**
+   * @return string[]
+   */
   public static function paramTypes() {
     return self::$param_types;
   }
 
+  /**
+   * @return string[]
+   */
   public static function attributeMap() {
     return self::$attributeMap;
   }
 
+  /**
+   * @return string[]
+   */
   public static function setters() {
     return self::$setters;
   }
 
+  /**
+   * @return string[]
+   */
   public static function getters() {
-    return self::$gendertters;
+    return self::$getters;
   }
 
   /**
