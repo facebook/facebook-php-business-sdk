@@ -171,14 +171,33 @@ class UserDataTest extends AbstractUnitTestCase {
   }
 
   public function testConstructorWithBothSingularAndPluralParams() {
-    $initial_state = array(
-      'email' => 'email-0@test.com',
-      'emails' => array('email-0@test.com', 'email-1@eg.com')
+    $params = array(
+      array('email', 'emails'),
+      array('phone', 'phones'),
+      array('gender', 'genders'),
+      array('date_of_birth', 'dates_of_birth'),
+      array('last_name', 'last_names'),
+      array('first_name', 'first_names'),
+      array('city', 'cities'),
+      array('state', 'states'),
+      array('country_code', 'country_codes'),
+      array('zip_code', 'zip_codes'),
+      array('external_id', 'external_ids')
     );
 
-    $this->expectException(InvalidArgumentException::class);
-
-    $userData = new UserData($initial_state);
+    $exception_count = 0;
+    foreach ($params as $p){
+      $initial_state = array(
+        $p[0] => 'testStr1',
+        $p[1] => array('testStr2', 'testStr3')
+      );
+      try {
+        $userData = new UserData($initial_state);
+      } catch(InvalidArgumentException $e) {
+        $exception_count++;
+      }
+    }
+    self::assertEquals(count($params), $exception_count);
   }
 
   public function testConstructorWithOnlyPluralParams() {
