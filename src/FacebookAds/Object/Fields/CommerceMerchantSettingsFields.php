@@ -45,6 +45,7 @@ class CommerceMerchantSettingsFields extends AbstractEnum {
   const DISPLAY_NAME = 'display_name';
   const EXTERNAL_MERCHANT_ID = 'external_merchant_id';
   const FACEBOOK_CHANNEL = 'facebook_channel';
+  const FEATURE_ELIGIBILITY = 'feature_eligibility';
   const HAS_DISCOUNT_CODE = 'has_discount_code';
   const HAS_ONSITE_INTENT = 'has_onsite_intent';
   const ID = 'id';
@@ -73,6 +74,7 @@ class CommerceMerchantSettingsFields extends AbstractEnum {
       'display_name' => 'string',
       'external_merchant_id' => 'string',
       'facebook_channel' => 'Object',
+      'feature_eligibility' => 'Object',
       'has_discount_code' => 'bool',
       'has_onsite_intent' => 'bool',
       'id' => 'string',

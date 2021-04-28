@@ -104,7 +104,7 @@ class AdCreativeFields extends AbstractEnum {
       'account_id' => 'string',
       'actor_id' => 'string',
       'adlabels' => 'list<AdLabel>',
-      'applink_treatment' => 'ApplinkTreatment',
+      'applink_treatment' => 'string',
       'asset_feed_spec' => 'AdAssetFeedSpec',
       'authorization_category' => 'string',
       'auto_update' => 'bool',

@@ -33,10 +33,14 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static OracleTransactionTypeValues getInstance()
+ * @method static AdoptablePetImageFetchStatusValues getInstance()
  */
-class OracleTransactionTypeValues extends AbstractEnum {
+class AdoptablePetImageFetchStatusValues extends AbstractEnum {
 
-  const CM = 'CM';
-  const INV = 'INV';
+  const DIRECT_UPLOAD = 'DIRECT_UPLOAD';
+  const FETCHED = 'FETCHED';
+  const FETCH_FAILED = 'FETCH_FAILED';
+  const NO_STATUS = 'NO_STATUS';
+  const OUTDATED = 'OUTDATED';
+  const PARTIAL_FETCH = 'PARTIAL_FETCH';
 }

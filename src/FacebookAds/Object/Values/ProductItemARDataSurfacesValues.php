@@ -49,4 +49,5 @@ class ProductItemARDataSurfacesValues extends AbstractEnum {
   const OFFLINE_CONVERSIONS = 'OFFLINE_CONVERSIONS';
   const SHOPS = 'SHOPS';
   const UNIVERSAL_CHECKOUT = 'UNIVERSAL_CHECKOUT';
+  const WHATSAPP = 'WHATSAPP';
 }

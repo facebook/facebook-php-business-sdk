@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 
 ## Unreleased
+
+## v10.0.1
+
 ### Added
 - Support for sending multiple values for certain UserData parameters to Conversions API.
 
@@ -138,3 +141,4 @@ All notable changes to this project will be documented in this file.
     $async_job = $async_job->getSelf();
   }
   ```
+

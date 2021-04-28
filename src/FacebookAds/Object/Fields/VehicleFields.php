@@ -59,6 +59,7 @@ class VehicleFields extends AbstractEnum {
   const FEATURES = 'features';
   const FUEL_TYPE = 'fuel_type';
   const ID = 'id';
+  const IMAGE_FETCH_STATUS = 'image_fetch_status';
   const IMAGES = 'images';
   const INTERIOR_COLOR = 'interior_color';
   const LEGAL_DISCLOSURE_IMPRESSUM_URL = 'legal_disclosure_impressum_url';
@@ -107,6 +108,7 @@ class VehicleFields extends AbstractEnum {
       'features' => 'list<Object>',
       'fuel_type' => 'string',
       'id' => 'string',
+      'image_fetch_status' => 'ImageFetchStatus',
       'images' => 'list<string>',
       'interior_color' => 'string',
       'legal_disclosure_impressum_url' => 'string',

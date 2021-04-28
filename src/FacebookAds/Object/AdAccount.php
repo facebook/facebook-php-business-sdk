@@ -1475,31 +1475,6 @@ class AdAccount extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createAudienceReplace(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'payload' => 'Object',
-      'session' => 'Object',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/audiencereplace',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function createBlockListDraft(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1630,7 +1605,9 @@ class AdAccount extends AbstractCrudObject {
       'special_ad_categories' => 'list<special_ad_categories_enum>',
       'special_ad_category_country' => 'list<special_ad_category_country_enum>',
       'spend_cap' => 'unsigned int',
+      'start_time' => 'datetime',
       'status' => 'status_enum',
+      'stop_time' => 'datetime',
       'topline_id' => 'string',
       'upstream_events' => 'map',
     );
@@ -1810,8 +1787,6 @@ class AdAccount extends AbstractCrudObject {
       'event_sources' => 'list<map>',
       'exclusions' => 'list<Object>',
       'inclusions' => 'list<Object>',
-      'is_household' => 'bool',
-      'is_household_exclusion' => 'bool',
       'is_snapshot' => 'bool',
       'is_value_based' => 'bool',
       'list_of_accounts' => 'list<unsigned int>',
@@ -1829,9 +1804,7 @@ class AdAccount extends AbstractCrudObject {
       'rev_share_policy_id' => 'unsigned int',
       'rule' => 'string',
       'rule_aggregation' => 'string',
-      'seed_audience' => 'unsigned int',
       'subtype' => 'subtype_enum',
-      'tags' => 'list<string>',
       'video_group_ids' => 'list<string>',
     );
     $enums = array(
@@ -2337,8 +2310,6 @@ class AdAccount extends AbstractCrudObject {
       'event_sources' => 'list<map>',
       'exclusions' => 'list<Object>',
       'inclusions' => 'list<Object>',
-      'is_household' => 'bool',
-      'is_household_exclusion' => 'bool',
       'is_snapshot' => 'bool',
       'is_value_based' => 'bool',
       'name' => 'string',
@@ -2346,9 +2317,7 @@ class AdAccount extends AbstractCrudObject {
       'parent_audience_id' => 'unsigned int',
       'product_set_id' => 'string',
       'rev_share_policy_id' => 'unsigned int',
-      'seed_audience' => 'unsigned int',
       'subtype' => 'subtype_enum',
-      'tags' => 'list<string>',
     );
     $enums = array(
       'claim_objective_enum' => AdAccountClaimObjectiveValues::getInstance()->getValues(),

@@ -128,6 +128,7 @@ class AdsInsightsFields extends AbstractEnum {
   const LOCATION = 'location';
   const MOBILE_APP_PURCHASE_ROAS = 'mobile_app_purchase_roas';
   const OBJECTIVE = 'objective';
+  const OPTIMIZATION_GOAL = 'optimization_goal';
   const OUTBOUND_CLICKS = 'outbound_clicks';
   const OUTBOUND_CLICKS_CTR = 'outbound_clicks_ctr';
   const PLACE_PAGE_NAME = 'place_page_name';
@@ -266,6 +267,7 @@ class AdsInsightsFields extends AbstractEnum {
       'location' => 'string',
       'mobile_app_purchase_roas' => 'list<AdsActionStats>',
       'objective' => 'string',
+      'optimization_goal' => 'string',
       'outbound_clicks' => 'list<AdsActionStats>',
       'outbound_clicks_ctr' => 'list<AdsActionStats>',
       'place_page_name' => 'string',

@@ -83,8 +83,6 @@ class AdgroupActivityFields extends AbstractEnum {
   const TARGET_SPEC_ID_OLD = 'target_spec_id_old';
   const TARGETS_SPEC_NEW = 'targets_spec_new';
   const TARGETS_SPEC_OLD = 'targets_spec_old';
-  const TRACKING_PIXEL_IDS_NEW = 'tracking_pixel_ids_new';
-  const TRACKING_PIXEL_IDS_OLD = 'tracking_pixel_ids_old';
   const TRACKING_SPECS_NEW = 'tracking_specs_new';
   const TRACKING_SPECS_OLD = 'tracking_specs_old';
   const UPDATE_TIME_NEW = 'update_time_new';
@@ -140,8 +138,6 @@ class AdgroupActivityFields extends AbstractEnum {
       'target_spec_id_old' => 'string',
       'targets_spec_new' => 'Object',
       'targets_spec_old' => 'Object',
-      'tracking_pixel_ids_new' => 'list<string>',
-      'tracking_pixel_ids_old' => 'list<string>',
       'tracking_specs_new' => 'list<Object>',
       'tracking_specs_old' => 'list<Object>',
       'update_time_new' => 'datetime',

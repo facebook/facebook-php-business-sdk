@@ -84,14 +84,12 @@ class CustomAudienceFields extends AbstractEnum {
   const EVENT_SOURCES = 'event_sources';
   const EXCLUSIONS = 'exclusions';
   const INCLUSIONS = 'inclusions';
-  const IS_HOUSEHOLD_EXCLUSION = 'is_household_exclusion';
   const LIST_OF_ACCOUNTS = 'list_of_accounts';
   const ORIGIN_AUDIENCE_ID = 'origin_audience_id';
   const PARENT_AUDIENCE_ID = 'parent_audience_id';
   const PARTNER_REFERENCE_KEY = 'partner_reference_key';
   const PREFILL = 'prefill';
   const PRODUCT_SET_ID = 'product_set_id';
-  const TAGS = 'tags';
   const VIDEO_GROUP_IDS = 'video_group_ids';
 
   public function getFieldTypes() {
@@ -143,14 +141,12 @@ class CustomAudienceFields extends AbstractEnum {
       'event_sources' => 'list<map>',
       'exclusions' => 'list<Object>',
       'inclusions' => 'list<Object>',
-      'is_household_exclusion' => 'bool',
       'list_of_accounts' => 'list<unsigned int>',
       'origin_audience_id' => 'string',
       'parent_audience_id' => 'unsigned int',
       'partner_reference_key' => 'string',
       'prefill' => 'bool',
       'product_set_id' => 'string',
-      'tags' => 'list<string>',
       'video_group_ids' => 'list<string>',
     );
   }

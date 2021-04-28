@@ -53,7 +53,7 @@ use FacebookAds\Object\Values\MeasurementUploadEventEventStatusValues;
 use FacebookAds\Object\Values\MeasurementUploadEventLookbackWindowValues;
 use FacebookAds\Object\Values\MeasurementUploadEventMatchUniverseValues;
 use FacebookAds\Object\Values\MeasurementUploadEventTimezoneValues;
-use FacebookAds\Object\Values\OracleTransactionTypeValues;
+use FacebookAds\Object\Values\OmegaCustomerTrxTypeValues;
 use FacebookAds\Object\Values\ProductCatalogVerticalValues;
 use FacebookAds\Object\Values\ProfilePictureSourceBreakingChangeValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
@@ -363,6 +363,7 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'is_crm' => 'bool',
       'name' => 'string',
     );
     $enums = array(
@@ -437,6 +438,7 @@ class Business extends AbstractCrudObject {
       'ecpms' => 'list<string>',
       'query_ids' => 'list<string>',
       'request_id' => 'string',
+      'sync_api' => 'bool',
     );
     $enums = array(
     );
@@ -531,7 +533,7 @@ class Business extends AbstractCrudObject {
 
     $param_types = array(
       'end_date' => 'string',
-      'invoice_id' => 'unsigned int',
+      'invoice_id' => 'string',
       'issue_end_date' => 'string',
       'issue_start_date' => 'string',
       'root_id' => 'unsigned int',
@@ -539,7 +541,7 @@ class Business extends AbstractCrudObject {
       'type' => 'type_enum',
     );
     $enums = array(
-      'type_enum' => OracleTransactionTypeValues::getInstance()->getValues(),
+      'type_enum' => OmegaCustomerTrxTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -547,9 +549,9 @@ class Business extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/business_invoices',
-      new OracleTransaction(),
+      new OmegaCustomerTrx(),
       'EDGE',
-      OracleTransaction::getFieldsEnum()->getValues(),
+      OmegaCustomerTrx::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1169,6 +1171,30 @@ class Business extends AbstractCrudObject {
       new EventSourceGroup(),
       'EDGE',
       EventSourceGroup::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getExtendedCreditApplications(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'only_show_pending' => 'bool',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/extendedcreditapplications',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2105,6 +2131,29 @@ class Business extends AbstractCrudObject {
       new BusinessAgreement(),
       'EDGE',
       BusinessAgreement::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getSpacoDataSetCollections(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/spaco_dataset_collections',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

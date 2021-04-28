@@ -42,6 +42,7 @@ class ContentDeliveryReportPlatformValues extends AbstractEnum {
   const HIDDEN_AAA = 'HIDDEN_AAA';
   const INSTAGRAM = 'INSTAGRAM';
   const MESSENGER = 'MESSENGER';
+  const OCULUS = 'OCULUS';
   const UNKNOWN = 'UNKNOWN';
   const WHATSAPP = 'WHATSAPP';
 }

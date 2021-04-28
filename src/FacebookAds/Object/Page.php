@@ -164,6 +164,29 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getAdminNotes(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/admin_notes',
+      new PageAdminNote(),
+      'EDGE',
+      PageAdminNote::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getAdsPosts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -2322,6 +2345,35 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createPhoneDatum(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'call_ads_phone_data_use_case' => 'call_ads_phone_data_use_case_enum',
+      'phone_number' => 'string',
+    );
+    $enums = array(
+      'call_ads_phone_data_use_case_enum' => array(
+        'CALL_DESTINATION_AD',
+        'CALL_EXTENSION_AD',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/phone_data',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getPhotos(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -2564,10 +2616,13 @@ class Page extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'since' => 'datetime',
-      'until' => 'datetime',
+      'include_hidden' => 'bool',
+      'limit' => 'unsigned int',
+      'show_expired' => 'bool',
+      'with' => 'with_enum',
     );
     $enums = array(
+      'with_enum' => PagePostWithValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -3060,29 +3115,6 @@ class Page extends AbstractCrudObject {
       new UnifiedThread(),
       'EDGE',
       UnifiedThread::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getTours(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/tours',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

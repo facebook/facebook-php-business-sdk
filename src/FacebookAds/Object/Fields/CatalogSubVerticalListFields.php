@@ -49,7 +49,6 @@ class CatalogSubVerticalListFields extends AbstractEnum {
   const CLO_OFFER = 'clo_offer';
   const CLOTHING = 'clothing';
   const CLOTHING_ACCESSORIES = 'clothing_accessories';
-  const CLOTHING_GROUP = 'clothing_group';
   const COMPUTER_COMPONENTS = 'computer_components';
   const COMPUTERS_AND_TABLETS = 'computers_and_tablets';
   const COMPUTERS_LAPTOPS_AND_TABLETS = 'computers_laptops_and_tablets';
@@ -107,7 +106,6 @@ class CatalogSubVerticalListFields extends AbstractEnum {
       'clo_offer' => 'Object',
       'clothing' => 'Object',
       'clothing_accessories' => 'Object',
-      'clothing_group' => 'Object',
       'computer_components' => 'Object',
       'computers_and_tablets' => 'Object',
       'computers_laptops_and_tablets' => 'Object',

@@ -22,13 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Values;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\InvoiceCampaignFields;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-generated.
@@ -37,21 +33,14 @@ use FacebookAds\Object\Fields\InvoiceCampaignFields;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static FlightImageFetchStatusValues getInstance()
  */
+class FlightImageFetchStatusValues extends AbstractEnum {
 
-class InvoiceCampaign extends AbstractObject {
-
-  /**
-   * @return InvoiceCampaignFields
-   */
-  public static function getFieldsEnum() {
-    return InvoiceCampaignFields::getInstance();
-  }
-
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
+  const DIRECT_UPLOAD = 'DIRECT_UPLOAD';
+  const FETCHED = 'FETCHED';
+  const FETCH_FAILED = 'FETCH_FAILED';
+  const NO_STATUS = 'NO_STATUS';
+  const OUTDATED = 'OUTDATED';
+  const PARTIAL_FETCH = 'PARTIAL_FETCH';
 }

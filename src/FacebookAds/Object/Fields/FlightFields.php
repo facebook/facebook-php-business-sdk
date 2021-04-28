@@ -45,6 +45,7 @@ class FlightFields extends AbstractEnum {
   const DESTINATION_CITY = 'destination_city';
   const FLIGHT_ID = 'flight_id';
   const ID = 'id';
+  const IMAGE_FETCH_STATUS = 'image_fetch_status';
   const IMAGES = 'images';
   const ONEWAY_CURRENCY = 'oneway_currency';
   const ONEWAY_PRICE = 'oneway_price';
@@ -64,6 +65,7 @@ class FlightFields extends AbstractEnum {
       'destination_city' => 'string',
       'flight_id' => 'string',
       'id' => 'string',
+      'image_fetch_status' => 'ImageFetchStatus',
       'images' => 'list<string>',
       'oneway_currency' => 'string',
       'oneway_price' => 'string',

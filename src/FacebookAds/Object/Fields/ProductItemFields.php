@@ -65,6 +65,7 @@ class ProductItemFields extends AbstractEnum {
   const GTIN = 'gtin';
   const ID = 'id';
   const IMAGE_CDN_URLS = 'image_cdn_urls';
+  const IMAGE_FETCH_STATUS = 'image_fetch_status';
   const IMAGE_URL = 'image_url';
   const IMAGES = 'images';
   const INVENTORY = 'inventory';
@@ -149,6 +150,7 @@ class ProductItemFields extends AbstractEnum {
       'gtin' => 'string',
       'id' => 'string',
       'image_cdn_urls' => 'map<string, string>',
+      'image_fetch_status' => 'ImageFetchStatus',
       'image_url' => 'string',
       'images' => 'list<string>',
       'inventory' => 'int',

@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class CommentCommentPrivacyValueValues extends AbstractEnum {
 
+  const DECLINED_BY_ADMIN_ASSISTANT = 'DECLINED_BY_ADMIN_ASSISTANT';
   const DEFAULT_PRIVACY = 'DEFAULT_PRIVACY';
   const FRIENDS_AND_POST_OWNER = 'FRIENDS_AND_POST_OWNER';
   const FRIENDS_ONLY = 'FRIENDS_ONLY';

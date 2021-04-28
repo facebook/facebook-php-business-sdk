@@ -30,6 +30,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AutomotiveModelFields;
 use FacebookAds\Object\Values\AutomotiveModelBodyStyleValues;
+use FacebookAds\Object\Values\AutomotiveModelImageFetchStatusValues;
 
 /**
  * This class is auto-generated.
@@ -58,10 +59,57 @@ class AutomotiveModel extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['ImageFetchStatus'] = AutomotiveModelImageFetchStatusValues::getInstance()->getValues();
     $ref_enums['BodyStyle'] = AutomotiveModelBodyStyleValues::getInstance()->getValues();
     return $ref_enums;
   }
 
+
+  public function getAugmentedRealitiesMetadata(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/augmented_realities_metadata',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getVideosMetadata(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/videos_metadata',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
   public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();

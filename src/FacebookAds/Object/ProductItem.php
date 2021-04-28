@@ -34,6 +34,7 @@ use FacebookAds\Object\Values\ProductItemAvailabilityValues;
 use FacebookAds\Object\Values\ProductItemCommerceTaxCategoryValues;
 use FacebookAds\Object\Values\ProductItemConditionValues;
 use FacebookAds\Object\Values\ProductItemGenderValues;
+use FacebookAds\Object\Values\ProductItemImageFetchStatusValues;
 use FacebookAds\Object\Values\ProductItemReviewStatusValues;
 use FacebookAds\Object\Values\ProductItemShippingWeightUnitValues;
 use FacebookAds\Object\Values\ProductItemVisibilityValues;
@@ -69,6 +70,7 @@ class ProductItem extends AbstractCrudObject {
     $ref_enums['Availability'] = ProductItemAvailabilityValues::getInstance()->getValues();
     $ref_enums['Condition'] = ProductItemConditionValues::getInstance()->getValues();
     $ref_enums['Gender'] = ProductItemGenderValues::getInstance()->getValues();
+    $ref_enums['ImageFetchStatus'] = ProductItemImageFetchStatusValues::getInstance()->getValues();
     $ref_enums['ReviewStatus'] = ProductItemReviewStatusValues::getInstance()->getValues();
     $ref_enums['ShippingWeightUnit'] = ProductItemShippingWeightUnitValues::getInstance()->getValues();
     $ref_enums['Visibility'] = ProductItemVisibilityValues::getInstance()->getValues();
@@ -150,6 +152,7 @@ class ProductItem extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'catalog_id' => 'string',
       'image_height' => 'unsigned int',
       'image_width' => 'unsigned int',
     );

@@ -373,8 +373,6 @@ class CustomAudience extends AbstractCrudObject {
       'event_sources' => 'list<map>',
       'exclusions' => 'list<Object>',
       'inclusions' => 'list<Object>',
-      'is_household' => 'bool',
-      'is_household_exclusion' => 'bool',
       'lookalike_spec' => 'string',
       'name' => 'string',
       'opt_out_link' => 'string',
@@ -384,7 +382,6 @@ class CustomAudience extends AbstractCrudObject {
       'rev_share_policy_id' => 'unsigned int',
       'rule' => 'string',
       'rule_aggregation' => 'string',
-      'seed_audience' => 'unsigned int',
       'tags' => 'list<string>',
     );
     $enums = array(

@@ -53,6 +53,7 @@ class AdoptablePetFields extends AbstractEnum {
   const FEATURES = 'features';
   const GENDER = 'gender';
   const ID = 'id';
+  const IMAGE_FETCH_STATUS = 'image_fetch_status';
   const IMAGES = 'images';
   const NAME = 'name';
   const PRICE = 'price';
@@ -84,6 +85,7 @@ class AdoptablePetFields extends AbstractEnum {
       'features' => 'list<string>',
       'gender' => 'string',
       'id' => 'string',
+      'image_fetch_status' => 'ImageFetchStatus',
       'images' => 'list<string>',
       'name' => 'string',
       'price' => 'string',

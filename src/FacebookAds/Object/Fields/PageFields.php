@@ -88,6 +88,7 @@ class PageFields extends AbstractEnum {
   const GLOBAL_BRAND_PAGE_NAME = 'global_brand_page_name';
   const GLOBAL_BRAND_ROOT_ID = 'global_brand_root_id';
   const HAS_ADDED_APP = 'has_added_app';
+  const HAS_TRANSITIONED_TO_NEW_PAGE_EXPERIENCE = 'has_transitioned_to_new_page_experience';
   const HAS_WHATSAPP_BUSINESS_NUMBER = 'has_whatsapp_business_number';
   const HAS_WHATSAPP_NUMBER = 'has_whatsapp_number';
   const HOMETOWN = 'hometown';
@@ -234,6 +235,7 @@ class PageFields extends AbstractEnum {
       'global_brand_page_name' => 'string',
       'global_brand_root_id' => 'string',
       'has_added_app' => 'bool',
+      'has_transitioned_to_new_page_experience' => 'bool',
       'has_whatsapp_business_number' => 'bool',
       'has_whatsapp_number' => 'bool',
       'hometown' => 'string',

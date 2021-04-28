@@ -26,7 +26,9 @@ require __DIR__ . '/vendor/autoload.php';
 use FacebookAds\Api;
 use FacebookAds\Logger\CurlLogger;
 use FacebookAds\Object\ServerSide\ActionSource;
+use FacebookAds\Object\ServerSide\Content;
 use FacebookAds\Object\ServerSide\CustomData;
+use FacebookAds\Object\ServerSide\DeliveryCategory;
 use FacebookAds\Object\ServerSide\Event;
 use FacebookAds\Object\ServerSide\EventRequest;
 use FacebookAds\Object\ServerSide\UserData;
@@ -45,7 +47,13 @@ $user_data = (new UserData())
     ->setFbc('fb.1.1554763741205.AbCdEfGhIjKlMnOpQrStUvWxYz1234567890')
     ->setFbp('fb.1.1558571054389.1098115397');
 
+$content = (new Content())
+    ->setProductId('product123')
+    ->setQuantity(1)
+    ->setDeliveryCategory(DeliveryCategory::HOME_DELIVERY);
+
 $custom_data = (new CustomData())
+    ->setContents(array($content))
     ->setCurrency('usd')
     ->setValue(123.45);
 

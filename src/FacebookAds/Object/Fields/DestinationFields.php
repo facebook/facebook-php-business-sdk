@@ -44,6 +44,7 @@ class DestinationFields extends AbstractEnum {
   const DESCRIPTION = 'description';
   const DESTINATION_ID = 'destination_id';
   const ID = 'id';
+  const IMAGE_FETCH_STATUS = 'image_fetch_status';
   const IMAGES = 'images';
   const NAME = 'name';
   const PRICE = 'price';
@@ -61,6 +62,7 @@ class DestinationFields extends AbstractEnum {
       'description' => 'string',
       'destination_id' => 'string',
       'id' => 'string',
+      'image_fetch_status' => 'ImageFetchStatus',
       'images' => 'list<string>',
       'name' => 'string',
       'price' => 'string',

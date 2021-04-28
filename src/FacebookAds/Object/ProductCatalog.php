@@ -245,6 +245,29 @@ class ProductCatalog extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getAutoMarkets(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/auto_markets',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getAutomotiveModels(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -298,6 +321,29 @@ class ProductCatalog extends AbstractCrudObject {
       new AutomotiveModel(),
       'EDGE',
       AutomotiveModel::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getAutos(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/autos',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -774,6 +820,31 @@ class ProductCatalog extends AbstractCrudObject {
       new ProductCatalog(),
       'EDGE',
       ProductCatalog::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getMediaTitles(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'bulk_pagination' => 'bool',
+      'filter' => 'Object',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/media_titles',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1263,6 +1334,7 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'allow_delete_catalog_with_live_product_set' => 'bool',
     );
     $enums = array(
     );
@@ -1293,6 +1365,7 @@ class ProductCatalog extends AbstractCrudObject {
         'COLLAB_ADS',
         'COLLAB_ADS_FOR_MARKETPLACE_PARTNER',
         'COLLAB_ADS_SEGMENT_WITHOUT_SEGMENT_SYNCING',
+        'CREATORS_AS_SELLERS',
         'IG_SHOPPING',
         'IG_SHOPPING_SUGGESTED_PRODUCTS',
         'MARKETPLACE_SHOPS',

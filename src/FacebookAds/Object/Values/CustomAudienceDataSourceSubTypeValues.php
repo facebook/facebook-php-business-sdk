@@ -52,6 +52,7 @@ class CustomAudienceDataSourceSubTypeValues extends AbstractEnum {
   const EXPANDED_AUDIENCE = 'EXPANDED_AUDIENCE';
   const EXTERNAL_IDS = 'EXTERNAL_IDS';
   const EXTERNAL_IDS_MIX = 'EXTERNAL_IDS_MIX';
+  const FACEBOOK_WIFI_EVENTS = 'FACEBOOK_WIFI_EVENTS';
   const FB_EVENT_SIGNALS = 'FB_EVENT_SIGNALS';
   const FB_PIXEL_HITS = 'FB_PIXEL_HITS';
   const HASHES = 'HASHES';

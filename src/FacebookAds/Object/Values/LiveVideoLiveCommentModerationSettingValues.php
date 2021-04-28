@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class LiveVideoLiveCommentModerationSettingValues extends AbstractEnum {
 
+  const VALUE_DEFAULT = 'DEFAULT';
   const DISCUSSION = 'DISCUSSION';
   const FOLLOWER = 'FOLLOWER';
   const PROTECTED_MODE = 'PROTECTED_MODE';

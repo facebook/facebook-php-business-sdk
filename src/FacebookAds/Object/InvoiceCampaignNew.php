@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\InvoiceCampaignNewFields;
 
 /**
  * This class is auto-generated.
@@ -35,27 +39,19 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class InvoiceCampaignFields extends AbstractEnum {
+class InvoiceCampaignNew extends AbstractObject {
 
-  const AD_ACCOUNT_ID = 'ad_account_id';
-  const BILLED_AMOUNT_DETAILS = 'billed_amount_details';
-  const CAMPAIGN_ID = 'campaign_id';
-  const CAMPAIGN_NAME = 'campaign_name';
-  const CLICKS = 'clicks';
-  const CONVERSIONS = 'conversions';
-  const IMPRESSIONS = 'impressions';
-  const TAGS = 'tags';
-
-  public function getFieldTypes() {
-    return array(
-      'ad_account_id' => 'string',
-      'billed_amount_details' => 'BilledAmountDetails',
-      'campaign_id' => 'string',
-      'campaign_name' => 'string',
-      'clicks' => 'unsigned int',
-      'conversions' => 'unsigned int',
-      'impressions' => 'unsigned int',
-      'tags' => 'list<string>',
-    );
+  /**
+   * @return InvoiceCampaignNewFields
+   */
+  public static function getFieldsEnum() {
+    return InvoiceCampaignNewFields::getInstance();
   }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
 }

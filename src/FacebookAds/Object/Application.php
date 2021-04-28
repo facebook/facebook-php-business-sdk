@@ -333,6 +333,54 @@ class Application extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getAemConversionConfigs(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'advertiser_ids' => 'list<string>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/aem_conversion_configs',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createAemConversion(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'aem_conversions' => 'list<map>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/aem_conversions',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getAgencies(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -363,6 +411,7 @@ class Application extends AbstractCrudObject {
       'ecpms' => 'list<string>',
       'query_ids' => 'list<string>',
       'request_id' => 'string',
+      'sync_api' => 'bool',
     );
     $enums = array(
     );
@@ -1301,6 +1350,31 @@ class Application extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/purchases',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createPushTokenRegister(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'device_id' => 'string',
+      'push_token' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/push_token_register',
       new AbstractCrudObject(),
       'EDGE',
       array(),
