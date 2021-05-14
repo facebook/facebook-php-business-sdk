@@ -25,11 +25,8 @@
 namespace FacebookAdsTest\Object\ServerSide;
 
 use FacebookAdsTest\AbstractUnitTestCase;
-use FacebookAdsTest\Object\ServerSide\TestHelpers\FakeHttpService;
-use FacebookAdsTest\Object\ServerSide\TestHelpers\AnotherHttpService;
 use FacebookAds\Api;
 use FacebookAds\ApiConfig;
-use FacebookAds\Http\Client;
 use FacebookAds\Object\AbstractObject;
 use FacebookAds\Object\ServerSide\Event;
 use FacebookAds\Object\ServerSide\EventRequest;
@@ -39,13 +36,21 @@ use FacebookAds\Object\ServerSide\Util;
 use Mockery as m;
 
 class EventRequestTest extends AbstractUnitTestCase {
+
+  private $expected_pixel_id;
+  private $expected_url;
+  private $expected_headers;
+  private $expected_access_token;
+  private $expected_curl_options;
+
   protected function setUp(): void {
     $this->expected_pixel_id = 'pixel-1000';
-    $this->expected_url = 'https://graph.facebook.com/v'
-      . ApiConfig::APIVersion
-      . '/'
-      . $this->expected_pixel_id
-      . '/events';
+    $this->expected_url = sprintf(
+        'https://graph.facebook.com/v%s/%s/events',
+        ApiConfig::APIVersion,
+        $this->expected_pixel_id
+    );
+
     $this->expected_headers = array(
       'User-Agent' => 'fbbizsdk-php-v' . ApiConfig::SDKVersion,
       'Accept-Encoding' => '*',
@@ -115,13 +120,12 @@ class EventRequestTest extends AbstractUnitTestCase {
       ->shouldReceive('__construct')
       ->once()
       ->with($this->expected_pixel_id);
-    $event_response_contents = array('data' => array('events_received' => 1));
-    $expected_event_response = new EventResponse($event_response_contents);
+
     $create_response_mock = $this->createMock(AbstractObject::class);
     $create_response_mock
       ->expects($this->once())
       ->method('exportAllData')
-      ->willReturn($event_response_contents);
+      ->willReturn($this->get_event_response());
     $event_request = new EventRequest($this->expected_pixel_id);
     $event_request->setEvents(array(new Event(array('event_name' => 'event-123'))));
     $mock_ads_pixel
@@ -131,18 +135,14 @@ class EventRequestTest extends AbstractUnitTestCase {
       ->andReturn($create_response_mock);
     $actual_event_response = $event_request->execute();
 
-    $this->assertEquals($expected_event_response, $actual_event_response);
+    $this->assertEquals($this->get_event_response(), $actual_event_response);
   }
 
   public function testSetHttpClient() {
     $appsecret = 'appsecret-012';
     Api::init(null, $appsecret, $this->expected_access_token, false);
     $mock_client = m::mock('FacebookAdsTest\Object\ServerSide\TestHelpers\FakeHttpService');
-    $expected_event_response = new EventResponse(
-      array(
-        'data' => array('events_received' => 1)
-      )
-    );
+
     $event_request = new EventRequest($this->expected_pixel_id);
     $event_request->setEvents(array(new Event(array('event_name' => 'event-123'))));
     $event_request->setHttpClient($mock_client);
@@ -156,19 +156,15 @@ class EventRequestTest extends AbstractUnitTestCase {
         $this->expected_headers,
         $this->normalize_and_merge($event_request, $this->expected_access_token, $appsecret)
       )
-      ->andReturn($expected_event_response);
+      ->andReturn($this->get_event_response());
     $actual_event_response = $event_request->execute();
 
-    $this->assertEquals($expected_event_response, $actual_event_response);
+    $this->assertEquals($this->get_event_response(), $actual_event_response);
   }
 
   public function testSetHttpClientClientConfig() {
     $mock_client = m::mock('FacebookAdsTest\Object\ServerSide\TestHelpers\FakeHttpService');
-    $expected_event_response = new EventResponse(
-      array(
-        'data' => array('events_received' => 1)
-      )
-    );
+
     $event_request = new EventRequest($this->expected_pixel_id);
     $event_request->setEvents(array(new Event(array('event_name' => 'event-123'))));
     $mock_client
@@ -181,12 +177,12 @@ class EventRequestTest extends AbstractUnitTestCase {
         $this->expected_headers,
         $this->normalize_and_merge($event_request, $this->expected_access_token, null)
       )
-      ->andReturn($expected_event_response);
+      ->andReturn($this->get_event_response());
     HttpServiceClientConfig::getInstance()->setClient($mock_client);
     HttpServiceClientConfig::getInstance()->setAccessToken($this->expected_access_token);
     $actual_event_response = $event_request->execute();
 
-    $this->assertEquals($expected_event_response, $actual_event_response);
+    $this->assertEquals($this->get_event_response(), $actual_event_response);
   }
 
   public function testEventRequestHttpClientOverridesClientConfig() {
@@ -194,11 +190,7 @@ class EventRequestTest extends AbstractUnitTestCase {
     Api::init(null, 'a-different-app-secret', 'a-different-access-token', false);
     $mock_used_client = m::mock('FacebookAdsTest\Object\ServerSide\TestHelpers\AnotherHttpService');
     $mock_unused_client = m::mock('FacebookAdsTest\Object\ServerSide\TestHelpers\AnotherHttpService');
-    $expected_event_response = new EventResponse(
-      array(
-        'data' => array('events_received' => 1)
-      )
-    );
+
     $event_request = new EventRequest($this->expected_pixel_id);
     $event_request->setEvents(array(new Event(array('event_name' => 'event-123'))));
     $event_request->setHttpClient($mock_used_client);
@@ -212,16 +204,31 @@ class EventRequestTest extends AbstractUnitTestCase {
         $this->expected_headers,
         $this->normalize_and_merge($event_request, $this->expected_access_token, $appsecret)
       )
-      ->andReturn($expected_event_response);
+      ->andReturn($this->get_event_response());
     HttpServiceClientConfig::getInstance()->setClient($mock_unused_client);
     HttpServiceClientConfig::getInstance()->setAccessToken($this->expected_access_token);
     HttpServiceClientConfig::getInstance()->setAppsecret($appsecret);
     $actual_event_response = $event_request->execute();
 
-    $this->assertEquals($expected_event_response, $actual_event_response);
+    $this->assertEquals($this->get_event_response(), $actual_event_response);
   }
 
   // Test helper functions
+
+  /**
+   * @param array|null $data
+   * @return EventResponse
+   */
+  protected function get_event_response(array $data = null) {
+    if (null === $data) {
+      $data = array('events_received' => 1);
+    }
+    return new EventResponse(
+      array(
+        'data' => $data
+      )
+    );
+  }
 
   protected function normalize_and_merge($event_request, $access_token, $appsecret) {
     $normalized_merged = $event_request->normalize();
