@@ -1,0 +1,4 @@
+{
+    "typescript.disableAutomaticTypeAcquisition": true,
+    "git.autofetch": true
+}
