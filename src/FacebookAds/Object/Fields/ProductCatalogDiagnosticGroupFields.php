@@ -22,13 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Fields;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\InvoiceCampaignNewFields;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-generated.
@@ -39,19 +35,29 @@ use FacebookAds\Object\Fields\InvoiceCampaignNewFields;
  *
  */
 
-class InvoiceCampaignNew extends AbstractObject {
+class ProductCatalogDiagnosticGroupFields extends AbstractEnum {
 
-  /**
-   * @return InvoiceCampaignNewFields
-   */
-  public static function getFieldsEnum() {
-    return InvoiceCampaignNewFields::getInstance();
+  const AFFECTED_CHANNELS = 'affected_channels';
+  const AFFECTED_FEATURES = 'affected_features';
+  const DIAGNOSTICS = 'diagnostics';
+  const ERROR_CODE = 'error_code';
+  const NUMBER_OF_AFFECTED_ITEMS = 'number_of_affected_items';
+  const SEVERITY = 'severity';
+  const SUBTITLE = 'subtitle';
+  const TITLE = 'title';
+  const TYPE = 'type';
+
+  public function getFieldTypes() {
+    return array(
+      'affected_channels' => 'list<AffectedChannels>',
+      'affected_features' => 'list<AffectedFeatures>',
+      'diagnostics' => 'list<Object>',
+      'error_code' => 'int',
+      'number_of_affected_items' => 'int',
+      'severity' => 'Severity',
+      'subtitle' => 'string',
+      'title' => 'string',
+      'type' => 'Type',
+    );
   }
-
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
 }

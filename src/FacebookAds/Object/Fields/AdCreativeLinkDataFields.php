@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdCreativeLinkDataFields extends AbstractEnum {
 
+  const AD_CONTEXT = 'ad_context';
   const ADDITIONAL_IMAGE_INDEX = 'additional_image_index';
   const APP_LINK_SPEC = 'app_link_spec';
   const ATTACHMENT_STYLE = 'attachment_style';
@@ -72,6 +73,7 @@ class AdCreativeLinkDataFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'ad_context' => 'string',
       'additional_image_index' => 'int',
       'app_link_spec' => 'AdCreativeLinkDataAppLinkSpec',
       'attachment_style' => 'AttachmentStyle',

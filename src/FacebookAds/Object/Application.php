@@ -454,29 +454,6 @@ class Application extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getAppEventTypes(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/app_event_types',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function createAppIndexing(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1398,6 +1375,31 @@ class Application extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/roles',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createSendNotification(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'payload' => 'string',
+      'token_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/send_notification',
       new AbstractCrudObject(),
       'EDGE',
       array(),

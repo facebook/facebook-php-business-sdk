@@ -54,6 +54,7 @@ class ProductCatalogFields extends AbstractEnum {
   const DESTINATION_CATALOG_SETTINGS = 'destination_catalog_settings';
   const FLIGHT_CATALOG_SETTINGS = 'flight_catalog_settings';
   const PARENT_CATALOG_ID = 'parent_catalog_id';
+  const PARTNER_INTEGRATION = 'partner_integration';
 
   public function getFieldTypes() {
     return array(
@@ -74,6 +75,7 @@ class ProductCatalogFields extends AbstractEnum {
       'destination_catalog_settings' => 'map',
       'flight_catalog_settings' => 'map',
       'parent_catalog_id' => 'string',
+      'partner_integration' => 'map',
     );
   }
 }

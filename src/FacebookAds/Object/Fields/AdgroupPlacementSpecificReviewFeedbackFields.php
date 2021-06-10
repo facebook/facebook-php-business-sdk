@@ -52,6 +52,7 @@ class AdgroupPlacementSpecificReviewFeedbackFields extends AbstractEnum {
   const DRI_COUNTERFEIT = 'dri_counterfeit';
   const FACEBOOK = 'facebook';
   const FACEBOOK_PAGES_LIVE_SHOPPING = 'facebook_pages_live_shopping';
+  const INDEPENDENT_WORK = 'independent_work';
   const INSTAGRAM = 'instagram';
   const INSTAGRAM_SHOP = 'instagram_shop';
   const JOB_SEARCH = 'job_search';
@@ -88,6 +89,7 @@ class AdgroupPlacementSpecificReviewFeedbackFields extends AbstractEnum {
       'dri_counterfeit' => 'map<string, string>',
       'facebook' => 'map<string, string>',
       'facebook_pages_live_shopping' => 'map<string, string>',
+      'independent_work' => 'map<string, string>',
       'instagram' => 'map<string, string>',
       'instagram_shop' => 'map<string, string>',
       'job_search' => 'map<string, string>',

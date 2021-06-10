@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\InvoiceCampaignFields;
 
 /**
  * This class is auto-generated.
@@ -33,12 +37,21 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdAccountPermittedTasksValues getInstance()
  */
-class AdAccountPermittedTasksValues extends AbstractEnum {
 
-  const ADVERTISE = 'ADVERTISE';
-  const ANALYZE = 'ANALYZE';
-  const DRAFT = 'DRAFT';
-  const MANAGE = 'MANAGE';
+class InvoiceCampaign extends AbstractObject {
+
+  /**
+   * @return InvoiceCampaignFields
+   */
+  public static function getFieldsEnum() {
+    return InvoiceCampaignFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
 }

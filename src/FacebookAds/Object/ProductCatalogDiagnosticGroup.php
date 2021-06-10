@@ -28,7 +28,13 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AudioCopyrightFields;
+use FacebookAds\Object\Fields\ProductCatalogDiagnosticGroupFields;
+use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupAffectedChannelsValues;
+use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupAffectedFeaturesValues;
+use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupSeveritiesValues;
+use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupSeverityValues;
+use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupTypeValues;
+use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupTypesValues;
 
 /**
  * This class is auto-generated.
@@ -39,65 +45,25 @@ use FacebookAds\Object\Fields\AudioCopyrightFields;
  *
  */
 
-class AudioCopyright extends AbstractCrudObject {
+class ProductCatalogDiagnosticGroup extends AbstractObject {
 
   /**
-   * @return AudioCopyrightFields
+   * @return ProductCatalogDiagnosticGroupFields
    */
   public static function getFieldsEnum() {
-    return AudioCopyrightFields::getInstance();
+    return ProductCatalogDiagnosticGroupFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['AffectedChannels'] = ProductCatalogDiagnosticGroupAffectedChannelsValues::getInstance()->getValues();
+    $ref_enums['AffectedFeatures'] = ProductCatalogDiagnosticGroupAffectedFeaturesValues::getInstance()->getValues();
+    $ref_enums['Severity'] = ProductCatalogDiagnosticGroupSeverityValues::getInstance()->getValues();
+    $ref_enums['Type'] = ProductCatalogDiagnosticGroupTypeValues::getInstance()->getValues();
+    $ref_enums['Severities'] = ProductCatalogDiagnosticGroupSeveritiesValues::getInstance()->getValues();
+    $ref_enums['Types'] = ProductCatalogDiagnosticGroupTypesValues::getInstance()->getValues();
     return $ref_enums;
   }
 
-
-  public function getUpdateRecords(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/update_records',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/',
-      new AudioCopyright(),
-      'NODE',
-      AudioCopyright::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
 
 }

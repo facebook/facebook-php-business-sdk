@@ -113,6 +113,8 @@ class IGUser extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'since' => 'datetime',
+      'until' => 'datetime',
     );
     $enums = array(
     );

@@ -35,19 +35,17 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class CPASParentCatalogSettingsFields extends AbstractEnum {
+class AdAccountIosFourteenCampaignLimitsFields extends AbstractEnum {
 
-  const ATTRIBUTION_WINDOWS = 'attribution_windows';
-  const DEFAULT_CURRENCY = 'default_currency';
-  const DISABLE_USE_AS_PARENT_CATALOG = 'disable_use_as_parent_catalog';
-  const ID = 'id';
+  const CAMPAIGN_GROUP_LIMIT = 'campaign_group_limit';
+  const CAMPAIGN_GROUP_LIMITS_DETAILS = 'campaign_group_limits_details';
+  const CAMPAIGN_LIMIT = 'campaign_limit';
 
   public function getFieldTypes() {
     return array(
-      'attribution_windows' => 'list<string>',
-      'default_currency' => 'string',
-      'disable_use_as_parent_catalog' => 'bool',
-      'id' => 'string',
+      'campaign_group_limit' => 'int',
+      'campaign_group_limits_details' => 'list<Object>',
+      'campaign_limit' => 'int',
     );
   }
 }

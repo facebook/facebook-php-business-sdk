@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,21 +33,29 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static PageCallToActionIphoneDestinationTypeValues getInstance()
  */
-class PageCallToActionIphoneDestinationTypeValues extends AbstractEnum {
 
-  const APP_DEEPLINK = 'APP_DEEPLINK';
-  const BECOME_A_VOLUNTEER = 'BECOME_A_VOLUNTEER';
-  const EMAIL = 'EMAIL';
-  const FACEBOOK_APP = 'FACEBOOK_APP';
-  const FOLLOW = 'FOLLOW';
-  const MARKETPLACE_INVENTORY_PAGE = 'MARKETPLACE_INVENTORY_PAGE';
-  const MENU_ON_FACEBOOK = 'MENU_ON_FACEBOOK';
-  const MESSENGER = 'MESSENGER';
-  const MINI_SHOP = 'MINI_SHOP';
-  const NONE = 'NONE';
-  const PHONE_CALL = 'PHONE_CALL';
-  const SHOP_ON_FACEBOOK = 'SHOP_ON_FACEBOOK';
-  const WEBSITE = 'WEBSITE';
+class InvoiceCampaignFields extends AbstractEnum {
+
+  const AD_ACCOUNT_ID = 'ad_account_id';
+  const BILLED_AMOUNT_DETAILS = 'billed_amount_details';
+  const CAMPAIGN_ID = 'campaign_id';
+  const CAMPAIGN_NAME = 'campaign_name';
+  const CLICKS = 'clicks';
+  const CONVERSIONS = 'conversions';
+  const IMPRESSIONS = 'impressions';
+  const TAGS = 'tags';
+
+  public function getFieldTypes() {
+    return array(
+      'ad_account_id' => 'string',
+      'billed_amount_details' => 'BilledAmountDetails',
+      'campaign_id' => 'string',
+      'campaign_name' => 'string',
+      'clicks' => 'unsigned int',
+      'conversions' => 'unsigned int',
+      'impressions' => 'unsigned int',
+      'tags' => 'list<string>',
+    );
+  }
 }

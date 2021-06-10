@@ -40,10 +40,12 @@ class SavedAudienceFields extends AbstractEnum {
   const ACCOUNT = 'account';
   const APPROXIMATE_COUNT = 'approximate_count';
   const APPROXIMATE_COUNT_64BIT = 'approximate_count_64bit';
+  const DELETE_TIME = 'delete_time';
   const DESCRIPTION = 'description';
   const EXTRA_INFO = 'extra_info';
   const ID = 'id';
   const NAME = 'name';
+  const OPERATION_STATUS = 'operation_status';
   const PERMISSION_FOR_ACTIONS = 'permission_for_actions';
   const RUN_STATUS = 'run_status';
   const SENTENCE_LINES = 'sentence_lines';
@@ -56,10 +58,12 @@ class SavedAudienceFields extends AbstractEnum {
       'account' => 'AdAccount',
       'approximate_count' => 'int',
       'approximate_count_64bit' => 'int',
+      'delete_time' => 'int',
       'description' => 'string',
       'extra_info' => 'string',
       'id' => 'string',
       'name' => 'string',
+      'operation_status' => 'CustomAudienceStatus',
       'permission_for_actions' => 'AudiencePermissionForActions',
       'run_status' => 'string',
       'sentence_lines' => 'list',

@@ -28,8 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\CPASParentCatalogSettingsFields;
-use FacebookAds\Object\Values\CPASParentCatalogSettingsAttributionWindowsValues;
+use FacebookAds\Object\Fields\CanvasTemplateFields;
 
 /**
  * This class is auto-generated.
@@ -40,18 +39,17 @@ use FacebookAds\Object\Values\CPASParentCatalogSettingsAttributionWindowsValues;
  *
  */
 
-class CPASParentCatalogSettings extends AbstractCrudObject {
+class CanvasTemplate extends AbstractCrudObject {
 
   /**
-   * @return CPASParentCatalogSettingsFields
+   * @return CanvasTemplateFields
    */
   public static function getFieldsEnum() {
-    return CPASParentCatalogSettingsFields::getInstance();
+    return CanvasTemplateFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['AttributionWindows'] = CPASParentCatalogSettingsAttributionWindowsValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -69,34 +67,9 @@ class CPASParentCatalogSettings extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new CPASParentCatalogSettings(),
+      new CanvasTemplate(),
       'NODE',
-      CPASParentCatalogSettings::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'attribution_windows' => 'list<attribution_windows_enum>',
-    );
-    $enums = array(
-      'attribution_windows_enum' => CPASParentCatalogSettingsAttributionWindowsValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/',
-      new CPASParentCatalogSettings(),
-      'NODE',
-      CPASParentCatalogSettings::getFieldsEnum()->getValues(),
+      CanvasTemplate::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
