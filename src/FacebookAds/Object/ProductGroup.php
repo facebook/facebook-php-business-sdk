@@ -115,6 +115,7 @@ class ProductGroup extends AbstractCrudObject {
       'custom_label_4' => 'string',
       'description' => 'string',
       'expiration_date' => 'string',
+      'fb_product_category' => 'string',
       'gender' => 'gender_enum',
       'gtin' => 'string',
       'image_url' => 'string',

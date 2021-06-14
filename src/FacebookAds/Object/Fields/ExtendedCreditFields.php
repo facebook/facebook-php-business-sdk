@@ -44,7 +44,6 @@ class ExtendedCreditFields extends AbstractEnum {
   const ID = 'id';
   const IS_ACCESS_REVOKED = 'is_access_revoked';
   const IS_AUTOMATED_EXPERIENCE = 'is_automated_experience';
-  const LAST_PAYMENT_TIME = 'last_payment_time';
   const LEGAL_ENTITY_NAME = 'legal_entity_name';
   const LIABLE_BIZ_NAME = 'liable_biz_name';
   const MAX_BALANCE = 'max_balance';
@@ -64,7 +63,6 @@ class ExtendedCreditFields extends AbstractEnum {
       'id' => 'string',
       'is_access_revoked' => 'bool',
       'is_automated_experience' => 'bool',
-      'last_payment_time' => 'datetime',
       'legal_entity_name' => 'string',
       'liable_biz_name' => 'string',
       'max_balance' => 'CurrencyAmount',

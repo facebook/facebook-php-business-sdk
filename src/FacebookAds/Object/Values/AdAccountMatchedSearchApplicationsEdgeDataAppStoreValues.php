@@ -42,10 +42,12 @@ class AdAccountMatchedSearchApplicationsEdgeDataAppStoreValues extends AbstractE
   const FB_ANDROID_STORE = 'FB_ANDROID_STORE';
   const FB_CANVAS = 'FB_CANVAS';
   const FB_GAMEROOM = 'FB_GAMEROOM';
+  const GALAXY_STORE = 'GALAXY_STORE';
   const GOOGLE_PLAY = 'GOOGLE_PLAY';
   const INSTANT_GAME = 'INSTANT_GAME';
   const ITUNES = 'ITUNES';
   const ITUNES_IPAD = 'ITUNES_IPAD';
+  const OCULUS_APP_STORE = 'OCULUS_APP_STORE';
   const ROKU_STORE = 'ROKU_STORE';
   const WINDOWS_10_STORE = 'WINDOWS_10_STORE';
   const WINDOWS_STORE = 'WINDOWS_STORE';

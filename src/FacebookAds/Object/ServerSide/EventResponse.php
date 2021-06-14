@@ -27,7 +27,7 @@ namespace FacebookAds\Object\ServerSide;
 use ArrayAccess;
 
 /**
- * Server-Side pixel event response.
+ * Conversions API event response.
  *
  * @category    Class
  */
@@ -230,5 +230,3 @@ class EventResponse implements ArrayAccess {
     return json_encode($this);
   }
 }
-
-

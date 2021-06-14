@@ -5,6 +5,70 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+### Changed
+- Graph API call upgrade to [v11.0]https://developers.facebook.com/docs/graph-api/changelog/version11.0
+
+## v10.0.1
+
+### Added
+- Support for sending multiple values for certain UserData parameters to Conversions API.
+
+
+## v10.0.0
+
+
+### Changed
+- Graph API call upgrade to [v10.0](https://developers.facebook.com/docs/graph-api/changelog/version10.0)
+
+## v9.0.2
+
+
+### Added
+- `action_source` field to Event for Conversions API.
+
+### Fixed
+- `opt_out` field was being removed when set to false for Conversions API.
+
+## v9.0.0
+### Changed
+- Graph API call upgrade to [v9.0](https://developers.facebook.com/docs/graph-api/changelog/version9.0)
+
+### Added
+- `delivery_category` field to Content for Conversions API.
+
+### Changed
+- Add empty to the list of reserved keywords.
+- Change empty value enum name in AdsPixelFirstPartyCookieStatusValues and AdsPixelDataUseSettingValues
+
+## v8.0.3
+
+### Changed
+- Fixed a normalization issue for zero values in CustomData in Conversions API
+- Start passing in the appsecret_proof to Conversions API custom http_clients when an appsecret is set
+- A Conversions API EventRequest custom http_client must now be an object instead of a class name
+
+## v8.0.2
+
+### Added
+- Added batching support to Conversions API. Create batched event requests by using BatchProcessor.
+
+### Added
+- `lead_id` field to the Conversions API `user_data` section.
+- Added HttpServiceInterface to enable the default request object to be overridden by a user-defined HTTP Request Service class. Can be used to create Conversions API event requests.
+
+## v8.0.1
+
+### Added
+- Added async support to Conversions API - Create event request promises by using EventRequestAsync.
+
+## v8.0.0
+
+### Changed
+- Graph API call upgrade to [v8.0](https://developers.facebook.com/docs/graph-api/changelog/version8.0)
+
+### Added
+- `delivery_category` field in custom_data section for Conversions API(formerly Serverside API).
+
 ## v7.0.2
 ### Added
 - Added support for data processing options in Serverside API. For more details see : https://developers.facebook.com/docs/marketing-apis/data-processing-options

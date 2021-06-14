@@ -36,8 +36,15 @@ use FacebookAds\Object\Values\CommentOrderValues;
 use FacebookAds\Object\Values\InsightsResultDatePresetValues;
 use FacebookAds\Object\Values\InsightsResultPeriodValues;
 use FacebookAds\Object\Values\PostBackdatedTimeGranularityValues;
+use FacebookAds\Object\Values\PostCheckinEntryPointValues;
 use FacebookAds\Object\Values\PostFeedStoryVisibilityValues;
+use FacebookAds\Object\Values\PostFormattingValues;
+use FacebookAds\Object\Values\PostPlaceAttachmentSettingValues;
+use FacebookAds\Object\Values\PostPostSurfacesBlacklistValues;
+use FacebookAds\Object\Values\PostPostingToRedspaceValues;
+use FacebookAds\Object\Values\PostTargetSurfaceValues;
 use FacebookAds\Object\Values\PostTimelineVisibilityValues;
+use FacebookAds\Object\Values\PostUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\ProfileTypeValues;
 
 /**
@@ -61,6 +68,13 @@ class Post extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['BackdatedTimeGranularity'] = PostBackdatedTimeGranularityValues::getInstance()->getValues();
+    $ref_enums['CheckinEntryPoint'] = PostCheckinEntryPointValues::getInstance()->getValues();
+    $ref_enums['Formatting'] = PostFormattingValues::getInstance()->getValues();
+    $ref_enums['PlaceAttachmentSetting'] = PostPlaceAttachmentSettingValues::getInstance()->getValues();
+    $ref_enums['PostSurfacesBlacklist'] = PostPostSurfacesBlacklistValues::getInstance()->getValues();
+    $ref_enums['PostingToRedspace'] = PostPostingToRedspaceValues::getInstance()->getValues();
+    $ref_enums['TargetSurface'] = PostTargetSurfaceValues::getInstance()->getValues();
+    $ref_enums['UnpublishedContentType'] = PostUnpublishedContentTypeValues::getInstance()->getValues();
     $ref_enums['FeedStoryVisibility'] = PostFeedStoryVisibilityValues::getInstance()->getValues();
     $ref_enums['TimelineVisibility'] = PostTimelineVisibilityValues::getInstance()->getValues();
     return $ref_enums;
@@ -259,124 +273,6 @@ class Post extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createPromotion(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'ad_account_id' => 'string',
-      'ad_conversion_pixel_id' => 'unsigned int',
-      'audience' => 'audience_enum',
-      'audience_id' => 'string',
-      'bid_amount' => 'unsigned int',
-      'budget' => 'unsigned int',
-      'cta_type' => 'cta_type_enum',
-      'currency' => 'string',
-      'flow_id' => 'string',
-      'placement' => 'string',
-      'start_time' => 'unsigned int',
-      'stop_time' => 'unsigned int',
-      'targeting' => 'Targeting',
-    );
-    $enums = array(
-      'audience_enum' => array(
-        'AUTO_LOOKALIKE',
-        'AUTO_PAGE_LOOKALIKE',
-        'AUTO_TARGETING',
-        'COUNTRY_AND_INTEREST',
-        'CREATE_NEW',
-        'CUSTOM_AUDIENCE',
-        'DISTRICT',
-        'EVENT_CUSTOM_AUDIENCES',
-        'EVENT_ENGAGEMENT',
-        'FANS',
-        'GROUPER',
-        'HEC_AUDIENCE',
-        'IG_PROMOTED_POST_AUTO',
-        'LOCAL',
-        'LOOKALIKE',
-        'MARKETPLACE_DEFAULT',
-        'MULT_CUSTOM_AUDIENCES',
-        'NCPP',
-        'SAVED_AUDIENCE',
-        'SMART_AUDIENCE',
-      ),
-      'cta_type_enum' => array(
-        'ADD_TO_CART',
-        'APPLY_NOW',
-        'BOOK_TRAVEL',
-        'BUY',
-        'BUY_NOW',
-        'BUY_TICKETS',
-        'CALL',
-        'CALL_ME',
-        'CONTACT',
-        'CONTACT_US',
-        'DONATE',
-        'DONATE_NOW',
-        'DOWNLOAD',
-        'EVENT_RSVP',
-        'FIND_A_GROUP',
-        'FIND_YOUR_GROUPS',
-        'FOLLOW_NEWS_STORYLINE',
-        'FOLLOW_PAGE',
-        'FOLLOW_USER',
-        'GET_DIRECTIONS',
-        'GET_OFFER',
-        'GET_OFFER_VIEW',
-        'GET_QUOTE',
-        'GET_SHOWTIMES',
-        'INSTALL_APP',
-        'INSTALL_MOBILE_APP',
-        'LEARN_MORE',
-        'LIKE_PAGE',
-        'LISTEN_MUSIC',
-        'LISTEN_NOW',
-        'MESSAGE_PAGE',
-        'MOBILE_DOWNLOAD',
-        'MOMENTS',
-        'NO_BUTTON',
-        'OPEN_LINK',
-        'ORDER_NOW',
-        'PAY_TO_ACCESS',
-        'PLAY_GAME',
-        'PURCHASE_GIFT_CARDS',
-        'RECORD_NOW',
-        'REQUEST_TIME',
-        'SAY_THANKS',
-        'SEE_MORE',
-        'SELL_NOW',
-        'SHARE',
-        'SHOP_NOW',
-        'SIGN_UP',
-        'SOTTO_SUBSCRIBE',
-        'SUBSCRIBE',
-        'UPDATE_APP',
-        'USE_APP',
-        'USE_MOBILE_APP',
-        'VIDEO_ANNOTATION',
-        'VISIT_PAGES_FEED',
-        'WATCH_MORE',
-        'WATCH_VIDEO',
-        'WHATSAPP_MESSAGE',
-        'WOODHENGE_SUPPORT',
-      ),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/promotions',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getReactions(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -526,6 +422,7 @@ class Post extends AbstractCrudObject {
       'backdated_time_granularity' => 'backdated_time_granularity_enum',
       'composer_session_id' => 'string',
       'direct_share_status' => 'unsigned int',
+      'explicitly_added_mentionee_ids' => 'list<unsigned int>',
       'feed_story_visibility' => 'feed_story_visibility_enum',
       'is_explicit_location' => 'bool',
       'is_hidden' => 'bool',

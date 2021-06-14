@@ -95,6 +95,7 @@ class TargetingFields extends AbstractEnum {
   const INCOME = 'income';
   const INDUSTRIES = 'industries';
   const INSTAGRAM_POSITIONS = 'instagram_positions';
+  const INSTREAM_VIDEO_SKIPPABLE_EXCLUDED = 'instream_video_skippable_excluded';
   const INTERESTED_IN = 'interested_in';
   const INTERESTS = 'interests';
   const IS_WHATSAPP_DESTINATION_AD = 'is_whatsapp_destination_ad';
@@ -137,7 +138,7 @@ class TargetingFields extends AbstractEnum {
       'catalog_based_targeting' => 'CatalogBasedTargeting',
       'cities' => 'list<IDName>',
       'college_years' => 'list<unsigned int>',
-      'connections' => 'list<IDName>',
+      'connections' => 'list<ConnectionsTargeting>',
       'contextual_targeting_categories' => 'list<IDName>',
       'countries' => 'list<string>',
       'country' => 'list<string>',
@@ -159,7 +160,7 @@ class TargetingFields extends AbstractEnum {
       'ethnic_affinity' => 'list<IDName>',
       'exclude_reached_since' => 'list<string>',
       'excluded_brand_safety_content_types' => 'list<string>',
-      'excluded_connections' => 'list<IDName>',
+      'excluded_connections' => 'list<ConnectionsTargeting>',
       'excluded_custom_audiences' => 'list<RawCustomAudience>',
       'excluded_dynamic_audience_ids' => 'list<string>',
       'excluded_engagement_specs' => 'list<TargetingDynamicRule>',
@@ -174,7 +175,7 @@ class TargetingFields extends AbstractEnum {
       'family_statuses' => 'list<IDName>',
       'fb_deal_id' => 'string',
       'flexible_spec' => 'list<FlexibleTargeting>',
-      'friends_of_connections' => 'list<IDName>',
+      'friends_of_connections' => 'list<ConnectionsTargeting>',
       'genders' => 'list<unsigned int>',
       'generation' => 'list<IDName>',
       'geo_locations' => 'TargetingGeoLocation',
@@ -185,6 +186,7 @@ class TargetingFields extends AbstractEnum {
       'income' => 'list<IDName>',
       'industries' => 'list<IDName>',
       'instagram_positions' => 'list<string>',
+      'instream_video_skippable_excluded' => 'bool',
       'interested_in' => 'list<unsigned int>',
       'interests' => 'list<IDName>',
       'is_whatsapp_destination_ad' => 'bool',

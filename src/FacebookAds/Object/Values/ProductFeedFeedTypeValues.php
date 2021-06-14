@@ -38,6 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class ProductFeedFeedTypeValues extends AbstractEnum {
 
   const AUTO = 'AUTO';
+  const AUTOMOTIVE_MODEL = 'AUTOMOTIVE_MODEL';
   const DESTINATION = 'DESTINATION';
   const FLIGHT = 'FLIGHT';
   const HOME_LISTING = 'HOME_LISTING';
@@ -48,6 +49,7 @@ class ProductFeedFeedTypeValues extends AbstractEnum {
   const MEDIA_TITLE = 'MEDIA_TITLE';
   const OFFER = 'OFFER';
   const PRODUCTS = 'PRODUCTS';
+  const TRANSACTABLE_ITEMS = 'TRANSACTABLE_ITEMS';
   const VEHICLES = 'VEHICLES';
   const VEHICLE_OFFER = 'VEHICLE_OFFER';
 }

@@ -39,6 +39,7 @@ class SavedAudienceFields extends AbstractEnum {
 
   const ACCOUNT = 'account';
   const APPROXIMATE_COUNT = 'approximate_count';
+  const APPROXIMATE_COUNT_64BIT = 'approximate_count_64bit';
   const DESCRIPTION = 'description';
   const EXTRA_INFO = 'extra_info';
   const ID = 'id';
@@ -54,6 +55,7 @@ class SavedAudienceFields extends AbstractEnum {
     return array(
       'account' => 'AdAccount',
       'approximate_count' => 'int',
+      'approximate_count_64bit' => 'int',
       'description' => 'string',
       'extra_info' => 'string',
       'id' => 'string',

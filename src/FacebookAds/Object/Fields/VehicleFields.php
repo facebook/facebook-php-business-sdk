@@ -41,6 +41,7 @@ class VehicleFields extends AbstractEnum {
   const APPLINKS = 'applinks';
   const AVAILABILITY = 'availability';
   const BODY_STYLE = 'body_style';
+  const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
   const CONDITION = 'condition';
   const CURRENCY = 'currency';
   const CUSTOM_LABEL_0 = 'custom_label_0';
@@ -58,6 +59,7 @@ class VehicleFields extends AbstractEnum {
   const FEATURES = 'features';
   const FUEL_TYPE = 'fuel_type';
   const ID = 'id';
+  const IMAGE_FETCH_STATUS = 'image_fetch_status';
   const IMAGES = 'images';
   const INTERIOR_COLOR = 'interior_color';
   const LEGAL_DISCLOSURE_IMPRESSUM_URL = 'legal_disclosure_impressum_url';
@@ -88,6 +90,7 @@ class VehicleFields extends AbstractEnum {
       'applinks' => 'CatalogItemAppLinks',
       'availability' => 'string',
       'body_style' => 'string',
+      'category_specific_fields' => 'CatalogSubVerticalList',
       'condition' => 'string',
       'currency' => 'string',
       'custom_label_0' => 'string',
@@ -105,6 +108,7 @@ class VehicleFields extends AbstractEnum {
       'features' => 'list<Object>',
       'fuel_type' => 'string',
       'id' => 'string',
+      'image_fetch_status' => 'ImageFetchStatus',
       'images' => 'list<string>',
       'interior_color' => 'string',
       'legal_disclosure_impressum_url' => 'string',

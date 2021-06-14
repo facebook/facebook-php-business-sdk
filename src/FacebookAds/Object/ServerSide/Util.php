@@ -132,4 +132,18 @@ class Util {
 
     return $fbc;
   }
+
+  public static function getCaBundlePath() {
+    return __DIR__.DIRECTORY_SEPARATOR
+      .str_repeat('..'.DIRECTORY_SEPARATOR, 4)
+      .'fb_ca_chain_bundle.crt';
+  }
+
+  public static function getAppsecretProof($access_token, $appsecret) {
+    return hash_hmac(
+      'sha256',
+      $access_token,
+      $appsecret
+    );
+  }
 }

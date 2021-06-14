@@ -38,12 +38,14 @@ use FacebookAds\Enum\AbstractEnum;
 class FlightFields extends AbstractEnum {
 
   const APPLINKS = 'applinks';
+  const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
   const CURRENCY = 'currency';
   const DESCRIPTION = 'description';
   const DESTINATION_AIRPORT = 'destination_airport';
   const DESTINATION_CITY = 'destination_city';
   const FLIGHT_ID = 'flight_id';
   const ID = 'id';
+  const IMAGE_FETCH_STATUS = 'image_fetch_status';
   const IMAGES = 'images';
   const ONEWAY_CURRENCY = 'oneway_currency';
   const ONEWAY_PRICE = 'oneway_price';
@@ -56,12 +58,14 @@ class FlightFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'applinks' => 'CatalogItemAppLinks',
+      'category_specific_fields' => 'CatalogSubVerticalList',
       'currency' => 'string',
       'description' => 'string',
       'destination_airport' => 'string',
       'destination_city' => 'string',
       'flight_id' => 'string',
       'id' => 'string',
+      'image_fetch_status' => 'ImageFetchStatus',
       'images' => 'list<string>',
       'oneway_currency' => 'string',
       'oneway_price' => 'string',

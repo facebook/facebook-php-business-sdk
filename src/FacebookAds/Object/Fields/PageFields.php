@@ -60,6 +60,7 @@ class PageFields extends AbstractEnum {
   const CHECKINS = 'checkins';
   const COMPANY_OVERVIEW = 'company_overview';
   const CONNECTED_INSTAGRAM_ACCOUNT = 'connected_instagram_account';
+  const CONNECTED_PAGE_BACKED_INSTAGRAM_ACCOUNT = 'connected_page_backed_instagram_account';
   const CONTACT_ADDRESS = 'contact_address';
   const COPYRIGHT_WHITELISTED_IG_PARTNERS = 'copyright_whitelisted_ig_partners';
   const COUNTRY_PAGE_LIKES = 'country_page_likes';
@@ -78,6 +79,7 @@ class PageFields extends AbstractEnum {
   const FAN_COUNT = 'fan_count';
   const FEATURED_VIDEO = 'featured_video';
   const FEATURES = 'features';
+  const FOLLOWERS_COUNT = 'followers_count';
   const FOOD_STYLES = 'food_styles';
   const FOUNDED = 'founded';
   const GENERAL_INFO = 'general_info';
@@ -86,6 +88,7 @@ class PageFields extends AbstractEnum {
   const GLOBAL_BRAND_PAGE_NAME = 'global_brand_page_name';
   const GLOBAL_BRAND_ROOT_ID = 'global_brand_root_id';
   const HAS_ADDED_APP = 'has_added_app';
+  const HAS_TRANSITIONED_TO_NEW_PAGE_EXPERIENCE = 'has_transitioned_to_new_page_experience';
   const HAS_WHATSAPP_BUSINESS_NUMBER = 'has_whatsapp_business_number';
   const HAS_WHATSAPP_NUMBER = 'has_whatsapp_number';
   const HOMETOWN = 'hometown';
@@ -128,7 +131,6 @@ class PageFields extends AbstractEnum {
   const NEW_LIKE_COUNT = 'new_like_count';
   const OFFER_ELIGIBLE = 'offer_eligible';
   const OVERALL_STAR_RATING = 'overall_star_rating';
-  const PAGE_ABOUT_STORY = 'page_about_story';
   const PAGE_TOKEN = 'page_token';
   const PARENT_PAGE = 'parent_page';
   const PARKING = 'parking';
@@ -137,6 +139,7 @@ class PageFields extends AbstractEnum {
   const PERSONAL_INTERESTS = 'personal_interests';
   const PHARMA_SAFETY_INFO = 'pharma_safety_info';
   const PHONE = 'phone';
+  const PICKUP_OPTIONS = 'pickup_options';
   const PLACE_TYPE = 'place_type';
   const PLOT_OUTLINE = 'plot_outline';
   const PREFERRED_AUDIENCE = 'preferred_audience';
@@ -204,6 +207,7 @@ class PageFields extends AbstractEnum {
       'checkins' => 'unsigned int',
       'company_overview' => 'string',
       'connected_instagram_account' => 'IGUser',
+      'connected_page_backed_instagram_account' => 'IGUser',
       'contact_address' => 'MailingAddress',
       'copyright_whitelisted_ig_partners' => 'list<string>',
       'country_page_likes' => 'unsigned int',
@@ -222,6 +226,7 @@ class PageFields extends AbstractEnum {
       'fan_count' => 'unsigned int',
       'featured_video' => 'AdVideo',
       'features' => 'string',
+      'followers_count' => 'unsigned int',
       'food_styles' => 'list<string>',
       'founded' => 'string',
       'general_info' => 'string',
@@ -230,6 +235,7 @@ class PageFields extends AbstractEnum {
       'global_brand_page_name' => 'string',
       'global_brand_root_id' => 'string',
       'has_added_app' => 'bool',
+      'has_transitioned_to_new_page_experience' => 'bool',
       'has_whatsapp_business_number' => 'bool',
       'has_whatsapp_number' => 'bool',
       'hometown' => 'string',
@@ -272,7 +278,6 @@ class PageFields extends AbstractEnum {
       'new_like_count' => 'unsigned int',
       'offer_eligible' => 'bool',
       'overall_star_rating' => 'float',
-      'page_about_story' => 'PageAboutStory',
       'page_token' => 'string',
       'parent_page' => 'Page',
       'parking' => 'PageParking',
@@ -281,6 +286,7 @@ class PageFields extends AbstractEnum {
       'personal_interests' => 'string',
       'pharma_safety_info' => 'string',
       'phone' => 'string',
+      'pickup_options' => 'list<string>',
       'place_type' => 'string',
       'plot_outline' => 'string',
       'preferred_audience' => 'Targeting',

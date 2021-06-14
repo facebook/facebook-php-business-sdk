@@ -284,6 +284,32 @@ class CustomAudience extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createUsersReplace(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'namespace' => 'string',
+      'payload' => 'Object',
+      'session' => 'Object',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/usersreplace',
+      new CustomAudience(),
+      'EDGE',
+      CustomAudience::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function deleteSelf(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -336,40 +362,26 @@ class CustomAudience extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'accountID' => 'string',
-      'additionalMetadata' => 'string',
       'allowed_domains' => 'list<string>',
       'claim_objective' => 'claim_objective_enum',
       'content_type' => 'content_type_enum',
       'countries' => 'string',
       'customer_file_source' => 'customer_file_source_enum',
       'description' => 'string',
-      'details' => 'string',
       'enable_fetch_or_create' => 'bool',
       'event_source_group' => 'string',
       'event_sources' => 'list<map>',
       'exclusions' => 'list<Object>',
-      'expectedSize' => 'unsigned int',
-      'gender' => 'string',
       'inclusions' => 'list<Object>',
-      'isPrivate' => 'bool',
-      'is_household' => 'bool',
-      'is_household_exclusion' => 'bool',
       'lookalike_spec' => 'string',
-      'maxAge' => 'unsigned int',
-      'minAge' => 'unsigned int',
       'name' => 'string',
       'opt_out_link' => 'string',
       'parent_audience_id' => 'unsigned int',
-      'partnerID' => 'string',
-      'partner_reference_key' => 'string',
       'product_set_id' => 'string',
       'retention_days' => 'unsigned int',
       'rev_share_policy_id' => 'unsigned int',
       'rule' => 'string',
       'rule_aggregation' => 'string',
-      'seed_audience' => 'unsigned int',
-      'source' => 'string',
       'tags' => 'list<string>',
     );
     $enums = array(

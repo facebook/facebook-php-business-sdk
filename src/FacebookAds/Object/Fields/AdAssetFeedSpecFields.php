@@ -50,7 +50,9 @@ class AdAssetFeedSpecFields extends AbstractEnum {
   const GROUPS = 'groups';
   const IMAGES = 'images';
   const LINK_URLS = 'link_urls';
+  const ONSITE_DESTINATIONS = 'onsite_destinations';
   const OPTIMIZATION_TYPE = 'optimization_type';
+  const POSTS = 'posts';
   const TITLES = 'titles';
   const VIDEOS = 'videos';
 
@@ -69,7 +71,9 @@ class AdAssetFeedSpecFields extends AbstractEnum {
       'groups' => 'list<AdAssetFeedSpecGroupRule>',
       'images' => 'list<AdAssetFeedSpecImage>',
       'link_urls' => 'list<AdAssetFeedSpecLinkURL>',
+      'onsite_destinations' => 'list<Object>',
       'optimization_type' => 'string',
+      'posts' => 'list<Object>',
       'titles' => 'list<AdAssetFeedSpecTitle>',
       'videos' => 'list<AdAssetFeedSpecVideo>',
     );

@@ -40,7 +40,7 @@ $fields = array(
 );
 $params = array(
 );
-echo json_encode((new AdsPixel($id))->getShareDAgencies(
+echo json_encode((new AdsPixel($id))->getSharedAgencies(
   $fields,
   $params
 )->getResponse()->getContent(), JSON_PRETTY_PRINT);

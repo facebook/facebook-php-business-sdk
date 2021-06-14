@@ -39,13 +39,13 @@ class WhatsAppBusinessProfileFields extends AbstractEnum {
 
   const ID = 'id';
   const NAME_VERIFICATION = 'name_verification';
-  const VERIFIED_NAME = 'verified_name';
+  const WHATSAPP_BUSINESS_API_DATA = 'whatsapp_business_api_data';
 
   public function getFieldTypes() {
     return array(
       'id' => 'string',
       'name_verification' => 'Object',
-      'verified_name' => 'string',
+      'whatsapp_business_api_data' => 'Object',
     );
   }
 }

@@ -44,6 +44,7 @@ use FacebookAds\Object\Values\ApplicationRequestTypeValues;
 use FacebookAds\Object\Values\ApplicationScoreTypeValues;
 use FacebookAds\Object\Values\ApplicationSortOrderValues;
 use FacebookAds\Object\Values\ApplicationSupportedPlatformsValues;
+use FacebookAds\Object\Values\DACheckConnectionMethodValues;
 use FacebookAds\Object\Values\EventTypeValues;
 
 /**
@@ -182,15 +183,20 @@ class Application extends AbstractCrudObject {
       'bundle_id' => 'string',
       'bundle_short_version' => 'string',
       'bundle_version' => 'string',
+      'click_id' => 'string',
       'consider_views' => 'bool',
       'custom_events' => 'list<Object>',
       'custom_events_file' => 'file',
+      'data_processing_options' => 'list<string>',
+      'data_processing_options_country' => 'unsigned int',
+      'data_processing_options_state' => 'unsigned int',
       'device_token' => 'string',
       'event' => 'event_enum',
       'extinfo' => 'Object',
       'include_dwell_data' => 'bool',
       'include_video_data' => 'bool',
       'install_referrer' => 'string',
+      'install_timestamp' => 'unsigned int',
       'installer_package' => 'string',
       'limited_data_use' => 'bool',
       'migration_bundle' => 'string',
@@ -327,6 +333,54 @@ class Application extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getAemConversionConfigs(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'advertiser_ids' => 'list<string>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/aem_conversion_configs',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createAemConversion(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'aem_conversions' => 'list<map>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/aem_conversions',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getAgencies(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -343,6 +397,56 @@ class Application extends AbstractCrudObject {
       new Business(),
       'EDGE',
       Business::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createAggregateRevenue(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'ecpms' => 'list<string>',
+      'query_ids' => 'list<string>',
+      'request_id' => 'string',
+      'sync_api' => 'bool',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/aggregate_revenue',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getAndroidDialogConfigs(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/android_dialog_configs',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -748,8 +852,10 @@ class Application extends AbstractCrudObject {
 
     $param_types = array(
       'checks' => 'list<string>',
+      'connection_method' => 'connection_method_enum',
     );
     $enums = array(
+      'connection_method_enum' => DACheckConnectionMethodValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1043,6 +1149,7 @@ class Application extends AbstractCrudObject {
     $param_types = array(
       'device_id' => 'string',
       'extinfo' => 'Object',
+      'os_version' => 'string',
       'platform' => 'platform_enum',
       'sdk_version' => 'string',
     );
@@ -1083,29 +1190,6 @@ class Application extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/occludespopups',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getOzoneRelease(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/ozone_release',
       new AbstractCrudObject(),
       'EDGE',
       array(),
@@ -1266,6 +1350,31 @@ class Application extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/purchases',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createPushTokenRegister(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'device_id' => 'string',
+      'push_token' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/push_token_register',
       new AbstractCrudObject(),
       'EDGE',
       array(),
@@ -1533,7 +1642,6 @@ class Application extends AbstractCrudObject {
     $param_types = array(
       'an_platforms' => 'list<an_platforms_enum>',
       'android_class_name' => 'string',
-      'android_key_hash' => 'list<string>',
       'android_key_hashes' => 'list<string>',
       'android_package_name' => 'string',
       'android_sso' => 'bool',
@@ -1551,12 +1659,9 @@ class Application extends AbstractCrudObject {
       'canvas_fluid_height' => 'bool',
       'canvas_fluid_width' => 'bool',
       'canvas_url' => 'string',
-      'configured_ios_sso' => 'bool',
       'contact_email' => 'string',
       'deauth_callback_url' => 'string',
       'ios_bundle_id' => 'list<string>',
-      'ipad_app_store_id' => 'string',
-      'iphone_app_store_id' => 'string',
       'mobile_web_url' => 'string',
       'namespace' => 'string',
       'page_tab_default_name' => 'string',

@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProfilePictureSourceFields;
+use FacebookAds\Object\Values\ProfilePictureSourceBreakingChangeValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
 
 /**
@@ -52,6 +53,7 @@ class ProfilePictureSource extends AbstractObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['Type'] = ProfilePictureSourceTypeValues::getInstance()->getValues();
+    $ref_enums['BreakingChange'] = ProfilePictureSourceBreakingChangeValues::getInstance()->getValues();
     return $ref_enums;
   }
 

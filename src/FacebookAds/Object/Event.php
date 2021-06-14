@@ -31,6 +31,7 @@ use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\EventFields;
 use FacebookAds\Object\Values\EventCategoryValues;
 use FacebookAds\Object\Values\EventEventStateFilterValues;
+use FacebookAds\Object\Values\EventOnlineEventFormatValues;
 use FacebookAds\Object\Values\EventTimeFilterValues;
 use FacebookAds\Object\Values\EventTypeValues;
 use FacebookAds\Object\Values\LiveVideoProjectionValues;
@@ -60,6 +61,7 @@ class Event extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['Category'] = EventCategoryValues::getInstance()->getValues();
+    $ref_enums['OnlineEventFormat'] = EventOnlineEventFormatValues::getInstance()->getValues();
     $ref_enums['Type'] = EventTypeValues::getInstance()->getValues();
     $ref_enums['EventStateFilter'] = EventEventStateFilterValues::getInstance()->getValues();
     $ref_enums['TimeFilter'] = EventTimeFilterValues::getInstance()->getValues();
@@ -142,6 +144,7 @@ class Event extends AbstractCrudObject {
     $param_types = array(
       'content_tags' => 'list<string>',
       'description' => 'string',
+      'enable_backup_ingest' => 'bool',
       'encoding_settings' => 'string',
       'fisheye_video_cropped' => 'bool',
       'front_z_rotation' => 'float',
@@ -153,7 +156,6 @@ class Event extends AbstractCrudObject {
       'privacy' => 'string',
       'projection' => 'projection_enum',
       'published' => 'bool',
-      'save_vod' => 'bool',
       'schedule_custom_profile_image' => 'file',
       'spatial_audio_format' => 'spatial_audio_format_enum',
       'status' => 'status_enum',

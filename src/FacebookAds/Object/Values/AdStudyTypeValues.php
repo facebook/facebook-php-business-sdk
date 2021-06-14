@@ -40,5 +40,6 @@ class AdStudyTypeValues extends AbstractEnum {
   const CONTINUOUS_LIFT_CONFIG = 'CONTINUOUS_LIFT_CONFIG';
   const GEO_LIFT = 'GEO_LIFT';
   const LIFT = 'LIFT';
+  const PRIVATE_LIFT = 'PRIVATE_LIFT';
   const SPLIT_TEST = 'SPLIT_TEST';
 }

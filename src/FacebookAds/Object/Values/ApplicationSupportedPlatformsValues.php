@@ -45,6 +45,8 @@ class ApplicationSupportedPlatformsValues extends AbstractEnum {
   const IPAD = 'IPAD';
   const IPHONE = 'IPHONE';
   const MOBILE_WEB = 'MOBILE_WEB';
+  const OCULUS = 'OCULUS';
+  const SAMSUNG = 'SAMSUNG';
   const SUPPLEMENTARY_IMAGES = 'SUPPLEMENTARY_IMAGES';
   const WEB = 'WEB';
   const WINDOWS = 'WINDOWS';

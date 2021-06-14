@@ -53,8 +53,6 @@ class AdCampaignActivityFields extends AbstractEnum {
   const BID_TYPE_OLD = 'bid_type_old';
   const BILLING_EVENT_NEW = 'billing_event_new';
   const BILLING_EVENT_OLD = 'billing_event_old';
-  const BRANDE_AUDIENCE_ID_NEW = 'brande_audience_id_new';
-  const BRANDE_AUDIENCE_ID_OLD = 'brande_audience_id_old';
   const BUDGET_LIMIT_NEW = 'budget_limit_new';
   const BUDGET_LIMIT_OLD = 'budget_limit_old';
   const CREATED_TIME = 'created_time';
@@ -79,6 +77,8 @@ class AdCampaignActivityFields extends AbstractEnum {
   const OPTIMIZATION_GOAL_OLD = 'optimization_goal_old';
   const PACING_TYPE_NEW = 'pacing_type_new';
   const PACING_TYPE_OLD = 'pacing_type_old';
+  const PROMOTED_OBJECT_ID_NEW = 'promoted_object_id_new';
+  const PROMOTED_OBJECT_ID_OLD = 'promoted_object_id_old';
   const RUN_STATUS_NEW = 'run_status_new';
   const RUN_STATUS_OLD = 'run_status_old';
   const SCHEDULE_NEW = 'schedule_new';
@@ -91,6 +91,8 @@ class AdCampaignActivityFields extends AbstractEnum {
   const STOP_TIME_OLD = 'stop_time_old';
   const TARGETING_EXPANSION_NEW = 'targeting_expansion_new';
   const TARGETING_EXPANSION_OLD = 'targeting_expansion_old';
+  const TARGETING_NEW = 'targeting_new';
+  const TARGETING_OLD = 'targeting_old';
   const UPDATED_TIME_NEW = 'updated_time_new';
   const UPDATED_TIME_OLD = 'updated_time_old';
 
@@ -112,8 +114,6 @@ class AdCampaignActivityFields extends AbstractEnum {
       'bid_type_old' => 'string',
       'billing_event_new' => 'BillingEventNew',
       'billing_event_old' => 'BillingEventOld',
-      'brande_audience_id_new' => 'BrandAudience',
-      'brande_audience_id_old' => 'BrandAudience',
       'budget_limit_new' => 'Object',
       'budget_limit_old' => 'Object',
       'created_time' => 'datetime',
@@ -138,6 +138,8 @@ class AdCampaignActivityFields extends AbstractEnum {
       'optimization_goal_old' => 'OptimizationGoalOld',
       'pacing_type_new' => 'int',
       'pacing_type_old' => 'int',
+      'promoted_object_id_new' => 'string',
+      'promoted_object_id_old' => 'string',
       'run_status_new' => 'string',
       'run_status_old' => 'string',
       'schedule_new' => 'list<Object>',
@@ -150,6 +152,8 @@ class AdCampaignActivityFields extends AbstractEnum {
       'stop_time_old' => 'datetime',
       'targeting_expansion_new' => 'Object',
       'targeting_expansion_old' => 'Object',
+      'targeting_new' => 'Object',
+      'targeting_old' => 'Object',
       'updated_time_new' => 'datetime',
       'updated_time_old' => 'datetime',
     );

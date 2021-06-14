@@ -49,20 +49,16 @@ class PostFields extends AbstractEnum {
   const COMMENTS_MIRRORING_DOMAIN = 'comments_mirroring_domain';
   const COORDINATES = 'coordinates';
   const CREATED_TIME = 'created_time';
-  const DELIVERY_GROWTH_OPTIMIZATIONS = 'delivery_growth_optimizations';
   const DESCRIPTION = 'description';
-  const ENTITIES = 'entities';
   const EVENT = 'event';
   const EXPANDED_HEIGHT = 'expanded_height';
   const EXPANDED_WIDTH = 'expanded_width';
   const FEED_TARGETING = 'feed_targeting';
-  const FORMATTING = 'formatting';
   const FROM = 'from';
   const FULL_PICTURE = 'full_picture';
   const HEIGHT = 'height';
   const ICON = 'icon';
   const ID = 'id';
-  const IMPLICIT_PLACE = 'implicit_place';
   const INSTAGRAM_ELIGIBILITY = 'instagram_eligibility';
   const IS_APP_SHARE = 'is_app_share';
   const IS_ELIGIBLE_FOR_PROMOTION = 'is_eligible_for_promotion';
@@ -74,7 +70,6 @@ class PostFields extends AbstractEnum {
   const IS_PUBLISHED = 'is_published';
   const IS_SPHERICAL = 'is_spherical';
   const LINK = 'link';
-  const LIVE_VIDEO_ELIGIBILITY = 'live_video_eligibility';
   const MESSAGE = 'message';
   const MESSAGE_TAGS = 'message_tags';
   const MULTI_SHARE_END_CARD = 'multi_share_end_card';
@@ -89,7 +84,6 @@ class PostFields extends AbstractEnum {
   const PROMOTABLE_ID = 'promotable_id';
   const PROMOTION_STATUS = 'promotion_status';
   const PROPERTIES = 'properties';
-  const PUBLISHING_STATS = 'publishing_stats';
   const SCHEDULED_PUBLISH_TIME = 'scheduled_publish_time';
   const SHARES = 'shares';
   const SOURCE = 'source';
@@ -100,13 +94,11 @@ class PostFields extends AbstractEnum {
   const TARGET = 'target';
   const TARGETING = 'targeting';
   const TIMELINE_VISIBILITY = 'timeline_visibility';
-  const TRANSLATIONS = 'translations';
   const TYPE = 'type';
   const UPDATED_TIME = 'updated_time';
   const VIA = 'via';
   const VIDEO_BUYING_ELIGIBILITY = 'video_buying_eligibility';
   const WIDTH = 'width';
-  const WILL_BE_AUTOCROPPED_WHEN_DELIVER_TO_INSTAGRAM = 'will_be_autocropped_when_deliver_to_instagram';
 
   public function getFieldTypes() {
     return array(
@@ -122,20 +114,16 @@ class PostFields extends AbstractEnum {
       'comments_mirroring_domain' => 'string',
       'coordinates' => 'Object',
       'created_time' => 'datetime',
-      'delivery_growth_optimizations' => 'list<string>',
       'description' => 'string',
-      'entities' => 'Object',
       'event' => 'Event',
       'expanded_height' => 'unsigned int',
       'expanded_width' => 'unsigned int',
       'feed_targeting' => 'Object',
-      'formatting' => 'string',
       'from' => 'Object',
       'full_picture' => 'string',
       'height' => 'unsigned int',
       'icon' => 'string',
       'id' => 'string',
-      'implicit_place' => 'Place',
       'instagram_eligibility' => 'string',
       'is_app_share' => 'bool',
       'is_eligible_for_promotion' => 'bool',
@@ -146,8 +134,7 @@ class PostFields extends AbstractEnum {
       'is_popular' => 'bool',
       'is_published' => 'bool',
       'is_spherical' => 'bool',
-      'link' => 'string',
-      'live_video_eligibility' => 'list<string>',
+      'link' => 'Object',
       'message' => 'string',
       'message_tags' => 'list',
       'multi_share_end_card' => 'bool',
@@ -162,7 +149,6 @@ class PostFields extends AbstractEnum {
       'promotable_id' => 'string',
       'promotion_status' => 'string',
       'properties' => 'list',
-      'publishing_stats' => 'unsigned int',
       'scheduled_publish_time' => 'float',
       'shares' => 'Object',
       'source' => 'string',
@@ -173,13 +159,11 @@ class PostFields extends AbstractEnum {
       'target' => 'Profile',
       'targeting' => 'Object',
       'timeline_visibility' => 'string',
-      'translations' => 'map<string, string>',
       'type' => 'string',
       'updated_time' => 'datetime',
       'via' => 'Object',
       'video_buying_eligibility' => 'list<string>',
       'width' => 'unsigned int',
-      'will_be_autocropped_when_deliver_to_instagram' => 'bool',
     );
   }
 }

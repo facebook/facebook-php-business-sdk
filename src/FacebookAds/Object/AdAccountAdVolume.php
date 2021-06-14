@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdAccountAdVolumeFields;
+use FacebookAds\Object\Values\AdAccountAdVolumeRecommendationTypeValues;
 
 /**
  * This class is auto-generated.
@@ -50,6 +51,7 @@ class AdAccountAdVolume extends AbstractObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['RecommendationType'] = AdAccountAdVolumeRecommendationTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 

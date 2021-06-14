@@ -23,7 +23,7 @@
  */
 namespace FacebookAds;
 class ApiConfig {
-  const APIVersion = '7.0';
-  const SDKVersion = '7.0.2';
+  const APIVersion = '10.0';
+  const SDKVersion = '10.0.1';
   const TYPE_CHECKER_STRICT_MODE = false;
 }

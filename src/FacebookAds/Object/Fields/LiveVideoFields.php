@@ -84,7 +84,7 @@ class LiveVideoFields extends AbstractEnum {
       'live_encoders' => 'list<LiveEncoder>',
       'live_views' => 'unsigned int',
       'overlay_url' => 'string',
-      'permalink_url' => 'string',
+      'permalink_url' => 'Object',
       'planned_start_time' => 'datetime',
       'seconds_left' => 'int',
       'secure_stream_url' => 'string',

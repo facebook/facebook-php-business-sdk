@@ -46,7 +46,9 @@ use FacebookAds\Object\Values\CampaignEffectiveStatusValues;
 use FacebookAds\Object\Values\CampaignExecutionOptionsValues;
 use FacebookAds\Object\Values\CampaignObjectiveValues;
 use FacebookAds\Object\Values\CampaignOperatorValues;
+use FacebookAds\Object\Values\CampaignSmartPromotionTypeValues;
 use FacebookAds\Object\Values\CampaignSpecialAdCategoriesValues;
+use FacebookAds\Object\Values\CampaignSpecialAdCategoryCountryValues;
 use FacebookAds\Object\Values\CampaignSpecialAdCategoryValues;
 use FacebookAds\Object\Values\CampaignStatusOptionValues;
 use FacebookAds\Object\Values\CampaignStatusValues;
@@ -92,7 +94,9 @@ class Campaign extends AbstractArchivableCrudObject {
     $ref_enums['DatePreset'] = CampaignDatePresetValues::getInstance()->getValues();
     $ref_enums['ExecutionOptions'] = CampaignExecutionOptionsValues::getInstance()->getValues();
     $ref_enums['Objective'] = CampaignObjectiveValues::getInstance()->getValues();
+    $ref_enums['SmartPromotionType'] = CampaignSmartPromotionTypeValues::getInstance()->getValues();
     $ref_enums['SpecialAdCategories'] = CampaignSpecialAdCategoriesValues::getInstance()->getValues();
+    $ref_enums['SpecialAdCategoryCountry'] = CampaignSpecialAdCategoryCountryValues::getInstance()->getValues();
     $ref_enums['Operator'] = CampaignOperatorValues::getInstance()->getValues();
     $ref_enums['SpecialAdCategory'] = CampaignSpecialAdCategoryValues::getInstance()->getValues();
     $ref_enums['StatusOption'] = CampaignStatusOptionValues::getInstance()->getValues();
@@ -343,6 +347,7 @@ class Campaign extends AbstractArchivableCrudObject {
       'time_range' => 'Object',
       'time_ranges' => 'list<Object>',
       'use_account_attribution_setting' => 'bool',
+      'use_unified_attribution_setting' => 'bool',
     );
     $enums = array(
       'action_attribution_windows_enum' => AdsInsightsActionAttributionWindowsValues::getInstance()->getValues(),
@@ -393,6 +398,7 @@ class Campaign extends AbstractArchivableCrudObject {
       'time_range' => 'Object',
       'time_ranges' => 'list<Object>',
       'use_account_attribution_setting' => 'bool',
+      'use_unified_attribution_setting' => 'bool',
     );
     $enums = array(
       'action_attribution_windows_enum' => AdsInsightsActionAttributionWindowsValues::getInstance()->getValues(),
@@ -464,7 +470,7 @@ class Campaign extends AbstractArchivableCrudObject {
         'last_week_mon_sun',
         'last_week_sun_sat',
         'last_year',
-        'lifetime',
+        'maximum',
         'this_month',
         'this_quarter',
         'this_week_mon_today',
@@ -501,24 +507,31 @@ class Campaign extends AbstractArchivableCrudObject {
       'budget_rebalance_flag' => 'bool',
       'daily_budget' => 'unsigned int',
       'execution_options' => 'list<execution_options_enum>',
+      'is_skadnetwork_attribution' => 'bool',
       'iterative_split_test_configs' => 'list<Object>',
       'lifetime_budget' => 'unsigned int',
       'name' => 'string',
       'objective' => 'objective_enum',
       'pacing_type' => 'list<string>',
       'promoted_object' => 'Object',
+      'smart_promotion_type' => 'smart_promotion_type_enum',
       'special_ad_categories' => 'list<special_ad_categories_enum>',
       'special_ad_category' => 'special_ad_category_enum',
+      'special_ad_category_country' => 'list<special_ad_category_country_enum>',
       'spend_cap' => 'unsigned int',
+      'start_time' => 'datetime',
       'status' => 'status_enum',
+      'stop_time' => 'datetime',
       'upstream_events' => 'map',
     );
     $enums = array(
       'bid_strategy_enum' => CampaignBidStrategyValues::getInstance()->getValues(),
       'execution_options_enum' => CampaignExecutionOptionsValues::getInstance()->getValues(),
       'objective_enum' => CampaignObjectiveValues::getInstance()->getValues(),
+      'smart_promotion_type_enum' => CampaignSmartPromotionTypeValues::getInstance()->getValues(),
       'special_ad_categories_enum' => CampaignSpecialAdCategoriesValues::getInstance()->getValues(),
       'special_ad_category_enum' => CampaignSpecialAdCategoryValues::getInstance()->getValues(),
+      'special_ad_category_country_enum' => CampaignSpecialAdCategoryCountryValues::getInstance()->getValues(),
       'status_enum' => CampaignStatusValues::getInstance()->getValues(),
     );
 

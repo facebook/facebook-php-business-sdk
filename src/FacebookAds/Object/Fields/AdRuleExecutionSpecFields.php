@@ -39,11 +39,13 @@ class AdRuleExecutionSpecFields extends AbstractEnum {
 
   const EXECUTION_OPTIONS = 'execution_options';
   const EXECUTION_TYPE = 'execution_type';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'execution_options' => 'list<AdRuleExecutionOptions>',
       'execution_type' => 'ExecutionType',
+      'id' => 'string',
     );
   }
 }

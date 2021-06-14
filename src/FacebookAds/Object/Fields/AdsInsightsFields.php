@@ -59,6 +59,7 @@ class AdsInsightsFields extends AbstractEnum {
   const ADSET_NAME = 'adset_name';
   const ADSET_START = 'adset_start';
   const AGE_TARGETING = 'age_targeting';
+  const ATTRIBUTION_SETTING = 'attribution_setting';
   const AUCTION_BID = 'auction_bid';
   const AUCTION_COMPETITIVENESS = 'auction_competitiveness';
   const AUCTION_MAX_COMPETITOR_BID = 'auction_max_competitor_bid';
@@ -67,6 +68,7 @@ class AdsInsightsFields extends AbstractEnum {
   const CAMPAIGN_NAME = 'campaign_name';
   const CANVAS_AVG_VIEW_PERCENT = 'canvas_avg_view_percent';
   const CANVAS_AVG_VIEW_TIME = 'canvas_avg_view_time';
+  const CATALOG_SEGMENT_ACTIONS = 'catalog_segment_actions';
   const CATALOG_SEGMENT_VALUE = 'catalog_segment_value';
   const CATALOG_SEGMENT_VALUE_MOBILE_PURCHASE_ROAS = 'catalog_segment_value_mobile_purchase_roas';
   const CATALOG_SEGMENT_VALUE_OMNI_PURCHASE_ROAS = 'catalog_segment_value_omni_purchase_roas';
@@ -75,6 +77,8 @@ class AdsInsightsFields extends AbstractEnum {
   const CONVERSION_RATE_RANKING = 'conversion_rate_ranking';
   const CONVERSION_VALUES = 'conversion_values';
   const CONVERSIONS = 'conversions';
+  const CONVERTED_PRODUCT_QUANTITY = 'converted_product_quantity';
+  const CONVERTED_PRODUCT_VALUE = 'converted_product_value';
   const COST_PER_15_SEC_VIDEO_VIEW = 'cost_per_15_sec_video_view';
   const COST_PER_2_SEC_CONTINUOUS_VIDEO_VIEW = 'cost_per_2_sec_continuous_video_view';
   const COST_PER_ACTION_TYPE = 'cost_per_action_type';
@@ -119,10 +123,12 @@ class AdsInsightsFields extends AbstractEnum {
   const INSTANT_EXPERIENCE_CLICKS_TO_OPEN = 'instant_experience_clicks_to_open';
   const INSTANT_EXPERIENCE_CLICKS_TO_START = 'instant_experience_clicks_to_start';
   const INSTANT_EXPERIENCE_OUTBOUND_CLICKS = 'instant_experience_outbound_clicks';
+  const INTERACTIVE_COMPONENT_TAP = 'interactive_component_tap';
   const LABELS = 'labels';
   const LOCATION = 'location';
   const MOBILE_APP_PURCHASE_ROAS = 'mobile_app_purchase_roas';
   const OBJECTIVE = 'objective';
+  const OPTIMIZATION_GOAL = 'optimization_goal';
   const OUTBOUND_CLICKS = 'outbound_clicks';
   const OUTBOUND_CLICKS_CTR = 'outbound_clicks_ctr';
   const PLACE_PAGE_NAME = 'place_page_name';
@@ -192,6 +198,7 @@ class AdsInsightsFields extends AbstractEnum {
       'adset_name' => 'string',
       'adset_start' => 'string',
       'age_targeting' => 'string',
+      'attribution_setting' => 'string',
       'auction_bid' => 'string',
       'auction_competitiveness' => 'string',
       'auction_max_competitor_bid' => 'string',
@@ -200,6 +207,7 @@ class AdsInsightsFields extends AbstractEnum {
       'campaign_name' => 'string',
       'canvas_avg_view_percent' => 'string',
       'canvas_avg_view_time' => 'string',
+      'catalog_segment_actions' => 'list<AdsActionStats>',
       'catalog_segment_value' => 'list<AdsActionStats>',
       'catalog_segment_value_mobile_purchase_roas' => 'list<AdsActionStats>',
       'catalog_segment_value_omni_purchase_roas' => 'list<AdsActionStats>',
@@ -208,6 +216,8 @@ class AdsInsightsFields extends AbstractEnum {
       'conversion_rate_ranking' => 'string',
       'conversion_values' => 'list<AdsActionStats>',
       'conversions' => 'list<AdsActionStats>',
+      'converted_product_quantity' => 'list<AdsActionStats>',
+      'converted_product_value' => 'list<AdsActionStats>',
       'cost_per_15_sec_video_view' => 'list<AdsActionStats>',
       'cost_per_2_sec_continuous_video_view' => 'list<AdsActionStats>',
       'cost_per_action_type' => 'list<AdsActionStats>',
@@ -252,10 +262,12 @@ class AdsInsightsFields extends AbstractEnum {
       'instant_experience_clicks_to_open' => 'string',
       'instant_experience_clicks_to_start' => 'string',
       'instant_experience_outbound_clicks' => 'string',
+      'interactive_component_tap' => 'list<AdsActionStats>',
       'labels' => 'string',
       'location' => 'string',
       'mobile_app_purchase_roas' => 'list<AdsActionStats>',
       'objective' => 'string',
+      'optimization_goal' => 'string',
       'outbound_clicks' => 'list<AdsActionStats>',
       'outbound_clicks_ctr' => 'list<AdsActionStats>',
       'place_page_name' => 'string',

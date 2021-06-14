@@ -39,12 +39,14 @@ class CPASParentCatalogSettingsFields extends AbstractEnum {
 
   const ATTRIBUTION_WINDOWS = 'attribution_windows';
   const DEFAULT_CURRENCY = 'default_currency';
+  const DISABLE_USE_AS_PARENT_CATALOG = 'disable_use_as_parent_catalog';
   const ID = 'id';
 
   public function getFieldTypes() {
     return array(
       'attribution_windows' => 'list<string>',
       'default_currency' => 'string',
+      'disable_use_as_parent_catalog' => 'bool',
       'id' => 'string',
     );
   }

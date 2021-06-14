@@ -41,7 +41,6 @@ use FacebookAds\Object\Values\GroupGroupTypeValues;
 use FacebookAds\Object\Values\GroupJoinSettingValues;
 use FacebookAds\Object\Values\GroupPostPermissionsValues;
 use FacebookAds\Object\Values\GroupPurposeValues;
-use FacebookAds\Object\Values\GroupSuggestionCategoryValues;
 use FacebookAds\Object\Values\LiveVideoBroadcastStatusValues;
 use FacebookAds\Object\Values\LiveVideoProjectionValues;
 use FacebookAds\Object\Values\LiveVideoSourceValues;
@@ -51,6 +50,15 @@ use FacebookAds\Object\Values\LiveVideoStereoscopicModeValues;
 use FacebookAds\Object\Values\LiveVideoStreamTypeValues;
 use FacebookAds\Object\Values\PhotoBackdatedTimeGranularityValues;
 use FacebookAds\Object\Values\PhotoUnpublishedContentTypeValues;
+use FacebookAds\Object\Values\PostBackdatedTimeGranularityValues;
+use FacebookAds\Object\Values\PostCheckinEntryPointValues;
+use FacebookAds\Object\Values\PostFormattingValues;
+use FacebookAds\Object\Values\PostPlaceAttachmentSettingValues;
+use FacebookAds\Object\Values\PostPostSurfacesBlacklistValues;
+use FacebookAds\Object\Values\PostPostingToRedspaceValues;
+use FacebookAds\Object\Values\PostTargetSurfaceValues;
+use FacebookAds\Object\Values\PostUnpublishedContentTypeValues;
+use FacebookAds\Object\Values\ProfilePictureSourceBreakingChangeValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
 
 /**
@@ -77,7 +85,6 @@ class Group extends AbstractCrudObject {
     $ref_enums['PostPermissions'] = GroupPostPermissionsValues::getInstance()->getValues();
     $ref_enums['Purpose'] = GroupPurposeValues::getInstance()->getValues();
     $ref_enums['GroupType'] = GroupGroupTypeValues::getInstance()->getValues();
-    $ref_enums['SuggestionCategory'] = GroupSuggestionCategoryValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -233,6 +240,35 @@ class Group extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getFeed(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'include_hidden' => 'bool',
+      'q' => 'string',
+      'show_expired' => 'bool',
+      'since' => 'datetime',
+      'until' => 'datetime',
+      'with' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/feed',
+      new Post(),
+      'EDGE',
+      Post::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createFeed(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -351,52 +387,14 @@ class Group extends AbstractCrudObject {
       'width' => 'unsigned int',
     );
     $enums = array(
-      'backdated_time_granularity_enum' => array(
-        'day',
-        'hour',
-        'min',
-        'month',
-        'none',
-        'year',
-      ),
-      'checkin_entry_point_enum' => array(
-        'BRANDING_CHECKIN',
-        'BRANDING_OTHER',
-        'BRANDING_PHOTO',
-        'BRANDING_STATUS',
-      ),
-      'formatting_enum' => array(
-        'MARKDOWN',
-        'PLAINTEXT',
-      ),
-      'place_attachment_setting_enum' => array(
-        '1',
-        '2',
-      ),
-      'post_surfaces_blacklist_enum' => array(
-        '1',
-        '2',
-        '3',
-        '4',
-        '5',
-      ),
-      'posting_to_redspace_enum' => array(
-        'disabled',
-        'enabled',
-      ),
-      'target_surface_enum' => array(
-        'STORY',
-        'TIMELINE',
-      ),
-      'unpublished_content_type_enum' => array(
-        'ADS_POST',
-        'DRAFT',
-        'INLINE_CREATED',
-        'PUBLISHED',
-        'REVIEWABLE_BRANDED_CONTENT',
-        'SCHEDULED',
-        'SCHEDULED_RECURRING',
-      ),
+      'backdated_time_granularity_enum' => PostBackdatedTimeGranularityValues::getInstance()->getValues(),
+      'checkin_entry_point_enum' => PostCheckinEntryPointValues::getInstance()->getValues(),
+      'formatting_enum' => PostFormattingValues::getInstance()->getValues(),
+      'place_attachment_setting_enum' => PostPlaceAttachmentSettingValues::getInstance()->getValues(),
+      'post_surfaces_blacklist_enum' => PostPostSurfacesBlacklistValues::getInstance()->getValues(),
+      'posting_to_redspace_enum' => PostPostingToRedspaceValues::getInstance()->getValues(),
+      'target_surface_enum' => PostTargetSurfaceValues::getInstance()->getValues(),
+      'unpublished_content_type_enum' => PostUnpublishedContentTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -404,6 +402,29 @@ class Group extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/feed',
+      new Post(),
+      'EDGE',
+      Post::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getFiles(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/files',
       new AbstractCrudObject(),
       'EDGE',
       array(),
@@ -452,14 +473,11 @@ class Group extends AbstractCrudObject {
       'post_requires_admin_approval' => 'bool',
       'privacy' => 'string',
       'ref' => 'string',
-      'suggestion_category' => 'suggestion_category_enum',
-      'suggestion_identifier' => 'string',
     );
     $enums = array(
       'group_type_enum' => GroupGroupTypeValues::getInstance()->getValues(),
       'join_setting_enum' => GroupJoinSettingValues::getInstance()->getValues(),
       'post_permissions_enum' => GroupPostPermissionsValues::getInstance()->getValues(),
-      'suggestion_category_enum' => GroupSuggestionCategoryValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -470,6 +488,37 @@ class Group extends AbstractCrudObject {
       new Group(),
       'EDGE',
       Group::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createImportantPost(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'button_type' => 'button_type_enum',
+      'expiration_time' => 'datetime',
+      'post_id' => 'string',
+    );
+    $enums = array(
+      'button_type_enum' => array(
+        'DISMISS',
+        'DONE',
+        'MARK_AS_READ',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/important_posts',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -510,6 +559,7 @@ class Group extends AbstractCrudObject {
     $param_types = array(
       'content_tags' => 'list<string>',
       'description' => 'string',
+      'enable_backup_ingest' => 'bool',
       'encoding_settings' => 'string',
       'fisheye_video_cropped' => 'bool',
       'front_z_rotation' => 'float',
@@ -521,7 +571,6 @@ class Group extends AbstractCrudObject {
       'privacy' => 'string',
       'projection' => 'projection_enum',
       'published' => 'bool',
-      'save_vod' => 'bool',
       'schedule_custom_profile_image' => 'file',
       'spatial_audio_format' => 'spatial_audio_format_enum',
       'status' => 'status_enum',
@@ -710,12 +759,14 @@ class Group extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'breaking_change' => 'breaking_change_enum',
       'height' => 'int',
       'redirect' => 'bool',
       'type' => 'type_enum',
       'width' => 'int',
     );
     $enums = array(
+      'breaking_change_enum' => ProfilePictureSourceBreakingChangeValues::getInstance()->getValues(),
       'type_enum' => ProfilePictureSourceTypeValues::getInstance()->getValues(),
     );
 
@@ -727,6 +778,54 @@ class Group extends AbstractCrudObject {
       new ProfilePictureSource(),
       'EDGE',
       ProfilePictureSource::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function deletePinnedPosts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'post_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/pinned_posts',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createPinnedPost(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'post_ids' => 'list<string>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/pinned_posts',
+      new Post(),
+      'EDGE',
+      Post::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -767,7 +866,6 @@ class Group extends AbstractCrudObject {
       'animated_effect_id' => 'unsigned int',
       'application_id' => 'string',
       'asked_fun_fact_prompt_id' => 'unsigned int',
-      'attribution_app_id' => 'string',
       'audio_story_wave_animation_handle' => 'string',
       'composer_entry_picker' => 'string',
       'composer_entry_point' => 'string',
@@ -778,6 +876,7 @@ class Group extends AbstractCrudObject {
       'composer_type' => 'string',
       'container_type' => 'container_type_enum',
       'content_category' => 'content_category_enum',
+      'creative_tools' => 'string',
       'description' => 'string',
       'embeddable' => 'bool',
       'end_offset' => 'unsigned int',
@@ -819,6 +918,7 @@ class Group extends AbstractCrudObject {
       'scheduled_publish_time' => 'unsigned int',
       'slideshow_spec' => 'map',
       'source' => 'string',
+      'source_instagram_media_id' => 'string',
       'spherical' => 'bool',
       'start_offset' => 'unsigned int',
       'swap_mode' => 'swap_mode_enum',
@@ -833,6 +933,7 @@ class Group extends AbstractCrudObject {
       'upload_session_id' => 'string',
       'upload_setting_properties' => 'string',
       'video_file_chunk' => 'string',
+      'video_id_original' => 'string',
       'video_start_time_ms' => 'unsigned int',
       'waterfall_id' => 'string',
     );

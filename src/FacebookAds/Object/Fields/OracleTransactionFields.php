@@ -42,7 +42,6 @@ class OracleTransactionFields extends AbstractEnum {
   const AMOUNT_DUE = 'amount_due';
   const BILLED_AMOUNT_DETAILS = 'billed_amount_details';
   const BILLING_PERIOD = 'billing_period';
-  const CAMPAIGN = 'campaign';
   const CDN_DOWNLOAD_URI = 'cdn_download_uri';
   const CURRENCY = 'currency';
   const DOWNLOAD_URI = 'download_uri';
@@ -64,7 +63,6 @@ class OracleTransactionFields extends AbstractEnum {
       'amount_due' => 'CurrencyAmount',
       'billed_amount_details' => 'BilledAmountDetails',
       'billing_period' => 'string',
-      'campaign' => 'AtlasCampaign',
       'cdn_download_uri' => 'string',
       'currency' => 'string',
       'download_uri' => 'string',

@@ -83,7 +83,7 @@ class CommentFields extends AbstractEnum {
       'message_tags' => 'list<EntityAtTextRange>',
       'object' => 'Object',
       'parent' => 'Comment',
-      'permalink_url' => 'string',
+      'permalink_url' => 'Object',
       'private_reply_conversation' => 'Object',
       'user_likes' => 'bool',
     );

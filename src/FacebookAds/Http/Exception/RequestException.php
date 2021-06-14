@@ -113,6 +113,11 @@ class RequestException extends Exception {
     if (is_string($array)) {
       $array = json_decode($array, true);
     }
+
+    if (is_null($array)) {
+      return null;
+    }
+
     return array_key_exists($key, $array)
       ? $array[$key]
       : $default;

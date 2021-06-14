@@ -44,10 +44,12 @@ class ReferralFields extends AbstractEnum {
   const NAMESPACE = 'namespace';
   const NEED_PROMO_CODE = 'need_promo_code';
   const OFFER_ORIGIN = 'offer_origin';
+  const PRIVACY_POLICY_LINK = 'privacy_policy_link';
   const PROMOTION_TEXT = 'promotion_text';
   const RECEIVER_BENEFITS_TEXT = 'receiver_benefits_text';
   const REFERRAL_LINK_URI = 'referral_link_uri';
   const SENDER_BENEFITS_TEXT = 'sender_benefits_text';
+  const TERMS_AND_CONDITION_LINK = 'terms_and_condition_link';
 
   public function getFieldTypes() {
     return array(
@@ -58,10 +60,12 @@ class ReferralFields extends AbstractEnum {
       'namespace' => 'string',
       'need_promo_code' => 'bool',
       'offer_origin' => 'string',
+      'privacy_policy_link' => 'string',
       'promotion_text' => 'string',
       'receiver_benefits_text' => 'string',
       'referral_link_uri' => 'string',
       'sender_benefits_text' => 'string',
+      'terms_and_condition_link' => 'string',
     );
   }
 }

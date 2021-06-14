@@ -38,7 +38,6 @@ use FacebookAds\Object\Values\AdVideoSwapModeValues;
 use FacebookAds\Object\Values\AdVideoTypeValues;
 use FacebookAds\Object\Values\AdVideoUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\AdVideoUploadPhaseValues;
-use FacebookAds\Object\Values\AdVideoValidationAdPlacementsValues;
 use FacebookAds\Object\Values\CommentCommentPrivacyValueValues;
 use FacebookAds\Object\Values\CommentFilterValues;
 use FacebookAds\Object\Values\CommentLiveFilterValues;
@@ -82,7 +81,6 @@ class AdVideo extends AbstractCrudObject {
     $ref_enums['SwapMode'] = AdVideoSwapModeValues::getInstance()->getValues();
     $ref_enums['UnpublishedContentType'] = AdVideoUnpublishedContentTypeValues::getInstance()->getValues();
     $ref_enums['UploadPhase'] = AdVideoUploadPhaseValues::getInstance()->getValues();
-    $ref_enums['ValidationAdPlacements'] = AdVideoValidationAdPlacementsValues::getInstance()->getValues();
     $ref_enums['Type'] = AdVideoTypeValues::getInstance()->getValues();
     $ref_enums['BackdatedTimeGranularity'] = AdVideoBackdatedTimeGranularityValues::getInstance()->getValues();
     return $ref_enums;
@@ -347,29 +345,6 @@ class AdVideo extends AbstractCrudObject {
       new VideoPoll(),
       'EDGE',
       VideoPoll::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getSharedPosts(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/sharedposts',
-      new Post(),
-      'EDGE',
-      Post::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

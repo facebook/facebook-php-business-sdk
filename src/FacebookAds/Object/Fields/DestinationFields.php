@@ -39,10 +39,12 @@ class DestinationFields extends AbstractEnum {
 
   const ADDRESS = 'address';
   const APPLINKS = 'applinks';
+  const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
   const CURRENCY = 'currency';
   const DESCRIPTION = 'description';
   const DESTINATION_ID = 'destination_id';
   const ID = 'id';
+  const IMAGE_FETCH_STATUS = 'image_fetch_status';
   const IMAGES = 'images';
   const NAME = 'name';
   const PRICE = 'price';
@@ -55,10 +57,12 @@ class DestinationFields extends AbstractEnum {
     return array(
       'address' => 'string',
       'applinks' => 'CatalogItemAppLinks',
+      'category_specific_fields' => 'CatalogSubVerticalList',
       'currency' => 'string',
       'description' => 'string',
       'destination_id' => 'string',
       'id' => 'string',
+      'image_fetch_status' => 'ImageFetchStatus',
       'images' => 'list<string>',
       'name' => 'string',
       'price' => 'string',

@@ -39,5 +39,5 @@ class AdsPixelDataUseSettingValues extends AbstractEnum {
 
   const ADVERTISING_AND_ANALYTICS = 'ADVERTISING_AND_ANALYTICS';
   const ANALYTICS_ONLY = 'ANALYTICS_ONLY';
-  const EMPTY = 'EMPTY';
+  const VALUE_EMPTY = 'EMPTY';
 }

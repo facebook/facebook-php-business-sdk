@@ -37,10 +37,12 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdCreativePortraitCustomizationsFields extends AbstractEnum {
 
+  const CAROUSEL_DELIVERY_MODE = 'carousel_delivery_mode';
   const SPECIFICATIONS = 'specifications';
 
   public function getFieldTypes() {
     return array(
+      'carousel_delivery_mode' => 'string',
       'specifications' => 'list<Object>',
     );
   }

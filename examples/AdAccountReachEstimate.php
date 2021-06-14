@@ -24,7 +24,7 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use FacebookAds\Object\AdAccount;
-use FacebookAds\Object\ReachEstimate;
+use FacebookAds\Object\AdAccountReachEstimate;
 use FacebookAds\Api;
 use FacebookAds\Logger\CurlLogger;
 

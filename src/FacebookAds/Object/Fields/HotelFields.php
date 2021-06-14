@@ -41,11 +41,13 @@ class HotelFields extends AbstractEnum {
   const APPLINKS = 'applinks';
   const BRAND = 'brand';
   const CATEGORY = 'category';
+  const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
   const CURRENCY = 'currency';
   const DESCRIPTION = 'description';
   const GUEST_RATINGS = 'guest_ratings';
   const HOTEL_ID = 'hotel_id';
   const ID = 'id';
+  const IMAGE_FETCH_STATUS = 'image_fetch_status';
   const IMAGES = 'images';
   const LOWEST_BASE_PRICE = 'lowest_base_price';
   const LOYALTY_PROGRAM = 'loyalty_program';
@@ -64,11 +66,13 @@ class HotelFields extends AbstractEnum {
       'applinks' => 'CatalogItemAppLinks',
       'brand' => 'string',
       'category' => 'string',
+      'category_specific_fields' => 'CatalogSubVerticalList',
       'currency' => 'string',
       'description' => 'string',
       'guest_ratings' => 'string',
       'hotel_id' => 'string',
       'id' => 'string',
+      'image_fetch_status' => 'ImageFetchStatus',
       'images' => 'list<string>',
       'lowest_base_price' => 'string',
       'loyalty_program' => 'string',

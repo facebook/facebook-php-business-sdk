@@ -48,7 +48,6 @@ class GroupFields extends AbstractEnum {
   const MEMBER_COUNT = 'member_count';
   const MEMBER_REQUEST_COUNT = 'member_request_count';
   const NAME = 'name';
-  const OWNER = 'owner';
   const PARENT = 'parent';
   const PERMISSIONS = 'permissions';
   const PRIVACY = 'privacy';
@@ -70,7 +69,6 @@ class GroupFields extends AbstractEnum {
       'member_count' => 'unsigned int',
       'member_request_count' => 'unsigned int',
       'name' => 'string',
-      'owner' => 'Object',
       'parent' => 'Object',
       'permissions' => 'list<string>',
       'privacy' => 'string',

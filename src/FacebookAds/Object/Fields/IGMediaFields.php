@@ -43,6 +43,7 @@ class IGMediaFields extends AbstractEnum {
   const IG_ID = 'ig_id';
   const IS_COMMENT_ENABLED = 'is_comment_enabled';
   const LIKE_COUNT = 'like_count';
+  const MEDIA_PRODUCT_TYPE = 'media_product_type';
   const MEDIA_TYPE = 'media_type';
   const MEDIA_URL = 'media_url';
   const OWNER = 'owner';
@@ -51,6 +52,7 @@ class IGMediaFields extends AbstractEnum {
   const THUMBNAIL_URL = 'thumbnail_url';
   const TIMESTAMP = 'timestamp';
   const USERNAME = 'username';
+  const VIDEO_TITLE = 'video_title';
 
   public function getFieldTypes() {
     return array(
@@ -60,6 +62,7 @@ class IGMediaFields extends AbstractEnum {
       'ig_id' => 'string',
       'is_comment_enabled' => 'bool',
       'like_count' => 'int',
+      'media_product_type' => 'string',
       'media_type' => 'string',
       'media_url' => 'string',
       'owner' => 'IGUser',
@@ -68,6 +71,7 @@ class IGMediaFields extends AbstractEnum {
       'thumbnail_url' => 'string',
       'timestamp' => 'datetime',
       'username' => 'string',
+      'video_title' => 'string',
     );
   }
 }

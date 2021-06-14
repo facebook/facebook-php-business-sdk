@@ -92,6 +92,7 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const UPDATE_AD_SET_BIDDING = 'update_ad_set_bidding';
   const UPDATE_AD_SET_BUDGET = 'update_ad_set_budget';
   const UPDATE_AD_SET_DURATION = 'update_ad_set_duration';
+  const UPDATE_AD_SET_LEARNING_STAGE_STATUS = 'update_ad_set_learning_stage_status';
   const UPDATE_AD_SET_MIN_SPEND_TARGET = 'update_ad_set_min_spend_target';
   const UPDATE_AD_SET_NAME = 'update_ad_set_name';
   const UPDATE_AD_SET_OPTIMIZATION_GOAL = 'update_ad_set_optimization_goal';
@@ -105,11 +106,11 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const UPDATE_CAMPAIGN_BUDGET = 'update_campaign_budget';
   const UPDATE_CAMPAIGN_BUDGET_OPTIMIZATION_TOGGLING_STATUS = 'update_campaign_budget_optimization_toggling_status';
   const UPDATE_CAMPAIGN_DELIVERY_TYPE = 'update_campaign_delivery_type';
-  const UPDATE_CAMPAIGN_DURATION = 'update_campaign_duration';
   const UPDATE_CAMPAIGN_GROUP_AD_SCHEDULING = 'update_campaign_group_ad_scheduling';
   const UPDATE_CAMPAIGN_GROUP_DELIVERY_TYPE = 'update_campaign_group_delivery_type';
   const UPDATE_CAMPAIGN_GROUP_SPEND_CAP = 'update_campaign_group_spend_cap';
   const UPDATE_CAMPAIGN_NAME = 'update_campaign_name';
   const UPDATE_CAMPAIGN_RUN_STATUS = 'update_campaign_run_status';
   const UPDATE_CAMPAIGN_SCHEDULE = 'update_campaign_schedule';
+  const UPDATE_DELIVERY_TYPE_CROSS_LEVEL_SHIFT = 'update_delivery_type_cross_level_shift';
 }

@@ -33,7 +33,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   /**
    * Test cases for Email Normalization
    */
-  public function testEmailNormalizeData() {
+  public function emailNormalizeData() {
     return array(
       array(
         "foo(.bar)@baz.com/",
@@ -51,7 +51,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   }
 
   /**
-   * @dataProvider testEmailNormalizeData
+   * @dataProvider emailNormalizeData
    */
   public function testEmailNormalize($input, $expected) {
     $this->assertEquals(
@@ -62,7 +62,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   /**
    * Test cases for Phone Normalization
    */
-  public function testPhoneNormalizeData() {
+  public function phoneNormalizeData() {
     return array(
       array(
         '123-456-7890',
@@ -84,7 +84,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   }
 
   /**
-   * @dataProvider testPhoneNormalizeData
+   * @dataProvider phoneNormalizeData
    */
   public function testPhoneNormalize($input, $expected) {
     $this->assertEquals(
@@ -95,7 +95,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   /**
    * Test cases for Postal Code Normalization
    */
-  public function testPostalCodeNormalizeData() {
+  public function postalCodeNormalizeData() {
     return array(
       array(
         '  98121',
@@ -117,7 +117,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   }
 
   /**
-   * @dataProvider testPostalCodeNormalizeData
+   * @dataProvider postalCodeNormalizeData
    */
   public function testPostalCodeNormalize($input, $expected) {
     $this->assertEquals(
@@ -128,7 +128,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   /**
    * Test cases for City Normalization
    */
-  public function testCityNormalizeData() {
+  public function cityNormalizeData() {
     return array(
       array(
         'Menlo Park',
@@ -146,7 +146,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   }
 
   /**
-   * @dataProvider testCityNormalizeData
+   * @dataProvider cityNormalizeData
    */
   public function testCityNormalize($input, $expected) {
     $this->assertEquals(
@@ -157,7 +157,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   /**
    * Test cases for Country Normalization
    */
-  public function testCountryNormalizeData() {
+  public function countryNormalizeData() {
     return array(
       array(
         '   US   ',
@@ -171,7 +171,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   }
 
   /**
-   * @dataProvider testCountryNormalizeData
+   * @dataProvider countryNormalizeData
    */
   public function testCountryNormalize($input, $expected) {
     $this->assertEquals(
@@ -182,7 +182,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   /**
    * Test cases for Currency Normalization
    */
-  public function testCurrencyNormalizeData() {
+  public function currencyNormalizeData() {
     return array(
       array(
         '   ABC   ', // Can't validate the data, just normalizes.
@@ -196,7 +196,7 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
   }
 
   /**
-   * @dataProvider testCurrencyNormalizeData
+   * @dataProvider currencyNormalizeData
    */
   public function testCurrencyNormalize($input, $expected) {
     $this->assertEquals(
@@ -241,5 +241,293 @@ class ServerSideNormalizeTest extends AbstractUnitTestCase {
       $has_throw_exception = true;
     }
     $this->assertTrue($has_throw_exception);
+  }
+
+  public function f5firstData() {
+    return array(
+      array(
+        'George',
+        'georg',
+      ),
+      array(
+        'John',
+        'john',
+      ),
+      array(
+        '',
+        '',
+      ),
+      array(
+        null,
+        null,
+      ),
+    );
+  }
+
+  /**
+   * @dataProvider f5firstData
+   */
+  public function testF5first($input, $expected) {
+    $this->assertEquals(
+      $expected,
+      Normalizer::normalize('f5first', $input)
+    );
+  }
+
+  public function f5lastData() {
+    return array(
+      array(
+        'Washington',
+        'washi',
+      ),
+      array(
+        'Adams',
+        'adams',
+      ),
+      array(
+        '',
+        '',
+      ),
+      array(
+        null,
+        null,
+      ),
+    );
+  }
+
+  /**
+   * @dataProvider f5lastData
+   */
+  public function testF5last($input, $expected) {
+    $this->assertEquals(
+      $expected,
+      Normalizer::normalize('f5last', $input)
+    );
+  }
+
+  public function fiData() {
+    return array(
+      array(
+        'GW',
+        'g',
+      ),
+      array(
+        'j',
+        'j',
+      ),
+      array(
+        '',
+        '',
+      ),
+      array(
+        null,
+        null,
+      ),
+    );
+  }
+
+  /**
+   * @dataProvider fiData
+   */
+  public function testFi($input, $expected) {
+    $this->assertEquals(
+      $expected,
+      Normalizer::normalize('fi', $input)
+    );
+  }
+
+  public function dobdData() {
+    return array(
+      array(
+        '1',
+        '01',
+      ),
+      array(
+        '9',
+        '09',
+      ),
+      array(
+        '31',
+        '31',
+      ),
+      array(
+        '',
+        '',
+      ),
+      array(
+        null,
+        null,
+      ),
+    );
+  }
+
+  /**
+   * @dataProvider dobdData
+   */
+  public function testDobd($input, $expected) {
+    $this->assertEquals(
+      $expected,
+      Normalizer::normalize('dobd', $input)
+    );
+  }
+
+  public function testDobdException() {
+    $failure_cases = array(
+      '-1',
+      '0',
+      '32',
+      '2b',
+      'ab',
+    );
+    $exceptions_counter = 0;
+    $has_throw_exception = false;
+    foreach ($failure_cases as $case) {
+      try {
+        Normalizer::normalize('dobd', $case);
+      } catch (\Exception $e) {
+        $exceptions_counter += 1;
+      }
+    }
+    $this->assertEquals(count($failure_cases), $exceptions_counter);
+  }
+
+  public function dobmData() {
+    return array(
+      array(
+        '1',
+        '01',
+      ),
+      array(
+        '5',
+        '05',
+      ),
+      array(
+        '12',
+        '12',
+      ),
+      array(
+        '',
+        '',
+      ),
+      array(
+        null,
+        null,
+      ),
+    );
+  }
+
+  /**
+   * @dataProvider dobmData
+   */
+  public function testDobm($input, $expected) {
+    $this->assertEquals(
+      $expected,
+      Normalizer::normalize('dobm', $input)
+    );
+  }
+
+  public function testDobmException() {
+    $failure_cases = array(
+      '-1',
+      '0',
+      '13',
+      '1a',
+      'May',
+      'oc',
+    );
+    $exceptions_counter = 0;
+    $has_throw_exception = false;
+    foreach ($failure_cases as $case) {
+      try {
+        Normalizer::normalize('dobm', $case);
+      } catch (\Exception $e) {
+        $exceptions_counter += 1;
+      }
+    }
+    $this->assertEquals(count($failure_cases), $exceptions_counter);
+  }
+
+  public function dobyData() {
+    return array(
+      array(
+        '1995',
+        '1995',
+      ),
+      array(
+        '9999',
+        '9999',
+      ),
+      array(
+        '1000',
+        '1000',
+      ),
+      array(
+        '',
+        '',
+      ),
+      array(
+        null,
+        null,
+      ),
+    );
+  }
+
+  /**
+   * @dataProvider dobyData
+   */
+  public function testDoby($input, $expected) {
+    $this->assertEquals(
+      $expected,
+      Normalizer::normalize('doby', $input)
+    );
+  }
+
+  public function testDobyException() {
+    $failure_cases = array(
+      '-1',
+      '0',
+      '20',
+      '12345',
+      'nineteen-eighty',
+    );
+    $exceptions_counter = 0;
+    $has_throw_exception = false;
+    foreach ($failure_cases as $case) {
+      try {
+        Normalizer::normalize('doby', $case);
+      } catch (\Exception $e) {
+        $exceptions_counter += 1;
+      }
+    }
+    $this->assertEquals(count($failure_cases), $exceptions_counter);
+  }
+
+  /**
+   * Test cases for DeliveryCategory Normalization
+   */
+  public function deliveryCategoryNormalizeData() {
+    return array(
+      array(
+        'home_delivery',
+        'home_delivery',
+      ),
+      array(
+        'CURBSIDE',
+        'curbside',
+      ),
+      array(
+        ' IN_STORE ',
+        'in_store',
+      ),
+    );
+  }
+
+  /**
+   * @dataProvider deliveryCategoryNormalizeData
+   */
+  public function testDeliveryCategoryNormalize($input, $expected) {
+    $this->assertEquals(
+      $expected,
+      Normalizer::normalize('delivery_category', $input));
   }
 }

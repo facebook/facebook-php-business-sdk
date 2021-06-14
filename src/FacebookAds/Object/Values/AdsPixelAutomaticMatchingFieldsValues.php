@@ -37,8 +37,11 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdsPixelAutomaticMatchingFieldsValues extends AbstractEnum {
 
+  const COUNTRY = 'country';
   const CT = 'ct';
+  const DB = 'db';
   const EM = 'em';
+  const EXTERNAL_ID = 'external_id';
   const FN = 'fn';
   const GE = 'ge';
   const LN = 'ln';

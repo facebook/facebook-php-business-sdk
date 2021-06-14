@@ -81,7 +81,6 @@ class WhatsAppBusinessProfile extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'verified_name' => 'string',
     );
     $enums = array(
     );
