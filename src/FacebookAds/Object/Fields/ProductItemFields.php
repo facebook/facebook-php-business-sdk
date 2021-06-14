@@ -70,6 +70,7 @@ class ProductItemFields extends AbstractEnum {
   const IMAGES = 'images';
   const INVENTORY = 'inventory';
   const MANUFACTURER_PART_NUMBER = 'manufacturer_part_number';
+  const MARKED_FOR_PRODUCT_LAUNCH = 'marked_for_product_launch';
   const MATERIAL = 'material';
   const MOBILE_LINK = 'mobile_link';
   const NAME = 'name';
@@ -81,6 +82,7 @@ class ProductItemFields extends AbstractEnum {
   const PRODUCT_FEED = 'product_feed';
   const PRODUCT_GROUP = 'product_group';
   const PRODUCT_TYPE = 'product_type';
+  const QUANTITY_TO_SELL_ON_FACEBOOK = 'quantity_to_sell_on_facebook';
   const RETAILER_ID = 'retailer_id';
   const RETAILER_PRODUCT_GROUP_ID = 'retailer_product_group_id';
   const REVIEW_REJECTION_REASONS = 'review_rejection_reasons';
@@ -155,6 +157,7 @@ class ProductItemFields extends AbstractEnum {
       'images' => 'list<string>',
       'inventory' => 'int',
       'manufacturer_part_number' => 'string',
+      'marked_for_product_launch' => 'string',
       'material' => 'string',
       'mobile_link' => 'string',
       'name' => 'string',
@@ -166,6 +169,7 @@ class ProductItemFields extends AbstractEnum {
       'product_feed' => 'ProductFeed',
       'product_group' => 'ProductGroup',
       'product_type' => 'string',
+      'quantity_to_sell_on_facebook' => 'int',
       'retailer_id' => 'string',
       'retailer_product_group_id' => 'string',
       'review_rejection_reasons' => 'list<string>',

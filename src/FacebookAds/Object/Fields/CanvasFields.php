@@ -44,8 +44,10 @@ class CanvasFields extends AbstractEnum {
   const IS_HIDDEN = 'is_hidden';
   const IS_PUBLISHED = 'is_published';
   const LAST_EDITOR = 'last_editor';
+  const LINKED_DOCUMENTS = 'linked_documents';
   const NAME = 'name';
   const OWNER = 'owner';
+  const SOURCE_TEMPLATE = 'source_template';
   const UPDATE_TIME = 'update_time';
 
   public function getFieldTypes() {
@@ -57,8 +59,10 @@ class CanvasFields extends AbstractEnum {
       'is_hidden' => 'bool',
       'is_published' => 'bool',
       'last_editor' => 'User',
+      'linked_documents' => 'list<Canvas>',
       'name' => 'string',
       'owner' => 'Page',
+      'source_template' => 'CanvasTemplate',
       'update_time' => 'int',
     );
   }

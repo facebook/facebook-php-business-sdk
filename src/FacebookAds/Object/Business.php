@@ -702,32 +702,6 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createClientAdAccount(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'adaccount_id' => 'string',
-      'permitted_tasks' => 'list<permitted_tasks_enum>',
-    );
-    $enums = array(
-      'permitted_tasks_enum' => BusinessPermittedTasksValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/client_ad_accounts',
-      new Business(),
-      'EDGE',
-      Business::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getClientApps(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1219,42 +1193,6 @@ class Business extends AbstractCrudObject {
       new ExtendedCredit(),
       'EDGE',
       ExtendedCredit::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createFranchiseProgram(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'business_asset_group' => 'string',
-      'creative_folder' => 'string',
-      'creative_spec_template_data' => 'map',
-      'description' => 'string',
-      'end_date' => 'datetime',
-      'name' => 'string',
-      'program_approval_type' => 'program_approval_type_enum',
-      'shared_custom_audience' => 'string',
-      'start_date' => 'datetime',
-    );
-    $enums = array(
-      'program_approval_type_enum' => array(
-        'APPROVAL',
-        'PUBLIC',
-      ),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/franchise_programs',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1825,6 +1763,7 @@ class Business extends AbstractCrudObject {
       'flight_catalog_settings' => 'map',
       'name' => 'string',
       'parent_catalog_id' => 'string',
+      'partner_integration' => 'map',
       'store_catalog_settings' => 'map',
       'vertical' => 'vertical_enum',
     );

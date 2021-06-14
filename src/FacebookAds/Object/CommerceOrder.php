@@ -53,9 +53,9 @@ class CommerceOrder extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['ReasonCode'] = CommerceOrderReasonCodeValues::getInstance()->getValues();
     $ref_enums['Filters'] = CommerceOrderFiltersValues::getInstance()->getValues();
     $ref_enums['State'] = CommerceOrderStateValues::getInstance()->getValues();
+    $ref_enums['ReasonCode'] = CommerceOrderReasonCodeValues::getInstance()->getValues();
     return $ref_enums;
   }
 

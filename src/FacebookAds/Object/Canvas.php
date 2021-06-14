@@ -157,6 +157,7 @@ class Canvas extends AbstractCrudObject {
       'is_hidden' => 'bool',
       'is_published' => 'bool',
       'name' => 'string',
+      'source_template_id' => 'string',
     );
     $enums = array(
     );

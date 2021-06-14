@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,29 +33,13 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static ProductCatalogDiagnosticGroupAffectedChannelsValues getInstance()
  */
+class ProductCatalogDiagnosticGroupAffectedChannelsValues extends AbstractEnum {
 
-class InvoiceCampaignNewFields extends AbstractEnum {
-
-  const AD_ACCOUNT_ID = 'ad_account_id';
-  const BILLED_AMOUNT_DETAILS = 'billed_amount_details';
-  const CAMPAIGN_ID = 'campaign_id';
-  const CAMPAIGN_NAME = 'campaign_name';
-  const CLICKS = 'clicks';
-  const CONVERSIONS = 'conversions';
-  const IMPRESSIONS = 'impressions';
-  const TAGS = 'tags';
-
-  public function getFieldTypes() {
-    return array(
-      'ad_account_id' => 'string',
-      'billed_amount_details' => 'BilledAmountDetails',
-      'campaign_id' => 'string',
-      'campaign_name' => 'string',
-      'clicks' => 'unsigned int',
-      'conversions' => 'unsigned int',
-      'impressions' => 'unsigned int',
-      'tags' => 'list<string>',
-    );
-  }
+  const BUSINESS_INBOX_IN_MESSENGER = 'business_inbox_in_messenger';
+  const SHOPS = 'shops';
+  const TEST_CAPABILITY = 'test_capability';
+  const UNIVERSAL_CHECKOUT = 'universal_checkout';
+  const US_MARKETPLACE = 'us_marketplace';
 }

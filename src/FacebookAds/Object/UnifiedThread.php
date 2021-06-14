@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\UnifiedThreadFields;
+use FacebookAds\Object\Values\UnifiedThreadPlatformValues;
 
 /**
  * This class is auto-generated.
@@ -50,6 +51,7 @@ class UnifiedThread extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['Platform'] = UnifiedThreadPlatformValues::getInstance()->getValues();
     return $ref_enums;
   }
 
