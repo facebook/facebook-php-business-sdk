@@ -81,7 +81,7 @@ class Event {
 
   /**
    * Sets UserData object that contains user data.
-   * @param FacebookAds\Object\BusinessDataAPI\UserData $user_data
+   * @param \FacebookAds\Object\BusinessDataAPI\UserData $user_data
    * @return $this
    */
   public function setUserData($user_data) {
@@ -92,7 +92,7 @@ class Event {
 
   /**
    * Sets CustomData object that includes additional business data about the event.
-   * @param FacebookAds\Object\BusinessDataAPI\CustomData $custom_data
+   * @param \FacebookAds\Object\BusinessDataAPI\CustomData $custom_data
    * @return $this
    */
   public function setCustomData($custom_data) {

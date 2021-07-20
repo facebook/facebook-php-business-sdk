@@ -53,7 +53,7 @@ class EventRequest {
 
   /**
    * Sets an array of Business Data Event objects
-   * @param FacebookAds\Object\BusinessDataAPI\Event[] $events An array of Business Data Event objects
+   * @param \FacebookAds\Object\BusinessDataAPI\Event[] $events An array of Business Data Event objects
    * @return $this
    */
   public function setEvents($events) {
