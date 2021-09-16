@@ -76,6 +76,7 @@ class VehicleFields extends AbstractEnum {
   const TITLE = 'title';
   const TRANSMISSION = 'transmission';
   const TRIM = 'trim';
+  const UNIT_PRICE = 'unit_price';
   const URL = 'url';
   const VEHICLE_ID = 'vehicle_id';
   const VEHICLE_REGISTRATION_PLATE = 'vehicle_registration_plate';
@@ -125,6 +126,7 @@ class VehicleFields extends AbstractEnum {
       'title' => 'string',
       'transmission' => 'string',
       'trim' => 'string',
+      'unit_price' => 'Object',
       'url' => 'string',
       'vehicle_id' => 'string',
       'vehicle_registration_plate' => 'string',

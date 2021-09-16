@@ -43,6 +43,7 @@ class InvoiceCampaignFields extends AbstractEnum {
   const CAMPAIGN_NAME = 'campaign_name';
   const CLICKS = 'clicks';
   const CONVERSIONS = 'conversions';
+  const DESCRIPTION = 'description';
   const IMPRESSIONS = 'impressions';
   const TAGS = 'tags';
 
@@ -54,6 +55,7 @@ class InvoiceCampaignFields extends AbstractEnum {
       'campaign_name' => 'string',
       'clicks' => 'unsigned int',
       'conversions' => 'unsigned int',
+      'description' => 'string',
       'impressions' => 'unsigned int',
       'tags' => 'list<string>',
     );

@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,11 +33,21 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdAsyncRequestSetNotificationStatusValues getInstance()
  */
-class AdAsyncRequestSetNotificationStatusValues extends AbstractEnum {
 
-  const NOT_SENT = 'NOT_SENT';
-  const SENDING = 'SENDING';
-  const SENT = 'SENT';
+class WoodhengePurchasedPAYGReceiptFields extends AbstractEnum {
+
+  const ID = 'id';
+  const NUMBER_OF_SUBSCRIPTIONS_PURCHASED = 'number_of_subscriptions_purchased';
+  const PURCHASE_TIME = 'purchase_time';
+  const USER = 'user';
+
+  public function getFieldTypes() {
+    return array(
+      'id' => 'string',
+      'number_of_subscriptions_purchased' => 'int',
+      'purchase_time' => 'datetime',
+      'user' => 'User',
+    );
+  }
 }

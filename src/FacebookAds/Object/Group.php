@@ -536,7 +536,6 @@ class Group extends AbstractCrudObject {
       'is_spherical' => 'bool',
       'live_encoders' => 'list<string>',
       'original_fov' => 'unsigned int',
-      'planned_start_time' => 'int',
       'privacy' => 'string',
       'projection' => 'projection_enum',
       'published' => 'bool',
@@ -754,6 +753,37 @@ class Group extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createShiftSetting(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'external_id' => 'string',
+      'shift_feature_setting' => 'shift_feature_setting_enum',
+    );
+    $enums = array(
+      'shift_feature_setting_enum' => array(
+        'ALL_FEATURES_OFF',
+        'ALL_FEATURES_ON',
+        'SHIFT_COVER_ONLY_ON',
+        'SHIFT_VIEWER_ONLY_ON',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/shift_settings',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getVideos(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -832,6 +862,7 @@ class Group extends AbstractCrudObject {
       'original_fov' => 'unsigned int',
       'original_projection_type' => 'original_projection_type_enum',
       'publish_event_id' => 'unsigned int',
+      'published' => 'bool',
       'react_mode_metadata' => 'string',
       'referenced_sticker_id' => 'string',
       'replace_video_id' => 'string',

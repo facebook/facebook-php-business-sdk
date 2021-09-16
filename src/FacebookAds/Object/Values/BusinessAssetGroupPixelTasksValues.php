@@ -37,6 +37,9 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class BusinessAssetGroupPixelTasksValues extends AbstractEnum {
 
+  const AA_ANALYZE = 'AA_ANALYZE';
+  const ADVERTISE = 'ADVERTISE';
   const ANALYZE = 'ANALYZE';
   const EDIT = 'EDIT';
+  const UPLOAD = 'UPLOAD';
 }

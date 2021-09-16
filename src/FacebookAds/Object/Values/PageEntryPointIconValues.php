@@ -22,13 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Values;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\ProductFeedUploadDiagnosticsReportFields;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-generated.
@@ -37,21 +33,12 @@ use FacebookAds\Object\Fields\ProductFeedUploadDiagnosticsReportFields;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static PageEntryPointIconValues getInstance()
  */
+class PageEntryPointIconValues extends AbstractEnum {
 
-class ProductFeedUploadDiagnosticsReport extends AbstractObject {
-
-  /**
-   * @return ProductFeedUploadDiagnosticsReportFields
-   */
-  public static function getFieldsEnum() {
-    return ProductFeedUploadDiagnosticsReportFields::getInstance();
-  }
-
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
+  const CHAT_ANGULAR_ICON = 'CHAT_ANGULAR_ICON';
+  const CHAT_ROUND_ICON = 'CHAT_ROUND_ICON';
+  const MESSENGER_ICON = 'MESSENGER_ICON';
+  const NONE = 'NONE';
 }

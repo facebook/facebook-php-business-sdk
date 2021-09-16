@@ -46,6 +46,7 @@ class SavedAudienceFields extends AbstractEnum {
   const ID = 'id';
   const NAME = 'name';
   const OPERATION_STATUS = 'operation_status';
+  const PAGE_DELETION_MARKED_DELETE_TIME = 'page_deletion_marked_delete_time';
   const PERMISSION_FOR_ACTIONS = 'permission_for_actions';
   const RUN_STATUS = 'run_status';
   const SENTENCE_LINES = 'sentence_lines';
@@ -64,6 +65,7 @@ class SavedAudienceFields extends AbstractEnum {
       'id' => 'string',
       'name' => 'string',
       'operation_status' => 'CustomAudienceStatus',
+      'page_deletion_marked_delete_time' => 'int',
       'permission_for_actions' => 'AudiencePermissionForActions',
       'run_status' => 'string',
       'sentence_lines' => 'list',

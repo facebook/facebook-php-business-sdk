@@ -39,6 +39,7 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
 
   const AD_FORMAT_ASSET = 'ad_format_asset';
   const AGE = 'age';
+  const APP_ID = 'app_id';
   const BODY_ASSET = 'body_asset';
   const CALL_TO_ACTION_ASSET = 'call_to_action_asset';
   const COUNTRY = 'country';
@@ -57,6 +58,7 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
   const PRODUCT_ID = 'product_id';
   const PUBLISHER_PLATFORM = 'publisher_platform';
   const REGION = 'region';
+  const SKAN_CONVERSION_ID = 'skan_conversion_id';
   const TITLE_ASSET = 'title_asset';
   const VIDEO_ASSET = 'video_asset';
 }

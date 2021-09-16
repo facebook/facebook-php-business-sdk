@@ -58,7 +58,6 @@ class CommerceMerchantSettingsFields extends AbstractEnum {
   const PRIVACY_URL_BY_LOCALE = 'privacy_url_by_locale';
   const REVIEW_REJECTION_MESSAGES = 'review_rejection_messages';
   const REVIEW_REJECTION_REASONS = 'review_rejection_reasons';
-  const REVIEW_STATUS = 'review_status';
   const SUPPORTED_CARD_TYPES = 'supported_card_types';
   const TERMS = 'terms';
   const TERMS_URL_BY_LOCALE = 'terms_url_by_locale';
@@ -87,7 +86,6 @@ class CommerceMerchantSettingsFields extends AbstractEnum {
       'privacy_url_by_locale' => 'map<string, string>',
       'review_rejection_messages' => 'list<string>',
       'review_rejection_reasons' => 'list<string>',
-      'review_status' => 'string',
       'supported_card_types' => 'list<string>',
       'terms' => 'string',
       'terms_url_by_locale' => 'map<string, string>',

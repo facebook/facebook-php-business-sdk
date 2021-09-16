@@ -79,6 +79,7 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const MESSAGING_ACCOUNT_LINKING = 'messaging_account_linking';
   const MESSAGING_APPOINTMENTS = 'messaging_appointments';
   const MESSAGING_CHECKOUT_UPDATES = 'messaging_checkout_updates';
+  const MESSAGING_CUSTOMER_INFORMATION = 'messaging_customer_information';
   const MESSAGING_DIRECT_SENDS = 'messaging_direct_sends';
   const MESSAGING_FBLOGIN_ACCOUNT_LINKING = 'messaging_fblogin_account_linking';
   const MESSAGING_FEEDBACK = 'messaging_feedback';

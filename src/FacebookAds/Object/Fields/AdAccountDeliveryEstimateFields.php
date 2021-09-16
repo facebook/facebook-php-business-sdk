@@ -41,6 +41,7 @@ class AdAccountDeliveryEstimateFields extends AbstractEnum {
   const ESTIMATE_DAU = 'estimate_dau';
   const ESTIMATE_MAU = 'estimate_mau';
   const ESTIMATE_READY = 'estimate_ready';
+  const TARGETING_OPTIMIZATION_TYPES = 'targeting_optimization_types';
 
   public function getFieldTypes() {
     return array(
@@ -48,6 +49,7 @@ class AdAccountDeliveryEstimateFields extends AbstractEnum {
       'estimate_dau' => 'int',
       'estimate_mau' => 'int',
       'estimate_ready' => 'bool',
+      'targeting_optimization_types' => 'map<string, int>',
     );
   }
 }

@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\BusinessManagedPartnerEligibilityFields;
 
 /**
  * This class is auto-generated.
@@ -35,37 +39,19 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class ReferralFields extends AbstractEnum {
+class BusinessManagedPartnerEligibility extends AbstractObject {
 
-  const ID = 'id';
-  const INVITE_LIMIT = 'invite_limit';
-  const MESSENGER_CTA = 'messenger_cta';
-  const MESSENGER_PROMOTION_TEXT = 'messenger_promotion_text';
-  const NAMESPACE = 'namespace';
-  const NEED_PROMO_CODE = 'need_promo_code';
-  const OFFER_ORIGIN = 'offer_origin';
-  const PRIVACY_POLICY_LINK = 'privacy_policy_link';
-  const PROMOTION_TEXT = 'promotion_text';
-  const RECEIVER_BENEFITS_TEXT = 'receiver_benefits_text';
-  const REFERRAL_LINK_URI = 'referral_link_uri';
-  const SENDER_BENEFITS_TEXT = 'sender_benefits_text';
-  const TERMS_AND_CONDITION_LINK = 'terms_and_condition_link';
-
-  public function getFieldTypes() {
-    return array(
-      'id' => 'string',
-      'invite_limit' => 'int',
-      'messenger_cta' => 'string',
-      'messenger_promotion_text' => 'string',
-      'namespace' => 'string',
-      'need_promo_code' => 'bool',
-      'offer_origin' => 'string',
-      'privacy_policy_link' => 'string',
-      'promotion_text' => 'string',
-      'receiver_benefits_text' => 'string',
-      'referral_link_uri' => 'string',
-      'sender_benefits_text' => 'string',
-      'terms_and_condition_link' => 'string',
-    );
+  /**
+   * @return BusinessManagedPartnerEligibilityFields
+   */
+  public static function getFieldsEnum() {
+    return BusinessManagedPartnerEligibilityFields::getInstance();
   }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
 }

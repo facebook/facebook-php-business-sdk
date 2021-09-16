@@ -43,6 +43,7 @@ class ProductSetFields extends AbstractEnum {
   const LATEST_METADATA = 'latest_metadata';
   const LIVE_METADATA = 'live_metadata';
   const NAME = 'name';
+  const ORDERING_INFO = 'ordering_info';
   const PRODUCT_CATALOG = 'product_catalog';
   const PRODUCT_COUNT = 'product_count';
   const RETAILER_ID = 'retailer_id';
@@ -56,6 +57,7 @@ class ProductSetFields extends AbstractEnum {
       'latest_metadata' => 'ProductSetMetadata',
       'live_metadata' => 'ProductSetMetadata',
       'name' => 'string',
+      'ordering_info' => 'list<int>',
       'product_catalog' => 'ProductCatalog',
       'product_count' => 'unsigned int',
       'retailer_id' => 'string',

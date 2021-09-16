@@ -35,19 +35,17 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class AdAccountContentFilterLevelsInheritanceFields extends AbstractEnum {
+class AREffectsBatchStatusFields extends AbstractEnum {
 
-  const AN_BUSINESS_IDS = 'an_business_ids';
-  const AN_LEVEL = 'an_level';
-  const FACEBOOK_BUSINESS_IDS = 'facebook_business_ids';
-  const FACEBOOK_LEVEL = 'facebook_level';
+  const ERRORS = 'errors';
+  const PRODUCT_GROUPS = 'product_groups';
+  const STATUS = 'status';
 
   public function getFieldTypes() {
     return array(
-      'an_business_ids' => 'list<string>',
-      'an_level' => 'string',
-      'facebook_business_ids' => 'list<string>',
-      'facebook_level' => 'string',
+      'errors' => 'list<string>',
+      'product_groups' => 'list<Object>',
+      'status' => 'string',
     );
   }
 }

@@ -63,6 +63,7 @@ class AdgroupPlacementSpecificReviewFeedbackFields extends AbstractEnum {
   const MARKETPLACE_MOTORS = 'marketplace_motors';
   const MARKETPLACE_SHOPS = 'marketplace_shops';
   const MAX_REVIEW_PLACEMENTS = 'max_review_placements';
+  const NEIGHBORHOODS = 'neighborhoods';
   const PAGE_ADMIN = 'page_admin';
   const PRODUCT = 'product';
   const PRODUCT_SERVICE = 'product_service';
@@ -100,6 +101,7 @@ class AdgroupPlacementSpecificReviewFeedbackFields extends AbstractEnum {
       'marketplace_motors' => 'map<string, string>',
       'marketplace_shops' => 'map<string, string>',
       'max_review_placements' => 'map<string, string>',
+      'neighborhoods' => 'map<string, string>',
       'page_admin' => 'map<string, string>',
       'product' => 'map<string, string>',
       'product_service' => 'map<string, string>',

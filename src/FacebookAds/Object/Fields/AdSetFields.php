@@ -60,6 +60,7 @@ class AdSetFields extends AbstractEnum {
   const DESTINATION_TYPE = 'destination_type';
   const EFFECTIVE_STATUS = 'effective_status';
   const END_TIME = 'end_time';
+  const EXISTING_CUSTOMER_BUDGET_PERCENTAGE = 'existing_customer_budget_percentage';
   const FREQUENCY_CONTROL_SPECS = 'frequency_control_specs';
   const FULL_FUNNEL_EXPLORATION_MODE = 'full_funnel_exploration_mode';
   const ID = 'id';
@@ -86,6 +87,7 @@ class AdSetFields extends AbstractEnum {
   const START_TIME = 'start_time';
   const STATUS = 'status';
   const TARGETING = 'targeting';
+  const TARGETING_OPTIMIZATION_TYPES = 'targeting_optimization_types';
   const TIME_BASED_AD_ROTATION_ID_BLOCKS = 'time_based_ad_rotation_id_blocks';
   const TIME_BASED_AD_ROTATION_INTERVALS = 'time_based_ad_rotation_intervals';
   const UPDATED_TIME = 'updated_time';
@@ -127,6 +129,7 @@ class AdSetFields extends AbstractEnum {
       'destination_type' => 'string',
       'effective_status' => 'EffectiveStatus',
       'end_time' => 'datetime',
+      'existing_customer_budget_percentage' => 'unsigned int',
       'frequency_control_specs' => 'list<AdCampaignFrequencyControlSpecs>',
       'full_funnel_exploration_mode' => 'string',
       'id' => 'string',
@@ -153,6 +156,7 @@ class AdSetFields extends AbstractEnum {
       'start_time' => 'datetime',
       'status' => 'Status',
       'targeting' => 'Targeting',
+      'targeting_optimization_types' => 'map<string, int>',
       'time_based_ad_rotation_id_blocks' => 'list<list<int>>',
       'time_based_ad_rotation_intervals' => 'list<unsigned int>',
       'updated_time' => 'datetime',

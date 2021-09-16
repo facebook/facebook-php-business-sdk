@@ -75,7 +75,7 @@ class LiveVideoFields extends AbstractEnum {
       'dash_ingest_url' => 'string',
       'dash_preview_url' => 'string',
       'description' => 'string',
-      'embed_html' => 'string',
+      'embed_html' => 'Object',
       'from' => 'Object',
       'id' => 'string',
       'ingest_streams' => 'list<LiveVideoInputStream>',

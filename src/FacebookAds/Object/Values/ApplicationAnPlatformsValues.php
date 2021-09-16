@@ -44,4 +44,5 @@ class ApplicationAnPlatformsValues extends AbstractEnum {
   const MOBILE_WEB = 'MOBILE_WEB';
   const OCULUS = 'OCULUS';
   const UNKNOWN = 'UNKNOWN';
+  const XIAOMI = 'XIAOMI';
 }

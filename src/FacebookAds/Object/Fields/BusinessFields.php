@@ -38,12 +38,13 @@ use FacebookAds\Enum\AbstractEnum;
 class BusinessFields extends AbstractEnum {
 
   const BLOCK_OFFLINE_ANALYTICS = 'block_offline_analytics';
+  const COLLABORATIVE_ADS_MANAGED_PARTNER_BUSINESS_INFO = 'collaborative_ads_managed_partner_business_info';
+  const COLLABORATIVE_ADS_MANAGED_PARTNER_ELIGIBILITY = 'collaborative_ads_managed_partner_eligibility';
   const CREATED_BY = 'created_by';
   const CREATED_TIME = 'created_time';
   const EXTENDED_UPDATED_TIME = 'extended_updated_time';
   const ID = 'id';
   const IS_HIDDEN = 'is_hidden';
-  const IS_INSTAGRAM_ENABLED_IN_FB_ANALYTICS = 'is_instagram_enabled_in_fb_analytics';
   const LINK = 'link';
   const NAME = 'name';
   const PRIMARY_PAGE = 'primary_page';
@@ -59,12 +60,13 @@ class BusinessFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'block_offline_analytics' => 'bool',
+      'collaborative_ads_managed_partner_business_info' => 'ManagedPartnerBusiness',
+      'collaborative_ads_managed_partner_eligibility' => 'BusinessManagedPartnerEligibility',
       'created_by' => 'Object',
       'created_time' => 'datetime',
       'extended_updated_time' => 'datetime',
       'id' => 'string',
       'is_hidden' => 'bool',
-      'is_instagram_enabled_in_fb_analytics' => 'bool',
       'link' => 'string',
       'name' => 'string',
       'primary_page' => 'Page',

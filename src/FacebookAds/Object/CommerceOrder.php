@@ -349,6 +349,7 @@ class CommerceOrder extends AbstractCrudObject {
       'merchant_order_reference' => 'string',
       'shipment_origin_postal_code' => 'string',
       'shipping_tax_details' => 'map',
+      'should_use_default_fulfillment_location' => 'bool',
       'tracking_info' => 'map',
     );
     $enums = array(

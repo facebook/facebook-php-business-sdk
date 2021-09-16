@@ -59,6 +59,7 @@ class CustomAudienceFields extends AbstractEnum {
   const NAME = 'name';
   const OPERATION_STATUS = 'operation_status';
   const OPT_OUT_LINK = 'opt_out_link';
+  const PAGE_DELETION_MARKED_DELETE_TIME = 'page_deletion_marked_delete_time';
   const PERMISSION_FOR_ACTIONS = 'permission_for_actions';
   const PIXEL_ID = 'pixel_id';
   const REGULATED_AUDIENCE_SPEC = 'regulated_audience_spec';
@@ -117,6 +118,7 @@ class CustomAudienceFields extends AbstractEnum {
       'name' => 'string',
       'operation_status' => 'CustomAudienceStatus',
       'opt_out_link' => 'string',
+      'page_deletion_marked_delete_time' => 'int',
       'permission_for_actions' => 'AudiencePermissionForActions',
       'pixel_id' => 'string',
       'regulated_audience_spec' => 'LookalikeSpec',

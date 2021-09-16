@@ -212,6 +212,7 @@ class AdStudyObjective extends AbstractCrudObject {
       'is_primary' => 'bool',
       'name' => 'string',
       'offline_conversion_data_sets' => 'list<Object>',
+      'offsite_datasets' => 'list<Object>',
       'product_catalogs' => 'list<Object>',
       'product_sets' => 'list<Object>',
       'type' => 'type_enum',

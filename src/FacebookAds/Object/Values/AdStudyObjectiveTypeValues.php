@@ -37,9 +37,9 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdStudyObjectiveTypeValues extends AbstractEnum {
 
-  const AEP_CONVERSION = 'AEP_CONVERSION';
   const BRAND = 'BRAND';
   const BRANDLIFT = 'BRANDLIFT';
+  const CONVERSIONS = 'CONVERSIONS';
   const FTL = 'FTL';
   const MAE = 'MAE';
   const MAI = 'MAI';

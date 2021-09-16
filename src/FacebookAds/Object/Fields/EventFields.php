@@ -41,6 +41,7 @@ class EventFields extends AbstractEnum {
   const CAN_GUESTS_INVITE = 'can_guests_invite';
   const CATEGORY = 'category';
   const COVER = 'cover';
+  const CREATED_TIME = 'created_time';
   const DECLINED_COUNT = 'declined_count';
   const DESCRIPTION = 'description';
   const DISCOUNT_CODE_ENABLED = 'discount_code_enabled';
@@ -77,6 +78,7 @@ class EventFields extends AbstractEnum {
       'can_guests_invite' => 'bool',
       'category' => 'Category',
       'cover' => 'CoverPhoto',
+      'created_time' => 'datetime',
       'declined_count' => 'int',
       'description' => 'string',
       'discount_code_enabled' => 'bool',

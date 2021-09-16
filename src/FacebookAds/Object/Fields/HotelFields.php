@@ -57,6 +57,7 @@ class HotelFields extends AbstractEnum {
   const SALE_PRICE = 'sale_price';
   const SANITIZED_IMAGES = 'sanitized_images';
   const STAR_RATING = 'star_rating';
+  const UNIT_PRICE = 'unit_price';
   const URL = 'url';
   const BASE_PRICE = 'base_price';
 
@@ -82,6 +83,7 @@ class HotelFields extends AbstractEnum {
       'sale_price' => 'string',
       'sanitized_images' => 'list<string>',
       'star_rating' => 'float',
+      'unit_price' => 'Object',
       'url' => 'string',
       'base_price' => 'unsigned int',
     );

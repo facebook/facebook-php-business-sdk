@@ -369,7 +369,6 @@ class LiveVideo extends AbstractCrudObject {
       'og_phrase' => 'string',
       'persistent_stream_key_status' => 'persistent_stream_key_status_enum',
       'place' => 'Object',
-      'planned_start_time' => 'int',
       'privacy' => 'string',
       'published' => 'bool',
       'schedule_custom_profile_image' => 'file',

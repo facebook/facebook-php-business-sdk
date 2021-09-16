@@ -340,6 +340,7 @@ class ProductSet extends AbstractCrudObject {
       'filter' => 'Object',
       'metadata' => 'map',
       'name' => 'string',
+      'ordering_info' => 'list<unsigned int>',
       'retailer_id' => 'string',
     );
     $enums = array(

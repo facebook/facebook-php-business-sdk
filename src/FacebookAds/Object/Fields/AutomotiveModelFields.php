@@ -63,6 +63,7 @@ class AutomotiveModelFields extends AbstractEnum {
   const TITLE = 'title';
   const TRANSMISSION = 'transmission';
   const TRIM = 'trim';
+  const UNIT_PRICE = 'unit_price';
   const URL = 'url';
   const YEAR = 'year';
 
@@ -94,6 +95,7 @@ class AutomotiveModelFields extends AbstractEnum {
       'title' => 'string',
       'transmission' => 'string',
       'trim' => 'string',
+      'unit_price' => 'Object',
       'url' => 'string',
       'year' => 'unsigned int',
     );

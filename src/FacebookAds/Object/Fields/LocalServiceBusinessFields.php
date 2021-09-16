@@ -35,15 +35,47 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class ProductFeedUploadDiagnosticsReportFields extends AbstractEnum {
+class LocalServiceBusinessFields extends AbstractEnum {
 
-  const LAST_UPDATED_TIME = 'last_updated_time';
-  const REPORT_URL = 'report_url';
+  const APPLINKS = 'applinks';
+  const BRAND = 'brand';
+  const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
+  const CURRENCY = 'currency';
+  const CUSTOM_LABEL_0 = 'custom_label_0';
+  const CUSTOM_LABEL_1 = 'custom_label_1';
+  const CUSTOM_LABEL_2 = 'custom_label_2';
+  const CUSTOM_LABEL_3 = 'custom_label_3';
+  const CUSTOM_LABEL_4 = 'custom_label_4';
+  const DESCRIPTION = 'description';
+  const ID = 'id';
+  const IMAGE_FETCH_STATUS = 'image_fetch_status';
+  const IMAGES = 'images';
+  const LOCAL_SERVICE_BUSINESS_ID = 'local_service_business_id';
+  const PRICE = 'price';
+  const SANITIZED_IMAGES = 'sanitized_images';
+  const TITLE = 'title';
+  const URL = 'url';
 
   public function getFieldTypes() {
     return array(
-      'last_updated_time' => 'string',
-      'report_url' => 'string',
+      'applinks' => 'CatalogItemAppLinks',
+      'brand' => 'string',
+      'category_specific_fields' => 'CatalogSubVerticalList',
+      'currency' => 'string',
+      'custom_label_0' => 'string',
+      'custom_label_1' => 'string',
+      'custom_label_2' => 'string',
+      'custom_label_3' => 'string',
+      'custom_label_4' => 'string',
+      'description' => 'string',
+      'id' => 'string',
+      'image_fetch_status' => 'ImageFetchStatus',
+      'images' => 'list<string>',
+      'local_service_business_id' => 'string',
+      'price' => 'string',
+      'sanitized_images' => 'list<string>',
+      'title' => 'string',
+      'url' => 'string',
     );
   }
 }

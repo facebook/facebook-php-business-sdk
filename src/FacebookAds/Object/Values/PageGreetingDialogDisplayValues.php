@@ -33,10 +33,11 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdPlacePageSetCategoryValues getInstance()
+ * @method static PageGreetingDialogDisplayValues getInstance()
  */
-class AdPlacePageSetCategoryValues extends AbstractEnum {
+class PageGreetingDialogDisplayValues extends AbstractEnum {
 
-  const BOPUS = 'BOPUS';
-  const GENERAL = 'GENERAL';
+  const HIDE = 'HIDE';
+  const SHOW = 'SHOW';
+  const WELCOME_MESSAGE = 'WELCOME_MESSAGE';
 }

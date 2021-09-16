@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,33 +33,14 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static JobsJobImageFetchStatusValues getInstance()
  */
+class JobsJobImageFetchStatusValues extends AbstractEnum {
 
-class MeasurementUploadEventFields extends AbstractEnum {
-
-  const AGGREGATION_LEVEL = 'aggregation_level';
-  const CONVERSION_END_DATE = 'conversion_end_date';
-  const CONVERSION_START_DATE = 'conversion_start_date';
-  const EVENT_STATUS = 'event_status';
-  const ID = 'id';
-  const LOOKBACK_WINDOW = 'lookback_window';
-  const MATCH_UNIVERSE = 'match_universe';
-  const PARTNER = 'partner';
-  const TIMEZONE = 'timezone';
-  const UPLOAD_TAG = 'upload_tag';
-
-  public function getFieldTypes() {
-    return array(
-      'aggregation_level' => 'string',
-      'conversion_end_date' => 'string',
-      'conversion_start_date' => 'string',
-      'event_status' => 'string',
-      'id' => 'string',
-      'lookback_window' => 'string',
-      'match_universe' => 'string',
-      'partner' => 'Business',
-      'timezone' => 'string',
-      'upload_tag' => 'string',
-    );
-  }
+  const DIRECT_UPLOAD = 'DIRECT_UPLOAD';
+  const FETCHED = 'FETCHED';
+  const FETCH_FAILED = 'FETCH_FAILED';
+  const NO_STATUS = 'NO_STATUS';
+  const OUTDATED = 'OUTDATED';
+  const PARTIAL_FETCH = 'PARTIAL_FETCH';
 }

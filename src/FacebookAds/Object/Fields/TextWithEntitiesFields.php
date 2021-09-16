@@ -22,13 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Fields;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AdAccountContentFilterLevelsInheritanceFields;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-generated.
@@ -39,19 +35,13 @@ use FacebookAds\Object\Fields\AdAccountContentFilterLevelsInheritanceFields;
  *
  */
 
-class AdAccountContentFilterLevelsInheritance extends AbstractObject {
+class TextWithEntitiesFields extends AbstractEnum {
 
-  /**
-   * @return AdAccountContentFilterLevelsInheritanceFields
-   */
-  public static function getFieldsEnum() {
-    return AdAccountContentFilterLevelsInheritanceFields::getInstance();
+  const TEXT = 'text';
+
+  public function getFieldTypes() {
+    return array(
+      'text' => 'string',
+    );
   }
-
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
 }

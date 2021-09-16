@@ -67,7 +67,7 @@ class AdAsyncRequestSetFields extends AbstractEnum {
       'name' => 'string',
       'notification_mode' => 'NotificationMode',
       'notification_result' => 'AdAsyncRequestSetNotificationResult',
-      'notification_status' => 'NotificationStatus',
+      'notification_status' => 'string',
       'notification_uri' => 'string',
       'owner_id' => 'string',
       'success_count' => 'int',

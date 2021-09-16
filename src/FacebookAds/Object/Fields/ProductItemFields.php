@@ -68,6 +68,7 @@ class ProductItemFields extends AbstractEnum {
   const IMAGE_FETCH_STATUS = 'image_fetch_status';
   const IMAGE_URL = 'image_url';
   const IMAGES = 'images';
+  const INVALIDATION_ERRORS = 'invalidation_errors';
   const INVENTORY = 'inventory';
   const MANUFACTURER_PART_NUMBER = 'manufacturer_part_number';
   const MARKED_FOR_PRODUCT_LAUNCH = 'marked_for_product_launch';
@@ -155,6 +156,7 @@ class ProductItemFields extends AbstractEnum {
       'image_fetch_status' => 'ImageFetchStatus',
       'image_url' => 'string',
       'images' => 'list<string>',
+      'invalidation_errors' => 'list<Object>',
       'inventory' => 'int',
       'manufacturer_part_number' => 'string',
       'marked_for_product_launch' => 'string',

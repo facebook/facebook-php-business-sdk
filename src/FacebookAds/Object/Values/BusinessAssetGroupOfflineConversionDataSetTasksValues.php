@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class BusinessAssetGroupOfflineConversionDataSetTasksValues extends AbstractEnum {
 
+  const AA_ANALYZE = 'AA_ANALYZE';
   const ADVERTISE = 'ADVERTISE';
   const MANAGE = 'MANAGE';
   const UPLOAD = 'UPLOAD';

@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdCreativeApplinkTreatmentValues extends AbstractEnum {
 
+  const AUTOMATIC = 'automatic';
   const DEEPLINK_WITH_APPSTORE_FALLBACK = 'deeplink_with_appstore_fallback';
   const DEEPLINK_WITH_WEB_FALLBACK = 'deeplink_with_web_fallback';
   const WEB_ONLY = 'web_only';
