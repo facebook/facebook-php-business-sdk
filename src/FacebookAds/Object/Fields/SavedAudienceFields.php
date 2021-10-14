@@ -40,6 +40,8 @@ class SavedAudienceFields extends AbstractEnum {
   const ACCOUNT = 'account';
   const APPROXIMATE_COUNT = 'approximate_count';
   const APPROXIMATE_COUNT_64BIT = 'approximate_count_64bit';
+  const APPROXIMATE_COUNT_LOWER_BOUND = 'approximate_count_lower_bound';
+  const APPROXIMATE_COUNT_UPPER_BOUND = 'approximate_count_upper_bound';
   const DELETE_TIME = 'delete_time';
   const DESCRIPTION = 'description';
   const EXTRA_INFO = 'extra_info';
@@ -59,6 +61,8 @@ class SavedAudienceFields extends AbstractEnum {
       'account' => 'AdAccount',
       'approximate_count' => 'int',
       'approximate_count_64bit' => 'int',
+      'approximate_count_lower_bound' => 'int',
+      'approximate_count_upper_bound' => 'int',
       'delete_time' => 'int',
       'description' => 'string',
       'extra_info' => 'string',
