@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\BusinessImageFields;
 
 /**
  * This class is auto-generated.
@@ -35,37 +39,42 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class BroadTargetingCategoriesFields extends AbstractEnum {
+class BusinessImage extends AbstractCrudObject {
 
-  const CATEGORY_DESCRIPTION = 'category_description';
-  const ID = 'id';
-  const NAME = 'name';
-  const PARENT_CATEGORY = 'parent_category';
-  const PATH = 'path';
-  const SIZE = 'size';
-  const SIZE_LOWER_BOUND = 'size_lower_bound';
-  const SIZE_UPPER_BOUND = 'size_upper_bound';
-  const SOURCE = 'source';
-  const TYPE = 'type';
-  const TYPE_NAME = 'type_name';
-  const UNTRANSLATED_NAME = 'untranslated_name';
-  const UNTRANSLATED_PARENT_NAME = 'untranslated_parent_name';
-
-  public function getFieldTypes() {
-    return array(
-      'category_description' => 'string',
-      'id' => 'string',
-      'name' => 'string',
-      'parent_category' => 'string',
-      'path' => 'list<string>',
-      'size' => 'int',
-      'size_lower_bound' => 'int',
-      'size_upper_bound' => 'int',
-      'source' => 'string',
-      'type' => 'int',
-      'type_name' => 'string',
-      'untranslated_name' => 'string',
-      'untranslated_parent_name' => 'string',
-    );
+  /**
+   * @return BusinessImageFields
+   */
+  public static function getFieldsEnum() {
+    return BusinessImageFields::getInstance();
   }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new BusinessImage(),
+      'NODE',
+      BusinessImage::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
 }

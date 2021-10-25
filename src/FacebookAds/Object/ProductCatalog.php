@@ -45,6 +45,7 @@ use FacebookAds\Object\Values\ProductEventStatBreakdownsValues;
 use FacebookAds\Object\Values\ProductFeedDelimiterValues;
 use FacebookAds\Object\Values\ProductFeedEncodingValues;
 use FacebookAds\Object\Values\ProductFeedFeedTypeValues;
+use FacebookAds\Object\Values\ProductFeedIngestionSourceTypeValues;
 use FacebookAds\Object\Values\ProductFeedItemSubTypeValues;
 use FacebookAds\Object\Values\ProductFeedOverrideTypeValues;
 use FacebookAds\Object\Values\ProductFeedQuotedFieldsModeValues;
@@ -53,6 +54,7 @@ use FacebookAds\Object\Values\ProductItemCommerceTaxCategoryValues;
 use FacebookAds\Object\Values\ProductItemConditionValues;
 use FacebookAds\Object\Values\ProductItemGenderValues;
 use FacebookAds\Object\Values\ProductItemMarkedForProductLaunchValues;
+use FacebookAds\Object\Values\ProductItemOriginCountryValues;
 use FacebookAds\Object\Values\ProductItemVisibilityValues;
 use FacebookAds\Object\Values\VehicleAvailabilityValues;
 use FacebookAds\Object\Values\VehicleBodyStyleValues;
@@ -376,6 +378,30 @@ class ProductCatalog extends AbstractCrudObject {
       new ProductCatalog(),
       'EDGE',
       ProductCatalog::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createCatalogWebsiteSetting(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'is_allowed_to_crawl' => 'bool',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/catalog_website_settings',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1003,11 +1029,13 @@ class ProductCatalog extends AbstractCrudObject {
       'encoding' => 'encoding_enum',
       'feed_type' => 'feed_type_enum',
       'file_name' => 'string',
+      'ingestion_source_type' => 'ingestion_source_type_enum',
       'item_sub_type' => 'item_sub_type_enum',
       'migrated_from_feed_id' => 'string',
       'name' => 'string',
       'override_type' => 'override_type_enum',
       'override_value' => 'string',
+      'primary_feed_ids' => 'list<string>',
       'quoted_fields_mode' => 'quoted_fields_mode_enum',
       'rules' => 'list<string>',
       'schedule' => 'string',
@@ -1018,6 +1046,7 @@ class ProductCatalog extends AbstractCrudObject {
       'delimiter_enum' => ProductFeedDelimiterValues::getInstance()->getValues(),
       'encoding_enum' => ProductFeedEncodingValues::getInstance()->getValues(),
       'feed_type_enum' => ProductFeedFeedTypeValues::getInstance()->getValues(),
+      'ingestion_source_type_enum' => ProductFeedIngestionSourceTypeValues::getInstance()->getValues(),
       'item_sub_type_enum' => ProductFeedItemSubTypeValues::getInstance()->getValues(),
       'override_type_enum' => ProductFeedOverrideTypeValues::getInstance()->getValues(),
       'quoted_fields_mode_enum' => ProductFeedQuotedFieldsModeValues::getInstance()->getValues(),
@@ -1121,6 +1150,7 @@ class ProductCatalog extends AbstractCrudObject {
       'metadata' => 'map',
       'name' => 'string',
       'ordering_info' => 'list<unsigned int>',
+      'publish_to_shops' => 'list<map>',
       'retailer_id' => 'string',
     );
     $enums = array(
@@ -1223,6 +1253,8 @@ class ProductCatalog extends AbstractCrudObject {
       'gender' => 'gender_enum',
       'gtin' => 'string',
       'image_url' => 'string',
+      'importer_address' => 'map',
+      'importer_name' => 'string',
       'inventory' => 'unsigned int',
       'ios_app_name' => 'string',
       'ios_app_store_id' => 'unsigned int',
@@ -1234,6 +1266,7 @@ class ProductCatalog extends AbstractCrudObject {
       'iphone_app_store_id' => 'unsigned int',
       'iphone_url' => 'string',
       'launch_date' => 'string',
+      'manufacturer_info' => 'string',
       'manufacturer_part_number' => 'string',
       'marked_for_product_launch' => 'marked_for_product_launch_enum',
       'material' => 'string',
@@ -1243,6 +1276,7 @@ class ProductCatalog extends AbstractCrudObject {
       'offer_price_end_date' => 'datetime',
       'offer_price_start_date' => 'datetime',
       'ordering_index' => 'unsigned int',
+      'origin_country' => 'origin_country_enum',
       'pattern' => 'string',
       'price' => 'unsigned int',
       'product_type' => 'string',
@@ -1268,6 +1302,7 @@ class ProductCatalog extends AbstractCrudObject {
       'condition_enum' => ProductItemConditionValues::getInstance()->getValues(),
       'gender_enum' => ProductItemGenderValues::getInstance()->getValues(),
       'marked_for_product_launch_enum' => ProductItemMarkedForProductLaunchValues::getInstance()->getValues(),
+      'origin_country_enum' => ProductItemOriginCountryValues::getInstance()->getValues(),
       'visibility_enum' => ProductItemVisibilityValues::getInstance()->getValues(),
     );
 
@@ -1434,6 +1469,7 @@ class ProductCatalog extends AbstractCrudObject {
         'COLLAB_ADS_FOR_MARKETPLACE_PARTNER',
         'COLLAB_ADS_SEGMENT_WITHOUT_SEGMENT_SYNCING',
         'CREATORS_AS_SELLERS',
+        'DIGITAL_CIRCULARS',
         'FB_LIVE_SHOPPING',
         'IG_SHOPPING',
         'IG_SHOPPING_SUGGESTED_PRODUCTS',

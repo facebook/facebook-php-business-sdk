@@ -32,6 +32,7 @@ use FacebookAds\Object\Fields\ProductFeedFields;
 use FacebookAds\Object\Values\ProductFeedDelimiterValues;
 use FacebookAds\Object\Values\ProductFeedEncodingValues;
 use FacebookAds\Object\Values\ProductFeedFeedTypeValues;
+use FacebookAds\Object\Values\ProductFeedIngestionSourceTypeValues;
 use FacebookAds\Object\Values\ProductFeedItemSubTypeValues;
 use FacebookAds\Object\Values\ProductFeedOverrideTypeValues;
 use FacebookAds\Object\Values\ProductFeedQuotedFieldsModeValues;
@@ -68,6 +69,7 @@ class ProductFeed extends AbstractCrudObject {
     $ref_enums['QuotedFieldsMode'] = ProductFeedQuotedFieldsModeValues::getInstance()->getValues();
     $ref_enums['Encoding'] = ProductFeedEncodingValues::getInstance()->getValues();
     $ref_enums['FeedType'] = ProductFeedFeedTypeValues::getInstance()->getValues();
+    $ref_enums['IngestionSourceType'] = ProductFeedIngestionSourceTypeValues::getInstance()->getValues();
     $ref_enums['ItemSubType'] = ProductFeedItemSubTypeValues::getInstance()->getValues();
     $ref_enums['OverrideType'] = ProductFeedOverrideTypeValues::getInstance()->getValues();
     return $ref_enums;
@@ -315,6 +317,30 @@ class ProductFeed extends AbstractCrudObject {
       new ProductFeedRule(),
       'EDGE',
       ProductFeedRule::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createSupplementaryFeedAssoc(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'assoc_data' => 'list<map>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/supplementary_feed_assocs',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

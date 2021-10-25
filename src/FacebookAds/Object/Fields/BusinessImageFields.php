@@ -35,37 +35,31 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class BroadTargetingCategoriesFields extends AbstractEnum {
+class BusinessImageFields extends AbstractEnum {
 
-  const CATEGORY_DESCRIPTION = 'category_description';
+  const BUSINESS = 'business';
+  const CREATION_TIME = 'creation_time';
+  const HASH = 'hash';
+  const HEIGHT = 'height';
   const ID = 'id';
+  const MEDIA_LIBRARY_URL = 'media_library_url';
   const NAME = 'name';
-  const PARENT_CATEGORY = 'parent_category';
-  const PATH = 'path';
-  const SIZE = 'size';
-  const SIZE_LOWER_BOUND = 'size_lower_bound';
-  const SIZE_UPPER_BOUND = 'size_upper_bound';
-  const SOURCE = 'source';
-  const TYPE = 'type';
-  const TYPE_NAME = 'type_name';
-  const UNTRANSLATED_NAME = 'untranslated_name';
-  const UNTRANSLATED_PARENT_NAME = 'untranslated_parent_name';
+  const URL = 'url';
+  const URL_128 = 'url_128';
+  const WIDTH = 'width';
 
   public function getFieldTypes() {
     return array(
-      'category_description' => 'string',
+      'business' => 'Business',
+      'creation_time' => 'datetime',
+      'hash' => 'string',
+      'height' => 'int',
       'id' => 'string',
+      'media_library_url' => 'string',
       'name' => 'string',
-      'parent_category' => 'string',
-      'path' => 'list<string>',
-      'size' => 'int',
-      'size_lower_bound' => 'int',
-      'size_upper_bound' => 'int',
-      'source' => 'string',
-      'type' => 'int',
-      'type_name' => 'string',
-      'untranslated_name' => 'string',
-      'untranslated_parent_name' => 'string',
+      'url' => 'string',
+      'url_128' => 'string',
+      'width' => 'int',
     );
   }
 }

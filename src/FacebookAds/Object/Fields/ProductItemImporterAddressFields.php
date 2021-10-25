@@ -35,27 +35,23 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class PlayableContentFields extends AbstractEnum {
+class ProductItemImporterAddressFields extends AbstractEnum {
 
-  const ID = 'id';
-  const NAME = 'name';
-  const OWNER = 'owner';
-  const APP_ID = 'app_id';
-  const SESSION_ID = 'session_id';
-  const SOURCE = 'source';
-  const SOURCE_URL = 'source_url';
-  const SOURCE_ZIP = 'source_zip';
+  const CITY = 'city';
+  const COUNTRY = 'country';
+  const POSTAL_CODE = 'postal_code';
+  const REGION = 'region';
+  const STREET1 = 'street1';
+  const STREET2 = 'street2';
 
   public function getFieldTypes() {
     return array(
-      'id' => 'string',
-      'name' => 'string',
-      'owner' => 'Profile',
-      'app_id' => 'string',
-      'session_id' => 'string',
-      'source' => 'file',
-      'source_url' => 'string',
-      'source_zip' => 'file',
+      'city' => 'string',
+      'country' => 'string',
+      'postal_code' => 'string',
+      'region' => 'string',
+      'street1' => 'string',
+      'street2' => 'string',
     );
   }
 }

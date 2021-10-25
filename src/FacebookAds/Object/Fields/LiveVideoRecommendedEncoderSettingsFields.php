@@ -35,37 +35,17 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class BroadTargetingCategoriesFields extends AbstractEnum {
+class LiveVideoRecommendedEncoderSettingsFields extends AbstractEnum {
 
-  const CATEGORY_DESCRIPTION = 'category_description';
-  const ID = 'id';
-  const NAME = 'name';
-  const PARENT_CATEGORY = 'parent_category';
-  const PATH = 'path';
-  const SIZE = 'size';
-  const SIZE_LOWER_BOUND = 'size_lower_bound';
-  const SIZE_UPPER_BOUND = 'size_upper_bound';
-  const SOURCE = 'source';
-  const TYPE = 'type';
-  const TYPE_NAME = 'type_name';
-  const UNTRANSLATED_NAME = 'untranslated_name';
-  const UNTRANSLATED_PARENT_NAME = 'untranslated_parent_name';
+  const AUDIO_CODEC_SETTINGS = 'audio_codec_settings';
+  const STREAMING_PROTOCOL = 'streaming_protocol';
+  const VIDEO_CODEC_SETTINGS = 'video_codec_settings';
 
   public function getFieldTypes() {
     return array(
-      'category_description' => 'string',
-      'id' => 'string',
-      'name' => 'string',
-      'parent_category' => 'string',
-      'path' => 'list<string>',
-      'size' => 'int',
-      'size_lower_bound' => 'int',
-      'size_upper_bound' => 'int',
-      'source' => 'string',
-      'type' => 'int',
-      'type_name' => 'string',
-      'untranslated_name' => 'string',
-      'untranslated_parent_name' => 'string',
+      'audio_codec_settings' => 'Object',
+      'streaming_protocol' => 'string',
+      'video_codec_settings' => 'Object',
     );
   }
 }

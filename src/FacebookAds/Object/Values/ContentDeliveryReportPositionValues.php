@@ -42,6 +42,7 @@ class ContentDeliveryReportPositionValues extends AbstractEnum {
   const BIZ_DISCO_FEED = 'BIZ_DISCO_FEED';
   const FACEBOOK_GROUPS_FEED = 'FACEBOOK_GROUPS_FEED';
   const FACEBOOK_REELS = 'FACEBOOK_REELS';
+  const FACEBOOK_REELS_OVERLAY = 'FACEBOOK_REELS_OVERLAY';
   const FACEBOOK_STORIES = 'FACEBOOK_STORIES';
   const FEED = 'FEED';
   const GROUPS = 'GROUPS';

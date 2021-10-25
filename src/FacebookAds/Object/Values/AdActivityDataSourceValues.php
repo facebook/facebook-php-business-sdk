@@ -39,4 +39,5 @@ class AdActivityDataSourceValues extends AbstractEnum {
 
   const CALYPSO = 'CALYPSO';
   const TAO = 'TAO';
+  const TAO_AD_ACCOUNT = 'TAO_AD_ACCOUNT';
 }

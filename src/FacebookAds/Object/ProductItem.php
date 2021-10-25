@@ -36,6 +36,7 @@ use FacebookAds\Object\Values\ProductItemConditionValues;
 use FacebookAds\Object\Values\ProductItemGenderValues;
 use FacebookAds\Object\Values\ProductItemImageFetchStatusValues;
 use FacebookAds\Object\Values\ProductItemMarkedForProductLaunchValues;
+use FacebookAds\Object\Values\ProductItemOriginCountryValues;
 use FacebookAds\Object\Values\ProductItemReviewStatusValues;
 use FacebookAds\Object\Values\ProductItemShippingWeightUnitValues;
 use FacebookAds\Object\Values\ProductItemVisibilityValues;
@@ -77,6 +78,7 @@ class ProductItem extends AbstractCrudObject {
     $ref_enums['Visibility'] = ProductItemVisibilityValues::getInstance()->getValues();
     $ref_enums['CommerceTaxCategory'] = ProductItemCommerceTaxCategoryValues::getInstance()->getValues();
     $ref_enums['MarkedForProductLaunch'] = ProductItemMarkedForProductLaunchValues::getInstance()->getValues();
+    $ref_enums['OriginCountry'] = ProductItemOriginCountryValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -210,6 +212,8 @@ class ProductItem extends AbstractCrudObject {
       'gender' => 'gender_enum',
       'gtin' => 'string',
       'image_url' => 'string',
+      'importer_address' => 'map',
+      'importer_name' => 'string',
       'inventory' => 'unsigned int',
       'ios_app_name' => 'string',
       'ios_app_store_id' => 'unsigned int',
@@ -221,6 +225,7 @@ class ProductItem extends AbstractCrudObject {
       'iphone_app_store_id' => 'unsigned int',
       'iphone_url' => 'string',
       'launch_date' => 'string',
+      'manufacturer_info' => 'string',
       'manufacturer_part_number' => 'string',
       'marked_for_product_launch' => 'marked_for_product_launch_enum',
       'material' => 'string',
@@ -230,6 +235,7 @@ class ProductItem extends AbstractCrudObject {
       'offer_price_end_date' => 'datetime',
       'offer_price_start_date' => 'datetime',
       'ordering_index' => 'unsigned int',
+      'origin_country' => 'origin_country_enum',
       'pattern' => 'string',
       'price' => 'unsigned int',
       'product_type' => 'string',
@@ -254,6 +260,7 @@ class ProductItem extends AbstractCrudObject {
       'condition_enum' => ProductItemConditionValues::getInstance()->getValues(),
       'gender_enum' => ProductItemGenderValues::getInstance()->getValues(),
       'marked_for_product_launch_enum' => ProductItemMarkedForProductLaunchValues::getInstance()->getValues(),
+      'origin_country_enum' => ProductItemOriginCountryValues::getInstance()->getValues(),
       'visibility_enum' => ProductItemVisibilityValues::getInstance()->getValues(),
     );
 

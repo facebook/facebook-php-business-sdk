@@ -39,6 +39,8 @@ class CustomAudienceFields extends AbstractEnum {
 
   const ACCOUNT_ID = 'account_id';
   const APPROXIMATE_COUNT = 'approximate_count';
+  const APPROXIMATE_COUNT_LOWER_BOUND = 'approximate_count_lower_bound';
+  const APPROXIMATE_COUNT_UPPER_BOUND = 'approximate_count_upper_bound';
   const CUSTOMER_FILE_SOURCE = 'customer_file_source';
   const DATA_SOURCE = 'data_source';
   const DATA_SOURCE_TYPES = 'data_source_types';
@@ -98,6 +100,8 @@ class CustomAudienceFields extends AbstractEnum {
     return array(
       'account_id' => 'string',
       'approximate_count' => 'int',
+      'approximate_count_lower_bound' => 'int',
+      'approximate_count_upper_bound' => 'int',
       'customer_file_source' => 'string',
       'data_source' => 'CustomAudienceDataSource',
       'data_source_types' => 'string',

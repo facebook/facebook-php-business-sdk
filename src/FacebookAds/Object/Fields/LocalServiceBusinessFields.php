@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class LocalServiceBusinessFields extends AbstractEnum {
 
+  const ADDRESS = 'address';
   const APPLINKS = 'applinks';
   const BRAND = 'brand';
   const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
@@ -54,10 +55,12 @@ class LocalServiceBusinessFields extends AbstractEnum {
   const PRICE = 'price';
   const SANITIZED_IMAGES = 'sanitized_images';
   const TITLE = 'title';
+  const UNIT_PRICE = 'unit_price';
   const URL = 'url';
 
   public function getFieldTypes() {
     return array(
+      'address' => 'Object',
       'applinks' => 'CatalogItemAppLinks',
       'brand' => 'string',
       'category_specific_fields' => 'CatalogSubVerticalList',
@@ -75,6 +78,7 @@ class LocalServiceBusinessFields extends AbstractEnum {
       'price' => 'string',
       'sanitized_images' => 'list<string>',
       'title' => 'string',
+      'unit_price' => 'Object',
       'url' => 'string',
     );
   }

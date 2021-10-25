@@ -316,6 +316,7 @@ class CommerceMerchantSettings extends AbstractCrudObject {
 
     $param_types = array(
       'handling_time' => 'map',
+      'is_default' => 'bool',
       'is_default_shipping_profile' => 'bool',
       'name' => 'string',
       'reference_id' => 'string',
@@ -332,6 +333,29 @@ class CommerceMerchantSettings extends AbstractCrudObject {
       new AbstractCrudObject(),
       'EDGE',
       array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getShops(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/shops',
+      new Shop(),
+      'EDGE',
+      Shop::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

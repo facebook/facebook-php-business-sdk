@@ -63,6 +63,7 @@ use FacebookAds\Object\Values\AdPlacePageSetTargetedAreaTypeValues;
 use FacebookAds\Object\Values\AdPreviewAdFormatValues;
 use FacebookAds\Object\Values\AdPreviewRenderTypeValues;
 use FacebookAds\Object\Values\AdRuleStatusValues;
+use FacebookAds\Object\Values\AdRuleUiCreationSourceValues;
 use FacebookAds\Object\Values\AdSetBidStrategyValues;
 use FacebookAds\Object\Values\AdSetBillingEventValues;
 use FacebookAds\Object\Values\AdSetDatePresetValues;
@@ -603,9 +604,9 @@ class AdAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/adplayables',
-      new PlayableContent(),
+      new AbstractCrudObject(),
       'EDGE',
-      PlayableContent::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -632,9 +633,9 @@ class AdAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/adplayables',
-      new PlayableContent(),
+      new AbstractCrudObject(),
       'EDGE',
-      PlayableContent::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -704,9 +705,11 @@ class AdAccount extends AbstractCrudObject {
       'name' => 'string',
       'schedule_spec' => 'Object',
       'status' => 'status_enum',
+      'ui_creation_source' => 'ui_creation_source_enum',
     );
     $enums = array(
       'status_enum' => AdRuleStatusValues::getInstance()->getValues(),
+      'ui_creation_source_enum' => AdRuleUiCreationSourceValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1023,9 +1026,9 @@ class AdAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/adspixels',
-      new AdsPixel(),
+      new AbstractCrudObject(),
       'EDGE',
-      AdsPixel::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

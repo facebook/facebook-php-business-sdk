@@ -485,6 +485,7 @@ class Page extends AbstractCrudObject {
     $param_types = array(
       'data' => 'list<string>',
       'partner_agent' => 'string',
+      'processing_type' => 'string',
     );
     $enums = array(
     );
@@ -494,9 +495,9 @@ class Page extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/business_data',
-      new Page(),
+      new AbstractCrudObject(),
       'EDGE',
-      Page::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -924,6 +925,7 @@ class Page extends AbstractCrudObject {
         'REQUEST_TAKEDOWN',
       ),
       'action_reason_enum' => array(
+        'ARTICLE_17_PREFLAGGING',
         'ARTIST_OBJECTION',
         'OBJECTIONABLE_CONTENT',
         'PREMIUM_MUSIC_VIDEO',

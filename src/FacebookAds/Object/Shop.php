@@ -28,7 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\PlayableContentFields;
+use FacebookAds\Object\Fields\ShopFields;
 
 /**
  * This class is auto-generated.
@@ -39,20 +39,13 @@ use FacebookAds\Object\Fields\PlayableContentFields;
  *
  */
 
-class PlayableContent extends AbstractCrudObject {
+class Shop extends AbstractCrudObject {
 
   /**
-   * @deprecated getEndpoint function is deprecated
-   */
-  protected function getEndpoint() {
-    return 'adplayables';
-  }
-
-  /**
-   * @return PlayableContentFields
+   * @return ShopFields
    */
   public static function getFieldsEnum() {
-    return PlayableContentFields::getInstance();
+    return ShopFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -74,9 +67,9 @@ class PlayableContent extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new PlayableContent(),
+      new Shop(),
       'NODE',
-      PlayableContent::getFieldsEnum()->getValues(),
+      Shop::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
