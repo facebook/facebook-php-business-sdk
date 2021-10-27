@@ -130,7 +130,7 @@ function create_client_business($access_token) {
     array(),
     array(
       'client_user_id' => $app_scoped_user_id,
-    ),
+    )
   );
 
   if (!is_null($child_business) && !is_null($child_business[0])) {
@@ -158,7 +158,7 @@ function create_client_business($access_token) {
       'shared_page_id' => $page_id,
       'page_permitted_roles' => ['ADVERTISER'],
       'timezone_id' => 1,
-    ),
+    )
   );
   $child_business_id = $child_business->id;
 
@@ -172,7 +172,7 @@ function create_client_business($access_token) {
     array(
       'receiving_business_id' => $child_business_id,
       'amount' => 10,
-    ),
+    )
   );
 
   /**
@@ -186,7 +186,7 @@ function create_client_business($access_token) {
       'id' => $child_business_id,
       'app_id' => $app_id,
       'scope' => 'manage_pages,ads_management,business_management',
-    ),
+    )
   );
   $child_bm_system_user_access_token = $child_business_token->access_token;
 
@@ -217,7 +217,7 @@ function create_client_business($access_token) {
       'media_agency' => 'NONE',
       'partner' => 'NONE',
       'funding_id' => $child_bm_payment_method_id,
-    ),
+    )
   );
   $account_id = $account->id;
 
@@ -240,7 +240,7 @@ function create_client_business($access_token) {
       'user' => $system_user_id,
       'role' => 'ADMIN',
       'business' => $child_business_id,
-    ),
+    )
   );
 
   return $child_business_id.','.$account_id;
@@ -250,7 +250,7 @@ function create_click_to_messenger_ad(
   $account_id,
   $bmid,
   $ad_message,
-  $page_welcome_message,
+  $page_welcome_message
 ) {
   global $aggregator_access_token, $app_id, $page_id;
   $api = setAccessToken($aggregator_access_token);
@@ -259,7 +259,7 @@ function create_click_to_messenger_ad(
     array(
       'app_id' => $app_id,
       'scope' => 'manage_pages,ads_management,business_management',
-    ),
+    )
   );
   $child_bm_system_user_access_token = $child_business_token->access_token;
   $api = setAccessToken($child_bm_system_user_access_token);
@@ -269,7 +269,7 @@ function create_click_to_messenger_ad(
     array(
       CampaignFields::NAME => 'First test Campaign',
       CampaignFields::OBJECTIVE => 'MESSAGES',
-    ),
+    )
   );
 
   /**
@@ -351,7 +351,7 @@ function create_click_to_messenger_ad(
     array(
       AdCreativeFields::NAME => 'Sample Creative',
       AdCreativeFields::OBJECT_STORY_SPEC => $object_story_spec,
-    ),
+    )
   );
 
   $ad = $account->createAd(
@@ -361,7 +361,7 @@ function create_click_to_messenger_ad(
       'adset_id' => $ad_set_id,
       'name' => 'My Ad',
       'creative' => array('creative_id' => $creative->id),
-    ),
+    )
   );
   $ad_id = $ad->id;
   return 'Ad ID: '.$ad_id;
@@ -390,7 +390,7 @@ if (isset($_GET["action"]) && in_array($_GET["action"], $possible_url)) {
           $_GET["adaccount"],
           $_GET["bmid"],
           $_GET["ad_message"],
-          $_GET["page_welcome_message"],
+          $_GET["page_welcome_message"]
         );
       else
         $value = "Missing argument";
