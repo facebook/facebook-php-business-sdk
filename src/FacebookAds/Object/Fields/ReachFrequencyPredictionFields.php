@@ -41,6 +41,8 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const ACTIVITY_STATUS = 'activity_status';
   const AD_FORMATS = 'ad_formats';
   const AUCTION_ENTRY_OPTION_INDEX = 'auction_entry_option_index';
+  const AUDIENCE_SIZE_LOWER_BOUND = 'audience_size_lower_bound';
+  const AUDIENCE_SIZE_UPPER_BOUND = 'audience_size_upper_bound';
   const BUSINESS_ID = 'business_id';
   const BUYING_TYPE = 'buying_type';
   const CAMPAIGN_GROUP_ID = 'campaign_group_id';
@@ -141,6 +143,8 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'activity_status' => 'ReachFrequencyActivity',
       'ad_formats' => 'list<ReachFrequencyAdFormat>',
       'auction_entry_option_index' => 'int',
+      'audience_size_lower_bound' => 'unsigned int',
+      'audience_size_upper_bound' => 'unsigned int',
       'business_id' => 'int',
       'buying_type' => 'string',
       'campaign_group_id' => 'int',

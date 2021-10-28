@@ -38,12 +38,12 @@ use FacebookAds\Enum\AbstractEnum;
 class PageUserMessageThreadLabelFields extends AbstractEnum {
 
   const ID = 'id';
-  const NAME = 'name';
+  const PAGE_LABEL_NAME = 'page_label_name';
 
   public function getFieldTypes() {
     return array(
       'id' => 'string',
-      'name' => 'string',
+      'page_label_name' => 'string',
     );
   }
 }

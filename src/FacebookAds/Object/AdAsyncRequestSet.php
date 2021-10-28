@@ -30,7 +30,6 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdAsyncRequestSetFields;
 use FacebookAds\Object\Values\AdAsyncRequestSetNotificationModeValues;
-use FacebookAds\Object\Values\AdAsyncRequestSetNotificationStatusValues;
 use FacebookAds\Object\Values\AdAsyncRequestStatusesValues;
 
 /**
@@ -61,7 +60,6 @@ class AdAsyncRequestSet extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['NotificationMode'] = AdAsyncRequestSetNotificationModeValues::getInstance()->getValues();
-    $ref_enums['NotificationStatus'] = AdAsyncRequestSetNotificationStatusValues::getInstance()->getValues();
     return $ref_enums;
   }
 

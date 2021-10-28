@@ -29,6 +29,8 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\CommerceMerchantSettingsFields;
+use FacebookAds\Object\Values\CommerceOrderFiltersValues;
+use FacebookAds\Object\Values\CommerceOrderStateValues;
 
 /**
  * This class is auto-generated.
@@ -53,6 +55,111 @@ class CommerceMerchantSettings extends AbstractCrudObject {
     return $ref_enums;
   }
 
+
+  public function createAcknowledgeOrder(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'idempotency_key' => 'string',
+      'orders' => 'list<map>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/acknowledge_orders',
+      new CommerceMerchantSettings(),
+      'EDGE',
+      CommerceMerchantSettings::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getCommerceOrders(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'filters' => 'list<filters_enum>',
+      'state' => 'list<state_enum>',
+      'updated_after' => 'datetime',
+      'updated_before' => 'datetime',
+    );
+    $enums = array(
+      'filters_enum' => CommerceOrderFiltersValues::getInstance()->getValues(),
+      'state_enum' => CommerceOrderStateValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/commerce_orders',
+      new CommerceOrder(),
+      'EDGE',
+      CommerceOrder::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getCommercePayouts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'end_time' => 'datetime',
+      'start_time' => 'datetime',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/commerce_payouts',
+      new CommercePayout(),
+      'EDGE',
+      CommercePayout::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getCommerceTransactions(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'end_time' => 'datetime',
+      'payout_reference_id' => 'string',
+      'start_time' => 'datetime',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/commerce_transactions',
+      new CommerceOrderTransactionDetail(),
+      'EDGE',
+      CommerceOrderTransactionDetail::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
   public function getOrderManagementApps(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
@@ -209,6 +316,7 @@ class CommerceMerchantSettings extends AbstractCrudObject {
 
     $param_types = array(
       'handling_time' => 'map',
+      'is_default' => 'bool',
       'is_default_shipping_profile' => 'bool',
       'name' => 'string',
       'reference_id' => 'string',
@@ -225,6 +333,29 @@ class CommerceMerchantSettings extends AbstractCrudObject {
       new AbstractCrudObject(),
       'EDGE',
       array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getShops(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/shops',
+      new Shop(),
+      'EDGE',
+      Shop::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

@@ -42,7 +42,6 @@ class AdStudyFields extends AbstractEnum {
   const COOLDOWN_START_TIME = 'cooldown_start_time';
   const CREATED_BY = 'created_by';
   const CREATED_TIME = 'created_time';
-  const DATASETS_INFORMATION = 'datasets_information';
   const DESCRIPTION = 'description';
   const END_TIME = 'end_time';
   const ID = 'id';
@@ -66,7 +65,6 @@ class AdStudyFields extends AbstractEnum {
       'cooldown_start_time' => 'datetime',
       'created_by' => 'User',
       'created_time' => 'datetime',
-      'datasets_information' => 'list<string>',
       'description' => 'string',
       'end_time' => 'datetime',
       'id' => 'string',

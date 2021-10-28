@@ -65,6 +65,7 @@ class AdoptablePetFields extends AbstractEnum {
   const SHELTER_PHONE = 'shelter_phone';
   const SIZE = 'size';
   const TERTIARY_COLOR = 'tertiary_color';
+  const UNIT_PRICE = 'unit_price';
   const URL = 'url';
 
   public function getFieldTypes() {
@@ -97,6 +98,7 @@ class AdoptablePetFields extends AbstractEnum {
       'shelter_phone' => 'string',
       'size' => 'string',
       'tertiary_color' => 'string',
+      'unit_price' => 'Object',
       'url' => 'string',
     );
   }

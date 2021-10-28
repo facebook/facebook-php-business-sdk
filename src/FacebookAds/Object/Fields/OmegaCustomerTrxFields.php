@@ -38,6 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class OmegaCustomerTrxFields extends AbstractEnum {
 
   const AD_ACCOUNT_IDS = 'ad_account_ids';
+  const ADVERTISER_NAME = 'advertiser_name';
   const AMOUNT = 'amount';
   const AMOUNT_DUE = 'amount_due';
   const BILLED_AMOUNT_DETAILS = 'billed_amount_details';
@@ -60,6 +61,7 @@ class OmegaCustomerTrxFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'ad_account_ids' => 'list<string>',
+      'advertiser_name' => 'string',
       'amount' => 'string',
       'amount_due' => 'CurrencyAmount',
       'billed_amount_details' => 'BilledAmountDetails',

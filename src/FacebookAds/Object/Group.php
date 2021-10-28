@@ -495,37 +495,6 @@ class Group extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createImportantPost(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'button_type' => 'button_type_enum',
-      'expiration_time' => 'datetime',
-      'post_id' => 'string',
-    );
-    $enums = array(
-      'button_type_enum' => array(
-        'DISMISS',
-        'DONE',
-        'MARK_AS_READ',
-      ),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/important_posts',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getLiveVideos(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -567,7 +536,6 @@ class Group extends AbstractCrudObject {
       'is_spherical' => 'bool',
       'live_encoders' => 'list<string>',
       'original_fov' => 'unsigned int',
-      'planned_start_time' => 'int',
       'privacy' => 'string',
       'projection' => 'projection_enum',
       'published' => 'bool',
@@ -785,47 +753,30 @@ class Group extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function deletePinnedPosts(array $fields = array(), array $params = array(), $pending = false) {
+  public function createShiftSetting(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
-      'post_id' => 'string',
+      'external_id' => 'string',
+      'shift_feature_setting' => 'shift_feature_setting_enum',
     );
     $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_DELETE,
-      '/pinned_posts',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createPinnedPost(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'post_ids' => 'list<string>',
-    );
-    $enums = array(
+      'shift_feature_setting_enum' => array(
+        'ALL_FEATURES_OFF',
+        'ALL_FEATURES_ON',
+        'SHIFT_COVER_ONLY_ON',
+        'SHIFT_VIEWER_ONLY_ON',
+      ),
     );
 
     $request = new ApiRequest(
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_POST,
-      '/pinned_posts',
-      new Post(),
+      '/shift_settings',
+      new AbstractCrudObject(),
       'EDGE',
-      Post::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -911,6 +862,7 @@ class Group extends AbstractCrudObject {
       'original_fov' => 'unsigned int',
       'original_projection_type' => 'original_projection_type_enum',
       'publish_event_id' => 'unsigned int',
+      'published' => 'bool',
       'react_mode_metadata' => 'string',
       'referenced_sticker_id' => 'string',
       'replace_video_id' => 'string',
@@ -996,7 +948,6 @@ class Group extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'archive' => 'bool',
       'cover' => 'string',
       'cover_url' => 'string',
       'description' => 'string',

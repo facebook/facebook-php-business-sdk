@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdCreativeLinkDataImageOverlaySpecTextTypeValues extends AbstractEnum {
 
+  const AUTOMATED_PERSONALIZE = 'automated_personalize';
   const CUSTOM = 'custom';
   const DISCLAIMER = 'disclaimer';
   const FROM_PRICE = 'from_price';

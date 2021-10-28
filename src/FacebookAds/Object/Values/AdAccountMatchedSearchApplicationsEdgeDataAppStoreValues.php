@@ -38,6 +38,11 @@ use FacebookAds\Enum\AbstractEnum;
 class AdAccountMatchedSearchApplicationsEdgeDataAppStoreValues extends AbstractEnum {
 
   const AMAZON_APP_STORE = 'AMAZON_APP_STORE';
+  const APK_MIRROR = 'APK_MIRROR';
+  const APK_MONK = 'APK_MONK';
+  const APK_PURE = 'APK_PURE';
+  const APTOIDE_A1_STORE = 'APTOIDE_A1_STORE';
+  const BEMOBI_MOBILE_STORE = 'BEMOBI_MOBILE_STORE';
   const DOES_NOT_EXIST = 'DOES_NOT_EXIST';
   const FB_ANDROID_STORE = 'FB_ANDROID_STORE';
   const FB_CANVAS = 'FB_CANVAS';
@@ -48,7 +53,11 @@ class AdAccountMatchedSearchApplicationsEdgeDataAppStoreValues extends AbstractE
   const ITUNES = 'ITUNES';
   const ITUNES_IPAD = 'ITUNES_IPAD';
   const OCULUS_APP_STORE = 'OCULUS_APP_STORE';
+  const OPPO = 'OPPO';
   const ROKU_STORE = 'ROKU_STORE';
+  const UPTODOWN = 'UPTODOWN';
+  const VIVO = 'VIVO';
   const WINDOWS_10_STORE = 'WINDOWS_10_STORE';
   const WINDOWS_STORE = 'WINDOWS_STORE';
+  const XIAOMI = 'XIAOMI';
 }

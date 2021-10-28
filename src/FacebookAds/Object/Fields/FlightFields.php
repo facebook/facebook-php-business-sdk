@@ -53,6 +53,7 @@ class FlightFields extends AbstractEnum {
   const ORIGIN_CITY = 'origin_city';
   const PRICE = 'price';
   const SANITIZED_IMAGES = 'sanitized_images';
+  const UNIT_PRICE = 'unit_price';
   const URL = 'url';
 
   public function getFieldTypes() {
@@ -73,6 +74,7 @@ class FlightFields extends AbstractEnum {
       'origin_city' => 'string',
       'price' => 'string',
       'sanitized_images' => 'list<string>',
+      'unit_price' => 'Object',
       'url' => 'string',
     );
   }

@@ -69,6 +69,7 @@ class VehicleOfferFields extends AbstractEnum {
   const TERM_QUALIFIER = 'term_qualifier';
   const TITLE = 'title';
   const TRIM = 'trim';
+  const UNIT_PRICE = 'unit_price';
   const URL = 'url';
   const VEHICLE_OFFER_ID = 'vehicle_offer_id';
   const YEAR = 'year';
@@ -107,6 +108,7 @@ class VehicleOfferFields extends AbstractEnum {
       'term_qualifier' => 'string',
       'title' => 'string',
       'trim' => 'string',
+      'unit_price' => 'Object',
       'url' => 'string',
       'vehicle_offer_id' => 'string',
       'year' => 'int',

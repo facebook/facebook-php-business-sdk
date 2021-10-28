@@ -48,11 +48,6 @@ use FacebookAds\Object\Values\CPASCollaborationRequestRequesterAgencyOrBrandValu
 use FacebookAds\Object\Values\ContentDeliveryReportPlatformValues;
 use FacebookAds\Object\Values\ContentDeliveryReportPositionValues;
 use FacebookAds\Object\Values\CustomConversionCustomEventTypeValues;
-use FacebookAds\Object\Values\MeasurementUploadEventAggregationLevelValues;
-use FacebookAds\Object\Values\MeasurementUploadEventEventStatusValues;
-use FacebookAds\Object\Values\MeasurementUploadEventLookbackWindowValues;
-use FacebookAds\Object\Values\MeasurementUploadEventMatchUniverseValues;
-use FacebookAds\Object\Values\MeasurementUploadEventTimezoneValues;
 use FacebookAds\Object\Values\OmegaCustomerTrxTypeValues;
 use FacebookAds\Object\Values\ProductCatalogVerticalValues;
 use FacebookAds\Object\Values\ProfilePictureSourceBreakingChangeValues;
@@ -431,33 +426,6 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createAggregateRevenue(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'ecpms' => 'list<string>',
-      'query_ids' => 'list<string>',
-      'request_id' => 'string',
-      'sync_api' => 'bool',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/aggregate_revenue',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getAnPlacements(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -655,6 +623,29 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getBusinessProjects(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/businessprojects',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createClaimCustomConversion(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -695,32 +686,6 @@ class Business extends AbstractCrudObject {
       new AdAccount(),
       'EDGE',
       AdAccount::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createClientAdAccount(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'adaccount_id' => 'string',
-      'permitted_tasks' => 'list<permitted_tasks_enum>',
-    );
-    $enums = array(
-      'permitted_tasks_enum' => BusinessPermittedTasksValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/client_ad_accounts',
-      new Business(),
-      'EDGE',
-      Business::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1130,6 +1095,30 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createDraftNegativeKeywordList(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'negative_keyword_list_file' => 'file',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/draft_negative_keyword_lists',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getEventSourceGroups(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1219,42 +1208,6 @@ class Business extends AbstractCrudObject {
       new ExtendedCredit(),
       'EDGE',
       ExtendedCredit::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createFranchiseProgram(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'business_asset_group' => 'string',
-      'creative_folder' => 'string',
-      'creative_spec_template_data' => 'map',
-      'description' => 'string',
-      'end_date' => 'datetime',
-      'name' => 'string',
-      'program_approval_type' => 'program_approval_type_enum',
-      'shared_custom_audience' => 'string',
-      'start_date' => 'datetime',
-    );
-    $enums = array(
-      'program_approval_type_enum' => array(
-        'APPROVAL',
-        'PUBLIC',
-      ),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/franchise_programs',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1442,6 +1395,134 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createManagedPartnerBusinessSetup(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'active_ad_account_id' => 'string',
+      'active_page_id' => 'int',
+      'partner_facebook_page_url' => 'string',
+      'partner_registration_countries' => 'list<string>',
+      'seller_email_address' => 'string',
+      'seller_external_website_url' => 'string',
+      'template' => 'list<map>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/managed_partner_business_setup',
+      new Business(),
+      'EDGE',
+      Business::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createManagedPartnerBusiness(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'ad_account_currency' => 'string',
+      'catalog_id' => 'string',
+      'child_business_external_id' => 'string',
+      'credit_limit' => 'unsigned int',
+      'line_of_credit_id' => 'string',
+      'name' => 'string',
+      'no_ad_account' => 'bool',
+      'page_name' => 'string',
+      'page_profile_image_url' => 'string',
+      'partner_facebook_page_url' => 'string',
+      'partner_registration_countries' => 'list<string>',
+      'sales_rep_email' => 'string',
+      'seller_external_website_url' => 'string',
+      'seller_targeting_countries' => 'list<string>',
+      'survey_business_type' => 'survey_business_type_enum',
+      'survey_num_assets' => 'unsigned int',
+      'survey_num_people' => 'unsigned int',
+      'timezone_id' => 'unsigned int',
+      'vertical' => 'vertical_enum',
+    );
+    $enums = array(
+      'survey_business_type_enum' => array(
+        'ADVERTISER',
+        'AGENCY',
+        'APP_DEVELOPER',
+        'PUBLISHER',
+      ),
+      'vertical_enum' => array(
+        'ADVERTISING',
+        'AUTOMOTIVE',
+        'CONSUMER_PACKAGED_GOODS',
+        'ECOMMERCE',
+        'EDUCATION',
+        'ENERGY_AND_UTILITIES',
+        'ENTERTAINMENT_AND_MEDIA',
+        'FINANCIAL_SERVICES',
+        'GAMING',
+        'GOVERNMENT_AND_POLITICS',
+        'HEALTH',
+        'LUXURY',
+        'MARKETING',
+        'NON_PROFIT',
+        'ORGANIZATIONS_AND_ASSOCIATIONS',
+        'OTHER',
+        'PROFESSIONAL_SERVICES',
+        'RESTAURANT',
+        'RETAIL',
+        'TECHNOLOGY',
+        'TELECOM',
+        'TRAVEL',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/managed_partner_businesses',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createManagedPartnerChildBusinessAsset(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'child_business_id' => 'string',
+      'credit_limit' => 'unsigned int',
+      'line_of_credit_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/managed_partner_child_business_assets',
+      new Business(),
+      'EDGE',
+      Business::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createMoveAsset(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1460,6 +1541,29 @@ class Business extends AbstractCrudObject {
       new Business(),
       'EDGE',
       Business::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getNegativeKeywordLists(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/negative_keyword_lists',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1825,6 +1929,7 @@ class Business extends AbstractCrudObject {
       'flight_catalog_settings' => 'map',
       'name' => 'string',
       'parent_catalog_id' => 'string',
+      'partner_integration' => 'map',
       'store_catalog_settings' => 'map',
       'vertical' => 'vertical_enum',
     );
@@ -2227,42 +2332,6 @@ class Business extends AbstractCrudObject {
       new ThirdPartyMeasurementReportDataset(),
       'EDGE',
       ThirdPartyMeasurementReportDataset::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createUploadEvent(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'aggregation_level' => 'aggregation_level_enum',
-      'conversion_end_date' => 'string',
-      'conversion_start_date' => 'string',
-      'event_status' => 'event_status_enum',
-      'lookback_window' => 'lookback_window_enum',
-      'match_universe' => 'match_universe_enum',
-      'timezone' => 'timezone_enum',
-      'upload_tag' => 'string',
-    );
-    $enums = array(
-      'aggregation_level_enum' => MeasurementUploadEventAggregationLevelValues::getInstance()->getValues(),
-      'event_status_enum' => MeasurementUploadEventEventStatusValues::getInstance()->getValues(),
-      'lookback_window_enum' => MeasurementUploadEventLookbackWindowValues::getInstance()->getValues(),
-      'match_universe_enum' => MeasurementUploadEventMatchUniverseValues::getInstance()->getValues(),
-      'timezone_enum' => MeasurementUploadEventTimezoneValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/upload_event',
-      new MeasurementUploadEvent(),
-      'EDGE',
-      MeasurementUploadEvent::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

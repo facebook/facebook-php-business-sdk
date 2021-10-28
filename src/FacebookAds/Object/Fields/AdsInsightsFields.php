@@ -42,18 +42,12 @@ class AdsInsightsFields extends AbstractEnum {
   const ACCOUNT_NAME = 'account_name';
   const ACTION_VALUES = 'action_values';
   const ACTIONS = 'actions';
-  const AD_BID_TYPE = 'ad_bid_type';
   const AD_BID_VALUE = 'ad_bid_value';
   const AD_CLICK_ACTIONS = 'ad_click_actions';
-  const AD_DELIVERY = 'ad_delivery';
   const AD_ID = 'ad_id';
   const AD_IMPRESSION_ACTIONS = 'ad_impression_actions';
   const AD_NAME = 'ad_name';
-  const ADSET_BID_TYPE = 'adset_bid_type';
   const ADSET_BID_VALUE = 'adset_bid_value';
-  const ADSET_BUDGET_TYPE = 'adset_budget_type';
-  const ADSET_BUDGET_VALUE = 'adset_budget_value';
-  const ADSET_DELIVERY = 'adset_delivery';
   const ADSET_END = 'adset_end';
   const ADSET_ID = 'adset_id';
   const ADSET_NAME = 'adset_name';
@@ -90,7 +84,6 @@ class AdsInsightsFields extends AbstractEnum {
   const COST_PER_INLINE_POST_ENGAGEMENT = 'cost_per_inline_post_engagement';
   const COST_PER_ONE_THOUSAND_AD_IMPRESSION = 'cost_per_one_thousand_ad_impression';
   const COST_PER_OUTBOUND_CLICK = 'cost_per_outbound_click';
-  const COST_PER_STORE_VISIT_ACTION = 'cost_per_store_visit_action';
   const COST_PER_THRUPLAY = 'cost_per_thruplay';
   const COST_PER_UNIQUE_ACTION_TYPE = 'cost_per_unique_action_type';
   const COST_PER_UNIQUE_CLICK = 'cost_per_unique_click';
@@ -105,6 +98,7 @@ class AdsInsightsFields extends AbstractEnum {
   const DATE_START = 'date_start';
   const DATE_STOP = 'date_stop';
   const DDA_COUNTBY_CONVS = 'dda_countby_convs';
+  const DDA_RESULTS = 'dda_results';
   const ENGAGEMENT_RATE_RANKING = 'engagement_rate_ranking';
   const ESTIMATED_AD_RECALL_RATE = 'estimated_ad_recall_rate';
   const ESTIMATED_AD_RECALL_RATE_LOWER_BOUND = 'estimated_ad_recall_rate_lower_bound';
@@ -141,7 +135,7 @@ class AdsInsightsFields extends AbstractEnum {
   const REACH = 'reach';
   const SOCIAL_SPEND = 'social_spend';
   const SPEND = 'spend';
-  const STORE_VISIT_ACTIONS = 'store_visit_actions';
+  const TOTAL_POSTBACKS = 'total_postbacks';
   const UNIQUE_ACTIONS = 'unique_actions';
   const UNIQUE_CLICKS = 'unique_clicks';
   const UNIQUE_CONVERSIONS = 'unique_conversions';
@@ -181,18 +175,12 @@ class AdsInsightsFields extends AbstractEnum {
       'account_name' => 'string',
       'action_values' => 'list<AdsActionStats>',
       'actions' => 'list<AdsActionStats>',
-      'ad_bid_type' => 'string',
       'ad_bid_value' => 'string',
       'ad_click_actions' => 'list<AdsActionStats>',
-      'ad_delivery' => 'string',
       'ad_id' => 'string',
       'ad_impression_actions' => 'list<AdsActionStats>',
       'ad_name' => 'string',
-      'adset_bid_type' => 'string',
       'adset_bid_value' => 'string',
-      'adset_budget_type' => 'string',
-      'adset_budget_value' => 'string',
-      'adset_delivery' => 'string',
       'adset_end' => 'string',
       'adset_id' => 'string',
       'adset_name' => 'string',
@@ -229,7 +217,6 @@ class AdsInsightsFields extends AbstractEnum {
       'cost_per_inline_post_engagement' => 'string',
       'cost_per_one_thousand_ad_impression' => 'list<AdsActionStats>',
       'cost_per_outbound_click' => 'list<AdsActionStats>',
-      'cost_per_store_visit_action' => 'list<AdsActionStats>',
       'cost_per_thruplay' => 'list<AdsActionStats>',
       'cost_per_unique_action_type' => 'list<AdsActionStats>',
       'cost_per_unique_click' => 'string',
@@ -244,6 +231,7 @@ class AdsInsightsFields extends AbstractEnum {
       'date_start' => 'string',
       'date_stop' => 'string',
       'dda_countby_convs' => 'string',
+      'dda_results' => 'list<Object>',
       'engagement_rate_ranking' => 'string',
       'estimated_ad_recall_rate' => 'string',
       'estimated_ad_recall_rate_lower_bound' => 'string',
@@ -261,7 +249,7 @@ class AdsInsightsFields extends AbstractEnum {
       'inline_post_engagement' => 'string',
       'instant_experience_clicks_to_open' => 'string',
       'instant_experience_clicks_to_start' => 'string',
-      'instant_experience_outbound_clicks' => 'string',
+      'instant_experience_outbound_clicks' => 'list<AdsActionStats>',
       'interactive_component_tap' => 'list<AdsActionStats>',
       'labels' => 'string',
       'location' => 'string',
@@ -280,7 +268,7 @@ class AdsInsightsFields extends AbstractEnum {
       'reach' => 'string',
       'social_spend' => 'string',
       'spend' => 'string',
-      'store_visit_actions' => 'list<AdsActionStats>',
+      'total_postbacks' => 'string',
       'unique_actions' => 'list<AdsActionStats>',
       'unique_clicks' => 'string',
       'unique_conversions' => 'list<AdsActionStats>',

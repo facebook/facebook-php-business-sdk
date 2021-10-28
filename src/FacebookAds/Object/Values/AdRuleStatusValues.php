@@ -40,4 +40,5 @@ class AdRuleStatusValues extends AbstractEnum {
   const DELETED = 'DELETED';
   const DISABLED = 'DISABLED';
   const ENABLED = 'ENABLED';
+  const HAS_ISSUES = 'HAS_ISSUES';
 }

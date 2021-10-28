@@ -915,60 +915,6 @@ class User extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createGamesPlay(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'added' => 'string',
-      'alias' => 'string',
-      'android_key_hash' => 'string',
-      'client_secret' => 'string',
-      'created_time' => 'datetime',
-      'end_time' => 'datetime',
-      'expires_in' => 'unsigned int',
-      'fb:channel' => 'string',
-      'fb:explicitly_shared' => 'bool',
-      'image:height' => 'unsigned int',
-      'image:secure_url' => 'string',
-      'image:type' => 'string',
-      'image:url' => 'string',
-      'image:user_generated' => 'bool',
-      'image:width' => 'unsigned int',
-      'ios_bundle_id' => 'string',
-      'message' => 'string',
-      'no_action_link' => 'bool',
-      'no_feed_story' => 'bool',
-      'notify' => 'bool',
-      'place' => 'string',
-      'preview' => 'bool',
-      'privacy' => 'string',
-      'proxied_app_id' => 'string',
-      'ref' => 'string',
-      'scrape' => 'bool',
-      'start_time' => 'datetime',
-      'tags' => 'list<int>',
-      'to' => 'string',
-      'user_selected_place' => 'bool',
-      'user_selected_tags' => 'bool',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/games_plays',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getGroups(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1182,7 +1128,6 @@ class User extends AbstractCrudObject {
       'is_spherical' => 'bool',
       'live_encoders' => 'list<string>',
       'original_fov' => 'unsigned int',
-      'planned_start_time' => 'int',
       'privacy' => 'string',
       'projection' => 'projection_enum',
       'published' => 'bool',

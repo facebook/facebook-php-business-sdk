@@ -63,13 +63,13 @@ class LiveVideo extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['BroadcastStatus'] = LiveVideoBroadcastStatusValues::getInstance()->getValues();
     $ref_enums['Projection'] = LiveVideoProjectionValues::getInstance()->getValues();
+    $ref_enums['Source'] = LiveVideoSourceValues::getInstance()->getValues();
     $ref_enums['SpatialAudioFormat'] = LiveVideoSpatialAudioFormatValues::getInstance()->getValues();
     $ref_enums['Status'] = LiveVideoStatusValues::getInstance()->getValues();
     $ref_enums['StereoscopicMode'] = LiveVideoStereoscopicModeValues::getInstance()->getValues();
     $ref_enums['StreamType'] = LiveVideoStreamTypeValues::getInstance()->getValues();
-    $ref_enums['BroadcastStatus'] = LiveVideoBroadcastStatusValues::getInstance()->getValues();
-    $ref_enums['Source'] = LiveVideoSourceValues::getInstance()->getValues();
     $ref_enums['LiveCommentModerationSetting'] = LiveVideoLiveCommentModerationSettingValues::getInstance()->getValues();
     $ref_enums['PersistentStreamKeyStatus'] = LiveVideoPersistentStreamKeyStatusValues::getInstance()->getValues();
     return $ref_enums;
@@ -369,7 +369,6 @@ class LiveVideo extends AbstractCrudObject {
       'og_phrase' => 'string',
       'persistent_stream_key_status' => 'persistent_stream_key_status_enum',
       'place' => 'Object',
-      'planned_start_time' => 'int',
       'privacy' => 'string',
       'published' => 'bool',
       'schedule_custom_profile_image' => 'file',

@@ -50,4 +50,5 @@ class ApplicationSupportedPlatformsValues extends AbstractEnum {
   const SUPPLEMENTARY_IMAGES = 'SUPPLEMENTARY_IMAGES';
   const WEB = 'WEB';
   const WINDOWS = 'WINDOWS';
+  const XIAOMI = 'XIAOMI';
 }

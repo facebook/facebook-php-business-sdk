@@ -40,7 +40,8 @@ $api = Api::init(null, null, $access_token);
 $api->setLogger(new CurlLogger());
 
 $user_data = (new UserData())
-    ->setEmail('joe@eg.com')
+    ->setEmails(array('joe@eg.com'))
+    ->setPhones(array('12345678901', '14251234567'))
     // It is recommended to send Client IP and User Agent for Conversions API Events.
     ->setClientIpAddress($_SERVER['REMOTE_ADDR'])
     ->setClientUserAgent($_SERVER['HTTP_USER_AGENT'])

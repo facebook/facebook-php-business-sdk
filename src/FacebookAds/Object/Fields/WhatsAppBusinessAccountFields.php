@@ -37,7 +37,9 @@ use FacebookAds\Enum\AbstractEnum;
 
 class WhatsAppBusinessAccountFields extends AbstractEnum {
 
+  const ACCOUNT_REVIEW_STATUS = 'account_review_status';
   const ANALYTICS = 'analytics';
+  const CREATION_TIME = 'creation_time';
   const CURRENCY = 'currency';
   const ID = 'id';
   const MESSAGE_TEMPLATE_NAMESPACE = 'message_template_namespace';
@@ -51,7 +53,9 @@ class WhatsAppBusinessAccountFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'account_review_status' => 'string',
       'analytics' => 'Object',
+      'creation_time' => 'int',
       'currency' => 'string',
       'id' => 'string',
       'message_template_namespace' => 'string',
