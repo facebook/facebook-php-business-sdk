@@ -243,7 +243,7 @@ class Event implements ArrayAccess {
 
   /**
    * Sets UserData object that contains user data.
-   * @param FacebookAds\Object\ServerSide\UserData $user_data
+   * @param \FacebookAds\Object\ServerSide\UserData $user_data
    * @return $this
    */
   public function setUserData($user_data) {
@@ -254,7 +254,7 @@ class Event implements ArrayAccess {
 
   /**
    * Sets CustomData object that includes additional business data about the event.
-   * @param FacebookAds\Object\ServerSide\CustomData $custom_data
+   * @param \FacebookAds\Object\ServerSide\CustomData $custom_data
    * @return $this
    */
   public function setCustomData($custom_data) {
@@ -434,7 +434,7 @@ class Event implements ArrayAccess {
 
   /**
    * Gets UserData object that contains user data
-   * @return FacebookAds\Object\ServerSide\UserData
+   * @return \FacebookAds\Object\ServerSide\UserData
    */
   public function getUserData() {
     return $this->container['user_data'];
@@ -442,7 +442,7 @@ class Event implements ArrayAccess {
 
   /**
    * Gets customData object that includes additional business data about the event.
-   * @return FacebookAds\Object\ServerSide\CustomData
+   * @return \FacebookAds\Object\ServerSide\CustomData
    */
   public function getCustomData() {
     return $this->container['custom_data'];

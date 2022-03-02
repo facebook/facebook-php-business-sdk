@@ -430,7 +430,7 @@ class UserData implements ArrayAccess {
 
   /**
    * Sets Gender, in lowercase. Either f or m.
-   * @param FacebookAds\Object\ServerSide\Gender $gender Gender, in lowercase. Either f or m.
+   * @param \FacebookAds\Object\ServerSide\Gender $gender Gender, in lowercase. Either f or m.
    * @return $this
    */
   public function setGender($gender) {
@@ -442,7 +442,7 @@ class UserData implements ArrayAccess {
   /**
    * Sets a list of Genders, in lowercase.
    * <p>Example: array('f', 'm')
-   * @param FacebookAds\Object\ServerSide\Gender[] $genders A list of Genders, in lowercase.
+   * @param \FacebookAds\Object\ServerSide\Gender[] $genders A list of Genders, in lowercase.
    * @return $this
    */
   public function setGenders($genders) {
