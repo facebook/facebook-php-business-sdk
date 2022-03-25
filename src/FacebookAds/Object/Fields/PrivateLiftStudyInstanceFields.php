@@ -43,6 +43,7 @@ class PrivateLiftStudyInstanceFields extends AbstractEnum {
   const LATEST_STATUS_UPDATE_TIME = 'latest_status_update_time';
   const SERVER_IPS = 'server_ips';
   const STATUS = 'status';
+  const TIER = 'tier';
 
   public function getFieldTypes() {
     return array(
@@ -52,6 +53,7 @@ class PrivateLiftStudyInstanceFields extends AbstractEnum {
       'latest_status_update_time' => 'datetime',
       'server_ips' => 'list<string>',
       'status' => 'string',
+      'tier' => 'string',
     );
   }
 }

@@ -37,7 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdAccountTargetingUnifiedFields extends AbstractEnum {
 
-  const AUDIENCE_SIZE = 'audience_size';
   const AUDIENCE_SIZE_LOWER_BOUND = 'audience_size_lower_bound';
   const AUDIENCE_SIZE_UPPER_BOUND = 'audience_size_upper_bound';
   const CONVERSION_LIFT = 'conversion_lift';
@@ -64,7 +63,6 @@ class AdAccountTargetingUnifiedFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'audience_size' => 'unsigned int',
       'audience_size_lower_bound' => 'unsigned int',
       'audience_size_upper_bound' => 'unsigned int',
       'conversion_lift' => 'float',

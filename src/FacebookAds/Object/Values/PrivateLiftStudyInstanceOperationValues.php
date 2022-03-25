@@ -40,5 +40,6 @@ class PrivateLiftStudyInstanceOperationValues extends AbstractEnum {
   const AGGREGATE = 'AGGREGATE';
   const COMPUTE = 'COMPUTE';
   const ID_MATCH = 'ID_MATCH';
+  const NEXT = 'NEXT';
   const NONE = 'NONE';
 }

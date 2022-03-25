@@ -52,7 +52,6 @@ class IGMediaFields extends AbstractEnum {
   const THUMBNAIL_URL = 'thumbnail_url';
   const TIMESTAMP = 'timestamp';
   const USERNAME = 'username';
-  const VIDEO_TITLE = 'video_title';
 
   public function getFieldTypes() {
     return array(
@@ -71,7 +70,6 @@ class IGMediaFields extends AbstractEnum {
       'thumbnail_url' => 'string',
       'timestamp' => 'datetime',
       'username' => 'string',
-      'video_title' => 'string',
     );
   }
 }

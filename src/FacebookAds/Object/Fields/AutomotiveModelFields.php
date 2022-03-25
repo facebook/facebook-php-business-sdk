@@ -97,7 +97,7 @@ class AutomotiveModelFields extends AbstractEnum {
       'trim' => 'string',
       'unit_price' => 'Object',
       'url' => 'string',
-      'year' => 'unsigned int',
+      'year' => 'int',
     );
   }
 }

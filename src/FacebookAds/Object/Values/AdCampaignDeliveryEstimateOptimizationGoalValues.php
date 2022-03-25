@@ -45,6 +45,7 @@ class AdCampaignDeliveryEstimateOptimizationGoalValues extends AbstractEnum {
   const ENGAGED_USERS = 'ENGAGED_USERS';
   const EVENT_RESPONSES = 'EVENT_RESPONSES';
   const IMPRESSIONS = 'IMPRESSIONS';
+  const IN_APP_VALUE = 'IN_APP_VALUE';
   const LANDING_PAGE_VIEWS = 'LANDING_PAGE_VIEWS';
   const LEAD_GENERATION = 'LEAD_GENERATION';
   const LINK_CLICKS = 'LINK_CLICKS';

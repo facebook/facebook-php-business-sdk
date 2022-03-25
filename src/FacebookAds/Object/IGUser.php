@@ -109,6 +109,31 @@ class IGUser extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getLiveMedia(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'since' => 'datetime',
+      'until' => 'datetime',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/live_media',
+      new IGMedia(),
+      'EDGE',
+      IGMedia::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getMedia(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -139,7 +164,9 @@ class IGUser extends AbstractCrudObject {
 
     $param_types = array(
       'caption' => 'string',
+      'children' => 'list<string>',
       'image_url' => 'string',
+      'is_carousel_item' => 'bool',
       'location_id' => 'string',
       'media_type' => 'string',
       'thumb_offset' => 'string',

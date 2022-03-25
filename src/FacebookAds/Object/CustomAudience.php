@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\CustomAudienceFields;
+use FacebookAds\Object\Values\CustomAudienceActionSourceValues;
 use FacebookAds\Object\Values\CustomAudienceClaimObjectiveValues;
 use FacebookAds\Object\Values\CustomAudienceContentTypeValues;
 use FacebookAds\Object\Values\CustomAudienceCustomerFileSourceValues;
@@ -81,6 +82,7 @@ class CustomAudience extends AbstractCrudObject {
     $ref_enums['ContentType'] = CustomAudienceContentTypeValues::getInstance()->getValues();
     $ref_enums['CustomerFileSource'] = CustomAudienceCustomerFileSourceValues::getInstance()->getValues();
     $ref_enums['Subtype'] = CustomAudienceSubtypeValues::getInstance()->getValues();
+    $ref_enums['ActionSource'] = CustomAudienceActionSourceValues::getInstance()->getValues();
     return $ref_enums;
   }
 

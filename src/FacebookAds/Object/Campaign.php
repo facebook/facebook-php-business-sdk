@@ -459,6 +459,7 @@ class Campaign extends AbstractArchivableCrudObject {
     );
     $enums = array(
       'date_preset_enum' => array(
+        'data_maximum',
         'last_14d',
         'last_28d',
         'last_30d',

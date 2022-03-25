@@ -133,7 +133,9 @@ class ProductItemCommerceTaxCategoryValues extends AbstractEnum {
   const FB_ELEC_PART = 'FB_ELEC_PART';
   const FB_ELEC_PRINT = 'FB_ELEC_PRINT';
   const FB_ELEC_RADAR = 'FB_ELEC_RADAR';
+  const FB_ELEC_SFTWR = 'FB_ELEC_SFTWR';
   const FB_ELEC_SPEED_RDR = 'FB_ELEC_SPEED_RDR';
+  const FB_ELEC_TELEVISION = 'FB_ELEC_TELEVISION';
   const FB_ELEC_TOLL = 'FB_ELEC_TOLL';
   const FB_ELEC_VIDEO = 'FB_ELEC_VIDEO';
   const FB_ELEC_VID_GM_ACC = 'FB_ELEC_VID_GM_ACC';

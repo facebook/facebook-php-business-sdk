@@ -36,7 +36,6 @@ use FacebookAds\Object\Values\ProductFeedIngestionSourceTypeValues;
 use FacebookAds\Object\Values\ProductFeedItemSubTypeValues;
 use FacebookAds\Object\Values\ProductFeedOverrideTypeValues;
 use FacebookAds\Object\Values\ProductFeedQuotedFieldsModeValues;
-use FacebookAds\Object\Values\ProductFeedRuleRuleTypeValues;
 
 /**
  * This class is auto-generated.
@@ -75,29 +74,6 @@ class ProductFeed extends AbstractCrudObject {
     return $ref_enums;
   }
 
-
-  public function getAutoMarkets(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/auto_markets',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
 
   public function getAutomotiveModels(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
@@ -224,31 +200,6 @@ class ProductFeed extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getMediaTitles(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'bulk_pagination' => 'bool',
-      'filter' => 'Object',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/media_titles',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getProducts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -306,7 +257,13 @@ class ProductFeed extends AbstractCrudObject {
       'rule_type' => 'rule_type_enum',
     );
     $enums = array(
-      'rule_type_enum' => ProductFeedRuleRuleTypeValues::getInstance()->getValues(),
+      'rule_type_enum' => array(
+        'fallback_rule',
+        'letter_case_rule',
+        'mapping_rule',
+        'regex_replace_rule',
+        'value_mapping_rule',
+      ),
     );
 
     $request = new ApiRequest(
@@ -314,9 +271,9 @@ class ProductFeed extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/rules',
-      new ProductFeedRule(),
+      new AbstractCrudObject(),
       'EDGE',
-      ProductFeedRule::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
