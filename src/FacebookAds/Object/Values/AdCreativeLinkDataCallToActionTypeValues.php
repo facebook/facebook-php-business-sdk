@@ -76,6 +76,7 @@ class AdCreativeLinkDataCallToActionTypeValues extends AbstractEnum {
   const ORDER_NOW = 'ORDER_NOW';
   const PAY_TO_ACCESS = 'PAY_TO_ACCESS';
   const PLAY_GAME = 'PLAY_GAME';
+  const PLAY_GAME_ON_FACEBOOK = 'PLAY_GAME_ON_FACEBOOK';
   const PURCHASE_GIFT_CARDS = 'PURCHASE_GIFT_CARDS';
   const RECORD_NOW = 'RECORD_NOW';
   const REFER_FRIENDS = 'REFER_FRIENDS';

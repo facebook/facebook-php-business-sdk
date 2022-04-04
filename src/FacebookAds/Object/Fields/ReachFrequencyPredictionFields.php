@@ -110,7 +110,6 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const START_TIME = 'start_time';
   const STATUS = 'status';
   const STORY_EVENT_TYPE = 'story_event_type';
-  const TARGET_AUDIENCE_SIZE = 'target_audience_size';
   const TARGET_CPM = 'target_cpm';
   const TARGET_SPEC = 'target_spec';
   const TIME_CREATED = 'time_created';
@@ -212,7 +211,6 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'start_time' => 'datetime',
       'status' => 'unsigned int',
       'story_event_type' => 'unsigned int',
-      'target_audience_size' => 'unsigned int',
       'target_cpm' => 'unsigned int',
       'target_spec' => 'Targeting',
       'time_created' => 'datetime',

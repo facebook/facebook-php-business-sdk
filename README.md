@@ -25,8 +25,7 @@ To manage the Marketing API, please visit your
 <a href="https://developers.facebook.com/apps/<YOUR APP ID>/dashboard"> App Dashboard </a>
 and add the <b>Marketing API</b> product to your app.
 
-**IMPORTANT**: For security, it is recommended that you turn on 'App Secret
-Proof for Server API calls' in your app's Settings->Advanced page.
+**IMPORTANT**: For security, it is recommended that you turn on 'Require App Secret' in your app's Settings->Advanced page.
 
 ### Obtain An Access Token
 
@@ -61,7 +60,7 @@ Add the following to your `composer.json` file:
 ```json
 {
     "require": {
-        "facebook/php-business-sdk": "5.0.5"
+        "facebook/php-business-sdk": "12.0.*"
     }
 }
 ```

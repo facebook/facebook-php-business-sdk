@@ -52,6 +52,7 @@ class AutomotiveModelBodyStyleValues extends AbstractEnum {
   const ROADSTER = 'ROADSTER';
   const SALOON = 'SALOON';
   const SEDAN = 'SEDAN';
+  const SMALL_CAR = 'SMALL_CAR';
   const SPORTSCAR = 'SPORTSCAR';
   const SUPERCAR = 'SUPERCAR';
   const SUPERMINI = 'SUPERMINI';

@@ -113,14 +113,12 @@ class PageCallToAction extends AbstractCrudObject {
 
     $param_types = array(
       'android_app_id' => 'int',
-      'android_deeplink' => 'string',
       'android_destination_type' => 'android_destination_type_enum',
       'android_package_name' => 'string',
       'android_url' => 'string',
       'email_address' => 'string',
       'intl_number_with_plus' => 'string',
       'iphone_app_id' => 'int',
-      'iphone_deeplink' => 'string',
       'iphone_destination_type' => 'iphone_destination_type_enum',
       'iphone_url' => 'string',
       'type' => 'type_enum',

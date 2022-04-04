@@ -79,7 +79,7 @@ class OfflineConversionDataSetFields extends AbstractEnum {
       'match_rate_approx' => 'int',
       'matched_entries' => 'int',
       'name' => 'string',
-      'usage' => 'Object',
+      'usage' => 'OfflineConversionDataSetUsage',
       'valid_entries' => 'int',
       'auto_assign_to_new_accounts_only' => 'bool',
     );

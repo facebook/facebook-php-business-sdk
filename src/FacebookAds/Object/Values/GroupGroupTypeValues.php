@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class GroupGroupTypeValues extends AbstractEnum {
 
+  const BOOKS = 'BOOKS';
   const CASUAL = 'CASUAL';
   const CLOSE_FRIENDS = 'CLOSE_FRIENDS';
   const CLUB = 'CLUB';
@@ -47,6 +48,7 @@ class GroupGroupTypeValues extends AbstractEnum {
   const EPHEMERAL = 'EPHEMERAL';
   const EVENT_PLANNING = 'EVENT_PLANNING';
   const FAMILY = 'FAMILY';
+  const FANDOM_RADAR = 'FANDOM_RADAR';
   const FANTASY_LEAGUE = 'FANTASY_LEAGUE';
   const FITNESS = 'FITNESS';
   const FOR_SALE = 'FOR_SALE';
@@ -58,6 +60,7 @@ class GroupGroupTypeValues extends AbstractEnum {
   const JOBS = 'JOBS';
   const LEARNING = 'LEARNING';
   const MENTORSHIP = 'MENTORSHIP';
+  const MUSIC_CASA_BUNDLE = 'MUSIC_CASA_BUNDLE';
   const NEIGHBORS = 'NEIGHBORS';
   const NONE = 'NONE';
   const OCULUS = 'OCULUS';
@@ -69,11 +72,13 @@ class GroupGroupTypeValues extends AbstractEnum {
   const SCHOOL_CLASS = 'SCHOOL_CLASS';
   const SORORITY = 'SORORITY';
   const SPORTS = 'SPORTS';
+  const SPORTS_ACTIVITY = 'SPORTS_ACTIVITY';
   const STREAMER = 'STREAMER';
   const STUDY_GROUP = 'STUDY_GROUP';
   const SUPPORT = 'SUPPORT';
   const TEAMMATES = 'TEAMMATES';
   const THEME = 'THEME';
+  const TOGETHER_VR = 'TOGETHER_VR';
   const TRAVEL_PLANNING = 'TRAVEL_PLANNING';
   const WORK_ANNOUNCEMENT = 'WORK_ANNOUNCEMENT';
   const WORK_DEMO_GROUP = 'WORK_DEMO_GROUP';
@@ -82,12 +87,14 @@ class GroupGroupTypeValues extends AbstractEnum {
   const WORK_FEEDBACK = 'WORK_FEEDBACK';
   const WORK_FOR_SALE = 'WORK_FOR_SALE';
   const WORK_GARDEN = 'WORK_GARDEN';
+  const WORK_GUEST_GROUP = 'WORK_GUEST_GROUP';
   const WORK_LEARNING = 'WORK_LEARNING';
   const WORK_MENTORSHIP = 'WORK_MENTORSHIP';
   const WORK_MULTI_COMPANY = 'WORK_MULTI_COMPANY';
   const WORK_RECRUITING = 'WORK_RECRUITING';
   const WORK_RESUME_REVIEW = 'WORK_RESUME_REVIEW';
   const WORK_SOCIAL = 'WORK_SOCIAL';
+  const WORK_STAGES = 'WORK_STAGES';
   const WORK_TEAM = 'WORK_TEAM';
   const WORK_TEAMWORK = 'WORK_TEAMWORK';
   const WORK_VC_CALL = 'WORK_VC_CALL';

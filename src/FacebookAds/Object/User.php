@@ -41,6 +41,7 @@ use FacebookAds\Object\Values\AdVideoUploadPhaseValues;
 use FacebookAds\Object\Values\BusinessSurveyBusinessTypeValues;
 use FacebookAds\Object\Values\BusinessVerticalValues;
 use FacebookAds\Object\Values\EventTypeValues;
+use FacebookAds\Object\Values\FundraiserPersonToCharityFundraiserTypeValues;
 use FacebookAds\Object\Values\LiveVideoBroadcastStatusValues;
 use FacebookAds\Object\Values\LiveVideoProjectionValues;
 use FacebookAds\Object\Values\LiveVideoSourceValues;
@@ -779,7 +780,6 @@ class User extends AbstractCrudObject {
       'ref' => 'list<string>',
       'referenceable_image_ids' => 'list<string>',
       'referral_id' => 'string',
-      'sales_promo_id' => 'unsigned int',
       'scheduled_publish_time' => 'datetime',
       'source' => 'string',
       'sponsor_id' => 'string',
@@ -845,6 +845,44 @@ class User extends AbstractCrudObject {
       new User(),
       'EDGE',
       User::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createFundraiser(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'charity_id' => 'string',
+      'cover_photo' => 'file',
+      'currency' => 'string',
+      'description' => 'string',
+      'end_time' => 'int',
+      'external_event_name' => 'string',
+      'external_event_start_time' => 'int',
+      'external_event_uri' => 'string',
+      'external_fundraiser_uri' => 'string',
+      'external_id' => 'string',
+      'fundraiser_type' => 'fundraiser_type_enum',
+      'goal_amount' => 'int',
+      'name' => 'string',
+      'page_id' => 'string',
+    );
+    $enums = array(
+      'fundraiser_type_enum' => FundraiserPersonToCharityFundraiserTypeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/fundraisers',
+      new FundraiserPersonToCharity(),
+      'EDGE',
+      FundraiserPersonToCharity::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1036,57 +1074,6 @@ class User extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getLiveEncoders(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/live_encoders',
-      new LiveEncoder(),
-      'EDGE',
-      LiveEncoder::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createLiveEncoder(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'brand' => 'string',
-      'device_id' => 'string',
-      'model' => 'string',
-      'name' => 'string',
-      'version' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/live_encoders',
-      new LiveEncoder(),
-      'EDGE',
-      LiveEncoder::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getLiveVideos(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1126,8 +1113,8 @@ class User extends AbstractCrudObject {
       'front_z_rotation' => 'float',
       'is_audio_only' => 'bool',
       'is_spherical' => 'bool',
-      'live_encoders' => 'list<string>',
       'original_fov' => 'unsigned int',
+      'planned_start_time' => 'int',
       'privacy' => 'string',
       'projection' => 'projection_enum',
       'published' => 'bool',
@@ -1365,7 +1352,6 @@ class User extends AbstractCrudObject {
       'ios_bundle_id' => 'string',
       'is_explicit_location' => 'bool',
       'is_explicit_place' => 'bool',
-      'is_visual_search' => 'bool',
       'manual_privacy' => 'bool',
       'message' => 'string',
       'name' => 'string',
@@ -1608,7 +1594,6 @@ class User extends AbstractCrudObject {
       'react_mode_metadata' => 'string',
       'referenced_sticker_id' => 'string',
       'replace_video_id' => 'string',
-      'sales_promo_id' => 'unsigned int',
       'slideshow_spec' => 'map',
       'source' => 'string',
       'source_instagram_media_id' => 'string',

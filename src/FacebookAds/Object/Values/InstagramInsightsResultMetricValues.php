@@ -42,12 +42,16 @@ class InstagramInsightsResultMetricValues extends AbstractEnum {
   const CAROUSEL_ALBUM_REACH = 'carousel_album_reach';
   const CAROUSEL_ALBUM_SAVED = 'carousel_album_saved';
   const CAROUSEL_ALBUM_VIDEO_VIEWS = 'carousel_album_video_views';
+  const COMMENTS = 'comments';
   const ENGAGEMENT = 'engagement';
   const EXITS = 'exits';
   const IMPRESSIONS = 'impressions';
+  const LIKES = 'likes';
+  const PLAYS = 'plays';
   const REACH = 'reach';
   const REPLIES = 'replies';
   const SAVED = 'saved';
+  const SHARES = 'shares';
   const TAPS_BACK = 'taps_back';
   const TAPS_FORWARD = 'taps_forward';
   const VIDEO_VIEWS = 'video_views';
