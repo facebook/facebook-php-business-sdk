@@ -250,7 +250,7 @@ function create_click_to_messenger_ad(
   $account_id,
   $bmid,
   $ad_message,
-  $page_welcome_message,
+  $page_welcome_message
 ) {
   global $aggregator_access_token, $app_id, $page_id;
   $api = setAccessToken($aggregator_access_token);
