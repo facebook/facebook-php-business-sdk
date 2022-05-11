@@ -28,6 +28,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\Http\ResponseInterface;
 use FacebookAds\Http\Util;
 use FacebookAds\Object\AbstractObject;
+use ReturnTypeWillChange;
 
 class Cursor implements \Iterator, \Countable, \arrayaccess {
   /**
@@ -419,6 +420,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
     return $this->indexRight;
   }
 
+  #[ReturnTypeWillChange]
   public function rewind() {
     $this->position = $this->indexLeft;
   }
@@ -438,6 +440,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   /**
    * @return AbstractObject|bool
    */
+  #[ReturnTypeWillChange]
   public function current() {
     return isset($this->objects[$this->position])
       ? $this->objects[$this->position]
@@ -447,6 +450,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   /**
    * @return int
    */
+  #[ReturnTypeWillChange]
   public function key() {
     return $this->position;
   }
@@ -468,6 +472,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
     }
   }
 
+  #[ReturnTypeWillChange]
   public function next() {
     if ($this->position == $this->getIndexRight()) {
       if ($this->getUseImplicitFetch()) {
@@ -488,6 +493,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   /**
    * @return bool
    */
+  #[ReturnTypeWillChange]
   public function valid() {
     return isset($this->objects[$this->position]);
   }
@@ -495,6 +501,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   /**
    * @return int
    */
+  #[ReturnTypeWillChange]
   public function count() {
     return count($this->objects);
   }
@@ -503,6 +510,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
    * @param mixed $offset
    * @param mixed $value
    */
+  #[ReturnTypeWillChange]
   public function offsetSet($offset, $value) {
     if ($offset === null) {
       $this->objects[] = $value;
@@ -515,6 +523,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
    * @param mixed $offset
    * @return bool
    */
+  #[ReturnTypeWillChange]
   public function offsetExists($offset) {
     return isset($this->objects[$offset]);
   }
@@ -522,6 +531,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   /**
    * @param mixed $offset
    */
+  #[ReturnTypeWillChange]
   public function offsetUnset($offset) {
     unset($this->objects[$offset]);
   }
@@ -530,6 +540,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
    * @param mixed $offset
    * @return mixed
    */
+  #[ReturnTypeWillChange]
   public function offsetGet($offset) {
     return isset($this->objects[$offset]) ? $this->objects[$offset] : null;
   }
