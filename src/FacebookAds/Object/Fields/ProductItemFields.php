@@ -64,6 +64,7 @@ class ProductItemFields extends AbstractEnum {
   const CUSTOM_NUMBER_3 = 'custom_number_3';
   const CUSTOM_NUMBER_4 = 'custom_number_4';
   const DESCRIPTION = 'description';
+  const ERRORS = 'errors';
   const EXPIRATION_DATE = 'expiration_date';
   const FB_PRODUCT_CATEGORY = 'fb_product_category';
   const GENDER = 'gender';
@@ -162,6 +163,7 @@ class ProductItemFields extends AbstractEnum {
       'custom_number_3' => 'string',
       'custom_number_4' => 'string',
       'description' => 'string',
+      'errors' => 'list<ProductItemError>',
       'expiration_date' => 'string',
       'fb_product_category' => 'string',
       'gender' => 'Gender',

@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class CopyrightAudioAssetFields extends AbstractEnum {
 
+  const COPYRIGHT = 'copyright';
   const CREATION_TIME = 'creation_time';
   const ID = 'id';
   const TITLE = 'title';
@@ -44,6 +45,7 @@ class CopyrightAudioAssetFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'copyright' => 'AudioCopyright',
       'creation_time' => 'datetime',
       'id' => 'string',
       'title' => 'string',

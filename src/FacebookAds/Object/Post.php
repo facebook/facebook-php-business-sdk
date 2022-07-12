@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\PostFields;
+use FacebookAds\Object\Values\CommentCommentPrivacyValueValues;
 use FacebookAds\Object\Values\CommentFilterValues;
 use FacebookAds\Object\Values\CommentLiveFilterValues;
 use FacebookAds\Object\Values\CommentOrderValues;
@@ -150,19 +151,7 @@ class Post extends AbstractCrudObject {
       'tracking' => 'string',
     );
     $enums = array(
-      'comment_privacy_value_enum' => array(
-        'DECLINED_BY_ADMIN_ASSISTANT',
-        'DEFAULT_PRIVACY',
-        'FRIENDS_AND_POST_OWNER',
-        'FRIENDS_ONLY',
-        'GRAPHQL_MULTIPLE_VALUE_HACK_DO_NOT_USE',
-        'OWNER_OR_COMMENTER',
-        'PENDING_APPROVAL',
-        'REMOVED_BY_ADMIN_ASSISTANT',
-        'SIDE_CONVERSATION',
-        'SIDE_CONVERSATION_AND_POST_OWNER',
-        'SPOTLIGHT_TAB',
-      ),
+      'comment_privacy_value_enum' => CommentCommentPrivacyValueValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -170,9 +159,9 @@ class Post extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/comments',
-      new AbstractCrudObject(),
+      new Comment(),
       'EDGE',
-      array(),
+      Comment::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

@@ -39,4 +39,5 @@ class PagePlatformValues extends AbstractEnum {
 
   const INSTAGRAM = 'INSTAGRAM';
   const MESSENGER = 'MESSENGER';
+  const WHATSAPP = 'WHATSAPP';
 }

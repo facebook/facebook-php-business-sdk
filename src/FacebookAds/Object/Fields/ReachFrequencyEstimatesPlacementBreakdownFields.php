@@ -43,6 +43,7 @@ class ReachFrequencyEstimatesPlacementBreakdownFields extends AbstractEnum {
   const IG_ANDROID = 'ig_android';
   const IG_IOS = 'ig_ios';
   const IG_OTHER = 'ig_other';
+  const IG_REELS = 'ig_reels';
   const IG_STORY = 'ig_story';
   const INSTANT_ARTICLES = 'instant_articles';
   const INSTREAM_VIDEOS = 'instream_videos';
@@ -58,6 +59,7 @@ class ReachFrequencyEstimatesPlacementBreakdownFields extends AbstractEnum {
       'ig_android' => 'list<float>',
       'ig_ios' => 'list<float>',
       'ig_other' => 'list<float>',
+      'ig_reels' => 'list<float>',
       'ig_story' => 'list<float>',
       'instant_articles' => 'list<float>',
       'instream_videos' => 'list<float>',

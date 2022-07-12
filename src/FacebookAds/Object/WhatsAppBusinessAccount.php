@@ -225,15 +225,23 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       'language' => 'list<string>',
       'name' => 'string',
       'name_or_content' => 'string',
+      'quality_score' => 'list<quality_score_enum>',
       'status' => 'list<status_enum>',
     );
     $enums = array(
       'category_enum' => WhatsAppBusinessAccountCategoryValues::getInstance()->getValues(),
+      'quality_score_enum' => array(
+        'GREEN',
+        'RED',
+        'UNKNOWN',
+        'YELLOW',
+      ),
       'status_enum' => array(
         'APPROVED',
         'DELETED',
         'DISABLED',
         'IN_APPEAL',
+        'LOCKED',
         'PENDING',
         'PENDING_DELETION',
         'REJECTED',

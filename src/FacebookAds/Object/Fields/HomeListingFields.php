@@ -39,6 +39,7 @@ class HomeListingFields extends AbstractEnum {
 
   const AC_TYPE = 'ac_type';
   const ADDITIONAL_FEES_DESCRIPTION = 'additional_fees_description';
+  const ADDRESS = 'address';
   const AGENT_COMPANY = 'agent_company';
   const AGENT_EMAIL = 'agent_email';
   const AGENT_FB_PAGE_ID = 'agent_fb_page_id';
@@ -49,9 +50,11 @@ class HomeListingFields extends AbstractEnum {
   const AREA_UNIT = 'area_unit';
   const AVAILABILITY = 'availability';
   const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
+  const CO_2_EMISSION_RATING_EU = 'co_2_emission_rating_eu';
   const CURRENCY = 'currency';
   const DAYS_ON_MARKET = 'days_on_market';
   const DESCRIPTION = 'description';
+  const ENERGY_RATING_EU = 'energy_rating_eu';
   const FURNISH_TYPE = 'furnish_type';
   const GROUP_ID = 'group_id';
   const HEATING_TYPE = 'heating_type';
@@ -76,14 +79,15 @@ class HomeListingFields extends AbstractEnum {
   const PRICE = 'price';
   const PROPERTY_TYPE = 'property_type';
   const SANITIZED_IMAGES = 'sanitized_images';
+  const UNIT_PRICE = 'unit_price';
   const URL = 'url';
   const YEAR_BUILT = 'year_built';
-  const ADDRESS = 'address';
 
   public function getFieldTypes() {
     return array(
       'ac_type' => 'string',
       'additional_fees_description' => 'string',
+      'address' => 'Object',
       'agent_company' => 'string',
       'agent_email' => 'string',
       'agent_fb_page_id' => 'Page',
@@ -94,9 +98,11 @@ class HomeListingFields extends AbstractEnum {
       'area_unit' => 'string',
       'availability' => 'string',
       'category_specific_fields' => 'CatalogSubVerticalList',
+      'co_2_emission_rating_eu' => 'Object',
       'currency' => 'string',
       'days_on_market' => 'unsigned int',
       'description' => 'string',
+      'energy_rating_eu' => 'Object',
       'furnish_type' => 'string',
       'group_id' => 'string',
       'heating_type' => 'string',
@@ -121,9 +127,9 @@ class HomeListingFields extends AbstractEnum {
       'price' => 'string',
       'property_type' => 'string',
       'sanitized_images' => 'list<string>',
+      'unit_price' => 'Object',
       'url' => 'string',
       'year_built' => 'int',
-      'address' => 'Object',
     );
   }
 }

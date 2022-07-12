@@ -51,6 +51,11 @@ class LocalServiceBusinessFields extends AbstractEnum {
   const CUSTOM_LABEL_2 = 'custom_label_2';
   const CUSTOM_LABEL_3 = 'custom_label_3';
   const CUSTOM_LABEL_4 = 'custom_label_4';
+  const CUSTOM_NUMBER_0 = 'custom_number_0';
+  const CUSTOM_NUMBER_1 = 'custom_number_1';
+  const CUSTOM_NUMBER_2 = 'custom_number_2';
+  const CUSTOM_NUMBER_3 = 'custom_number_3';
+  const CUSTOM_NUMBER_4 = 'custom_number_4';
   const DESCRIPTION = 'description';
   const EXPIRATION_DATE = 'expiration_date';
   const GTIN = 'gtin';
@@ -85,6 +90,11 @@ class LocalServiceBusinessFields extends AbstractEnum {
       'custom_label_2' => 'string',
       'custom_label_3' => 'string',
       'custom_label_4' => 'string',
+      'custom_number_0' => 'unsigned int',
+      'custom_number_1' => 'unsigned int',
+      'custom_number_2' => 'unsigned int',
+      'custom_number_3' => 'unsigned int',
+      'custom_number_4' => 'unsigned int',
       'description' => 'string',
       'expiration_date' => 'string',
       'gtin' => 'string',

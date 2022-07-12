@@ -47,6 +47,13 @@ class JobsJobFields extends AbstractEnum {
   const CUSTOM_LABEL_4 = 'custom_label_4';
   const CUSTOM_LABEL_5 = 'custom_label_5';
   const CUSTOM_LABEL_6 = 'custom_label_6';
+  const CUSTOM_NUMBER_0 = 'custom_number_0';
+  const CUSTOM_NUMBER_1 = 'custom_number_1';
+  const CUSTOM_NUMBER_2 = 'custom_number_2';
+  const CUSTOM_NUMBER_3 = 'custom_number_3';
+  const CUSTOM_NUMBER_4 = 'custom_number_4';
+  const CUSTOM_NUMBER_5 = 'custom_number_5';
+  const CUSTOM_NUMBER_6 = 'custom_number_6';
   const ID = 'id';
   const IMAGE_FETCH_STATUS = 'image_fetch_status';
   const IMAGES = 'images';
@@ -67,6 +74,13 @@ class JobsJobFields extends AbstractEnum {
       'custom_label_4' => 'string',
       'custom_label_5' => 'string',
       'custom_label_6' => 'string',
+      'custom_number_0' => 'unsigned int',
+      'custom_number_1' => 'unsigned int',
+      'custom_number_2' => 'unsigned int',
+      'custom_number_3' => 'unsigned int',
+      'custom_number_4' => 'unsigned int',
+      'custom_number_5' => 'unsigned int',
+      'custom_number_6' => 'unsigned int',
       'id' => 'string',
       'image_fetch_status' => 'ImageFetchStatus',
       'images' => 'list<string>',

@@ -43,6 +43,7 @@ class AdPlacementFields extends AbstractEnum {
   const GOOGLE_DISPLAY_FORMAT = 'google_display_format';
   const ID = 'id';
   const NAME = 'name';
+  const PLACEMENT_GROUP = 'placement_group';
   const PLATFORM = 'platform';
   const STATUS = 'status';
 
@@ -54,6 +55,7 @@ class AdPlacementFields extends AbstractEnum {
       'google_display_format' => 'string',
       'id' => 'string',
       'name' => 'string',
+      'placement_group' => 'Object',
       'platform' => 'string',
       'status' => 'string',
     );

@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProductFeedRuleFields;
+use FacebookAds\Object\Values\ProductFeedRuleRuleTypeValues;
 
 /**
  * This class is auto-generated.
@@ -50,6 +51,7 @@ class ProductFeedRule extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['RuleType'] = ProductFeedRuleRuleTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 

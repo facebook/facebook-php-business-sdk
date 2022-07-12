@@ -37,6 +37,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ProductFeedIngestionSourceTypeValues extends AbstractEnum {
 
-  const PRIMARY_FEED = 'PRIMARY_FEED';
-  const SUPPLEMENTARY_FEED = 'SUPPLEMENTARY_FEED';
+  const PRIMARY_FEED = 'primary_feed';
+  const SUPPLEMENTARY_FEED = 'supplementary_feed';
 }

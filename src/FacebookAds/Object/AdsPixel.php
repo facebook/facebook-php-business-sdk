@@ -156,6 +156,7 @@ class AdsPixel extends AbstractCrudObject {
       'data' => 'list<string>',
       'namespace_id' => 'string',
       'partner_agent' => 'string',
+      'platforms' => 'list<map>',
       'test_event_code' => 'string',
       'trace' => 'unsigned int',
       'upload_id' => 'string',

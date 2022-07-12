@@ -45,6 +45,7 @@ class ProductCatalogFields extends AbstractEnum {
   const FEED_COUNT = 'feed_count';
   const ID = 'id';
   const IS_CATALOG_SEGMENT = 'is_catalog_segment';
+  const LATEST_FEED_UPLOAD_SESSION = 'latest_feed_upload_session';
   const NAME = 'name';
   const PRODUCT_COUNT = 'product_count';
   const STORE_CATALOG_SETTINGS = 'store_catalog_settings';
@@ -66,6 +67,7 @@ class ProductCatalogFields extends AbstractEnum {
       'feed_count' => 'int',
       'id' => 'string',
       'is_catalog_segment' => 'bool',
+      'latest_feed_upload_session' => 'ProductFeedUpload',
       'name' => 'string',
       'product_count' => 'int',
       'store_catalog_settings' => 'StoreCatalogSettings',

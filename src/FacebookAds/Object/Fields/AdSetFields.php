@@ -92,6 +92,17 @@ class AdSetFields extends AbstractEnum {
   const TIME_BASED_AD_ROTATION_INTERVALS = 'time_based_ad_rotation_intervals';
   const UPDATED_TIME = 'updated_time';
   const USE_NEW_APP_CLICK = 'use_new_app_click';
+  const CAMPAIGN_SPEC = 'campaign_spec';
+  const DAILY_IMPS = 'daily_imps';
+  const DATE_FORMAT = 'date_format';
+  const EXECUTION_OPTIONS = 'execution_options';
+  const LINE_NUMBER = 'line_number';
+  const RB_PREDICTION_ID = 'rb_prediction_id';
+  const TIME_START = 'time_start';
+  const TIME_STOP = 'time_stop';
+  const TOPLINE_ID = 'topline_id';
+  const TUNE_FOR_CATEGORY = 'tune_for_category';
+  const UPSTREAM_EVENTS = 'upstream_events';
 
   public function getFieldTypes() {
     return array(
@@ -150,6 +161,17 @@ class AdSetFields extends AbstractEnum {
       'time_based_ad_rotation_intervals' => 'list<unsigned int>',
       'updated_time' => 'datetime',
       'use_new_app_click' => 'bool',
+      'campaign_spec' => 'Object',
+      'daily_imps' => 'unsigned int',
+      'date_format' => 'string',
+      'execution_options' => 'list<ExecutionOptions>',
+      'line_number' => 'unsigned int',
+      'rb_prediction_id' => 'string',
+      'time_start' => 'datetime',
+      'time_stop' => 'datetime',
+      'topline_id' => 'string',
+      'tune_for_category' => 'TuneForCategory',
+      'upstream_events' => 'map',
     );
   }
 }

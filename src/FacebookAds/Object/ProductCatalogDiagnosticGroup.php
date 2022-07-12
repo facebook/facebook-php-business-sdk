@@ -30,6 +30,8 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProductCatalogDiagnosticGroupFields;
 use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupAffectedChannelsValues;
+use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupAffectedEntitiesValues;
+use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupAffectedEntityValues;
 use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupAffectedFeaturesValues;
 use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupSeveritiesValues;
 use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupSeverityValues;
@@ -57,9 +59,11 @@ class ProductCatalogDiagnosticGroup extends AbstractObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['AffectedChannels'] = ProductCatalogDiagnosticGroupAffectedChannelsValues::getInstance()->getValues();
+    $ref_enums['AffectedEntity'] = ProductCatalogDiagnosticGroupAffectedEntityValues::getInstance()->getValues();
     $ref_enums['AffectedFeatures'] = ProductCatalogDiagnosticGroupAffectedFeaturesValues::getInstance()->getValues();
     $ref_enums['Severity'] = ProductCatalogDiagnosticGroupSeverityValues::getInstance()->getValues();
     $ref_enums['Type'] = ProductCatalogDiagnosticGroupTypeValues::getInstance()->getValues();
+    $ref_enums['AffectedEntities'] = ProductCatalogDiagnosticGroupAffectedEntitiesValues::getInstance()->getValues();
     $ref_enums['Severities'] = ProductCatalogDiagnosticGroupSeveritiesValues::getInstance()->getValues();
     $ref_enums['Types'] = ProductCatalogDiagnosticGroupTypesValues::getInstance()->getValues();
     return $ref_enums;

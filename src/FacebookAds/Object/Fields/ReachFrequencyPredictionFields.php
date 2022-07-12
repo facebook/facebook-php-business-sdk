@@ -98,6 +98,10 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const NAME = 'name';
   const OBJECTIVE = 'objective';
   const OBJECTIVE_NAME = 'objective_name';
+  const ODAX_OBJECTIVE = 'odax_objective';
+  const ODAX_OBJECTIVE_NAME = 'odax_objective_name';
+  const OPTIMIZATION_GOAL = 'optimization_goal';
+  const OPTIMIZATION_GOAL_NAME = 'optimization_goal_name';
   const PAUSE_PERIODS = 'pause_periods';
   const PLACEMENT_BREAKDOWN = 'placement_breakdown';
   const PLACEMENT_BREAKDOWN_MAP = 'placement_breakdown_map';
@@ -199,6 +203,10 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'name' => 'string',
       'objective' => 'unsigned int',
       'objective_name' => 'string',
+      'odax_objective' => 'unsigned int',
+      'odax_objective_name' => 'string',
+      'optimization_goal' => 'unsigned int',
+      'optimization_goal_name' => 'string',
       'pause_periods' => 'list<Object>',
       'placement_breakdown' => 'ReachFrequencyEstimatesPlacementBreakdown',
       'placement_breakdown_map' => 'map<unsigned int, ReachFrequencyEstimatesPlacementBreakdown>',

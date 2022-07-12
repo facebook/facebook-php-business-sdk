@@ -62,6 +62,7 @@ class AdAssetFeedSpecCallToActionTypesValues extends AbstractEnum {
   const GET_OFFER_VIEW = 'GET_OFFER_VIEW';
   const GET_QUOTE = 'GET_QUOTE';
   const GET_SHOWTIMES = 'GET_SHOWTIMES';
+  const GET_STARTED = 'GET_STARTED';
   const INSTALL_APP = 'INSTALL_APP';
   const INSTALL_MOBILE_APP = 'INSTALL_MOBILE_APP';
   const LEARN_MORE = 'LEARN_MORE';

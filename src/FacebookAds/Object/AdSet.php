@@ -98,13 +98,13 @@ class AdSet extends AbstractArchivableCrudObject
     $ref_enums['OptimizationGoal'] = AdSetOptimizationGoalValues::getInstance()->getValues();
     $ref_enums['Status'] = AdSetStatusValues::getInstance()->getValues();
     $ref_enums['DatePreset'] = AdSetDatePresetValues::getInstance()->getValues();
-    $ref_enums['Operator'] = AdSetOperatorValues::getInstance()->getValues();
     $ref_enums['DestinationType'] = AdSetDestinationTypeValues::getInstance()->getValues();
     $ref_enums['ExecutionOptions'] = AdSetExecutionOptionsValues::getInstance()->getValues();
     $ref_enums['FullFunnelExplorationMode'] = AdSetFullFunnelExplorationModeValues::getInstance()->getValues();
     $ref_enums['MultiOptimizationGoalWeight'] = AdSetMultiOptimizationGoalWeightValues::getInstance()->getValues();
     $ref_enums['OptimizationSubEvent'] = AdSetOptimizationSubEventValues::getInstance()->getValues();
     $ref_enums['TuneForCategory'] = AdSetTuneForCategoryValues::getInstance()->getValues();
+    $ref_enums['Operator'] = AdSetOperatorValues::getInstance()->getValues();
     $ref_enums['StatusOption'] = AdSetStatusOptionValues::getInstance()->getValues();
     return $ref_enums;
   }

@@ -33,6 +33,8 @@ use FacebookAds\Object\Values\ProductItemAgeGroupValues;
 use FacebookAds\Object\Values\ProductItemAvailabilityValues;
 use FacebookAds\Object\Values\ProductItemCommerceTaxCategoryValues;
 use FacebookAds\Object\Values\ProductItemConditionValues;
+use FacebookAds\Object\Values\ProductItemErrorPriorityValues;
+use FacebookAds\Object\Values\ProductItemErrorTypeValues;
 use FacebookAds\Object\Values\ProductItemGenderValues;
 use FacebookAds\Object\Values\ProductItemImageFetchStatusValues;
 use FacebookAds\Object\Values\ProductItemMarkedForProductLaunchValues;
@@ -78,6 +80,8 @@ class ProductItem extends AbstractCrudObject {
     $ref_enums['ShippingWeightUnit'] = ProductItemShippingWeightUnitValues::getInstance()->getValues();
     $ref_enums['Visibility'] = ProductItemVisibilityValues::getInstance()->getValues();
     $ref_enums['CommerceTaxCategory'] = ProductItemCommerceTaxCategoryValues::getInstance()->getValues();
+    $ref_enums['ErrorPriority'] = ProductItemErrorPriorityValues::getInstance()->getValues();
+    $ref_enums['ErrorType'] = ProductItemErrorTypeValues::getInstance()->getValues();
     $ref_enums['MarkedForProductLaunch'] = ProductItemMarkedForProductLaunchValues::getInstance()->getValues();
     $ref_enums['OriginCountry'] = ProductItemOriginCountryValues::getInstance()->getValues();
     $ref_enums['WaComplianceCategory'] = ProductItemWaComplianceCategoryValues::getInstance()->getValues();

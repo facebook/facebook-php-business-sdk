@@ -57,14 +57,15 @@ use FacebookAds\Object\Values\LiveVideoStatusValues;
 use FacebookAds\Object\Values\LiveVideoStereoscopicModeValues;
 use FacebookAds\Object\Values\LiveVideoStreamTypeValues;
 use FacebookAds\Object\Values\MediaFingerprintFingerprintContentTypeValues;
-use FacebookAds\Object\Values\NativeOfferBarcodeTypeValues;
-use FacebookAds\Object\Values\NativeOfferLocationTypeValues;
 use FacebookAds\Object\Values\PageAlignmentValues;
 use FacebookAds\Object\Values\PageAttireValues;
+use FacebookAds\Object\Values\PageBackdatedTimeGranularityValues;
+use FacebookAds\Object\Values\PageCheckinEntryPointValues;
 use FacebookAds\Object\Values\PageDeveloperActionValues;
 use FacebookAds\Object\Values\PageEntryPointIconValues;
 use FacebookAds\Object\Values\PageEntryPointLabelValues;
 use FacebookAds\Object\Values\PageFoodStylesValues;
+use FacebookAds\Object\Values\PageFormattingValues;
 use FacebookAds\Object\Values\PageGreetingDialogDisplayValues;
 use FacebookAds\Object\Values\PageGuestChatModeValues;
 use FacebookAds\Object\Values\PageMessagingTypeValues;
@@ -73,19 +74,26 @@ use FacebookAds\Object\Values\PageModelValues;
 use FacebookAds\Object\Values\PageNotificationTypeValues;
 use FacebookAds\Object\Values\PagePermittedTasksValues;
 use FacebookAds\Object\Values\PagePickupOptionsValues;
+use FacebookAds\Object\Values\PagePlaceAttachmentSettingValues;
 use FacebookAds\Object\Values\PagePlatformValues;
+use FacebookAds\Object\Values\PagePostSurfacesBlacklistValues;
 use FacebookAds\Object\Values\PagePostWithValues;
+use FacebookAds\Object\Values\PagePostingToRedspaceValues;
 use FacebookAds\Object\Values\PagePublishStatusValues;
 use FacebookAds\Object\Values\PageSenderActionValues;
 use FacebookAds\Object\Values\PageSubscribedFieldsValues;
+use FacebookAds\Object\Values\PageTargetSurfaceValues;
 use FacebookAds\Object\Values\PageTasksValues;
 use FacebookAds\Object\Values\PageTemporaryStatusValues;
+use FacebookAds\Object\Values\PageUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\PhotoBackdatedTimeGranularityValues;
 use FacebookAds\Object\Values\PhotoTypeValues;
 use FacebookAds\Object\Values\PhotoUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\ProfilePictureSourceBreakingChangeValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
 use FacebookAds\Object\Values\UnifiedThreadPlatformValues;
+use FacebookAds\Object\Values\VideoCopyrightContentCategoryValues;
+use FacebookAds\Object\Values\VideoCopyrightMonitoringTypeValues;
 use FacebookAds\Object\Values\VideoCopyrightRuleSourceValues;
 
 /**
@@ -127,6 +135,14 @@ class Page extends AbstractCrudObject {
     $ref_enums['GreetingDialogDisplay'] = PageGreetingDialogDisplayValues::getInstance()->getValues();
     $ref_enums['GuestChatMode'] = PageGuestChatModeValues::getInstance()->getValues();
     $ref_enums['MobileChatDisplay'] = PageMobileChatDisplayValues::getInstance()->getValues();
+    $ref_enums['BackdatedTimeGranularity'] = PageBackdatedTimeGranularityValues::getInstance()->getValues();
+    $ref_enums['CheckinEntryPoint'] = PageCheckinEntryPointValues::getInstance()->getValues();
+    $ref_enums['Formatting'] = PageFormattingValues::getInstance()->getValues();
+    $ref_enums['PlaceAttachmentSetting'] = PagePlaceAttachmentSettingValues::getInstance()->getValues();
+    $ref_enums['PostSurfacesBlacklist'] = PagePostSurfacesBlacklistValues::getInstance()->getValues();
+    $ref_enums['PostingToRedspace'] = PagePostingToRedspaceValues::getInstance()->getValues();
+    $ref_enums['TargetSurface'] = PageTargetSurfaceValues::getInstance()->getValues();
+    $ref_enums['UnpublishedContentType'] = PageUnpublishedContentTypeValues::getInstance()->getValues();
     $ref_enums['PublishStatus'] = PagePublishStatusValues::getInstance()->getValues();
     $ref_enums['MessagingType'] = PageMessagingTypeValues::getInstance()->getValues();
     $ref_enums['NotificationType'] = PageNotificationTypeValues::getInstance()->getValues();
@@ -1265,52 +1281,14 @@ class Page extends AbstractCrudObject {
       'width' => 'unsigned int',
     );
     $enums = array(
-      'backdated_time_granularity_enum' => array(
-        'day',
-        'hour',
-        'min',
-        'month',
-        'none',
-        'year',
-      ),
-      'checkin_entry_point_enum' => array(
-        'BRANDING_CHECKIN',
-        'BRANDING_OTHER',
-        'BRANDING_PHOTO',
-        'BRANDING_STATUS',
-      ),
-      'formatting_enum' => array(
-        'MARKDOWN',
-        'PLAINTEXT',
-      ),
-      'place_attachment_setting_enum' => array(
-        '1',
-        '2',
-      ),
-      'post_surfaces_blacklist_enum' => array(
-        '1',
-        '2',
-        '3',
-        '4',
-        '5',
-      ),
-      'posting_to_redspace_enum' => array(
-        'disabled',
-        'enabled',
-      ),
-      'target_surface_enum' => array(
-        'STORY',
-        'TIMELINE',
-      ),
-      'unpublished_content_type_enum' => array(
-        'ADS_POST',
-        'DRAFT',
-        'INLINE_CREATED',
-        'PUBLISHED',
-        'REVIEWABLE_BRANDED_CONTENT',
-        'SCHEDULED',
-        'SCHEDULED_RECURRING',
-      ),
+      'backdated_time_granularity_enum' => PageBackdatedTimeGranularityValues::getInstance()->getValues(),
+      'checkin_entry_point_enum' => PageCheckinEntryPointValues::getInstance()->getValues(),
+      'formatting_enum' => PageFormattingValues::getInstance()->getValues(),
+      'place_attachment_setting_enum' => PagePlaceAttachmentSettingValues::getInstance()->getValues(),
+      'post_surfaces_blacklist_enum' => PagePostSurfacesBlacklistValues::getInstance()->getValues(),
+      'posting_to_redspace_enum' => PagePostingToRedspaceValues::getInstance()->getValues(),
+      'target_surface_enum' => PageTargetSurfaceValues::getInstance()->getValues(),
+      'unpublished_content_type_enum' => PageUnpublishedContentTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1318,9 +1296,9 @@ class Page extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/feed',
-      new AbstractCrudObject(),
+      new Page(),
       'EDGE',
-      array(),
+      Page::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1643,6 +1621,29 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getInvoiceAccessBankAccount(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/invoice_access_bank_account',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getLeadGenForms(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1766,6 +1767,7 @@ class Page extends AbstractCrudObject {
       'description' => 'string',
       'enable_backup_ingest' => 'bool',
       'encoding_settings' => 'string',
+      'event_params' => 'Object',
       'fisheye_video_cropped' => 'bool',
       'front_z_rotation' => 'float',
       'game_show' => 'map',
@@ -2125,75 +2127,6 @@ class Page extends AbstractCrudObject {
       new Page(),
       'EDGE',
       Page::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getNativeOffers(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/nativeoffers',
-      new NativeOffer(),
-      'EDGE',
-      NativeOffer::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createNativeOffer(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'barcode_photo' => 'unsigned int',
-      'barcode_type' => 'barcode_type_enum',
-      'barcode_value' => 'string',
-      'block_reshares' => 'bool',
-      'commerce_product_item' => 'string',
-      'commerce_store' => 'string',
-      'commerce_store_collection' => 'string',
-      'details' => 'string',
-      'disable_location' => 'bool',
-      'discounts' => 'list<Object>',
-      'expiration_time' => 'datetime',
-      'instore_code' => 'string',
-      'location_type' => 'location_type_enum',
-      'max_save_count' => 'unsigned int',
-      'online_code' => 'string',
-      'page_set_id' => 'string',
-      'redemption_code' => 'string',
-      'redemption_link' => 'string',
-      'terms' => 'string',
-      'unique_barcodes' => 'unsigned int',
-      'unique_codes' => 'unsigned int',
-    );
-    $enums = array(
-      'barcode_type_enum' => NativeOfferBarcodeTypeValues::getInstance()->getValues(),
-      'location_type_enum' => NativeOfferLocationTypeValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/nativeoffers',
-      new NativeOffer(),
-      'EDGE',
-      NativeOffer::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -3244,9 +3177,9 @@ class Page extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/video_copyright_rules',
-      new AbstractCrudObject(),
+      new VideoCopyrightRule(),
       'EDGE',
-      array(),
+      VideoCopyrightRule::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -3273,16 +3206,8 @@ class Page extends AbstractCrudObject {
       'whitelisted_ig_user_ids' => 'list<string>',
     );
     $enums = array(
-      'content_category_enum' => array(
-        'episode',
-        'movie',
-        'web',
-      ),
-      'monitoring_type_enum' => array(
-        'AUDIO_ONLY',
-        'VIDEO_AND_AUDIO',
-        'VIDEO_ONLY',
-      ),
+      'content_category_enum' => VideoCopyrightContentCategoryValues::getInstance()->getValues(),
+      'monitoring_type_enum' => VideoCopyrightMonitoringTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -3290,9 +3215,9 @@ class Page extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/video_copyrights',
-      new AbstractCrudObject(),
+      new VideoCopyright(),
       'EDGE',
-      array(),
+      VideoCopyright::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -3477,8 +3402,12 @@ class Page extends AbstractCrudObject {
 
     $param_types = array(
       'include_hidden' => 'bool',
+      'limit' => 'unsigned int',
+      'show_expired' => 'bool',
+      'with' => 'with_enum',
     );
     $enums = array(
+      'with_enum' => PagePostWithValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

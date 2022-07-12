@@ -64,9 +64,19 @@ use FacebookAds\Object\Values\AdPreviewAdFormatValues;
 use FacebookAds\Object\Values\AdPreviewRenderTypeValues;
 use FacebookAds\Object\Values\AdRuleStatusValues;
 use FacebookAds\Object\Values\AdRuleUiCreationSourceValues;
+use FacebookAds\Object\Values\AdSetBidStrategyValues;
+use FacebookAds\Object\Values\AdSetBillingEventValues;
 use FacebookAds\Object\Values\AdSetDatePresetValues;
+use FacebookAds\Object\Values\AdSetDestinationTypeValues;
 use FacebookAds\Object\Values\AdSetEffectiveStatusValues;
+use FacebookAds\Object\Values\AdSetExecutionOptionsValues;
+use FacebookAds\Object\Values\AdSetFullFunnelExplorationModeValues;
+use FacebookAds\Object\Values\AdSetMultiOptimizationGoalWeightValues;
 use FacebookAds\Object\Values\AdSetOperatorValues;
+use FacebookAds\Object\Values\AdSetOptimizationGoalValues;
+use FacebookAds\Object\Values\AdSetOptimizationSubEventValues;
+use FacebookAds\Object\Values\AdSetStatusValues;
+use FacebookAds\Object\Values\AdSetTuneForCategoryValues;
 use FacebookAds\Object\Values\AdStatusValues;
 use FacebookAds\Object\Values\AdVideoContainerTypeValues;
 use FacebookAds\Object\Values\AdVideoContentCategoryValues;
@@ -253,6 +263,30 @@ class AdAccount extends AbstractCrudObject {
       new AdPlacePageSet(),
       'EDGE',
       AdPlacePageSet::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getAdSavedKeywords(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'fields' => 'list<string>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/ad_saved_keywords',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -901,97 +935,16 @@ class AdAccount extends AbstractCrudObject {
       'upstream_events' => 'map',
     );
     $enums = array(
-      'bid_strategy_enum' => array(
-        'COST_CAP',
-        'LOWEST_COST_WITHOUT_CAP',
-        'LOWEST_COST_WITH_BID_CAP',
-      ),
-      'billing_event_enum' => array(
-        'APP_INSTALLS',
-        'CLICKS',
-        'IMPRESSIONS',
-        'LINK_CLICKS',
-        'LISTING_INTERACTION',
-        'NONE',
-        'OFFER_CLAIMS',
-        'PAGE_LIKES',
-        'POST_ENGAGEMENT',
-        'PURCHASE',
-        'THRUPLAY',
-      ),
-      'destination_type_enum' => array(
-        'APP',
-        'APPLINKS_AUTOMATIC',
-        'FACEBOOK',
-        'MESSENGER',
-        'UNDEFINED',
-        'WEBSITE',
-      ),
-      'execution_options_enum' => array(
-        'include_recommendations',
-        'validate_only',
-      ),
-      'full_funnel_exploration_mode_enum' => array(
-        'EXTENDED_EXPLORATION',
-        'LIMITED_EXPLORATION',
-        'NONE_EXPLORATION',
-      ),
-      'multi_optimization_goal_weight_enum' => array(
-        'BALANCED',
-        'PREFER_EVENT',
-        'PREFER_INSTALL',
-        'UNDEFINED',
-      ),
-      'optimization_goal_enum' => array(
-        'AD_RECALL_LIFT',
-        'APP_INSTALLS',
-        'APP_INSTALLS_AND_OFFSITE_CONVERSIONS',
-        'CONVERSATIONS',
-        'DERIVED_EVENTS',
-        'ENGAGED_USERS',
-        'EVENT_RESPONSES',
-        'IMPRESSIONS',
-        'IN_APP_VALUE',
-        'LANDING_PAGE_VIEWS',
-        'LEAD_GENERATION',
-        'LINK_CLICKS',
-        'NONE',
-        'OFFSITE_CONVERSIONS',
-        'PAGE_LIKES',
-        'POST_ENGAGEMENT',
-        'QUALITY_CALL',
-        'QUALITY_LEAD',
-        'REACH',
-        'THRUPLAY',
-        'VALUE',
-        'VISIT_INSTAGRAM_PROFILE',
-      ),
-      'optimization_sub_event_enum' => array(
-        'NONE',
-        'TRAVEL_INTENT',
-        'TRAVEL_INTENT_BUCKET_01',
-        'TRAVEL_INTENT_BUCKET_02',
-        'TRAVEL_INTENT_BUCKET_03',
-        'TRAVEL_INTENT_BUCKET_04',
-        'TRAVEL_INTENT_BUCKET_05',
-        'TRAVEL_INTENT_NO_DESTINATION_INTENT',
-        'TRIP_CONSIDERATION',
-        'VIDEO_SOUND_ON',
-      ),
-      'status_enum' => array(
-        'ACTIVE',
-        'ARCHIVED',
-        'DELETED',
-        'PAUSED',
-      ),
-      'tune_for_category_enum' => array(
-        'CREDIT',
-        'EMPLOYMENT',
-        'HOUSING',
-        'ISSUES_ELECTIONS_POLITICS',
-        'NONE',
-        'ONLINE_GAMBLING_AND_GAMING',
-      ),
+      'bid_strategy_enum' => AdSetBidStrategyValues::getInstance()->getValues(),
+      'billing_event_enum' => AdSetBillingEventValues::getInstance()->getValues(),
+      'destination_type_enum' => AdSetDestinationTypeValues::getInstance()->getValues(),
+      'execution_options_enum' => AdSetExecutionOptionsValues::getInstance()->getValues(),
+      'full_funnel_exploration_mode_enum' => AdSetFullFunnelExplorationModeValues::getInstance()->getValues(),
+      'multi_optimization_goal_weight_enum' => AdSetMultiOptimizationGoalWeightValues::getInstance()->getValues(),
+      'optimization_goal_enum' => AdSetOptimizationGoalValues::getInstance()->getValues(),
+      'optimization_sub_event_enum' => AdSetOptimizationSubEventValues::getInstance()->getValues(),
+      'status_enum' => AdSetStatusValues::getInstance()->getValues(),
+      'tune_for_category_enum' => AdSetTuneForCategoryValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -999,9 +952,9 @@ class AdAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/adsets',
-      new AbstractCrudObject(),
+      new AdSet(),
       'EDGE',
-      array(),
+      AdSet::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1074,9 +1027,9 @@ class AdAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/adspixels',
-      new AbstractCrudObject(),
+      new AdsPixel(),
       'EDGE',
-      array(),
+      AdsPixel::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2631,6 +2584,7 @@ class AdAccount extends AbstractCrudObject {
       'is_reserved_buying' => 'bool',
       'num_curve_points' => 'unsigned int',
       'objective' => 'string',
+      'optimization_goal' => 'string',
       'prediction_mode' => 'unsigned int',
       'reach' => 'unsigned int',
       'rf_prediction_id' => 'string',

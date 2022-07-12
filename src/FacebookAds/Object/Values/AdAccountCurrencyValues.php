@@ -66,6 +66,7 @@ class AdAccountCurrencyValues extends AbstractEnum {
   const JPY = 'JPY';
   const KES = 'KES';
   const KRW = 'KRW';
+  const LKR = 'LKR';
   const MOP = 'MOP';
   const MXN = 'MXN';
   const MYR = 'MYR';

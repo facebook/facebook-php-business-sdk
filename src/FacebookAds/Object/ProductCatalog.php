@@ -29,9 +29,12 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProductCatalogFields;
-use FacebookAds\Object\Values\AutomotiveModelBodyStyleValues;
+use FacebookAds\Object\Values\CheckBatchRequestStatusErrorPriorityValues;
+use FacebookAds\Object\Values\MediaTitleContentCategoryValues;
 use FacebookAds\Object\Values\ProductCatalogCategoryCategorizationCriteriaValues;
+use FacebookAds\Object\Values\ProductCatalogDataSourceIngestionSourceTypeValues;
 use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupAffectedChannelsValues;
+use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupAffectedEntitiesValues;
 use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupAffectedFeaturesValues;
 use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupSeveritiesValues;
 use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupTypesValues;
@@ -52,6 +55,8 @@ use FacebookAds\Object\Values\ProductFeedQuotedFieldsModeValues;
 use FacebookAds\Object\Values\ProductItemAvailabilityValues;
 use FacebookAds\Object\Values\ProductItemCommerceTaxCategoryValues;
 use FacebookAds\Object\Values\ProductItemConditionValues;
+use FacebookAds\Object\Values\ProductItemErrorPriorityValues;
+use FacebookAds\Object\Values\ProductItemErrorTypeValues;
 use FacebookAds\Object\Values\ProductItemGenderValues;
 use FacebookAds\Object\Values\ProductItemMarkedForProductLaunchValues;
 use FacebookAds\Object\Values\ProductItemOriginCountryValues;
@@ -302,41 +307,6 @@ class ProductCatalog extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createAutomotiveModel(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'automotive_model_id' => 'string',
-      'body_style' => 'body_style_enum',
-      'currency' => 'string',
-      'description' => 'string',
-      'images' => 'list<Object>',
-      'make' => 'string',
-      'model' => 'string',
-      'price' => 'unsigned int',
-      'title' => 'string',
-      'url' => 'string',
-      'year' => 'unsigned int',
-    );
-    $enums = array(
-      'body_style_enum' => AutomotiveModelBodyStyleValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/automotive_models',
-      new AutomotiveModel(),
-      'EDGE',
-      AutomotiveModel::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function createBatch(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -441,10 +411,12 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'error_priority' => 'error_priority_enum',
       'handle' => 'string',
       'load_ids_of_invalid_requests' => 'bool',
     );
     $enums = array(
+      'error_priority_enum' => CheckBatchRequestStatusErrorPriorityValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -534,6 +506,31 @@ class ProductCatalog extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getDataSources(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'ingestion_source_type' => 'ingestion_source_type_enum',
+    );
+    $enums = array(
+      'ingestion_source_type_enum' => ProductCatalogDataSourceIngestionSourceTypeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/data_sources',
+      new ProductCatalogDataSource(),
+      'EDGE',
+      ProductCatalogDataSource::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getDestinations(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -564,12 +561,14 @@ class ProductCatalog extends AbstractCrudObject {
 
     $param_types = array(
       'affected_channels' => 'list<affected_channels_enum>',
+      'affected_entities' => 'list<affected_entities_enum>',
       'affected_features' => 'list<affected_features_enum>',
       'severities' => 'list<severities_enum>',
       'types' => 'list<types_enum>',
     );
     $enums = array(
       'affected_channels_enum' => ProductCatalogDiagnosticGroupAffectedChannelsValues::getInstance()->getValues(),
+      'affected_entities_enum' => ProductCatalogDiagnosticGroupAffectedEntitiesValues::getInstance()->getValues(),
       'affected_features_enum' => ProductCatalogDiagnosticGroupAffectedFeaturesValues::getInstance()->getValues(),
       'severities_enum' => ProductCatalogDiagnosticGroupSeveritiesValues::getInstance()->getValues(),
       'types_enum' => ProductCatalogDiagnosticGroupTypesValues::getInstance()->getValues(),
@@ -962,11 +961,7 @@ class ProductCatalog extends AbstractCrudObject {
       'url' => 'string',
     );
     $enums = array(
-      'content_category_enum' => array(
-        'MOVIE',
-        'MUSIC',
-        'TV_SHOW',
-      ),
+      'content_category_enum' => MediaTitleContentCategoryValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -974,9 +969,9 @@ class ProductCatalog extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/media_titles',
-      new AbstractCrudObject(),
+      new MediaTitle(),
       'EDGE',
-      array(),
+      MediaTitle::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1243,10 +1238,14 @@ class ProductCatalog extends AbstractCrudObject {
 
     $param_types = array(
       'bulk_pagination' => 'bool',
+      'error_priority' => 'error_priority_enum',
+      'error_type' => 'error_type_enum',
       'filter' => 'Object',
       'return_only_approved_products' => 'bool',
     );
     $enums = array(
+      'error_priority_enum' => ProductItemErrorPriorityValues::getInstance()->getValues(),
+      'error_type_enum' => ProductItemErrorTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

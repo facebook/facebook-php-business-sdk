@@ -69,6 +69,7 @@ class GroupGroupTypeValues extends AbstractEnum {
   const PROJECT = 'PROJECT';
   const REAL_WORLD = 'REAL_WORLD';
   const REAL_WORLD_AT_WORK = 'REAL_WORLD_AT_WORK';
+  const RESTYLE = 'RESTYLE';
   const SCHOOL_CLASS = 'SCHOOL_CLASS';
   const SORORITY = 'SORORITY';
   const SPORTS = 'SPORTS';
@@ -88,6 +89,7 @@ class GroupGroupTypeValues extends AbstractEnum {
   const WORK_FOR_SALE = 'WORK_FOR_SALE';
   const WORK_GARDEN = 'WORK_GARDEN';
   const WORK_GUEST_GROUP = 'WORK_GUEST_GROUP';
+  const WORK_INTEGRITY = 'WORK_INTEGRITY';
   const WORK_LEARNING = 'WORK_LEARNING';
   const WORK_MENTORSHIP = 'WORK_MENTORSHIP';
   const WORK_MULTI_COMPANY = 'WORK_MULTI_COMPANY';

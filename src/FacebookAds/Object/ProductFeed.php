@@ -36,6 +36,9 @@ use FacebookAds\Object\Values\ProductFeedIngestionSourceTypeValues;
 use FacebookAds\Object\Values\ProductFeedItemSubTypeValues;
 use FacebookAds\Object\Values\ProductFeedOverrideTypeValues;
 use FacebookAds\Object\Values\ProductFeedQuotedFieldsModeValues;
+use FacebookAds\Object\Values\ProductFeedRuleRuleTypeValues;
+use FacebookAds\Object\Values\ProductItemErrorPriorityValues;
+use FacebookAds\Object\Values\ProductItemErrorTypeValues;
 
 /**
  * This class is auto-generated.
@@ -65,10 +68,10 @@ class ProductFeed extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['Delimiter'] = ProductFeedDelimiterValues::getInstance()->getValues();
+    $ref_enums['IngestionSourceType'] = ProductFeedIngestionSourceTypeValues::getInstance()->getValues();
     $ref_enums['QuotedFieldsMode'] = ProductFeedQuotedFieldsModeValues::getInstance()->getValues();
     $ref_enums['Encoding'] = ProductFeedEncodingValues::getInstance()->getValues();
     $ref_enums['FeedType'] = ProductFeedFeedTypeValues::getInstance()->getValues();
-    $ref_enums['IngestionSourceType'] = ProductFeedIngestionSourceTypeValues::getInstance()->getValues();
     $ref_enums['ItemSubType'] = ProductFeedItemSubTypeValues::getInstance()->getValues();
     $ref_enums['OverrideType'] = ProductFeedOverrideTypeValues::getInstance()->getValues();
     return $ref_enums;
@@ -205,9 +208,13 @@ class ProductFeed extends AbstractCrudObject {
 
     $param_types = array(
       'bulk_pagination' => 'bool',
+      'error_priority' => 'error_priority_enum',
+      'error_type' => 'error_type_enum',
       'filter' => 'Object',
     );
     $enums = array(
+      'error_priority_enum' => ProductItemErrorPriorityValues::getInstance()->getValues(),
+      'error_type_enum' => ProductItemErrorTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -257,13 +264,7 @@ class ProductFeed extends AbstractCrudObject {
       'rule_type' => 'rule_type_enum',
     );
     $enums = array(
-      'rule_type_enum' => array(
-        'fallback_rule',
-        'letter_case_rule',
-        'mapping_rule',
-        'regex_replace_rule',
-        'value_mapping_rule',
-      ),
+      'rule_type_enum' => ProductFeedRuleRuleTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -271,9 +272,9 @@ class ProductFeed extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/rules',
-      new AbstractCrudObject(),
+      new ProductFeedRule(),
       'EDGE',
-      array(),
+      ProductFeedRule::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
