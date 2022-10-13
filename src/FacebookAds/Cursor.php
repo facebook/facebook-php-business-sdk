@@ -419,11 +419,11 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
     return $this->indexRight;
   }
 
-  public function rewind() {
+  public function rewind(): void {
     $this->position = $this->indexLeft;
   }
 
-  public function end() {
+  public function end(): void {
     $this->position = $this->indexRight;
   }
 
@@ -438,7 +438,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   /**
    * @return AbstractObject|bool
    */
-  public function current() {
+  public function current(): mixed {
     return isset($this->objects[$this->position])
       ? $this->objects[$this->position]
       : false;
@@ -447,11 +447,11 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   /**
    * @return int
    */
-  public function key() {
+  public function key(): mixed {
     return $this->position;
   }
 
-  public function prev() {
+  public function prev(): void {
     if ($this->position == $this->getIndexLeft()) {
       if ($this->getUseImplicitFetch()) {
         $this->fetchBefore();
@@ -468,7 +468,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
     }
   }
 
-  public function next() {
+  public function next(): void {
     if ($this->position == $this->getIndexRight()) {
       if ($this->getUseImplicitFetch()) {
         $this->fetchAfter();
@@ -488,14 +488,14 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   /**
    * @return bool
    */
-  public function valid() {
+  public function valid(): bool {
     return isset($this->objects[$this->position]);
   }
 
   /**
    * @return int
    */
-  public function count() {
+  public function count(): int {
     return count($this->objects);
   }
 
@@ -503,7 +503,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
    * @param mixed $offset
    * @param mixed $value
    */
-  public function offsetSet($offset, $value) {
+  public function offsetSet($offset, $value): void {
     if ($offset === null) {
       $this->objects[] = $value;
     } else {
@@ -515,14 +515,14 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
    * @param mixed $offset
    * @return bool
    */
-  public function offsetExists($offset) {
+  public function offsetExists($offset): bool {
     return isset($this->objects[$offset]);
   }
 
   /**
    * @param mixed $offset
    */
-  public function offsetUnset($offset) {
+  public function offsetUnset($offset): void {
     unset($this->objects[$offset]);
   }
 
@@ -530,7 +530,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
    * @param mixed $offset
    * @return mixed
    */
-  public function offsetGet($offset) {
+  public function offsetGet($offset): mixed {
     return isset($this->objects[$offset]) ? $this->objects[$offset] : null;
   }
 }
