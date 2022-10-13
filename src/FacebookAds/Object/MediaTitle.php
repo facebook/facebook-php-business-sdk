@@ -137,7 +137,7 @@ class MediaTitle extends AbstractCrudObject {
 
     $param_types = array(
       'applinks' => 'Object',
-      'content_category' => 'mediatitle_content_category',
+      'content_category' => 'string',
       'currency' => 'string',
       'description' => 'string',
       'fb_page_id' => 'string',

@@ -69,7 +69,7 @@ class MediaTitleFields extends AbstractEnum {
       'fb_page_id' => 'Page',
       'genres' => 'list<string>',
       'id' => 'string',
-      'image_fetch_status' => 'MediaTitle_image_fetch_status',
+      'image_fetch_status' => 'string',
       'images' => 'list<string>',
       'kg_fb_id' => 'string',
       'media_title_id' => 'string',
