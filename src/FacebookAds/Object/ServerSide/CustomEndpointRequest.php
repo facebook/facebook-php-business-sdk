@@ -29,7 +29,7 @@ use GuzzleHttp\Promise\PromiseInterface;
 /**
  * Interface for Custom Endpoint Request
  *
- * @category Class
+ * @category Interface
  */
 interface CustomEndpointRequest {
     /**
@@ -61,5 +61,4 @@ interface Filter {
      */
     public function shouldSendEvent(Event $event):bool;
     }
-?>
 
