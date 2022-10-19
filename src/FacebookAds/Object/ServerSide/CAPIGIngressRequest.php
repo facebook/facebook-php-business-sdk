@@ -24,10 +24,13 @@
 
 namespace FacebookAds\Object\ServerSide;
 
+use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
-use GuzzleHttp\Promise\Promise;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Promise\PromiseInterface;
 use GuzzleHttp\Utils;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * Implementation of Custom Endpoint Request that sends events to CAPIG /events endpoint
@@ -45,7 +48,7 @@ class CAPIGIngressRequest implements CustomEndpointRequest {
      * Constructor
      * @param string $endpoint_URL endpoint_URL
      * @param string $access_key access_key
-     * @throws \Exception
+     * @throws Exception
      */
     public function __construct(string $endpoint_URL, string $access_key) {
         $this->validateEndpoint($endpoint_URL);
@@ -58,18 +61,18 @@ class CAPIGIngressRequest implements CustomEndpointRequest {
     /**
      * Validates URL
      * @param string $endpoint_URL
-     * @throws \Exception
+     * @throws Exception
      */
     private function validateEndpoint(string $endpoint_URL):void {
         if (!filter_var($endpoint_URL, FILTER_VALIDATE_URL)) {
-            throw new \Exception('URL is in invalid format ');
+            throw new Exception('URL is in invalid format ');
         }
     }
 
     /**
      * Synchronously send events to specified CAPIG /events endpoint
      * @throws GuzzleException
-     * @throws \Exception
+     * @throws Exception
      */
     public function sendEvent(string $pixel_id, array $events): CustomEndpointResponse
     {
@@ -86,13 +89,42 @@ class CAPIGIngressRequest implements CustomEndpointRequest {
             $response = $this->client->request('POST', $this->endpoint_URL.'/capi/'.$pixel_id.'/events', ['http_errors'=> false, 'body' => $this->createRequestBody($events)]);
             if ($response->getStatusCode() != '202') {
                 // a HTTP response code of 202 means the events were accepted
-                throw new \Exception('Server response code is '.$response->getStatusCode().' expect: 202');
+                throw new Exception('Server response code is '.$response->getStatusCode().' expect: 202');
             } else {
                 return new CustomEndpointResponse(array('message' => $response->getBody()->getContents(), 'response_code'=> $response->getStatusCode()));
             }
-        } catch (\Exception $e) {
-            throw new \Exception('Server failed to accept events. '.$e->getMessage());
+        } catch (Exception $e) {
+            throw new Exception('Server failed to accept events. '.$e->getMessage());
         }
+    }
+
+    /**
+     * Asynchronously send events to specified CAPIG /events endpoint
+     * @throws Exception
+     * returns PromiseInterface
+     */
+    public function sendEventAsync(string $pixel_id, array $events): PromiseInterface
+    {
+        if (!is_null($this->filter)) {
+            $events = array_filter($events, function (Event $var) {
+                return $this->filter->shouldSendEvent($var);
+            });
+        }
+        $promise = $this->client->requestAsync('POST', $this->endpoint_URL.'/capi/'.$pixel_id.'/events', ['http_errors'=> false, 'body' => $this->createRequestBody($events)]);
+        $promise->then(
+            function (ResponseInterface $response) {
+                if ($response->getStatusCode() != '202') {
+                    // a HTTP response code of 202 means the events were accepted
+                    throw new Exception('Server response code is '.$response->getStatusCode().' expect: 202');
+                } else {
+                    return new CustomEndpointResponse(array('message' => $response->getBody()->getContents(), 'response_code'=> $response->getStatusCode()));
+                }
+            },
+            function (RequestException $e) {
+                throw new Exception('Server failed to accept events. '.$e->getMessage());
+            }
+        );
+        return $promise;
     }
 
     private function createRequestBody($events): string
@@ -113,12 +145,6 @@ class CAPIGIngressRequest implements CustomEndpointRequest {
             $normalized_events[] = $normalized_event;
         }
         return $normalized_events;
-    }
-
-    public function sendEventAsync(string $pixel_id, array $events): Promise
-    {
-        // TODO: T134545694.
-        return Promise::FULFILLED;
     }
 
     public function setFilter(Filter $filter)

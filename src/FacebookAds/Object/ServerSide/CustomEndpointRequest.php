@@ -36,7 +36,7 @@ interface CustomEndpointRequest {
      * Synchronously send events to custom endpoint
      * @param string $pixel_id
      * @param array<Event> $events
-     * @return EventResponse
+     * @return CustomEndpointResponse
      */
     public function sendEvent(string $pixel_id, array $events): CustomEndpointResponse;
 
