@@ -22,8 +22,8 @@
  *
  */
 
-use FacebookAds\Object\ServerSide\Event;
-use FacebookAds\Object\ServerSide\EventResponse;
+namespace FacebookAds\Object\ServerSide;
+
 use GuzzleHttp\Promise\PromiseInterface;
 
 /**
@@ -47,18 +47,29 @@ interface CustomEndpointRequest {
      * @return PromiseInterface
      */
     public function sendEventAsync(string $pixel_id, array $events): PromiseInterface;
+
     /**
      * Create a filter function that will filter events being sent to endpoint
      * @param Filter $filter
      */
     public function setFilter(Filter $filter);
-}
-interface Filter {
+
     /**
-     * Returns a boolean on whether the event should be filtered
-     * @param Event $event
-     * @return bool
+     * Sets whether events should be send to this endpoint only
+     * @param boolean $sendToDestinationOnly
      */
-    public function shouldSendEvent(Event $event):bool;
-    }
+    public function setSendToDestinationOnly(bool $sendToDestinationOnly);
+
+    /**
+     * Returns whether events should be sent to this endpoint only
+     * @return boolean
+     */
+    public function isSendToDestinationOnly(): bool;
+
+    /**
+     * Returns endpoint URL
+     * @return string
+     */
+    public function getEndpoint(): string;
+}
 

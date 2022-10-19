@@ -22,8 +22,12 @@
  *
  */
 
-use FacebookAds\Object\BusinessDataAPI\EventResponse;
+namespace FacebookAds\Object\ServerSide;
+
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Promise\Promise;
+use GuzzleHttp\Utils;
 
 /**
  * Implementation of Custom Endpoint Request that sends events to CAPIG /events endpoint
@@ -31,35 +35,83 @@ use GuzzleHttp\Promise\Promise;
  * @category Class
  */
 class CAPIGIngressRequest implements CustomEndpointRequest {
-    private array $container = array();
+    private Client $client;
+    private string $access_key;
+    private string $endpoint_URL;
+    private bool $sendToDestinationOnly;
+    private ?Filter $filter = null;
 
     /**
      * Constructor
      * @param string $endpoint_URL endpoint_URL
      * @param string $access_key access_key
-     * @throws Exception
+     * @throws \Exception
      */
     public function __construct(string $endpoint_URL, string $access_key) {
         $this->validateEndpoint($endpoint_URL);
-        $this->container['$endpoint_URL'] = $endpoint_URL;
-        $this->container['$access_key'] = $$access_key;
+        $this->endpoint_URL = $endpoint_URL;
+        $this->access_key = $access_key;
+        $this->client= new Client(['headers' => ['Content-Type' => 'application/json; charset=utf-8']]);
+        $this->sendToDestinationOnly = false;
     }
 
     /**
      * Validates URL
      * @param string $endpoint_URL
-     * @throws Exception
+     * @throws \Exception
      */
     private function validateEndpoint(string $endpoint_URL):void {
         if (!filter_var($endpoint_URL, FILTER_VALIDATE_URL)) {
-            throw new \Exception("URL is invalid format ");
+            throw new \Exception("URL is in invalid format ");
         }
     }
 
-    public function sendEvent(string $pixel_id, array $events): \FacebookAds\Object\ServerSide\EventResponse
+    /**
+     * @throws GuzzleException
+     * @throws \Exception
+     */
+    public function sendEvent(string $pixel_id, array $events): EventResponse
     {
-        // TODO: T134545694.
-        return new EventResponse("");
+        try {
+            if (!is_null($this->filter)) {
+                $events = array_filter($events, function(Event $var){
+                    return $this->filter->shouldSendEvent($var);
+                });
+            }
+            if (count($events) == 0) {
+                $event_response_contents = array('data' => array('events_received' => 0, 'message'=> 'No events to send'));
+                return new EventResponse($event_response_contents);
+            }
+            $response = $this->client->request('POST', $this->endpoint_URL.'/capi/'.$pixel_id.'/events', ['http_errors'=> false, 'body' => $this->createRequestBody($events)]);
+            if ($response->getStatusCode() != '202') {
+                // a HTTP response code of 202 means the events were accepted
+                throw new \Exception("Server response code is ".$response->getStatusCode()." , expect: 202");
+            } else {
+                return new EventResponse(array('data' => array('events_received' => count($events), 'message'=> $response->getBody())));
+            }
+        } catch (\Exception $e) {
+            throw new \Exception("Server failed to accept events. ".$e->getMessage());
+        }
+    }
+
+    private function createRequestBody($events): string
+    {
+        $events = $this->normalize($events);
+        $body = array();
+        $body['data'] = $events;
+        $body['accessKey'] = $this->access_key;
+        return Utils::jsonEncode($body);
+    }
+
+    private function normalize(array $events): array
+    {
+        // we need to normalize the event fields before sending
+        $normalized_events = array();
+        foreach ($events as $event) {
+            $normalized_event = $event->normalize();
+            $normalized_events[] = $normalized_event;
+        }
+        return $normalized_events;
     }
 
     public function sendEventAsync(string $pixel_id, array $events): Promise
@@ -70,7 +122,22 @@ class CAPIGIngressRequest implements CustomEndpointRequest {
 
     public function setFilter(Filter $filter)
     {
-        $this->container['$filter'] = $filter;
+        $this->filter = $filter;
+    }
+
+    public function setSendToDestinationOnly(bool $sendToDestinationOnly)
+    {
+        $this->sendToDestinationOnly = $sendToDestinationOnly;
+    }
+
+    public function isSendToDestinationOnly(): bool
+    {
+        return $this->sendToDestinationOnly;
+    }
+
+    public function getEndpoint(): string
+    {
+        return $this->endpoint_URL;
     }
 }
 
