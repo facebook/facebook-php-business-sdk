@@ -62,15 +62,16 @@ class CAPIGIngressRequest implements CustomEndpointRequest {
      */
     private function validateEndpoint(string $endpoint_URL):void {
         if (!filter_var($endpoint_URL, FILTER_VALIDATE_URL)) {
-            throw new \Exception("URL is in invalid format ");
+            throw new \Exception('URL is in invalid format ');
         }
     }
 
     /**
+     * Synchronously send events to specified CAPIG /events endpoint
      * @throws GuzzleException
      * @throws \Exception
      */
-    public function sendEvent(string $pixel_id, array $events): EventResponse
+    public function sendEvent(string $pixel_id, array $events): CustomEndpointResponse
     {
         try {
             if (!is_null($this->filter)) {
@@ -80,17 +81,17 @@ class CAPIGIngressRequest implements CustomEndpointRequest {
             }
             if (count($events) == 0) {
                 $event_response_contents = array('data' => array('events_received' => 0, 'message'=> 'No events to send'));
-                return new EventResponse($event_response_contents);
+                return new CustomEndpointResponse($event_response_contents);
             }
             $response = $this->client->request('POST', $this->endpoint_URL.'/capi/'.$pixel_id.'/events', ['http_errors'=> false, 'body' => $this->createRequestBody($events)]);
             if ($response->getStatusCode() != '202') {
                 // a HTTP response code of 202 means the events were accepted
-                throw new \Exception("Server response code is ".$response->getStatusCode()." , expect: 202");
+                throw new \Exception('Server response code is '.$response->getStatusCode().' expect: 202');
             } else {
-                return new EventResponse(array('data' => array('events_received' => count($events), 'message'=> $response->getBody())));
+                return new CustomEndpointResponse(array('message' => $response->getBody()->getContents(), 'response_code'=> $response->getStatusCode()));
             }
         } catch (\Exception $e) {
-            throw new \Exception("Server failed to accept events. ".$e->getMessage());
+            throw new \Exception('Server failed to accept events. '.$e->getMessage());
         }
     }
 
