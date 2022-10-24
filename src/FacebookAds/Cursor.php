@@ -503,7 +503,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
    * @param mixed $offset
    * @param mixed $value
    */
-  public function offsetSet($offset, $value) {
+  public function offsetSet($offset, $value) : void {
     if ($offset === null) {
       $this->objects[] = $value;
     } else {
@@ -515,14 +515,14 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
    * @param mixed $offset
    * @return bool
    */
-  public function offsetExists($offset) {
+  public function offsetExists($offset) : bool {
     return isset($this->objects[$offset]);
   }
 
   /**
    * @param mixed $offset
    */
-  public function offsetUnset($offset) {
+  public function offsetUnset($offset) : void {
     unset($this->objects[$offset]);
   }
 
@@ -530,7 +530,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
    * @param mixed $offset
    * @return mixed
    */
-  public function offsetGet($offset) {
+  public function offsetGet($offset) : mixed {
     return isset($this->objects[$offset]) ? $this->objects[$offset] : null;
   }
 }
