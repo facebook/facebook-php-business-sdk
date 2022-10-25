@@ -95,6 +95,7 @@ class AdCampaignActivityFields extends AbstractEnum {
   const TARGETING_OLD = 'targeting_old';
   const UPDATED_TIME_NEW = 'updated_time_new';
   const UPDATED_TIME_OLD = 'updated_time_old';
+  const USER = 'user';
 
   public function getFieldTypes() {
     return array(
@@ -156,6 +157,7 @@ class AdCampaignActivityFields extends AbstractEnum {
       'targeting_old' => 'Object',
       'updated_time_new' => 'datetime',
       'updated_time_old' => 'datetime',
+      'user' => 'User',
     );
   }
 }

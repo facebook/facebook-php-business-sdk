@@ -41,6 +41,7 @@ class LeadgenFormFields extends AbstractEnum {
   const BLOCK_DISPLAY_FOR_NON_TARGETED_VIEWER = 'block_display_for_non_targeted_viewer';
   const CONTEXT_CARD = 'context_card';
   const CREATED_TIME = 'created_time';
+  const CREATOR = 'creator';
   const EXPIRED_LEADS_COUNT = 'expired_leads_count';
   const FOLLOW_UP_ACTION_TEXT = 'follow_up_action_text';
   const FOLLOW_UP_ACTION_URL = 'follow_up_action_url';
@@ -66,6 +67,7 @@ class LeadgenFormFields extends AbstractEnum {
       'block_display_for_non_targeted_viewer' => 'bool',
       'context_card' => 'Object',
       'created_time' => 'datetime',
+      'creator' => 'User',
       'expired_leads_count' => 'unsigned int',
       'follow_up_action_text' => 'string',
       'follow_up_action_url' => 'string',

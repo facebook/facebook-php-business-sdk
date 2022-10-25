@@ -39,11 +39,13 @@ class BusinessAssetGroupFields extends AbstractEnum {
 
   const ID = 'id';
   const NAME = 'name';
+  const OWNER_BUSINESS = 'owner_business';
 
   public function getFieldTypes() {
     return array(
       'id' => 'string',
       'name' => 'string',
+      'owner_business' => 'Business',
     );
   }
 }

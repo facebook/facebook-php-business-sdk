@@ -314,7 +314,6 @@ class Group extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'body' => 'map',
       'description' => 'map',
       'title' => 'map',
     );
@@ -631,7 +630,6 @@ class Group extends AbstractCrudObject {
       'is_audio_only' => 'bool',
       'is_spherical' => 'bool',
       'original_fov' => 'unsigned int',
-      'planned_start_time' => 'int',
       'privacy' => 'string',
       'projection' => 'projection_enum',
       'published' => 'bool',

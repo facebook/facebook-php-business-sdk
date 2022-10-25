@@ -118,7 +118,7 @@ class UserFields extends AbstractEnum {
       'profile_pic' => 'string',
       'quotes' => 'string',
       'relationship_status' => 'string',
-      'shared_login_upgrade_required_by' => 'datetime',
+      'shared_login_upgrade_required_by' => 'Object',
       'short_name' => 'string',
       'significant_other' => 'User',
       'sports' => 'list<Experience>',

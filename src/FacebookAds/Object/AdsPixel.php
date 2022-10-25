@@ -171,9 +171,32 @@ class AdsPixel extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/events',
-      new AdsPixel(),
+      new AbstractCrudObject(),
       'EDGE',
-      AdsPixel::getFieldsEnum()->getValues(),
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createMeapitocapiconsolidationhelper(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/meapitocapiconsolidationhelper',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

@@ -132,6 +132,29 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getAudiences(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/audiences',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getConversationAnalytics(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -241,7 +264,8 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
         'DELETED',
         'DISABLED',
         'IN_APPEAL',
-        'LOCKED',
+        'LIMIT_EXCEEDED',
+        'PAUSED',
         'PENDING',
         'PENDING_DELETION',
         'REJECTED',
@@ -461,6 +485,8 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'override_callback_uri' => 'string',
+      'verify_token' => 'string',
     );
     $enums = array(
     );
