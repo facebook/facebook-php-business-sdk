@@ -241,7 +241,7 @@ class EventRequest implements ArrayAccess {
 
     } else if ($this->endpoint_request != null) {
         $capiResponse = $this->sendToCAPIEndpoint();
-        $capiResponse->setCustomEndpointResponses(array($this->endpoint_request->getEndpoint() => $this->sendEventsToCustomEndpoint());
+        $capiResponse->setCustomEndpointResponses(array($this->endpoint_request->getEndpoint() => $this->sendEventsToCustomEndpoint()));
         return $capiResponse;
     }
     return $this->sendToCAPIEndpoint();
