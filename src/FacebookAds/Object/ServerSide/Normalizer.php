@@ -39,6 +39,11 @@ class Normalizer {
    * @return string
    */
   public static function normalize($field, $data) {
+    
+    if (is_array($data)) {
+        $data = $data[0];
+    }
+    
     if ($data == null || strlen($data) == 0) {
       return null;
     }
