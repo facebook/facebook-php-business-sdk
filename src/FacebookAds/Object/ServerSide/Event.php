@@ -381,7 +381,7 @@ class Event implements ArrayAccess {
       'action_source',
       $this->container['action_source']
     );
-    $normalized_payload = array_filter($normalized_payload, function($val) { if(is_array($val)) { return true; } else { return strlen($val); }});
+    $normalized_payload = array_filter($normalized_payload, function($val) { if(is_array($val)) { return true; } else { return strlen((string) $val); }});
     // Add the opt_out value back in if it was filtered out
     if ($this->getOptOut() === false) {
       $normalized_payload['opt_out'] = $this->getOptOut();
