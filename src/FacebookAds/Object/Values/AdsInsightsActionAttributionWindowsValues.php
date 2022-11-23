@@ -45,4 +45,6 @@ class AdsInsightsActionAttributionWindowsValues extends AbstractEnum {
   const VALUE_7D_VIEW = '7d_view';
   const DDA = 'dda';
   const VALUE_DEFAULT = 'default';
+  const SKAN_CLICK = 'skan_click';
+  const SKAN_VIEW = 'skan_view';
 }

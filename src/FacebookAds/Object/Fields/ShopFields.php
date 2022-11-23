@@ -40,12 +40,14 @@ class ShopFields extends AbstractEnum {
   const FB_SALES_CHANNEL = 'fb_sales_channel';
   const ID = 'id';
   const IG_SALES_CHANNEL = 'ig_sales_channel';
+  const WORKSPACE = 'workspace';
 
   public function getFieldTypes() {
     return array(
       'fb_sales_channel' => 'Object',
       'id' => 'string',
       'ig_sales_channel' => 'Object',
+      'workspace' => 'Object',
     );
   }
 }

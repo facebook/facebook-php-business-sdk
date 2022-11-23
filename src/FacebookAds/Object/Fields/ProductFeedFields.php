@@ -73,7 +73,7 @@ class ProductFeedFields extends AbstractEnum {
       'encoding' => 'string',
       'file_name' => 'string',
       'id' => 'string',
-      'ingestion_source_type' => 'string',
+      'ingestion_source_type' => 'IngestionSourceType',
       'item_sub_type' => 'string',
       'latest_upload' => 'ProductFeedUpload',
       'migrated_from_feed_id' => 'string',

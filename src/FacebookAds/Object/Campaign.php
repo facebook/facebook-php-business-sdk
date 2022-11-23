@@ -52,8 +52,6 @@ use FacebookAds\Object\Values\CampaignSpecialAdCategoryCountryValues;
 use FacebookAds\Object\Values\CampaignSpecialAdCategoryValues;
 use FacebookAds\Object\Values\CampaignStatusOptionValues;
 use FacebookAds\Object\Values\CampaignStatusValues;
-use FacebookAds\Object\Values\ContentDeliveryReportPlatformValues;
-use FacebookAds\Object\Values\ContentDeliveryReportPositionValues;
 use FacebookAds\Object\Traits\AdLabelAwareCrudObjectTrait;
 use FacebookAds\Object\Traits\ObjectValidation;
 
@@ -227,37 +225,6 @@ class Campaign extends AbstractArchivableCrudObject {
       new AdSet(),
       'EDGE',
       AdSet::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getContentDeliveryReport(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'end_date' => 'datetime',
-      'page_id' => 'unsigned int',
-      'platform' => 'platform_enum',
-      'position' => 'position_enum',
-      'start_date' => 'datetime',
-      'summary' => 'bool',
-    );
-    $enums = array(
-      'platform_enum' => ContentDeliveryReportPlatformValues::getInstance()->getValues(),
-      'position_enum' => ContentDeliveryReportPositionValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/content_delivery_report',
-      new ContentDeliveryReport(),
-      'EDGE',
-      ContentDeliveryReport::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -459,6 +426,7 @@ class Campaign extends AbstractArchivableCrudObject {
     );
     $enums = array(
       'date_preset_enum' => array(
+        'data_maximum',
         'last_14d',
         'last_28d',
         'last_30d',

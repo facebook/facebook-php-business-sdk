@@ -33,6 +33,8 @@ use FacebookAds\Object\Values\ProductItemAgeGroupValues;
 use FacebookAds\Object\Values\ProductItemAvailabilityValues;
 use FacebookAds\Object\Values\ProductItemCommerceTaxCategoryValues;
 use FacebookAds\Object\Values\ProductItemConditionValues;
+use FacebookAds\Object\Values\ProductItemErrorPriorityValues;
+use FacebookAds\Object\Values\ProductItemErrorTypeValues;
 use FacebookAds\Object\Values\ProductItemGenderValues;
 use FacebookAds\Object\Values\ProductItemImageFetchStatusValues;
 use FacebookAds\Object\Values\ProductItemMarkedForProductLaunchValues;
@@ -40,6 +42,7 @@ use FacebookAds\Object\Values\ProductItemOriginCountryValues;
 use FacebookAds\Object\Values\ProductItemReviewStatusValues;
 use FacebookAds\Object\Values\ProductItemShippingWeightUnitValues;
 use FacebookAds\Object\Values\ProductItemVisibilityValues;
+use FacebookAds\Object\Values\ProductItemWaComplianceCategoryValues;
 
 /**
  * This class is auto-generated.
@@ -77,8 +80,11 @@ class ProductItem extends AbstractCrudObject {
     $ref_enums['ShippingWeightUnit'] = ProductItemShippingWeightUnitValues::getInstance()->getValues();
     $ref_enums['Visibility'] = ProductItemVisibilityValues::getInstance()->getValues();
     $ref_enums['CommerceTaxCategory'] = ProductItemCommerceTaxCategoryValues::getInstance()->getValues();
+    $ref_enums['ErrorPriority'] = ProductItemErrorPriorityValues::getInstance()->getValues();
+    $ref_enums['ErrorType'] = ProductItemErrorTypeValues::getInstance()->getValues();
     $ref_enums['MarkedForProductLaunch'] = ProductItemMarkedForProductLaunchValues::getInstance()->getValues();
     $ref_enums['OriginCountry'] = ProductItemOriginCountryValues::getInstance()->getValues();
+    $ref_enums['WaComplianceCategory'] = ProductItemWaComplianceCategoryValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -206,6 +212,11 @@ class ProductItem extends AbstractCrudObject {
       'custom_label_2' => 'string',
       'custom_label_3' => 'string',
       'custom_label_4' => 'string',
+      'custom_number_0' => 'unsigned int',
+      'custom_number_1' => 'unsigned int',
+      'custom_number_2' => 'unsigned int',
+      'custom_number_3' => 'unsigned int',
+      'custom_number_4' => 'unsigned int',
       'description' => 'string',
       'expiration_date' => 'string',
       'fb_product_category' => 'string',
@@ -250,6 +261,7 @@ class ProductItem extends AbstractCrudObject {
       'start_date' => 'string',
       'url' => 'string',
       'visibility' => 'visibility_enum',
+      'wa_compliance_category' => 'wa_compliance_category_enum',
       'windows_phone_app_id' => 'string',
       'windows_phone_app_name' => 'string',
       'windows_phone_url' => 'string',
@@ -262,6 +274,7 @@ class ProductItem extends AbstractCrudObject {
       'marked_for_product_launch_enum' => ProductItemMarkedForProductLaunchValues::getInstance()->getValues(),
       'origin_country_enum' => ProductItemOriginCountryValues::getInstance()->getValues(),
       'visibility_enum' => ProductItemVisibilityValues::getInstance()->getValues(),
+      'wa_compliance_category_enum' => ProductItemWaComplianceCategoryValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

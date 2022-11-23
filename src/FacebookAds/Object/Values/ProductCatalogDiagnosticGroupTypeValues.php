@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ProductCatalogDiagnosticGroupTypeValues extends AbstractEnum {
 
+  const AR_VISIBILITY_ISSUES = 'AR_VISIBILITY_ISSUES';
   const ATTRIBUTES_INVALID = 'ATTRIBUTES_INVALID';
   const ATTRIBUTES_MISSING = 'ATTRIBUTES_MISSING';
   const CATEGORY = 'CATEGORY';

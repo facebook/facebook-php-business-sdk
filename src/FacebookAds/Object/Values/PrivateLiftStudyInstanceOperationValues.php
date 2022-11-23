@@ -38,7 +38,9 @@ use FacebookAds\Enum\AbstractEnum;
 class PrivateLiftStudyInstanceOperationValues extends AbstractEnum {
 
   const AGGREGATE = 'AGGREGATE';
+  const CANCEL = 'CANCEL';
   const COMPUTE = 'COMPUTE';
   const ID_MATCH = 'ID_MATCH';
+  const NEXT = 'NEXT';
   const NONE = 'NONE';
 }

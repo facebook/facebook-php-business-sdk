@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         operating-system: [ubuntu-latest]
-        php-versions: ['7.2', '7.3', '7.4', '8.0']
+        php-versions: ['8.0', '8.1']
     name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
     steps:
     - name: Checkout
@@ -16,8 +16,8 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: ${{matrix.php-versions}} 
- 
+        php-version: ${{matrix.php-versions}}
+
     - name: Install dependencies
       uses: php-actions/composer@v4
       with:

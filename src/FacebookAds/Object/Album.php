@@ -226,7 +226,6 @@ class Album extends AbstractCrudObject {
       'ios_bundle_id' => 'string',
       'is_explicit_location' => 'bool',
       'is_explicit_place' => 'bool',
-      'is_visual_search' => 'bool',
       'manual_privacy' => 'bool',
       'message' => 'string',
       'name' => 'string',

@@ -194,6 +194,53 @@ class Group extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getAttachmentSurfaces(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/attachment_surfaces',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createAttachmentSurface(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'title' => 'map',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/attachment_surfaces',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getDocs(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -233,6 +280,54 @@ class Group extends AbstractCrudObject {
       new Event(),
       'EDGE',
       Event::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getFeaturedCards(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/featured_cards',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createFeaturedCard(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'description' => 'map',
+      'title' => 'map',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/featured_cards',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -363,7 +458,6 @@ class Group extends AbstractCrudObject {
       'ref' => 'list<string>',
       'referenceable_image_ids' => 'list<string>',
       'referral_id' => 'string',
-      'sales_promo_id' => 'unsigned int',
       'scheduled_publish_time' => 'datetime',
       'source' => 'string',
       'sponsor_id' => 'string',
@@ -530,11 +624,11 @@ class Group extends AbstractCrudObject {
       'description' => 'string',
       'enable_backup_ingest' => 'bool',
       'encoding_settings' => 'string',
+      'event_params' => 'Object',
       'fisheye_video_cropped' => 'bool',
       'front_z_rotation' => 'float',
       'is_audio_only' => 'bool',
       'is_spherical' => 'bool',
-      'live_encoders' => 'list<string>',
       'original_fov' => 'unsigned int',
       'privacy' => 'string',
       'projection' => 'projection_enum',
@@ -671,7 +765,6 @@ class Group extends AbstractCrudObject {
       'ios_bundle_id' => 'string',
       'is_explicit_location' => 'bool',
       'is_explicit_place' => 'bool',
-      'is_visual_search' => 'bool',
       'manual_privacy' => 'bool',
       'message' => 'string',
       'name' => 'string',
@@ -866,7 +959,6 @@ class Group extends AbstractCrudObject {
       'react_mode_metadata' => 'string',
       'referenced_sticker_id' => 'string',
       'replace_video_id' => 'string',
-      'sales_promo_id' => 'unsigned int',
       'scheduled_publish_time' => 'unsigned int',
       'slideshow_spec' => 'map',
       'source' => 'string',
@@ -954,6 +1046,7 @@ class Group extends AbstractCrudObject {
       'focus_x' => 'float',
       'focus_y' => 'float',
       'group_icon' => 'string',
+      'is_official_group' => 'bool',
       'join_setting' => 'join_setting_enum',
       'name' => 'string',
       'no_feed_story' => 'bool',

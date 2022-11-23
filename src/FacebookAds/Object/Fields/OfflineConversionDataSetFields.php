@@ -40,6 +40,7 @@ class OfflineConversionDataSetFields extends AbstractEnum {
   const BUSINESS = 'business';
   const CONFIG = 'config';
   const CREATION_TIME = 'creation_time';
+  const CREATOR = 'creator';
   const DESCRIPTION = 'description';
   const DUPLICATE_ENTRIES = 'duplicate_entries';
   const ENABLE_AUTO_ASSIGN_TO_ACCOUNTS = 'enable_auto_assign_to_accounts';
@@ -55,6 +56,7 @@ class OfflineConversionDataSetFields extends AbstractEnum {
   const MATCH_RATE_APPROX = 'match_rate_approx';
   const MATCHED_ENTRIES = 'matched_entries';
   const NAME = 'name';
+  const OWNER_BUSINESS = 'owner_business';
   const USAGE = 'usage';
   const VALID_ENTRIES = 'valid_entries';
   const AUTO_ASSIGN_TO_NEW_ACCOUNTS_ONLY = 'auto_assign_to_new_accounts_only';
@@ -64,6 +66,7 @@ class OfflineConversionDataSetFields extends AbstractEnum {
       'business' => 'Business',
       'config' => 'string',
       'creation_time' => 'datetime',
+      'creator' => 'User',
       'description' => 'string',
       'duplicate_entries' => 'int',
       'enable_auto_assign_to_accounts' => 'bool',
@@ -79,7 +82,8 @@ class OfflineConversionDataSetFields extends AbstractEnum {
       'match_rate_approx' => 'int',
       'matched_entries' => 'int',
       'name' => 'string',
-      'usage' => 'Object',
+      'owner_business' => 'Business',
+      'usage' => 'OfflineConversionDataSetUsage',
       'valid_entries' => 'int',
       'auto_assign_to_new_accounts_only' => 'bool',
     );

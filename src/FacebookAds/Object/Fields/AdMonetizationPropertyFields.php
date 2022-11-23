@@ -37,10 +37,12 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdMonetizationPropertyFields extends AbstractEnum {
 
+  const OWNER_BUSINESS = 'owner_business';
   const ID = 'id';
 
   public function getFieldTypes() {
     return array(
+      'owner_business' => 'Business',
       'id' => 'string',
     );
   }

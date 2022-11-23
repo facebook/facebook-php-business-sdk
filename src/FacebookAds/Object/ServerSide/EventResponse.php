@@ -40,7 +40,8 @@ class EventResponse implements ArrayAccess {
   protected static $param_types = array(
     'events_received' => 'int',
     'messages' => 'string[]',
-    'fbtrace_id' => 'string'
+    'fbtrace_id' => 'string',
+    'custom_endpoint_responses' => 'array'
   );
   /**
    * Array of attributes where the key is the local name, and the value is the original name
@@ -49,7 +50,8 @@ class EventResponse implements ArrayAccess {
   protected static $attributeMap = array(
     'events_received' => 'events_received',
     'messages' => 'messages',
-    'fbtrace_id' => 'fbtrace_id'
+    'fbtrace_id' => 'fbtrace_id',
+    'custom_endpoint_responses' => 'custom_endpoint_responses',
   );
   /**
    * Array of attributes to setter functions (for deserialization of responses)
@@ -58,7 +60,8 @@ class EventResponse implements ArrayAccess {
   protected static $setters = array(
     'events_received' => 'setEventsReceived',
     'messages' => 'setMessages',
-    'fbtrace_id' => 'setFbTraceId'
+    'fbtrace_id' => 'setFbTraceId',
+    'custom_endpoint_responses' => 'custom_endpoint_responses'
   );
   /**
    * Array of attributes to getter functions (for serialization of requests)
@@ -67,7 +70,8 @@ class EventResponse implements ArrayAccess {
   protected static $getters = array(
     'events_received' => 'getEventsReceived',
     'messages' => 'getMessages',
-    'fbtrace_id' => 'getFbTraceId'
+    'fbtrace_id' => 'getFbTraceId',
+    'custom_endpoint_responses' => 'custom_endpoint_responses'
   );
   /**
    * Associative array for storing property values
@@ -83,6 +87,7 @@ class EventResponse implements ArrayAccess {
     $this->container['events_received'] = isset($data['events_received']) ? $data['events_received'] : null;
     $this->container['messages'] = isset($data['messages']) ? $data['messages'] : null;
     $this->container['fbtrace_id'] = isset($data['fbtrace_id']) ? $data['fbtrace_id'] : null;
+    $this->container['custom_endpoint_responses'] = isset($data['custom_endpoint_responses']) ? $data['custom_endpoint_responses'] : null;
   }
 
   public static function paramTypes() {
@@ -121,7 +126,6 @@ class EventResponse implements ArrayAccess {
     return true;
   }
 
-
   /**
    * Gets number of events received.
    * @return int
@@ -140,6 +144,25 @@ class EventResponse implements ArrayAccess {
 
     return $this;
   }
+
+    /**
+     * Sets custom endpoint response results.
+     * @param array $custom_endpoint_responses Custom Endpoint Response that maps to the Custom Endpoint Requests sent.
+     * @return $this
+     */
+    public function setCustomEndpointResponses(array $custom_endpoint_responses) {
+        $this->container['custom_endpoint_responses'] = $custom_endpoint_responses;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom endpoint response results.
+     * @return mixed $array
+     */
+    public function getCustomEndpointResponses() {
+        return $this->container['custom_endpoint_responses'];
+    }
 
   /**
    * Gets response messages.
@@ -183,7 +206,7 @@ class EventResponse implements ArrayAccess {
    * @param integer $offset Offset
    * @return boolean
    */
-  public function offsetExists($offset) {
+  public function offsetExists($offset) : bool {
     return isset($this->container[$offset]);
   }
 
@@ -192,7 +215,7 @@ class EventResponse implements ArrayAccess {
    * @param integer $offset Offset
    * @return mixed
    */
-  public function offsetGet($offset) {
+  public function offsetGet($offset) : mixed {
     return isset($this->container[$offset]) ? $this->container[$offset] : null;
   }
 
@@ -202,7 +225,7 @@ class EventResponse implements ArrayAccess {
    * @param mixed $value Value to be set
    * @return void
    */
-  public function offsetSet($offset, $value) {
+  public function offsetSet($offset, $value) : void {
     if (is_null($offset)) {
       $this->container[] = $value;
     } else {
@@ -215,7 +238,7 @@ class EventResponse implements ArrayAccess {
    * @param integer $offset Offset
    * @return void
    */
-  public function offsetUnset($offset) {
+  public function offsetUnset($offset) : void {
     unset($this->container[$offset]);
   }
 

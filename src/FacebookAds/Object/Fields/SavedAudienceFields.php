@@ -38,8 +38,6 @@ use FacebookAds\Enum\AbstractEnum;
 class SavedAudienceFields extends AbstractEnum {
 
   const ACCOUNT = 'account';
-  const APPROXIMATE_COUNT = 'approximate_count';
-  const APPROXIMATE_COUNT_64BIT = 'approximate_count_64bit';
   const APPROXIMATE_COUNT_LOWER_BOUND = 'approximate_count_lower_bound';
   const APPROXIMATE_COUNT_UPPER_BOUND = 'approximate_count_upper_bound';
   const DELETE_TIME = 'delete_time';
@@ -48,6 +46,7 @@ class SavedAudienceFields extends AbstractEnum {
   const ID = 'id';
   const NAME = 'name';
   const OPERATION_STATUS = 'operation_status';
+  const OWNER_BUSINESS = 'owner_business';
   const PAGE_DELETION_MARKED_DELETE_TIME = 'page_deletion_marked_delete_time';
   const PERMISSION_FOR_ACTIONS = 'permission_for_actions';
   const RUN_STATUS = 'run_status';
@@ -59,8 +58,6 @@ class SavedAudienceFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'account' => 'AdAccount',
-      'approximate_count' => 'int',
-      'approximate_count_64bit' => 'int',
       'approximate_count_lower_bound' => 'int',
       'approximate_count_upper_bound' => 'int',
       'delete_time' => 'int',
@@ -69,6 +66,7 @@ class SavedAudienceFields extends AbstractEnum {
       'id' => 'string',
       'name' => 'string',
       'operation_status' => 'CustomAudienceStatus',
+      'owner_business' => 'Business',
       'page_deletion_marked_delete_time' => 'int',
       'permission_for_actions' => 'AudiencePermissionForActions',
       'run_status' => 'string',

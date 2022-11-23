@@ -58,7 +58,13 @@ class ProductItemFields extends AbstractEnum {
   const CUSTOM_LABEL_2 = 'custom_label_2';
   const CUSTOM_LABEL_3 = 'custom_label_3';
   const CUSTOM_LABEL_4 = 'custom_label_4';
+  const CUSTOM_NUMBER_0 = 'custom_number_0';
+  const CUSTOM_NUMBER_1 = 'custom_number_1';
+  const CUSTOM_NUMBER_2 = 'custom_number_2';
+  const CUSTOM_NUMBER_3 = 'custom_number_3';
+  const CUSTOM_NUMBER_4 = 'custom_number_4';
   const DESCRIPTION = 'description';
+  const ERRORS = 'errors';
   const EXPIRATION_DATE = 'expiration_date';
   const FB_PRODUCT_CATEGORY = 'fb_product_category';
   const GENDER = 'gender';
@@ -82,6 +88,7 @@ class ProductItemFields extends AbstractEnum {
   const ORIGIN_COUNTRY = 'origin_country';
   const PARENT_PRODUCT_ID = 'parent_product_id';
   const PATTERN = 'pattern';
+  const POST_CONVERSION_SIGNAL_BASED_ENFORCEMENT_APPEAL_ELIGIBILITY = 'post_conversion_signal_based_enforcement_appeal_eligibility';
   const PRICE = 'price';
   const PRODUCT_CATALOG = 'product_catalog';
   const PRODUCT_FEED = 'product_feed';
@@ -102,6 +109,7 @@ class ProductItemFields extends AbstractEnum {
   const START_DATE = 'start_date';
   const URL = 'url';
   const VISIBILITY = 'visibility';
+  const WA_COMPLIANCE_CATEGORY = 'wa_compliance_category';
   const ADDITIONAL_UPLOADED_IMAGE_IDS = 'additional_uploaded_image_ids';
   const ANDROID_APP_NAME = 'android_app_name';
   const ANDROID_CLASS = 'android_class';
@@ -150,7 +158,13 @@ class ProductItemFields extends AbstractEnum {
       'custom_label_2' => 'string',
       'custom_label_3' => 'string',
       'custom_label_4' => 'string',
+      'custom_number_0' => 'string',
+      'custom_number_1' => 'string',
+      'custom_number_2' => 'string',
+      'custom_number_3' => 'string',
+      'custom_number_4' => 'string',
       'description' => 'string',
+      'errors' => 'list<ProductItemError>',
       'expiration_date' => 'string',
       'fb_product_category' => 'string',
       'gender' => 'Gender',
@@ -174,6 +188,7 @@ class ProductItemFields extends AbstractEnum {
       'origin_country' => 'string',
       'parent_product_id' => 'string',
       'pattern' => 'string',
+      'post_conversion_signal_based_enforcement_appeal_eligibility' => 'bool',
       'price' => 'string',
       'product_catalog' => 'ProductCatalog',
       'product_feed' => 'ProductFeed',
@@ -194,6 +209,7 @@ class ProductItemFields extends AbstractEnum {
       'start_date' => 'string',
       'url' => 'string',
       'visibility' => 'Visibility',
+      'wa_compliance_category' => 'string',
       'additional_uploaded_image_ids' => 'list<string>',
       'android_app_name' => 'string',
       'android_class' => 'string',

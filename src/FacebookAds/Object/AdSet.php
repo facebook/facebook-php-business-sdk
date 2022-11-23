@@ -55,8 +55,6 @@ use FacebookAds\Object\Values\AdsInsightsBreakdownsValues;
 use FacebookAds\Object\Values\AdsInsightsDatePresetValues;
 use FacebookAds\Object\Values\AdsInsightsLevelValues;
 use FacebookAds\Object\Values\AdsInsightsSummaryActionBreakdownsValues;
-use FacebookAds\Object\Values\ContentDeliveryReportPlatformValues;
-use FacebookAds\Object\Values\ContentDeliveryReportPositionValues;
 use FacebookAds\Object\Traits\AdLabelAwareCrudObjectTrait;
 use FacebookAds\Object\Traits\ObjectValidation;
 
@@ -316,36 +314,6 @@ class AdSet extends AbstractArchivableCrudObject
     return $pending ? $request : $request->execute();
   }
 
-  public function getContentDeliveryReport(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'end_date' => 'datetime',
-      'platform' => 'platform_enum',
-      'position' => 'position_enum',
-      'start_date' => 'datetime',
-      'summary' => 'bool',
-    );
-    $enums = array(
-      'platform_enum' => ContentDeliveryReportPlatformValues::getInstance()->getValues(),
-      'position_enum' => ContentDeliveryReportPositionValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/content_delivery_report',
-      new ContentDeliveryReport(),
-      'EDGE',
-      ContentDeliveryReport::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getCopies(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -592,6 +560,7 @@ class AdSet extends AbstractArchivableCrudObject
     );
     $enums = array(
       'date_preset_enum' => array(
+        'data_maximum',
         'last_14d',
         'last_28d',
         'last_30d',

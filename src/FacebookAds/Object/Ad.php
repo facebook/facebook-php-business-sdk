@@ -343,7 +343,7 @@ class Ad extends AbstractArchivableCrudObject
     return $pending ? $request : $request->execute();
   }
 
-  public function getPreviews(array $fields = array(), array $params = array(), $pending = false) {
+  public function getPreViews(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -439,6 +439,7 @@ class Ad extends AbstractArchivableCrudObject
     );
     $enums = array(
       'date_preset_enum' => array(
+        'data_maximum',
         'last_14d',
         'last_28d',
         'last_30d',

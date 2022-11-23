@@ -29,8 +29,11 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\OfflineConversionDataSetFields;
+use FacebookAds\Object\Values\CustomAudienceActionSourceValues;
 use FacebookAds\Object\Values\OfflineConversionDataSetPermittedRolesValues;
 use FacebookAds\Object\Values\OfflineConversionDataSetRelationshipTypeValues;
+use FacebookAds\Object\Values\OfflineConversionDataSetUploadOrderValues;
+use FacebookAds\Object\Values\OfflineConversionDataSetUploadSortByValues;
 
 /**
  * This class is auto-generated.
@@ -171,9 +174,11 @@ class OfflineConversionDataSet extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'action_source' => 'action_source_enum',
       'ad_account' => 'string',
     );
     $enums = array(
+      'action_source_enum' => CustomAudienceActionSourceValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -293,19 +298,8 @@ class OfflineConversionDataSet extends AbstractCrudObject {
       'upload_tag' => 'string',
     );
     $enums = array(
-      'order_enum' => array(
-        'ASCENDING',
-        'DESCENDING',
-      ),
-      'sort_by_enum' => array(
-        'API_CALLS',
-        'CREATION_TIME',
-        'EVENT_TIME_MAX',
-        'EVENT_TIME_MIN',
-        'FIRST_UPLOAD_TIME',
-        'IS_EXCLUDED_FOR_LIFT',
-        'LAST_UPLOAD_TIME',
-      ),
+      'order_enum' => OfflineConversionDataSetUploadOrderValues::getInstance()->getValues(),
+      'sort_by_enum' => OfflineConversionDataSetUploadSortByValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -313,9 +307,9 @@ class OfflineConversionDataSet extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/uploads',
-      new AbstractCrudObject(),
+      new OfflineConversionDataSetUpload(),
       'EDGE',
-      array(),
+      OfflineConversionDataSetUpload::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -337,9 +331,9 @@ class OfflineConversionDataSet extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/uploads',
-      new AbstractCrudObject(),
+      new OfflineConversionDataSetUpload(),
       'EDGE',
-      array(),
+      OfflineConversionDataSetUpload::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

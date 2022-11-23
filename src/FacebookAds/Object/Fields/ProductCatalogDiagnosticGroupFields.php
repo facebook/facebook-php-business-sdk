@@ -38,9 +38,11 @@ use FacebookAds\Enum\AbstractEnum;
 class ProductCatalogDiagnosticGroupFields extends AbstractEnum {
 
   const AFFECTED_CHANNELS = 'affected_channels';
+  const AFFECTED_ENTITY = 'affected_entity';
   const AFFECTED_FEATURES = 'affected_features';
   const DIAGNOSTICS = 'diagnostics';
   const ERROR_CODE = 'error_code';
+  const NUMBER_OF_AFFECTED_ENTITIES = 'number_of_affected_entities';
   const NUMBER_OF_AFFECTED_ITEMS = 'number_of_affected_items';
   const SEVERITY = 'severity';
   const SUBTITLE = 'subtitle';
@@ -50,9 +52,11 @@ class ProductCatalogDiagnosticGroupFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'affected_channels' => 'list<AffectedChannels>',
+      'affected_entity' => 'AffectedEntity',
       'affected_features' => 'list<AffectedFeatures>',
       'diagnostics' => 'list<Object>',
       'error_code' => 'int',
+      'number_of_affected_entities' => 'int',
       'number_of_affected_items' => 'int',
       'severity' => 'Severity',
       'subtitle' => 'string',

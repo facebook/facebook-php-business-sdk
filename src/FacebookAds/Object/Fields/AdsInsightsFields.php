@@ -136,6 +136,7 @@ class AdsInsightsFields extends AbstractEnum {
   const SOCIAL_SPEND = 'social_spend';
   const SPEND = 'spend';
   const TOTAL_POSTBACKS = 'total_postbacks';
+  const TOTAL_POSTBACKS_DETAILED = 'total_postbacks_detailed';
   const UNIQUE_ACTIONS = 'unique_actions';
   const UNIQUE_CLICKS = 'unique_clicks';
   const UNIQUE_CONVERSIONS = 'unique_conversions';
@@ -269,6 +270,7 @@ class AdsInsightsFields extends AbstractEnum {
       'social_spend' => 'string',
       'spend' => 'string',
       'total_postbacks' => 'string',
+      'total_postbacks_detailed' => 'list<AdsActionStats>',
       'unique_actions' => 'list<AdsActionStats>',
       'unique_clicks' => 'string',
       'unique_conversions' => 'list<AdsActionStats>',

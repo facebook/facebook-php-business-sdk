@@ -61,7 +61,7 @@ class PublisherBlockList extends AbstractCrudObject {
   }
 
 
-  public function createAppendPublisherUrl(array $fields = array(), array $params = array(), $pending = false) {
+  public function createAppEndPublisherUrl(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(

@@ -27,6 +27,8 @@ namespace FacebookAds\Object\ServerSide;
 use FacebookAds\Api;
 use FacebookAds\ApiConfig;
 use FacebookAds\Http\Client;
+use GuzzleHttp\Promise\Promise;
+use GuzzleHttp\Promise\Utils;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\MultipartStream;
 
@@ -38,10 +40,31 @@ class EventRequestAsync extends EventRequest {
   public function execute() {
     $normalized_param = $this->normalize();
     $pixel_id = $this->container['pixel_id'];
-    return $this->eventPromise(
-      $pixel_id,
-      $normalized_param
+    if ($this->endpoint_request != null && $this->endpoint_request->isSendToDestinationOnly()) {
+        return $this->endpoint_request->sendEventAsync($pixel_id, $this->container['events'])->then(function($customEndpointResponse) {
+            $response = $customEndpointResponse;
+            return new EventResponse(array(
+                'data' => array('events_received' => count($this->container['events']), 'custom_endpoint_responses'=>$response)
+            ));
+        });
+    }
+    $sendCAPIRequestPromise = $this->eventPromise(
+          $pixel_id,
+          $normalized_param
     );
+    if ($this->endpoint_request != null) {
+        $customEndpointRequestPromise = $this->endpoint_request->sendEventAsync($this->container['pixel_id'], $this->container['events']);
+        // put both promises in an an array
+        $promises = Utils::all(array($sendCAPIRequestPromise, $customEndpointRequestPromise));
+        $promises->then(function($responses) {
+                $CAPIResponse = $responses[0];
+                $customEndpointResponse = $responses[1];
+                $CAPIResponse->setCustomEndpointResponses($customEndpointResponse);
+                return $CAPIResponse;
+        });
+        return $promises;
+    }
+    return $sendCAPIRequestPromise;
   }
 
   private function eventPromise($pixel_id, array $params = array()) {

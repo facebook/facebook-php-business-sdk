@@ -142,6 +142,7 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const RELATIONSHIP_STATUSES = 'relationship_statuses';
   const RTB_FLAG = 'rtb_flag';
   const SITE_CATEGORY = 'site_category';
+  const TARGETING_AUTOMATION = 'targeting_automation';
   const TARGETING_OPTIMIZATION = 'targeting_optimization';
   const TARGETING_RELAXATION_TYPES = 'targeting_relaxation_types';
   const TIMEZONES = 'timezones';

@@ -37,6 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdSetDatePresetValues extends AbstractEnum {
 
+  const DATA_MAXIMUM = 'data_maximum';
   const LAST_14D = 'last_14d';
   const LAST_28D = 'last_28d';
   const LAST_30D = 'last_30d';
