@@ -193,7 +193,7 @@ class CustomData {
       if (is_array($val)) {
         return true;
       } else {
-        return strlen($val);
+        return strlen((string) $val);
       }
     });
 
