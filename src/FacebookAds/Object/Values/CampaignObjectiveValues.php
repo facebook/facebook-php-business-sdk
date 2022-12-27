@@ -23,6 +23,29 @@
  */
 
 namespace FacebookAds\Object\Values;
+import com.facebook.ads.sdk.*;
+import java.io.File;
+import java.util.Arrays;
+
+public class SAMPLE_CODE_EXAMPLE {
+  public static void main (String args[]) throws APIException {
+
+    String access_token = \"<ACCESS_TOKEN>\";
+    String app_secret = \"<APP_SECRET>\";
+    String app_id = \"<APP_ID>\";
+    String id = \"<AD_ACCOUNT_ID>\";
+    APIContext context = new APIContext(access_token).enableDebug(true);
+
+    new AdAccount(id, context).createCampaign()
+      .setName(\"My campaign\")
+      .setObjective(Campaign.EnumObjective.VALUE_LINK_CLICKS)
+      .setStatus(Campaign.EnumStatus.VALUE_PAUSED)
+      .setParam(\"special_ad_categories\", \"[]\")
+      .execute();
+
+  }
+}
+
 
 use FacebookAds\Enum\AbstractEnum;
 
