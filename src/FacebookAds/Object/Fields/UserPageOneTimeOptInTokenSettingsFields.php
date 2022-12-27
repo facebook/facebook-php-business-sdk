@@ -35,39 +35,31 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class CanvasTemplateFields extends AbstractEnum {
+class UserPageOneTimeOptInTokenSettingsFields extends AbstractEnum {
 
-  const CHANNELS = 'channels';
-  const DESCRIPTION = 'description';
-  const DOCUMENT = 'document';
+  const CREATION_TIMESTAMP = 'creation_timestamp';
+  const NOTIFICATION_MESSAGES_FREQUENCY = 'notification_messages_frequency';
+  const NOTIFICATION_MESSAGES_REOPTIN = 'notification_messages_reoptin';
+  const NOTIFICATION_MESSAGES_TIMEZONE = 'notification_messages_timezone';
+  const NOTIFICATION_MESSAGES_TOKEN = 'notification_messages_token';
+  const RECIPIENT_ID = 'recipient_id';
+  const TOKEN_EXPIRY_TIMESTAMP = 'token_expiry_timestamp';
+  const TOPIC_TITLE = 'topic_title';
+  const USER_TOKEN_STATUS = 'user_token_status';
   const ID = 'id';
-  const IS_MULTI_TAB_SUPPORTABLE = 'is_multi_tab_supportable';
-  const IS_NEW = 'is_new';
-  const NAME = 'name';
-  const OBJECTIVES = 'objectives';
-  const OWNER_ID = 'owner_id';
-  const REQUIRED_CAPABILITIES = 'required_capabilities';
-  const SNAPSHOT_PHOTO = 'snapshot_photo';
-  const STATUS = 'status';
-  const SUB_VERTICALS = 'sub_verticals';
-  const VERTICALS = 'verticals';
 
   public function getFieldTypes() {
     return array(
-      'channels' => 'map<string, map<string, string>>',
-      'description' => 'string',
-      'document' => 'Canvas',
+      'creation_timestamp' => 'int',
+      'notification_messages_frequency' => 'string',
+      'notification_messages_reoptin' => 'string',
+      'notification_messages_timezone' => 'string',
+      'notification_messages_token' => 'string',
+      'recipient_id' => 'string',
+      'token_expiry_timestamp' => 'int',
+      'topic_title' => 'string',
+      'user_token_status' => 'string',
       'id' => 'string',
-      'is_multi_tab_supportable' => 'bool',
-      'is_new' => 'bool',
-      'name' => 'string',
-      'objectives' => 'map<Object, Object>',
-      'owner_id' => 'User',
-      'required_capabilities' => 'list<string>',
-      'snapshot_photo' => 'Photo',
-      'status' => 'string',
-      'sub_verticals' => 'list<string>',
-      'verticals' => 'map<string, string>',
     );
   }
 }

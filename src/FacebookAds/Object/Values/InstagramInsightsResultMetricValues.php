@@ -45,12 +45,13 @@ class InstagramInsightsResultMetricValues extends AbstractEnum {
   const COMMENTS = 'comments';
   const ENGAGEMENT = 'engagement';
   const EXITS = 'exits';
-  const FOLLOWS_FROM_IMPRESSIONS = 'follows_from_impressions';
+  const FOLLOWS = 'follows';
   const IMPRESSIONS = 'impressions';
   const LIKES = 'likes';
   const NAVIGATION = 'navigation';
   const PLAYS = 'plays';
-  const PROFILE_VIEWS_FROM_IMPRESSIONS = 'profile_views_from_impressions';
+  const PROFILE_ACTIVITY = 'profile_activity';
+  const PROFILE_VISITS = 'profile_visits';
   const REACH = 'reach';
   const REPLIES = 'replies';
   const SAVED = 'saved';
@@ -58,6 +59,5 @@ class InstagramInsightsResultMetricValues extends AbstractEnum {
   const TAPS_BACK = 'taps_back';
   const TAPS_FORWARD = 'taps_forward';
   const TOTAL_INTERACTIONS = 'total_interactions';
-  const TOTAL_MEDIA_ATTRIBUTED_ACTIONS = 'total_media_attributed_actions';
   const VIDEO_VIEWS = 'video_views';
 }

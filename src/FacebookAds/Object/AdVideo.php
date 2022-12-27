@@ -38,6 +38,7 @@ use FacebookAds\Object\Values\AdVideoSwapModeValues;
 use FacebookAds\Object\Values\AdVideoTypeValues;
 use FacebookAds\Object\Values\AdVideoUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\AdVideoUploadPhaseValues;
+use FacebookAds\Object\Values\AdVideoVideoStateValues;
 use FacebookAds\Object\Values\CommentCommentPrivacyValueValues;
 use FacebookAds\Object\Values\CommentFilterValues;
 use FacebookAds\Object\Values\CommentLiveFilterValues;
@@ -82,6 +83,7 @@ class AdVideo extends AbstractCrudObject {
     $ref_enums['UnpublishedContentType'] = AdVideoUnpublishedContentTypeValues::getInstance()->getValues();
     $ref_enums['UploadPhase'] = AdVideoUploadPhaseValues::getInstance()->getValues();
     $ref_enums['Type'] = AdVideoTypeValues::getInstance()->getValues();
+    $ref_enums['VideoState'] = AdVideoVideoStateValues::getInstance()->getValues();
     $ref_enums['BackdatedTimeGranularity'] = AdVideoBackdatedTimeGranularityValues::getInstance()->getValues();
     return $ref_enums;
   }

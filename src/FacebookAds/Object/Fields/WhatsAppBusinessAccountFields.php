@@ -45,6 +45,7 @@ class WhatsAppBusinessAccountFields extends AbstractEnum {
   const MESSAGE_TEMPLATE_NAMESPACE = 'message_template_namespace';
   const NAME = 'name';
   const ON_BEHALF_OF_BUSINESS_INFO = 'on_behalf_of_business_info';
+  const OWNER_BUSINESS = 'owner_business';
   const OWNER_BUSINESS_INFO = 'owner_business_info';
   const PRIMARY_FUNDING_ID = 'primary_funding_id';
   const PURCHASE_ORDER_NUMBER = 'purchase_order_number';
@@ -61,6 +62,7 @@ class WhatsAppBusinessAccountFields extends AbstractEnum {
       'message_template_namespace' => 'string',
       'name' => 'string',
       'on_behalf_of_business_info' => 'Object',
+      'owner_business' => 'Business',
       'owner_business_info' => 'Object',
       'primary_funding_id' => 'string',
       'purchase_order_number' => 'string',

@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,16 +33,19 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static ContentDeliveryReportPlatformValues getInstance()
  */
-class ContentDeliveryReportPlatformValues extends AbstractEnum {
 
-  const AUDIENCE_NETWORK = 'AUDIENCE_NETWORK';
-  const FACEBOOK = 'FACEBOOK';
-  const HIDDEN_AAA = 'HIDDEN_AAA';
-  const INSTAGRAM = 'INSTAGRAM';
-  const MESSENGER = 'MESSENGER';
-  const OCULUS = 'OCULUS';
-  const UNKNOWN = 'UNKNOWN';
-  const WHATSAPP = 'WHATSAPP';
+class BusinessPartnerPremiumOptionsFields extends AbstractEnum {
+
+  const ENABLE_BASKET_INSIGHT = 'enable_basket_insight';
+  const ENABLE_EXTENDED_AUDIENCE_RETARGETING = 'enable_extended_audience_retargeting';
+  const RETAILER_CUSTOM_AUDIENCE_CONFIG = 'retailer_custom_audience_config';
+
+  public function getFieldTypes() {
+    return array(
+      'enable_basket_insight' => 'bool',
+      'enable_extended_audience_retargeting' => 'bool',
+      'retailer_custom_audience_config' => 'Object',
+    );
+  }
 }

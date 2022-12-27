@@ -22,15 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Fields;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\ContentDeliveryReportFields;
-use FacebookAds\Object\Values\ContentDeliveryReportPlatformValues;
-use FacebookAds\Object\Values\ContentDeliveryReportPositionValues;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-generated.
@@ -41,21 +35,17 @@ use FacebookAds\Object\Values\ContentDeliveryReportPositionValues;
  *
  */
 
-class ContentDeliveryReport extends AbstractObject {
+class IGBCAdsPermissionFields extends AbstractEnum {
 
-  /**
-   * @return ContentDeliveryReportFields
-   */
-  public static function getFieldsEnum() {
-    return ContentDeliveryReportFields::getInstance();
+  const ID = 'id';
+  const PERMISSION_TYPE = 'permission_type';
+  const STATUS = 'status';
+
+  public function getFieldTypes() {
+    return array(
+      'id' => 'string',
+      'permission_type' => 'string',
+      'status' => 'string',
+    );
   }
-
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    $ref_enums['Platform'] = ContentDeliveryReportPlatformValues::getInstance()->getValues();
-    $ref_enums['Position'] = ContentDeliveryReportPositionValues::getInstance()->getValues();
-    return $ref_enums;
-  }
-
-
 }

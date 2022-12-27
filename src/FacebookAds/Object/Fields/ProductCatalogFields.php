@@ -38,15 +38,17 @@ use FacebookAds\Enum\AbstractEnum;
 class ProductCatalogFields extends AbstractEnum {
 
   const BUSINESS = 'business';
+  const CATALOG_STORE = 'catalog_store';
   const COMMERCE_MERCHANT_SETTINGS = 'commerce_merchant_settings';
+  const CREATOR_USER = 'creator_user';
   const DA_DISPLAY_SETTINGS = 'da_display_settings';
   const DEFAULT_IMAGE_URL = 'default_image_url';
   const FALLBACK_IMAGE_URL = 'fallback_image_url';
   const FEED_COUNT = 'feed_count';
   const ID = 'id';
   const IS_CATALOG_SEGMENT = 'is_catalog_segment';
-  const LATEST_FEED_UPLOAD_SESSION = 'latest_feed_upload_session';
   const NAME = 'name';
+  const OWNER_BUSINESS = 'owner_business';
   const PRODUCT_COUNT = 'product_count';
   const STORE_CATALOG_SETTINGS = 'store_catalog_settings';
   const VERTICAL = 'vertical';
@@ -60,15 +62,17 @@ class ProductCatalogFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'business' => 'Business',
+      'catalog_store' => 'StoreCatalogSettings',
       'commerce_merchant_settings' => 'CommerceMerchantSettings',
+      'creator_user' => 'User',
       'da_display_settings' => 'ProductCatalogImageSettings',
       'default_image_url' => 'string',
       'fallback_image_url' => 'list<string>',
       'feed_count' => 'int',
       'id' => 'string',
       'is_catalog_segment' => 'bool',
-      'latest_feed_upload_session' => 'ProductFeedUpload',
       'name' => 'string',
+      'owner_business' => 'Business',
       'product_count' => 'int',
       'store_catalog_settings' => 'StoreCatalogSettings',
       'vertical' => 'string',

@@ -86,6 +86,34 @@ class AdStudy extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createCheckPoint(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'checkpoint_data' => 'string',
+      'checkpoint_name' => 'string',
+      'component' => 'string',
+      'instance_id' => 'string',
+      'run_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/checkpoint',
+      new AdStudy(),
+      'EDGE',
+      AdStudy::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getInstances(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -114,6 +142,7 @@ class AdStudy extends AbstractCrudObject {
 
     $param_types = array(
       'breakdown_key' => 'map',
+      'run_id' => 'string',
     );
     $enums = array(
     );

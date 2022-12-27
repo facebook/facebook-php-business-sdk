@@ -190,6 +190,7 @@ class Application extends AbstractCrudObject {
       'bundle_id' => 'string',
       'bundle_short_version' => 'string',
       'bundle_version' => 'string',
+      'campaign_ids' => 'string',
       'click_id' => 'string',
       'consider_views' => 'bool',
       'custom_events' => 'list<Object>',
@@ -466,6 +467,7 @@ class Application extends AbstractCrudObject {
     $param_types = array(
       'app_id' => 'int',
       'is_aem_ready' => 'bool',
+      'is_aem_v2_ready' => 'bool',
       'is_skan_ready' => 'bool',
     );
     $enums = array(
@@ -1087,6 +1089,7 @@ class Application extends AbstractCrudObject {
       'fb_click_time' => 'unsigned int',
       'fb_view_time' => 'unsigned int',
       'is_fb' => 'bool',
+      'used_install_referrer' => 'bool',
       'view_attr_window' => 'unsigned int',
     );
     $enums = array(
@@ -1139,6 +1142,29 @@ class Application extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getMonetizedDigitalStoreObjects(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/monetized_digital_store_objects',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createMonetizedDigitalStoreObject(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1157,6 +1183,29 @@ class Application extends AbstractCrudObject {
       new AbstractCrudObject(),
       'EDGE',
       array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getObjectTypes(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/object_types',
+      new NullNode(),
+      'EDGE',
+      NullNode::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1581,10 +1630,6 @@ class Application extends AbstractCrudObject {
     $param_types = array(
       'allow_cycle_app_secret' => 'bool',
       'an_platforms' => 'list<an_platforms_enum>',
-      'android_class_name' => 'string',
-      'android_key_hashes' => 'list<string>',
-      'android_package_name' => 'string',
-      'android_sso' => 'bool',
       'app_domains' => 'list<string>',
       'app_name' => 'string',
       'app_type' => 'bool',
@@ -1601,7 +1646,6 @@ class Application extends AbstractCrudObject {
       'canvas_url' => 'string',
       'contact_email' => 'string',
       'deauth_callback_url' => 'string',
-      'ios_bundle_id' => 'list<string>',
       'mobile_web_url' => 'string',
       'namespace' => 'string',
       'page_tab_default_name' => 'string',

@@ -88,6 +88,7 @@ class ProductItemFields extends AbstractEnum {
   const ORIGIN_COUNTRY = 'origin_country';
   const PARENT_PRODUCT_ID = 'parent_product_id';
   const PATTERN = 'pattern';
+  const POST_CONVERSION_SIGNAL_BASED_ENFORCEMENT_APPEAL_ELIGIBILITY = 'post_conversion_signal_based_enforcement_appeal_eligibility';
   const PRICE = 'price';
   const PRODUCT_CATALOG = 'product_catalog';
   const PRODUCT_FEED = 'product_feed';
@@ -187,6 +188,7 @@ class ProductItemFields extends AbstractEnum {
       'origin_country' => 'string',
       'parent_product_id' => 'string',
       'pattern' => 'string',
+      'post_conversion_signal_based_enforcement_appeal_eligibility' => 'bool',
       'price' => 'string',
       'product_catalog' => 'ProductCatalog',
       'product_feed' => 'ProductFeed',

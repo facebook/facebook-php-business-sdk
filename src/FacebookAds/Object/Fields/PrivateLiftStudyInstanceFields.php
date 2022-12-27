@@ -42,6 +42,7 @@ class PrivateLiftStudyInstanceFields extends AbstractEnum {
   const FEATURE_LIST = 'feature_list';
   const ID = 'id';
   const LATEST_STATUS_UPDATE_TIME = 'latest_status_update_time';
+  const RUN_ID = 'run_id';
   const SERVER_IPS = 'server_ips';
   const STATUS = 'status';
   const TIER = 'tier';
@@ -53,6 +54,7 @@ class PrivateLiftStudyInstanceFields extends AbstractEnum {
       'feature_list' => 'list<string>',
       'id' => 'string',
       'latest_status_update_time' => 'datetime',
+      'run_id' => 'string',
       'server_ips' => 'list<string>',
       'status' => 'string',
       'tier' => 'string',

@@ -35,21 +35,17 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class ContentDeliveryReportFields extends AbstractEnum {
+class AdAccountCustomAudienceFields extends AbstractEnum {
 
-  const CONTENT_NAME = 'content_name';
-  const CONTENT_URL = 'content_url';
-  const CREATOR_NAME = 'creator_name';
-  const CREATOR_URL = 'creator_url';
-  const ESTIMATED_IMPRESSIONS = 'estimated_impressions';
+  const AUDIENCE_TYPE_PARAM_NAME = 'audience_type_param_name';
+  const EXISTING_CUSTOMER_TAG = 'existing_customer_tag';
+  const NEW_CUSTOMER_TAG = 'new_customer_tag';
 
   public function getFieldTypes() {
     return array(
-      'content_name' => 'string',
-      'content_url' => 'string',
-      'creator_name' => 'string',
-      'creator_url' => 'string',
-      'estimated_impressions' => 'unsigned int',
+      'audience_type_param_name' => 'string',
+      'existing_customer_tag' => 'string',
+      'new_customer_tag' => 'string',
     );
   }
 }

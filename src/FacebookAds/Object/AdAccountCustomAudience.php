@@ -28,7 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\ThirdPartyMeasurementReportDatasetFields;
+use FacebookAds\Object\Fields\AdAccountCustomAudienceFields;
 
 /**
  * This class is auto-generated.
@@ -39,13 +39,13 @@ use FacebookAds\Object\Fields\ThirdPartyMeasurementReportDatasetFields;
  *
  */
 
-class ThirdPartyMeasurementReportDataset extends AbstractCrudObject {
+class AdAccountCustomAudience extends AbstractObject {
 
   /**
-   * @return ThirdPartyMeasurementReportDatasetFields
+   * @return AdAccountCustomAudienceFields
    */
   public static function getFieldsEnum() {
-    return ThirdPartyMeasurementReportDatasetFields::getInstance();
+    return AdAccountCustomAudienceFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -53,52 +53,5 @@ class ThirdPartyMeasurementReportDataset extends AbstractCrudObject {
     return $ref_enums;
   }
 
-
-  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/',
-      new ThirdPartyMeasurementReportDataset(),
-      'NODE',
-      ThirdPartyMeasurementReportDataset::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'data' => 'list<map>',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/',
-      new ThirdPartyMeasurementReportDataset(),
-      'NODE',
-      ThirdPartyMeasurementReportDataset::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
 
 }

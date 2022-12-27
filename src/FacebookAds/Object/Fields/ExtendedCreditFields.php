@@ -45,6 +45,7 @@ class ExtendedCreditFields extends AbstractEnum {
   const IS_ACCESS_REVOKED = 'is_access_revoked';
   const IS_AUTOMATED_EXPERIENCE = 'is_automated_experience';
   const LEGAL_ENTITY_NAME = 'legal_entity_name';
+  const LIABLE_ADDRESS = 'liable_address';
   const LIABLE_BIZ_NAME = 'liable_biz_name';
   const MAX_BALANCE = 'max_balance';
   const ONLINE_MAX_BALANCE = 'online_max_balance';
@@ -52,7 +53,9 @@ class ExtendedCreditFields extends AbstractEnum {
   const OWNER_BUSINESS_NAME = 'owner_business_name';
   const PARTITION_FROM = 'partition_from';
   const RECEIVING_CREDIT_ALLOCATION_CONFIG = 'receiving_credit_allocation_config';
+  const SEND_BILL_TO_ADDRESS = 'send_bill_to_address';
   const SEND_BILL_TO_BIZ_NAME = 'send_bill_to_biz_name';
+  const SOLD_TO_ADDRESS = 'sold_to_address';
 
   public function getFieldTypes() {
     return array(
@@ -64,6 +67,7 @@ class ExtendedCreditFields extends AbstractEnum {
       'is_access_revoked' => 'bool',
       'is_automated_experience' => 'bool',
       'legal_entity_name' => 'string',
+      'liable_address' => 'CRMAddress',
       'liable_biz_name' => 'string',
       'max_balance' => 'CurrencyAmount',
       'online_max_balance' => 'CurrencyAmount',
@@ -71,7 +75,9 @@ class ExtendedCreditFields extends AbstractEnum {
       'owner_business_name' => 'string',
       'partition_from' => 'string',
       'receiving_credit_allocation_config' => 'ExtendedCreditAllocationConfig',
+      'send_bill_to_address' => 'CRMAddress',
       'send_bill_to_biz_name' => 'string',
+      'sold_to_address' => 'CRMAddress',
     );
   }
 }

@@ -40,6 +40,7 @@ class BusinessFields extends AbstractEnum {
   const BLOCK_OFFLINE_ANALYTICS = 'block_offline_analytics';
   const COLLABORATIVE_ADS_MANAGED_PARTNER_BUSINESS_INFO = 'collaborative_ads_managed_partner_business_info';
   const COLLABORATIVE_ADS_MANAGED_PARTNER_ELIGIBILITY = 'collaborative_ads_managed_partner_eligibility';
+  const COLLABORATIVE_ADS_PARTNER_PREMIUM_OPTIONS = 'collaborative_ads_partner_premium_options';
   const CREATED_BY = 'created_by';
   const CREATED_TIME = 'created_time';
   const EXTENDED_UPDATED_TIME = 'extended_updated_time';
@@ -62,6 +63,7 @@ class BusinessFields extends AbstractEnum {
       'block_offline_analytics' => 'bool',
       'collaborative_ads_managed_partner_business_info' => 'ManagedPartnerBusiness',
       'collaborative_ads_managed_partner_eligibility' => 'BusinessManagedPartnerEligibility',
+      'collaborative_ads_partner_premium_options' => 'BusinessPartnerPremiumOptions',
       'created_by' => 'Object',
       'created_time' => 'datetime',
       'extended_updated_time' => 'datetime',

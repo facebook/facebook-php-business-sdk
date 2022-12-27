@@ -22,13 +22,9 @@
  *
  */
 
-namespace FacebookAds\Object;
+namespace FacebookAds\Object\Fields;
 
-use FacebookAds\ApiRequest;
-use FacebookAds\Cursor;
-use FacebookAds\Http\RequestInterface;
-use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\CanvasTemplateFields;
+use FacebookAds\Enum\AbstractEnum;
 
 /**
  * This class is auto-generated.
@@ -39,42 +35,21 @@ use FacebookAds\Object\Fields\CanvasTemplateFields;
  *
  */
 
-class CanvasTemplate extends AbstractCrudObject {
+class AdgroupMetadataFields extends AbstractEnum {
 
-  /**
-   * @return CanvasTemplateFields
-   */
-  public static function getFieldsEnum() {
-    return CanvasTemplateFields::getInstance();
-  }
+  const AD_STANDARD_ENHANCEMENTS_EDIT_SOURCE = 'ad_standard_enhancements_edit_source';
+  const ADGROUP_CREATION_SOURCE = 'adgroup_creation_source';
+  const ADGROUP_EDIT_SOURCE = 'adgroup_edit_source';
+  const CAROUSEL_STYLE = 'carousel_style';
+  const CAROUSEL_WITH_STATIC_CARD_STYLE = 'carousel_with_static_card_style';
 
-  protected static function getReferencedEnums() {
-    $ref_enums = array();
-    return $ref_enums;
-  }
-
-
-  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
+  public function getFieldTypes() {
+    return array(
+      'ad_standard_enhancements_edit_source' => 'int',
+      'adgroup_creation_source' => 'string',
+      'adgroup_edit_source' => 'string',
+      'carousel_style' => 'string',
+      'carousel_with_static_card_style' => 'string',
     );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/',
-      new CanvasTemplate(),
-      'NODE',
-      CanvasTemplate::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
   }
-
 }

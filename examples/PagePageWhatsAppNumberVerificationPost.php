@@ -19,24 +19,29 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
- *
  */
 
-namespace FacebookAds\Object\Values;
+require __DIR__ . '/vendor/autoload.php';
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\Object\Page;
+use FacebookAds\Api;
+use FacebookAds\Logger\CurlLogger;
 
-/**
- * This class is auto-generated.
- *
- * For any issues or feature requests related to this class, please let us know
- * on github and we'll fix in our codegen framework. We'll not be able to accept
- * pull request for this class.
- *
- * @method static AdCreativeInstantCheckoutSettingValues getInstance()
- */
-class AdCreativeInstantCheckoutSettingValues extends AbstractEnum {
+$access_token = '<ACCESS_TOKEN>';
+$app_secret = '<APP_SECRET>';
+$app_id = '<APP_ID>';
+$id = '<PAGE_ID>';
 
-  const OFF = 'off';
-  const ON = 'on';
-}
+$api = Api::init($app_id, $app_secret, $access_token);
+$api->setLogger(new CurlLogger());
+
+$fields = array(
+);
+$params = array(
+  'whatsapp_number' => '123456789',
+  'verification_code' => '12345',
+);
+echo json_encode((new Page($id))->createPageWhatsappNumberVerification(
+  $fields,
+  $params
+)->exportAllData(), JSON_PRETTY_PRINT);

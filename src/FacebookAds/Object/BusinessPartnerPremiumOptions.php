@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\BusinessPartnerPremiumOptionsFields;
 
 /**
  * This class is auto-generated.
@@ -35,21 +39,19 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class ThirdPartyMeasurementReportDatasetFields extends AbstractEnum {
+class BusinessPartnerPremiumOptions extends AbstractObject {
 
-  const CATEGORY = 'category';
-  const ID = 'id';
-  const PARTNER = 'partner';
-  const PRODUCT = 'product';
-  const SCHEMA = 'schema';
-
-  public function getFieldTypes() {
-    return array(
-      'category' => 'string',
-      'id' => 'string',
-      'partner' => 'Business',
-      'product' => 'string',
-      'schema' => 'list<Object>',
-    );
+  /**
+   * @return BusinessPartnerPremiumOptionsFields
+   */
+  public static function getFieldsEnum() {
+    return BusinessPartnerPremiumOptionsFields::getInstance();
   }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
 }
