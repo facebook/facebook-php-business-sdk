@@ -1,0 +1,231 @@
+Identificadores de acceso
+Un identificador de acceso es una cadena opaca que identifica a un usuario, una aplicación o una página, y que la aplicación puede utilizar para realizar llamadas a la API Graph. Cuando alguien se conecta con una aplicación mediante el inicio de sesión con Facebook y aprueba la solicitud de permisos, la aplicación obtiene el identificador que proporciona acceso temporal y seguro a las API de Facebook. Los identificadores de acceso se obtienen con distintos métodos.
+
+El identificador incluye información acerca de la caducidad del identificador y la aplicación que lo ha generado. Debido a comprobaciones de privacidad, la mayoría de las llamadas a la API en Facebook deben incluir un identificador de acceso. Existen distintos tipos de identificador de acceso para distintos casos de uso:
+
+Tipo de identificador de acceso	Descripción
+Identificador de acceso de usuario
+
+Este tipo de identificador de acceso es necesario cada vez que la aplicación llama a una API para que lea, modifique o escriba los datos de Facebook de una persona concreta en nombre de esta. Los identificadores de acceso de usuario suelen obtenerse mediante un cuadro de diálogo de inicio de sesión y requieren que la persona conceda permiso a la aplicación para obtener uno.
+
+Identificador de acceso a la aplicación
+
+Esta clase de identificador de acceso es necesaria para modificar y leer la configuración de las aplicaciones. También puede utilizarse para publicar acciones de Open Graph. Se genera empleando una clave secreta acordada previamente entre la aplicación y Facebook, y más tarde se utiliza durante las llamadas que cambian la configuración general de una aplicación. El identificador de acceso a la aplicación se obtiene mediante una llamada de servidor a servidor.
+
+Identificador de acceso a la página
+
+Este tipo de identificador de acceso es similar a los de usuario, salvo por el hecho de que proporciona permiso para las API que permiten leer, escribir o modificar datos que pertenecen a una página de Facebook. Para conseguir un identificador de acceso a la página, primero debes obtener un identificador de acceso de usuario y solicitar el permiso o permisos de página que necesites. Una vez que tienes el identificador de acceso de usuario, obtienes el identificador de acceso a la página mediante la API Graph.
+
+Identificador de cliente
+
+El identificador de acceso del cliente es un identificador que se puede insertar en archivos binarios nativos para móviles o en aplicaciones para ordenadores a fin de identificar tu aplicación. No está pensado como identificador secreto porque está insertado en las aplicaciones. El identificador de cliente se utiliza para acceder a las API en el nivel de aplicación, aunque solo a un subconjunto muy limitado. Se encuentra en el panel de la aplicación y, como se utiliza en pocas ocasiones, no se tratará en este documento, sino en la documentación de cualquier API que lo emplee.
+
+Identificadores de acceso de usuario
+Aunque cada plataforma genera identificadores de acceso mediante API distintas, todas siguen una estrategia básica para obtener un identificador de usuario:
+
+
+Identificadores de corta y larga duración
+Existen dos modalidades de identificadores de acceso de usuario: de corta y de larga duración. Los identificadores de corta duración suelen tener una vida de una o dos horas, mientras que los de larga duración pueden alcanzar los 60 días. No debes depender de que estas duraciones se mantengan sin cambios, ya que la duración de un identificador puede cambiar sin previo aviso o caducar antes de lo esperado. Obtén más información en Gestión de errores.
+
+Los identificadores de acceso que se generan a través del inicio de sesión web son identificadores de corta duración, pero puedes convertirlos en identificadores de larga duración mediante una llamada a la API del servidor junto con el secreto de tu aplicación.
+
+Las aplicaciones para móviles que utilizan los SDK de Facebook para iOS y Android obtienen identificadores de larga duración de forma predeterminada.
+
+Las aplicaciones con acceso estándar a la API de marketing de Facebook al utilizar identificadores de larga duración recibirán identificadores de larga duración sin fecha de caducidad. Estos identificadores están sujetos a invalidación por otros motivos, pero no caducan en función del tiempo transcurrido. Esto también sucede con los identificadores de acceso de los usuarios del sistema de Business Manager.
+
+Los identificadores son portables
+Un aspecto importante acerca de los identificadores de acceso es que la mayoría son portables. No obstante, Apple no permite trasladar los identificadores a los servidores. De lo contrario, una vez que tienes un identificador de acceso, puedes utilizarlo para realizar llamadas desde un cliente de telefonía móvil o un navegador web, o desde tu servidor a los servidores de Facebook. Si obtienes un identificador en un cliente, puedes enviarlo a tu servidor y utilizarlo para realizar llamadas de servidor a servidor. Si lo obtienes mediante una llamada de un servidor, también puedes enviarlo a un cliente y realizar llamadas desde él.
+
+El transporte de identificadores entre el cliente y el servidor debe realizarse de forma segura, mediante HTTPS, para garantizar la seguridad de las cuentas de las personas. Obtén más información sobre las implicaciones de trasladar identificadores entre los clientes y el servidor.
+
+Cada plataforma tiene sus métodos para poner en marcha este proceso e incluye funciones para administrar los identificadores de acceso en nombre del desarrollador y la persona que concede los permisos:
+
+Android
+Los SDK de Facebook para Android administran automáticamente los identificadores de acceso de usuario a través de la clase com.facebook.AccessToken. Para obtener más información sobre cómo obtener un identificador de acceso de usuario, puedes implementar el inicio de sesión con Facebook para Android. Para recuperar el identificador de acceso de usuario, puedes inspeccionar Session.getCurrentAccessToken.
+
+Código de ejemplo
+@Override
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    accessToken = AccessToken.getCurrentAccessToken();
+}
+iOS
+Los SDK de Facebook para iOS administran automáticamente los identificadores de acceso de usuario a través de la clase FBSDKAccessToken. Para obtener más información sobre cómo obtener un identificador de acceso de usuario, puedes implementar el inicio de sesión con Facebook para iOS. Para recuperar el identificador de acceso de usuario, puedes inspeccionar FBSDKAccessToken.currentAccessToken.
+
+Código de ejemplo
+- (void)viewDidLoad
+{
+  [super viewDidLoad];
+  NSString *accessToken = [FBSDKAccessToken currentAccessToken];
+}
+JavaScript
+El SDK de Facebook para JavaScript obtiene y conserva los identificadores de acceso de usuario automáticamente en las cookies del navegador. Para recuperar el identificador de acceso de usuario, puedes realizar una llamada a FB.getAuthResponse, que incluirá una propiedad accessToken en la respuesta.
+
+Código de ejemplo
+FB.getLoginStatus(function(response) {
+  if (response.status === 'connected') {
+    var accessToken = response.authResponse.accessToken;
+  } 
+} );
+Consulta la documentación de los SDK web de Facebook para obtener un ejemplo de código completo.
+
+Web (sin JavaScript)
+Si creas una aplicación web sin el SDK de Facebook para JavaScript, deberás generar un identificador de acceso durante los pasos que se describen en el documento.
+
+Identificadores de acceso a la aplicación
+Los identificadores de acceso a la aplicación se utilizan para realizar solicitudes a las API de Facebook en nombre de una aplicación, no de un usuario. Pueden utilizarse para modificar los parámetros de la aplicación, crear y administrar usuarios de prueba, o leer las estadísticas de la aplicación.
+
+Limitaciones
+Algunos datos de usuario que normalmente serían visibles para una aplicación que realiza una solicitud con un identificador de acceso de usuario no siempre lo son con un identificador de acceso a la aplicación. Si lees datos de usuario y los utilizas en tu aplicación, debes utilizar un identificador de acceso de usuario, en lugar de uno de acceso a la aplicación.
+
+Los identificadores de acceso a la página se consideran inseguros si la aplicación está establecida en Native/Desktop en la configuración avanzada del panel de aplicaciones y, por lo tanto, no funcionarán con las llamadas a la API. Esto se debe a que suponemos que las aplicaciones nativas o para ordenadores incluyen la clave secreta en su código (por lo que el identificador de acceso a la aplicación generado con dicha clave secreta no es seguro).
+
+Generación de un identificador de acceso a la aplicación
+Para generar un identificador de acceso a la aplicación, necesitas:
+
+El identificador de la aplicación
+El secreto de la aplicación
+Código de ejemplo
+curl -X GET "https://graph.facebook.com/oauth/access_token
+  ?client_id={your-app-id}
+  &client_secret={your-app-secret}
+  &grant_type=client_credentials"
+Esta llamada devuelve un identificador de acceso a la aplicación que puede utilizarse en lugar de un identificador de acceso de usuario para realizar llamadas a la API, como se ha indicado antes. De nuevo, con fines de seguridad, el identificador de acceso a la aplicación nunca debe estar codificado de forma rígida en el código del cliente, ya que ello proporcionará a cualquier persona que cargue tu página web o descompile tu aplicación acceso completo al secreto de la aplicación y le permitirá modificarla. Esto implica que, la mayor parte del tiempo, utilizas los identificadores de acceso a la aplicación solo en llamadas de servidor a servidor.
+
+Ten en cuenta que, dado que esta solicitud utiliza el secreto de tu aplicación, nunca debe realizarse en código del cliente ni en código binario de una aplicación que pueda descompilarse. Es importante que el secreto de la aplicación nunca se comparta con nadie. Por tanto, esta llamada a la API solo debe realizarse empleando código de servidor.
+
+Existe otro método para realizar llamadas a la API Graph que no requiere el uso de un identificador de acceso a la aplicación generado. Solo puedes pasar el identificador de la aplicación y el secreto de la aplicación como el parámetro access_token al realizar una llamada:
+
+curl -i -X GET "https://graph.facebook.com/{api-endpoint}&access_token={your-app_id}|{your-app_secret}"   
+La elección entre un identificador de acceso generado o este método depende de dónde ocultes la clave secreta de la aplicación.
+
+Identificadores de acceso a la página
+Los identificadores de acceso a la página se utilizan en llamadas a la API Graph para administrar páginas de Facebook. Para generar un identificador de acceso a la página, un administrador de la página debe conceder a la aplicación el permiso o permisos de página necesarios. Una vez concedidos, podrás recuperar el identificador de acceso a la página mediante un identificador de acceso de usuario con los permisos necesarios.
+
+Código de ejemplo
+curl -i -X GET "https://graph.facebook.com/{your-user-id}/accounts?access_token={user-access-token} 
+Devuelve una lista de páginas en las que tienes un rol e información sobre cada página, como la categoría de página, los permisos específicos que tienes en cada página y el identificador de acceso a la página.
+
+{
+  "data": [
+    {
+      "access_token": "EAACEdE...",
+      "category": "Brand",
+      "category_list": [
+        {
+          "id": "1605186416478696",
+          "name": "Brand"
+        }
+      ],
+      "name": "Ash Cat Page",
+      "id": "1353269864728879",
+      "tasks": [
+        "ANALYZE",
+        "ADVERTISE",
+        "MODERATE",
+        "CREATE_CONTENT",
+        "MANAGE"
+      ]
+    },
+    {
+      "access_token": "EAACEdE...",
+      "category": "Pet Groomer",
+      "category_list": [
+        {
+          "id": "163003840417682",
+          "name": "Pet Groomer"
+        },
+        {
+          "id": "2632",
+          "name": "Pet"
+        }
+      ],
+      "name": "Unofficial: Tigger the Cat",
+      "id": "1755847768034402",
+      "tasks": [
+        "ANALYZE",
+        "ADVERTISE",
+        "MODERATE",
+        "CREATE_CONTENT"
+      ]
+    }
+  ]
+}
+Con un identificador de acceso a la página, puedes realizar llamadas a la API en nombre de una página. Por ejemplo, podrías publicar una actualización de estado en una página (en vez de en la biografía del usuario), o leer los datos de estadísticas de la página.
+
+Estos identificadores de acceso son únicos para cada página, administrador y aplicación.
+
+Identificadores de acceso del cliente
+A partir de la versión 13.0 del SDK para iOS y Android, cuyo lanzamiento está previsto para principios de 2022, se requerirá un identificador de acceso del cliente para todas las llamadas a la API Graph.
+
+Solo un número muy reducido de extremos de la API Graph admite los identificadores de acceso del cliente. Al igual que los identificadores de acceso a la aplicación, los identificadores de acceso del cliente realizan solicitudes a la API Graph en nombre de la aplicaciones, no de los usuarios. No obstante, estos solo deben usarse en aquellos casos en que un identificador deba insertarse en el código de cliente web o móvil, en lugar de almacenarse en un servidor de back-end seguro. Si un extremo admite otro tipo de identificador de acceso además de los identificadores de acceso del cliente, deberás usar el otro tipo si puedes.
+
+A diferencia de los demás identificadores de acceso, los identificadores de acceso del cliente no pueden usarse en solicitudes solos, sino que deben combinarse con el identificador de la aplicación. Para ello, anexa el identificador al final del identificador de la aplicación, separado por una barra vertical (|):
+
+{app-id}|{client-token}
+
+Por ejemplo:
+
+access_token=1234|5678
+
+Para obtener el identificador de acceso del cliente de una aplicación, debes hacer lo siguiente:
+
+Inicia sesión en tu cuenta de desarrollador.
+En la página Aplicaciones, selecciona una aplicación para abrir el panel correspondiente.
+En el Panel, dirígete a Configuración > Opciones avanzadas > Seguridad > Identificador de acceso del cliente.
+Longitud del identificador de acceso
+La longitud de todos los tipos de identificadores de acceso cambiará con el paso del tiempo a medida que Facebook realice cambios a los elementos que se almacenan en los identificadores y a cómo se codifican. Debes esperar que su tamaño aumentará y disminuirá con el tiempo. Utiliza un tipo de datos de longitud variable que no tenga un tamaño máximo específico para almacenar los identificadores de acceso.
+
+Más información
+Utiliza la herramienta de identificadores de acceso para ver una lista de los identificadores de acceso y la información de depuración de cada identificador.
+
+Caducidad y ampliación
+
+Depuración y gestión de errores
+
+Uso de identificadores con distintos tipos de aplicaciones
+
+
+
+Productos
+Inteligencia artificial
+AR/VR
+Herramientas empresariales
+Juegos
+Código abierto
+Publicación
+Integraciones sociales
+Presencia social
+Programas
+Developer Circles
+F8
+ThreatExchange
+Asistencia
+Asistencia para desarrolladores
+Errores
+Estado de la plataforma
+Grupo de la comunidad de Facebook para desarrolladores
+Mapa del sitio
+Noticias
+Blog
+Historias de éxito
+Vídeos
+Página de Meta for Developers
+Condiciones y políticas
+Centro de iniciativas de la plataforma
+Condiciones de la plataforma
+Políticas para desarrolladores
+Síguenos
+Síguenos en FacebookSíguenos en InstagramSíguenos en TwitterSíguenos en LinkedInSíguenos en YouTube
+© 2022 Meta
+Información
+Crear anuncio
+Empleo
+Política de privacidad
+Cookies
+Condiciones
+
+Español (España)
+
+Español (España)
+¿Te ha resultado útil este documento
