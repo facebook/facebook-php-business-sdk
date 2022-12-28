@@ -1,0 +1,275 @@
+Get Started with the Facebook Business SDK
+This document explains how to install the Facebook Business SDK and test the installation. SDKs are available for Java, JavaScript, PHP, Python, and Ruby. If you have the Marketing API already installed, learn how to update to the Facebook Business SDK.
+
+Before You Start
+You will need access to the following:
+
+A Facebook Developer Account
+A registered Facebook App with Basic settings configured
+Your App Secret
+An Ad Account
+A Page Access Token
+Java
+For Java apps, you can use whatever development environment you like but it must support Maven builds.
+
+Install the SDK
+To your Maven project, add the following XML code to the dependency section of your pom.xml file:
+
+<!-- https://mvnrepository.com/artifact/com.facebook.business.sdk/facebook-java-business-sdk -->
+<dependency>
+    <groupId>com.facebook.business.sdk</groupId>
+    <artifactId>facebook-java-business-sdk</artifactId> 
+    <version>[8.0.3,)</version>
+</dependency>
+Create a Java Class
+Under src/main/java, create a Java class called TestFBJavaSDK, and add the following code. Be sure to replace {access-token}, {appsecret}, and {adaccount-id} with your values.
+
+import com.facebook.business.sdk.APIContext;
+import com.facebook.business.sdk.APINodeList;
+import com.facebook.business.sdk.AdAccount;
+import com.facebook.business.sdk.Campaign;
+
+public class TestFBJavaSDK
+{
+    public static final APIContext context = new APIContext(
+            "{access-token}",
+            "{appsecret}"
+    );
+    public static void main(String[] args)
+    {
+        AdAccount account = new AdAccount("act_{{adaccount-id}}", context);
+        try {
+            APINodeList<Campaign> campaigns = account.getCampaigns().requestAllFields().execute();
+            for(Campaign campaign : campaigns) {
+                System.out.println(campaign.getFieldName());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }}
+Test Your Install
+Build and run your app. You should see the result in your console logging window. If it complains about an expired token, request a new Page Access Token and retry.
+
+JavaScript (Node.js)
+For JavaScript apps, the SDK is distributed as a Node.js package.
+
+Open a command terminal window and create a new project folder. Create, configure, and install your project with the following command:
+
+npm init
+You can update your configuration settings later by editing the package.json file directly.
+
+Install the SDK
+Install the SDK package with the following command:
+
+npm install --save facebook-nodejs-business-sdk
+Modify the Project File
+Open the index.js file and add the following code. Replace {access-token}, and {adaccount-id} with your values.
+
+const bizSdk = require('facebook-nodejs-business-sdk');
+
+const accessToken = '{access-token}';
+const accountId = 'act_{{adaccount-id}}';
+
+const FacebookAdsApi = bizSdk.FacebookAdsApi.init(accessToken);
+const AdAccount = bizSdk.AdAccount;
+const Campaign = bizSdk.Campaign;
+
+const account = new AdAccount(accountId);
+var campaigns;
+    
+account.read([AdAccount.Fields.name])
+  .then((account) =>{
+    return account.getCampaigns([Campaign.Fields.name], { limit: 10 }) // fields array and params
+  })
+  .then((result) =>{
+    campaigns = result
+    campaigns.forEach((campaign) =>console.log(campaign.name))  
+  }).catch(console.error);
+Test Your Install
+Test your install with the following command:
+
+ node index.js
+You should see the result in your terminal window. If it complains about an expired token, request a new Page Access Token and retry.
+
+PHP
+For PHP apps, use Composer to install the SDK.
+
+Install the SDK
+In a new project folder, create composer.json with the following content. Replace {project-name}, {Your Name}, and {your@email.com} with your values.
+
+{
+    "name": "name/{project-name}",
+    "type": "project",
+    "require": {
+        "facebook/php-business-sdk": "^8.0.3"
+    },
+    "authors": [
+        {
+            "name": "{Your Name}",
+            "email": "{your@email.com}"
+        }
+    ]
+}
+Install the SDK by running the following command in your terminal window:
+
+composer install
+Create a Project File
+Create a src/test.php file with the following content. Replace {app-id}, {access-token}, {appsecret}, and {adaccount-id} with your values.
+
+<?php
+require_once __DIR__ . '/../vendor/autoload.php';
+use FacebookAds\Api;
+use FacebookAds\Logger\CurlLogger;
+use FacebookAds\Object\AdAccount;
+use FacebookAds\Object\Campaign;
+use FacebookAds\Object\Fields\CampaignFields;
+
+$app_id = "{app-id}";
+$app_secret = "{appsecret}";
+$access_token = "{access-token}";
+$account_id = "act_{{adaccount-id}}";
+
+Api::init($app_id, $app_secret, $access_token);
+
+$account = new AdAccount($account_id);
+$cursor = $account->getCampaigns();
+
+// Loop over objects
+foreach ($cursor as $campaign) {
+  echo $campaign->{CampaignFields::NAME}.PHP_EOL;
+}
+Test Your Install
+Test your install with the following command:
+
+php src/test.php
+You should see the result in your terminal window. If it complains about an expired token, request a new Page Access Token and retry.
+
+Python
+For Python apps, the SDK is distributed as a pypi module, so make sure to have pip installed. Depending on your system, you may need to setup virtualenv, pyenv or conda.
+
+Install the SDK
+Install the SDK with the following command.
+
+pip install facebook_business
+Create a Project File
+Create the test.py file with the following content. Replace {app-id}, {access-token}, {appsecret}, and {adaccount-id} with your values.
+
+from facebook_business.api import FacebookAdsApi
+from facebook_business.adobjects.adaccount import AdAccount
+
+my_app_id = '{app-id}'
+my_app_secret = '{appsecret}'
+my_access_token = '{access-token}'
+FacebookAdsApi.init(my_app_id, my_app_secret, my_access_token)
+my_account = AdAccount('act_{{adaccount-id}}')
+campaigns = my_account.get_campaigns()
+print(campaigns)
+Test Your Install
+Test your install with the following command:
+
+python test.py
+You should see the result in your terminal window. If it complains about an expired token, request a new Page Access Token and retry.
+
+Ruby
+For Ruby, the SDK is distributed as a RubyGem package.
+
+Install the SDK
+From a terminal window, run the following command from your project folder to install the Facebook Business SDK for Ruby. Depending on your environment, you may need to setup rbenv or rvm, or use sudo before the command.
+
+gem install facebookbusiness
+Create a Project File
+Create a test.rb file with the following content. Replace {access-token}, {appsecret}, and {adaccount-id} with your values.
+
+require 'facebookbusiness'
+FacebookAds.configure do |config|
+  config.access_token = '{access-token}'
+  config.app_secret = '{appsecret}'
+end
+
+ad_account = FacebookAds::AdAccount.get('act_{{adaccount-id}}', 'name')
+ad_account.campaigns(fields: 'name').each do |campaign|
+  puts campaign.name
+end
+Test Your Install
+Test your install with the following command:
+
+ruby test.rb
+You should see the result in your terminal window. If it complains about an expired token, request a new Page Access Token and retry.
+
+For Current Marketing API Users
+To update to the Facebook Business SDK from the Marketing API follow these steps.
+
+Java
+In the the pom.xml file:
+
+Update groupId from com.facebook.ads.sdk to com.facebook.business.sdk
+Update artifactId from facebook-java-ads-sdk to facebook-java-business-sdk
+Update version to v8.0.3
+Nodejs
+In the package.json file:
+
+Update facebook-nodejs-ads-sdk to facebook-nodejs-business-sdk:v8.0.2
+Update all references of the package name facebook-nodejs-ads-sdk, such as require('facebook-nodejs-ads-sdk'), to facebook-nodejs-business-sdk
+Run npm install
+PHP
+In the composer.json file:
+
+Update facebook-ads-sdk to facebook-business-sdk with version 8.0.3
+Python
+Run pip install facebook_business
+Update all references to the namespace facebookads to facebook_business
+If you have an .egg-info file, update it from facebookads-*.egg-info to the newly installed egg-info file such as facebook_business-*.egg-info
+Ruby
+Run gem install facebookbusiness
+Update all references from require('facebook_ads') to require('facebookbusiness')
+Learn More
+View the source code for the Facebook Business SDK at Github.
+
+Java Business SDK
+JavaScript Business SDK
+PHP Business SDK
+Python Business SDK
+Ruby Business SDK
+
+
+Productos
+Inteligencia artificial
+AR/VR
+Herramientas empresariales
+Juegos
+Código abierto
+Publicación
+Integraciones sociales
+Presencia social
+Programas
+Developer Circles
+F8
+ThreatExchange
+Asistencia
+Asistencia para desarrolladores
+Errores
+Estado de la plataforma
+Grupo de la comunidad de Facebook para desarrolladores
+Mapa del sitio
+Noticias
+Blog
+Historias de éxito
+Vídeos
+Página de Meta for Developers
+Condiciones y políticas
+Centro de iniciativas de la plataforma
+Condiciones de la plataforma
+Políticas para desarrolladores
+Síguenos
+Síguenos en FacebookSíguenos en InstagramSíguenos en TwitterSíguenos en LinkedInSíguenos en YouTube
+© 2022 Meta
+Información
+Crear anuncio
+Empleo
+Política de privacidad
+Cookies
+Condiciones
+
+Español (España)
+
+Español (España)
