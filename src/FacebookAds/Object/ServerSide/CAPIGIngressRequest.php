@@ -83,8 +83,7 @@ class CAPIGIngressRequest implements CustomEndpointRequest {
                 });
             }
             if (count($events) == 0) {
-                $event_response_contents = array('data' => array('events_received' => 0, 'message'=> 'No events to send'));
-                return new CustomEndpointResponse($event_response_contents);
+                return new CustomEndpointResponse(array('message' => 'No events to send'));
             }
             $response = $this->client->request('POST', $this->endpoint_URL.'/capi/'.$pixel_id.'/events', ['http_errors'=> false, 'body' => $this->createRequestBody($events)]);
             if ($response->getStatusCode() != '202') {

@@ -25,11 +25,8 @@
 namespace FacebookAdsTest\Object\ServerSide;
 
 use FacebookAdsTest\AbstractUnitTestCase;
-use FacebookAdsTest\Object\ServerSide\TestHelpers\FakeHttpService;
-use FacebookAdsTest\Object\ServerSide\TestHelpers\AnotherHttpService;
 use FacebookAds\Api;
 use FacebookAds\ApiConfig;
-use FacebookAds\Http\Client;
 use FacebookAds\Object\AbstractObject;
 use FacebookAds\Object\ServerSide\Event;
 use FacebookAds\Object\ServerSide\EventRequest;

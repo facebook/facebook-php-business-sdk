@@ -54,7 +54,7 @@ class CustomEndpointResponse {
      * Gets response code
      * @return string
      */
-    public function getResponseCode(): string {
+    public function getResponseCode(): ?string {
         return $this->container['response_code'];
     }
 }
