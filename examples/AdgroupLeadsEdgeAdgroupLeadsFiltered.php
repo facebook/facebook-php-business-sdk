@@ -1,6 +1,7 @@
 <?php
 /**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -39,7 +40,7 @@ $api->setLogger(new CurlLogger());
 $fields = array(
 );
 $params = array(
-  'filtering' => array(array('field' => 'time_created','operator' => 'GREATER_THAN','value' => 1652733434)),
+  'filtering' => array(array('field' => 'time_created','operator' => 'GREATER_THAN','value' => 1672701098)),
 );
 echo json_encode((new Ad($id))->getLeads(
   $fields,
