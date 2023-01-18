@@ -72,6 +72,7 @@ class VehicleOfferFields extends AbstractEnum {
   const UNIT_PRICE = 'unit_price';
   const URL = 'url';
   const VEHICLE_OFFER_ID = 'vehicle_offer_id';
+  const VISIBILITY = 'visibility';
   const YEAR = 'year';
 
   public function getFieldTypes() {
@@ -111,6 +112,7 @@ class VehicleOfferFields extends AbstractEnum {
       'unit_price' => 'Object',
       'url' => 'string',
       'vehicle_offer_id' => 'string',
+      'visibility' => 'Visibility',
       'year' => 'int',
     );
   }

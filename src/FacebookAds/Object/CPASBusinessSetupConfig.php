@@ -107,32 +107,4 @@ class CPASBusinessSetupConfig extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'accepted_collab_ads_tos' => 'bool',
-      'ad_accounts' => 'list<string>',
-      'business' => 'string',
-      'business_capabilities_status' => 'map',
-      'capabilities_compliance_status' => 'map',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/',
-      new CPASBusinessSetupConfig(),
-      'NODE',
-      CPASBusinessSetupConfig::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
 }

@@ -28,13 +28,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AdCampaignActivityFields;
-use FacebookAds\Object\Values\AdCampaignActivityBidStrategyNewValues;
-use FacebookAds\Object\Values\AdCampaignActivityBidStrategyOldValues;
-use FacebookAds\Object\Values\AdCampaignActivityBillingEventNewValues;
-use FacebookAds\Object\Values\AdCampaignActivityBillingEventOldValues;
-use FacebookAds\Object\Values\AdCampaignActivityOptimizationGoalNewValues;
-use FacebookAds\Object\Values\AdCampaignActivityOptimizationGoalOldValues;
+use FacebookAds\Object\Fields\CommerceMerchantTOSAcceptanceFields;
 
 /**
  * This class is auto-generated.
@@ -45,23 +39,17 @@ use FacebookAds\Object\Values\AdCampaignActivityOptimizationGoalOldValues;
  *
  */
 
-class AdCampaignActivity extends AbstractCrudObject {
+class CommerceMerchantTOSAcceptance extends AbstractCrudObject {
 
   /**
-   * @return AdCampaignActivityFields
+   * @return CommerceMerchantTOSAcceptanceFields
    */
   public static function getFieldsEnum() {
-    return AdCampaignActivityFields::getInstance();
+    return CommerceMerchantTOSAcceptanceFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['BidStrategyNew'] = AdCampaignActivityBidStrategyNewValues::getInstance()->getValues();
-    $ref_enums['BidStrategyOld'] = AdCampaignActivityBidStrategyOldValues::getInstance()->getValues();
-    $ref_enums['BillingEventNew'] = AdCampaignActivityBillingEventNewValues::getInstance()->getValues();
-    $ref_enums['BillingEventOld'] = AdCampaignActivityBillingEventOldValues::getInstance()->getValues();
-    $ref_enums['OptimizationGoalNew'] = AdCampaignActivityOptimizationGoalNewValues::getInstance()->getValues();
-    $ref_enums['OptimizationGoalOld'] = AdCampaignActivityOptimizationGoalOldValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -79,9 +67,9 @@ class AdCampaignActivity extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new AdCampaignActivity(),
+      new CommerceMerchantTOSAcceptance(),
       'NODE',
-      AdCampaignActivity::getFieldsEnum()->getValues(),
+      CommerceMerchantTOSAcceptance::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

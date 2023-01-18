@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,10 +33,25 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static ApplicationSortOrderValues getInstance()
  */
-class ApplicationSortOrderValues extends AbstractEnum {
 
-  const HIGHER_IS_BETTER = 'HIGHER_IS_BETTER';
-  const LOWER_IS_BETTER = 'LOWER_IS_BETTER';
+class CatalogSegmentAllMatchCountLaserFields extends AbstractEnum {
+
+  const DATE_START = 'date_start';
+  const DATE_STOP = 'date_stop';
+  const EVENT = 'event';
+  const SOURCE = 'source';
+  const TOTAL_MATCHED_CONTENT_IDS = 'total_matched_content_ids';
+  const UNIQUE_MATCHED_CONTENT_IDS = 'unique_matched_content_ids';
+
+  public function getFieldTypes() {
+    return array(
+      'date_start' => 'string',
+      'date_stop' => 'string',
+      'event' => 'string',
+      'source' => 'ExternalEventSource',
+      'total_matched_content_ids' => 'int',
+      'unique_matched_content_ids' => 'int',
+    );
+  }
 }

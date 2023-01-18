@@ -73,6 +73,7 @@ class LocalServiceBusinessFields extends AbstractEnum {
   const UNIT_PRICE = 'unit_price';
   const URL = 'url';
   const VENDOR_ID = 'vendor_id';
+  const VISIBILITY = 'visibility';
 
   public function getFieldTypes() {
     return array(
@@ -112,6 +113,7 @@ class LocalServiceBusinessFields extends AbstractEnum {
       'unit_price' => 'Object',
       'url' => 'string',
       'vendor_id' => 'string',
+      'visibility' => 'Visibility',
     );
   }
 }

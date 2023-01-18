@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\CatalogSegmentAllMatchCountLaserFields;
 
 /**
  * This class is auto-generated.
@@ -35,33 +39,19 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class PrivateLiftStudyInstanceFields extends AbstractEnum {
+class CatalogSegmentAllMatchCountLaser extends AbstractObject {
 
-  const BREAKDOWN_KEY = 'breakdown_key';
-  const CREATED_TIME = 'created_time';
-  const FEATURE_LIST = 'feature_list';
-  const ID = 'id';
-  const ISSUER_CERTIFICATE = 'issuer_certificate';
-  const LATEST_STATUS_UPDATE_TIME = 'latest_status_update_time';
-  const RUN_ID = 'run_id';
-  const SERVER_HOSTNAMES = 'server_hostnames';
-  const SERVER_IPS = 'server_ips';
-  const STATUS = 'status';
-  const TIER = 'tier';
-
-  public function getFieldTypes() {
-    return array(
-      'breakdown_key' => 'string',
-      'created_time' => 'datetime',
-      'feature_list' => 'list<string>',
-      'id' => 'string',
-      'issuer_certificate' => 'string',
-      'latest_status_update_time' => 'datetime',
-      'run_id' => 'string',
-      'server_hostnames' => 'list<string>',
-      'server_ips' => 'list<string>',
-      'status' => 'string',
-      'tier' => 'string',
-    );
+  /**
+   * @return CatalogSegmentAllMatchCountLaserFields
+   */
+  public static function getFieldsEnum() {
+    return CatalogSegmentAllMatchCountLaserFields::getInstance();
   }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
 }

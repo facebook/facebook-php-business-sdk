@@ -37,6 +37,8 @@ use FacebookAds\Enum\AbstractEnum;
 
 class ProductCatalogFields extends AbstractEnum {
 
+  const AD_ACCOUNT_TO_COLLABORATIVE_ADS_SHARE_SETTINGS = 'ad_account_to_collaborative_ads_share_settings';
+  const AGENCY_COLLABORATIVE_ADS_SHARE_SETTINGS = 'agency_collaborative_ads_share_settings';
   const BUSINESS = 'business';
   const CATALOG_STORE = 'catalog_store';
   const COMMERCE_MERCHANT_SETTINGS = 'commerce_merchant_settings';
@@ -61,6 +63,8 @@ class ProductCatalogFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'ad_account_to_collaborative_ads_share_settings' => 'CollaborativeAdsShareSettings',
+      'agency_collaborative_ads_share_settings' => 'CollaborativeAdsShareSettings',
       'business' => 'Business',
       'catalog_store' => 'StoreCatalogSettings',
       'commerce_merchant_settings' => 'CommerceMerchantSettings',

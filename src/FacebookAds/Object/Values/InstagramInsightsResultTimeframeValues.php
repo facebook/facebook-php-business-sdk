@@ -19,30 +19,28 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
+ *
  */
 
-require __DIR__ . '/vendor/autoload.php';
+namespace FacebookAds\Object\Values;
 
-use FacebookAds\Object\Business;
-use FacebookAds\Object\ProductCatalog;
-use FacebookAds\Api;
-use FacebookAds\Logger\CurlLogger;
+use FacebookAds\Enum\AbstractEnum;
 
-$access_token = '<ACCESS_TOKEN>';
-$app_secret = '<APP_SECRET>';
-$app_id = '<APP_ID>';
-$id = '<BUSINESS_ID>';
+/**
+ * This class is auto-generated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
+ * @method static InstagramInsightsResultTimeframeValues getInstance()
+ */
+class InstagramInsightsResultTimeframeValues extends AbstractEnum {
 
-$api = Api::init($app_id, $app_secret, $access_token);
-$api->setLogger(new CurlLogger());
-
-$fields = array(
-);
-$params = array(
-  'name' => 'Test Destination Catalog',
-  'vertical' => 'destinations',
-);
-echo json_encode((new Business($id))->createOwnedProductCatalog(
-  $fields,
-  $params
-)->exportAllData(), JSON_PRETTY_PRINT);
+  const LAST_14_DAYS = 'last_14_days';
+  const LAST_30_DAYS = 'last_30_days';
+  const LAST_90_DAYS = 'last_90_days';
+  const PREV_MONTH = 'prev_month';
+  const THIS_MONTH = 'this_month';
+  const THIS_WEEK = 'this_week';
+}

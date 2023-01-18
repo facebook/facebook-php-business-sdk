@@ -42,6 +42,13 @@ use FacebookAds\Object\Fields\StoreCatalogSettingsFields;
 class StoreCatalogSettings extends AbstractCrudObject {
 
   /**
+   * @deprecated getEndpoint function is deprecated
+   */
+  protected function getEndpoint() {
+    return 'catalog_store';
+  }
+
+  /**
    * @return StoreCatalogSettingsFields
    */
   public static function getFieldsEnum() {
@@ -89,30 +96,6 @@ class StoreCatalogSettings extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
-      '/',
-      new StoreCatalogSettings(),
-      'NODE',
-      StoreCatalogSettings::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'page' => 'int',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
       '/',
       new StoreCatalogSettings(),
       'NODE',

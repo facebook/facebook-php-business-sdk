@@ -933,29 +933,6 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getCopyrightWhitelistedPartners(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/copyright_whitelisted_partners',
-      new Profile(),
-      'EDGE',
-      Profile::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getCrosspostWhitelistedPages(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1484,6 +1461,7 @@ class Page extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'breakdown' => 'list<Object>',
       'date_preset' => 'date_preset_enum',
       'metric' => 'list<Object>',
       'period' => 'period_enum',
@@ -1681,35 +1659,6 @@ class Page extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/invoice_access_bank_account',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createInvoiceAccessInvoiceEdit(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'additional_amounts' => 'list<map>',
-      'invoice_id' => 'string',
-      'notes' => 'string',
-      'paid_amount' => 'map',
-      'product_items' => 'list<map>',
-      'shipping_address' => 'map',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/invoice_access_invoice_edit',
       new AbstractCrudObject(),
       'EDGE',
       array(),
@@ -2036,8 +1985,13 @@ class Page extends AbstractCrudObject {
 
     $param_types = array(
       'message' => 'Object',
+      'platform' => 'platform_enum',
     );
     $enums = array(
+      'platform_enum' => array(
+        'INSTAGRAM',
+        'MESSENGER',
+      ),
     );
 
     $request = new ApiRequest(

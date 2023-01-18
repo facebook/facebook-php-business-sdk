@@ -30,6 +30,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\HotelFields;
 use FacebookAds\Object\Values\HotelImageFetchStatusValues;
+use FacebookAds\Object\Values\HotelVisibilityValues;
 
 /**
  * This class is auto-generated.
@@ -59,6 +60,7 @@ class Hotel extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['ImageFetchStatus'] = HotelImageFetchStatusValues::getInstance()->getValues();
+    $ref_enums['Visibility'] = HotelVisibilityValues::getInstance()->getValues();
     return $ref_enums;
   }
 

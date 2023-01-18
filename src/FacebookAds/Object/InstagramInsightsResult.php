@@ -29,8 +29,11 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\InstagramInsightsResultFields;
+use FacebookAds\Object\Values\InstagramInsightsResultBreakdownValues;
+use FacebookAds\Object\Values\InstagramInsightsResultMetricTypeValues;
 use FacebookAds\Object\Values\InstagramInsightsResultMetricValues;
 use FacebookAds\Object\Values\InstagramInsightsResultPeriodValues;
+use FacebookAds\Object\Values\InstagramInsightsResultTimeframeValues;
 
 /**
  * This class is auto-generated.
@@ -52,8 +55,11 @@ class InstagramInsightsResult extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['Breakdown'] = InstagramInsightsResultBreakdownValues::getInstance()->getValues();
     $ref_enums['Metric'] = InstagramInsightsResultMetricValues::getInstance()->getValues();
     $ref_enums['Period'] = InstagramInsightsResultPeriodValues::getInstance()->getValues();
+    $ref_enums['MetricType'] = InstagramInsightsResultMetricTypeValues::getInstance()->getValues();
+    $ref_enums['Timeframe'] = InstagramInsightsResultTimeframeValues::getInstance()->getValues();
     return $ref_enums;
   }
 

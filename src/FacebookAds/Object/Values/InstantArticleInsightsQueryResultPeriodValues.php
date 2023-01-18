@@ -41,5 +41,6 @@ class InstantArticleInsightsQueryResultPeriodValues extends AbstractEnum {
   const DAYS_28 = 'days_28';
   const LIFETIME = 'lifetime';
   const MONTH = 'month';
+  const TOTAL_OVER_RANGE = 'total_over_range';
   const WEEK = 'week';
 }

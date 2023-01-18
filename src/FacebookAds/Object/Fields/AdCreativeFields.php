@@ -51,6 +51,7 @@ class AdCreativeFields extends AbstractEnum {
   const CATEGORIZATION_CRITERIA = 'categorization_criteria';
   const CATEGORY_MEDIA_SOURCE = 'category_media_source';
   const COLLABORATIVE_ADS_LSB_IMAGE_BANK_ID = 'collaborative_ads_lsb_image_bank_id';
+  const DEGREES_OF_FREEDOM_SPEC = 'degrees_of_freedom_spec';
   const DESTINATION_SET_ID = 'destination_set_id';
   const DYNAMIC_AD_VOICE = 'dynamic_ad_voice';
   const EFFECTIVE_AUTHORIZATION_CATEGORY = 'effective_authorization_category';
@@ -117,6 +118,7 @@ class AdCreativeFields extends AbstractEnum {
       'categorization_criteria' => 'string',
       'category_media_source' => 'string',
       'collaborative_ads_lsb_image_bank_id' => 'string',
+      'degrees_of_freedom_spec' => 'AdCreativeDegreesOfFreedomSpec',
       'destination_set_id' => 'string',
       'dynamic_ad_voice' => 'string',
       'effective_authorization_category' => 'string',

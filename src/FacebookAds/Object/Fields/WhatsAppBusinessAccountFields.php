@@ -39,6 +39,8 @@ class WhatsAppBusinessAccountFields extends AbstractEnum {
 
   const ACCOUNT_REVIEW_STATUS = 'account_review_status';
   const ANALYTICS = 'analytics';
+  const BUSINESS_VERIFICATION_STATUS = 'business_verification_status';
+  const COUNTRY = 'country';
   const CREATION_TIME = 'creation_time';
   const CURRENCY = 'currency';
   const ID = 'id';
@@ -47,6 +49,7 @@ class WhatsAppBusinessAccountFields extends AbstractEnum {
   const ON_BEHALF_OF_BUSINESS_INFO = 'on_behalf_of_business_info';
   const OWNER_BUSINESS = 'owner_business';
   const OWNER_BUSINESS_INFO = 'owner_business_info';
+  const OWNERSHIP_TYPE = 'ownership_type';
   const PRIMARY_FUNDING_ID = 'primary_funding_id';
   const PURCHASE_ORDER_NUMBER = 'purchase_order_number';
   const STATUS = 'status';
@@ -56,6 +59,8 @@ class WhatsAppBusinessAccountFields extends AbstractEnum {
     return array(
       'account_review_status' => 'string',
       'analytics' => 'Object',
+      'business_verification_status' => 'string',
+      'country' => 'string',
       'creation_time' => 'int',
       'currency' => 'string',
       'id' => 'string',
@@ -64,6 +69,7 @@ class WhatsAppBusinessAccountFields extends AbstractEnum {
       'on_behalf_of_business_info' => 'Object',
       'owner_business' => 'Business',
       'owner_business_info' => 'Object',
+      'ownership_type' => 'string',
       'primary_funding_id' => 'string',
       'purchase_order_number' => 'string',
       'status' => 'string',

@@ -29,8 +29,11 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\IGUserFields;
+use FacebookAds\Object\Values\InstagramInsightsResultBreakdownValues;
+use FacebookAds\Object\Values\InstagramInsightsResultMetricTypeValues;
 use FacebookAds\Object\Values\InstagramInsightsResultMetricValues;
 use FacebookAds\Object\Values\InstagramInsightsResultPeriodValues;
+use FacebookAds\Object\Values\InstagramInsightsResultTimeframeValues;
 
 /**
  * This class is auto-generated.
@@ -132,14 +135,20 @@ class IGUser extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'breakdown' => 'list<breakdown_enum>',
       'metric' => 'list<metric_enum>',
+      'metric_type' => 'metric_type_enum',
       'period' => 'list<period_enum>',
       'since' => 'datetime',
+      'timeframe' => 'timeframe_enum',
       'until' => 'datetime',
     );
     $enums = array(
+      'breakdown_enum' => InstagramInsightsResultBreakdownValues::getInstance()->getValues(),
       'metric_enum' => InstagramInsightsResultMetricValues::getInstance()->getValues(),
+      'metric_type_enum' => InstagramInsightsResultMetricTypeValues::getInstance()->getValues(),
       'period_enum' => InstagramInsightsResultPeriodValues::getInstance()->getValues(),
+      'timeframe_enum' => InstagramInsightsResultTimeframeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -213,6 +222,7 @@ class IGUser extends AbstractCrudObject {
     $param_types = array(
       'caption' => 'string',
       'children' => 'list<string>',
+      'cover_url' => 'string',
       'image_url' => 'string',
       'is_carousel_item' => 'bool',
       'location_id' => 'string',

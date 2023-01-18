@@ -33,11 +33,10 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdCampaignActivityBidStrategyOldValues getInstance()
+ * @method static HotelVisibilityValues getInstance()
  */
-class AdCampaignActivityBidStrategyOldValues extends AbstractEnum {
+class HotelVisibilityValues extends AbstractEnum {
 
-  const COST_CAP = 'COST_CAP';
-  const LOWEST_COST_WITHOUT_CAP = 'LOWEST_COST_WITHOUT_CAP';
-  const LOWEST_COST_WITH_BID_CAP = 'LOWEST_COST_WITH_BID_CAP';
+  const PUBLISHED = 'PUBLISHED';
+  const STAGING = 'STAGING';
 }

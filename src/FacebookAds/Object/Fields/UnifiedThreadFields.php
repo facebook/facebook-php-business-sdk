@@ -38,6 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class UnifiedThreadFields extends AbstractEnum {
 
   const CAN_REPLY = 'can_reply';
+  const FOLDER = 'folder';
   const FORMER_PARTICIPANTS = 'former_participants';
   const ID = 'id';
   const IS_SUBSCRIBED = 'is_subscribed';
@@ -56,6 +57,7 @@ class UnifiedThreadFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'can_reply' => 'bool',
+      'folder' => 'string',
       'former_participants' => 'Object',
       'id' => 'string',
       'is_subscribed' => 'bool',

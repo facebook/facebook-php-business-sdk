@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\IGMediaFields;
+use FacebookAds\Object\Values\InstagramInsightsResultBreakdownValues;
 use FacebookAds\Object\Values\InstagramInsightsResultMetricValues;
 use FacebookAds\Object\Values\InstagramInsightsResultPeriodValues;
 
@@ -130,10 +131,12 @@ class IGMedia extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'breakdown' => 'list<breakdown_enum>',
       'metric' => 'list<metric_enum>',
       'period' => 'list<period_enum>',
     );
     $enums = array(
+      'breakdown_enum' => InstagramInsightsResultBreakdownValues::getInstance()->getValues(),
       'metric_enum' => InstagramInsightsResultMetricValues::getInstance()->getValues(),
       'period_enum' => InstagramInsightsResultPeriodValues::getInstance()->getValues(),
     );

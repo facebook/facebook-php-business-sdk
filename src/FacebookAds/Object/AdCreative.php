@@ -136,7 +136,7 @@ class AdCreative extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getPreViews(array $fields = array(), array $params = array(), $pending = false) {
+  public function getPreviews(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(

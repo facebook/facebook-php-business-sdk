@@ -29,7 +29,7 @@ use FacebookAds\Http\ResponseInterface;
 use FacebookAds\Http\Util;
 use FacebookAds\Object\AbstractObject;
 
-class Cursor implements \Iterator, \Countable, \arrayaccess {
+class Cursor implements \Iterator, \Countable, \ArrayAccess {
   /**
    * @var ResponseInterface
    */
@@ -419,7 +419,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
     return $this->indexRight;
   }
 
-  public function rewind() {
+  public function rewind() : void {
     $this->position = $this->indexLeft;
   }
 
@@ -435,19 +435,13 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
     $this->position = $position;
   }
 
-  /**
-   * @return AbstractObject|bool
-   */
-  public function current() {
+  public function current() : AbstractObject|bool {
     return isset($this->objects[$this->position])
       ? $this->objects[$this->position]
       : false;
   }
 
-  /**
-   * @return int
-   */
-  public function key() {
+  public function key() : ?int {
     return $this->position;
   }
 
@@ -468,7 +462,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
     }
   }
 
-  public function next() {
+  public function next() : void {
     if ($this->position == $this->getIndexRight()) {
       if ($this->getUseImplicitFetch()) {
         $this->fetchAfter();
@@ -485,17 +479,11 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
     }
   }
 
-  /**
-   * @return bool
-   */
-  public function valid() {
+  public function valid() : bool {
     return isset($this->objects[$this->position]);
   }
 
-  /**
-   * @return int
-   */
-  public function count() {
+  public function count() : int {
     return count($this->objects);
   }
 

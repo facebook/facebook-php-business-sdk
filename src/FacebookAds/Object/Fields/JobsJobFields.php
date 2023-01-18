@@ -61,6 +61,7 @@ class JobsJobFields extends AbstractEnum {
   const SANITIZED_IMAGES = 'sanitized_images';
   const UNIT_PRICE = 'unit_price';
   const URL = 'url';
+  const VISIBILITY = 'visibility';
 
   public function getFieldTypes() {
     return array(
@@ -88,6 +89,7 @@ class JobsJobFields extends AbstractEnum {
       'sanitized_images' => 'list<string>',
       'unit_price' => 'Object',
       'url' => 'string',
+      'visibility' => 'Visibility',
     );
   }
 }

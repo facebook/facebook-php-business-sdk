@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,19 +33,17 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdCampaignActivityBillingEventNewValues getInstance()
  */
-class AdCampaignActivityBillingEventNewValues extends AbstractEnum {
 
-  const APP_INSTALLS = 'APP_INSTALLS';
-  const CLICKS = 'CLICKS';
-  const IMPRESSIONS = 'IMPRESSIONS';
-  const LINK_CLICKS = 'LINK_CLICKS';
-  const LISTING_INTERACTION = 'LISTING_INTERACTION';
-  const NONE = 'NONE';
-  const OFFER_CLAIMS = 'OFFER_CLAIMS';
-  const PAGE_LIKES = 'PAGE_LIKES';
-  const POST_ENGAGEMENT = 'POST_ENGAGEMENT';
-  const PURCHASE = 'PURCHASE';
-  const THRUPLAY = 'THRUPLAY';
+class CommerceMerchantTOSAcceptanceFields extends AbstractEnum {
+
+  const BUSINESS = 'business';
+  const ID = 'id';
+
+  public function getFieldTypes() {
+    return array(
+      'business' => 'Business',
+      'id' => 'string',
+    );
+  }
 }

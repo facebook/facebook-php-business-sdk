@@ -22,9 +22,13 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object;
 
-use FacebookAds\Enum\AbstractEnum;
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\ShopOrderFields;
 
 /**
  * This class is auto-generated.
@@ -35,17 +39,42 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class WhatsAppBusinessPreVerifiedPhoneNumberFields extends AbstractEnum {
+class ShopOrder extends AbstractCrudObject {
 
-  const CODE_VERIFICATION_STATUS = 'code_verification_status';
-  const ID = 'id';
-  const PHONE_NUMBER = 'phone_number';
-
-  public function getFieldTypes() {
-    return array(
-      'code_verification_status' => 'string',
-      'id' => 'string',
-      'phone_number' => 'string',
-    );
+  /**
+   * @return ShopOrderFields
+   */
+  public static function getFieldsEnum() {
+    return ShopOrderFields::getInstance();
   }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    return $ref_enums;
+  }
+
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new ShopOrder(),
+      'NODE',
+      ShopOrder::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
 }

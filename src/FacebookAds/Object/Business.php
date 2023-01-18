@@ -372,6 +372,29 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getAdsReportingMmmSchedulers(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/ads_reporting_mmm_schedulers',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getAdsPixels(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1534,32 +1557,6 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createManagedPartnerChildBusinessAsset(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'child_business_id' => 'string',
-      'credit_limit' => 'unsigned int',
-      'line_of_credit_id' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/managed_partner_child_business_assets',
-      new Business(),
-      'EDGE',
-      Business::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getNegativeKeywordLists(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -2042,6 +2039,7 @@ class Business extends AbstractCrudObject {
       'catalog_segment_id' => 'string',
       'enable_basket_insight' => 'bool',
       'enable_extended_audience_retargeting' => 'bool',
+      'partner_business_id' => 'string',
       'retailer_custom_audience_config' => 'map',
       'vendor_id' => 'string',
     );
@@ -2347,6 +2345,29 @@ class Business extends AbstractCrudObject {
       new SystemUser(),
       'EDGE',
       SystemUser::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getThirdPartyMeasurementReportDataset(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/third_party_measurement_report_dataset',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

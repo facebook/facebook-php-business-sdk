@@ -41,6 +41,7 @@ class LeadgenFormLocaleValues extends AbstractEnum {
   const CS_CZ = 'CS_CZ';
   const DA_DK = 'DA_DK';
   const DE_DE = 'DE_DE';
+  const EL_GR = 'EL_GR';
   const EN_GB = 'EN_GB';
   const EN_US = 'EN_US';
   const ES_ES = 'ES_ES';

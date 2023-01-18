@@ -436,6 +436,7 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'pages' => 'list<unsigned int>',
     );
     $enums = array(
     );
@@ -1192,6 +1193,29 @@ class User extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createMessengerDesktopPerformanceTrace(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/messenger_desktop_performance_traces',
+      new User(),
+      'EDGE',
+      User::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getMusic(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1228,7 +1252,7 @@ class User extends AbstractCrudObject {
       'payload' => 'string',
       'read' => 'bool',
       'ref' => 'string',
-      'scheduleInterval' => 'unsigned int',
+      'schedule_interval' => 'unsigned int',
       'seen' => 'bool',
       'template' => 'Object',
       'type' => 'type_enum',

@@ -50,6 +50,7 @@ class UserFields extends AbstractEnum {
   const GENDER = 'gender';
   const HOMETOWN = 'hometown';
   const ID = 'id';
+  const ID_FOR_AVATARS = 'id_for_avatars';
   const INSPIRATIONAL_PEOPLE = 'inspirational_people';
   const INSTALL_TYPE = 'install_type';
   const INSTALLED = 'installed';
@@ -98,6 +99,7 @@ class UserFields extends AbstractEnum {
       'gender' => 'string',
       'hometown' => 'Page',
       'id' => 'string',
+      'id_for_avatars' => 'string',
       'inspirational_people' => 'list<Experience>',
       'install_type' => 'string',
       'installed' => 'bool',

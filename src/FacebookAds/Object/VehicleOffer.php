@@ -30,6 +30,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\VehicleOfferFields;
 use FacebookAds\Object\Values\VehicleOfferImageFetchStatusValues;
+use FacebookAds\Object\Values\VehicleOfferVisibilityValues;
 
 /**
  * This class is auto-generated.
@@ -52,6 +53,7 @@ class VehicleOffer extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['ImageFetchStatus'] = VehicleOfferImageFetchStatusValues::getInstance()->getValues();
+    $ref_enums['Visibility'] = VehicleOfferVisibilityValues::getInstance()->getValues();
     return $ref_enums;
   }
 

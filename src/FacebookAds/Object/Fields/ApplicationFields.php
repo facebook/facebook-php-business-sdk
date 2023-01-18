@@ -98,7 +98,6 @@ class ApplicationFields extends AbstractEnum {
   const LATEST_SDK_VERSION = 'latest_sdk_version';
   const LINK = 'link';
   const LOGGING_TOKEN = 'logging_token';
-  const LOGIN_SECRET = 'login_secret';
   const LOGO_URL = 'logo_url';
   const MIGRATIONS = 'migrations';
   const MOBILE_PROFILE_SECTION_URL = 'mobile_profile_section_url';
@@ -204,7 +203,6 @@ class ApplicationFields extends AbstractEnum {
       'latest_sdk_version' => 'Object',
       'link' => 'string',
       'logging_token' => 'string',
-      'login_secret' => 'string',
       'logo_url' => 'string',
       'migrations' => 'map<string, bool>',
       'mobile_profile_section_url' => 'string',

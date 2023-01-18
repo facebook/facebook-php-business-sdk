@@ -22,7 +22,7 @@
  *
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -33,23 +33,10 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static FlightVisibilityValues getInstance()
  */
+class FlightVisibilityValues extends AbstractEnum {
 
-class CopyrightAudioAssetFields extends AbstractEnum {
-
-  const COPYRIGHT = 'copyright';
-  const CREATION_TIME = 'creation_time';
-  const ID = 'id';
-  const TITLE = 'title';
-  const UPDATE_TIME = 'update_time';
-
-  public function getFieldTypes() {
-    return array(
-      'copyright' => 'AudioCopyright',
-      'creation_time' => 'datetime',
-      'id' => 'string',
-      'title' => 'string',
-      'update_time' => 'datetime',
-    );
-  }
+  const PUBLISHED = 'PUBLISHED';
+  const STAGING = 'STAGING';
 }
