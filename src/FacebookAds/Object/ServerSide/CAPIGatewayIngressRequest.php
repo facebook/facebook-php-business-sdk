@@ -37,7 +37,7 @@ use Psr\Http\Message\ResponseInterface;
  *
  * @category Class
  */
-class CAPIGIngressRequest implements CustomEndpointRequest {
+class CAPIGatewayIngressRequest implements CustomEndpointRequest {
     private Client $client;
     private string $access_key;
     private string $endpoint_URL;

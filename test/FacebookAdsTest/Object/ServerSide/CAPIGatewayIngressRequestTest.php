@@ -1,7 +1,7 @@
 <?php
 namespace FacebookAdsTest\Object\ServerSide;
 
-use FacebookAds\Object\ServerSide\CAPIGIngressRequest;
+use FacebookAds\Object\ServerSide\CAPIGatewayIngressRequest;
 use FacebookAds\Object\ServerSide\Event;
 use FacebookAds\Object\ServerSide\Filter;
 use FacebookAdsTest\AbstractUnitTestCase;
@@ -12,10 +12,10 @@ class filterAllEvents implements Filter {
         return false;
     }
 }
-class CAPIGIngressRequestTest extends AbstractUnitTestCase {
+class CAPIGatewayIngressRequestTest extends AbstractUnitTestCase {
 
     public function testBuildersAndGetters(){
-        $capiIngressRequest = new CAPIGIngressRequest("https://example.com", "ACCESS_KEY");
+        $capiIngressRequest = new CAPIGatewayIngressRequest("https://example.com", "ACCESS_KEY");
         $this->assertEquals($capiIngressRequest->getEndpoint(), "https://example.com");
         $this->assertFalse($capiIngressRequest->isSendToDestinationOnly());
         $capiIngressRequest->setSendToDestinationOnly(true);
@@ -24,7 +24,7 @@ class CAPIGIngressRequestTest extends AbstractUnitTestCase {
 
     public function testInvalidUrl() {
         try {
-            new CAPIGIngressRequest("badDomain", "ACCESS_KEY");
+            new CAPIGatewayIngressRequest("badDomain", "ACCESS_KEY");
         }
         catch (\Exception $exception) {
             $has_throw_exception = true;
@@ -35,7 +35,7 @@ class CAPIGIngressRequestTest extends AbstractUnitTestCase {
     }
 
     public function testFilterAllEvents() {
-        $capiIngressRequest = new CAPIGIngressRequest("https://example.com", "ACCESS_KEY");
+        $capiIngressRequest = new CAPIGatewayIngressRequest("https://example.com", "ACCESS_KEY");
         $capiIngressRequest->setFilter(new filterAllEvents());
         $event1 = new Event();
         $event1->setEventId('1');
