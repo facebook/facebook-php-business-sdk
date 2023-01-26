@@ -56,15 +56,15 @@ interface CustomEndpointRequest {
 
     /**
      * Sets whether events should be send to this endpoint only
-     * @param boolean $sendToDestinationOnly
+     * @param boolean $setSendToEndpointOnly
      */
-    public function setSendToDestinationOnly(bool $sendToDestinationOnly);
+    public function setSendToEndpointOnly(bool $setSendToEndpointOnly);
 
     /**
      * Returns whether events should be sent to this endpoint only
      * @return boolean
      */
-    public function isSendToDestinationOnly(): bool;
+    public function isSendToEndpointOnly(): bool;
 
     /**
      * Returns endpoint URL

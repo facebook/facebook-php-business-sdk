@@ -40,7 +40,7 @@ class EventRequestAsync extends EventRequest {
   public function execute() {
     $normalized_param = $this->normalize();
     $pixel_id = $this->container['pixel_id'];
-    if ($this->endpoint_request != null && $this->endpoint_request->isSendToDestinationOnly()) {
+    if ($this->endpoint_request != null && $this->endpoint_request->isSendToEndpointOnly()) {
         return $this->endpoint_request->sendEventAsync($pixel_id, $this->container['events'])->then(function($customEndpointResponse) {
             $response = $customEndpointResponse;
             return new EventResponse(array(

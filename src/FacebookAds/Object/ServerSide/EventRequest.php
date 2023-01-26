@@ -232,7 +232,7 @@ class EventRequest implements ArrayAccess {
    */
   public function execute()
   {
-      if ($this->endpoint_request != null && $this->endpoint_request->isSendToDestinationOnly()) {
+      if ($this->endpoint_request != null && $this->endpoint_request->isSendToEndpointOnly()) {
         // do not send to CAPI Endpoint. If no exception was thrown, we can assume all events were sent successfully
         $customEndpointResponses = $this->sendEventsToCustomEndpoint();
         return new EventResponse(array(

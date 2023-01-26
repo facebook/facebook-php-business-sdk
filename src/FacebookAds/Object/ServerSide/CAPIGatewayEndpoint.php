@@ -37,11 +37,11 @@ use Psr\Http\Message\ResponseInterface;
  *
  * @category Class
  */
-class CAPIGatewayIngressRequest implements CustomEndpointRequest {
+class CAPIGatewayEndpoint implements CustomEndpointRequest {
     private Client $client;
     private string $access_key;
     private string $endpoint_URL;
-    private bool $sendToDestinationOnly;
+    private bool $sendToEndpointOnly;
     private ?Filter $filter = null;
 
     /**
@@ -55,7 +55,7 @@ class CAPIGatewayIngressRequest implements CustomEndpointRequest {
         $this->endpoint_URL = $endpoint_URL;
         $this->access_key = $access_key;
         $this->client= new Client(['headers' => ['Content-Type' => 'application/json; charset=utf-8']]);
-        $this->sendToDestinationOnly = false;
+        $this->sendToEndpointOnly = false;
     }
 
     /**
@@ -151,14 +151,14 @@ class CAPIGatewayIngressRequest implements CustomEndpointRequest {
         $this->filter = $filter;
     }
 
-    public function setSendToDestinationOnly(bool $sendToDestinationOnly)
+    public function setSendToEndpointOnly(bool $setSendToEndpointOnly)
     {
-        $this->sendToDestinationOnly = $sendToDestinationOnly;
+        $this->sendToEndpointOnly = $setSendToEndpointOnly;
     }
 
-    public function isSendToDestinationOnly(): bool
+    public function isSendToEndpointOnly(): bool
     {
-        return $this->sendToDestinationOnly;
+        return $this->sendToEndpointOnly;
     }
 
     public function getEndpoint(): string

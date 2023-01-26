@@ -1,7 +1,7 @@
 <?php
 namespace FacebookAdsTest\Object\ServerSide;
 
-use FacebookAds\Object\ServerSide\CAPIGatewayIngressRequest;
+use FacebookAds\Object\ServerSide\CAPIGatewayEndpoint;
 use FacebookAds\Object\ServerSide\Event;
 use FacebookAds\Object\ServerSide\Filter;
 use FacebookAdsTest\AbstractUnitTestCase;
@@ -12,19 +12,20 @@ class filterAllEvents implements Filter {
         return false;
     }
 }
-class CAPIGatewayIngressRequestTest extends AbstractUnitTestCase {
+class CAPIGatewayEndpointTest extends AbstractUnitTestCase {
 
     public function testBuildersAndGetters(){
-        $capiIngressRequest = new CAPIGatewayIngressRequest("https://example.com", "ACCESS_KEY");
+        $capiIngressRequest = new CAPIGatewayEndpoint("https://example.com", "ACCESS_KEY");
         $this->assertEquals($capiIngressRequest->getEndpoint(), "https://example.com");
-        $this->assertFalse($capiIngressRequest->isSendToDestinationOnly());
-        $capiIngressRequest->setSendToDestinationOnly(true);
-        $this->assertTrue($capiIngressRequest->isSendToDestinationOnly());
+        $this->assertFalse($capiIngressRequest->isSendToEndpointOnly());
+        $capiIngressRequest->setSendToEndpointOnly(true);
+        $this->assertTrue($capiIngressRequest->isSendToEndpointOnly());
     }
 
     public function testInvalidUrl() {
+        $has_throw_exception = false;
         try {
-            new CAPIGatewayIngressRequest("badDomain", "ACCESS_KEY");
+            new CAPIGatewayEndpoint("badDomain", "ACCESS_KEY");
         }
         catch (\Exception $exception) {
             $has_throw_exception = true;
@@ -35,7 +36,7 @@ class CAPIGatewayIngressRequestTest extends AbstractUnitTestCase {
     }
 
     public function testFilterAllEvents() {
-        $capiIngressRequest = new CAPIGatewayIngressRequest("https://example.com", "ACCESS_KEY");
+        $capiIngressRequest = new CAPIGatewayEndpoint("https://example.com", "ACCESS_KEY");
         $capiIngressRequest->setFilter(new filterAllEvents());
         $event1 = new Event();
         $event1->setEventId('1');
