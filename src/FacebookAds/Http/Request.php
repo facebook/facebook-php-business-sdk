@@ -156,7 +156,7 @@ class Request implements RequestInterface {
    */
   public function getHeaders() {
     if ($this->headers === null) {
-      $this->headers = clone $this->getClient()->getDefaultRequestHeaderds();
+      $this->headers = clone $this->getClient()->getDefaultRequestHeaders();
     }
 
     return $this->headers;

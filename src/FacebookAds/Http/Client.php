@@ -125,7 +125,7 @@ class Client {
   /**
    * @return Headers
    */
-  public function getDefaultRequestHeaderds() {
+  public function getDefaultRequestHeaders() {
     if ($this->defaultRequestHeaders === null) {
       $this->defaultRequestHeaders = new Headers(array(
         'User-Agent' => 'fbbizsdk-php-v'.ApiConfig::SDKVersion,
@@ -134,6 +134,17 @@ class Client {
     }
 
     return $this->defaultRequestHeaders;
+  }
+
+  /**
+   * @deprecated use getDefaultRequestHeaders() instead
+   *
+   * @return Headers
+   */
+  public function getDefaultRequestHeaderds() {
+    @trigger_error(sprintf('%s deprecated, use getDefaultRequestHeaders() instead.', __METHOD__), \E_USER_DEPRECATED);
+
+    return $this->getDefaultRequestHeaders();
   }
 
   /**
