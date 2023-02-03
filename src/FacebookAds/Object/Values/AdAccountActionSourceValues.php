@@ -21,9 +21,22 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
-namespace FacebookAds;
-class ApiConfig {
-  const APIVersion = '16.0';
-  const SDKVersion = '16.0.0';
-  const TYPE_CHECKER_STRICT_MODE = false;
+
+namespace FacebookAds\Object\Values;
+
+use FacebookAds\Enum\AbstractEnum;
+
+/**
+ * This class is auto-generated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
+ * @method static AdAccountActionSourceValues getInstance()
+ */
+class AdAccountActionSourceValues extends AbstractEnum {
+
+  const PHYSICAL_STORE = 'PHYSICAL_STORE';
+  const WEBSITE = 'WEBSITE';
 }

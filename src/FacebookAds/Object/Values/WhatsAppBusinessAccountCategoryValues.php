@@ -37,7 +37,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class WhatsAppBusinessAccountCategoryValues extends AbstractEnum {
 
+  const AUTHENTICATION = 'AUTHENTICATION';
   const MARKETING = 'MARKETING';
-  const OTP = 'OTP';
-  const TRANSACTIONAL = 'TRANSACTIONAL';
+  const UTILITY = 'UTILITY';
 }

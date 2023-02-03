@@ -50,6 +50,7 @@ class AdSetFields extends AbstractEnum {
   const BILLING_EVENT = 'billing_event';
   const BUDGET_REMAINING = 'budget_remaining';
   const CAMPAIGN = 'campaign';
+  const CAMPAIGN_ATTRIBUTION = 'campaign_attribution';
   const CAMPAIGN_ID = 'campaign_id';
   const CONFIGURED_STATUS = 'configured_status';
   const CREATED_TIME = 'created_time';
@@ -119,6 +120,7 @@ class AdSetFields extends AbstractEnum {
       'billing_event' => 'BillingEvent',
       'budget_remaining' => 'string',
       'campaign' => 'Campaign',
+      'campaign_attribution' => 'string',
       'campaign_id' => 'string',
       'configured_status' => 'ConfiguredStatus',
       'created_time' => 'datetime',

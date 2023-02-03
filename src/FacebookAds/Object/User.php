@@ -125,6 +125,7 @@ class User extends AbstractCrudObject {
 
     $param_types = array(
       'business_app' => 'int',
+      'is_permanent_token' => 'bool',
       'page_id' => 'string',
       'scope' => 'list<Permission>',
     );
@@ -1244,6 +1245,7 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'bot_message_payload_elements' => 'string',
       'filtering' => 'list<filtering_enum>',
       'href' => 'Object',
       'label' => 'string',
