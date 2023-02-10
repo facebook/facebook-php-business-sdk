@@ -21,6 +21,7 @@ jobs:
     - name: Install dependencies
       uses: php-actions/composer@v6
       with:
+        php_version: ${{matrix.php-versions}}
         dev: yes
         args: --prefer-source
 
