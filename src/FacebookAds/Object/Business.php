@@ -40,9 +40,11 @@ use FacebookAds\Object\Values\BusinessActionSourceValues;
 use FacebookAds\Object\Values\BusinessAssetSharingAgreementRequestStatusValues;
 use FacebookAds\Object\Values\BusinessPagePermittedTasksValues;
 use FacebookAds\Object\Values\BusinessPermittedTasksValues;
+use FacebookAds\Object\Values\BusinessSubverticalV2Values;
 use FacebookAds\Object\Values\BusinessSurveyBusinessTypeValues;
 use FacebookAds\Object\Values\BusinessTwoFactorTypeValues;
 use FacebookAds\Object\Values\BusinessUserRoleValues;
+use FacebookAds\Object\Values\BusinessVerticalV2Values;
 use FacebookAds\Object\Values\BusinessVerticalValues;
 use FacebookAds\Object\Values\CPASCollaborationRequestRequesterAgencyOrBrandValues;
 use FacebookAds\Object\Values\CustomConversionCustomEventTypeValues;
@@ -77,6 +79,8 @@ class Business extends AbstractCrudObject {
     $ref_enums['PermittedTasks'] = BusinessPermittedTasksValues::getInstance()->getValues();
     $ref_enums['SurveyBusinessType'] = BusinessSurveyBusinessTypeValues::getInstance()->getValues();
     $ref_enums['PagePermittedTasks'] = BusinessPagePermittedTasksValues::getInstance()->getValues();
+    $ref_enums['SubverticalV2'] = BusinessSubverticalV2Values::getInstance()->getValues();
+    $ref_enums['VerticalV2'] = BusinessVerticalV2Values::getInstance()->getValues();
     $ref_enums['ActionSource'] = BusinessActionSourceValues::getInstance()->getValues();
     return $ref_enums;
   }
@@ -2320,6 +2324,36 @@ class Business extends AbstractCrudObject {
       new BusinessAssetSharingAgreement(),
       'EDGE',
       BusinessAssetSharingAgreement::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createSetupManagedPartnerAdAccount(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'credit_line_id' => 'string',
+      'marketplace_business_id' => 'string',
+      'subvertical_v2' => 'subvertical_v2_enum',
+      'vendor_id' => 'string',
+      'vertical_v2' => 'vertical_v2_enum',
+    );
+    $enums = array(
+      'subvertical_v2_enum' => BusinessSubverticalV2Values::getInstance()->getValues(),
+      'vertical_v2_enum' => BusinessVerticalV2Values::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/setup_managed_partner_adaccounts',
+      new Business(),
+      'EDGE',
+      Business::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
