@@ -49,6 +49,7 @@ class Event implements ArrayAccess {
     'data_processing_options_country' => 'int',
     'data_processing_options_state' => 'int',
     'action_source' => 'string',
+    'app_data' => 'FacebookAds\Object\ServerSide\AppData',
   );
   /**
    * Array of attributes where the key is the local name, and the value is the original name
@@ -66,6 +67,7 @@ class Event implements ArrayAccess {
     'data_processing_options_country' => 'data_processing_options_country',
     'data_processing_options_state' => 'data_processing_options_state',
     'action_source' => 'action_source',
+    'app_data' => 'app_data',
   );
 
   /**
@@ -84,6 +86,7 @@ class Event implements ArrayAccess {
     'data_processing_options_country' => 'setDataProcessingOptionsCountry',
     'data_processing_options_state' => 'setDataProcessingOptionsState',
     'action_source' => 'setActionSource',
+    'app_data' => 'setAppData',
   );
   /**
    * Array of attributes to getter functions (for serialization of requests)
@@ -101,6 +104,7 @@ class Event implements ArrayAccess {
     'data_processing_options_country' => 'getDataProcessingOptionsCountry',
     'data_processing_options_state' => 'getDataProcessingOptionsState',
     'action_source' => 'getActionSource',
+    'app_data' => 'getAppData',
   );
   /**
    * Associative array for storing property values
@@ -124,6 +128,7 @@ class Event implements ArrayAccess {
     $this->container['data_processing_options_country'] = isset($data['data_processing_options_country']) ? $data['data_processing_options_country'] : null;
     $this->container['data_processing_options_state'] = isset($data['data_processing_options_state']) ? $data['data_processing_options_state'] : null;
     $this->container['action_source'] = isset($data['action_source']) ? $data['action_source'] : null;
+    $this->container['app_data'] = isset($data['app_data']) ? $data['app_data'] : null;
   }
 
   public static function paramTypes() {
@@ -318,6 +323,16 @@ class Event implements ArrayAccess {
   }
 
   /**
+   * Set AppData which contains app data and device information for events happening from an app
+   * @param AppData
+   * @return $this
+   */
+  public function setAppData($app_data) {
+    $this->container['app_data'] = $app_data;
+    return $this;
+  }
+
+  /**
    * Returns true if offset exists. False otherwise.
    * @param integer $offset Offset
    * @return boolean
@@ -386,7 +401,7 @@ class Event implements ArrayAccess {
     if ($this->getOptOut() === false) {
       $normalized_payload['opt_out'] = $this->getOptOut();
     }
-
+    $normalized_payload['app_data'] = isset($this->container['app_data']) ? $this->getAppData()->normalize() : null;
     return $normalized_payload;
   }
 
@@ -470,6 +485,14 @@ class Event implements ArrayAccess {
    */
   public function getDataProcessingOptionsCountry() {
     return $this->container['data_processing_options_country'];
+  }
+
+  /**
+   * Get AppData which contains app data and device information for events happening from an app
+   * @return AppData
+   */
+  public function getAppData() {
+    return $this->container['app_data'];
   }
 
   /**

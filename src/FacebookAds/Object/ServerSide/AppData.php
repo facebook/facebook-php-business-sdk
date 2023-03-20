@@ -33,7 +33,6 @@ class AppData implements ArrayAccess {
   private $app_user_id;
   private $campaign_ids;
   private $consider_views;
-  private $device_token;
   private $extinfo;
   private $include_dwell_data;
   private $include_video_data;
@@ -49,7 +48,6 @@ class AppData implements ArrayAccess {
     'app_user_id' => 'string',
     'campaign_ids' => 'string',
     'consider_views' => 'bool',
-    'device_token' => 'string',
     'extinfo' => 'FacebookAds\Object\ServerSide\ExtendedDeviceInfo',
     'include_dwell_data' => 'bool',
     'include_video_data' => 'bool',
@@ -66,7 +64,6 @@ class AppData implements ArrayAccess {
     'app_user_id' => 'app_user_id',
     'campaign_ids' => 'campaign_ids',
     'consider_views' => 'consider_views',
-    'device_token' => 'device_token',
     'extinfo' => 'extinfo',
     'include_dwell_data' => 'include_dwell_data',
     'include_video_data' => 'include_video_data',
@@ -83,7 +80,6 @@ class AppData implements ArrayAccess {
     'app_user_id' => 'setAppUserId',
     'campaign_ids' => 'setCampaignIds',
     'consider_views' => 'setConsiderViews',
-    'device_token' => 'setDeviceToken',
     'extinfo' => 'setExtinfo',
     'include_dwell_data' => 'setIncludeDwellData',
     'include_video_data' => 'setIncludeVideoData',
@@ -100,7 +96,6 @@ class AppData implements ArrayAccess {
     'app_user_id' => 'getAppUserId',
     'campaign_ids' => 'getCampaignIds',
     'consider_views' => 'getConsiderViews',
-    'device_token' => 'getDeviceToken',
     'extinfo' => 'getExtinfo',
     'include_dwell_data' => 'getIncludeDwellData',
     'include_video_data' => 'getIncludeVideoData',
@@ -119,7 +114,6 @@ class AppData implements ArrayAccess {
     $this->container['app_user_id'] = isset($data['app_user_id']) ? $data['app_user_id'] : null;
     $this->container['campaign_ids'] = isset($data['campaign_ids']) ? $data['campaign_ids'] : null;
     $this->container['consider_views'] = isset($data['consider_views']) ? $data['consider_views'] : null;
-    $this->container['device_token'] = isset($data['device_token']) ? $data['device_token'] : null;
     $this->container['extinfo'] = isset($data['extinfo']) ? $data['extinfo'] : null;
     $this->container['include_dwell_data'] = isset($data['include_dwell_data']) ? $data['include_dwell_data'] : null;
     $this->container['include_video_data'] = isset($data['include_video_data']) ? $data['include_video_data'] : null;
@@ -192,12 +186,6 @@ class AppData implements ArrayAccess {
 
   public function setConsiderViews($consider_views) {
     $this->container['consider_views'] = $consider_views;
-
-    return $this;
-  }
-
-  public function setDeviceToken($device_token) {
-    $this->container['device_token'] = $device_token;
 
     return $this;
   }
@@ -303,7 +291,6 @@ class AppData implements ArrayAccess {
     $normalized_payload['app_user_id']= $this->getAppUserId();
     $normalized_payload['campaign_ids'] = $this->getCampaignIds();
     $normalized_payload['consider_views'] = $this->getConsiderViews();
-    $normalized_payload['device_token'] = $this->getDeviceToken();
     $normalized_payload['extinfo'] = isset($this->container['extinfo'])? $this->getExtinfo()->normalize() : null;
     $normalized_payload['include_dwell_data'] = $this->getIncludeDwellData();
     $normalized_payload['include_video_data']= $this->getIncludeVideoData();
@@ -336,10 +323,6 @@ class AppData implements ArrayAccess {
 
   public function getConsiderViews() {
     return $this->container['consider_views'];
-  }
-
-  public function getDeviceToken() {
-    return $this->container['device_token'];
   }
 
   public function getExtinfo() {
