@@ -2,7 +2,7 @@
 
 [![Packagist](https://img.shields.io/packagist/v/facebook/php-business-sdk.svg?style=flat-square)](https://packagist.org/packages/facebook/php-business-sdk)
 [![License](https://img.shields.io/badge/license-Facebook%20Platform-blue.svg?style=flat-square)](https://github.com/facebook/facebook-php-business-sdk/blob/main/LICENSE)
-[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Ffacebook%2Ffacebook-php-business-sdk%2Fbadge%3Fref%3Dmaster&style=flat)](https://actions-badge.atrox.dev/facebook/facebook-php-business-sdk/goto?ref=main)
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Ffacebook%2Ffacebook-php-business-sdk%2Fbadge%3Fref%3Dmain&style=flat)](https://actions-badge.atrox.dev/facebook/facebook-php-business-sdk/goto?ref=main)
 [![Scrutinizer](https://img.shields.io/scrutinizer/g/facebook/facebook-php-business-sdk.svg?style=flat-square)](https://scrutinizer-ci.com/g/facebook/facebook-php-business-sdk)
 [![Scrutinizer Coverage](https://img.shields.io/scrutinizer/coverage/g/facebook/facebook-php-business-sdk.svg?style=flat-square)](https://scrutinizer-ci.com/g/facebook/facebook-php-business-sdk)
 
