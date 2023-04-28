@@ -1,6 +1,17 @@
 {
   "name": "doveconviene/facebook-php-business-sdk",
-  "description": "PHP SDK for Facebook Business",
+  "description": "DoveConviene PHP5 version SDK for Facebook Business",
+  "homepage": "https://github.com/doveconviene/facebook-php-business-sdk",
+  "authors": [
+    {
+      "name": "DoveConviene s.r.l.",
+      "homepage": "http://doveconviene.it"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/doveconviene/facebook-php-business-sdk/issues",
+    "source": "https://github.com/doveconviene/facebook-php-business-sdk"
+  },
   "type": "library",
   "keywords": [
     "facebook",
@@ -10,7 +21,6 @@
     "instagram",
     "page"
   ],
-  "homepage": "https://developers.facebook.com/",
   "require": {
     "guzzlehttp/guzzle": "^6.5 || ^7.0"
   },
