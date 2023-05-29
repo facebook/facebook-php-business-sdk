@@ -22,7 +22,6 @@
     "page"
   ],
   "require": {
-    "php": ">=8.0",
     "guzzlehttp/guzzle": "^6.5 || ^7.0"
   },
   "require-dev": {
