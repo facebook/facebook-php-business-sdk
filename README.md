@@ -1,4 +1,4 @@
-# Facebook Business SDK for PHP - SF Edition v1
+# Facebook Business SDK 16 for PHP5 - SF Edition v1
 
 Due the addition of a SINGLE Syntax Breaking return type, we had to fork the project.
 https://github.com/facebook/facebook-php-business-sdk/pull/572#issuecomment-1423208117
