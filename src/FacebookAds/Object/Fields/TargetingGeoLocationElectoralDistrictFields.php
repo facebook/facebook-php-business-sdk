@@ -38,6 +38,7 @@ use FacebookAds\Enum\AbstractEnum;
 class TargetingGeoLocationElectoralDistrictFields extends AbstractEnum {
 
   const COUNTRY = 'country';
+  const DEPRECATION_CODE = 'deprecation_code';
   const ELECTORAL_DISTRICT = 'electoral_district';
   const KEY = 'key';
   const NAME = 'name';
@@ -45,6 +46,7 @@ class TargetingGeoLocationElectoralDistrictFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'country' => 'string',
+      'deprecation_code' => 'string',
       'electoral_district' => 'string',
       'key' => 'string',
       'name' => 'string',

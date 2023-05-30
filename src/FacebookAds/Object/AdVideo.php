@@ -138,6 +138,53 @@ class AdVideo extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getCollaborators(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/collaborators',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createCollaborator(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'target_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/collaborators',
+      new AdVideo(),
+      'EDGE',
+      AdVideo::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getComments(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 

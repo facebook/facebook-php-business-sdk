@@ -53,6 +53,7 @@ use FacebookAds\Object\Values\ProductCatalogVerticalValues;
 use FacebookAds\Object\Values\ProfilePictureSourceBreakingChangeValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
 use FacebookAds\Object\Values\SystemUserRoleValues;
+use FacebookAds\Object\Values\WhatsAppBusinessPreVerifiedPhoneNumberCodeVerificationStatusValues;
 
 /**
  * This class is auto-generated.
@@ -225,6 +226,30 @@ class Business extends AbstractCrudObject {
       new AdAccount(),
       'EDGE',
       AdAccount::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createAddPhoneNumber(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'phone_number' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/add_phone_numbers',
+      new Business(),
+      'EDGE',
+      Business::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1660,6 +1685,58 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getOpenBridgeConfigurations(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/openbridge_configurations',
+      new OpenBridgeConfiguration(),
+      'EDGE',
+      OpenBridgeConfiguration::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createOpenBridgeConfiguration(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'access_key' => 'string',
+      'active' => 'bool',
+      'endpoint' => 'string',
+      'host_business_id' => 'unsigned int',
+      'host_external_id' => 'string',
+      'pixel_id' => 'unsigned int',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/openbridge_configurations',
+      new OpenBridgeConfiguration(),
+      'EDGE',
+      OpenBridgeConfiguration::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getOwnedAdAccounts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -2298,6 +2375,32 @@ class Business extends AbstractCrudObject {
       new AbstractCrudObject(),
       'EDGE',
       array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getPreVerifiedNumbers(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'code_verification_status' => 'code_verification_status_enum',
+      'phone_number' => 'string',
+    );
+    $enums = array(
+      'code_verification_status_enum' => WhatsAppBusinessPreVerifiedPhoneNumberCodeVerificationStatusValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/preverified_numbers',
+      new WhatsAppBusinessPreVerifiedPhoneNumber(),
+      'EDGE',
+      WhatsAppBusinessPreVerifiedPhoneNumber::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

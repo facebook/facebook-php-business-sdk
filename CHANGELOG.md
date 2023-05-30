@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## v17.0.0
+
+
 ### Added
 - `advanced_measurement_table` field to Event for Conversions API.
 
@@ -150,3 +153,4 @@ All notable changes to this project will be documented in this file.
     $async_job = $async_job->getSelf();
   }
   ```
+

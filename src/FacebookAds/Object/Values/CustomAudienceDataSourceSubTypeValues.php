@@ -39,6 +39,7 @@ class CustomAudienceDataSourceSubTypeValues extends AbstractEnum {
 
   const ANYTHING = 'ANYTHING';
   const APP_USERS = 'APP_USERS';
+  const AR_EFFECTS_EVENTS = 'AR_EFFECTS_EVENTS';
   const AR_EXPERIENCE_EVENTS = 'AR_EXPERIENCE_EVENTS';
   const CAMPAIGN_CONVERSIONS = 'CAMPAIGN_CONVERSIONS';
   const COMBINATION_CUSTOM_AUDIENCE_USERS = 'COMBINATION_CUSTOM_AUDIENCE_USERS';
@@ -85,6 +86,7 @@ class CustomAudienceDataSourceSubTypeValues extends AbstractEnum {
   const SIGNAL_SOURCE = 'SIGNAL_SOURCE';
   const SMART_AUDIENCE = 'SMART_AUDIENCE';
   const STORE_VISIT_EVENTS = 'STORE_VISIT_EVENTS';
+  const SUBSCRIBER_LIST = 'SUBSCRIBER_LIST';
   const S_EXPR = 'S_EXPR';
   const TOKENS = 'TOKENS';
   const USER_IDS = 'USER_IDS';

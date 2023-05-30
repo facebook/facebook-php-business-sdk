@@ -41,7 +41,7 @@ $fields = array(
 );
 $params = array(
   'name' => 'My campaign',
-  'objective' => 'LINK_CLICKS',
+  'objective' => 'OUTCOME_TRAFFIC',
   'status' => 'PAUSED',
   'special_ad_categories' => array(),
 );

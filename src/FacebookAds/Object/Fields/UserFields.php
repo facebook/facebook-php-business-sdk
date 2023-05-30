@@ -40,6 +40,7 @@ class UserFields extends AbstractEnum {
   const ABOUT = 'about';
   const AGE_RANGE = 'age_range';
   const BIRTHDAY = 'birthday';
+  const COMMUNITY = 'community';
   const COVER = 'cover';
   const CURRENCY = 'currency';
   const EDUCATION = 'education';
@@ -89,6 +90,7 @@ class UserFields extends AbstractEnum {
       'about' => 'string',
       'age_range' => 'AgeRange',
       'birthday' => 'string',
+      'community' => 'Group',
       'cover' => 'UserCoverPhoto',
       'currency' => 'Currency',
       'education' => 'list<Object>',

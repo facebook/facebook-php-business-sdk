@@ -43,7 +43,7 @@ class AdsOptimalDeliveryGrowthOpportunityFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'child_metadata' => 'map<string, Object>',
+      'child_metadata' => 'list<map<string, Object>>',
       'metadata' => 'Object',
       'optimization_type' => 'string',
     );

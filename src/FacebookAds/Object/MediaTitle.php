@@ -45,13 +45,6 @@ use FacebookAds\Object\Values\MediaTitleVisibilityValues;
 class MediaTitle extends AbstractCrudObject {
 
   /**
-   * @deprecated getEndpoint function is deprecated
-   */
-  protected function getEndpoint() {
-    return 'media_titles';
-  }
-
-  /**
    * @return MediaTitleFields
    */
   public static function getFieldsEnum() {

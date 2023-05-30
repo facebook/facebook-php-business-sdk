@@ -42,7 +42,6 @@ class SavedAudienceFields extends AbstractEnum {
   const APPROXIMATE_COUNT_UPPER_BOUND = 'approximate_count_upper_bound';
   const DELETE_TIME = 'delete_time';
   const DESCRIPTION = 'description';
-  const EXTRA_INFO = 'extra_info';
   const ID = 'id';
   const NAME = 'name';
   const OPERATION_STATUS = 'operation_status';
@@ -62,7 +61,6 @@ class SavedAudienceFields extends AbstractEnum {
       'approximate_count_upper_bound' => 'int',
       'delete_time' => 'int',
       'description' => 'string',
-      'extra_info' => 'string',
       'id' => 'string',
       'name' => 'string',
       'operation_status' => 'CustomAudienceStatus',

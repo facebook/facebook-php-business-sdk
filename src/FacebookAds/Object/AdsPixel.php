@@ -283,6 +283,29 @@ class AdsPixel extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getOpenBridgeConfigurations(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/openbridge_configurations',
+      new OpenBridgeConfiguration(),
+      'EDGE',
+      OpenBridgeConfiguration::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createShadowTrafficHelper(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 

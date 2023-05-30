@@ -247,10 +247,34 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getMessageCampaigns(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/message_campaigns',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function deleteMessageTemplates(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
+      'hsm_id' => 'string',
       'name' => 'string',
     );
     $enums = array(
@@ -323,8 +347,10 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'allow_category_change' => 'bool',
       'category' => 'category_enum',
       'components' => 'list<map>',
+      'cta_url_link_tracking_opted_out' => 'bool',
       'language' => 'string',
       'name' => 'string',
     );
@@ -377,6 +403,7 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       'cc' => 'string',
       'migrate_phone_number' => 'bool',
       'phone_number' => 'string',
+      'verified_name' => 'string',
     );
     $enums = array(
     );
@@ -554,6 +581,31 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       new WhatsAppBusinessAccount(),
       'EDGE',
       WhatsAppBusinessAccount::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getTemplatePerformanceMetrics(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'name' => 'string',
+      'template_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/template_performance_metrics',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

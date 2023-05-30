@@ -59,6 +59,8 @@ class AdSetFields extends AbstractEnum {
   const DAILY_MIN_SPEND_TARGET = 'daily_min_spend_target';
   const DAILY_SPEND_CAP = 'daily_spend_cap';
   const DESTINATION_TYPE = 'destination_type';
+  const DSA_BENEFICIARY = 'dsa_beneficiary';
+  const DSA_PAYOR = 'dsa_payor';
   const EFFECTIVE_STATUS = 'effective_status';
   const END_TIME = 'end_time';
   const EXISTING_CUSTOMER_BUDGET_PERCENTAGE = 'existing_customer_budget_percentage';
@@ -103,7 +105,6 @@ class AdSetFields extends AbstractEnum {
   const TIME_STOP = 'time_stop';
   const TOPLINE_ID = 'topline_id';
   const TUNE_FOR_CATEGORY = 'tune_for_category';
-  const UPSTREAM_EVENTS = 'upstream_events';
 
   public function getFieldTypes() {
     return array(
@@ -129,6 +130,8 @@ class AdSetFields extends AbstractEnum {
       'daily_min_spend_target' => 'string',
       'daily_spend_cap' => 'string',
       'destination_type' => 'string',
+      'dsa_beneficiary' => 'string',
+      'dsa_payor' => 'string',
       'effective_status' => 'EffectiveStatus',
       'end_time' => 'datetime',
       'existing_customer_budget_percentage' => 'unsigned int',
@@ -158,7 +161,7 @@ class AdSetFields extends AbstractEnum {
       'start_time' => 'datetime',
       'status' => 'Status',
       'targeting' => 'Targeting',
-      'targeting_optimization_types' => 'map<string, int>',
+      'targeting_optimization_types' => 'list<map<string, int>>',
       'time_based_ad_rotation_id_blocks' => 'list<list<int>>',
       'time_based_ad_rotation_intervals' => 'list<unsigned int>',
       'updated_time' => 'datetime',
@@ -173,7 +176,6 @@ class AdSetFields extends AbstractEnum {
       'time_stop' => 'datetime',
       'topline_id' => 'string',
       'tune_for_category' => 'TuneForCategory',
-      'upstream_events' => 'map',
     );
   }
 }

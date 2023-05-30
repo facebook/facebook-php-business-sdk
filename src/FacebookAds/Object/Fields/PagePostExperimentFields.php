@@ -59,7 +59,7 @@ class PagePostExperimentFields extends AbstractEnum {
       'declared_winning_time' => 'datetime',
       'description' => 'string',
       'id' => 'string',
-      'insight_snapshots' => 'map<datetime, map<int, Object>>',
+      'insight_snapshots' => 'list<map<datetime, list<map<int, Object>>>>',
       'name' => 'string',
       'optimization_goal' => 'string',
       'publish_status' => 'string',

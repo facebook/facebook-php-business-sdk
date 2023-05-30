@@ -38,8 +38,6 @@ use FacebookAds\Enum\AbstractEnum;
 class CampaignFields extends AbstractEnum {
 
   const ACCOUNT_ID = 'account_id';
-  const AD_STRATEGY_GROUP_ID = 'ad_strategy_group_id';
-  const AD_STRATEGY_ID = 'ad_strategy_id';
   const ADLABELS = 'adlabels';
   const BID_STRATEGY = 'bid_strategy';
   const BOOSTED_OBJECT_ID = 'boosted_object_id';
@@ -80,13 +78,10 @@ class CampaignFields extends AbstractEnum {
   const ADBATCH = 'adbatch';
   const EXECUTION_OPTIONS = 'execution_options';
   const ITERATIVE_SPLIT_TEST_CONFIGS = 'iterative_split_test_configs';
-  const UPSTREAM_EVENTS = 'upstream_events';
 
   public function getFieldTypes() {
     return array(
       'account_id' => 'string',
-      'ad_strategy_group_id' => 'string',
-      'ad_strategy_id' => 'string',
       'adlabels' => 'list<AdLabel>',
       'bid_strategy' => 'BidStrategy',
       'boosted_object_id' => 'string',
@@ -127,7 +122,6 @@ class CampaignFields extends AbstractEnum {
       'adbatch' => 'list<Object>',
       'execution_options' => 'list<ExecutionOptions>',
       'iterative_split_test_configs' => 'list<Object>',
-      'upstream_events' => 'map',
     );
   }
 }

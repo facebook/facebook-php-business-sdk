@@ -46,7 +46,7 @@ class CatalogItemAppealStatusFields extends AbstractEnum {
     return array(
       'handle' => 'string',
       'item_id' => 'int',
-      'status' => 'string',
+      'status' => 'Status',
       'use_cases' => 'list<Object>',
     );
   }

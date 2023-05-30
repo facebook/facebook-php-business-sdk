@@ -37,20 +37,16 @@ use FacebookAds\Enum\AbstractEnum;
 
 class URLFields extends AbstractEnum {
 
-  const DEVELOPMENT_INSTANT_ARTICLE = 'development_instant_article';
   const ENGAGEMENT = 'engagement';
   const ID = 'id';
-  const INSTANT_ARTICLE = 'instant_article';
   const OG_OBJECT = 'og_object';
   const OWNERSHIP_PERMISSIONS = 'ownership_permissions';
   const SCOPES = 'scopes';
 
   public function getFieldTypes() {
     return array(
-      'development_instant_article' => 'InstantArticle',
       'engagement' => 'Object',
       'id' => 'string',
-      'instant_article' => 'InstantArticle',
       'og_object' => 'Object',
       'ownership_permissions' => 'Object',
       'scopes' => 'Object',

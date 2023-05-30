@@ -46,10 +46,10 @@ class InstantArticlesStatsFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'error' => 'string',
-      'metadata' => 'map<string, Object>',
+      'metadata' => 'list<map<string, Object>>',
       'metric' => 'Object',
-      'totals' => 'map<string, Object>',
-      'x_axis_breakdown' => 'list<map<string, Object>>',
+      'totals' => 'list<map<string, Object>>',
+      'x_axis_breakdown' => 'list<list<map<string, Object>>>',
     );
   }
 }

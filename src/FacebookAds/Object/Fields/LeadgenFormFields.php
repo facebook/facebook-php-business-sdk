@@ -85,7 +85,7 @@ class LeadgenFormFields extends AbstractEnum {
       'questions' => 'list<LeadGenQuestion>',
       'status' => 'string',
       'thank_you_page' => 'Object',
-      'tracking_parameters' => 'map<string, string>',
+      'tracking_parameters' => 'list<map<string, string>>',
     );
   }
 }

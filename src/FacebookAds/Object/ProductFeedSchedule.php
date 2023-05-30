@@ -29,7 +29,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProductFeedScheduleFields;
-use FacebookAds\Object\Values\ProductFeedScheduleDayOfWeekValues;
 use FacebookAds\Object\Values\ProductFeedScheduleIntervalValues;
 
 /**
@@ -52,7 +51,6 @@ class ProductFeedSchedule extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['DayOfWeek'] = ProductFeedScheduleDayOfWeekValues::getInstance()->getValues();
     $ref_enums['Interval'] = ProductFeedScheduleIntervalValues::getInstance()->getValues();
     return $ref_enums;
   }

@@ -51,7 +51,7 @@ class AdAccountDeliveryEstimateFields extends AbstractEnum {
       'estimate_mau_lower_bound' => 'int',
       'estimate_mau_upper_bound' => 'int',
       'estimate_ready' => 'bool',
-      'targeting_optimization_types' => 'map<string, int>',
+      'targeting_optimization_types' => 'list<map<string, int>>',
     );
   }
 }

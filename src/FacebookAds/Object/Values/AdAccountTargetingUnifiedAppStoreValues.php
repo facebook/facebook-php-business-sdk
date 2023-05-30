@@ -52,6 +52,8 @@ class AdAccountTargetingUnifiedAppStoreValues extends AbstractEnum {
   const INSTANT_GAME = 'instant_game';
   const ITUNES = 'itunes';
   const ITUNES_IPAD = 'itunes_ipad';
+  const NEON_ANDROID_STORE = 'neon_android_store';
+  const NONE = 'none';
   const OCULUS_APP_STORE = 'oculus_app_store';
   const OPPO = 'oppo';
   const ROKU_CHANNEL_STORE = 'roku_channel_store';

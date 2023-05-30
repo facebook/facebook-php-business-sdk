@@ -619,6 +619,8 @@ class AdSet extends AbstractArchivableCrudObject
       'daily_spend_cap' => 'unsigned int',
       'date_format' => 'string',
       'destination_type' => 'destination_type_enum',
+      'dsa_beneficiary' => 'string',
+      'dsa_payor' => 'string',
       'end_time' => 'datetime',
       'execution_options' => 'list<execution_options_enum>',
       'existing_customer_budget_percentage' => 'unsigned int',
@@ -643,7 +645,6 @@ class AdSet extends AbstractArchivableCrudObject
       'time_start' => 'datetime',
       'time_stop' => 'datetime',
       'tune_for_category' => 'tune_for_category_enum',
-      'upstream_events' => 'map',
     );
     $enums = array(
       'bid_strategy_enum' => AdSetBidStrategyValues::getInstance()->getValues(),

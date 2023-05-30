@@ -45,6 +45,7 @@ class AdCreativeFields extends AbstractEnum {
   const AUTHORIZATION_CATEGORY = 'authorization_category';
   const AUTO_UPDATE = 'auto_update';
   const BODY = 'body';
+  const BRANDED_CONTENT = 'branded_content';
   const BRANDED_CONTENT_SPONSOR_PAGE_ID = 'branded_content_sponsor_page_id';
   const BUNDLE_FOLDER_ID = 'bundle_folder_id';
   const CALL_TO_ACTION_TYPE = 'call_to_action_type';
@@ -60,11 +61,13 @@ class AdCreativeFields extends AbstractEnum {
   const EFFECTIVE_OBJECT_STORY_ID = 'effective_object_story_id';
   const ENABLE_DIRECT_INSTALL = 'enable_direct_install';
   const ENABLE_LAUNCH_INSTANT_APP = 'enable_launch_instant_app';
+  const FACEBOOK_BRANDED_CONTENT = 'facebook_branded_content';
   const ID = 'id';
   const IMAGE_CROPS = 'image_crops';
   const IMAGE_HASH = 'image_hash';
   const IMAGE_URL = 'image_url';
   const INSTAGRAM_ACTOR_ID = 'instagram_actor_id';
+  const INSTAGRAM_BRANDED_CONTENT = 'instagram_branded_content';
   const INSTAGRAM_PERMALINK_URL = 'instagram_permalink_url';
   const INSTAGRAM_STORY_ID = 'instagram_story_id';
   const INSTAGRAM_USER_ID = 'instagram_user_id';
@@ -112,6 +115,7 @@ class AdCreativeFields extends AbstractEnum {
       'authorization_category' => 'string',
       'auto_update' => 'bool',
       'body' => 'string',
+      'branded_content' => 'AdCreativeBrandedContentAds',
       'branded_content_sponsor_page_id' => 'string',
       'bundle_folder_id' => 'string',
       'call_to_action_type' => 'CallToActionType',
@@ -127,11 +131,13 @@ class AdCreativeFields extends AbstractEnum {
       'effective_object_story_id' => 'string',
       'enable_direct_install' => 'bool',
       'enable_launch_instant_app' => 'bool',
+      'facebook_branded_content' => 'AdCreativeFacebookBrandedContent',
       'id' => 'string',
       'image_crops' => 'AdsImageCrops',
       'image_hash' => 'string',
       'image_url' => 'string',
       'instagram_actor_id' => 'string',
+      'instagram_branded_content' => 'AdCreativeInstagramBrandedContent',
       'instagram_permalink_url' => 'string',
       'instagram_story_id' => 'string',
       'instagram_user_id' => 'string',

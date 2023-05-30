@@ -48,8 +48,8 @@ class CPASBusinessSetupConfigFields extends AbstractEnum {
     return array(
       'accepted_collab_ads_tos' => 'bool',
       'business' => 'Business',
-      'business_capabilities_status' => 'map<string, string>',
-      'capabilities_compliance_status' => 'map<string, Object>',
+      'business_capabilities_status' => 'list<map<string, string>>',
+      'capabilities_compliance_status' => 'list<map<string, Object>>',
       'id' => 'string',
       'ad_accounts' => 'list<string>',
     );

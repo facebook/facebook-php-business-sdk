@@ -488,8 +488,9 @@ class Application extends AbstractCrudObject {
     $param_types = array(
       'app_id' => 'int',
       'is_aem_ready' => 'bool',
-      'is_aem_v2_ready' => 'bool',
+      'is_app_aem_ready' => 'bool',
       'is_skan_ready' => 'bool',
+      'message' => 'string',
     );
     $enums = array(
     );
@@ -973,6 +974,29 @@ class Application extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/ios_dialog_configs',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getLinkedDataset(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/linked_dataset',
       new AbstractCrudObject(),
       'EDGE',
       array(),

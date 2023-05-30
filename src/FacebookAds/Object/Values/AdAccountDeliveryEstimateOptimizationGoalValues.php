@@ -58,6 +58,7 @@ class AdAccountDeliveryEstimateOptimizationGoalValues extends AbstractEnum {
   const QUALITY_CALL = 'QUALITY_CALL';
   const QUALITY_LEAD = 'QUALITY_LEAD';
   const REACH = 'REACH';
+  const SUBSCRIBERS = 'SUBSCRIBERS';
   const THRUPLAY = 'THRUPLAY';
   const VALUE = 'VALUE';
   const VISIT_INSTAGRAM_PROFILE = 'VISIT_INSTAGRAM_PROFILE';

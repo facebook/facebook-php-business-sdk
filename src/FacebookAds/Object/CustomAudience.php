@@ -385,6 +385,7 @@ class CustomAudience extends AbstractCrudObject {
       'rule' => 'string',
       'rule_aggregation' => 'string',
       'tags' => 'list<string>',
+      'use_in_campaigns' => 'bool',
     );
     $enums = array(
       'claim_objective_enum' => CustomAudienceClaimObjectiveValues::getInstance()->getValues(),

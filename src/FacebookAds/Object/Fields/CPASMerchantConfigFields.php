@@ -49,10 +49,10 @@ class CPASMerchantConfigFields extends AbstractEnum {
     return array(
       'accepted_tos' => 'bool',
       'beta_features' => 'list<string>',
-      'business_outcomes_status' => 'map<string, string>',
+      'business_outcomes_status' => 'list<map<string, string>>',
       'id' => 'string',
       'is_test_merchant' => 'bool',
-      'outcomes_compliance_status' => 'map<string, Object>',
+      'outcomes_compliance_status' => 'list<map<string, Object>>',
       'qualified_to_onboard' => 'bool',
     );
   }

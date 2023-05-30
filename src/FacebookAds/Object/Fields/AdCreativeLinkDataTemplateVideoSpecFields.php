@@ -44,7 +44,7 @@ class AdCreativeLinkDataTemplateVideoSpecFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'categorization_criteria' => 'string',
-      'customization' => 'map<string, string>',
+      'customization' => 'list<map<string, string>>',
       'template_id' => 'string',
     );
   }

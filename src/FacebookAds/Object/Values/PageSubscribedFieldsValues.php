@@ -55,9 +55,12 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const FOUNDED = 'founded';
   const GENERAL_INFO = 'general_info';
   const GENERAL_MANAGER = 'general_manager';
+  const GROUP_FEED = 'group_feed';
   const HOMETOWN = 'hometown';
   const HOURS = 'hours';
+  const IN_THREAD_LEAD_FORM_SUBMIT = 'in_thread_lead_form_submit';
   const INBOX_LABELS = 'inbox_labels';
+  const INVOICE_ACCESS_BANK_SLIP_EVENTS = 'invoice_access_bank_slip_events';
   const INVOICE_ACCESS_INVOICE_CHANGE = 'invoice_access_invoice_change';
   const INVOICE_ACCESS_INVOICE_DRAFT_CHANGE = 'invoice_access_invoice_draft_change';
   const INVOICE_ACCESS_ONBOARDING_STATUS_ACTIVE = 'invoice_access_onboarding_status_active';
@@ -70,6 +73,7 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const MEMBERS = 'members';
   const MENTION = 'mention';
   const MERCHANT_REVIEW = 'merchant_review';
+  const MESSAGE_CONTEXT = 'message_context';
   const MESSAGE_DELIVERIES = 'message_deliveries';
   const MESSAGE_ECHOES = 'message_echoes';
   const MESSAGE_MENTION = 'message_mention';
@@ -110,6 +114,7 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const PUBLISHER_SUBSCRIPTIONS = 'publisher_subscriptions';
   const RATINGS = 'ratings';
   const REGISTRATION = 'registration';
+  const SEND_CART = 'send_cart';
   const STANDBY = 'standby';
   const USER_ACTION = 'user_action';
   const VIDEO_TEXT_QUESTION_RESPONSES = 'video_text_question_responses';

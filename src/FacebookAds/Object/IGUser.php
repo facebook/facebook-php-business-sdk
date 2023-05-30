@@ -220,6 +220,7 @@ class IGUser extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'audio_name' => 'string',
       'caption' => 'string',
       'children' => 'list<string>',
       'cover_url' => 'string',
