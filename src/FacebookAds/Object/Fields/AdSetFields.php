@@ -59,6 +59,8 @@ class AdSetFields extends AbstractEnum {
   const DAILY_MIN_SPEND_TARGET = 'daily_min_spend_target';
   const DAILY_SPEND_CAP = 'daily_spend_cap';
   const DESTINATION_TYPE = 'destination_type';
+  const DSA_BENEFICIARY = 'dsa_beneficiary';
+  const DSA_PAYOR = 'dsa_payor';
   const EFFECTIVE_STATUS = 'effective_status';
   const END_TIME = 'end_time';
   const EXISTING_CUSTOMER_BUDGET_PERCENTAGE = 'existing_customer_budget_percentage';
@@ -129,6 +131,8 @@ class AdSetFields extends AbstractEnum {
       'daily_min_spend_target' => 'string',
       'daily_spend_cap' => 'string',
       'destination_type' => 'string',
+      'dsa_beneficiary' => 'string',
+      'dsa_payor' => 'string',
       'effective_status' => 'EffectiveStatus',
       'end_time' => 'datetime',
       'existing_customer_budget_percentage' => 'unsigned int',
