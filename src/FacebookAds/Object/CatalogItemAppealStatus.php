@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\CatalogItemAppealStatusFields;
+use FacebookAds\Object\Values\CatalogItemAppealStatusStatusValues;
 
 /**
  * This class is auto-generated.
@@ -50,6 +51,7 @@ class CatalogItemAppealStatus extends AbstractObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['Status'] = CatalogItemAppealStatusStatusValues::getInstance()->getValues();
     return $ref_enums;
   }
 

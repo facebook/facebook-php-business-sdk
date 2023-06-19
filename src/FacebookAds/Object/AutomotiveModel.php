@@ -29,8 +29,8 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AutomotiveModelFields;
-use FacebookAds\Object\Values\AutomotiveModelBodyStyleValues;
 use FacebookAds\Object\Values\AutomotiveModelImageFetchStatusValues;
+use FacebookAds\Object\Values\AutomotiveModelVisibilityValues;
 
 /**
  * This class is auto-generated.
@@ -44,13 +44,6 @@ use FacebookAds\Object\Values\AutomotiveModelImageFetchStatusValues;
 class AutomotiveModel extends AbstractCrudObject {
 
   /**
-   * @deprecated getEndpoint function is deprecated
-   */
-  protected function getEndpoint() {
-    return 'automotive_models';
-  }
-
-  /**
    * @return AutomotiveModelFields
    */
   public static function getFieldsEnum() {
@@ -60,7 +53,7 @@ class AutomotiveModel extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['ImageFetchStatus'] = AutomotiveModelImageFetchStatusValues::getInstance()->getValues();
-    $ref_enums['BodyStyle'] = AutomotiveModelBodyStyleValues::getInstance()->getValues();
+    $ref_enums['Visibility'] = AutomotiveModelVisibilityValues::getInstance()->getValues();
     return $ref_enums;
   }
 

@@ -52,6 +52,8 @@ class LeadFields extends AbstractEnum {
   const IS_ORGANIC = 'is_organic';
   const PARTNER_NAME = 'partner_name';
   const PLATFORM = 'platform';
+  const POST = 'post';
+  const POST_SUBMISSION_CHECK_RESULT = 'post_submission_check_result';
   const RETAILER_ITEM_ID = 'retailer_item_id';
   const VEHICLE = 'vehicle';
 
@@ -72,6 +74,8 @@ class LeadFields extends AbstractEnum {
       'is_organic' => 'bool',
       'partner_name' => 'string',
       'platform' => 'string',
+      'post' => 'Link',
+      'post_submission_check_result' => 'LeadGenPostSubmissionCheckResult',
       'retailer_item_id' => 'string',
       'vehicle' => 'Vehicle',
     );

@@ -1,14 +1,12 @@
 # Facebook Business SDK for PHP
 
-[![Packagist](https://img.shields.io/packagist/v/facebook/php-business-sdk.svg?style=flat-square)](https://packagist.org/packages/facebook/php-business-sdk)
+[![Packagist](https://img.shields.io/packagist/v/facebook/php-business-sdk)](https://packagist.org/packages/facebook/php-business-sdk)
 [![License](https://img.shields.io/badge/license-Facebook%20Platform-blue.svg?style=flat-square)](https://github.com/facebook/facebook-php-business-sdk/blob/main/LICENSE)
-[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Ffacebook%2Ffacebook-php-business-sdk%2Fbadge%3Fref%3Dmaster&style=flat)](https://actions-badge.atrox.dev/facebook/facebook-php-business-sdk/goto?ref=main)
-[![Scrutinizer](https://img.shields.io/scrutinizer/g/facebook/facebook-php-business-sdk.svg?style=flat-square)](https://scrutinizer-ci.com/g/facebook/facebook-php-business-sdk)
-[![Scrutinizer Coverage](https://img.shields.io/scrutinizer/coverage/g/facebook/facebook-php-business-sdk.svg?style=flat-square)](https://scrutinizer-ci.com/g/facebook/facebook-php-business-sdk)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/facebook/facebook-php-business-sdk/ci.yml)](https://github.com/facebook/facebook-php-business-sdk/actions/workflows/ci.yml)
 
 ## Introduction
 
-The Facebook <a href="https://developers.facebook.com/docs/business-sdk" target="_blank">Business SDK</a> is a one-stop shop to help our partners better serve their businesses. Partners are using multiple Facebook API's to server the needs of their clients. Adopting all these API's and keeping them up to date across the various platforms can be time consuming and ultimately prohibitive. For this reason Facebook has developed the Business SDK bundling many of its APIs into one SDK to ease implementation and upkeep. The Business SDK is an upgraded version of the Marketing API SDK that includes the Marketing API as well as many Facebook APIs from different platforms such as Pages, Business Manager, Instagram, etc.
+The Facebook <a href="https://developers.facebook.com/docs/business-sdk" target="_blank">Business SDK</a> is a one-stop shop to help our partners better serve their businesses. Partners are using multiple Facebook API's to serve the needs of their clients. Adopting all these API's and keeping them up to date across the various platforms can be time consuming and ultimately prohibitive. For this reason Facebook has developed the Business SDK bundling many of its APIs into one SDK to ease implementation and upkeep. The Business SDK is an upgraded version of the Marketing API SDK that includes the Marketing API as well as many Facebook APIs from different platforms such as Pages, Business Manager, Instagram, etc.
 
 ## Quick Start
 
@@ -25,8 +23,7 @@ To manage the Marketing API, please visit your
 <a href="https://developers.facebook.com/apps/<YOUR APP ID>/dashboard"> App Dashboard </a>
 and add the <b>Marketing API</b> product to your app.
 
-**IMPORTANT**: For security, it is recommended that you turn on 'App Secret
-Proof for Server API calls' in your app's Settings->Advanced page.
+**IMPORTANT**: For security, it is recommended that you turn on 'Require App Secret' in your app's Settings->Advanced page.
 
 ### Obtain An Access Token
 
@@ -50,7 +47,7 @@ to get an access token.
 
 ## Installation
 
-The Facebook Business SDK requires PHP 5.6 or greater.
+The Facebook Business SDK requires PHP 8.0 or greater.
 
 ### Composer
 
@@ -61,7 +58,7 @@ Add the following to your `composer.json` file:
 ```json
 {
     "require": {
-        "facebook/php-business-sdk": "5.0.5"
+        "facebook/php-business-sdk": "16.0.*"
     }
 }
 ```
@@ -147,7 +144,7 @@ $fields = array(
 
 $account = (new AdAccount($account_id))->getSelf($fields);
 ```
-Requesting an high number of fields may cause the response time to visibly increase, you should always request only the fields you really need.
+Requesting a high number of fields may cause the response time to visibly increase, you should always request only the fields you really need.
 
 #### Create Objects
 
@@ -253,7 +250,7 @@ Cursor::setDefaultUseImplicitFetch(true);
 
 #### Reverse Iterations
 
-Cursors are bi-directional, and can be iterated in reverse order:
+Cursors are bidirectional, and can be iterated in reverse order:
 
 ```php
 use FacebookAds\Object\AbstractCrudObject;
@@ -308,7 +305,7 @@ Setup your integration config:
 cp test/config.php.dist test/config.php
 ```
 
-2 - Edit `test/config.php` with your informations.
+2 - Edit `test/config.php` with your information.
 
 Execute:
 
@@ -324,7 +321,7 @@ To run tests individually:
 
 ## Debug
 
-If this SDK is not working as expected, it may be either a SDK issue or API issue.
+If this SDK is not working as expected, it may be either an SDK issue or API issue.
 
 This can be identified by constructing a raw cURL request and seeing if the response is as expected
 
@@ -356,5 +353,5 @@ curl -G \
 Our SDK is autogenerated from [SDK Codegen](https://github.com/facebook/facebook-business-sdk-codegen). If you want to learn more about how our SDK code is generated, please check this repository.
 
 ## Issue
-Since we want to handle bugs more efficiently, we've decided to close issue reporting in Github and move to our dedicated bug reporting channel.
+Since we want to handle bugs more efficiently, we've decided to close issue reporting in GitHub and move to our dedicated bug reporting channel.
 If you encounter a bug with Business SDK (PHP), please report the issue at [our developer bug reporting channel](https://developers.facebook.com/support/bugs/).

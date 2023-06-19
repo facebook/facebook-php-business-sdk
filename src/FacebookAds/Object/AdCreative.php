@@ -35,11 +35,11 @@ use FacebookAds\Object\Values\AdCreativeCallToActionTypeValues;
 use FacebookAds\Object\Values\AdCreativeCategorizationCriteriaValues;
 use FacebookAds\Object\Values\AdCreativeCategoryMediaSourceValues;
 use FacebookAds\Object\Values\AdCreativeDynamicAdVoiceValues;
-use FacebookAds\Object\Values\AdCreativeInstantCheckoutSettingValues;
 use FacebookAds\Object\Values\AdCreativeObjectTypeValues;
 use FacebookAds\Object\Values\AdCreativeOperatorValues;
 use FacebookAds\Object\Values\AdCreativeStatusValues;
 use FacebookAds\Object\Values\AdPreviewAdFormatValues;
+use FacebookAds\Object\Values\AdPreviewCreativeFeatureValues;
 use FacebookAds\Object\Values\AdPreviewRenderTypeValues;
 use FacebookAds\Object\Traits\AdLabelAwareCrudObjectTrait;
 
@@ -80,7 +80,6 @@ class AdCreative extends AbstractCrudObject {
     $ref_enums['CategorizationCriteria'] = AdCreativeCategorizationCriteriaValues::getInstance()->getValues();
     $ref_enums['CategoryMediaSource'] = AdCreativeCategoryMediaSourceValues::getInstance()->getValues();
     $ref_enums['DynamicAdVoice'] = AdCreativeDynamicAdVoiceValues::getInstance()->getValues();
-    $ref_enums['InstantCheckoutSetting'] = AdCreativeInstantCheckoutSettingValues::getInstance()->getValues();
     $ref_enums['Operator'] = AdCreativeOperatorValues::getInstance()->getValues();
     return $ref_enums;
   }
@@ -138,11 +137,12 @@ class AdCreative extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getPreviews(array $fields = array(), array $params = array(), $pending = false) {
+  public function getPreViews(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
       'ad_format' => 'ad_format_enum',
+      'creative_feature' => 'creative_feature_enum',
       'dynamic_asset_label' => 'string',
       'dynamic_creative_spec' => 'Object',
       'dynamic_customization' => 'Object',
@@ -158,6 +158,7 @@ class AdCreative extends AbstractCrudObject {
     );
     $enums = array(
       'ad_format_enum' => AdPreviewAdFormatValues::getInstance()->getValues(),
+      'creative_feature_enum' => AdPreviewCreativeFeatureValues::getInstance()->getValues(),
       'render_type_enum' => AdPreviewRenderTypeValues::getInstance()->getValues(),
     );
 

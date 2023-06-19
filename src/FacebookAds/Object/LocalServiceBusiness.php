@@ -29,7 +29,10 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\LocalServiceBusinessFields;
+use FacebookAds\Object\Values\LocalServiceBusinessAvailabilityValues;
+use FacebookAds\Object\Values\LocalServiceBusinessConditionValues;
 use FacebookAds\Object\Values\LocalServiceBusinessImageFetchStatusValues;
+use FacebookAds\Object\Values\LocalServiceBusinessVisibilityValues;
 
 /**
  * This class is auto-generated.
@@ -51,7 +54,10 @@ class LocalServiceBusiness extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['Availability'] = LocalServiceBusinessAvailabilityValues::getInstance()->getValues();
+    $ref_enums['Condition'] = LocalServiceBusinessConditionValues::getInstance()->getValues();
     $ref_enums['ImageFetchStatus'] = LocalServiceBusinessImageFetchStatusValues::getInstance()->getValues();
+    $ref_enums['Visibility'] = LocalServiceBusinessVisibilityValues::getInstance()->getValues();
     return $ref_enums;
   }
 

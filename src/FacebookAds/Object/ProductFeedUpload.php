@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProductFeedUploadFields;
+use FacebookAds\Object\Values\ProductFeedUploadErrorErrorPriorityValues;
 use FacebookAds\Object\Values\ProductFeedUploadInputMethodValues;
 
 /**
@@ -90,8 +91,10 @@ class ProductFeedUpload extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'error_priority' => 'error_priority_enum',
     );
     $enums = array(
+      'error_priority_enum' => ProductFeedUploadErrorErrorPriorityValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

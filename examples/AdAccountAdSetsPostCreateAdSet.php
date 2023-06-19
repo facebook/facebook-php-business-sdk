@@ -1,6 +1,7 @@
 <?php
 /**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -41,8 +42,8 @@ $fields = array(
 $params = array(
   'name' => 'My First AdSet',
   'lifetime_budget' => '20000',
-  'start_time' => '2021-08-05T11:38:19-0700',
-  'end_time' => '2021-08-12T11:38:19-0700',
+  'start_time' => '2023-04-24T09:24:18-0700',
+  'end_time' => '2023-05-01T09:24:18-0700',
   'campaign_id' => '<adCampaignLinkClicksID>',
   'bid_amount' => '500',
   'billing_event' => 'IMPRESSIONS',

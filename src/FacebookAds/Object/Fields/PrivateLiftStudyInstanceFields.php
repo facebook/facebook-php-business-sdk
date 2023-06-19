@@ -39,19 +39,29 @@ class PrivateLiftStudyInstanceFields extends AbstractEnum {
 
   const BREAKDOWN_KEY = 'breakdown_key';
   const CREATED_TIME = 'created_time';
+  const FEATURE_LIST = 'feature_list';
   const ID = 'id';
+  const ISSUER_CERTIFICATE = 'issuer_certificate';
   const LATEST_STATUS_UPDATE_TIME = 'latest_status_update_time';
+  const RUN_ID = 'run_id';
+  const SERVER_HOSTNAMES = 'server_hostnames';
   const SERVER_IPS = 'server_ips';
   const STATUS = 'status';
+  const TIER = 'tier';
 
   public function getFieldTypes() {
     return array(
       'breakdown_key' => 'string',
       'created_time' => 'datetime',
+      'feature_list' => 'list<string>',
       'id' => 'string',
+      'issuer_certificate' => 'string',
       'latest_status_update_time' => 'datetime',
+      'run_id' => 'string',
+      'server_hostnames' => 'list<string>',
       'server_ips' => 'list<string>',
       'status' => 'string',
+      'tier' => 'string',
     );
   }
 }

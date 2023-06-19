@@ -26,4 +26,17 @@ namespace FacebookAds\Http;
 
 class Headers extends \ArrayObject {
 
+  /**
+   * @return array
+   */
+  public function export() {
+    $data = array();
+    foreach ($this as $key => $value) {
+      $data[$key] = is_null($value) || is_scalar($value)
+        ? $value
+        : $this->exportNonScalar($value);
+    }
+
+    return $data;
+  }
 }

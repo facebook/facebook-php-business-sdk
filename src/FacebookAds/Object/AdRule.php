@@ -31,6 +31,7 @@ use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdRuleFields;
 use FacebookAds\Object\Values\AdRuleHistoryActionValues;
 use FacebookAds\Object\Values\AdRuleStatusValues;
+use FacebookAds\Object\Values\AdRuleUiCreationSourceValues;
 
 /**
  * This class is auto-generated.
@@ -60,6 +61,7 @@ class AdRule extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['Status'] = AdRuleStatusValues::getInstance()->getValues();
+    $ref_enums['UiCreationSource'] = AdRuleUiCreationSourceValues::getInstance()->getValues();
     return $ref_enums;
   }
 

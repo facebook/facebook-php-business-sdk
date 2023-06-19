@@ -37,10 +37,12 @@ use FacebookAds\Enum\AbstractEnum;
 
 class TargetingRelaxationFields extends AbstractEnum {
 
+  const CUSTOM_AUDIENCE = 'custom_audience';
   const LOOKALIKE = 'lookalike';
 
   public function getFieldTypes() {
     return array(
+      'custom_audience' => 'unsigned int',
       'lookalike' => 'unsigned int',
     );
   }

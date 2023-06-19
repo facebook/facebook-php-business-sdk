@@ -38,10 +38,12 @@ use FacebookAds\Enum\AbstractEnum;
 class UnifiedThreadFields extends AbstractEnum {
 
   const CAN_REPLY = 'can_reply';
+  const FOLDER = 'folder';
   const FORMER_PARTICIPANTS = 'former_participants';
   const ID = 'id';
   const IS_SUBSCRIBED = 'is_subscribed';
   const LINK = 'link';
+  const LINKED_GROUP = 'linked_group';
   const MESSAGE_COUNT = 'message_count';
   const NAME = 'name';
   const PARTICIPANTS = 'participants';
@@ -56,10 +58,12 @@ class UnifiedThreadFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'can_reply' => 'bool',
+      'folder' => 'string',
       'former_participants' => 'Object',
       'id' => 'string',
       'is_subscribed' => 'bool',
       'link' => 'string',
+      'linked_group' => 'Group',
       'message_count' => 'int',
       'name' => 'string',
       'participants' => 'Object',

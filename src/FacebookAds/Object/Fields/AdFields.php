@@ -60,6 +60,7 @@ class AdFields extends AbstractEnum {
   const ID = 'id';
   const ISSUES_INFO = 'issues_info';
   const LAST_UPDATED_BY_APP_ID = 'last_updated_by_app_id';
+  const META_REWARD_ADGROUP_STATUS = 'meta_reward_adgroup_status';
   const NAME = 'name';
   const PREVIEW_SHAREABLE_LINK = 'preview_shareable_link';
   const PRIORITY = 'priority';
@@ -104,6 +105,7 @@ class AdFields extends AbstractEnum {
       'id' => 'string',
       'issues_info' => 'list<AdgroupIssuesInfo>',
       'last_updated_by_app_id' => 'string',
+      'meta_reward_adgroup_status' => 'string',
       'name' => 'string',
       'preview_shareable_link' => 'string',
       'priority' => 'unsigned int',

@@ -37,11 +37,13 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdNetworkAnalyticsSyncQueryResultFields extends AbstractEnum {
 
+  const OMITTED_RESULTS = 'omitted_results';
   const QUERY_ID = 'query_id';
   const RESULTS = 'results';
 
   public function getFieldTypes() {
     return array(
+      'omitted_results' => 'list<Object>',
       'query_id' => 'string',
       'results' => 'list<Object>',
     );

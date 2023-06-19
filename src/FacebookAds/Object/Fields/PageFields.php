@@ -97,7 +97,6 @@ class PageFields extends AbstractEnum {
   const IMPRESSUM = 'impressum';
   const INFLUENCES = 'influences';
   const INSTAGRAM_BUSINESS_ACCOUNT = 'instagram_business_account';
-  const INSTANT_ARTICLES_REVIEW_STATUS = 'instant_articles_review_status';
   const IS_ALWAYS_OPEN = 'is_always_open';
   const IS_CHAIN = 'is_chain';
   const IS_COMMUNITY_PAGE = 'is_community_page';
@@ -119,10 +118,12 @@ class PageFields extends AbstractEnum {
   const MEMBERS = 'members';
   const MERCHANT_ID = 'merchant_id';
   const MERCHANT_REVIEW_STATUS = 'merchant_review_status';
+  const MESSAGING_FEATURE_STATUS = 'messaging_feature_status';
   const MESSENGER_ADS_DEFAULT_ICEBREAKERS = 'messenger_ads_default_icebreakers';
   const MESSENGER_ADS_DEFAULT_PAGE_WELCOME_MESSAGE = 'messenger_ads_default_page_welcome_message';
   const MESSENGER_ADS_DEFAULT_QUICK_REPLIES = 'messenger_ads_default_quick_replies';
   const MESSENGER_ADS_QUICK_REPLIES_TYPE = 'messenger_ads_quick_replies_type';
+  const MINI_SHOP_STOREFRONT = 'mini_shop_storefront';
   const MISSION = 'mission';
   const MPG = 'mpg';
   const NAME = 'name';
@@ -131,6 +132,7 @@ class PageFields extends AbstractEnum {
   const NEW_LIKE_COUNT = 'new_like_count';
   const OFFER_ELIGIBLE = 'offer_eligible';
   const OVERALL_STAR_RATING = 'overall_star_rating';
+  const OWNER_BUSINESS = 'owner_business';
   const PAGE_TOKEN = 'page_token';
   const PARENT_PAGE = 'parent_page';
   const PARKING = 'parking';
@@ -168,7 +170,6 @@ class PageFields extends AbstractEnum {
   const STORE_NUMBER = 'store_number';
   const STUDIO = 'studio';
   const SUPPORTS_DONATE_BUTTON_IN_LIVE_VIDEO = 'supports_donate_button_in_live_video';
-  const SUPPORTS_INSTANT_ARTICLES = 'supports_instant_articles';
   const TALKING_ABOUT_COUNT = 'talking_about_count';
   const TEMPORARY_STATUS = 'temporary_status';
   const UNREAD_MESSAGE_COUNT = 'unread_message_count';
@@ -217,7 +218,7 @@ class PageFields extends AbstractEnum {
       'delivery_and_pickup_option_info' => 'list<string>',
       'description' => 'string',
       'description_html' => 'string',
-      'differently_open_offerings' => 'map<string, bool>',
+      'differently_open_offerings' => 'list<map<string, bool>>',
       'directed_by' => 'string',
       'display_subtext' => 'string',
       'displayed_message_response_time' => 'string',
@@ -244,7 +245,6 @@ class PageFields extends AbstractEnum {
       'impressum' => 'string',
       'influences' => 'string',
       'instagram_business_account' => 'IGUser',
-      'instant_articles_review_status' => 'string',
       'is_always_open' => 'bool',
       'is_chain' => 'bool',
       'is_community_page' => 'bool',
@@ -266,10 +266,12 @@ class PageFields extends AbstractEnum {
       'members' => 'string',
       'merchant_id' => 'string',
       'merchant_review_status' => 'string',
+      'messaging_feature_status' => 'MessagingFeatureStatus',
       'messenger_ads_default_icebreakers' => 'list<string>',
       'messenger_ads_default_page_welcome_message' => 'MessengerDestinationPageWelcomeMessage',
       'messenger_ads_default_quick_replies' => 'list<string>',
       'messenger_ads_quick_replies_type' => 'string',
+      'mini_shop_storefront' => 'Shop',
       'mission' => 'string',
       'mpg' => 'string',
       'name' => 'string',
@@ -278,6 +280,7 @@ class PageFields extends AbstractEnum {
       'new_like_count' => 'unsigned int',
       'offer_eligible' => 'bool',
       'overall_star_rating' => 'float',
+      'owner_business' => 'Business',
       'page_token' => 'string',
       'parent_page' => 'Page',
       'parking' => 'PageParking',
@@ -315,7 +318,6 @@ class PageFields extends AbstractEnum {
       'store_number' => 'unsigned int',
       'studio' => 'string',
       'supports_donate_button_in_live_video' => 'bool',
-      'supports_instant_articles' => 'bool',
       'talking_about_count' => 'unsigned int',
       'temporary_status' => 'string',
       'unread_message_count' => 'unsigned int',

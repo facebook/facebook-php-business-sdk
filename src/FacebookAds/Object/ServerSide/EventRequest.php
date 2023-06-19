@@ -95,6 +95,8 @@ class EventRequest implements ArrayAccess {
 
   protected $http_client = null;
 
+  protected $endpoint_request  = null;
+
   /**
    * Constructor
    * @param string $pixel_id pixel id
@@ -211,28 +213,68 @@ class EventRequest implements ArrayAccess {
    */
   public function setHttpClient($http_client) {
     $this->http_client = $http_client;
-
     return $this;
   }
 
+    /**
+     * Sets a custom Endpoint Request that is used to send the event request
+     * in addition to CAPI Request.
+     * @param CustomEndpointRequest $custom_endpoint An object that implements the CustomEndpointRequest
+     * @return $this
+     */
+    public function setCustomEndpoint(CustomEndpointRequest $custom_endpoint) {
+        $this->endpoint_request = $custom_endpoint;
+        return $this;
+    }
+
   /**
    * Execute the request
-   * @return EventResponse
    */
-  public function execute() {
-    $http_client = null;
+  public function execute()
+  {
+      if ($this->endpoint_request != null && $this->endpoint_request->isSendToEndpointOnly()) {
+        // do not send to CAPI Endpoint. If no exception was thrown, we can assume all events were sent successfully
+        $customEndpointResponses = $this->sendEventsToCustomEndpoint();
+        return new EventResponse(array(
+            'data' => array('events_received' => count($this->container['events']), 'custom_endpoint_responses'=>$customEndpointResponses)
+        ));
 
-    if ($this->http_client != null) {
-      $http_client = $this->http_client;
-    } else {
-      $http_client = HttpServiceClientConfig::getInstance()->getClient();
+    } else if ($this->endpoint_request != null) {
+        $capiResponse = $this->sendToCAPIEndpoint();
+        $capiResponse->setCustomEndpointResponses(array($this->endpoint_request->getEndpoint() => $this->sendEventsToCustomEndpoint()));
+        return $capiResponse;
     }
+    return $this->sendToCAPIEndpoint();
+  }
 
-    if ($http_client != null) {
-      return $this->httpClientExecute($http_client);
-    }
+    /**
+     * Synchronously send events to Custom Endpoint.
+     *
+     * @return array
+     */
+  private function sendEventsToCustomEndpoint(): array
+  {
+      $customEndpointResponse = $this->endpoint_request->sendEvent($this->container['pixel_id'], $this->container['events']);
+      return array($this->endpoint_request->getEndpoint() => $customEndpointResponse);
+  }
 
-    return $this->defaultExecute();
+    /**
+     * Synchronously send events to Facebook Conversions API.
+     *
+     * @return EventResponse response
+     */
+  private function sendToCAPIEndpoint(): EventResponse
+  {
+      if ($this->http_client != null) {
+          $http_client = $this->http_client;
+      } else {
+          $http_client = HttpServiceClientConfig::getInstance()->getClient();
+      }
+
+      if ($http_client != null) {
+          return $this->httpClientExecute($http_client);
+      }
+      return $this->defaultExecute();
   }
 
   private function defaultExecute() {
@@ -243,8 +285,7 @@ class EventRequest implements ArrayAccess {
       $fields,
       $normalized_param
     );
-    $event_response = new EventResponse($response->exportAllData());
-    return $event_response;
+    return new EventResponse($response->exportAllData());
   }
 
   private function httpClientExecute($http_client) {
@@ -409,7 +450,7 @@ class EventRequest implements ArrayAccess {
    * @param integer $offset Offset
    * @return boolean
    */
-  public function offsetExists($offset) {
+  public function offsetExists($offset) : bool {
     return isset($this->container[$offset]);
   }
 
@@ -418,7 +459,7 @@ class EventRequest implements ArrayAccess {
    * @param integer $offset Offset
    * @return mixed
    */
-  public function offsetGet($offset) {
+  public function offsetGet($offset) : mixed {
     return isset($this->container[$offset]) ? $this->container[$offset] : null;
   }
 
@@ -428,7 +469,7 @@ class EventRequest implements ArrayAccess {
    * @param mixed $value Value to be set
    * @return void
    */
-  public function offsetSet($offset, $value) {
+  public function offsetSet($offset, $value) : void {
     if (is_null($offset)) {
       $this->container[] = $value;
     } else {
@@ -441,7 +482,7 @@ class EventRequest implements ArrayAccess {
    * @param integer $offset Offset
    * @return void
    */
-  public function offsetUnset($offset) {
+  public function offsetUnset($offset) : void {
     unset($this->container[$offset]);
   }
 

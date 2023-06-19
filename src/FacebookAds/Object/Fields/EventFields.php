@@ -62,8 +62,10 @@ class EventFields extends AbstractEnum {
   const OWNER = 'owner';
   const PARENT_GROUP = 'parent_group';
   const PLACE = 'place';
+  const REGISTRATION_SETTING = 'registration_setting';
   const SCHEDULED_PUBLISH_TIME = 'scheduled_publish_time';
   const START_TIME = 'start_time';
+  const TICKET_SETTING = 'ticket_setting';
   const TICKET_URI = 'ticket_uri';
   const TICKET_URI_START_SALES_TIME = 'ticket_uri_start_sales_time';
   const TICKETING_PRIVACY_URI = 'ticketing_privacy_uri';
@@ -99,8 +101,10 @@ class EventFields extends AbstractEnum {
       'owner' => 'Object',
       'parent_group' => 'Group',
       'place' => 'Place',
+      'registration_setting' => 'Object',
       'scheduled_publish_time' => 'string',
       'start_time' => 'string',
+      'ticket_setting' => 'Object',
       'ticket_uri' => 'string',
       'ticket_uri_start_sales_time' => 'string',
       'ticketing_privacy_uri' => 'string',

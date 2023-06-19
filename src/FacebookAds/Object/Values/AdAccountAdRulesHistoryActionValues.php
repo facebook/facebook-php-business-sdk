@@ -41,6 +41,7 @@ class AdAccountAdRulesHistoryActionValues extends AbstractEnum {
   const CHANGED_BID = 'CHANGED_BID';
   const CHANGED_BUDGET = 'CHANGED_BUDGET';
   const EMAIL = 'EMAIL';
+  const ENABLE_AUTOFLOW = 'ENABLE_AUTOFLOW';
   const ENDPOINT_PINGED = 'ENDPOINT_PINGED';
   const ERROR = 'ERROR';
   const FACEBOOK_NOTIFICATION_SENT = 'FACEBOOK_NOTIFICATION_SENT';

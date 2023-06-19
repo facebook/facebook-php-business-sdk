@@ -42,4 +42,6 @@ class BusinessAssetSharingAgreementRequestStatusValues extends AbstractEnum {
   const EXPIRED = 'EXPIRED';
   const IN_PROGRESS = 'IN_PROGRESS';
   const PENDING = 'PENDING';
+  const PENDING_EMAIL_VERIFICATION = 'PENDING_EMAIL_VERIFICATION';
+  const PENDING_INTEGRITY_REVIEW = 'PENDING_INTEGRITY_REVIEW';
 }

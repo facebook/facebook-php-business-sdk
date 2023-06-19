@@ -30,6 +30,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\FlightFields;
 use FacebookAds\Object\Values\FlightImageFetchStatusValues;
+use FacebookAds\Object\Values\FlightVisibilityValues;
 
 /**
  * This class is auto-generated.
@@ -52,6 +53,7 @@ class Flight extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['ImageFetchStatus'] = FlightImageFetchStatusValues::getInstance()->getValues();
+    $ref_enums['Visibility'] = FlightVisibilityValues::getInstance()->getValues();
     return $ref_enums;
   }
 

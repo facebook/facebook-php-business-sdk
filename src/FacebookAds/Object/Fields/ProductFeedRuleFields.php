@@ -46,7 +46,7 @@ class ProductFeedRuleFields extends AbstractEnum {
     return array(
       'attribute' => 'string',
       'id' => 'string',
-      'params' => 'map<string, string>',
+      'params' => 'list<map<string, string>>',
       'rule_type' => 'string',
     );
   }

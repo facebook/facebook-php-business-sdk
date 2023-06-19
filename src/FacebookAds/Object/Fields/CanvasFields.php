@@ -44,6 +44,7 @@ class CanvasFields extends AbstractEnum {
   const COLLECTION_HERO_IMAGE = 'collection_hero_image';
   const COLLECTION_HERO_VIDEO = 'collection_hero_video';
   const COLLECTION_THUMBNAILS = 'collection_thumbnails';
+  const DYNAMIC_SETTING = 'dynamic_setting';
   const ELEMENT_PAYLOAD = 'element_payload';
   const ELEMENTS = 'elements';
   const FB_BODY_ELEMENTS = 'fb_body_elements';
@@ -73,6 +74,7 @@ class CanvasFields extends AbstractEnum {
       'collection_hero_image' => 'Photo',
       'collection_hero_video' => 'AdVideo',
       'collection_thumbnails' => 'list<CanvasCollectionThumbnail>',
+      'dynamic_setting' => 'CanvasDynamicSetting',
       'element_payload' => 'string',
       'elements' => 'list<RichMediaElement>',
       'fb_body_elements' => 'list<Object>',
@@ -84,7 +86,7 @@ class CanvasFields extends AbstractEnum {
       'name' => 'string',
       'owner' => 'Page',
       'property_list' => 'list<string>',
-      'source_template' => 'CanvasTemplate',
+      'source_template' => 'Object',
       'store_url' => 'string',
       'style_list' => 'list<string>',
       'tags' => 'list<string>',

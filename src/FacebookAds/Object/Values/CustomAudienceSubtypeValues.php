@@ -39,6 +39,7 @@ class CustomAudienceSubtypeValues extends AbstractEnum {
 
   const APP = 'APP';
   const BAG_OF_ACCOUNTS = 'BAG_OF_ACCOUNTS';
+  const BIDDING = 'BIDDING';
   const CLAIM = 'CLAIM';
   const CUSTOM = 'CUSTOM';
   const ENGAGEMENT = 'ENGAGEMENT';
@@ -48,6 +49,7 @@ class CustomAudienceSubtypeValues extends AbstractEnum {
   const MEASUREMENT = 'MEASUREMENT';
   const OFFLINE_CONVERSION = 'OFFLINE_CONVERSION';
   const PARTNER = 'PARTNER';
+  const PRIMARY = 'PRIMARY';
   const REGULATED_CATEGORIES_AUDIENCE = 'REGULATED_CATEGORIES_AUDIENCE';
   const STUDY_RULE_AUDIENCE = 'STUDY_RULE_AUDIENCE';
   const VIDEO = 'VIDEO';

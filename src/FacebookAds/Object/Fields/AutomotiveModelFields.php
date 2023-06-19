@@ -65,6 +65,7 @@ class AutomotiveModelFields extends AbstractEnum {
   const TRIM = 'trim';
   const UNIT_PRICE = 'unit_price';
   const URL = 'url';
+  const VISIBILITY = 'visibility';
   const YEAR = 'year';
 
   public function getFieldTypes() {
@@ -97,7 +98,8 @@ class AutomotiveModelFields extends AbstractEnum {
       'trim' => 'string',
       'unit_price' => 'Object',
       'url' => 'string',
-      'year' => 'unsigned int',
+      'visibility' => 'Visibility',
+      'year' => 'int',
     );
   }
 }

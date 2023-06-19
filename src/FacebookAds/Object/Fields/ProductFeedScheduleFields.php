@@ -51,7 +51,7 @@ class ProductFeedScheduleFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'day_of_month' => 'unsigned int',
-      'day_of_week' => 'DayOfWeek',
+      'day_of_week' => 'string',
       'hour' => 'unsigned int',
       'id' => 'string',
       'interval' => 'Interval',

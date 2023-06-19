@@ -42,4 +42,5 @@ class AdAccountTargetingUnifiedRegulatedCategoriesValues extends AbstractEnum {
   const HOUSING = 'HOUSING';
   const ISSUES_ELECTIONS_POLITICS = 'ISSUES_ELECTIONS_POLITICS';
   const NONE = 'NONE';
+  const ONLINE_GAMBLING_AND_GAMING = 'ONLINE_GAMBLING_AND_GAMING';
 }

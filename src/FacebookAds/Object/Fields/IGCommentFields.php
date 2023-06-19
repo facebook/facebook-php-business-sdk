@@ -37,10 +37,12 @@ use FacebookAds\Enum\AbstractEnum;
 
 class IGCommentFields extends AbstractEnum {
 
+  const FROM = 'from';
   const HIDDEN = 'hidden';
   const ID = 'id';
   const LIKE_COUNT = 'like_count';
   const MEDIA = 'media';
+  const PARENT_ID = 'parent_id';
   const TEXT = 'text';
   const TIMESTAMP = 'timestamp';
   const USER = 'user';
@@ -48,10 +50,12 @@ class IGCommentFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'from' => 'Object',
       'hidden' => 'bool',
       'id' => 'string',
       'like_count' => 'int',
       'media' => 'IGMedia',
+      'parent_id' => 'string',
       'text' => 'string',
       'timestamp' => 'datetime',
       'user' => 'IGUser',

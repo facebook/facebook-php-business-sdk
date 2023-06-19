@@ -42,7 +42,7 @@ class AdCampaignDeliveryStatsUnsupportedReasonsFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'reason_data' => 'map<string, string>',
+      'reason_data' => 'list<map<string, string>>',
       'reason_type' => 'string',
     );
   }

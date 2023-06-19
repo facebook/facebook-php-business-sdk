@@ -39,7 +39,8 @@ class AdAccountDeliveryEstimateFields extends AbstractEnum {
 
   const DAILY_OUTCOMES_CURVE = 'daily_outcomes_curve';
   const ESTIMATE_DAU = 'estimate_dau';
-  const ESTIMATE_MAU = 'estimate_mau';
+  const ESTIMATE_MAU_LOWER_BOUND = 'estimate_mau_lower_bound';
+  const ESTIMATE_MAU_UPPER_BOUND = 'estimate_mau_upper_bound';
   const ESTIMATE_READY = 'estimate_ready';
   const TARGETING_OPTIMIZATION_TYPES = 'targeting_optimization_types';
 
@@ -47,9 +48,10 @@ class AdAccountDeliveryEstimateFields extends AbstractEnum {
     return array(
       'daily_outcomes_curve' => 'list<OutcomePredictionPoint>',
       'estimate_dau' => 'int',
-      'estimate_mau' => 'int',
+      'estimate_mau_lower_bound' => 'int',
+      'estimate_mau_upper_bound' => 'int',
       'estimate_ready' => 'bool',
-      'targeting_optimization_types' => 'map<string, int>',
+      'targeting_optimization_types' => 'list<map<string, int>>',
     );
   }
 }

@@ -73,6 +73,7 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const FUNDING_EVENT_INITIATED = 'funding_event_initiated';
   const FUNDING_EVENT_SUCCESSFUL = 'funding_event_successful';
   const LIFETIME_BUDGET_SPENT = 'lifetime_budget_spent';
+  const MERGE_CAMPAIGNS = 'merge_campaigns';
   const RECEIVE_AUDIENCE = 'receive_audience';
   const REMOVE_FUNDING_SOURCE = 'remove_funding_source';
   const REMOVE_SHARED_AUDIENCE = 'remove_shared_audience';

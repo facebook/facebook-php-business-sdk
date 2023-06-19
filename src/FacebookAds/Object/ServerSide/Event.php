@@ -49,6 +49,8 @@ class Event implements ArrayAccess {
     'data_processing_options_country' => 'int',
     'data_processing_options_state' => 'int',
     'action_source' => 'string',
+    'app_data' => 'FacebookAds\Object\ServerSide\AppData',
+    'advanced_measurement_table' => 'string',
   );
   /**
    * Array of attributes where the key is the local name, and the value is the original name
@@ -66,6 +68,8 @@ class Event implements ArrayAccess {
     'data_processing_options_country' => 'data_processing_options_country',
     'data_processing_options_state' => 'data_processing_options_state',
     'action_source' => 'action_source',
+    'app_data' => 'app_data',
+    'advanced_measurement_table' => 'advanced_measurement_table',
   );
 
   /**
@@ -84,6 +88,8 @@ class Event implements ArrayAccess {
     'data_processing_options_country' => 'setDataProcessingOptionsCountry',
     'data_processing_options_state' => 'setDataProcessingOptionsState',
     'action_source' => 'setActionSource',
+    'app_data' => 'setAppData',
+    'advanced_measurement_table' => 'setAdvancedMeasurementTable',
   );
   /**
    * Array of attributes to getter functions (for serialization of requests)
@@ -101,6 +107,8 @@ class Event implements ArrayAccess {
     'data_processing_options_country' => 'getDataProcessingOptionsCountry',
     'data_processing_options_state' => 'getDataProcessingOptionsState',
     'action_source' => 'getActionSource',
+    'app_data' => 'getAppData',
+    'advanced_measurement_table' => 'getAdvancedMeasurementTable',
   );
   /**
    * Associative array for storing property values
@@ -110,7 +118,7 @@ class Event implements ArrayAccess {
 
   /**
    * Constructor
-   * @param mixed[] $data Associated array of property value initalizing the model
+   * @param mixed[] $data Associated array of property value initializing the model
    */
   public function __construct(array $data = null) {
     $this->container['event_name'] = isset($data['event_name']) ? $data['event_name'] : null;
@@ -124,6 +132,8 @@ class Event implements ArrayAccess {
     $this->container['data_processing_options_country'] = isset($data['data_processing_options_country']) ? $data['data_processing_options_country'] : null;
     $this->container['data_processing_options_state'] = isset($data['data_processing_options_state']) ? $data['data_processing_options_state'] : null;
     $this->container['action_source'] = isset($data['action_source']) ? $data['action_source'] : null;
+    $this->container['app_data'] = isset($data['app_data']) ? $data['app_data'] : null;
+    $this->container['advanced_measurement_table'] = isset($data['advanced_measurement_table']) ? $data['advanced_measurement_table'] : null;
   }
 
   public static function paramTypes() {
@@ -318,11 +328,21 @@ class Event implements ArrayAccess {
   }
 
   /**
+   * Set AppData which contains app data and device information for events happening from an app
+   * @param AppData
+   * @return $this
+   */
+  public function setAppData($app_data) {
+    $this->container['app_data'] = $app_data;
+    return $this;
+  }
+
+  /**
    * Returns true if offset exists. False otherwise.
    * @param integer $offset Offset
    * @return boolean
    */
-  public function offsetExists($offset) {
+  public function offsetExists($offset) : bool {
     return isset($this->container[$offset]);
   }
 
@@ -331,7 +351,7 @@ class Event implements ArrayAccess {
    * @param integer $offset Offset
    * @return mixed
    */
-  public function offsetGet($offset) {
+  public function offsetGet($offset) : mixed {
     return isset($this->container[$offset]) ? $this->container[$offset] : null;
   }
 
@@ -341,7 +361,7 @@ class Event implements ArrayAccess {
    * @param mixed $value Value to be set
    * @return void
    */
-  public function offsetSet($offset, $value) {
+  public function offsetSet($offset, $value) : void {
     if (is_null($offset)) {
       $this->container[] = $value;
     } else {
@@ -354,7 +374,7 @@ class Event implements ArrayAccess {
    * @param integer $offset Offset
    * @return void
    */
-  public function offsetUnset($offset) {
+  public function offsetUnset($offset) : void {
     unset($this->container[$offset]);
   }
 
@@ -381,12 +401,13 @@ class Event implements ArrayAccess {
       'action_source',
       $this->container['action_source']
     );
-    $normalized_payload = array_filter($normalized_payload, function($val) { if(is_array($val)) { return true; } else { return strlen($val); }});
+    $normalized_payload['advanced_measurement_table'] = $this->getAdvancedMeasurementTable();
+    $normalized_payload = array_filter($normalized_payload, function($val) { if(is_array($val)) { return true; } else { return strlen((string) $val); }});
     // Add the opt_out value back in if it was filtered out
     if ($this->getOptOut() === false) {
       $normalized_payload['opt_out'] = $this->getOptOut();
     }
-
+    $normalized_payload['app_data'] = isset($this->container['app_data']) ? $this->getAppData()->normalize() : null;
     return $normalized_payload;
   }
 
@@ -470,6 +491,31 @@ class Event implements ArrayAccess {
    */
   public function getDataProcessingOptionsCountry() {
     return $this->container['data_processing_options_country'];
+  }
+
+  /**
+   * Get AppData which contains app data and device information for events happening from an app
+   * @return AppData
+   */
+  public function getAppData() {
+    return $this->container['app_data'];
+  }
+
+  /**
+   * Sets advanced_measurement_table, Only used for the Advanced Measurement API in the Advanced Analytics product.
+   * @return $this
+   */
+  public function setAdvancedMeasurementTable($advanced_measurement_table) {
+    $this->container['advanced_measurement_table'] = $advanced_measurement_table;
+    return $this;
+  }
+
+  /**
+   * Gets advanced_measurement_table, Only used for the Advanced Measurement API in the Advanced Analytics product.
+   * @return string
+   */
+  public function getAdvancedMeasurementTable() {
+    return $this->container['advanced_measurement_table'];
   }
 
   /**

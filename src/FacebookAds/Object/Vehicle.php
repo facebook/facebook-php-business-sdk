@@ -38,6 +38,7 @@ use FacebookAds\Object\Values\VehicleImageFetchStatusValues;
 use FacebookAds\Object\Values\VehicleStateOfVehicleValues;
 use FacebookAds\Object\Values\VehicleTransmissionValues;
 use FacebookAds\Object\Values\VehicleVehicleTypeValues;
+use FacebookAds\Object\Values\VehicleVisibilityValues;
 
 /**
  * This class is auto-generated.
@@ -67,6 +68,7 @@ class Vehicle extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['ImageFetchStatus'] = VehicleImageFetchStatusValues::getInstance()->getValues();
+    $ref_enums['Visibility'] = VehicleVisibilityValues::getInstance()->getValues();
     $ref_enums['Availability'] = VehicleAvailabilityValues::getInstance()->getValues();
     $ref_enums['BodyStyle'] = VehicleBodyStyleValues::getInstance()->getValues();
     $ref_enums['Condition'] = VehicleConditionValues::getInstance()->getValues();

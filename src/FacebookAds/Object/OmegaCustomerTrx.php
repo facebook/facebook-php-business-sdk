@@ -69,9 +69,9 @@ class OmegaCustomerTrx extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/campaigns',
-      new InvoiceCampaign(),
+      new AbstractCrudObject(),
       'EDGE',
-      InvoiceCampaign::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

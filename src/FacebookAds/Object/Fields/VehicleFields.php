@@ -83,6 +83,7 @@ class VehicleFields extends AbstractEnum {
   const VEHICLE_SPECIFICATIONS = 'vehicle_specifications';
   const VEHICLE_TYPE = 'vehicle_type';
   const VIN = 'vin';
+  const VISIBILITY = 'visibility';
   const YEAR = 'year';
 
   public function getFieldTypes() {
@@ -133,6 +134,7 @@ class VehicleFields extends AbstractEnum {
       'vehicle_specifications' => 'list<Object>',
       'vehicle_type' => 'string',
       'vin' => 'string',
+      'visibility' => 'Visibility',
       'year' => 'unsigned int',
     );
   }

@@ -50,6 +50,7 @@ class PaymentEnginePaymentFields extends AbstractEnum {
   const ITEMS = 'items';
   const PAYOUT_FOREIGN_EXCHANGE_RATE = 'payout_foreign_exchange_rate';
   const PHONE_SUPPORT_ELIGIBLE = 'phone_support_eligible';
+  const PLATFORM = 'platform';
   const REFUNDABLE_AMOUNT = 'refundable_amount';
   const REQUEST_ID = 'request_id';
   const TAX = 'tax';
@@ -72,6 +73,7 @@ class PaymentEnginePaymentFields extends AbstractEnum {
       'items' => 'list<Object>',
       'payout_foreign_exchange_rate' => 'float',
       'phone_support_eligible' => 'bool',
+      'platform' => 'string',
       'refundable_amount' => 'CurrencyAmount',
       'request_id' => 'string',
       'tax' => 'string',

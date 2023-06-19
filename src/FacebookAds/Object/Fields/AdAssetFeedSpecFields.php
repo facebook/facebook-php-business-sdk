@@ -39,6 +39,7 @@ class AdAssetFeedSpecFields extends AbstractEnum {
 
   const AD_FORMATS = 'ad_formats';
   const ADDITIONAL_DATA = 'additional_data';
+  const APP_PRODUCT_PAGE_ID = 'app_product_page_id';
   const ASSET_CUSTOMIZATION_RULES = 'asset_customization_rules';
   const AUTOTRANSLATE = 'autotranslate';
   const BODIES = 'bodies';
@@ -51,11 +52,7 @@ class AdAssetFeedSpecFields extends AbstractEnum {
   const GROUPS = 'groups';
   const IMAGES = 'images';
   const LINK_URLS = 'link_urls';
-  const OFFER_IDS = 'offer_ids';
-  const ONSITE_DESTINATIONS = 'onsite_destinations';
   const OPTIMIZATION_TYPE = 'optimization_type';
-  const PHONE_DATA_IDS = 'phone_data_ids';
-  const POSTS = 'posts';
   const TITLES = 'titles';
   const VIDEOS = 'videos';
 
@@ -63,6 +60,7 @@ class AdAssetFeedSpecFields extends AbstractEnum {
     return array(
       'ad_formats' => 'list<string>',
       'additional_data' => 'Object',
+      'app_product_page_id' => 'string',
       'asset_customization_rules' => 'list<Object>',
       'autotranslate' => 'list<string>',
       'bodies' => 'list<AdAssetFeedSpecBody>',
@@ -75,11 +73,7 @@ class AdAssetFeedSpecFields extends AbstractEnum {
       'groups' => 'list<AdAssetFeedSpecGroupRule>',
       'images' => 'list<AdAssetFeedSpecImage>',
       'link_urls' => 'list<AdAssetFeedSpecLinkURL>',
-      'offer_ids' => 'list<Object>',
-      'onsite_destinations' => 'list<Object>',
       'optimization_type' => 'string',
-      'phone_data_ids' => 'list<Object>',
-      'posts' => 'list<Object>',
       'titles' => 'list<AdAssetFeedSpecTitle>',
       'videos' => 'list<AdAssetFeedSpecVideo>',
     );

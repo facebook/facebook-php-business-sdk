@@ -117,6 +117,7 @@ class TargetingFields extends AbstractEnum {
   const RELATIONSHIP_STATUSES = 'relationship_statuses';
   const SITE_CATEGORY = 'site_category';
   const TARGETING_OPTIMIZATION = 'targeting_optimization';
+  const TARGETING_RELAXATION_TYPES = 'targeting_relaxation_types';
   const USER_ADCLUSTERS = 'user_adclusters';
   const USER_DEVICE = 'user_device';
   const USER_EVENT = 'user_event';
@@ -208,6 +209,7 @@ class TargetingFields extends AbstractEnum {
       'relationship_statuses' => 'list<unsigned int>',
       'site_category' => 'list<string>',
       'targeting_optimization' => 'string',
+      'targeting_relaxation_types' => 'TargetingRelaxation',
       'user_adclusters' => 'list<IDName>',
       'user_device' => 'list<string>',
       'user_event' => 'list<unsigned int>',

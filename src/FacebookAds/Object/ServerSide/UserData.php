@@ -84,7 +84,9 @@ class UserData implements ArrayAccess {
     'fi' => 'string',
     'dobd' => 'string',
     'dobm' => 'string',
-    'doby' => 'string'
+    'doby' => 'string',
+    'madid' => 'string',
+    'anon_id' => 'string'
   );
   /**
    * Array of attributes where the key is the local name, and the value is the original name
@@ -125,7 +127,9 @@ class UserData implements ArrayAccess {
     'fi' => 'fi',
     'dobd' => 'dobd',
     'dobm' => 'dobm',
-    'doby' => 'doby'
+    'doby' => 'doby',
+    'madid' => 'madid',
+    'anon_id' => 'anon_id'
   );
   /**
    * Array of attributes to setter functions (for deserialization of responses)
@@ -166,7 +170,9 @@ class UserData implements ArrayAccess {
     'fi' => 'setFi',
     'dobd' => 'setDobd',
     'dobm' => 'setDobm',
-    'doby' => 'setDoby'
+    'doby' => 'setDoby',
+    'madid' => 'setMadid',
+    'anon_id' => 'setAnonId'
   );
   /**
    * Array of attributes to getter functions (for serialization of requests)
@@ -207,7 +213,9 @@ class UserData implements ArrayAccess {
     'fi' => 'getFi',
     'dobd' => 'getDobd',
     'dobm' => 'getDobm',
-    'doby' => 'getDoby'
+    'doby' => 'getDoby',
+    'madid' => 'getMadid',
+    'anon_id' => 'getAnonId'
   );
   /**
    * Associative array for storing property values
@@ -326,6 +334,10 @@ class UserData implements ArrayAccess {
     $this->container['dobd'] = isset($data['dobd']) ? $data['dobd'] : null;
     $this->container['dobm'] = isset($data['dobm']) ? $data['dobm'] : null;
     $this->container['doby'] = isset($data['doby']) ? $data['doby'] : null;
+    $this->container['madid'] = isset($data['madid']) ? $data['madid'] : null;
+    $this->container['anon_id'] = isset($data['anon_id']) ? $data['anon_id'] : null;
+
+
   }
 
   /**
@@ -817,11 +829,36 @@ class UserData implements ArrayAccess {
   }
 
   /**
+   * Set the mobile advertiser id which is either Apple's Advertising Identifier (IDFA) or
+   * Google Android's advertising ID
+   *
+   * @param madid is the mobile advertiser id
+   * @return $this
+   */
+  public function setMadid($madid) {
+    $this->container['madid'] = $madid;
+
+    return $this;
+  }
+
+  /**
+   * Set the ID of a person who has installed the app anonymously
+   *
+   * @param anon_id the anonymous id
+   * @return $this
+   */
+  public function setAnonId($anon_id) {
+    $this->container['anon_id'] = $anon_id;
+
+    return $this;
+  }
+
+  /**
    * Returns true if offset exists. False otherwise.
    * @param integer $offset Offset
    * @return boolean
    */
-  public function offsetExists($offset) {
+  public function offsetExists($offset) : bool {
     return isset($this->container[$offset]);
   }
 
@@ -830,7 +867,7 @@ class UserData implements ArrayAccess {
    * @param integer $offset Offset
    * @return mixed
    */
-  public function offsetGet($offset) {
+  public function offsetGet($offset) : mixed {
     return isset($this->container[$offset]) ? $this->container[$offset] : null;
   }
 
@@ -840,7 +877,7 @@ class UserData implements ArrayAccess {
    * @param mixed $value Value to be set
    * @return void
    */
-  public function offsetSet($offset, $value) {
+  public function offsetSet($offset, $value) : void {
     if (is_null($offset)) {
       $this->container[] = $value;
     } else {
@@ -853,7 +890,7 @@ class UserData implements ArrayAccess {
    * @param integer $offset Offset
    * @return void
    */
-  public function offsetUnset($offset) {
+  public function offsetUnset($offset) : void {
     unset($this->container[$offset]);
   }
 
@@ -884,6 +921,8 @@ class UserData implements ArrayAccess {
     $normalized_payload['dobd'] = Util::hash(Normalizer::normalize('dobd', $this->getDobd()));
     $normalized_payload['dobm'] = Util::hash(Normalizer::normalize('dobm', $this->getDobm()));
     $normalized_payload['doby'] = Util::hash(Normalizer::normalize('doby', $this->getDoby()));
+    $normalized_payload['madid'] = Util::hash(Normalizer::normalize('madid', $this->getMadid()));
+    $normalized_payload['anon_id'] = Util::hash(Normalizer::normalize('anon_id', $this->getAnonId()));
     $normalized_payload = array_filter($normalized_payload);
     return $normalized_payload;
   }
@@ -1195,6 +1234,22 @@ class UserData implements ArrayAccess {
    */
   public function getDoby() {
     return $this->container['doby'];
+  }
+
+  /**
+   * The mobile advertiser id
+   * @return string
+   */
+  public function getMadid() {
+    return $this->container['madid'];
+  }
+
+  /**
+   * ID of the person who has installed the app anonymously
+   * @return string
+   */
+  public function getAnonId() {
+    return $this->container['anon_id'];
   }
 
   /**

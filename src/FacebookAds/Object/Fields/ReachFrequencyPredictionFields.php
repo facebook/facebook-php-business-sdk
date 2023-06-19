@@ -41,6 +41,8 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const ACTIVITY_STATUS = 'activity_status';
   const AD_FORMATS = 'ad_formats';
   const AUCTION_ENTRY_OPTION_INDEX = 'auction_entry_option_index';
+  const AUDIENCE_SIZE_LOWER_BOUND = 'audience_size_lower_bound';
+  const AUDIENCE_SIZE_UPPER_BOUND = 'audience_size_upper_bound';
   const BUSINESS_ID = 'business_id';
   const BUYING_TYPE = 'buying_type';
   const CAMPAIGN_GROUP_ID = 'campaign_group_id';
@@ -96,6 +98,10 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const NAME = 'name';
   const OBJECTIVE = 'objective';
   const OBJECTIVE_NAME = 'objective_name';
+  const ODAX_OBJECTIVE = 'odax_objective';
+  const ODAX_OBJECTIVE_NAME = 'odax_objective_name';
+  const OPTIMIZATION_GOAL = 'optimization_goal';
+  const OPTIMIZATION_GOAL_NAME = 'optimization_goal_name';
   const PAUSE_PERIODS = 'pause_periods';
   const PLACEMENT_BREAKDOWN = 'placement_breakdown';
   const PLACEMENT_BREAKDOWN_MAP = 'placement_breakdown_map';
@@ -108,7 +114,6 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const START_TIME = 'start_time';
   const STATUS = 'status';
   const STORY_EVENT_TYPE = 'story_event_type';
-  const TARGET_AUDIENCE_SIZE = 'target_audience_size';
   const TARGET_CPM = 'target_cpm';
   const TARGET_SPEC = 'target_spec';
   const TIME_CREATED = 'time_created';
@@ -141,6 +146,8 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'activity_status' => 'ReachFrequencyActivity',
       'ad_formats' => 'list<ReachFrequencyAdFormat>',
       'auction_entry_option_index' => 'int',
+      'audience_size_lower_bound' => 'unsigned int',
+      'audience_size_upper_bound' => 'unsigned int',
       'business_id' => 'int',
       'buying_type' => 'string',
       'campaign_group_id' => 'int',
@@ -152,7 +159,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'curve_reach' => 'list<unsigned int>',
       'daily_grp_curve' => 'list<float>',
       'daily_impression_curve' => 'list<float>',
-      'daily_impression_curve_map' => 'map<unsigned int, list<float>>',
+      'daily_impression_curve_map' => 'list<map<unsigned int, list<float>>>',
       'day_parting_schedule' => 'list<ReachFrequencyDayPart>',
       'destination_id' => 'string',
       'end_time' => 'datetime',
@@ -168,8 +175,8 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'external_reach' => 'unsigned int',
       'feed_ratio_0000' => 'unsigned int',
       'frequency_cap' => 'unsigned int',
-      'frequency_distribution_map' => 'map<unsigned int, list<float>>',
-      'frequency_distribution_map_agg' => 'map<unsigned int, list<unsigned int>>',
+      'frequency_distribution_map' => 'list<map<unsigned int, list<float>>>',
+      'frequency_distribution_map_agg' => 'list<map<unsigned int, list<unsigned int>>>',
       'grp_audience_size' => 'float',
       'grp_avg_probability_map' => 'string',
       'grp_country_audience_size' => 'float',
@@ -196,9 +203,13 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'name' => 'string',
       'objective' => 'unsigned int',
       'objective_name' => 'string',
+      'odax_objective' => 'unsigned int',
+      'odax_objective_name' => 'string',
+      'optimization_goal' => 'unsigned int',
+      'optimization_goal_name' => 'string',
       'pause_periods' => 'list<Object>',
       'placement_breakdown' => 'ReachFrequencyEstimatesPlacementBreakdown',
-      'placement_breakdown_map' => 'map<unsigned int, ReachFrequencyEstimatesPlacementBreakdown>',
+      'placement_breakdown_map' => 'list<map<unsigned int, ReachFrequencyEstimatesPlacementBreakdown>>',
       'plan_name' => 'string',
       'plan_type' => 'string',
       'prediction_mode' => 'unsigned int',
@@ -208,7 +219,6 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'start_time' => 'datetime',
       'status' => 'unsigned int',
       'story_event_type' => 'unsigned int',
-      'target_audience_size' => 'unsigned int',
       'target_cpm' => 'unsigned int',
       'target_spec' => 'Targeting',
       'time_created' => 'datetime',

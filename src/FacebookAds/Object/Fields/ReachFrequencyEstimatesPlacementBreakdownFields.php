@@ -40,9 +40,13 @@ class ReachFrequencyEstimatesPlacementBreakdownFields extends AbstractEnum {
   const ANDROID = 'android';
   const AUDIENCE_NETWORK = 'audience_network';
   const DESKTOP = 'desktop';
+  const FACEBOOK_SEARCH = 'facebook_search';
+  const FB_REELS = 'fb_reels';
+  const FB_REELS_OVERLAY = 'fb_reels_overlay';
   const IG_ANDROID = 'ig_android';
   const IG_IOS = 'ig_ios';
   const IG_OTHER = 'ig_other';
+  const IG_REELS = 'ig_reels';
   const IG_STORY = 'ig_story';
   const INSTANT_ARTICLES = 'instant_articles';
   const INSTREAM_VIDEOS = 'instream_videos';
@@ -55,9 +59,13 @@ class ReachFrequencyEstimatesPlacementBreakdownFields extends AbstractEnum {
       'android' => 'list<float>',
       'audience_network' => 'list<float>',
       'desktop' => 'list<float>',
+      'facebook_search' => 'list<float>',
+      'fb_reels' => 'list<float>',
+      'fb_reels_overlay' => 'list<float>',
       'ig_android' => 'list<float>',
       'ig_ios' => 'list<float>',
       'ig_other' => 'list<float>',
+      'ig_reels' => 'list<float>',
       'ig_story' => 'list<float>',
       'instant_articles' => 'list<float>',
       'instream_videos' => 'list<float>',

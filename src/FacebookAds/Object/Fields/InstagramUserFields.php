@@ -44,6 +44,8 @@ class InstagramUserFields extends AbstractEnum {
   const IS_PRIVATE = 'is_private';
   const IS_PUBLISHED = 'is_published';
   const MEDIA_COUNT = 'media_count';
+  const MINI_SHOP_STOREFRONT = 'mini_shop_storefront';
+  const OWNER_BUSINESS = 'owner_business';
   const PROFILE_PIC = 'profile_pic';
   const USERNAME = 'username';
 
@@ -56,6 +58,8 @@ class InstagramUserFields extends AbstractEnum {
       'is_private' => 'bool',
       'is_published' => 'bool',
       'media_count' => 'int',
+      'mini_shop_storefront' => 'Shop',
+      'owner_business' => 'Business',
       'profile_pic' => 'string',
       'username' => 'string',
     );

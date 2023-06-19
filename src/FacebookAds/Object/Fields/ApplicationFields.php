@@ -62,6 +62,7 @@ class ApplicationFields extends AbstractEnum {
   const AUTO_EVENT_MAPPING_ANDROID = 'auto_event_mapping_android';
   const AUTO_EVENT_MAPPING_IOS = 'auto_event_mapping_ios';
   const AUTO_EVENT_SETUP_ENABLED = 'auto_event_setup_enabled';
+  const BUSINESS = 'business';
   const CANVAS_FLUID_HEIGHT = 'canvas_fluid_height';
   const CANVAS_FLUID_WIDTH = 'canvas_fluid_width';
   const CANVAS_URL = 'canvas_url';
@@ -97,7 +98,6 @@ class ApplicationFields extends AbstractEnum {
   const LATEST_SDK_VERSION = 'latest_sdk_version';
   const LINK = 'link';
   const LOGGING_TOKEN = 'logging_token';
-  const LOGIN_SECRET = 'login_secret';
   const LOGO_URL = 'logo_url';
   const MIGRATIONS = 'migrations';
   const MOBILE_PROFILE_SECTION_URL = 'mobile_profile_section_url';
@@ -107,6 +107,7 @@ class ApplicationFields extends AbstractEnum {
   const NAME = 'name';
   const NAMESPACE = 'namespace';
   const OBJECT_STORE_URLS = 'object_store_urls';
+  const OWNER_BUSINESS = 'owner_business';
   const PAGE_TAB_DEFAULT_NAME = 'page_tab_default_name';
   const PAGE_TAB_URL = 'page_tab_url';
   const PHOTO_URL = 'photo_url';
@@ -166,6 +167,7 @@ class ApplicationFields extends AbstractEnum {
       'auto_event_mapping_android' => 'list<Object>',
       'auto_event_mapping_ios' => 'list<Object>',
       'auto_event_setup_enabled' => 'bool',
+      'business' => 'Business',
       'canvas_fluid_height' => 'bool',
       'canvas_fluid_width' => 'unsigned int',
       'canvas_url' => 'string',
@@ -201,7 +203,6 @@ class ApplicationFields extends AbstractEnum {
       'latest_sdk_version' => 'Object',
       'link' => 'string',
       'logging_token' => 'string',
-      'login_secret' => 'string',
       'logo_url' => 'string',
       'migrations' => 'map<string, bool>',
       'mobile_profile_section_url' => 'string',
@@ -211,6 +212,7 @@ class ApplicationFields extends AbstractEnum {
       'name' => 'string',
       'namespace' => 'string',
       'object_store_urls' => 'Object',
+      'owner_business' => 'Business',
       'page_tab_default_name' => 'string',
       'page_tab_url' => 'string',
       'photo_url' => 'string',

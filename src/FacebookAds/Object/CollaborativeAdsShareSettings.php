@@ -77,30 +77,4 @@ class CollaborativeAdsShareSettings extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'utm_campaign' => 'string',
-      'utm_medium' => 'string',
-      'utm_source' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/',
-      new CollaborativeAdsShareSettings(),
-      'NODE',
-      CollaborativeAdsShareSettings::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
 }

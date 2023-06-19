@@ -52,6 +52,8 @@ class AdAccountMatchedSearchApplicationsEdgeDataAppStoreValues extends AbstractE
   const INSTANT_GAME = 'INSTANT_GAME';
   const ITUNES = 'ITUNES';
   const ITUNES_IPAD = 'ITUNES_IPAD';
+  const NEON_ANDROID_STORE = 'NEON_ANDROID_STORE';
+  const NONE = 'NONE';
   const OCULUS_APP_STORE = 'OCULUS_APP_STORE';
   const OPPO = 'OPPO';
   const ROKU_STORE = 'ROKU_STORE';

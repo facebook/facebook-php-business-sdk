@@ -34,8 +34,10 @@ use FacebookAds\Object\Values\AdConfiguredStatusValues;
 use FacebookAds\Object\Values\AdDatePresetValues;
 use FacebookAds\Object\Values\AdEffectiveStatusValues;
 use FacebookAds\Object\Values\AdExecutionOptionsValues;
+use FacebookAds\Object\Values\AdMetaRewardAdgroupStatusValues;
 use FacebookAds\Object\Values\AdOperatorValues;
 use FacebookAds\Object\Values\AdPreviewAdFormatValues;
+use FacebookAds\Object\Values\AdPreviewCreativeFeatureValues;
 use FacebookAds\Object\Values\AdPreviewRenderTypeValues;
 use FacebookAds\Object\Values\AdStatusOptionValues;
 use FacebookAds\Object\Values\AdStatusValues;
@@ -84,6 +86,7 @@ class Ad extends AbstractArchivableCrudObject
     $ref_enums['Status'] = AdStatusValues::getInstance()->getValues();
     $ref_enums['DatePreset'] = AdDatePresetValues::getInstance()->getValues();
     $ref_enums['ExecutionOptions'] = AdExecutionOptionsValues::getInstance()->getValues();
+    $ref_enums['MetaRewardAdgroupStatus'] = AdMetaRewardAdgroupStatusValues::getInstance()->getValues();
     $ref_enums['Operator'] = AdOperatorValues::getInstance()->getValues();
     $ref_enums['StatusOption'] = AdStatusOptionValues::getInstance()->getValues();
     return $ref_enums;
@@ -343,11 +346,12 @@ class Ad extends AbstractArchivableCrudObject
     return $pending ? $request : $request->execute();
   }
 
-  public function getPreviews(array $fields = array(), array $params = array(), $pending = false) {
+  public function getPreViews(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
       'ad_format' => 'ad_format_enum',
+      'creative_feature' => 'creative_feature_enum',
       'dynamic_asset_label' => 'string',
       'dynamic_creative_spec' => 'Object',
       'dynamic_customization' => 'Object',
@@ -363,6 +367,7 @@ class Ad extends AbstractArchivableCrudObject
     );
     $enums = array(
       'ad_format_enum' => AdPreviewAdFormatValues::getInstance()->getValues(),
+      'creative_feature_enum' => AdPreviewCreativeFeatureValues::getInstance()->getValues(),
       'render_type_enum' => AdPreviewRenderTypeValues::getInstance()->getValues(),
     );
 
@@ -439,6 +444,7 @@ class Ad extends AbstractArchivableCrudObject
     );
     $enums = array(
       'date_preset_enum' => array(
+        'data_maximum',
         'last_14d',
         'last_28d',
         'last_30d',
@@ -491,6 +497,7 @@ class Ad extends AbstractArchivableCrudObject
       'engagement_audience' => 'bool',
       'execution_options' => 'list<execution_options_enum>',
       'include_demolink_hashes' => 'bool',
+      'meta_reward_adgroup_status' => 'meta_reward_adgroup_status_enum',
       'name' => 'string',
       'priority' => 'unsigned int',
       'status' => 'status_enum',
@@ -498,6 +505,7 @@ class Ad extends AbstractArchivableCrudObject
     );
     $enums = array(
       'execution_options_enum' => AdExecutionOptionsValues::getInstance()->getValues(),
+      'meta_reward_adgroup_status_enum' => AdMetaRewardAdgroupStatusValues::getInstance()->getValues(),
       'status_enum' => AdStatusValues::getInstance()->getValues(),
     );
 

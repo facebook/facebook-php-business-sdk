@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## v17.0.0
+
+
+### Added
+- `advanced_measurement_table` field to Event for Conversions API.
+
 ## v11.0.0
 
 

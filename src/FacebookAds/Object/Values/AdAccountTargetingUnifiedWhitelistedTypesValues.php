@@ -40,12 +40,15 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const ADGROUP_ID = 'adgroup_id';
   const AGE_MAX = 'age_max';
   const AGE_MIN = 'age_min';
+  const AGE_RANGE = 'age_range';
   const ALTERNATE_AUTO_TARGETING_OPTION = 'alternate_auto_targeting_option';
   const APP_INSTALL_STATE = 'app_install_state';
   const AUDIENCE_NETWORK_POSITIONS = 'audience_network_positions';
   const BEHAVIORS = 'behaviors';
   const BRAND_SAFETY_CONTENT_FILTER_LEVELS = 'brand_safety_content_filter_levels';
   const BRAND_SAFETY_CONTENT_SEVERITY_LEVELS = 'brand_safety_content_severity_levels';
+  const CAFE_CA_CONTRACTION_TARGETING_SIGNAL = 'cafe_ca_contraction_targeting_signal';
+  const CAFE_CA_EXPANSION_TARGETING_SIGNAL = 'cafe_ca_expansion_targeting_signal';
   const CATALOG_BASED_TARGETING = 'catalog_based_targeting';
   const CITIES = 'cities';
   const CITY_KEYS = 'city_keys';
@@ -142,6 +145,7 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const RELATIONSHIP_STATUSES = 'relationship_statuses';
   const RTB_FLAG = 'rtb_flag';
   const SITE_CATEGORY = 'site_category';
+  const TARGETING_AUTOMATION = 'targeting_automation';
   const TARGETING_OPTIMIZATION = 'targeting_optimization';
   const TARGETING_RELAXATION_TYPES = 'targeting_relaxation_types';
   const TIMEZONES = 'timezones';

@@ -29,6 +29,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\IGMediaFields;
+use FacebookAds\Object\Values\InstagramInsightsResultBreakdownValues;
 use FacebookAds\Object\Values\InstagramInsightsResultMetricValues;
 use FacebookAds\Object\Values\InstagramInsightsResultPeriodValues;
 
@@ -130,10 +131,12 @@ class IGMedia extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'breakdown' => 'list<breakdown_enum>',
       'metric' => 'list<metric_enum>',
       'period' => 'list<period_enum>',
     );
     $enums = array(
+      'breakdown_enum' => InstagramInsightsResultBreakdownValues::getInstance()->getValues(),
       'metric_enum' => InstagramInsightsResultMetricValues::getInstance()->getValues(),
       'period_enum' => InstagramInsightsResultPeriodValues::getInstance()->getValues(),
     );
@@ -146,6 +149,79 @@ class IGMedia extends AbstractCrudObject {
       new InstagramInsightsResult(),
       'EDGE',
       InstagramInsightsResult::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function deleteProductTags(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'child_index' => 'unsigned int',
+      'deleted_tags' => 'list<map>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/product_tags',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getProductTags(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/product_tags',
+      new ShadowIGMediaProductTags(),
+      'EDGE',
+      ShadowIGMediaProductTags::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createProductTag(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'child_index' => 'unsigned int',
+      'updated_tags' => 'list<map>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/product_tags',
+      new ShadowIGMediaProductTags(),
+      'EDGE',
+      ShadowIGMediaProductTags::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

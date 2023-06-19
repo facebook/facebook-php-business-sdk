@@ -45,11 +45,14 @@ class AdCreativeFields extends AbstractEnum {
   const AUTHORIZATION_CATEGORY = 'authorization_category';
   const AUTO_UPDATE = 'auto_update';
   const BODY = 'body';
+  const BRANDED_CONTENT = 'branded_content';
   const BRANDED_CONTENT_SPONSOR_PAGE_ID = 'branded_content_sponsor_page_id';
   const BUNDLE_FOLDER_ID = 'bundle_folder_id';
   const CALL_TO_ACTION_TYPE = 'call_to_action_type';
   const CATEGORIZATION_CRITERIA = 'categorization_criteria';
   const CATEGORY_MEDIA_SOURCE = 'category_media_source';
+  const COLLABORATIVE_ADS_LSB_IMAGE_BANK_ID = 'collaborative_ads_lsb_image_bank_id';
+  const DEGREES_OF_FREEDOM_SPEC = 'degrees_of_freedom_spec';
   const DESTINATION_SET_ID = 'destination_set_id';
   const DYNAMIC_AD_VOICE = 'dynamic_ad_voice';
   const EFFECTIVE_AUTHORIZATION_CATEGORY = 'effective_authorization_category';
@@ -58,11 +61,13 @@ class AdCreativeFields extends AbstractEnum {
   const EFFECTIVE_OBJECT_STORY_ID = 'effective_object_story_id';
   const ENABLE_DIRECT_INSTALL = 'enable_direct_install';
   const ENABLE_LAUNCH_INSTANT_APP = 'enable_launch_instant_app';
+  const FACEBOOK_BRANDED_CONTENT = 'facebook_branded_content';
   const ID = 'id';
   const IMAGE_CROPS = 'image_crops';
   const IMAGE_HASH = 'image_hash';
   const IMAGE_URL = 'image_url';
   const INSTAGRAM_ACTOR_ID = 'instagram_actor_id';
+  const INSTAGRAM_BRANDED_CONTENT = 'instagram_branded_content';
   const INSTAGRAM_PERMALINK_URL = 'instagram_permalink_url';
   const INSTAGRAM_STORY_ID = 'instagram_story_id';
   const INSTAGRAM_USER_ID = 'instagram_user_id';
@@ -79,6 +84,7 @@ class AdCreativeFields extends AbstractEnum {
   const OBJECT_STORY_SPEC = 'object_story_spec';
   const OBJECT_TYPE = 'object_type';
   const OBJECT_URL = 'object_url';
+  const OMNICHANNEL_LINK_SPEC = 'omnichannel_link_spec';
   const PLACE_PAGE_SET_ID = 'place_page_set_id';
   const PLATFORM_CUSTOMIZATIONS = 'platform_customizations';
   const PLAYABLE_ASSET_ID = 'playable_asset_id';
@@ -89,6 +95,7 @@ class AdCreativeFields extends AbstractEnum {
   const STATUS = 'status';
   const TEMPLATE_URL = 'template_url';
   const TEMPLATE_URL_SPEC = 'template_url_spec';
+  const THUMBNAIL_ID = 'thumbnail_id';
   const THUMBNAIL_URL = 'thumbnail_url';
   const TITLE = 'title';
   const URL_TAGS = 'url_tags';
@@ -96,7 +103,6 @@ class AdCreativeFields extends AbstractEnum {
   const VIDEO_ID = 'video_id';
   const CALL_TO_ACTION = 'call_to_action';
   const IMAGE_FILE = 'image_file';
-  const INSTANT_CHECKOUT_SETTING = 'instant_checkout_setting';
   const IS_DCO_INTERNAL = 'is_dco_internal';
 
   public function getFieldTypes() {
@@ -109,11 +115,14 @@ class AdCreativeFields extends AbstractEnum {
       'authorization_category' => 'string',
       'auto_update' => 'bool',
       'body' => 'string',
+      'branded_content' => 'AdCreativeBrandedContentAds',
       'branded_content_sponsor_page_id' => 'string',
       'bundle_folder_id' => 'string',
       'call_to_action_type' => 'CallToActionType',
       'categorization_criteria' => 'string',
       'category_media_source' => 'string',
+      'collaborative_ads_lsb_image_bank_id' => 'string',
+      'degrees_of_freedom_spec' => 'AdCreativeDegreesOfFreedomSpec',
       'destination_set_id' => 'string',
       'dynamic_ad_voice' => 'string',
       'effective_authorization_category' => 'string',
@@ -122,11 +131,13 @@ class AdCreativeFields extends AbstractEnum {
       'effective_object_story_id' => 'string',
       'enable_direct_install' => 'bool',
       'enable_launch_instant_app' => 'bool',
+      'facebook_branded_content' => 'AdCreativeFacebookBrandedContent',
       'id' => 'string',
       'image_crops' => 'AdsImageCrops',
       'image_hash' => 'string',
       'image_url' => 'string',
       'instagram_actor_id' => 'string',
+      'instagram_branded_content' => 'AdCreativeInstagramBrandedContent',
       'instagram_permalink_url' => 'string',
       'instagram_story_id' => 'string',
       'instagram_user_id' => 'string',
@@ -143,6 +154,7 @@ class AdCreativeFields extends AbstractEnum {
       'object_story_spec' => 'AdCreativeObjectStorySpec',
       'object_type' => 'ObjectType',
       'object_url' => 'string',
+      'omnichannel_link_spec' => 'AdCreativeOmnichannelLinkSpec',
       'place_page_set_id' => 'string',
       'platform_customizations' => 'AdCreativePlatformCustomization',
       'playable_asset_id' => 'string',
@@ -153,6 +165,7 @@ class AdCreativeFields extends AbstractEnum {
       'status' => 'Status',
       'template_url' => 'string',
       'template_url_spec' => 'AdCreativeTemplateURLSpec',
+      'thumbnail_id' => 'string',
       'thumbnail_url' => 'string',
       'title' => 'string',
       'url_tags' => 'string',
@@ -160,7 +173,6 @@ class AdCreativeFields extends AbstractEnum {
       'video_id' => 'string',
       'call_to_action' => 'Object',
       'image_file' => 'string',
-      'instant_checkout_setting' => 'InstantCheckoutSetting',
       'is_dco_internal' => 'bool',
     );
   }

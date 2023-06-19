@@ -39,4 +39,5 @@ class AdImageStatusValues extends AbstractEnum {
 
   const ACTIVE = 'ACTIVE';
   const DELETED = 'DELETED';
+  const INTERNAL = 'INTERNAL';
 }
