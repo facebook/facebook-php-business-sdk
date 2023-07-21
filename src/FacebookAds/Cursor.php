@@ -435,7 +435,7 @@ class Cursor implements \Iterator, \Countable, \ArrayAccess {
     $this->position = $position;
   }
 
-  public function current() : AbstractObject|bool {
+  public function current() {
     return isset($this->objects[$this->position])
       ? $this->objects[$this->position]
       : false;
