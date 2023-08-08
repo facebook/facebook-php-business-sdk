@@ -3142,6 +3142,8 @@ class AdAccount extends AbstractCrudObject {
       'business_info' => 'map',
       'currency' => 'currency_enum',
       'custom_audience_info' => 'map',
+      'default_dsa_beneficiary' => 'string',
+      'default_dsa_payor' => 'string',
       'end_advertiser' => 'string',
       'existing_customers' => 'list<string>',
       'is_notifications_enabled' => 'bool',
