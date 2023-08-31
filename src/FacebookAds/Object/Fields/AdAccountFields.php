@@ -57,6 +57,8 @@ class AdAccountFields extends AbstractEnum {
   const CREATED_TIME = 'created_time';
   const CURRENCY = 'currency';
   const CUSTOM_AUDIENCE_INFO = 'custom_audience_info';
+  const DEFAULT_DSA_BENEFICIARY = 'default_dsa_beneficiary';
+  const DEFAULT_DSA_PAYOR = 'default_dsa_payor';
   const DISABLE_REASON = 'disable_reason';
   const END_ADVERTISER = 'end_advertiser';
   const END_ADVERTISER_NAME = 'end_advertiser_name';
@@ -125,6 +127,8 @@ class AdAccountFields extends AbstractEnum {
       'created_time' => 'datetime',
       'currency' => 'string',
       'custom_audience_info' => 'CustomAudienceGroup',
+      'default_dsa_beneficiary' => 'string',
+      'default_dsa_payor' => 'string',
       'disable_reason' => 'unsigned int',
       'end_advertiser' => 'string',
       'end_advertiser_name' => 'string',
