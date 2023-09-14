@@ -50,7 +50,7 @@ class LeadgenFormFields extends AbstractEnum {
     return array(
       'allow_organic_lead' => 'bool',
       'block_display_for_non_targeted_viewer' => 'bool',
-      'context_card' => 'Object',
+      'context_card' => 'LeadGenContextCard',
       'created_time' => 'datetime',
       'creator' => 'User',
       'expired_leads_count' => 'unsigned int',
@@ -59,7 +59,7 @@ class LeadgenFormFields extends AbstractEnum {
       'id' => 'string',
       'is_optimized_for_quality' => 'bool',
       'leads_count' => 'unsigned int',
-      'legal_content' => 'Object',
+      'legal_content' => 'LeadGenLegalContent',
       'locale' => 'string',
       'name' => 'string',
       'organic_leads_count' => 'unsigned int',
@@ -69,7 +69,7 @@ class LeadgenFormFields extends AbstractEnum {
       'question_page_custom_headline' => 'string',
       'questions' => 'list<LeadGenQuestion>',
       'status' => 'string',
-      'thank_you_page' => 'Object',
+      'thank_you_page' => 'LeadGenThankYouPage',
       'tracking_parameters' => 'list<map<string, string>>',
     );
   }

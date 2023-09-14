@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -18,10 +18,19 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdCreativeLinkDataAttachmentStyleValues getInstance()
  */
-class AdCreativeLinkDataAttachmentStyleValues extends AbstractEnum {
 
-  const VALUE_DEFAULT = 'default';
-  const LINK = 'link';
+class PageAboutStoryComposedBlockInlineStyleFields extends AbstractEnum {
+
+  const LENGTH = 'length';
+  const OFFSET = 'offset';
+  const STYLE = 'style';
+
+  public function getFieldTypes() {
+    return array(
+      'length' => 'int',
+      'offset' => 'int',
+      'style' => 'string',
+    );
+  }
 }

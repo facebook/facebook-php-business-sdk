@@ -157,7 +157,7 @@ class Ad extends AbstractArchivableCrudObject
     $param_types = array(
       'date_preset' => 'date_preset_enum',
       'effective_status' => 'list<string>',
-      'time_range' => 'Object',
+      'time_range' => 'map',
       'updated_since' => 'int',
     );
     $enums = array(
@@ -227,8 +227,8 @@ class Ad extends AbstractArchivableCrudObject
       'summary' => 'list<string>',
       'summary_action_breakdowns' => 'list<summary_action_breakdowns_enum>',
       'time_increment' => 'string',
-      'time_range' => 'Object',
-      'time_ranges' => 'list<Object>',
+      'time_range' => 'map',
+      'time_ranges' => 'list<map>',
       'use_account_attribution_setting' => 'bool',
       'use_unified_attribution_setting' => 'bool',
     );
@@ -278,8 +278,8 @@ class Ad extends AbstractArchivableCrudObject
       'summary' => 'list<string>',
       'summary_action_breakdowns' => 'list<summary_action_breakdowns_enum>',
       'time_increment' => 'string',
-      'time_range' => 'Object',
-      'time_ranges' => 'list<Object>',
+      'time_range' => 'map',
+      'time_ranges' => 'list<map>',
       'use_account_attribution_setting' => 'bool',
       'use_unified_attribution_setting' => 'bool',
     );
@@ -425,7 +425,7 @@ class Ad extends AbstractArchivableCrudObject
       'date_preset' => 'date_preset_enum',
       'from_adtable' => 'bool',
       'review_feedback_breakdown' => 'bool',
-      'time_range' => 'Object',
+      'time_range' => 'map',
     );
     $enums = array(
       'date_preset_enum' => array(
@@ -471,6 +471,8 @@ class Ad extends AbstractArchivableCrudObject
     $this->assureId();
 
     $param_types = array(
+      'ad_schedule_end_time' => 'datetime',
+      'ad_schedule_start_time' => 'datetime',
       'adlabels' => 'list<Object>',
       'adset_spec' => 'AdSet',
       'audience_id' => 'string',

@@ -196,6 +196,7 @@ class Application extends AbstractCrudObject {
       'url_schemes' => 'list<string>',
       'user_id' => 'string',
       'user_id_type' => 'user_id_type_enum',
+      'vendor_id' => 'string',
       'windows_attribution_id' => 'string',
     );
     $enums = array(
@@ -473,6 +474,7 @@ class Application extends AbstractCrudObject {
     $param_types = array(
       'app_id' => 'int',
       'is_aem_ready' => 'bool',
+      'is_app_aem_install_ready' => 'bool',
       'is_app_aem_ready' => 'bool',
       'is_skan_ready' => 'bool',
       'message' => 'string',
@@ -787,6 +789,30 @@ class Application extends AbstractCrudObject {
       new AdAccount(),
       'EDGE',
       AdAccount::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getBanned(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'uid' => 'int',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/banned',
+      new User(),
+      'EDGE',
+      User::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1306,6 +1332,29 @@ class Application extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/roles',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getServerDomainInfos(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/server_domain_infos',
       new AbstractCrudObject(),
       'EDGE',
       array(),

@@ -14,7 +14,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdCreativeLinkDataFields;
-use FacebookAds\Object\Values\AdCreativeLinkDataAttachmentStyleValues;
 use FacebookAds\Object\Values\AdCreativeLinkDataFormatOptionValues;
 
 /**
@@ -37,7 +36,6 @@ class AdCreativeLinkData extends AbstractObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['AttachmentStyle'] = AdCreativeLinkDataAttachmentStyleValues::getInstance()->getValues();
     $ref_enums['FormatOption'] = AdCreativeLinkDataFormatOptionValues::getInstance()->getValues();
     return $ref_enums;
   }

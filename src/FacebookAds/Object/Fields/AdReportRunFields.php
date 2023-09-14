@@ -89,8 +89,8 @@ class AdReportRunFields extends AbstractEnum {
       'summary' => 'list<string>',
       'summary_action_breakdowns' => 'list<SummaryActionBreakdowns>',
       'time_increment' => 'string',
-      'time_range' => 'Object',
-      'time_ranges' => 'list<Object>',
+      'time_range' => 'map',
+      'time_ranges' => 'list<map>',
       'use_account_attribution_setting' => 'bool',
       'use_unified_attribution_setting' => 'bool',
     );

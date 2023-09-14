@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ProductCatalogPermittedTasksValues extends AbstractEnum {
 
+  const AA_ANALYZE = 'AA_ANALYZE';
   const ADVERTISE = 'ADVERTISE';
   const MANAGE = 'MANAGE';
   const MANAGE_AR = 'MANAGE_AR';

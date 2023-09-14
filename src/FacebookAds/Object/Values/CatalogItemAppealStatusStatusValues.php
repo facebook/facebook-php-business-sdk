@@ -24,7 +24,7 @@ class CatalogItemAppealStatusStatusValues extends AbstractEnum {
 
   const THIS_ITEM_CANNOT_BE_APPEALED_AS_IT_IS_EITHER_APPROVED_OR_ALREADY_HAS_AN_APPEAL = 'This item cannot be appealed as it is either approved or already has an appeal';
   const THIS_ITEM_IS_NOT_REJECTED_FOR_ANY_OF_CHANNELS = 'This item is not rejected for any of channels';
-  const WEVE_ENCOUNTERED_UNEXPECTED_ERROR_WHILE_PROCESSING_THIS_REQUEST_PLEASE_TRY_AGAIN_LATER_ = 'Weve encountered unexpected error while processing this request. Please try again later !';
-  const YOUVE_REACHED_THE_MAXIMUM_NUMBER_OF_ITEM_REQUESTS_YOU_CAN_MAKE_THIS_WEEK_YOULL_BE_ABLE_TO_REQUEST_ITEM_REVIEWS_AGAIN_WITHIN_THE_NEXT_7_DAYS_ = 'Youve reached the maximum number of item requests you can make this week. Youll be able to request item reviews again within the next 7 days.';
+  const WE_VE_ENCOUNTERED_UNEXPECTED_ERROR_WHILE_PROCESSING_THIS_REQUEST_PLEASE_TRY_AGAIN_LATER_ = 'We've encountered unexpected error while processing this request. Please try again later !';
+  const YOU_VE_REACHED_THE_MAXIMUM_NUMBER_OF_ITEM_REQUESTS_YOU_CAN_MAKE_THIS_WEEK_YOU_LL_BE_ABLE_TO_REQUEST_ITEM_REVIEWS_AGAIN_WITHIN_THE_NEXT_7_DAYS_ = 'You've reached the maximum number of item requests you can make this week. You'll be able to request item reviews again within the next 7 days.';
   const YOUR_REQUEST_WAS_RECEIVED_SEE_INFORMATION_BELOW_TO_LEARN_MORE_ = 'Your request was received. See information below to learn more.';
 }

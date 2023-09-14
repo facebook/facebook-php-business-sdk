@@ -24,4 +24,5 @@ class ExtendedCreditAllocationConfigPartitionTypeValues extends AbstractEnum {
 
   const AUTH = 'AUTH';
   const FIXED = 'FIXED';
+  const FIXED_WITHOUT_PARTITION = 'FIXED_WITHOUT_PARTITION';
 }

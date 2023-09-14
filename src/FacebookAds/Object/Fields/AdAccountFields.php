@@ -27,6 +27,7 @@ class AdAccountFields extends AbstractEnum {
   const AD_ACCOUNT_PROMOTABLE_OBJECTS = 'ad_account_promotable_objects';
   const AGE = 'age';
   const AGENCY_CLIENT_DECLARATION = 'agency_client_declaration';
+  const ALL_CAPABILITIES = 'all_capabilities';
   const AMOUNT_SPENT = 'amount_spent';
   const ATTRIBUTION_SPEC = 'attribution_spec';
   const BALANCE = 'balance';
@@ -86,6 +87,7 @@ class AdAccountFields extends AbstractEnum {
   const TIMEZONE_NAME = 'timezone_name';
   const TIMEZONE_OFFSET_HOURS_UTC = 'timezone_offset_hours_utc';
   const TOS_ACCEPTED = 'tos_accepted';
+  const USER_ACCESS_EXPIRE_TIME = 'user_access_expire_time';
   const USER_TASKS = 'user_tasks';
   const USER_TOS_ACCEPTED = 'user_tos_accepted';
   const VIEWABLE_BUSINESS = 'viewable_business';
@@ -97,6 +99,7 @@ class AdAccountFields extends AbstractEnum {
       'ad_account_promotable_objects' => 'AdAccountPromotableObjects',
       'age' => 'float',
       'agency_client_declaration' => 'AgencyClientDeclaration',
+      'all_capabilities' => 'list<string>',
       'amount_spent' => 'string',
       'attribution_spec' => 'list<AttributionSpec>',
       'balance' => 'string',
@@ -156,6 +159,7 @@ class AdAccountFields extends AbstractEnum {
       'timezone_name' => 'string',
       'timezone_offset_hours_utc' => 'float',
       'tos_accepted' => 'map<string, int>',
+      'user_access_expire_time' => 'datetime',
       'user_tasks' => 'list<string>',
       'user_tos_accepted' => 'map<string, int>',
       'viewable_business' => 'Business',

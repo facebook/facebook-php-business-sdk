@@ -76,6 +76,7 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const EXCLUDED_USER_ADCLUSTERS = 'excluded_user_adclusters';
   const EXCLUDED_USER_DEVICE = 'excluded_user_device';
   const EXCLUSIONS = 'exclusions';
+  const EXPANDED_IMPLICIT_CUSTOM_AUDIENCES = 'expanded_implicit_custom_audiences';
   const FACEBOOK_POSITIONS = 'facebook_positions';
   const FAMILY_STATUSES = 'family_statuses';
   const FB_DEAL_ID = 'fb_deal_id';
@@ -110,6 +111,7 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const LOCATION_CATEGORIES = 'location_categories';
   const LOCATION_CLUSTER_IDS = 'location_cluster_ids';
   const LOCATION_EXPANSION = 'location_expansion';
+  const MARKETING_MESSAGE_TARGETING = 'marketing_message_targeting';
   const MARKETPLACE_PRODUCT_CATEGORIES = 'marketplace_product_categories';
   const MESSENGER_POSITIONS = 'messenger_positions';
   const MOBILE_DEVICE_MODEL = 'mobile_device_model';
@@ -130,6 +132,7 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const RELATIONSHIP_STATUSES = 'relationship_statuses';
   const RTB_FLAG = 'rtb_flag';
   const SITE_CATEGORY = 'site_category';
+  const TAFE_CA_MITIGATION_STRATEGY = 'tafe_ca_mitigation_strategy';
   const TARGETING_AUTOMATION = 'targeting_automation';
   const TARGETING_OPTIMIZATION = 'targeting_optimization';
   const TARGETING_RELAXATION_TYPES = 'targeting_relaxation_types';

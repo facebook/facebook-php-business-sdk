@@ -23,10 +23,13 @@ use FacebookAds\Enum\AbstractEnum;
 class PagePostExperimentFields extends AbstractEnum {
 
   const AUTO_RESOLVE_SETTINGS = 'auto_resolve_settings';
+  const CONTROL_VIDEO_ID = 'control_video_id';
   const CREATION_TIME = 'creation_time';
   const CREATOR = 'creator';
   const DECLARED_WINNING_TIME = 'declared_winning_time';
+  const DECLARED_WINNING_VIDEO_ID = 'declared_winning_video_id';
   const DESCRIPTION = 'description';
+  const EXPERIMENT_VIDEO_IDS = 'experiment_video_ids';
   const ID = 'id';
   const INSIGHT_SNAPSHOTS = 'insight_snapshots';
   const NAME = 'name';
@@ -39,10 +42,13 @@ class PagePostExperimentFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'auto_resolve_settings' => 'Object',
+      'control_video_id' => 'string',
       'creation_time' => 'datetime',
       'creator' => 'User',
       'declared_winning_time' => 'datetime',
+      'declared_winning_video_id' => 'string',
       'description' => 'string',
+      'experiment_video_ids' => 'list<string>',
       'id' => 'string',
       'insight_snapshots' => 'list<map<datetime, list<map<int, Object>>>>',
       'name' => 'string',

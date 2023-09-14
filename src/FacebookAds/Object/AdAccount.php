@@ -168,6 +168,7 @@ class AdAccount extends AbstractCrudObject {
 
     $param_types = array(
       'audience_controls' => 'Object',
+      'placement_controls' => 'Object',
     );
     $enums = array(
     );
@@ -446,7 +447,7 @@ class AdAccount extends AbstractCrudObject {
       'recommender_settings' => 'map',
       'source_instagram_media_id' => 'string',
       'template_url' => 'string',
-      'template_url_spec' => 'Object',
+      'template_url_spec' => 'string',
       'thumbnail_url' => 'string',
       'title' => 'string',
       'url_tags' => 'string',
@@ -559,7 +560,7 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'bytes' => 'Object',
+      'bytes' => 'string',
       'copy_from' => 'Object',
       'filename' => 'file'
     );
@@ -771,7 +772,7 @@ class AdAccount extends AbstractCrudObject {
     $param_types = array(
       'date_preset' => 'date_preset_enum',
       'effective_status' => 'list<string>',
-      'time_range' => 'Object',
+      'time_range' => 'map',
       'updated_since' => 'int',
     );
     $enums = array(
@@ -797,6 +798,8 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'ad_schedule_end_time' => 'datetime',
+      'ad_schedule_start_time' => 'datetime',
       'adlabels' => 'list<Object>',
       'adset_id' => 'unsigned int',
       'adset_spec' => 'AdSet',
@@ -843,11 +846,82 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'conversion_event_value_source' => 'conversion_event_value_source_enum',
       'description' => 'string',
+      'goal_creation_method' => 'goal_creation_method_enum',
       'goal_name' => 'string',
+      'performance_goal' => 'performance_goal_enum',
       'single_channel_conversion_events' => 'list<map>',
+      'value_adjustment_rule' => 'map',
     );
     $enums = array(
+      'conversion_event_value_source_enum' => array(
+        'DATA_SOURCE',
+        'VALUE_RULE',
+      ),
+      'goal_creation_method_enum' => array(
+        'ADVERTISER_CREATED_UI',
+        'AUTO_MIGRATION',
+        'L2_ENHANCE_API_MIGRATION',
+      ),
+      'performance_goal_enum' => array(
+        'AD_OPTIMIZATION_GOAL_AD_RECALL_LIFT',
+        'AD_OPTIMIZATION_GOAL_APP_DOWNLOADS',
+        'AD_OPTIMIZATION_GOAL_APP_INSTALLS',
+        'AD_OPTIMIZATION_GOAL_APP_INSTALLS_AND_OFFSITE_CONVERSIONS',
+        'AD_OPTIMIZATION_GOAL_BRAND_AWARENESS',
+        'AD_OPTIMIZATION_GOAL_CLICKS',
+        'AD_OPTIMIZATION_GOAL_COMPLETED_VIDEO_VIEWS',
+        'AD_OPTIMIZATION_GOAL_CONVERSATIONS',
+        'AD_OPTIMIZATION_GOAL_DERIVED_EVENTS',
+        'AD_OPTIMIZATION_GOAL_DWELLS',
+        'AD_OPTIMIZATION_GOAL_ENGAGED_REACH',
+        'AD_OPTIMIZATION_GOAL_ENGAGED_USERS',
+        'AD_OPTIMIZATION_GOAL_EVENT_RESPONSES',
+        'AD_OPTIMIZATION_GOAL_EXTERNAL',
+        'AD_OPTIMIZATION_GOAL_IMPRESSIONS',
+        'AD_OPTIMIZATION_GOAL_INCREMENTAL_OFFSITE_CONVERSIONS',
+        'AD_OPTIMIZATION_GOAL_IN_APP_VALUE',
+        'AD_OPTIMIZATION_GOAL_JOB_APPLICATIONS',
+        'AD_OPTIMIZATION_GOAL_LANDING_PAGE_VIEWS',
+        'AD_OPTIMIZATION_GOAL_LEAD_GENERATION',
+        'AD_OPTIMIZATION_GOAL_MEDIA_DOWNLOADS',
+        'AD_OPTIMIZATION_GOAL_MESSAGING_APPOINTMENT_CONVERSION',
+        'AD_OPTIMIZATION_GOAL_MESSAGING_DEEP_CONVERSATION_AND_FOLLOW',
+        'AD_OPTIMIZATION_GOAL_MESSAGING_DEEP_CONVERSATION_AND_REPLY',
+        'AD_OPTIMIZATION_GOAL_MESSAGING_PURCHASE_CONVERSION',
+        'AD_OPTIMIZATION_GOAL_MID_FUNNEL_EVENT',
+        'AD_OPTIMIZATION_GOAL_MRC_VIDEO_VIEWS',
+        'AD_OPTIMIZATION_GOAL_MULTI_CONVERSIONS',
+        'AD_OPTIMIZATION_GOAL_NONE',
+        'AD_OPTIMIZATION_GOAL_OFFER_CLAIMS',
+        'AD_OPTIMIZATION_GOAL_OFFLINE_CONVERSIONS',
+        'AD_OPTIMIZATION_GOAL_OFFSITE_CLICKS',
+        'AD_OPTIMIZATION_GOAL_OFFSITE_CONVERSIONS',
+        'AD_OPTIMIZATION_GOAL_ONSITE_CONVERSIONS',
+        'AD_OPTIMIZATION_GOAL_PAGE_ENGAGEMENT',
+        'AD_OPTIMIZATION_GOAL_PAGE_FOLLOWS',
+        'AD_OPTIMIZATION_GOAL_PAGE_LIKES',
+        'AD_OPTIMIZATION_GOAL_POST_ENGAGEMENT',
+        'AD_OPTIMIZATION_GOAL_QUALITY_CALL',
+        'AD_OPTIMIZATION_GOAL_QUALITY_LEAD',
+        'AD_OPTIMIZATION_GOAL_REACH',
+        'AD_OPTIMIZATION_GOAL_REMINDERS_SET',
+        'AD_OPTIMIZATION_GOAL_REPLIES',
+        'AD_OPTIMIZATION_GOAL_RESEARCH_POLL_RESPONSES',
+        'AD_OPTIMIZATION_GOAL_RETENTION',
+        'AD_OPTIMIZATION_GOAL_RETURN_ON_AD_SPEND',
+        'AD_OPTIMIZATION_GOAL_SOCIAL_IMPRESSIONS',
+        'AD_OPTIMIZATION_GOAL_STORE_VISITS',
+        'AD_OPTIMIZATION_GOAL_SUBSCRIBERS',
+        'AD_OPTIMIZATION_GOAL_TICKET_PURCHASE',
+        'AD_OPTIMIZATION_GOAL_VALUE',
+        'AD_OPTIMIZATION_GOAL_VIDEO_LONG_VIEWS',
+        'AD_OPTIMIZATION_GOAL_VIDEO_VIEWS',
+        'AD_OPTIMIZATION_GOAL_VIDEO_VIEWS_15S',
+        'AD_OPTIMIZATION_GOAL_VISIT_INSTAGRAM_PROFILE',
+        'AD_OPTIMIZATION_GOAL_VISIT_INSTAGRAM_PROFILE_AND_PROFILE_ACTIONS',
+      ),
     );
 
     $request = new ApiRequest(
@@ -972,7 +1046,7 @@ class AdAccount extends AbstractCrudObject {
       'date_preset' => 'date_preset_enum',
       'effective_status' => 'list<effective_status_enum>',
       'is_completed' => 'bool',
-      'time_range' => 'Object',
+      'time_range' => 'map',
       'updated_since' => 'int',
     );
     $enums = array(
@@ -1007,6 +1081,7 @@ class AdAccount extends AbstractCrudObject {
       'bid_constraints' => 'map<string, Object>',
       'bid_strategy' => 'bid_strategy_enum',
       'billing_event' => 'billing_event_enum',
+      'campaign_attribution' => 'Object',
       'campaign_id' => 'string',
       'campaign_spec' => 'Object',
       'creative_sequence' => 'list<string>',
@@ -1718,7 +1793,7 @@ class AdAccount extends AbstractCrudObject {
       'date_preset' => 'date_preset_enum',
       'effective_status' => 'list<effective_status_enum>',
       'is_completed' => 'bool',
-      'time_range' => 'Object',
+      'time_range' => 'map',
     );
     $enums = array(
       'date_preset_enum' => CampaignDatePresetValues::getInstance()->getValues(),
@@ -2105,6 +2180,29 @@ class AdAccount extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getDsaRecommendations(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/dsa_recommendations',
+      new AdAccountDsaRecommendations(),
+      'EDGE',
+      AdAccountDsaRecommendations::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getGeneratePreviews(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -2190,8 +2288,8 @@ class AdAccount extends AbstractCrudObject {
       'summary' => 'list<string>',
       'summary_action_breakdowns' => 'list<summary_action_breakdowns_enum>',
       'time_increment' => 'string',
-      'time_range' => 'Object',
-      'time_ranges' => 'list<Object>',
+      'time_range' => 'map',
+      'time_ranges' => 'list<map>',
       'use_account_attribution_setting' => 'bool',
       'use_unified_attribution_setting' => 'bool',
     );
@@ -2241,8 +2339,8 @@ class AdAccount extends AbstractCrudObject {
       'summary' => 'list<string>',
       'summary_action_breakdowns' => 'list<summary_action_breakdowns_enum>',
       'time_increment' => 'string',
-      'time_range' => 'Object',
-      'time_ranges' => 'list<Object>',
+      'time_range' => 'map',
+      'time_ranges' => 'list<map>',
       'use_account_attribution_setting' => 'bool',
       'use_unified_attribution_setting' => 'bool',
     );
@@ -2326,6 +2424,9 @@ class AdAccount extends AbstractCrudObject {
       'campaign_group_status' => 'campaign_group_status_enum',
       'conversion_domain' => 'string',
       'custom_event_type' => 'custom_event_type_enum',
+      'daily_budget' => 'unsigned int',
+      'dsa_beneficiary' => 'string',
+      'dsa_payor' => 'string',
       'end_time' => 'unsigned int',
       'lifetime_budget' => 'unsigned int',
       'override_creative_text' => 'string',
@@ -2689,6 +2790,7 @@ class AdAccount extends AbstractCrudObject {
       'impression' => 'unsigned int',
       'instream_packages' => 'list<instream_packages_enum>',
       'interval_frequency_cap_reset_period' => 'unsigned int',
+      'is_balanced_frequency' => 'bool',
       'is_bonus_media' => 'bool',
       'is_conversion_goal' => 'bool',
       'is_full_view' => 'bool',
@@ -2707,6 +2809,8 @@ class AdAccount extends AbstractCrudObject {
       'stop_time' => 'unsigned int',
       'story_event_type' => 'unsigned int',
       'target_cpm' => 'unsigned int',
+      'target_frequency' => 'unsigned int',
+      'target_frequency_reset_period' => 'unsigned int',
       'target_spec' => 'Targeting',
       'video_view_length_constraint' => 'unsigned int',
     );
@@ -3085,6 +3189,29 @@ class AdAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_DELETE,
       '/usersofanyaudience',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getValueAdjustmentRules(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/value_adjustment_rules',
       new AbstractCrudObject(),
       'EDGE',
       array(),

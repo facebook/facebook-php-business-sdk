@@ -25,6 +25,7 @@ class AdCreativeLinkDataCallToActionTypeValues extends AbstractEnum {
   const ADD_TO_CART = 'ADD_TO_CART';
   const APPLY_NOW = 'APPLY_NOW';
   const AUDIO_CALL = 'AUDIO_CALL';
+  const BOOK_NOW = 'BOOK_NOW';
   const BOOK_TRAVEL = 'BOOK_TRAVEL';
   const BUY = 'BUY';
   const BUY_NOW = 'BUY_NOW';

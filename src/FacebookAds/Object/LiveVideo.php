@@ -65,7 +65,7 @@ class LiveVideo extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'uid' => 'Object',
+      'uid' => 'string',
     );
     $enums = array(
     );

@@ -25,6 +25,7 @@ class LocalServiceBusinessAvailabilityValues extends AbstractEnum {
   const AVAILABLE_FOR_ORDER = 'AVAILABLE_FOR_ORDER';
   const DISCONTINUED = 'DISCONTINUED';
   const IN_STOCK = 'IN_STOCK';
+  const MARK_AS_SOLD = 'MARK_AS_SOLD';
   const OUT_OF_STOCK = 'OUT_OF_STOCK';
   const PENDING = 'PENDING';
   const PREORDER = 'PREORDER';

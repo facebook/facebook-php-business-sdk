@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AREffectsBatchStatusFields;
+use FacebookAds\Object\Fields\LeadGenLegalContentCheckboxFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\AREffectsBatchStatusFields;
  *
  */
 
-class AREffectsBatchStatus extends AbstractObject {
+class LeadGenLegalContentCheckbox extends AbstractCrudObject {
 
   /**
-   * @return AREffectsBatchStatusFields
+   * @return LeadGenLegalContentCheckboxFields
    */
   public static function getFieldsEnum() {
-    return AREffectsBatchStatusFields::getInstance();
+    return LeadGenLegalContentCheckboxFields::getInstance();
   }
 
   protected static function getReferencedEnums() {

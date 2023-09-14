@@ -13,8 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\ProductItemARDataFields;
-use FacebookAds\Object\Values\ProductItemARDataSurfacesValues;
+use FacebookAds\Object\Fields\StoriesFields;
 
 /**
  * This class is auto-generated.
@@ -25,18 +24,17 @@ use FacebookAds\Object\Values\ProductItemARDataSurfacesValues;
  *
  */
 
-class ProductItemARData extends AbstractObject {
+class Stories extends AbstractObject {
 
   /**
-   * @return ProductItemARDataFields
+   * @return StoriesFields
    */
   public static function getFieldsEnum() {
-    return ProductItemARDataFields::getInstance();
+    return StoriesFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Surfaces'] = ProductItemARDataSurfacesValues::getInstance()->getValues();
     return $ref_enums;
   }
 

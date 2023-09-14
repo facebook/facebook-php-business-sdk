@@ -23,7 +23,10 @@ use FacebookAds\Enum\AbstractEnum;
 class AdFields extends AbstractEnum {
 
   const ACCOUNT_ID = 'account_id';
+  const AD_ACTIVE_TIME = 'ad_active_time';
   const AD_REVIEW_FEEDBACK = 'ad_review_feedback';
+  const AD_SCHEDULE_END_TIME = 'ad_schedule_end_time';
+  const AD_SCHEDULE_START_TIME = 'ad_schedule_start_time';
   const ADLABELS = 'adlabels';
   const ADSET = 'adset';
   const ADSET_ID = 'adset_id';
@@ -68,7 +71,10 @@ class AdFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'account_id' => 'string',
+      'ad_active_time' => 'string',
       'ad_review_feedback' => 'AdgroupReviewFeedback',
+      'ad_schedule_end_time' => 'datetime',
+      'ad_schedule_start_time' => 'datetime',
       'adlabels' => 'list<AdLabel>',
       'adset' => 'AdSet',
       'adset_id' => 'string',

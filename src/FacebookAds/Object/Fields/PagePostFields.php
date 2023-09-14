@@ -115,7 +115,7 @@ class PagePostFields extends AbstractEnum {
       'multi_share_end_card' => 'bool',
       'multi_share_optimized' => 'bool',
       'parent_id' => 'string',
-      'permalink_url' => 'Object',
+      'permalink_url' => 'string',
       'picture' => 'string',
       'place' => 'Place',
       'privacy' => 'Privacy',

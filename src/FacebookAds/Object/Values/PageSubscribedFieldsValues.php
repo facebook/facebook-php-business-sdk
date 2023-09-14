@@ -43,8 +43,8 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const GROUP_FEED = 'group_feed';
   const HOMETOWN = 'hometown';
   const HOURS = 'hours';
-  const IN_THREAD_LEAD_FORM_SUBMIT = 'in_thread_lead_form_submit';
   const INBOX_LABELS = 'inbox_labels';
+  const INVALID_TOPIC_PLACEHOLDER = 'invalid_topic_placeholder';
   const INVOICE_ACCESS_BANK_SLIP_EVENTS = 'invoice_access_bank_slip_events';
   const INVOICE_ACCESS_INVOICE_CHANGE = 'invoice_access_invoice_change';
   const INVOICE_ACCESS_INVOICE_DRAFT_CHANGE = 'invoice_access_invoice_draft_change';
@@ -74,6 +74,7 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const MESSAGING_FEEDBACK = 'messaging_feedback';
   const MESSAGING_GAME_PLAYS = 'messaging_game_plays';
   const MESSAGING_HANDOVERS = 'messaging_handovers';
+  const MESSAGING_IN_THREAD_LEAD_FORM_SUBMIT = 'messaging_in_thread_lead_form_submit';
   const MESSAGING_OPTINS = 'messaging_optins';
   const MESSAGING_OPTOUTS = 'messaging_optouts';
   const MESSAGING_PAYMENTS = 'messaging_payments';
@@ -83,6 +84,7 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const MESSAGING_REFERRALS = 'messaging_referrals';
   const MISSION = 'mission';
   const NAME = 'name';
+  const OTP_VERIFICATION = 'otp_verification';
   const PAGE_ABOUT_STORY = 'page_about_story';
   const PAGE_CHANGE_PROPOSAL = 'page_change_proposal';
   const PAGE_UPCOMING_CHANGE = 'page_upcoming_change';

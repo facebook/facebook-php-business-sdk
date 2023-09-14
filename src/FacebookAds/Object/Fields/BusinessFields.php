@@ -39,6 +39,7 @@ class BusinessFields extends AbstractEnum {
   const TWO_FACTOR_TYPE = 'two_factor_type';
   const UPDATED_BY = 'updated_by';
   const UPDATED_TIME = 'updated_time';
+  const USER_ACCESS_EXPIRE_TIME = 'user_access_expire_time';
   const VERIFICATION_STATUS = 'verification_status';
   const VERTICAL = 'vertical';
   const VERTICAL_ID = 'vertical_id';
@@ -62,6 +63,7 @@ class BusinessFields extends AbstractEnum {
       'two_factor_type' => 'string',
       'updated_by' => 'Object',
       'updated_time' => 'datetime',
+      'user_access_expire_time' => 'datetime',
       'verification_status' => 'string',
       'vertical' => 'string',
       'vertical_id' => 'unsigned int',

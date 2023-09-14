@@ -28,6 +28,7 @@ class AdAccountTargetingUnifiedAppStoreValues extends AbstractEnum {
   const APK_PURE = 'apk_pure';
   const APTOIDE_A1_STORE = 'aptoide_a1_store';
   const BEMOBI_MOBILE_STORE = 'bemobi_mobile_store';
+  const DIGITAL_TURBINE_STORE = 'digital_turbine_store';
   const DOES_NOT_EXIST = 'does_not_exist';
   const FB_ANDROID_STORE = 'fb_android_store';
   const FB_CANVAS = 'fb_canvas';

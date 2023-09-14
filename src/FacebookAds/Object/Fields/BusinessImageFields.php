@@ -32,6 +32,10 @@ class BusinessImageFields extends AbstractEnum {
   const URL = 'url';
   const URL_128 = 'url_128';
   const WIDTH = 'width';
+  const AD_PLACEMENTS_VALIDATION_ONLY = 'ad_placements_validation_only';
+  const BYTES = 'bytes';
+  const CREATIVE_FOLDER_ID = 'creative_folder_id';
+  const VALIDATION_AD_PLACEMENTS = 'validation_ad_placements';
 
   public function getFieldTypes() {
     return array(
@@ -45,6 +49,10 @@ class BusinessImageFields extends AbstractEnum {
       'url' => 'string',
       'url_128' => 'string',
       'width' => 'int',
+      'ad_placements_validation_only' => 'bool',
+      'bytes' => 'string',
+      'creative_folder_id' => 'string',
+      'validation_ad_placements' => 'list<ValidationAdPlacements>',
     );
   }
 }

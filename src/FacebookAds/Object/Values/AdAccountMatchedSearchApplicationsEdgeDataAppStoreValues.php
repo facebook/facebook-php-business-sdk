@@ -28,6 +28,7 @@ class AdAccountMatchedSearchApplicationsEdgeDataAppStoreValues extends AbstractE
   const APK_PURE = 'APK_PURE';
   const APTOIDE_A1_STORE = 'APTOIDE_A1_STORE';
   const BEMOBI_MOBILE_STORE = 'BEMOBI_MOBILE_STORE';
+  const DIGITAL_TURBINE_STORE = 'DIGITAL_TURBINE_STORE';
   const DOES_NOT_EXIST = 'DOES_NOT_EXIST';
   const FB_ANDROID_STORE = 'FB_ANDROID_STORE';
   const FB_CANVAS = 'FB_CANVAS';

@@ -53,6 +53,7 @@ class AdsPixelFields extends AbstractEnum {
   const OWNER_AD_ACCOUNT = 'owner_ad_account';
   const OWNER_BUSINESS = 'owner_business';
   const USAGE = 'usage';
+  const USER_ACCESS_EXPIRE_TIME = 'user_access_expire_time';
   const VALID_ENTRIES = 'valid_entries';
 
   public function getFieldTypes() {
@@ -88,6 +89,7 @@ class AdsPixelFields extends AbstractEnum {
       'owner_ad_account' => 'AdAccount',
       'owner_business' => 'Business',
       'usage' => 'OfflineConversionDataSetUsage',
+      'user_access_expire_time' => 'datetime',
       'valid_entries' => 'int',
     );
   }

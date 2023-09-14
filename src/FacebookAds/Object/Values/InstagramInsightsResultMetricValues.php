@@ -31,6 +31,8 @@ class InstagramInsightsResultMetricValues extends AbstractEnum {
   const ENGAGEMENT = 'engagement';
   const EXITS = 'exits';
   const FOLLOWS = 'follows';
+  const IG_REELS_AVG_WATCH_TIME = 'ig_reels_avg_watch_time';
+  const IG_REELS_VIDEO_VIEW_TOTAL_TIME = 'ig_reels_video_view_total_time';
   const IMPRESSIONS = 'impressions';
   const LIKES = 'likes';
   const NAVIGATION = 'navigation';

@@ -116,6 +116,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const EXISTING_CAMPAIGN_ID = 'existing_campaign_id';
   const GRP_BUYING = 'grp_buying';
   const IMPRESSION = 'impression';
+  const IS_BALANCED_FREQUENCY = 'is_balanced_frequency';
   const IS_FULL_VIEW = 'is_full_view';
   const IS_REACH_AND_FREQUENCY_IO_BUYING = 'is_reach_and_frequency_io_buying';
   const NUM_CURVE_POINTS = 'num_curve_points';
@@ -124,6 +125,8 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const RF_PREDICTION_ID_TO_RELEASE = 'rf_prediction_id_to_release';
   const RF_PREDICTION_ID_TO_SHARE = 'rf_prediction_id_to_share';
   const STOP_TIME = 'stop_time';
+  const TARGET_FREQUENCY = 'target_frequency';
+  const TARGET_FREQUENCY_RESET_PERIOD = 'target_frequency_reset_period';
 
   public function getFieldTypes() {
     return array(
@@ -221,6 +224,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'existing_campaign_id' => 'string',
       'grp_buying' => 'bool',
       'impression' => 'unsigned int',
+      'is_balanced_frequency' => 'bool',
       'is_full_view' => 'bool',
       'is_reach_and_frequency_io_buying' => 'bool',
       'num_curve_points' => 'unsigned int',
@@ -229,6 +233,8 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'rf_prediction_id_to_release' => 'string',
       'rf_prediction_id_to_share' => 'string',
       'stop_time' => 'unsigned int',
+      'target_frequency' => 'unsigned int',
+      'target_frequency_reset_period' => 'unsigned int',
     );
   }
 }

@@ -23,5 +23,4 @@ use FacebookAds\Enum\AbstractEnum;
 class PageDeveloperActionValues extends AbstractEnum {
 
   const ENABLE_FOLLOWUP_MESSAGE = 'ENABLE_FOLLOWUP_MESSAGE';
-  const SEND_RE_OPTIN = 'SEND_RE_OPTIN';
 }

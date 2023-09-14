@@ -20,25 +20,17 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class ProductItemARDataFields extends AbstractEnum {
+class LeadGenURLEntityAtRangesFields extends AbstractEnum {
 
-  const CONTAINER_EFFECT = 'container_effect';
-  const EFFECT_ICON = 'effect_icon';
-  const EFFECT_PARAMETERS = 'effect_parameters';
-  const PICKER_ICON = 'picker_icon';
-  const PRODUCT_AR_LINK = 'product_ar_link';
-  const STATE = 'state';
-  const SURFACES = 'surfaces';
+  const LENGTH = 'length';
+  const OFFSET = 'offset';
+  const URL = 'url';
 
   public function getFieldTypes() {
     return array(
-      'container_effect' => 'string',
-      'effect_icon' => 'string',
-      'effect_parameters' => 'Object',
-      'picker_icon' => 'string',
-      'product_ar_link' => 'Object',
-      'state' => 'string',
-      'surfaces' => 'list<Surfaces>',
+      'length' => 'unsigned int',
+      'offset' => 'unsigned int',
+      'url' => 'string',
     );
   }
 }

@@ -23,4 +23,5 @@ use FacebookAds\Enum\AbstractEnum;
 class AdPreviewCreativeFeatureValues extends AbstractEnum {
 
   const PROFILE_CARD = 'profile_card';
+  const STANDARD_ENHANCEMENTS_CATALOG = 'standard_enhancements_catalog';
 }

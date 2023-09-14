@@ -20,17 +20,13 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class AREffectsBatchStatusFields extends AbstractEnum {
+class AdAccountDsaRecommendationsFields extends AbstractEnum {
 
-  const ERRORS = 'errors';
-  const PRODUCT_GROUPS = 'product_groups';
-  const STATUS = 'status';
+  const RECOMMENDATIONS = 'recommendations';
 
   public function getFieldTypes() {
     return array(
-      'errors' => 'list<string>',
-      'product_groups' => 'list<Object>',
-      'status' => 'string',
+      'recommendations' => 'list<string>',
     );
   }
 }

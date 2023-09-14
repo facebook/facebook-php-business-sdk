@@ -21,7 +21,6 @@ use FacebookAds\Object\Values\CommentOrderValues;
 use FacebookAds\Object\Values\InsightsResultDatePresetValues;
 use FacebookAds\Object\Values\InsightsResultPeriodValues;
 use FacebookAds\Object\Values\PostBackdatedTimeGranularityValues;
-use FacebookAds\Object\Values\PostCheckinEntryPointValues;
 use FacebookAds\Object\Values\PostFeedStoryVisibilityValues;
 use FacebookAds\Object\Values\PostFormattingValues;
 use FacebookAds\Object\Values\PostPlaceAttachmentSettingValues;
@@ -53,7 +52,6 @@ class Post extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['BackdatedTimeGranularity'] = PostBackdatedTimeGranularityValues::getInstance()->getValues();
-    $ref_enums['CheckinEntryPoint'] = PostCheckinEntryPointValues::getInstance()->getValues();
     $ref_enums['Formatting'] = PostFormattingValues::getInstance()->getValues();
     $ref_enums['PlaceAttachmentSetting'] = PostPlaceAttachmentSettingValues::getInstance()->getValues();
     $ref_enums['PostSurfacesBlacklist'] = PostPostSurfacesBlacklistValues::getInstance()->getValues();

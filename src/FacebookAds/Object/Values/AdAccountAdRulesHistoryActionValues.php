@@ -26,6 +26,7 @@ class AdAccountAdRulesHistoryActionValues extends AbstractEnum {
   const CHANGED_BID = 'CHANGED_BID';
   const CHANGED_BUDGET = 'CHANGED_BUDGET';
   const EMAIL = 'EMAIL';
+  const ENABLE_ADVANTAGE_PLUS_CREATIVE = 'ENABLE_ADVANTAGE_PLUS_CREATIVE';
   const ENABLE_AUTOFLOW = 'ENABLE_AUTOFLOW';
   const ENDPOINT_PINGED = 'ENDPOINT_PINGED';
   const ERROR = 'ERROR';

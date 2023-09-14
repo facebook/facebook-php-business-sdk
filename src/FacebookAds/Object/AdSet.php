@@ -252,7 +252,7 @@ class AdSet extends AbstractArchivableCrudObject
     $param_types = array(
       'date_preset' => 'date_preset_enum',
       'effective_status' => 'list<string>',
-      'time_range' => 'Object',
+      'time_range' => 'map',
       'updated_since' => 'int',
     );
     $enums = array(
@@ -306,7 +306,7 @@ class AdSet extends AbstractArchivableCrudObject
       'date_preset' => 'date_preset_enum',
       'effective_status' => 'list<effective_status_enum>',
       'is_completed' => 'bool',
-      'time_range' => 'Object',
+      'time_range' => 'map',
     );
     $enums = array(
       'date_preset_enum' => AdSetDatePresetValues::getInstance()->getValues(),
@@ -407,8 +407,8 @@ class AdSet extends AbstractArchivableCrudObject
       'summary' => 'list<string>',
       'summary_action_breakdowns' => 'list<summary_action_breakdowns_enum>',
       'time_increment' => 'string',
-      'time_range' => 'Object',
-      'time_ranges' => 'list<Object>',
+      'time_range' => 'map',
+      'time_ranges' => 'list<map>',
       'use_account_attribution_setting' => 'bool',
       'use_unified_attribution_setting' => 'bool',
     );
@@ -458,8 +458,8 @@ class AdSet extends AbstractArchivableCrudObject
       'summary' => 'list<string>',
       'summary_action_breakdowns' => 'list<summary_action_breakdowns_enum>',
       'time_increment' => 'string',
-      'time_range' => 'Object',
-      'time_ranges' => 'list<Object>',
+      'time_range' => 'map',
+      'time_ranges' => 'list<map>',
       'use_account_attribution_setting' => 'bool',
       'use_unified_attribution_setting' => 'bool',
     );
@@ -541,7 +541,7 @@ class AdSet extends AbstractArchivableCrudObject
       'am_call_tags' => 'map',
       'date_preset' => 'date_preset_enum',
       'from_adtable' => 'bool',
-      'time_range' => 'Object',
+      'time_range' => 'map',
     );
     $enums = array(
       'date_preset_enum' => array(
@@ -596,6 +596,7 @@ class AdSet extends AbstractArchivableCrudObject
       'bid_constraints' => 'map<string, Object>',
       'bid_strategy' => 'bid_strategy_enum',
       'billing_event' => 'billing_event_enum',
+      'campaign_attribution' => 'Object',
       'campaign_spec' => 'Object',
       'creative_sequence' => 'list<string>',
       'daily_budget' => 'unsigned int',

@@ -23,10 +23,14 @@ use FacebookAds\Enum\AbstractEnum;
 class MessagingFeatureStatusFields extends AbstractEnum {
 
   const HOP_V2 = 'hop_v2';
+  const IG_MULTI_APP = 'ig_multi_app';
+  const MSGR_MULTI_APP = 'msgr_multi_app';
 
   public function getFieldTypes() {
     return array(
       'hop_v2' => 'bool',
+      'ig_multi_app' => 'bool',
+      'msgr_multi_app' => 'bool',
     );
   }
 }

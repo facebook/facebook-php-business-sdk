@@ -30,7 +30,7 @@ class LeadGenAppointmentBookingInfoFields extends AbstractEnum {
     return array(
       'advertiser_timezone_offset' => 'string',
       'appointment_durations' => 'list<string>',
-      'appointment_slots_by_day' => 'list<Object>',
+      'appointment_slots_by_day' => 'list<LeadGenAppointmentSlotsByDay>',
     );
   }
 }

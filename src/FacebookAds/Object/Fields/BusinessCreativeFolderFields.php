@@ -20,15 +20,29 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class ShopOrderFields extends AbstractEnum {
+class BusinessCreativeFolderFields extends AbstractEnum {
 
+  const BUSINESS = 'business';
   const CREATION_TIME = 'creation_time';
+  const CREATIVE_INSIGHT_PERMISSIONS = 'creative_insight_permissions';
+  const DESCRIPTION = 'description';
   const ID = 'id';
+  const MEDIA_LIBRARY_URL = 'media_library_url';
+  const NAME = 'name';
+  const OWNER_BUSINESS = 'owner_business';
+  const PARENT_FOLDER_ID = 'parent_folder_id';
 
   public function getFieldTypes() {
     return array(
+      'business' => 'Business',
       'creation_time' => 'datetime',
+      'creative_insight_permissions' => 'list<map<string, string>>',
+      'description' => 'string',
       'id' => 'string',
+      'media_library_url' => 'string',
+      'name' => 'string',
+      'owner_business' => 'Business',
+      'parent_folder_id' => 'string',
     );
   }
 }

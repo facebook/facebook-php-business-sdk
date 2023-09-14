@@ -25,6 +25,7 @@ class WhatsAppBusinessPreVerifiedPhoneNumberFields extends AbstractEnum {
   const CODE_VERIFICATION_STATUS = 'code_verification_status';
   const CODE_VERIFICATION_TIME = 'code_verification_time';
   const ID = 'id';
+  const OWNER_BUSINESS = 'owner_business';
   const PHONE_NUMBER = 'phone_number';
   const VERIFICATION_EXPIRY_TIME = 'verification_expiry_time';
 
@@ -33,6 +34,7 @@ class WhatsAppBusinessPreVerifiedPhoneNumberFields extends AbstractEnum {
       'code_verification_status' => 'string',
       'code_verification_time' => 'datetime',
       'id' => 'string',
+      'owner_business' => 'Business',
       'phone_number' => 'string',
       'verification_expiry_time' => 'datetime',
     );

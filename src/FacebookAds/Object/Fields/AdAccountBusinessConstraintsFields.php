@@ -23,10 +23,12 @@ use FacebookAds\Enum\AbstractEnum;
 class AdAccountBusinessConstraintsFields extends AbstractEnum {
 
   const AUDIENCE_CONTROLS = 'audience_controls';
+  const PLACEMENT_CONTROLS = 'placement_controls';
 
   public function getFieldTypes() {
     return array(
       'audience_controls' => 'Object',
+      'placement_controls' => 'Object',
     );
   }
 }

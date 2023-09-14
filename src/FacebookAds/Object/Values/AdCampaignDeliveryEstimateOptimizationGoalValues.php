@@ -43,6 +43,7 @@ class AdCampaignDeliveryEstimateOptimizationGoalValues extends AbstractEnum {
   const QUALITY_CALL = 'QUALITY_CALL';
   const QUALITY_LEAD = 'QUALITY_LEAD';
   const REACH = 'REACH';
+  const REMINDERS_SET = 'REMINDERS_SET';
   const SUBSCRIBERS = 'SUBSCRIBERS';
   const THRUPLAY = 'THRUPLAY';
   const VALUE = 'VALUE';

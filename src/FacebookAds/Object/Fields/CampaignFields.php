@@ -38,6 +38,7 @@ class CampaignFields extends AbstractEnum {
   const EFFECTIVE_STATUS = 'effective_status';
   const HAS_SECONDARY_SKADNETWORK_REPORTING = 'has_secondary_skadnetwork_reporting';
   const ID = 'id';
+  const IS_BUDGET_SCHEDULE_ENABLED = 'is_budget_schedule_enabled';
   const IS_SKADNETWORK_ATTRIBUTION = 'is_skadnetwork_attribution';
   const ISSUES_INFO = 'issues_info';
   const LAST_BUDGET_TOGGLING_TIME = 'last_budget_toggling_time';
@@ -82,6 +83,7 @@ class CampaignFields extends AbstractEnum {
       'effective_status' => 'EffectiveStatus',
       'has_secondary_skadnetwork_reporting' => 'bool',
       'id' => 'string',
+      'is_budget_schedule_enabled' => 'bool',
       'is_skadnetwork_attribution' => 'bool',
       'issues_info' => 'list<AdCampaignIssuesInfo>',
       'last_budget_toggling_time' => 'datetime',

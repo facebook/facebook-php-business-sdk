@@ -75,6 +75,7 @@ class PageFields extends AbstractEnum {
   const HAS_ADDED_APP = 'has_added_app';
   const HAS_TRANSITIONED_TO_NEW_PAGE_EXPERIENCE = 'has_transitioned_to_new_page_experience';
   const HAS_WHATSAPP_BUSINESS_NUMBER = 'has_whatsapp_business_number';
+  const HAS_WHATSAPP_ENTERPRISE_NUMBER_USING_CLOUD_API = 'has_whatsapp_enterprise_number_using_cloud_api';
   const HAS_WHATSAPP_NUMBER = 'has_whatsapp_number';
   const HOMETOWN = 'hometown';
   const HOURS = 'hours';
@@ -118,6 +119,7 @@ class PageFields extends AbstractEnum {
   const OFFER_ELIGIBLE = 'offer_eligible';
   const OVERALL_STAR_RATING = 'overall_star_rating';
   const OWNER_BUSINESS = 'owner_business';
+  const PAGE_ABOUT_STORY = 'page_about_story';
   const PAGE_TOKEN = 'page_token';
   const PARENT_PAGE = 'parent_page';
   const PARKING = 'parking';
@@ -160,6 +162,7 @@ class PageFields extends AbstractEnum {
   const UNREAD_MESSAGE_COUNT = 'unread_message_count';
   const UNREAD_NOTIF_COUNT = 'unread_notif_count';
   const UNSEEN_MESSAGE_COUNT = 'unseen_message_count';
+  const USER_ACCESS_EXPIRE_TIME = 'user_access_expire_time';
   const USERNAME = 'username';
   const VERIFICATION_STATUS = 'verification_status';
   const VOIP_INFO = 'voip_info';
@@ -223,6 +226,7 @@ class PageFields extends AbstractEnum {
       'has_added_app' => 'bool',
       'has_transitioned_to_new_page_experience' => 'bool',
       'has_whatsapp_business_number' => 'bool',
+      'has_whatsapp_enterprise_number_using_cloud_api' => 'bool',
       'has_whatsapp_number' => 'bool',
       'hometown' => 'string',
       'hours' => 'map<string, string>',
@@ -266,6 +270,7 @@ class PageFields extends AbstractEnum {
       'offer_eligible' => 'bool',
       'overall_star_rating' => 'float',
       'owner_business' => 'Business',
+      'page_about_story' => 'PageAboutStory',
       'page_token' => 'string',
       'parent_page' => 'Page',
       'parking' => 'PageParking',
@@ -308,6 +313,7 @@ class PageFields extends AbstractEnum {
       'unread_message_count' => 'unsigned int',
       'unread_notif_count' => 'unsigned int',
       'unseen_message_count' => 'unsigned int',
+      'user_access_expire_time' => 'datetime',
       'username' => 'string',
       'verification_status' => 'string',
       'voip_info' => 'VoipInfo',

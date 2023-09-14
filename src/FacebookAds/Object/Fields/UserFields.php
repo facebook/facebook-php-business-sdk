@@ -24,6 +24,7 @@ class UserFields extends AbstractEnum {
 
   const ABOUT = 'about';
   const AGE_RANGE = 'age_range';
+  const AVATAR_2D_PROFILE_PICTURE = 'avatar_2d_profile_picture';
   const BIRTHDAY = 'birthday';
   const COMMUNITY = 'community';
   const COVER = 'cover';
@@ -41,6 +42,7 @@ class UserFields extends AbstractEnum {
   const INSTALL_TYPE = 'install_type';
   const INSTALLED = 'installed';
   const IS_GUEST_USER = 'is_guest_user';
+  const IS_WORK_ACCOUNT = 'is_work_account';
   const LANGUAGES = 'languages';
   const LAST_NAME = 'last_name';
   const LINK = 'link';
@@ -74,6 +76,7 @@ class UserFields extends AbstractEnum {
     return array(
       'about' => 'string',
       'age_range' => 'AgeRange',
+      'avatar_2d_profile_picture' => 'AvatarProfilePicture',
       'birthday' => 'string',
       'community' => 'Group',
       'cover' => 'UserCoverPhoto',
@@ -91,6 +94,7 @@ class UserFields extends AbstractEnum {
       'install_type' => 'string',
       'installed' => 'bool',
       'is_guest_user' => 'bool',
+      'is_work_account' => 'bool',
       'languages' => 'list<Experience>',
       'last_name' => 'string',
       'link' => 'string',
@@ -107,7 +111,7 @@ class UserFields extends AbstractEnum {
       'profile_pic' => 'string',
       'quotes' => 'string',
       'relationship_status' => 'string',
-      'shared_login_upgrade_required_by' => 'Object',
+      'shared_login_upgrade_required_by' => 'datetime',
       'short_name' => 'string',
       'significant_other' => 'User',
       'sports' => 'list<Experience>',

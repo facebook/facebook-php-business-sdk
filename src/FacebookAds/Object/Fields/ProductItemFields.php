@@ -27,7 +27,6 @@ class ProductItemFields extends AbstractEnum {
   const ADDITIONAL_VARIANT_ATTRIBUTES = 'additional_variant_attributes';
   const AGE_GROUP = 'age_group';
   const APPLINKS = 'applinks';
-  const AR_DATA = 'ar_data';
   const AVAILABILITY = 'availability';
   const BRAND = 'brand';
   const CAPABILITY_TO_REVIEW_STATUS = 'capability_to_review_status';
@@ -78,6 +77,7 @@ class ProductItemFields extends AbstractEnum {
   const PRODUCT_CATALOG = 'product_catalog';
   const PRODUCT_FEED = 'product_feed';
   const PRODUCT_GROUP = 'product_group';
+  const PRODUCT_LOCAL_INFO = 'product_local_info';
   const PRODUCT_TYPE = 'product_type';
   const QUANTITY_TO_SELL_ON_FACEBOOK = 'quantity_to_sell_on_facebook';
   const RETAILER_ID = 'retailer_id';
@@ -127,7 +127,6 @@ class ProductItemFields extends AbstractEnum {
       'additional_variant_attributes' => 'list<map<string, string>>',
       'age_group' => 'AgeGroup',
       'applinks' => 'CatalogItemAppLinks',
-      'ar_data' => 'ProductItemARData',
       'availability' => 'Availability',
       'brand' => 'string',
       'capability_to_review_status' => 'list<map<Object, Object>>',
@@ -178,6 +177,7 @@ class ProductItemFields extends AbstractEnum {
       'product_catalog' => 'ProductCatalog',
       'product_feed' => 'ProductFeed',
       'product_group' => 'ProductGroup',
+      'product_local_info' => 'ProductItemLocalInfo',
       'product_type' => 'string',
       'quantity_to_sell_on_facebook' => 'int',
       'retailer_id' => 'string',

@@ -36,7 +36,6 @@ use FacebookAds\Object\Values\LiveVideoStreamTypeValues;
 use FacebookAds\Object\Values\PhotoBackdatedTimeGranularityValues;
 use FacebookAds\Object\Values\PhotoUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\PostBackdatedTimeGranularityValues;
-use FacebookAds\Object\Values\PostCheckinEntryPointValues;
 use FacebookAds\Object\Values\PostFormattingValues;
 use FacebookAds\Object\Values\PostPlaceAttachmentSettingValues;
 use FacebookAds\Object\Values\PostPostSurfacesBlacklistValues;
@@ -158,6 +157,7 @@ class Group extends AbstractCrudObject {
       'name' => 'string',
       'place' => 'Object',
       'privacy' => 'string',
+      'session_id' => 'string',
       'tags' => 'list<int>',
       'visible' => 'string',
     );
@@ -321,7 +321,6 @@ class Group extends AbstractCrudObject {
       'backdated_time_granularity' => 'backdated_time_granularity_enum',
       'call_to_action' => 'Object',
       'caption' => 'string',
-      'checkin_entry_point' => 'checkin_entry_point_enum',
       'child_attachments' => 'list<Object>',
       'client_mutation_id' => 'string',
       'composer_entry_picker' => 'string',
@@ -419,7 +418,6 @@ class Group extends AbstractCrudObject {
     );
     $enums = array(
       'backdated_time_granularity_enum' => PostBackdatedTimeGranularityValues::getInstance()->getValues(),
-      'checkin_entry_point_enum' => PostCheckinEntryPointValues::getInstance()->getValues(),
       'formatting_enum' => PostFormattingValues::getInstance()->getValues(),
       'place_attachment_setting_enum' => PostPlaceAttachmentSettingValues::getInstance()->getValues(),
       'post_surfaces_blacklist_enum' => PostPostSurfacesBlacklistValues::getInstance()->getValues(),
@@ -495,11 +493,11 @@ class Group extends AbstractCrudObject {
     $param_types = array(
       'admin' => 'int',
       'description' => 'string',
-      'group_icon_id' => 'Object',
+      'group_icon_id' => 'string',
       'group_type' => 'group_type_enum',
       'join_setting' => 'join_setting_enum',
       'name' => 'string',
-      'parent_id' => 'Object',
+      'parent_id' => 'string',
       'post_permissions' => 'post_permissions_enum',
       'post_requires_admin_approval' => 'bool',
       'privacy' => 'string',

@@ -22,13 +22,17 @@ use FacebookAds\Enum\AbstractEnum;
 
 class ProductImageFields extends AbstractEnum {
 
+  const HEIGHT = 'height';
   const ID = 'id';
   const IMAGE_URL = 'image_url';
+  const WIDTH = 'width';
 
   public function getFieldTypes() {
     return array(
+      'height' => 'int',
       'id' => 'string',
       'image_url' => 'string',
+      'width' => 'int',
     );
   }
 }

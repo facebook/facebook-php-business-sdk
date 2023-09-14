@@ -71,7 +71,7 @@ class URL extends AbstractCrudObject {
       'blacklist' => 'bool',
       'denylist' => 'bool',
       'hmac' => 'string',
-      'locale' => 'list<Object>',
+      'locale' => 'list<string>',
       'scopes' => 'list<scopes_enum>',
       'ts' => 'datetime',
     );

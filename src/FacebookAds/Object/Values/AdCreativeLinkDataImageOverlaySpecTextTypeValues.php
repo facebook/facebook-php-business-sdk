@@ -31,4 +31,5 @@ class AdCreativeLinkDataImageOverlaySpecTextTypeValues extends AbstractEnum {
   const PRICE = 'price';
   const STAR_RATING = 'star_rating';
   const STRIKETHROUGH_PRICE = 'strikethrough_price';
+  const SUSTAINABLE = 'sustainable';
 }

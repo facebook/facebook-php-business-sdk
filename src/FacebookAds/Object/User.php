@@ -40,7 +40,6 @@ use FacebookAds\Object\Values\PhotoBackdatedTimeGranularityValues;
 use FacebookAds\Object\Values\PhotoTypeValues;
 use FacebookAds\Object\Values\PhotoUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\PostBackdatedTimeGranularityValues;
-use FacebookAds\Object\Values\PostCheckinEntryPointValues;
 use FacebookAds\Object\Values\PostFormattingValues;
 use FacebookAds\Object\Values\PostPlaceAttachmentSettingValues;
 use FacebookAds\Object\Values\PostPostSurfacesBlacklistValues;
@@ -49,6 +48,7 @@ use FacebookAds\Object\Values\PostTargetSurfaceValues;
 use FacebookAds\Object\Values\PostUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\ProfilePictureSourceBreakingChangeValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
+use FacebookAds\Object\Values\UnifiedThreadPlatformValues;
 use FacebookAds\Object\Values\UserFilteringValues;
 use FacebookAds\Object\Values\UserLocalNewsMegaphoneDismissStatusValues;
 use FacebookAds\Object\Values\UserLocalNewsSubscriptionStatusValues;
@@ -478,9 +478,9 @@ class User extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/avatars',
-      new AbstractCrudObject(),
+      new Avatar(),
       'EDGE',
-      array(),
+      Avatar::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -598,10 +598,12 @@ class User extends AbstractCrudObject {
 
     $param_types = array(
       'folder' => 'string',
+      'platform' => 'platform_enum',
       'tags' => 'list<string>',
       'user_id' => 'string',
     );
     $enums = array(
+      'platform_enum' => UnifiedThreadPlatformValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -717,7 +719,6 @@ class User extends AbstractCrudObject {
       'backdated_time_granularity' => 'backdated_time_granularity_enum',
       'call_to_action' => 'Object',
       'caption' => 'string',
-      'checkin_entry_point' => 'checkin_entry_point_enum',
       'child_attachments' => 'list<Object>',
       'client_mutation_id' => 'string',
       'composer_entry_picker' => 'string',
@@ -815,7 +816,6 @@ class User extends AbstractCrudObject {
     );
     $enums = array(
       'backdated_time_granularity_enum' => PostBackdatedTimeGranularityValues::getInstance()->getValues(),
-      'checkin_entry_point_enum' => PostCheckinEntryPointValues::getInstance()->getValues(),
       'formatting_enum' => PostFormattingValues::getInstance()->getValues(),
       'place_attachment_setting_enum' => PostPlaceAttachmentSettingValues::getInstance()->getValues(),
       'post_surfaces_blacklist_enum' => PostPostSurfacesBlacklistValues::getInstance()->getValues(),

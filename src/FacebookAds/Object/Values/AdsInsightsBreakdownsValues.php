@@ -42,6 +42,7 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
   const IMPRESSION_DEVICE = 'impression_device';
   const IS_CONVERSION_ID_MODELED = 'is_conversion_id_modeled';
   const LINK_URL_ASSET = 'link_url_asset';
+  const MARKETING_MESSAGES_BTN_NAME = 'marketing_messages_btn_name';
   const MMM = 'mmm';
   const PLACE_PAGE_ID = 'place_page_id';
   const PLATFORM_POSITION = 'platform_position';
@@ -52,6 +53,8 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
   const REGION = 'region';
   const SKAN_CAMPAIGN_ID = 'skan_campaign_id';
   const SKAN_CONVERSION_ID = 'skan_conversion_id';
+  const SKAN_VERSION = 'skan_version';
+  const STANDARD_EVENT_CONTENT_TYPE = 'standard_event_content_type';
   const TITLE_ASSET = 'title_asset';
   const VIDEO_ASSET = 'video_asset';
 }

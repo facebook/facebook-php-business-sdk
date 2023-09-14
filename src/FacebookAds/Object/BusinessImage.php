@@ -14,6 +14,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\BusinessImageFields;
+use FacebookAds\Object\Values\BusinessImageValidationAdPlacementsValues;
 
 /**
  * This class is auto-generated.
@@ -27,6 +28,13 @@ use FacebookAds\Object\Fields\BusinessImageFields;
 class BusinessImage extends AbstractCrudObject {
 
   /**
+   * @deprecated getEndpoint function is deprecated
+   */
+  protected function getEndpoint() {
+    return 'images';
+  }
+
+  /**
    * @return BusinessImageFields
    */
   public static function getFieldsEnum() {
@@ -35,6 +43,7 @@ class BusinessImage extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['ValidationAdPlacements'] = BusinessImageValidationAdPlacementsValues::getInstance()->getValues();
     return $ref_enums;
   }
 

@@ -20,9 +20,18 @@ use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultMetricsValues;
 use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultOrderingColumnValues;
 use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultOrderingTypeValues;
 use FacebookAds\Object\Values\AdStudyTypeValues;
+use FacebookAds\Object\Values\AdVideoContainerTypeValues;
+use FacebookAds\Object\Values\AdVideoContentCategoryValues;
+use FacebookAds\Object\Values\AdVideoFormattingValues;
+use FacebookAds\Object\Values\AdVideoOriginalProjectionTypeValues;
+use FacebookAds\Object\Values\AdVideoSwapModeValues;
+use FacebookAds\Object\Values\AdVideoUnpublishedContentTypeValues;
+use FacebookAds\Object\Values\AdVideoUploadPhaseValues;
+use FacebookAds\Object\Values\AdVideoValidationAdPlacementsValues;
 use FacebookAds\Object\Values\AdsPixelSortByValues;
 use FacebookAds\Object\Values\BusinessActionSourceValues;
 use FacebookAds\Object\Values\BusinessAssetSharingAgreementRequestStatusValues;
+use FacebookAds\Object\Values\BusinessImageValidationAdPlacementsValues;
 use FacebookAds\Object\Values\BusinessPagePermittedTasksValues;
 use FacebookAds\Object\Values\BusinessPermittedTasksValues;
 use FacebookAds\Object\Values\BusinessSubverticalV2Values;
@@ -1141,6 +1150,32 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createCreativeFolder(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'description' => 'string',
+      'name' => 'string',
+      'parent_folder_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/creative_folders',
+      new BusinessCreativeFolder(),
+      'EDGE',
+      BusinessCreativeFolder::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getCreditCards(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1308,6 +1343,35 @@ class Business extends AbstractCrudObject {
       new ExtendedCredit(),
       'EDGE',
       ExtendedCredit::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createImage(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'ad_placements_validation_only' => 'bool',
+      'bytes' => 'string',
+      'creative_folder_id' => 'string',
+      'name' => 'string',
+      'validation_ad_placements' => 'list<validation_ad_placements_enum>',
+    );
+    $enums = array(
+      'validation_ad_placements_enum' => BusinessImageValidationAdPlacementsValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/images',
+      new BusinessImage(),
+      'EDGE',
+      BusinessImage::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1537,6 +1601,7 @@ class Business extends AbstractCrudObject {
       'no_ad_account' => 'bool',
       'page_name' => 'string',
       'page_profile_image_url' => 'string',
+      'partition_type' => 'partition_type_enum',
       'partner_facebook_page_url' => 'string',
       'partner_registration_countries' => 'list<string>',
       'sales_rep_email' => 'string',
@@ -1549,6 +1614,11 @@ class Business extends AbstractCrudObject {
       'vertical' => 'vertical_enum',
     );
     $enums = array(
+      'partition_type_enum' => array(
+        'AUTH',
+        'FIXED',
+        'FIXED_WITHOUT_PARTITION',
+      ),
       'survey_business_type_enum' => array(
         'ADVERTISER',
         'AGENCY',
@@ -2123,6 +2193,29 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getPartnerAccountLinking(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/partner_account_linking',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createPartnerPremiumOption(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -2449,6 +2542,84 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function deleteSharePreVerifiedNumbers(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'partner_business_id' => 'string',
+      'preverified_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/share_preverified_numbers',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createSharePreVerifiedNumber(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'partner_business_id' => 'string',
+      'preverified_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/share_preverified_numbers',
+      new Business(),
+      'EDGE',
+      Business::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createSystemUserAccessToken(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'asset' => 'list<unsigned int>',
+      'fetch_only' => 'bool',
+      'scope' => 'list<Permission>',
+      'set_token_expires_in_60_days' => 'bool',
+      'system_user_id' => 'unsigned int',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/system_user_access_tokens',
+      new Business(),
+      'EDGE',
+      Business::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getSystemUsers(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -2515,6 +2686,111 @@ class Business extends AbstractCrudObject {
       new AbstractCrudObject(),
       'EDGE',
       array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createVideo(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'ad_placements_validation_only' => 'bool',
+      'adaptive_type' => 'string',
+      'animated_effect_id' => 'unsigned int',
+      'application_id' => 'string',
+      'asked_fun_fact_prompt_id' => 'unsigned int',
+      'audio_story_wave_animation_handle' => 'string',
+      'chunk_session_id' => 'string',
+      'composer_entry_picker' => 'string',
+      'composer_entry_point' => 'string',
+      'composer_entry_time' => 'unsigned int',
+      'composer_session_events_log' => 'string',
+      'composer_session_id' => 'string',
+      'composer_source_surface' => 'string',
+      'composer_type' => 'string',
+      'container_type' => 'container_type_enum',
+      'content_category' => 'content_category_enum',
+      'creative_folder_id' => 'string',
+      'creative_tools' => 'string',
+      'description' => 'string',
+      'embeddable' => 'bool',
+      'end_offset' => 'unsigned int',
+      'fbuploader_video_file_chunk' => 'string',
+      'file_size' => 'unsigned int',
+      'file_url' => 'string',
+      'fisheye_video_cropped' => 'bool',
+      'formatting' => 'formatting_enum',
+      'fov' => 'unsigned int',
+      'front_z_rotation' => 'float',
+      'fun_fact_prompt_id' => 'unsigned int',
+      'fun_fact_toastee_id' => 'unsigned int',
+      'guide' => 'list<list<unsigned int>>',
+      'guide_enabled' => 'bool',
+      'has_nickname' => 'bool',
+      'holiday_card' => 'string',
+      'initial_heading' => 'unsigned int',
+      'initial_pitch' => 'unsigned int',
+      'instant_game_entry_point_data' => 'string',
+      'is_boost_intended' => 'bool',
+      'is_group_linking_post' => 'bool',
+      'is_voice_clip' => 'bool',
+      'location_source_id' => 'string',
+      'offer_like_post_id' => 'unsigned int',
+      'og_action_type_id' => 'string',
+      'og_icon_id' => 'string',
+      'og_object_id' => 'string',
+      'og_phrase' => 'string',
+      'og_suggestion_mechanism' => 'string',
+      'original_fov' => 'unsigned int',
+      'original_projection_type' => 'original_projection_type_enum',
+      'publish_event_id' => 'unsigned int',
+      'react_mode_metadata' => 'string',
+      'referenced_sticker_id' => 'string',
+      'replace_video_id' => 'string',
+      'slideshow_spec' => 'map',
+      'source' => 'string',
+      'source_instagram_media_id' => 'string',
+      'spherical' => 'bool',
+      'start_offset' => 'unsigned int',
+      'swap_mode' => 'swap_mode_enum',
+      'text_format_metadata' => 'string',
+      'throwback_camera_roll_media' => 'string',
+      'thumb' => 'file',
+      'time_since_original_post' => 'unsigned int',
+      'title' => 'string',
+      'transcode_setting_properties' => 'string',
+      'unpublished_content_type' => 'unpublished_content_type_enum',
+      'upload_phase' => 'upload_phase_enum',
+      'upload_session_id' => 'string',
+      'upload_setting_properties' => 'string',
+      'validation_ad_placements' => 'list<validation_ad_placements_enum>',
+      'video_file_chunk' => 'string',
+      'video_id_original' => 'string',
+      'video_start_time_ms' => 'unsigned int',
+      'waterfall_id' => 'string',
+    );
+    $enums = array(
+      'container_type_enum' => AdVideoContainerTypeValues::getInstance()->getValues(),
+      'content_category_enum' => AdVideoContentCategoryValues::getInstance()->getValues(),
+      'formatting_enum' => AdVideoFormattingValues::getInstance()->getValues(),
+      'original_projection_type_enum' => AdVideoOriginalProjectionTypeValues::getInstance()->getValues(),
+      'swap_mode_enum' => AdVideoSwapModeValues::getInstance()->getValues(),
+      'unpublished_content_type_enum' => AdVideoUnpublishedContentTypeValues::getInstance()->getValues(),
+      'upload_phase_enum' => AdVideoUploadPhaseValues::getInstance()->getValues(),
+      'validation_ad_placements_enum' => AdVideoValidationAdPlacementsValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/videos',
+      new AdVideo(),
+      'EDGE',
+      AdVideo::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

@@ -23,6 +23,7 @@ use FacebookAds\Enum\AbstractEnum;
 class AdsActionStatsFields extends AbstractEnum {
 
   const FIELD_1D_CLICK = '1d_click';
+  const FIELD_1D_EV = '1d_ev';
   const FIELD_1D_VIEW = '1d_view';
   const FIELD_28D_CLICK = '28d_click';
   const FIELD_28D_VIEW = '28d_view';
@@ -57,6 +58,7 @@ class AdsActionStatsFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       '1d_click' => 'string',
+      '1d_ev' => 'string',
       '1d_view' => 'string',
       '28d_click' => 'string',
       '28d_view' => 'string',

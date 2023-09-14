@@ -99,6 +99,7 @@ class ApplicationFields extends AbstractEnum {
   const PRIVACY_POLICY_URL = 'privacy_policy_url';
   const PROFILE_SECTION_URL = 'profile_section_url';
   const PROPERTY_ID = 'property_id';
+  const PROTECTED_MODE_RULES = 'protected_mode_rules';
   const REAL_TIME_MODE_DEVICES = 'real_time_mode_devices';
   const RESTRICTIONS = 'restrictions';
   const RESTRICTIVE_DATA_FILTER_PARAMS = 'restrictive_data_filter_params';
@@ -204,6 +205,7 @@ class ApplicationFields extends AbstractEnum {
       'privacy_policy_url' => 'string',
       'profile_section_url' => 'string',
       'property_id' => 'string',
+      'protected_mode_rules' => 'Object',
       'real_time_mode_devices' => 'list<string>',
       'restrictions' => 'Object',
       'restrictive_data_filter_params' => 'string',

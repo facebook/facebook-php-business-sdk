@@ -61,7 +61,7 @@ class AdCreativeLinkDataFields extends AbstractEnum {
       'ad_context' => 'string',
       'additional_image_index' => 'int',
       'app_link_spec' => 'AdCreativeLinkDataAppLinkSpec',
-      'attachment_style' => 'AttachmentStyle',
+      'attachment_style' => 'string',
       'branded_content_shared_to_sponsor_status' => 'string',
       'branded_content_sponsor_page_id' => 'string',
       'call_to_action' => 'AdCreativeLinkDataCallToAction',

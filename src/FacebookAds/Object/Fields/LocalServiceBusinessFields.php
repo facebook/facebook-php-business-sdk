@@ -47,7 +47,9 @@ class LocalServiceBusinessFields extends AbstractEnum {
   const ID = 'id';
   const IMAGE_FETCH_STATUS = 'image_fetch_status';
   const IMAGES = 'images';
+  const LOCAL_INFO = 'local_info';
   const LOCAL_SERVICE_BUSINESS_ID = 'local_service_business_id';
+  const MAIN_LOCAL_INFO = 'main_local_info';
   const PHONE = 'phone';
   const PRICE = 'price';
   const PRICE_RANGE = 'price_range';
@@ -87,7 +89,9 @@ class LocalServiceBusinessFields extends AbstractEnum {
       'id' => 'string',
       'image_fetch_status' => 'ImageFetchStatus',
       'images' => 'list<string>',
+      'local_info' => 'ProductItemLocalInfo',
       'local_service_business_id' => 'string',
+      'main_local_info' => 'ProductItemLocalInfo',
       'phone' => 'string',
       'price' => 'string',
       'price_range' => 'string',

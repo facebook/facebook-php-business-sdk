@@ -41,12 +41,35 @@ class WhatsAppBusinessPreVerifiedPhoneNumber extends AbstractCrudObject {
   }
 
 
+  public function getPartners(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/partners',
+      new Business(),
+      'EDGE',
+      Business::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createRequestCode(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
       'code_method' => 'code_method_enum',
-      'language' => 'Object',
+      'language' => 'string',
     );
     $enums = array(
       'code_method_enum' => array(

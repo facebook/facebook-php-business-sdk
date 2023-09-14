@@ -35,6 +35,7 @@ class AdSetFields extends AbstractEnum {
   const BILLING_EVENT = 'billing_event';
   const BUDGET_REMAINING = 'budget_remaining';
   const CAMPAIGN = 'campaign';
+  const CAMPAIGN_ACTIVE_TIME = 'campaign_active_time';
   const CAMPAIGN_ATTRIBUTION = 'campaign_attribution';
   const CAMPAIGN_ID = 'campaign_id';
   const CONFIGURED_STATUS = 'configured_status';
@@ -53,6 +54,7 @@ class AdSetFields extends AbstractEnum {
   const FULL_FUNNEL_EXPLORATION_MODE = 'full_funnel_exploration_mode';
   const ID = 'id';
   const INSTAGRAM_ACTOR_ID = 'instagram_actor_id';
+  const IS_BUDGET_SCHEDULE_ENABLED = 'is_budget_schedule_enabled';
   const IS_DYNAMIC_CREATIVE = 'is_dynamic_creative';
   const ISSUES_INFO = 'issues_info';
   const LEARNING_STAGE_INFO = 'learning_stage_info';
@@ -106,6 +108,7 @@ class AdSetFields extends AbstractEnum {
       'billing_event' => 'BillingEvent',
       'budget_remaining' => 'string',
       'campaign' => 'Campaign',
+      'campaign_active_time' => 'string',
       'campaign_attribution' => 'string',
       'campaign_id' => 'string',
       'configured_status' => 'ConfiguredStatus',
@@ -124,6 +127,7 @@ class AdSetFields extends AbstractEnum {
       'full_funnel_exploration_mode' => 'string',
       'id' => 'string',
       'instagram_actor_id' => 'string',
+      'is_budget_schedule_enabled' => 'bool',
       'is_dynamic_creative' => 'bool',
       'issues_info' => 'list<AdCampaignIssuesInfo>',
       'learning_stage_info' => 'AdCampaignLearningStageInfo',
