@@ -20,23 +20,21 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class StoriesFields extends AbstractEnum {
+class IGShoppingProductAppealFields extends AbstractEnum {
 
-  const CREATION_TIME = 'creation_time';
-  const MEDIA_ID = 'media_id';
-  const MEDIA_TYPE = 'media_type';
-  const POST_ID = 'post_id';
-  const STATUS = 'status';
-  const URL = 'url';
+  const ELIGIBLE_FOR_APPEAL = 'eligible_for_appeal';
+  const PRODUCT_APPEAL_STATUS = 'product_appeal_status';
+  const PRODUCT_ID = 'product_id';
+  const REJECTION_REASONS = 'rejection_reasons';
+  const REVIEW_STATUS = 'review_status';
 
   public function getFieldTypes() {
     return array(
-      'creation_time' => 'string',
-      'media_id' => 'string',
-      'media_type' => 'string',
-      'post_id' => 'string',
-      'status' => 'string',
-      'url' => 'string',
+      'eligible_for_appeal' => 'bool',
+      'product_appeal_status' => 'string',
+      'product_id' => 'int',
+      'rejection_reasons' => 'list<string>',
+      'review_status' => 'string',
     );
   }
 }

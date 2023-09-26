@@ -125,9 +125,9 @@ class Vehicle extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/videos_metadata',
-      new AbstractCrudObject(),
+      new DynamicVideoMetadata(),
       'EDGE',
-      array(),
+      DynamicVideoMetadata::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

@@ -18,11 +18,10 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdPreviewCreativeFeatureValues getInstance()
+ * @method static StoriesStatusValues getInstance()
  */
-class AdPreviewCreativeFeatureValues extends AbstractEnum {
+class StoriesStatusValues extends AbstractEnum {
 
-  const PRODUCT_METADATA_AUTOMATION = 'product_metadata_automation';
-  const PROFILE_CARD = 'profile_card';
-  const STANDARD_ENHANCEMENTS_CATALOG = 'standard_enhancements_catalog';
+  const ARCHIVED = 'ARCHIVED';
+  const PUBLISHED = 'PUBLISHED';
 }

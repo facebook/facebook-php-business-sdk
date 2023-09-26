@@ -20,23 +20,15 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class StoriesFields extends AbstractEnum {
+class ContentPublishingLimitResponseFields extends AbstractEnum {
 
-  const CREATION_TIME = 'creation_time';
-  const MEDIA_ID = 'media_id';
-  const MEDIA_TYPE = 'media_type';
-  const POST_ID = 'post_id';
-  const STATUS = 'status';
-  const URL = 'url';
+  const CONFIG = 'config';
+  const QUOTA_USAGE = 'quota_usage';
 
   public function getFieldTypes() {
     return array(
-      'creation_time' => 'string',
-      'media_id' => 'string',
-      'media_type' => 'string',
-      'post_id' => 'string',
-      'status' => 'string',
-      'url' => 'string',
+      'config' => 'Object',
+      'quota_usage' => 'int',
     );
   }
 }

@@ -74,6 +74,7 @@ use FacebookAds\Object\Values\PhotoTypeValues;
 use FacebookAds\Object\Values\PhotoUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\ProfilePictureSourceBreakingChangeValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
+use FacebookAds\Object\Values\StoriesStatusValues;
 use FacebookAds\Object\Values\UnifiedThreadPlatformValues;
 use FacebookAds\Object\Values\VideoCopyrightContentCategoryValues;
 use FacebookAds\Object\Values\VideoCopyrightMonitoringTypeValues;
@@ -2905,8 +2906,12 @@ class Page extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'since' => 'datetime',
+      'status' => 'list<status_enum>',
+      'until' => 'datetime',
     );
     $enums = array(
+      'status_enum' => StoriesStatusValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

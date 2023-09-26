@@ -13,8 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\StoriesFields;
-use FacebookAds\Object\Values\StoriesStatusValues;
+use FacebookAds\Object\Fields\AdCreativeFeatureDetailsFields;
 
 /**
  * This class is auto-generated.
@@ -25,18 +24,17 @@ use FacebookAds\Object\Values\StoriesStatusValues;
  *
  */
 
-class Stories extends AbstractObject {
+class AdCreativeFeatureDetails extends AbstractObject {
 
   /**
-   * @return StoriesFields
+   * @return AdCreativeFeatureDetailsFields
    */
   public static function getFieldsEnum() {
-    return StoriesFields::getInstance();
+    return AdCreativeFeatureDetailsFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Status'] = StoriesStatusValues::getInstance()->getValues();
     return $ref_enums;
   }
 

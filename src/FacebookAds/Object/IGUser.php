@@ -57,9 +57,9 @@ class IGUser extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/available_catalogs',
-      new AbstractCrudObject(),
+      new UserAvailableCatalogs(),
       'EDGE',
-      array(),
+      UserAvailableCatalogs::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -82,9 +82,9 @@ class IGUser extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/catalog_product_search',
-      new AbstractCrudObject(),
+      new ShadowIGUserCatalogProductSearch(),
       'EDGE',
-      array(),
+      ShadowIGUserCatalogProductSearch::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -106,9 +106,9 @@ class IGUser extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/content_publishing_limit',
-      new AbstractCrudObject(),
+      new ContentPublishingLimitResponse(),
       'EDGE',
-      array(),
+      ContentPublishingLimitResponse::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -348,9 +348,9 @@ class IGUser extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/product_appeal',
-      new AbstractCrudObject(),
+      new IGShoppingProductAppeal(),
       'EDGE',
-      array(),
+      IGShoppingProductAppeal::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -373,9 +373,9 @@ class IGUser extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/product_appeal',
-      new AbstractCrudObject(),
+      new IGShoppingProductAppeal(),
       'EDGE',
-      array(),
+      IGShoppingProductAppeal::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -396,9 +396,9 @@ class IGUser extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/recently_searched_hashtags',
-      new AbstractCrudObject(),
+      new ShadowIGHashtag(),
       'EDGE',
-      array(),
+      ShadowIGHashtag::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

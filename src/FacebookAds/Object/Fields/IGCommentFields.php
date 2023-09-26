@@ -35,7 +35,7 @@ class IGCommentFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'from' => 'Object',
+      'from' => 'IGCommentFromUser',
       'hidden' => 'bool',
       'id' => 'string',
       'like_count' => 'int',

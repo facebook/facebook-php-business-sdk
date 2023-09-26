@@ -26,6 +26,7 @@ use FacebookAds\Object\Values\ProductItemMarkedForProductLaunchValues;
 use FacebookAds\Object\Values\ProductItemOriginCountryValues;
 use FacebookAds\Object\Values\ProductItemReviewStatusValues;
 use FacebookAds\Object\Values\ProductItemShippingWeightUnitValues;
+use FacebookAds\Object\Values\ProductItemVideoFetchStatusValues;
 use FacebookAds\Object\Values\ProductItemVisibilityValues;
 use FacebookAds\Object\Values\ProductItemWaComplianceCategoryValues;
 
@@ -63,6 +64,7 @@ class ProductItem extends AbstractCrudObject {
     $ref_enums['ImageFetchStatus'] = ProductItemImageFetchStatusValues::getInstance()->getValues();
     $ref_enums['ReviewStatus'] = ProductItemReviewStatusValues::getInstance()->getValues();
     $ref_enums['ShippingWeightUnit'] = ProductItemShippingWeightUnitValues::getInstance()->getValues();
+    $ref_enums['VideoFetchStatus'] = ProductItemVideoFetchStatusValues::getInstance()->getValues();
     $ref_enums['Visibility'] = ProductItemVisibilityValues::getInstance()->getValues();
     $ref_enums['CommerceTaxCategory'] = ProductItemCommerceTaxCategoryValues::getInstance()->getValues();
     $ref_enums['ErrorPriority'] = ProductItemErrorPriorityValues::getInstance()->getValues();
@@ -133,9 +135,9 @@ class ProductItem extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/videos_metadata',
-      new AbstractCrudObject(),
+      new DynamicVideoMetadata(),
       'EDGE',
-      array(),
+      DynamicVideoMetadata::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

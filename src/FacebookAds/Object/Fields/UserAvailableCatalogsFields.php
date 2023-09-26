@@ -20,23 +20,19 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class StoriesFields extends AbstractEnum {
+class UserAvailableCatalogsFields extends AbstractEnum {
 
-  const CREATION_TIME = 'creation_time';
-  const MEDIA_ID = 'media_id';
-  const MEDIA_TYPE = 'media_type';
-  const POST_ID = 'post_id';
-  const STATUS = 'status';
-  const URL = 'url';
+  const CATALOG_ID = 'catalog_id';
+  const CATALOG_NAME = 'catalog_name';
+  const PRODUCT_COUNT = 'product_count';
+  const SHOP_NAME = 'shop_name';
 
   public function getFieldTypes() {
     return array(
-      'creation_time' => 'string',
-      'media_id' => 'string',
-      'media_type' => 'string',
-      'post_id' => 'string',
-      'status' => 'string',
-      'url' => 'string',
+      'catalog_id' => 'string',
+      'catalog_name' => 'string',
+      'product_count' => 'int',
+      'shop_name' => 'string',
     );
   }
 }

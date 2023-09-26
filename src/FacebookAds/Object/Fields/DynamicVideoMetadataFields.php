@@ -20,23 +20,19 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class StoriesFields extends AbstractEnum {
+class DynamicVideoMetadataFields extends AbstractEnum {
 
-  const CREATION_TIME = 'creation_time';
-  const MEDIA_ID = 'media_id';
-  const MEDIA_TYPE = 'media_type';
-  const POST_ID = 'post_id';
-  const STATUS = 'status';
+  const ID = 'id';
+  const TAGS = 'tags';
   const URL = 'url';
+  const VIDEO = 'video';
 
   public function getFieldTypes() {
     return array(
-      'creation_time' => 'string',
-      'media_id' => 'string',
-      'media_type' => 'string',
-      'post_id' => 'string',
-      'status' => 'string',
+      'id' => 'string',
+      'tags' => 'list<string>',
       'url' => 'string',
+      'video' => 'AdVideo',
     );
   }
 }

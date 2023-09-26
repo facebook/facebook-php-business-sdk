@@ -13,9 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AutomotiveModelFields;
-use FacebookAds\Object\Values\AutomotiveModelImageFetchStatusValues;
-use FacebookAds\Object\Values\AutomotiveModelVisibilityValues;
+use FacebookAds\Object\Fields\ShadowIGHashtagFields;
 
 /**
  * This class is auto-generated.
@@ -26,27 +24,26 @@ use FacebookAds\Object\Values\AutomotiveModelVisibilityValues;
  *
  */
 
-class AutomotiveModel extends AbstractCrudObject {
+class ShadowIGHashtag extends AbstractCrudObject {
 
   /**
-   * @return AutomotiveModelFields
+   * @return ShadowIGHashtagFields
    */
   public static function getFieldsEnum() {
-    return AutomotiveModelFields::getInstance();
+    return ShadowIGHashtagFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['ImageFetchStatus'] = AutomotiveModelImageFetchStatusValues::getInstance()->getValues();
-    $ref_enums['Visibility'] = AutomotiveModelVisibilityValues::getInstance()->getValues();
     return $ref_enums;
   }
 
 
-  public function getAugmentedRealitiesMetadata(array $fields = array(), array $params = array(), $pending = false) {
+  public function getRecentMedia(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
+      'user_id' => 'string',
     );
     $enums = array(
     );
@@ -55,10 +52,10 @@ class AutomotiveModel extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
-      '/augmented_realities_metadata',
-      new AbstractCrudObject(),
+      '/recent_media',
+      new IGMedia(),
       'EDGE',
-      array(),
+      IGMedia::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -66,10 +63,11 @@ class AutomotiveModel extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getChannelsToIntegrityStatus(array $fields = array(), array $params = array(), $pending = false) {
+  public function getTopMedia(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
+      'user_id' => 'string',
     );
     $enums = array(
     );
@@ -78,33 +76,10 @@ class AutomotiveModel extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
-      '/channels_to_integrity_status',
-      new CatalogItemChannelsToIntegrityStatus(),
+      '/top_media',
+      new IGMedia(),
       'EDGE',
-      CatalogItemChannelsToIntegrityStatus::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getVideosMetadata(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/videos_metadata',
-      new DynamicVideoMetadata(),
-      'EDGE',
-      DynamicVideoMetadata::getFieldsEnum()->getValues(),
+      IGMedia::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -125,9 +100,9 @@ class AutomotiveModel extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new AutomotiveModel(),
+      new ShadowIGHashtag(),
       'NODE',
-      AutomotiveModel::getFieldsEnum()->getValues(),
+      ShadowIGHashtag::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

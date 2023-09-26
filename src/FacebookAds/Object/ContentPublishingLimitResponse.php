@@ -13,8 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\StoriesFields;
-use FacebookAds\Object\Values\StoriesStatusValues;
+use FacebookAds\Object\Fields\ContentPublishingLimitResponseFields;
 
 /**
  * This class is auto-generated.
@@ -25,18 +24,17 @@ use FacebookAds\Object\Values\StoriesStatusValues;
  *
  */
 
-class Stories extends AbstractObject {
+class ContentPublishingLimitResponse extends AbstractObject {
 
   /**
-   * @return StoriesFields
+   * @return ContentPublishingLimitResponseFields
    */
   public static function getFieldsEnum() {
-    return StoriesFields::getInstance();
+    return ContentPublishingLimitResponseFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Status'] = StoriesStatusValues::getInstance()->getValues();
     return $ref_enums;
   }
 

@@ -30,6 +30,7 @@ class CampaignFields extends AbstractEnum {
   const BUDGET_REBALANCE_FLAG = 'budget_rebalance_flag';
   const BUDGET_REMAINING = 'budget_remaining';
   const BUYING_TYPE = 'buying_type';
+  const CAMPAIGN_GROUP_ACTIVE_TIME = 'campaign_group_active_time';
   const CAN_CREATE_BRAND_LIFT_STUDY = 'can_create_brand_lift_study';
   const CAN_USE_SPEND_CAP = 'can_use_spend_cap';
   const CONFIGURED_STATUS = 'configured_status';
@@ -75,6 +76,7 @@ class CampaignFields extends AbstractEnum {
       'budget_rebalance_flag' => 'bool',
       'budget_remaining' => 'string',
       'buying_type' => 'string',
+      'campaign_group_active_time' => 'string',
       'can_create_brand_lift_study' => 'bool',
       'can_use_spend_cap' => 'bool',
       'configured_status' => 'ConfiguredStatus',

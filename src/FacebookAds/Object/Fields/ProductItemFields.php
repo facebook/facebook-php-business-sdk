@@ -93,6 +93,7 @@ class ProductItemFields extends AbstractEnum {
   const SIZE = 'size';
   const START_DATE = 'start_date';
   const URL = 'url';
+  const VIDEO_FETCH_STATUS = 'video_fetch_status';
   const VISIBILITY = 'visibility';
   const WA_COMPLIANCE_CATEGORY = 'wa_compliance_category';
   const ADDITIONAL_UPLOADED_IMAGE_IDS = 'additional_uploaded_image_ids';
@@ -193,6 +194,7 @@ class ProductItemFields extends AbstractEnum {
       'size' => 'string',
       'start_date' => 'string',
       'url' => 'string',
+      'video_fetch_status' => 'VideoFetchStatus',
       'visibility' => 'Visibility',
       'wa_compliance_category' => 'string',
       'additional_uploaded_image_ids' => 'list<string>',
