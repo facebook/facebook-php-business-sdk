@@ -33,6 +33,7 @@ class AdCreativeLinkDataCallToActionTypeValues extends AbstractEnum {
   const CALL = 'CALL';
   const CALL_ME = 'CALL_ME';
   const CALL_NOW = 'CALL_NOW';
+  const CONFIRM = 'CONFIRM';
   const CONTACT = 'CONTACT';
   const CONTACT_US = 'CONTACT_US';
   const DONATE = 'DONATE';

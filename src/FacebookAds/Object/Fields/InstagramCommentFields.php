@@ -29,6 +29,7 @@ class InstagramCommentFields extends AbstractEnum {
   const INSTAGRAM_USER = 'instagram_user';
   const MENTIONED_INSTAGRAM_USERS = 'mentioned_instagram_users';
   const MESSAGE = 'message';
+  const USERNAME = 'username';
 
   public function getFieldTypes() {
     return array(
@@ -39,6 +40,7 @@ class InstagramCommentFields extends AbstractEnum {
       'instagram_user' => 'InstagramUser',
       'mentioned_instagram_users' => 'list<InstagramUser>',
       'message' => 'string',
+      'username' => 'string',
     );
   }
 }

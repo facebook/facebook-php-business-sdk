@@ -26,5 +26,9 @@ class WhatsAppBusinessAccountTasksValues extends AbstractEnum {
   const MANAGE = 'MANAGE';
   const MANAGE_EXTENSIONS = 'MANAGE_EXTENSIONS';
   const MANAGE_PHONE = 'MANAGE_PHONE';
+  const MANAGE_PHONE_ASSETS = 'MANAGE_PHONE_ASSETS';
+  const MANAGE_TEMPLATES = 'MANAGE_TEMPLATES';
   const VIEW_COST = 'VIEW_COST';
+  const VIEW_PHONE_ASSETS = 'VIEW_PHONE_ASSETS';
+  const VIEW_TEMPLATES = 'VIEW_TEMPLATES';
 }

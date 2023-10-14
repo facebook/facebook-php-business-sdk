@@ -25,6 +25,8 @@ class OpenBridgeConfigurationFields extends AbstractEnum {
   const ACCESS_KEY = 'access_key';
   const ACTIVE = 'active';
   const ENDPOINT = 'endpoint';
+  const FALLBACK_DOMAIN = 'fallback_domain';
+  const FALLBACK_DOMAIN_ENABLED = 'fallback_domain_enabled';
   const HOST_BUSINESS_ID = 'host_business_id';
   const HOST_EXTERNAL_ID = 'host_external_id';
   const ID = 'id';
@@ -35,6 +37,8 @@ class OpenBridgeConfigurationFields extends AbstractEnum {
       'access_key' => 'string',
       'active' => 'bool',
       'endpoint' => 'string',
+      'fallback_domain' => 'string',
+      'fallback_domain_enabled' => 'bool',
       'host_business_id' => 'string',
       'host_external_id' => 'string',
       'id' => 'string',

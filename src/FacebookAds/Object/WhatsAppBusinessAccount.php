@@ -239,12 +239,23 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'categories' => 'list<categories_enum>',
       'clone_extension_id' => 'string',
       'clone_template' => 'string',
       'data_channel_uri' => 'string',
       'name' => 'string',
     );
     $enums = array(
+      'categories_enum' => array(
+        'APPOINTMENT_BOOKING',
+        'CONTACT_US',
+        'CUSTOMER_SUPPORT',
+        'LEAD_GENERATION',
+        'OTHER',
+        'SIGN_IN',
+        'SIGN_UP',
+        'SURVEY',
+      ),
     );
 
     $request = new ApiRequest(
@@ -289,12 +300,23 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'categories' => 'list<categories_enum>',
       'clone_flow_id' => 'string',
       'clone_template' => 'string',
       'data_channel_uri' => 'string',
       'name' => 'string',
     );
     $enums = array(
+      'categories_enum' => array(
+        'APPOINTMENT_BOOKING',
+        'CONTACT_US',
+        'CUSTOMER_SUPPORT',
+        'LEAD_GENERATION',
+        'OTHER',
+        'SIGN_IN',
+        'SIGN_UP',
+        'SURVEY',
+      ),
     );
 
     $request = new ApiRequest(

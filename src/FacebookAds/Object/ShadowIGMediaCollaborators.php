@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\MessengerDestinationPageWelcomeMessageFields;
+use FacebookAds\Object\Fields\ShadowIGMediaCollaboratorsFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\MessengerDestinationPageWelcomeMessageFields;
  *
  */
 
-class MessengerDestinationPageWelcomeMessage extends AbstractCrudObject {
+class ShadowIGMediaCollaborators extends AbstractCrudObject {
 
   /**
-   * @return MessengerDestinationPageWelcomeMessageFields
+   * @return ShadowIGMediaCollaboratorsFields
    */
   public static function getFieldsEnum() {
-    return MessengerDestinationPageWelcomeMessageFields::getInstance();
+    return ShadowIGMediaCollaboratorsFields::getInstance();
   }
 
   protected static function getReferencedEnums() {

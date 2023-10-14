@@ -59,6 +59,7 @@ class PageFields extends AbstractEnum {
   const DIRECTED_BY = 'directed_by';
   const DISPLAY_SUBTEXT = 'display_subtext';
   const DISPLAYED_MESSAGE_RESPONSE_TIME = 'displayed_message_response_time';
+  const DOES_VIEWER_HAVE_PAGE_PERMISSION_LINK_IG = 'does_viewer_have_page_permission_link_ig';
   const EMAILS = 'emails';
   const ENGAGEMENT = 'engagement';
   const FAN_COUNT = 'fan_count';
@@ -87,6 +88,7 @@ class PageFields extends AbstractEnum {
   const IS_CHAIN = 'is_chain';
   const IS_COMMUNITY_PAGE = 'is_community_page';
   const IS_ELIGIBLE_FOR_BRANDED_CONTENT = 'is_eligible_for_branded_content';
+  const IS_ELIGIBLE_FOR_DISABLE_CONNECT_IG_BTN_FOR_NON_PAGE_ADMIN_AM_WEB = 'is_eligible_for_disable_connect_ig_btn_for_non_page_admin_am_web';
   const IS_MESSENGER_BOT_GET_STARTED_ENABLED = 'is_messenger_bot_get_started_enabled';
   const IS_MESSENGER_PLATFORM_BOT = 'is_messenger_platform_bot';
   const IS_OWNED = 'is_owned';
@@ -106,7 +108,6 @@ class PageFields extends AbstractEnum {
   const MERCHANT_REVIEW_STATUS = 'merchant_review_status';
   const MESSAGING_FEATURE_STATUS = 'messaging_feature_status';
   const MESSENGER_ADS_DEFAULT_ICEBREAKERS = 'messenger_ads_default_icebreakers';
-  const MESSENGER_ADS_DEFAULT_PAGE_WELCOME_MESSAGE = 'messenger_ads_default_page_welcome_message';
   const MESSENGER_ADS_DEFAULT_QUICK_REPLIES = 'messenger_ads_default_quick_replies';
   const MESSENGER_ADS_QUICK_REPLIES_TYPE = 'messenger_ads_quick_replies_type';
   const MINI_SHOP_STOREFRONT = 'mini_shop_storefront';
@@ -210,6 +211,7 @@ class PageFields extends AbstractEnum {
       'directed_by' => 'string',
       'display_subtext' => 'string',
       'displayed_message_response_time' => 'string',
+      'does_viewer_have_page_permission_link_ig' => 'bool',
       'emails' => 'list<string>',
       'engagement' => 'Engagement',
       'fan_count' => 'unsigned int',
@@ -238,6 +240,7 @@ class PageFields extends AbstractEnum {
       'is_chain' => 'bool',
       'is_community_page' => 'bool',
       'is_eligible_for_branded_content' => 'bool',
+      'is_eligible_for_disable_connect_ig_btn_for_non_page_admin_am_web' => 'bool',
       'is_messenger_bot_get_started_enabled' => 'bool',
       'is_messenger_platform_bot' => 'bool',
       'is_owned' => 'bool',
@@ -257,7 +260,6 @@ class PageFields extends AbstractEnum {
       'merchant_review_status' => 'string',
       'messaging_feature_status' => 'MessagingFeatureStatus',
       'messenger_ads_default_icebreakers' => 'list<string>',
-      'messenger_ads_default_page_welcome_message' => 'MessengerDestinationPageWelcomeMessage',
       'messenger_ads_default_quick_replies' => 'list<string>',
       'messenger_ads_quick_replies_type' => 'string',
       'mini_shop_storefront' => 'Shop',

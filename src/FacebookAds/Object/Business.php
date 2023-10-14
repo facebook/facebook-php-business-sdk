@@ -1770,6 +1770,8 @@ class Business extends AbstractCrudObject {
       'access_key' => 'string',
       'active' => 'bool',
       'endpoint' => 'string',
+      'fallback_domain' => 'string',
+      'fallback_domain_enabled' => 'bool',
       'host_business_id' => 'unsigned int',
       'host_external_id' => 'string',
       'pixel_id' => 'unsigned int',
@@ -2046,6 +2048,7 @@ class Business extends AbstractCrudObject {
 
     $param_types = array(
       'code' => 'string',
+      'entry_point' => 'string',
       'page_id' => 'int',
     );
     $enums = array(
@@ -2825,6 +2828,7 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'entry_point' => 'string',
       'name' => 'string',
       'primary_page' => 'string',
       'timezone_id' => 'unsigned int',

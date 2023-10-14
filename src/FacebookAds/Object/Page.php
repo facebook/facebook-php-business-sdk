@@ -1738,8 +1738,8 @@ class Page extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'location_page_id' => 'string',
-      'store_number' => 'unsigned int',
+      'location_page_ids' => 'list<string>',
+      'store_numbers' => 'list<unsigned int>',
     );
     $enums = array(
     );

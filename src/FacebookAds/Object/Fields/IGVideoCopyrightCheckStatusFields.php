@@ -20,23 +20,15 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class MessengerDestinationPageWelcomeMessageFields extends AbstractEnum {
+class IGVideoCopyrightCheckStatusFields extends AbstractEnum {
 
-  const ID = 'id';
-  const PAGE_WELCOME_MESSAGE_BODY = 'page_welcome_message_body';
-  const PAGE_WELCOME_MESSAGE_TYPE = 'page_welcome_message_type';
-  const TEMPLATE_NAME = 'template_name';
-  const TIME_CREATED = 'time_created';
-  const TIME_LAST_USED = 'time_last_used';
+  const MATCHES_FOUND = 'matches_found';
+  const STATUS = 'status';
 
   public function getFieldTypes() {
     return array(
-      'id' => 'string',
-      'page_welcome_message_body' => 'string',
-      'page_welcome_message_type' => 'string',
-      'template_name' => 'string',
-      'time_created' => 'datetime',
-      'time_last_used' => 'datetime',
+      'matches_found' => 'bool',
+      'status' => 'string',
     );
   }
 }

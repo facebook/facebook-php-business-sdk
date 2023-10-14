@@ -99,6 +99,8 @@ class OpenBridgeConfiguration extends AbstractCrudObject {
       'access_key' => 'string',
       'active' => 'bool',
       'endpoint' => 'string',
+      'fallback_domain' => 'string',
+      'fallback_domain_enabled' => 'bool',
       'host_business_id' => 'unsigned int',
       'host_external_id' => 'string',
     );

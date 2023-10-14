@@ -92,6 +92,7 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const UPDATE_CAMPAIGN_BUDGET = 'update_campaign_budget';
   const UPDATE_CAMPAIGN_BUDGET_OPTIMIZATION_TOGGLING_STATUS = 'update_campaign_budget_optimization_toggling_status';
   const UPDATE_CAMPAIGN_BUDGET_SCHEDULING_STATE = 'update_campaign_budget_scheduling_state';
+  const UPDATE_CAMPAIGN_CONVERSION_GOAL = 'update_campaign_conversion_goal';
   const UPDATE_CAMPAIGN_DELIVERY_TYPE = 'update_campaign_delivery_type';
   const UPDATE_CAMPAIGN_GROUP_AD_SCHEDULING = 'update_campaign_group_ad_scheduling';
   const UPDATE_CAMPAIGN_GROUP_BUDGET_SCHEDULING_STATE = 'update_campaign_group_budget_scheduling_state';
