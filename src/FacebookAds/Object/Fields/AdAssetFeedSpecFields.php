@@ -38,7 +38,10 @@ class AdAssetFeedSpecFields extends AbstractEnum {
   const IMAGES = 'images';
   const LINK_URLS = 'link_urls';
   const MESSAGE_EXTENSIONS = 'message_extensions';
+  const ONSITE_DESTINATIONS = 'onsite_destinations';
   const OPTIMIZATION_TYPE = 'optimization_type';
+  const REASONS_TO_SHOP = 'reasons_to_shop';
+  const SHOPS_BUNDLE = 'shops_bundle';
   const TITLES = 'titles';
   const VIDEOS = 'videos';
 
@@ -60,7 +63,10 @@ class AdAssetFeedSpecFields extends AbstractEnum {
       'images' => 'list<AdAssetFeedSpecImage>',
       'link_urls' => 'list<AdAssetFeedSpecLinkURL>',
       'message_extensions' => 'list<AdAssetMessageExtensions>',
+      'onsite_destinations' => 'list<Object>',
       'optimization_type' => 'string',
+      'reasons_to_shop' => 'bool',
+      'shops_bundle' => 'bool',
       'titles' => 'list<AdAssetFeedSpecTitle>',
       'videos' => 'list<AdAssetFeedSpecVideo>',
     );

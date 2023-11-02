@@ -25,6 +25,7 @@ class AdCreativeBrandedContentAdsFields extends AbstractEnum {
   const AD_FORMAT = 'ad_format';
   const CREATOR_AD_PERMISSION_TYPE = 'creator_ad_permission_type';
   const INSTAGRAM_BOOST_POST_ACCESS_TOKEN = 'instagram_boost_post_access_token';
+  const IS_MCA_INTERNAL = 'is_mca_internal';
   const PARTNERS = 'partners';
   const UI_VERSION = 'ui_version';
 
@@ -33,6 +34,7 @@ class AdCreativeBrandedContentAdsFields extends AbstractEnum {
       'ad_format' => 'int',
       'creator_ad_permission_type' => 'string',
       'instagram_boost_post_access_token' => 'string',
+      'is_mca_internal' => 'bool',
       'partners' => 'list<Object>',
       'ui_version' => 'int',
     );

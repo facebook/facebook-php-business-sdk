@@ -71,6 +71,7 @@ class AdCreativeFields extends AbstractEnum {
   const OBJECT_TYPE = 'object_type';
   const OBJECT_URL = 'object_url';
   const OMNICHANNEL_LINK_SPEC = 'omnichannel_link_spec';
+  const PHOTO_ALBUM_SOURCE_OBJECT_STORY_ID = 'photo_album_source_object_story_id';
   const PLACE_PAGE_SET_ID = 'place_page_set_id';
   const PLATFORM_CUSTOMIZATIONS = 'platform_customizations';
   const PLAYABLE_ASSET_ID = 'playable_asset_id';
@@ -142,6 +143,7 @@ class AdCreativeFields extends AbstractEnum {
       'object_type' => 'ObjectType',
       'object_url' => 'string',
       'omnichannel_link_spec' => 'AdCreativeOmnichannelLinkSpec',
+      'photo_album_source_object_story_id' => 'string',
       'place_page_set_id' => 'string',
       'platform_customizations' => 'AdCreativePlatformCustomization',
       'playable_asset_id' => 'string',

@@ -51,6 +51,7 @@ class AdsInsightsFields extends AbstractEnum {
   const CATALOG_SEGMENT_VALUE_OMNI_PURCHASE_ROAS = 'catalog_segment_value_omni_purchase_roas';
   const CATALOG_SEGMENT_VALUE_WEBSITE_PURCHASE_ROAS = 'catalog_segment_value_website_purchase_roas';
   const CLICKS = 'clicks';
+  const CONVERSION_LEAD_RATE = 'conversion_lead_rate';
   const CONVERSION_RATE_RANKING = 'conversion_rate_ranking';
   const CONVERSION_VALUES = 'conversion_values';
   const CONVERSIONS = 'conversions';
@@ -61,6 +62,7 @@ class AdsInsightsFields extends AbstractEnum {
   const COST_PER_ACTION_TYPE = 'cost_per_action_type';
   const COST_PER_AD_CLICK = 'cost_per_ad_click';
   const COST_PER_CONVERSION = 'cost_per_conversion';
+  const COST_PER_CONVERSION_LEAD = 'cost_per_conversion_lead';
   const COST_PER_DDA_COUNTBY_CONVS = 'cost_per_dda_countby_convs';
   const COST_PER_ESTIMATED_AD_RECALLERS = 'cost_per_estimated_ad_recallers';
   const COST_PER_INLINE_LINK_CLICK = 'cost_per_inline_link_click';
@@ -186,6 +188,7 @@ class AdsInsightsFields extends AbstractEnum {
       'catalog_segment_value_omni_purchase_roas' => 'list<AdsActionStats>',
       'catalog_segment_value_website_purchase_roas' => 'list<AdsActionStats>',
       'clicks' => 'string',
+      'conversion_lead_rate' => 'string',
       'conversion_rate_ranking' => 'string',
       'conversion_values' => 'list<AdsActionStats>',
       'conversions' => 'list<AdsActionStats>',
@@ -196,6 +199,7 @@ class AdsInsightsFields extends AbstractEnum {
       'cost_per_action_type' => 'list<AdsActionStats>',
       'cost_per_ad_click' => 'list<AdsActionStats>',
       'cost_per_conversion' => 'list<AdsActionStats>',
+      'cost_per_conversion_lead' => 'string',
       'cost_per_dda_countby_convs' => 'string',
       'cost_per_estimated_ad_recallers' => 'string',
       'cost_per_inline_link_click' => 'string',

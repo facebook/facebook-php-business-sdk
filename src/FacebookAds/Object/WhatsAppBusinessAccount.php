@@ -212,67 +212,6 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getExtensions(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/extensions',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createExtension(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'categories' => 'list<categories_enum>',
-      'clone_extension_id' => 'string',
-      'clone_template' => 'string',
-      'data_channel_uri' => 'string',
-      'name' => 'string',
-    );
-    $enums = array(
-      'categories_enum' => array(
-        'APPOINTMENT_BOOKING',
-        'CONTACT_US',
-        'CUSTOMER_SUPPORT',
-        'LEAD_GENERATION',
-        'OTHER',
-        'SIGN_IN',
-        'SIGN_UP',
-        'SURVEY',
-      ),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/extensions',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getFlows(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 

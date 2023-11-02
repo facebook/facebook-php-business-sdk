@@ -26,6 +26,7 @@ class AdPromotedObjectCustomEventTypeValues extends AbstractEnum {
   const ADD_PAYMENT_INFO = 'ADD_PAYMENT_INFO';
   const ADD_TO_CART = 'ADD_TO_CART';
   const ADD_TO_WISHLIST = 'ADD_TO_WISHLIST';
+  const AD_IMPRESSION = 'AD_IMPRESSION';
   const COMPLETE_REGISTRATION = 'COMPLETE_REGISTRATION';
   const CONTACT = 'CONTACT';
   const CONTENT_VIEW = 'CONTENT_VIEW';

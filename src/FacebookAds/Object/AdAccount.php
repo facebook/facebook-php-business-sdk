@@ -43,7 +43,6 @@ use FacebookAds\Object\Values\AdCreativeDynamicAdVoiceValues;
 use FacebookAds\Object\Values\AdCreativeOperatorValues;
 use FacebookAds\Object\Values\AdDatePresetValues;
 use FacebookAds\Object\Values\AdExecutionOptionsValues;
-use FacebookAds\Object\Values\AdMetaRewardAdgroupStatusValues;
 use FacebookAds\Object\Values\AdOperatorValues;
 use FacebookAds\Object\Values\AdPlacePageSetLocationTypesValues;
 use FacebookAds\Object\Values\AdPlacePageSetTargetedAreaTypeValues;
@@ -813,7 +812,6 @@ class AdAccount extends AbstractCrudObject {
       'engagement_audience' => 'bool',
       'execution_options' => 'list<execution_options_enum>',
       'include_demolink_hashes' => 'bool',
-      'meta_reward_adgroup_status' => 'meta_reward_adgroup_status_enum',
       'name' => 'string',
       'priority' => 'unsigned int',
       'source_ad_id' => 'string',
@@ -822,7 +820,6 @@ class AdAccount extends AbstractCrudObject {
     );
     $enums = array(
       'execution_options_enum' => AdExecutionOptionsValues::getInstance()->getValues(),
-      'meta_reward_adgroup_status_enum' => AdMetaRewardAdgroupStatusValues::getInstance()->getValues(),
       'status_enum' => AdStatusValues::getInstance()->getValues(),
     );
 
@@ -1907,6 +1904,7 @@ class AdAccount extends AbstractCrudObject {
       'subtype' => 'subtype_enum',
       'use_in_campaigns' => 'bool',
       'video_group_ids' => 'list<string>',
+      'whats_app_business_phone_number_id' => 'string',
     );
     $enums = array(
       'claim_objective_enum' => CustomAudienceClaimObjectiveValues::getInstance()->getValues(),

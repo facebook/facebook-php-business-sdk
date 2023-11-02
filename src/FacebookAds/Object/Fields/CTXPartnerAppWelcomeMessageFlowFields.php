@@ -20,23 +20,25 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class ShopFields extends AbstractEnum {
+class CTXPartnerAppWelcomeMessageFlowFields extends AbstractEnum {
 
-  const FB_SALES_CHANNEL = 'fb_sales_channel';
+  const COMPATIBLE_PLATFORMS = 'compatible_platforms';
+  const ELIGIBLE_PLATFORMS = 'eligible_platforms';
   const ID = 'id';
-  const IG_SALES_CHANNEL = 'ig_sales_channel';
-  const IS_ONSITE_ENABLED = 'is_onsite_enabled';
-  const SHOP_STATUS = 'shop_status';
-  const WORKSPACE = 'workspace';
+  const IS_USED_IN_AD = 'is_used_in_ad';
+  const LAST_UPDATE_TIME = 'last_update_time';
+  const NAME = 'name';
+  const WELCOME_MESSAGE_FLOW = 'welcome_message_flow';
 
   public function getFieldTypes() {
     return array(
-      'fb_sales_channel' => 'Object',
+      'compatible_platforms' => 'list<string>',
+      'eligible_platforms' => 'list<string>',
       'id' => 'string',
-      'ig_sales_channel' => 'Object',
-      'is_onsite_enabled' => 'bool',
-      'shop_status' => 'string',
-      'workspace' => 'Object',
+      'is_used_in_ad' => 'bool',
+      'last_update_time' => 'datetime',
+      'name' => 'string',
+      'welcome_message_flow' => 'string',
     );
   }
 }

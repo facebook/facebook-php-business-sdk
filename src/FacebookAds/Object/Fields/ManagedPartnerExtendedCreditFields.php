@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -18,10 +18,19 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdMetaRewardAdgroupStatusValues getInstance()
  */
-class AdMetaRewardAdgroupStatusValues extends AbstractEnum {
 
-  const ACTIVE = 'ACTIVE';
-  const INACTIVE = 'INACTIVE';
+class ManagedPartnerExtendedCreditFields extends AbstractEnum {
+
+  const ID = 'id';
+  const MAX_BALANCE = 'max_balance';
+  const RECEIVING_CREDIT_ALLOCATION_CONFIG = 'receiving_credit_allocation_config';
+
+  public function getFieldTypes() {
+    return array(
+      'id' => 'string',
+      'max_balance' => 'CurrencyAmount',
+      'receiving_credit_allocation_config' => 'ExtendedCreditAllocationConfig',
+    );
+  }
 }

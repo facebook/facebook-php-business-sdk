@@ -81,6 +81,7 @@ class CustomAudienceFields extends AbstractEnum {
   const PRODUCT_SET_ID = 'product_set_id';
   const USE_IN_CAMPAIGNS = 'use_in_campaigns';
   const VIDEO_GROUP_IDS = 'video_group_ids';
+  const WHATS_APP_BUSINESS_PHONE_NUMBER_ID = 'whats_app_business_phone_number_id';
 
   public function getFieldTypes() {
     return array(
@@ -143,6 +144,7 @@ class CustomAudienceFields extends AbstractEnum {
       'product_set_id' => 'string',
       'use_in_campaigns' => 'bool',
       'video_group_ids' => 'list<string>',
+      'whats_app_business_phone_number_id' => 'string',
     );
   }
 }

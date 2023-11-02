@@ -37,6 +37,7 @@ use FacebookAds\Object\Values\CampaignSpecialAdCategoryCountryValues;
 use FacebookAds\Object\Values\CampaignSpecialAdCategoryValues;
 use FacebookAds\Object\Values\CampaignStatusOptionValues;
 use FacebookAds\Object\Values\CampaignStatusValues;
+use FacebookAds\Object\Values\HighDemandPeriodBudgetValueTypeValues;
 use FacebookAds\Object\Traits\AdLabelAwareCrudObjectTrait;
 use FacebookAds\Object\Traits\ObjectValidation;
 
@@ -210,6 +211,34 @@ class Campaign extends AbstractArchivableCrudObject {
       new AdSet(),
       'EDGE',
       AdSet::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createBudgetSchedule(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'budget_value' => 'unsigned int',
+      'budget_value_type' => 'budget_value_type_enum',
+      'time_end' => 'unsigned int',
+      'time_start' => 'unsigned int',
+    );
+    $enums = array(
+      'budget_value_type_enum' => HighDemandPeriodBudgetValueTypeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/budget_schedules',
+      new HighDemandPeriod(),
+      'EDGE',
+      HighDemandPeriod::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

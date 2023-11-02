@@ -19,7 +19,6 @@ use FacebookAds\Object\Values\AdConfiguredStatusValues;
 use FacebookAds\Object\Values\AdDatePresetValues;
 use FacebookAds\Object\Values\AdEffectiveStatusValues;
 use FacebookAds\Object\Values\AdExecutionOptionsValues;
-use FacebookAds\Object\Values\AdMetaRewardAdgroupStatusValues;
 use FacebookAds\Object\Values\AdOperatorValues;
 use FacebookAds\Object\Values\AdPreviewAdFormatValues;
 use FacebookAds\Object\Values\AdPreviewCreativeFeatureValues;
@@ -71,7 +70,6 @@ class Ad extends AbstractArchivableCrudObject
     $ref_enums['Status'] = AdStatusValues::getInstance()->getValues();
     $ref_enums['DatePreset'] = AdDatePresetValues::getInstance()->getValues();
     $ref_enums['ExecutionOptions'] = AdExecutionOptionsValues::getInstance()->getValues();
-    $ref_enums['MetaRewardAdgroupStatus'] = AdMetaRewardAdgroupStatusValues::getInstance()->getValues();
     $ref_enums['Operator'] = AdOperatorValues::getInstance()->getValues();
     $ref_enums['StatusOption'] = AdStatusOptionValues::getInstance()->getValues();
     return $ref_enums;
@@ -484,7 +482,6 @@ class Ad extends AbstractArchivableCrudObject
       'engagement_audience' => 'bool',
       'execution_options' => 'list<execution_options_enum>',
       'include_demolink_hashes' => 'bool',
-      'meta_reward_adgroup_status' => 'meta_reward_adgroup_status_enum',
       'name' => 'string',
       'priority' => 'unsigned int',
       'status' => 'status_enum',
@@ -492,7 +489,6 @@ class Ad extends AbstractArchivableCrudObject
     );
     $enums = array(
       'execution_options_enum' => AdExecutionOptionsValues::getInstance()->getValues(),
-      'meta_reward_adgroup_status_enum' => AdMetaRewardAdgroupStatusValues::getInstance()->getValues(),
       'status_enum' => AdStatusValues::getInstance()->getValues(),
     );
 

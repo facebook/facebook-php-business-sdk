@@ -59,6 +59,7 @@ use FacebookAds\Object\Values\PagePermittedTasksValues;
 use FacebookAds\Object\Values\PagePickupOptionsValues;
 use FacebookAds\Object\Values\PagePlaceAttachmentSettingValues;
 use FacebookAds\Object\Values\PagePlatformValues;
+use FacebookAds\Object\Values\PagePostExperimentOptimizationGoalValues;
 use FacebookAds\Object\Values\PagePostSurfacesBlacklistValues;
 use FacebookAds\Object\Values\PagePostWithValues;
 use FacebookAds\Object\Values\PagePostingToRedspaceValues;
@@ -150,6 +151,37 @@ class Page extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
+      '/ab_tests',
+      new PagePostExperiment(),
+      'EDGE',
+      PagePostExperiment::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createAbTest(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'control_video_id' => 'string',
+      'description' => 'string',
+      'duration' => 'unsigned int',
+      'experiment_video_ids' => 'list<string>',
+      'name' => 'string',
+      'optimization_goal' => 'optimization_goal_enum',
+      'scheduled_experiment_timestamp' => 'unsigned int',
+    );
+    $enums = array(
+      'optimization_goal_enum' => PagePostExperimentOptimizationGoalValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
       '/ab_tests',
       new PagePostExperiment(),
       'EDGE',
@@ -2036,6 +2068,8 @@ class Page extends AbstractCrudObject {
     $enums = array(
       'fields_enum' => array(
         'ACCOUNT_LINKING_URL',
+        'COMMANDS',
+        'DESCRIPTION',
         'GET_STARTED',
         'GREETING',
         'HOME_URL',
@@ -2045,6 +2079,7 @@ class Page extends AbstractCrudObject {
         'PLATFORM',
         'SUBJECT_TO_NEW_EU_PRIVACY_RULES',
         'TARGET_AUDIENCE',
+        'TITLE',
         'WHITELISTED_DOMAINS',
       ),
       'platform_enum' => PagePlatformValues::getInstance()->getValues(),
@@ -2095,6 +2130,8 @@ class Page extends AbstractCrudObject {
 
     $param_types = array(
       'account_linking_url' => 'string',
+      'commands' => 'list<Object>',
+      'description' => 'list<Object>',
       'get_started' => 'Object',
       'greeting' => 'list<Object>',
       'ice_breakers' => 'list<map>',
@@ -2102,6 +2139,7 @@ class Page extends AbstractCrudObject {
       'persistent_menu' => 'list<Object>',
       'platform' => 'platform_enum',
       'target_audience' => 'Object',
+      'title' => 'list<Object>',
       'whitelisted_domains' => 'list<string>',
     );
     $enums = array(
@@ -3537,6 +3575,30 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function deleteWelcomeMessageFlows(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'flow_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/welcome_message_flows',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getWelcomeMessageFlows(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -3551,6 +3613,37 @@ class Page extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
+      '/welcome_message_flows',
+      new CTXPartnerAppWelcomeMessageFlow(),
+      'EDGE',
+      CTXPartnerAppWelcomeMessageFlow::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createWelcomeMessageFlow(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'eligible_platforms' => 'list<eligible_platforms_enum>',
+      'flow_id' => 'string',
+      'name' => 'string',
+      'welcome_message_flow' => 'list<Object>',
+    );
+    $enums = array(
+      'eligible_platforms_enum' => array(
+        'INSTAGRAM',
+        'MESSENGER',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
       '/welcome_message_flows',
       new AbstractCrudObject(),
       'EDGE',

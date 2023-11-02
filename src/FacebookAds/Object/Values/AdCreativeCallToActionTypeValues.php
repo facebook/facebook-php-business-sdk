@@ -61,7 +61,6 @@ class AdCreativeCallToActionTypeValues extends AbstractEnum {
   const LISTEN_NOW = 'LISTEN_NOW';
   const MESSAGE_PAGE = 'MESSAGE_PAGE';
   const MOBILE_DOWNLOAD = 'MOBILE_DOWNLOAD';
-  const MOMENTS = 'MOMENTS';
   const NO_BUTTON = 'NO_BUTTON';
   const OPEN_INSTANT_APP = 'OPEN_INSTANT_APP';
   const OPEN_LINK = 'OPEN_LINK';
