@@ -92,6 +92,7 @@ class ProductItemFields extends AbstractEnum {
   const SHORT_DESCRIPTION = 'short_description';
   const SIZE = 'size';
   const START_DATE = 'start_date';
+  const TAGS = 'tags';
   const URL = 'url';
   const VIDEO_FETCH_STATUS = 'video_fetch_status';
   const VISIBILITY = 'visibility';
@@ -193,6 +194,7 @@ class ProductItemFields extends AbstractEnum {
       'short_description' => 'string',
       'size' => 'string',
       'start_date' => 'string',
+      'tags' => 'list<string>',
       'url' => 'string',
       'video_fetch_status' => 'VideoFetchStatus',
       'visibility' => 'Visibility',

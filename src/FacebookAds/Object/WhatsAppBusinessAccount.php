@@ -212,6 +212,29 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getDccConfig(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/dcc_config',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getFlows(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -242,7 +265,7 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       'categories' => 'list<categories_enum>',
       'clone_flow_id' => 'string',
       'clone_template' => 'string',
-      'data_channel_uri' => 'string',
+      'endpoint_uri' => 'string',
       'name' => 'string',
     );
     $enums = array(

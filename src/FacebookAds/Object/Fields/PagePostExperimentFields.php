@@ -34,7 +34,6 @@ class PagePostExperimentFields extends AbstractEnum {
   const INSIGHT_SNAPSHOTS = 'insight_snapshots';
   const NAME = 'name';
   const OPTIMIZATION_GOAL = 'optimization_goal';
-  const POST_VARIANT_FIELDS = 'post_variant_fields';
   const PUBLISH_STATUS = 'publish_status';
   const PUBLISH_TIME = 'publish_time';
   const SCHEDULED_EXPERIMENT_TIMESTAMP = 'scheduled_experiment_timestamp';
@@ -54,7 +53,6 @@ class PagePostExperimentFields extends AbstractEnum {
       'insight_snapshots' => 'list<map<datetime, list<map<int, Object>>>>',
       'name' => 'string',
       'optimization_goal' => 'string',
-      'post_variant_fields' => 'list<string>',
       'publish_status' => 'string',
       'publish_time' => 'datetime',
       'scheduled_experiment_timestamp' => 'datetime',

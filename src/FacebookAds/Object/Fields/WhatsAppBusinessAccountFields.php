@@ -50,7 +50,7 @@ class WhatsAppBusinessAccountFields extends AbstractEnum {
       'country' => 'string',
       'creation_time' => 'int',
       'currency' => 'string',
-      'health_status' => 'Object',
+      'health_status' => 'WhatsAppBusinessHealthStatusForMessageSend',
       'id' => 'string',
       'is_enabled_for_insights' => 'bool',
       'message_template_namespace' => 'string',

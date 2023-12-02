@@ -35,7 +35,7 @@ class AdCreativeBrandedContentAdsFields extends AbstractEnum {
       'creator_ad_permission_type' => 'string',
       'instagram_boost_post_access_token' => 'string',
       'is_mca_internal' => 'bool',
-      'partners' => 'list<Object>',
+      'partners' => 'list<AdCreativeBrandedContentAdsPartners>',
       'ui_version' => 'int',
     );
   }

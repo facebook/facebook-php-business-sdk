@@ -796,30 +796,6 @@ class Application extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getBanned(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'uid' => 'int',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/banned',
-      new User(),
-      'EDGE',
-      User::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getButtonAutoDetectionDeviceSelection(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 

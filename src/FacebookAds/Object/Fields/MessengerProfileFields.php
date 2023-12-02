@@ -23,6 +23,7 @@ use FacebookAds\Enum\AbstractEnum;
 class MessengerProfileFields extends AbstractEnum {
 
   const ACCOUNT_LINKING_URL = 'account_linking_url';
+  const COMMANDS = 'commands';
   const GET_STARTED = 'get_started';
   const GREETING = 'greeting';
   const ICE_BREAKERS = 'ice_breakers';
@@ -35,6 +36,7 @@ class MessengerProfileFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'account_linking_url' => 'string',
+      'commands' => 'list<Object>',
       'get_started' => 'Object',
       'greeting' => 'list<Object>',
       'ice_breakers' => 'list<Object>',

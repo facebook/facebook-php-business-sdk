@@ -198,6 +198,7 @@ class BusinessUser extends AbstractCrudObject {
       'last_name' => 'string',
       'pending_email' => 'string',
       'role' => 'role_enum',
+      'skip_verification_email' => 'bool',
       'title' => 'string',
     );
     $enums = array(

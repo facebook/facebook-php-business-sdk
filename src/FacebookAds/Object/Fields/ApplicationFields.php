@@ -47,6 +47,8 @@ class ApplicationFields extends AbstractEnum {
   const AUTO_EVENT_MAPPING_ANDROID = 'auto_event_mapping_android';
   const AUTO_EVENT_MAPPING_IOS = 'auto_event_mapping_ios';
   const AUTO_EVENT_SETUP_ENABLED = 'auto_event_setup_enabled';
+  const AUTO_LOG_APP_EVENTS_DEFAULT = 'auto_log_app_events_default';
+  const AUTO_LOG_APP_EVENTS_ENABLED = 'auto_log_app_events_enabled';
   const BUSINESS = 'business';
   const CANVAS_FLUID_HEIGHT = 'canvas_fluid_height';
   const CANVAS_FLUID_WIDTH = 'canvas_fluid_width';
@@ -104,8 +106,6 @@ class ApplicationFields extends AbstractEnum {
   const RESTRICTIONS = 'restrictions';
   const RESTRICTIVE_DATA_FILTER_PARAMS = 'restrictive_data_filter_params';
   const RESTRICTIVE_DATA_FILTER_RULES = 'restrictive_data_filter_rules';
-  const SDK_AUTO_LOGGING_DEFAULT_VALUE = 'sdk_auto_logging_default_value';
-  const SDK_AUTO_LOGGING_OVERRIDE_VALUE = 'sdk_auto_logging_override_value';
   const SDK_UPDATE_MESSAGE = 'sdk_update_message';
   const SEAMLESS_LOGIN = 'seamless_login';
   const SECURE_CANVAS_URL = 'secure_canvas_url';
@@ -155,6 +155,8 @@ class ApplicationFields extends AbstractEnum {
       'auto_event_mapping_android' => 'list<Object>',
       'auto_event_mapping_ios' => 'list<Object>',
       'auto_event_setup_enabled' => 'bool',
+      'auto_log_app_events_default' => 'bool',
+      'auto_log_app_events_enabled' => 'bool',
       'business' => 'Business',
       'canvas_fluid_height' => 'bool',
       'canvas_fluid_width' => 'unsigned int',
@@ -212,8 +214,6 @@ class ApplicationFields extends AbstractEnum {
       'restrictions' => 'Object',
       'restrictive_data_filter_params' => 'string',
       'restrictive_data_filter_rules' => 'string',
-      'sdk_auto_logging_default_value' => 'bool',
-      'sdk_auto_logging_override_value' => 'bool',
       'sdk_update_message' => 'string',
       'seamless_login' => 'int',
       'secure_canvas_url' => 'string',
