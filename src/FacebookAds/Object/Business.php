@@ -44,7 +44,6 @@ use FacebookAds\Object\Values\CPASCollaborationRequestRequesterAgencyOrBrandValu
 use FacebookAds\Object\Values\CustomConversionCustomEventTypeValues;
 use FacebookAds\Object\Values\OmegaCustomerTrxTypeValues;
 use FacebookAds\Object\Values\ProductCatalogVerticalValues;
-use FacebookAds\Object\Values\ProfilePictureSourceBreakingChangeValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
 use FacebookAds\Object\Values\SystemUserRoleValues;
 use FacebookAds\Object\Values\WhatsAppBusinessPreVerifiedPhoneNumberCodeVerificationStatusValues;
@@ -1641,6 +1640,7 @@ class Business extends AbstractCrudObject {
         'LUXURY',
         'MARKETING',
         'NON_PROFIT',
+        'NOT_SET',
         'ORGANIZATIONS_AND_ASSOCIATIONS',
         'OTHER',
         'PROFESSIONAL_SERVICES',
@@ -2415,14 +2415,12 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'breaking_change' => 'breaking_change_enum',
       'height' => 'int',
       'redirect' => 'bool',
       'type' => 'type_enum',
       'width' => 'int',
     );
     $enums = array(
-      'breaking_change_enum' => ProfilePictureSourceBreakingChangeValues::getInstance()->getValues(),
       'type_enum' => ProfilePictureSourceTypeValues::getInstance()->getValues(),
     );
 

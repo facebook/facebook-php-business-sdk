@@ -27,7 +27,6 @@ use FacebookAds\Object\Values\BusinessSurveyBusinessTypeValues;
 use FacebookAds\Object\Values\BusinessVerticalValues;
 use FacebookAds\Object\Values\EventTypeValues;
 use FacebookAds\Object\Values\FundraiserPersonToCharityFundraiserTypeValues;
-use FacebookAds\Object\Values\GameItemActionValues;
 use FacebookAds\Object\Values\LiveVideoBroadcastStatusValues;
 use FacebookAds\Object\Values\LiveVideoProjectionValues;
 use FacebookAds\Object\Values\LiveVideoSourceValues;
@@ -46,7 +45,6 @@ use FacebookAds\Object\Values\PostPostSurfacesBlacklistValues;
 use FacebookAds\Object\Values\PostPostingToRedspaceValues;
 use FacebookAds\Object\Values\PostTargetSurfaceValues;
 use FacebookAds\Object\Values\PostUnpublishedContentTypeValues;
-use FacebookAds\Object\Values\ProfilePictureSourceBreakingChangeValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
 use FacebookAds\Object\Values\UnifiedThreadPlatformValues;
 use FacebookAds\Object\Values\UserFilteringValues;
@@ -670,29 +668,6 @@ class User extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getFbdlRuns(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/fbdl_runs',
-      new WhitehatFBDLRun(),
-      'EDGE',
-      WhitehatFBDLRun::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getFeed(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -940,36 +915,6 @@ class User extends AbstractCrudObject {
       new FundraiserPersonToCharity(),
       'EDGE',
       FundraiserPersonToCharity::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createGameItem(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'action' => 'action_enum',
-      'app_id' => 'string',
-      'drop_table_id' => 'string',
-      'ext_id' => 'string',
-      'item_id' => 'string',
-      'quantity' => 'unsigned int',
-    );
-    $enums = array(
-      'action_enum' => GameItemActionValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/game_items',
-      new GameItem(),
-      'EDGE',
-      GameItem::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1488,14 +1433,12 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'breaking_change' => 'breaking_change_enum',
       'height' => 'int',
       'redirect' => 'bool',
       'type' => 'type_enum',
       'width' => 'int',
     );
     $enums = array(
-      'breaking_change_enum' => ProfilePictureSourceBreakingChangeValues::getInstance()->getValues(),
       'type_enum' => ProfilePictureSourceTypeValues::getInstance()->getValues(),
     );
 

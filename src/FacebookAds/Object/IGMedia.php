@@ -241,6 +241,10 @@ class IGMedia extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'primary_fb_page_id' => 'string',
+      'primary_ig_user_id' => 'string',
+      'secondary_fb_page_id' => 'string',
+      'secondary_ig_user_id' => 'string',
     );
     $enums = array(
     );

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -18,11 +18,17 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdCreativeAuthorizationCategoryValues getInstance()
  */
-class AdCreativeAuthorizationCategoryValues extends AbstractEnum {
 
-  const NONE = 'NONE';
-  const POLITICAL = 'POLITICAL';
-  const POLITICAL_WITH_DIGITALLY_CREATED_MEDIA = 'POLITICAL_WITH_DIGITALLY_CREATED_MEDIA';
+class VideoStatusProcessingPhaseFields extends AbstractEnum {
+
+  const ERRORS = 'errors';
+  const STATUS = 'status';
+
+  public function getFieldTypes() {
+    return array(
+      'errors' => 'list<VideoStatusError>',
+      'status' => 'string',
+    );
+  }
 }

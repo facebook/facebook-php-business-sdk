@@ -73,7 +73,6 @@ use FacebookAds\Object\Values\PageUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\PhotoBackdatedTimeGranularityValues;
 use FacebookAds\Object\Values\PhotoTypeValues;
 use FacebookAds\Object\Values\PhotoUnpublishedContentTypeValues;
-use FacebookAds\Object\Values\ProfilePictureSourceBreakingChangeValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
 use FacebookAds\Object\Values\StoriesStatusValues;
 use FacebookAds\Object\Values\UnifiedThreadPlatformValues;
@@ -1574,33 +1573,6 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getInstantArticlesStats(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'metrics_list' => 'list<map>',
-      'page_list' => 'list<string>',
-      'since' => 'datetime',
-      'until' => 'datetime',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/instant_articles_stats',
-      new InstantArticlesStats(),
-      'EDGE',
-      InstantArticlesStats::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getLeadGenForms(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -2547,14 +2519,12 @@ class Page extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'breaking_change' => 'breaking_change_enum',
       'height' => 'int',
       'redirect' => 'bool',
       'type' => 'type_enum',
       'width' => 'int',
     );
     $enums = array(
-      'breaking_change_enum' => ProfilePictureSourceBreakingChangeValues::getInstance()->getValues(),
       'type_enum' => ProfilePictureSourceTypeValues::getInstance()->getValues(),
     );
 

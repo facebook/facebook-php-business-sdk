@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\InstantArticlesStatsFields;
+use FacebookAds\Object\Fields\VideoStatusUploadingPhaseFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\InstantArticlesStatsFields;
  *
  */
 
-class InstantArticlesStats extends AbstractObject {
+class VideoStatusUploadingPhase extends AbstractObject {
 
   /**
-   * @return InstantArticlesStatsFields
+   * @return VideoStatusUploadingPhaseFields
    */
   public static function getFieldsEnum() {
-    return InstantArticlesStatsFields::getInstance();
+    return VideoStatusUploadingPhaseFields::getInstance();
   }
 
   protected static function getReferencedEnums() {

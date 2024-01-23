@@ -20,27 +20,15 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class GameItemFields extends AbstractEnum {
+class VideoCopyrightCheckStatusFields extends AbstractEnum {
 
-  const COUNT = 'count';
-  const CREATED = 'created';
-  const EXT_ID = 'ext_id';
-  const ID = 'id';
-  const ITEM_DEF = 'item_def';
-  const OWNER = 'owner';
+  const MATCHES_FOUND = 'matches_found';
   const STATUS = 'status';
-  const UPDATED = 'updated';
 
   public function getFieldTypes() {
     return array(
-      'count' => 'int',
-      'created' => 'datetime',
-      'ext_id' => 'string',
-      'id' => 'string',
-      'item_def' => 'string',
-      'owner' => 'User',
+      'matches_found' => 'bool',
       'status' => 'string',
-      'updated' => 'datetime',
     );
   }
 }

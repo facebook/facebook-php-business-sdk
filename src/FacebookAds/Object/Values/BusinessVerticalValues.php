@@ -36,6 +36,7 @@ class BusinessVerticalValues extends AbstractEnum {
   const LUXURY = 'LUXURY';
   const MARKETING = 'MARKETING';
   const NON_PROFIT = 'NON_PROFIT';
+  const NOT_SET = 'NOT_SET';
   const ORGANIZATIONS_AND_ASSOCIATIONS = 'ORGANIZATIONS_AND_ASSOCIATIONS';
   const OTHER = 'OTHER';
   const PROFESSIONAL_SERVICES = 'PROFESSIONAL_SERVICES';

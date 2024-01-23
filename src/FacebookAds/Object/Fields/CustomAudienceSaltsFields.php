@@ -20,27 +20,15 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class WhitehatFBDLRunFields extends AbstractEnum {
+class CustomAudienceSaltsFields extends AbstractEnum {
 
-  const CREATION_TIME = 'creation_time';
-  const ID = 'id';
-  const IS_PINNED = 'is_pinned';
-  const NOTE = 'note';
-  const RESULT = 'result';
-  const RUN_CODE = 'run_code';
-  const STATUS = 'status';
-  const USER_TYPE = 'user_type';
+  const APP_ID = 'app_id';
+  const PUBLIC_KEY = 'public_key';
 
   public function getFieldTypes() {
     return array(
-      'creation_time' => 'datetime',
-      'id' => 'string',
-      'is_pinned' => 'bool',
-      'note' => 'string',
-      'result' => 'list<map<string, string>>',
-      'run_code' => 'string',
-      'status' => 'string',
-      'user_type' => 'string',
+      'app_id' => 'int',
+      'public_key' => 'string',
     );
   }
 }

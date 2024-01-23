@@ -43,8 +43,10 @@ class AdPromotedObjectFields extends AbstractEnum {
   const PLACE_PAGE_SET_ID = 'place_page_set_id';
   const PRODUCT_CATALOG_ID = 'product_catalog_id';
   const PRODUCT_ITEM_ID = 'product_item_id';
+  const PRODUCT_SET = 'product_set';
   const PRODUCT_SET_ID = 'product_set_id';
   const RETENTION_DAYS = 'retention_days';
+  const WHATSAPP_PHONE_NUMBER = 'whatsapp_phone_number';
 
   public function getFieldTypes() {
     return array(
@@ -69,8 +71,10 @@ class AdPromotedObjectFields extends AbstractEnum {
       'place_page_set_id' => 'string',
       'product_catalog_id' => 'string',
       'product_item_id' => 'string',
+      'product_set' => 'ProductSet',
       'product_set_id' => 'string',
       'retention_days' => 'string',
+      'whatsapp_phone_number' => 'string',
     );
   }
 }

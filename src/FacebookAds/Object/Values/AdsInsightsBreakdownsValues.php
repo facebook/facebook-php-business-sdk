@@ -41,6 +41,7 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
   const IMAGE_ASSET = 'image_asset';
   const IMPRESSION_DEVICE = 'impression_device';
   const IS_CONVERSION_ID_MODELED = 'is_conversion_id_modeled';
+  const LANDING_DESTINATION = 'landing_destination';
   const LINK_URL_ASSET = 'link_url_asset';
   const MARKETING_MESSAGES_BTN_NAME = 'marketing_messages_btn_name';
   const MDSA_LANDING_DESTINATION = 'mdsa_landing_destination';

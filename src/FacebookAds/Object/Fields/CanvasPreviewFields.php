@@ -20,21 +20,13 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class InstantArticlesStatsFields extends AbstractEnum {
+class CanvasPreviewFields extends AbstractEnum {
 
-  const ERROR = 'error';
-  const METADATA = 'metadata';
-  const METRIC = 'metric';
-  const TOTALS = 'totals';
-  const X_AXIS_BREAKDOWN = 'x_axis_breakdown';
+  const BODY = 'body';
 
   public function getFieldTypes() {
     return array(
-      'error' => 'string',
-      'metadata' => 'list<map<string, Object>>',
-      'metric' => 'Object',
-      'totals' => 'list<map<string, Object>>',
-      'x_axis_breakdown' => 'list<list<map<string, Object>>>',
+      'body' => 'string',
     );
   }
 }

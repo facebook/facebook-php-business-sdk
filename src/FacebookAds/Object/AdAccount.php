@@ -23,6 +23,7 @@ use FacebookAds\Object\Values\AdAccountContentTypeValues;
 use FacebookAds\Object\Values\AdAccountCurrencyValues;
 use FacebookAds\Object\Values\AdAccountDeliveryEstimateOptimizationGoalValues;
 use FacebookAds\Object\Values\AdAccountMatchedSearchApplicationsEdgeDataAppStoreValues;
+use FacebookAds\Object\Values\AdAccountPermittedTasksValues;
 use FacebookAds\Object\Values\AdAccountSubtypeValues;
 use FacebookAds\Object\Values\AdAccountTargetingUnifiedAppStoreValues;
 use FacebookAds\Object\Values\AdAccountTargetingUnifiedLimitTypeValues;
@@ -130,6 +131,7 @@ class AdAccount extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['Currency'] = AdAccountCurrencyValues::getInstance()->getValues();
+    $ref_enums['PermittedTasks'] = AdAccountPermittedTasksValues::getInstance()->getValues();
     $ref_enums['Tasks'] = AdAccountTasksValues::getInstance()->getValues();
     $ref_enums['ClaimObjective'] = AdAccountClaimObjectiveValues::getInstance()->getValues();
     $ref_enums['ContentType'] = AdAccountContentTypeValues::getInstance()->getValues();
@@ -1374,6 +1376,32 @@ class AdAccount extends AbstractCrudObject {
       new Business(),
       'EDGE',
       Business::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createAgency(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'business' => 'string',
+      'permitted_tasks' => 'list<permitted_tasks_enum>',
+    );
+    $enums = array(
+      'permitted_tasks_enum' => AdAccountPermittedTasksValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/agencies',
+      new AdAccount(),
+      'EDGE',
+      AdAccount::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

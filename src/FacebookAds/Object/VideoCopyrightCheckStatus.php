@@ -13,8 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\ProfilePictureSourceFields;
-use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
+use FacebookAds\Object\Fields\VideoCopyrightCheckStatusFields;
 
 /**
  * This class is auto-generated.
@@ -25,18 +24,17 @@ use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
  *
  */
 
-class ProfilePictureSource extends AbstractObject {
+class VideoCopyrightCheckStatus extends AbstractObject {
 
   /**
-   * @return ProfilePictureSourceFields
+   * @return VideoCopyrightCheckStatusFields
    */
   public static function getFieldsEnum() {
-    return ProfilePictureSourceFields::getInstance();
+    return VideoCopyrightCheckStatusFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Type'] = ProfilePictureSourceTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 

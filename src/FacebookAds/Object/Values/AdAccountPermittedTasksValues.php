@@ -18,11 +18,13 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static GameItemActionValues getInstance()
+ * @method static AdAccountPermittedTasksValues getInstance()
  */
-class GameItemActionValues extends AbstractEnum {
+class AdAccountPermittedTasksValues extends AbstractEnum {
 
-  const CONSUME = 'CONSUME';
-  const DROP = 'DROP';
-  const MARK = 'MARK';
+  const AA_ANALYZE = 'AA_ANALYZE';
+  const ADVERTISE = 'ADVERTISE';
+  const ANALYZE = 'ANALYZE';
+  const DRAFT = 'DRAFT';
+  const MANAGE = 'MANAGE';
 }

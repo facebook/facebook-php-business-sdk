@@ -264,7 +264,6 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
     $param_types = array(
       'categories' => 'list<categories_enum>',
       'clone_flow_id' => 'string',
-      'clone_template' => 'string',
       'endpoint_uri' => 'string',
       'name' => 'string',
     );

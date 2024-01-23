@@ -27,6 +27,7 @@ class AdCreativeBrandedContentAdsFields extends AbstractEnum {
   const INSTAGRAM_BOOST_POST_ACCESS_TOKEN = 'instagram_boost_post_access_token';
   const IS_MCA_INTERNAL = 'is_mca_internal';
   const PARTNERS = 'partners';
+  const PROMOTED_PAGE_ID = 'promoted_page_id';
   const UI_VERSION = 'ui_version';
 
   public function getFieldTypes() {
@@ -36,6 +37,7 @@ class AdCreativeBrandedContentAdsFields extends AbstractEnum {
       'instagram_boost_post_access_token' => 'string',
       'is_mca_internal' => 'bool',
       'partners' => 'list<AdCreativeBrandedContentAdsPartners>',
+      'promoted_page_id' => 'string',
       'ui_version' => 'int',
     );
   }

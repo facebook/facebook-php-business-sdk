@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\WhitehatFBDLRunFields;
+use FacebookAds\Object\Fields\CanvasPreviewFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\WhitehatFBDLRunFields;
  *
  */
 
-class WhitehatFBDLRun extends AbstractCrudObject {
+class CanvasPreview extends AbstractObject {
 
   /**
-   * @return WhitehatFBDLRunFields
+   * @return CanvasPreviewFields
    */
   public static function getFieldsEnum() {
-    return WhitehatFBDLRunFields::getInstance();
+    return CanvasPreviewFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -38,28 +38,5 @@ class WhitehatFBDLRun extends AbstractCrudObject {
     return $ref_enums;
   }
 
-
-  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/',
-      new WhitehatFBDLRun(),
-      'NODE',
-      WhitehatFBDLRun::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
 
 }

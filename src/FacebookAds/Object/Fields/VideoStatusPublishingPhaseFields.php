@@ -20,15 +20,19 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class DestinationCatalogSettingsFields extends AbstractEnum {
+class VideoStatusPublishingPhaseFields extends AbstractEnum {
 
-  const GENERATE_ITEMS_FROM_PAGES = 'generate_items_from_pages';
-  const ID = 'id';
+  const ERRORS = 'errors';
+  const PUBLISH_STATUS = 'publish_status';
+  const PUBLISH_TIME = 'publish_time';
+  const STATUS = 'status';
 
   public function getFieldTypes() {
     return array(
-      'generate_items_from_pages' => 'bool',
-      'id' => 'string',
+      'errors' => 'list<VideoStatusError>',
+      'publish_status' => 'string',
+      'publish_time' => 'datetime',
+      'status' => 'string',
     );
   }
 }

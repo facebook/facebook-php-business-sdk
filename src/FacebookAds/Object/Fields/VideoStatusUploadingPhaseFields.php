@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -18,9 +18,21 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static ProfilePictureSourceBreakingChangeValues getInstance()
  */
-class ProfilePictureSourceBreakingChangeValues extends AbstractEnum {
 
-  const PROFILE_PICTURE = 'PROFILE_PICTURE';
+class VideoStatusUploadingPhaseFields extends AbstractEnum {
+
+  const BYTES_TRANSFERRED = 'bytes_transferred';
+  const ERRORS = 'errors';
+  const SOURCE_FILE_SIZE = 'source_file_size';
+  const STATUS = 'status';
+
+  public function getFieldTypes() {
+    return array(
+      'bytes_transferred' => 'unsigned int',
+      'errors' => 'list<VideoStatusError>',
+      'source_file_size' => 'unsigned int',
+      'status' => 'string',
+    );
+  }
 }

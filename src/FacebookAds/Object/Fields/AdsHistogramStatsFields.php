@@ -52,7 +52,11 @@ class AdsHistogramStatsFields extends AbstractEnum {
   const INTERACTIVE_COMPONENT_STICKER_ID = 'interactive_component_sticker_id';
   const INTERACTIVE_COMPONENT_STICKER_RESPONSE = 'interactive_component_sticker_response';
   const SKAN_CLICK = 'skan_click';
+  const SKAN_CLICK_SECOND_POSTBACK = 'skan_click_second_postback';
+  const SKAN_CLICK_THIRD_POSTBACK = 'skan_click_third_postback';
   const SKAN_VIEW = 'skan_view';
+  const SKAN_VIEW_SECOND_POSTBACK = 'skan_view_second_postback';
+  const SKAN_VIEW_THIRD_POSTBACK = 'skan_view_third_postback';
   const VALUE = 'value';
 
   public function getFieldTypes() {
@@ -87,7 +91,11 @@ class AdsHistogramStatsFields extends AbstractEnum {
       'interactive_component_sticker_id' => 'string',
       'interactive_component_sticker_response' => 'string',
       'skan_click' => 'list<int>',
+      'skan_click_second_postback' => 'list<int>',
+      'skan_click_third_postback' => 'list<int>',
       'skan_view' => 'list<int>',
+      'skan_view_second_postback' => 'list<int>',
+      'skan_view_third_postback' => 'list<int>',
       'value' => 'list<int>',
     );
   }
