@@ -53,19 +53,9 @@ The Facebook Business SDK requires PHP 8.0 or greater.
 
 The Facebook Business SDK uses composer to manage dependencies. Visit the <a href="https://getcomposer.org/download/" target="_blank">composer documentation</a> to learn how to install composer.
 
-Add the following to your `composer.json` file:
-
-```json
-{
-    "require": {
-        "facebook/php-business-sdk": "16.0.*"
-    }
-}
-```
-then install it through composer:
-
+Execute the command below in your project root:
 ```shell
-php composer.phar install --no-dev
+composer require facebook/php-business-sdk
 ```
 
 This SDK and its dependencies will be installed under `./vendor`.
