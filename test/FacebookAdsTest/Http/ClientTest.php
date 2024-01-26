@@ -24,7 +24,7 @@
 
 namespace FacebookAdsTest\Http;
 
-use FacebookAds\Api;
+use FacebookAds\ApiConfig;
 use FacebookAds\Http\Adapter\AdapterInterface;
 use FacebookAds\Http\Adapter\CurlAdapter;
 use FacebookAds\Http\Client;
@@ -83,15 +83,15 @@ class ClientTest extends AbstractUnitTestCase {
 
     $client = new Client();
     $client->setDefaultRequestHeaders($headers);
-    $this->assertTrue($headers === $client->getDefaultRequestHeaderds());
+    $this->assertTrue($headers === $client->getDefaultRequestHeaders());
 
     // Default initialization
     $client = new Client();
-    $headers = $client->getDefaultRequestHeaderds();
+    $headers = $client->getDefaultRequestHeaders();
     $this->assertTrue($headers instanceof Headers);
-    $this->assertTrue($headers === $client->getDefaultRequestHeaderds());
+    $this->assertTrue($headers === $client->getDefaultRequestHeaders());
     $this->assertArrayHasKey('User-Agent', $headers);
-    $this->assertEquals('fb-php-ads-'.Api::VERSION, $headers['User-Agent']);
+    $this->assertEquals('fbbizsdk-php-v'.ApiConfig::SDKVersion, $headers['User-Agent']);
   }
 
   public function testDomain() {

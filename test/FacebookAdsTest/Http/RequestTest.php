@@ -96,7 +96,7 @@ class RequestTest extends AbstractUnitTestCase {
     // Default initialization
     $headers = new Headers();
     $client = $this->createClientMock();
-    $client->method('getDefaultRequestHeaderds')->willReturn($headers);
+    $client->method('getDefaultRequestHeaders')->willReturn($headers);
     $request = new Request($client);
     $headers_mirror = $request->getHeaders();
     $this->assertTrue($headers_mirror instanceof Headers);
@@ -180,6 +180,13 @@ class RequestTest extends AbstractUnitTestCase {
     $this->assertFalse($query_params === $clone->getQueryParams());
     $this->assertFalse($body_params === $clone->getBodyParams());
     $this->assertFalse($file_params === $clone->getFileParams());
+  }
+
+  public function testUrlCustomArgSeparator(){
+      $separator = ini_get('arg_separator.output');
+      ini_set('arg_separator.output', '&amp;');
+      $this->testUrl();
+      ini_set('arg_separator.output', $separator);
   }
 
   /**

@@ -55,7 +55,9 @@ class ApiTest extends AbstractUnitTestCase {
     $api = Api::init(
       static::VALUE_SESSION_APP_ID,
       static::VALUE_SESSION_APP_SECRET,
-      static::VALUE_SESSION_ACCESS_TOKEN);
+      static::VALUE_SESSION_ACCESS_TOKEN,
+      false
+    );
     $this->assertTrue($api instanceof Api);
     $this->assertTrue($api === Api::instance());
     $this->assertEquals(
@@ -117,6 +119,7 @@ class ApiTest extends AbstractUnitTestCase {
 
     $session = $this->createSessionMock();
     $session->method('getAppSecretProof')->willReturn('<APP_SECRET_PROOF>');
+    $session->method('getRequestParameters')->willReturn([]);
 
     $logger = $this->createLoggerMock();
     $logger->expects($this->exactly(2))->method('logRequest');

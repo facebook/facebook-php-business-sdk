@@ -65,6 +65,34 @@ class RequestExceptionTest extends AbstractUnitTestCase {
       $e->getErrorBlameFieldSpecs());
   }
 
+  public function testGetFacebookTraceIdReturnsValueFromResponseErrorData() {
+    $data = array(
+      'error' => array(
+        'fbtrace_id' => 'abc123',
+      ),
+    );
+
+    $response = new Response();
+    $response->setBody(json_encode($data));
+    $e = new RequestException($response);
+
+    $this->assertSame('abc123', $e->getFacebookTraceId());
+  }
+
+  public function testGetErrorBlameFieldSpecsReturnsNullWithNullErrorData() {
+    $data = array(
+      'error' => array(
+          'error_data' => null,
+      ),
+    );
+
+    $response = new Response();
+    $response->setBody(json_encode($data));
+    $e = new RequestException($response);
+
+    $this->assertNull($e->getErrorBlameFieldSpecs());
+  }
+
   /**
    * @return array
    */

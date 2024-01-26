@@ -86,12 +86,12 @@ class ProductAudienceTest extends AbstractCrudObjectTestCase {
 
   public function tearDown() {
     if ($this->productSet) {
-      $this->productSet->delete();
+      $this->productSet->deleteSelf();
       $this->productSet = null;
     }
 
     if ($this->productCatalog) {
-      $this->productCatalog->delete();
+      $this->productCatalog->deleteSelf();
       $this->productCatalog = null;
     }
 

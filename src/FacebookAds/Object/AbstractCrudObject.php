@@ -1,26 +1,12 @@
 <?php
-/**
- * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
+
 namespace FacebookAds\Object;
 use FacebookAds\Api;
 use FacebookAds\Cursor;
@@ -56,12 +42,34 @@ class AbstractCrudObject extends AbstractObject {
    */
   public function __construct($id = null, $parent_id = null, Api $api = null) {
     parent::__construct();
+
+    // check that $id is an integer or a string integer or a string of
+    // two integer connected by an underscore, like "123_456"
+
+    $int_id = $id;
+    if ($id !== null && strpos($id, 'act_') === 0) {
+      $int_id = substr($id, 4);
+    }
+    $split_by_underscore = explode('_', (string) $id);
+    $is_regular_id = sizeof($split_by_underscore) == 2 &&
+                     ctype_digit($split_by_underscore[0]) &&
+                     ctype_digit($split_by_underscore[1]);
+    if (!is_null($int_id) && !ctype_digit((string) $int_id) && !$is_regular_id) {
+      $extra_message = '';
+      if (is_numeric($int_id)) {
+        $extra_message = ' Please use an integer string'
+        .' to prevent integer overflow.';
+      }
+      throw new \InvalidArgumentException(
+        'Object ID must be an integer or integer string but was passed "'
+        .(string)$id.'" ('.gettype($id).').'.(string)$extra_message);
+    }
     $this->data[static::FIELD_ID] = $id;
 
     if (!is_null($parent_id)) {
       $warning_message = "\$parent_id as a parameter of constructor is being " .
         "deprecated, please try not to use this in new code.\n";
-      error_log($warning_message);
+      trigger_error($warning_message, E_USER_DEPRECATED);
     }
     $this->parentId = $parent_id;
 
@@ -76,10 +84,15 @@ class AbstractCrudObject extends AbstractObject {
     return $this;
   }
   /**
+   * @deprecated deprecate parent_id in AbstractCrudObject
    * @param string $parent_id
    */
   public function setParentId($parent_id) {
+    $warning_message = sprintf('%s is being deprecated, please try not to use'.
+      ' this in new code.',__FUNCTION__);
+    trigger_error($warning_message, E_USER_DEPRECATED);
     $this->parentId = $parent_id;
+    return $this;
   }
   /**
    * @param Api $api The Api instance this object should use to make calls
@@ -110,16 +123,24 @@ class AbstractCrudObject extends AbstractObject {
     return $instance;
   }
   /**
+   * @deprecated deprecate parent_id in AbstractCrudObject
    * @return string|null
    */
   public function getParentId() {
+    $warning_message = sprintf('%s is being deprecated, please try not to use'.
+      ' this in new code.',__FUNCTION__);
+    trigger_error($warning_message, E_USER_DEPRECATED);
     return $this->parentId;
   }
   /**
+   * @deprecated deprecate parent_id in AbstractCrudObject
    * @return string
    * @throws \Exception
    */
   protected function assureParentId() {
+    $warning_message = sprintf('%s is being deprecated, please try not to use'.
+      ' this in new code.',__FUNCTION__);
+    trigger_error($warning_message, E_USER_DEPRECATED);
     if (!$this->parentId) {
       throw new \Exception("A parent ID is required.");
     }
@@ -203,6 +224,8 @@ class AbstractCrudObject extends AbstractObject {
     return '/'.$this->assureId();
   }
   /**
+   * @deprecated
+   * use (ParentObject)->creatXXX() instead
    * Create function for the object.
    *
    * @param array $params Additional parameters to include in the request
@@ -210,6 +233,9 @@ class AbstractCrudObject extends AbstractObject {
    * @throws \Exception
    */
   public function create(array $params = array()) {
+    $warning_message = sprintf('%s is being deprecated, please try not to use'.
+      ' this in new code.',__FUNCTION__);
+    trigger_error($warning_message, E_USER_DEPRECATED);
     if ($this->data[static::FIELD_ID]) {
       throw new \Exception("Object has already an ID");
     }
@@ -235,6 +261,8 @@ class AbstractCrudObject extends AbstractObject {
     return $this;
   }
   /**
+   * @deprecated
+   * use getSelf() instead
    * Read object data from the graph
    *
    * @param string[] $fields Fields to request
@@ -242,6 +270,9 @@ class AbstractCrudObject extends AbstractObject {
    * @return $this
    */
   public function read(array $fields = array(), array $params = array()) {
+    $warning_message = sprintf('%s is being deprecated, please try not to use'.
+      ' this in new code.',__FUNCTION__);
+    trigger_error($warning_message, E_USER_DEPRECATED);
     $fields = implode(',', $fields ?: static::getDefaultReadFields());
     if ($fields) {
       $params['fields'] = $fields;
@@ -255,12 +286,17 @@ class AbstractCrudObject extends AbstractObject {
     return $this;
   }
   /**
+   * @deprecated
+   * use updateSelf() instead
    * Update the object. Function parameters are similar with the create function
    *
    * @param array $params Update parameters in assoc
    * @return $this
    */
   public function update(array $params = array()) {
+    $warning_message = sprintf('%s is being deprecated, please try not to use'.
+      ' this in new code.',__FUNCTION__);
+    trigger_error($warning_message, E_USER_DEPRECATED);
     $this->getApi()->call(
       $this->getNodePath(),
       RequestInterface::METHOD_POST,
@@ -269,18 +305,25 @@ class AbstractCrudObject extends AbstractObject {
     return $this;
   }
   /**
+   * @deprecated
+   * use deleteSelf() in each subclass
    * Delete this object from the graph
    *
    * @param array $params
    * @return void
    */
   public function deleteSelf(array $params = array()) {
+    $warning_message = sprintf('%s is being deprecated, please try not to use'.
+      ' this in new code.',__FUNCTION__);
+    trigger_error($warning_message, E_USER_DEPRECATED);
     $this->getApi()->call(
       $this->getNodePath(),
       RequestInterface::METHOD_DELETE,
       $params);
   }
   /**
+   * @deprecated
+   * deprecate with ObjectValidation
    * Perform object upsert
    *
    * Helper function which determines whether an object should be created or
@@ -290,6 +333,9 @@ class AbstractCrudObject extends AbstractObject {
    * @return $this
    */
   public function save(array $params = array()) {
+    $warning_message = sprintf('%s is being deprecated, please try not to use'.
+      ' this in new code.',__FUNCTION__);
+    trigger_error($warning_message, E_USER_DEPRECATED);
     if ($this->data[static::FIELD_ID]) {
       return $this->update($params);
     } else {
@@ -297,12 +343,17 @@ class AbstractCrudObject extends AbstractObject {
     }
   }
   /**
+   * @deprecated
+   * deprecate with getEndpoint
    * @param string $prototype_class
    * @param string $endpoint
    * @return string
    * @throws \InvalidArgumentException
    */
   protected function assureEndpoint($prototype_class, $endpoint) {
+    $warning_message = sprintf('%s is being deprecated, please try not to use'.
+      ' this in new code.',__FUNCTION__);
+    trigger_error($warning_message, E_USER_DEPRECATED);
     if (!$endpoint) {
       $prototype = new $prototype_class(null, null, $this->getApi());
       if (!$prototype instanceof AbstractCrudObject) {
@@ -323,7 +374,7 @@ class AbstractCrudObject extends AbstractObject {
   protected function fetchConnection(
     array $fields = array(),
     array $params = array(),
-    $prototype_class,
+    $prototype_class = '',
     $endpoint = null) {
     $fields = implode(',', $fields ?: static::getDefaultReadFields());
     if ($fields) {
@@ -355,7 +406,7 @@ class AbstractCrudObject extends AbstractObject {
       return null;
     }
     $object = new $prototype_class(
-      null, $this->{static::FIELD_ID}, $this->getApi());
+      null, null, $this->getApi());
     /** @var AbstractCrudObject $object */
     $object->setDataWithoutValidation($response->getContent());
     return $object;
@@ -378,7 +429,7 @@ class AbstractCrudObject extends AbstractObject {
       $fields, $params, $prototype_class, $endpoint);
     return new Cursor(
       $response,
-      new $prototype_class(null, $this->{static::FIELD_ID}, $this->getApi()));
+      new $prototype_class(null, null, $this->getApi()));
   }
   /**
    * @param string $job_class

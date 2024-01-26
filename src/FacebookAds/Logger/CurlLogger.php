@@ -24,6 +24,7 @@
 
 namespace FacebookAds\Logger;
 
+use FacebookAds\Http\FileParameter;
 use FacebookAds\Http\Parameters;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\Http\ResponseInterface;
@@ -80,6 +81,9 @@ class CurlLogger implements LoggerInterface {
    * @param resource $handle
    */
   public function __construct($handle = null) {
+    if (!defined('STDOUT')) {
+      define('STDOUT', fopen('php://stdout', 'w'));
+    }
     $this->handle = is_resource($handle) ? $handle : STDOUT;
   }
 
@@ -150,20 +154,36 @@ class CurlLogger implements LoggerInterface {
       $params = new JsonAwareParameters($params);
     }
     foreach ($params->export() as $name => $value) {
-      $value = addcslashes(
-        strpos($value, "\n") !== false
-          ? $this->indent($value, 2)
-          : $value,
-        '\'');
+      if ($is_file && $params->offsetGet($name) instanceof FileParameter) {
+        $value = "@" . $this->normalizeFileParam($params->offsetGet($name));
+      } else {
+        $value = addcslashes(
+          strpos($value, "\n") !== false
+            ? $this->indent($value, 2)
+            : $value,
+          '\'');
+      }
       $chunks[$name] = sprintf(
-        '-%s \'%s=%s%s\'',
+        '-%s \'%s=%s\'',
         $this->getParamFlag($method, $value),
         $name,
-        $is_file ? '@' : '',
         $value);
     }
 
     return $chunks;
+  }
+
+  /**
+   * @param FileParameter $file_param
+   * @return string
+   */
+  protected function normalizeFileParam(FileParameter $file_param) {
+    return sprintf('%s%s%s%s%s',
+      $file_param->getPath(),
+      $file_param->getMimeType() != null ? ";type=" : "",
+      $file_param->getMimeType(),
+      $file_param->getName() != null ? ";name=" : "",
+      $file_param->getName());
   }
 
   /**

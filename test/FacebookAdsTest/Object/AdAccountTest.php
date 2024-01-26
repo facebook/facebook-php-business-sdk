@@ -53,7 +53,7 @@ class AdAccountTest extends AbstractCrudObjectTestCase {
 
   public function tearDown() {
     if ($this->adLabel !== null) {
-      $this->adLabel->delete();
+      $this->adLabel->deleteSelf();
       $this->adLabel = null;
     }
 

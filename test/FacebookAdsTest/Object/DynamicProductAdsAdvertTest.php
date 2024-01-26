@@ -146,37 +146,37 @@ class DynamicProductAdsAdvertTest extends AbstractCrudObjectTestCase {
 
   public function tearDown() {
     if ($this->productSet) {
-      $this->productSet->delete();
+      $this->productSet->deleteSelf();
       $this->productSet = null;
     }
 
     if ($this->productCatalog) {
-      $this->productCatalog->delete();
+      $this->productCatalog->deleteSelf();
       $this->productCatalog = null;
     }
 
     if ($this->productAudience) {
-      $this->productAudience->delete();
+      $this->productAudience->deleteSelf();
       $this->productAudience = null;
     }
 
     if ($this->campaign) {
-      $this->campaign->delete();
+      $this->campaign->deleteSelf();
       $this->campaign = null;
     }
 
     if ($this->adSet) {
-      $this->adSet->delete();
+      $this->adSet->deleteSelf();
       $this->adSet = null;
     }
 
     if ($this->ad) {
-      $this->ad->delete();
+      $this->ad->deleteSelf();
       $this->ad = null;
     }
 
     if ($this->creative) {
-      $this->creative->delete();
+      $this->creative->deleteSelf();
       $this->creative = null;
     }
 

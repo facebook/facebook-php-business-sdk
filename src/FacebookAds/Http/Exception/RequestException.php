@@ -35,6 +35,11 @@ class RequestException extends Exception {
   protected $response;
 
   /**
+   * @var Headers
+   */
+  protected $headers;
+
+  /**
    * @var int|null
    */
   protected $errorCode;
@@ -70,18 +75,25 @@ class RequestException extends Exception {
   protected $errorBlameFieldSpecs;
 
   /**
+   * @var string|null
+   */
+  protected $facebookTraceId;
+
+  /**
    * @param ResponseInterface $response
    */
   public function __construct(ResponseInterface $response) {
+    $this->headers = $response->getHeaders();
     $this->response = $response;
-    $error_data = static::getErrorData($response->getContent());
+    $error_data = static::getErrorData($response);
 
-    parent::__construct($error_data['message'], $error_data['code']);
+    parent::__construct($error_data['message'], $error_data['code'] ?? 0);
 
     $this->errorSubcode = $error_data['error_subcode'];
     $this->errorUserTitle = $error_data['error_user_title'];
     $this->errorUserMessage = $error_data['error_user_msg'];
     $this->errorBlameFieldSpecs = $error_data['error_blame_field_specs'];
+    $this->facebookTraceId = $error_data['fbtrace_id'];
   }
 
   /**
@@ -92,23 +104,44 @@ class RequestException extends Exception {
   }
 
   /**
-   * @param array $array
+   * @param array|string $array
    * @param string|int $key
    * @param mixed $default
    * @return mixed
    */
-  protected static function idx(array $array, $key, $default = null) {
+  protected static function idx($array, $key, $default = null) {
+    if (is_string($array)) {
+      $array = json_decode($array, true);
+    }
+
+    if (is_null($array)) {
+      return null;
+    }
+
     return array_key_exists($key, $array)
       ? $array[$key]
       : $default;
   }
 
   /**
-   * @param array $response_data
+   * @param ResponseInterface $response
    * @return array
    */
-  protected static function getErrorData(array $response_data) {
+  protected static function getErrorData(ResponseInterface $response) {
+    $response_data = $response->getContent();
+    if (is_null($response_data)) {
+      $response_data = array();
+    }
     $error_data = static::idx($response_data, 'error', array());
+
+    if (is_string(static::idx($error_data, 'error_data'))) {
+      $error_data["error_data"] =
+        json_decode(stripslashes(static::idx($error_data, 'error_data')), true);
+    }
+
+    if (is_null(static::idx($error_data, 'error_data'))) {
+      $error_data["error_data"] = array();
+    }
 
     return array(
       'code' =>
@@ -120,6 +153,7 @@ class RequestException extends Exception {
       'error_blame_field_specs' =>
         static::idx(static::idx($error_data, 'error_data', array()),
           'blame_field_specs'),
+      'fbtrace_id' => static::idx($error_data, 'fbtrace_id'),
       'type' => static::idx($error_data, 'type'),
     );
   }
@@ -131,7 +165,7 @@ class RequestException extends Exception {
    * @return RequestException
    */
   public static function create(ResponseInterface $response) {
-    $error_data = static::getErrorData($response->getContent());
+    $error_data = static::getErrorData($response);
     if (in_array(
       $error_data['error_subcode'], array(458, 459, 460, 463, 464, 467))
       || in_array($error_data['code'], array(100, 102, 190))
@@ -193,6 +227,13 @@ class RequestException extends Exception {
   }
 
   /**
+   * @return string|null
+   */
+  public function getFacebookTraceId() {
+    return $this->facebookTraceId;
+  }
+
+  /**
    * @return bool
    */
   public function isTransient() {
@@ -205,5 +246,12 @@ class RequestException extends Exception {
     return array_key_exists('error', $body)
       && array_key_exists('is_transient', $body['error'])
       && $body['error']['is_transient'];
+  }
+
+  /**
+   * @return Headers
+   */
+  public function getHeaders() {
+    return $this->headers;
   }
 }

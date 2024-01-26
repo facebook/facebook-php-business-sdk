@@ -24,7 +24,7 @@
 
 namespace FacebookAdsTest\Object;
 
-use FacebookAds\Object\AbstractAsyncJobObject;
+use FacebookAds\Object\AbstractCrudObject;
 use FacebookAdsTest\Config\SkippableFeatureTestInterface;
 
 abstract class AbstractAsyncJobTestCase extends AbstractCrudObjectTestCase
@@ -38,16 +38,16 @@ abstract class AbstractAsyncJobTestCase extends AbstractCrudObjectTestCase
   }
 
   /**
-   * @param AbstractAsyncJobObject $job
+   * @param AbstractCrudObject $job
    * @param int $timeout
    * @param int $interval
    */
   protected function waitTillJobComplete(
-    AbstractAsyncJobObject $job, $timeout = 60, $interval = 2) {
+    AbstractCrudObject $job, $timeout = 60, $interval = 2) {
 
     $end = time() + $timeout;
     do {
-      if ($job->read()->isComplete()) {
+      if ($job->getSelf()->isComplete()) {
         return;
       }
       sleep($interval);

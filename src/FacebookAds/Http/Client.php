@@ -24,7 +24,7 @@
 
 namespace FacebookAds\Http;
 
-use FacebookAds\Api;
+use FacebookAds\ApiConfig;
 use FacebookAds\Http\Adapter\AdapterInterface;
 use FacebookAds\Http\Adapter\CurlAdapter;
 use FacebookAds\Http\Exception\EmptyResponseException;
@@ -125,15 +125,26 @@ class Client {
   /**
    * @return Headers
    */
-  public function getDefaultRequestHeaderds() {
+  public function getDefaultRequestHeaders() {
     if ($this->defaultRequestHeaders === null) {
       $this->defaultRequestHeaders = new Headers(array(
-        'User-Agent' => 'fb-php-ads-'.Api::VERSION,
+        'User-Agent' => 'fbbizsdk-php-v'.ApiConfig::SDKVersion,
         'Accept-Encoding' => '*',
       ));
     }
 
     return $this->defaultRequestHeaders;
+  }
+
+  /**
+   * @deprecated use getDefaultRequestHeaders() instead
+   *
+   * @return Headers
+   */
+  public function getDefaultRequestHeaderds() {
+    @trigger_error(sprintf('%s deprecated, use getDefaultRequestHeaders() instead.', __METHOD__), \E_USER_DEPRECATED);
+
+    return $this->getDefaultRequestHeaders();
   }
 
   /**

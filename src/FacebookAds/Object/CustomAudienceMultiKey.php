@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object;
@@ -30,6 +15,10 @@ use FacebookAds\Object\Fields\CustomAudienceFields;
 use FacebookAds\Object\CustomAudienceNormalizers\HashNormalizer;
 use FacebookAds\Object\Fields\CustomAudienceMultikeySchemaFields;
 
+/**
+ * @deprecated
+ * Please use class `CustomAudience` instead
+ **/
 class CustomAudienceMultiKey extends AbstractCrudObject {
 
   /**
@@ -82,6 +71,7 @@ class CustomAudienceMultiKey extends AbstractCrudObject {
   }
 
   /**
+   * @deprecated
    * Add users to the AdCustomAudiences. There is no max on the total number of
    * users that can be added to an audience, but up to 10000 users can be added
    * at a given time.
@@ -97,6 +87,9 @@ class CustomAudienceMultiKey extends AbstractCrudObject {
     array $types,
     $is_hashed = false,
     $is_normalized = false) {
+    $warning_message = 'CustomAudienceMultiKey is being deprecated, please use'.
+      '`new CustomAudience(...)->addUsers(..)` instead';
+    trigger_error($warning_message, E_USER_DEPRECATED);
 
     $params = $this->formatParams($users, $types, $is_hashed, $is_normalized);
     return $this->getApi()->call(
@@ -106,6 +99,7 @@ class CustomAudienceMultiKey extends AbstractCrudObject {
   }
 
   /**
+   * @deprecated
    * Delete users from AdCustomAudiences
    *
    * @param array $users
@@ -119,7 +113,9 @@ class CustomAudienceMultiKey extends AbstractCrudObject {
     array $types,
     $is_hashed = false,
     $is_normalized = false) {
-
+    $warning_message = 'CustomAudienceMultiKey is being deprecated, please use'.
+      '`new CustomAudience(...)->removeUsers(..)` instead';
+    trigger_error($warning_message, E_USER_DEPRECATED);
     $params = $this->formatParams($users, $types, $is_hashed, $is_normalized);
     return $this->getApi()->call(
       '/'.$this->assureId().'/users',

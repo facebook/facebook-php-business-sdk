@@ -24,7 +24,7 @@
 
 namespace FacebookAdsTest\Object;
 
-use FacebookAds\Object\CustomAudienceMultiKey;
+use FacebookAds\Object\CustomAudience;
 use FacebookAds\Object\Fields\CustomAudienceFields;
 use FacebookAds\Object\Fields\CustomAudienceMultikeySchemaFields;
 use FacebookAds\Object\Values\CustomAudienceSubtypes;
@@ -32,38 +32,45 @@ use FacebookAds\Object\Values\CustomAudienceTypes;
 
 class CustomAudienceMultikeyTest extends AbstractCrudObjectTestCase {
 
+  /**
+  * @var CustomAudience
+  */
   protected $customaudience;
 
   public function setup() {
     parent::setup();
-    $ca = new CustomAudienceMultiKey(null, $this->getConfig()->accountId);
-    $ca->{CustomAudienceFields::NAME} = $this->getConfig()->testRunId;
-    $ca->{CustomAudienceFields::SUBTYPE} = CustomAudienceSubtypes::CUSTOM;
-    $ca->create();
-    $this->customaudience = $ca;
+    $adaccount = new AdAccount($this->getConfig()->accountId);
+    $params = array(
+      CustomAudienceFields::NAME => $this->getConfig()->testRunId,
+      CustomAudienceFields::SUBTYPE => CustomAudienceSubtypes::CUSTOM,
+    );
+    $this->customaudience = $adaccount->createCustomAudience(
+      array(),
+      $params
+    );
   }
 
   public function tearDown() {
     if ($this->customaudience) {
-      $this->customaudience->delete();
+      $this->customaudience->deleteSelf();
     }
   }
 
   private function checkServerResponse(
-    CustomAudienceMultiKey $ca,
+    CustomAudience $ca,
     array $users,
     array $schema,
     $is_hashed,
     $is_normalized) {
-    $add = $ca->addUsers($users, $schema, $is_hashed, $is_normalized);
+    $add = $ca->addUsersMultiKey($users, $schema, $is_hashed, $is_normalized);
     $this->assertClusterChangesResponse($ca, $users, $add);
-    $remove = $ca->removeUsers($users, $schema, $is_hashed, $is_normalized);
+    $remove = $ca->removeUsersMultiKey($users, $schema, $is_hashed, $is_normalized);
     $this->assertClusterChangesResponse($ca, $users, $remove);
   }
 
 
   protected function assertClusterChangesResponse(
-    CustomAudienceMultiKey $ca, array $users, $response) {
+    CustomAudience $ca, array $users, $response) {
 
     $this->assertTrue(is_array($response));
 

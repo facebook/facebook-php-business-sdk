@@ -22,34 +22,35 @@
  *
  */
 
-namespace FacebookAdsTest\Object;
+ namespace FacebookAdsTest\Object;
 
-use FacebookAds\Object\AdAccount;
-use FacebookAds\Object\Fields\AdAccountFields;
-use FacebookAds\Object\AsyncJobInsights;
-use FacebookAds\Object\Fields\InsightsFields;
+ use FacebookAds\Object\AdAccount;
+ use FacebookAds\Object\Fields\AdAccountFields;
+ use FacebookAds\Object\AdReportRun;
+ use FacebookAds\Object\Fields\AdsInsightsFields;
+ use FacebookAds\Api;
 
-class AsyncJobInsightsTest extends AbstractAsyncJobTestCase {
+ class AsyncJobInsightsTest extends AbstractAsyncJobTestCase {
 
-  public function testCrud() {
-    $account = new AdAccount($this->getConfig()->accountId);
-    $job = $account->getInsightsAsync();
-    $this->assertTrue($job instanceof AsyncJobInsights);
-    $this->waitTillJobComplete($job);
-    $job->getResult();
-  }
+   public function testCrud() {
+     $account = new AdAccount($this->getConfig()->accountId);
+     $job = $account->getInsightsAsync();
+     $this->assertTrue($job instanceof AdReportRun);
+     $this->waitTillJobComplete($job);
+     $job->getInsights();
+   }
 
-  public function testFields() {
-    $account = new AdAccount($this->getConfig()->accountId);
-    $fields = array(AdAccountFields::NAME);
-    $account->read($fields);
-    $fields = array(InsightsFields::ACCOUNT_NAME);
-    $job = $account->getInsightsAsync($fields);
-    $this->assertTrue($job instanceof AsyncJobInsights);
-    $this->waitTillJobComplete($job);
-    $result = $job->getResult();
-    $this->assertEquals(
-      $result[0]->{InsightsFields::ACCOUNT_NAME},
-      $account->{AdAccountFields::NAME});
-  }
-}
+   public function testFields() {
+     $account = new AdAccount($this->getConfig()->accountId);
+     $fields = array(AdAccountFields::ACCOUNT_ID);
+     $account->{AdAccountFields::ACCOUNT_ID} = $account->getSelf($fields)->{AdAccountFields::ACCOUNT_ID};
+     $fields = array(AdsInsightsFields::ACCOUNT_ID);
+     $job = $account->getInsightsAsync($fields);
+     $this->assertTrue($job instanceof AdReportRun);
+     $this->waitTillJobComplete($job);
+     $result = $job->getInsights();
+     $this->assertEquals(
+       $result[0]->{AdsInsightsFields::ACCOUNT_ID},
+       $account->{AdAccountFields::ACCOUNT_ID});
+   }
+ }

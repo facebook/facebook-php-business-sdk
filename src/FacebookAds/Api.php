@@ -1,35 +1,21 @@
 <?php
-/**
- * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds;
 
 use FacebookAds\Http\Client;
+use FacebookAds\Http\Exception\RequestException;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\Http\ResponseInterface;
 use FacebookAds\Logger\LoggerInterface;
 use FacebookAds\Logger\NullLogger;
-use FacebookAds\Http\Exception\RequestException;
+use FacebookAds\CrashReporter;
 
 class Api {
 
@@ -44,7 +30,7 @@ class Api {
   protected static $instance;
 
   /**
-   * @var Session
+   * @var SessionInterface
    */
   private $session;
 
@@ -65,11 +51,11 @@ class Api {
 
   /**
    * @param Client $http_client
-   * @param Session $session A Facebook API session
+   * @param SessionInterface $session A Facebook API session
    */
   public function __construct(
     Client $http_client,
-    Session $session) {
+    SessionInterface $session) {
     $this->httpClient = $http_client;
     $this->session = $session;
   }
@@ -80,11 +66,13 @@ class Api {
    * @param string $access_token
    * @return static
    */
-  public static function init($app_id, $app_secret, $access_token) {
+  public static function init($app_id, $app_secret, $access_token, $log_crash=true) {
     $session = new Session($app_id, $app_secret, $access_token);
     $api = new static(new Client(), $session);
     static::setInstance($api);
-
+    if ($log_crash) {
+      CrashReporter::enable();
+    }
     return $api;
   }
 
@@ -100,6 +88,17 @@ class Api {
    */
   public static function setInstance(Api $instance) {
     static::$instance = $instance;
+  }
+
+  /**
+   * @param SessionInterface $session
+   * @return Api
+   */
+  public function getCopyWithSession(SessionInterface $session) {
+    $api = new self($this->getHttpClient(), $session);
+    $api->setDefaultGraphVersion($this->getDefaultGraphVersion());
+    $api->setLogger($this->getLogger());
+    return $api;
   }
 
   /**
@@ -137,8 +136,8 @@ class Api {
     if (!empty($params)) {
       $params_ref->enhance($params);
     }
-    $params_ref['access_token'] = $this->getSession()->getAccessToken();
-    $params_ref['appsecret_proof'] = $this->getSession()->getAppSecretProof();
+
+    $params_ref->enhance($this->getSession()->getRequestParameters());
 
     return $request;
   }
@@ -192,15 +191,22 @@ class Api {
   public function call(
     $path,
     $method = RequestInterface::METHOD_GET,
-    array $params = array()) {
+    array $params = array(),
+    array $file_params = array()) {
 
     $request = $this->prepareRequest($path, $method, $params);
+
+    if (!empty($file_params)) {
+      foreach($file_params as $key => $value) {
+        $request->getFileParams()->offsetSet($key, $value);
+      }
+    }
 
     return $this->executeRequest($request);
   }
 
   /**
-   * @return Session
+   * @return SessionInterface
    */
   public function getSession() {
     return $this->session;

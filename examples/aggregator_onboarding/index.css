@@ -1,0 +1,143 @@
+/**
+ * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ *
+ * You are hereby granted a non-exclusive, worldwide, royalty-free license to
+ * use, copy, modify, and distribute this software in source code or binary
+ * form for use in connection with the web services and APIs provided by
+ * Facebook.
+ *
+ * As with any software that integrates with the Facebook platform, your use
+ * of this software is subject to the Facebook Developer Principles and
+ * Policies [http://developers.facebook.com/policy/]. This copyright notice
+ * shall be included in all copies or substantial portions of the software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ *
+ */
+
+/* Add shadows to create the "card" effect */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  display: inline-block;
+  padding: 2px 16px;
+}
+
+.insidecontainer {
+  align-items: center;
+  display: flex;
+  height: 500px;
+  justify-content: center;
+  padding: 20px 30px;
+  width: 600px;
+}
+
+.padded {
+  padding: 20px 30px;
+}
+
+.buttons {
+  padding: 5px 5px;
+}
+
+#status {
+  bottom: 60px;
+  height: 50px;
+  padding: 10px 20px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+div.static {
+  height: 40px;
+  position: static;
+}
+
+.loader {
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid #3498db;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: spin 1s linear infinite;
+  /* Safari */
+  animation: spin 1s linear infinite;
+}
+
+.content-header {
+  font-size: 26px;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.form {
+  flex-grow: 1;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+  width: 100%;
+}
+
+.create-ad-button {
+  background: none;
+  border-radius: 5px;
+  border: 1px solid #dddddd;
+  cursor: pointer;
+  display: block;
+  margin: 40px auto 0;
+  padding: 10px 15px;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid #dddd;
+  outline: none;
+  padding: 0 6px 6px 6px;
+  width: 300px;
+}
+
+/* Safari */
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

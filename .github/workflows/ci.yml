@@ -1,0 +1,29 @@
+name: CI build
+on: [push, pull_request]
+
+jobs:
+  run:
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: [ubuntu-latest]
+        php-versions: ['8.0', '8.1', '8.2']
+    name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{matrix.php-versions}}
+
+    - name: Install dependencies
+      uses: php-actions/composer@v6
+      with:
+        php_version: ${{matrix.php-versions}}
+        dev: yes
+        args: --prefer-source
+
+    - name: PHPUnit Tests
+      run: vendor/bin/phpunit -v -c test/phpunit-travis.xml --coverage-clover=coverage.clover
