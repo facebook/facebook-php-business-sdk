@@ -10,6 +10,7 @@
 namespace FacebookAds;
 
 use FacebookAds\Http\Client;
+use FacebookAds\Http\Exception\RequestException;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\Http\ResponseInterface;
 use FacebookAds\Logger\LoggerInterface;
@@ -147,7 +148,12 @@ class Api {
    */
   public function executeRequest(RequestInterface $request) {
     $this->getLogger()->logRequest('debug', $request);
-    $response = $request->execute();
+    try {
+      $response = $request->execute();
+    } catch (RequestException $e) {
+      $this->getLogger()->logResponse('debug', @$e->getResponse());
+      throw $e;
+    }
     $this->getLogger()->logResponse('debug', $response);
 
     return $response;
