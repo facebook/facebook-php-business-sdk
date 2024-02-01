@@ -28,4 +28,11 @@ class AdSetDestinationTypeValues extends AbstractEnum {
   const MESSENGER = 'MESSENGER';
   const UNDEFINED = 'UNDEFINED';
   const WEBSITE = 'WEBSITE';
+  const INSTAGRAM_DIRECT = 'INSTAGRAM_DIRECT';
+  const SHOP_AUTOMATIC = 'SHOP_AUTOMATIC';
+  const ON_AD = 'ON_AD';
+  const ON_POST = 'ON_POST';
+  const ON_VIDEO = 'ON_VIDEO';
+  const ON_PAGE = 'ON_PAGE';
+  const ON_EVENT = 'ON_EVENT';
 }
