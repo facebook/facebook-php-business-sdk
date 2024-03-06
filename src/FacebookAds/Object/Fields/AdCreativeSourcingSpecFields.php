@@ -23,10 +23,14 @@ use FacebookAds\Enum\AbstractEnum;
 class AdCreativeSourcingSpecFields extends AbstractEnum {
 
   const ASSOCIATED_PRODUCT_SET_ID = 'associated_product_set_id';
+  const PROMOTION_METADATA_SPEC = 'promotion_metadata_spec';
+  const SITE_LINKS_SPEC = 'site_links_spec';
 
   public function getFieldTypes() {
     return array(
       'associated_product_set_id' => 'string',
+      'promotion_metadata_spec' => 'list<AdCreativePromotionMetadataSpec>',
+      'site_links_spec' => 'list<AdCreativeSiteLinksSpec>',
     );
   }
 }

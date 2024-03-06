@@ -39,7 +39,6 @@ $api->setLogger(new CurlLogger());
 $fields = array(
 );
 $params = array(
-  'hotel_catalog_settings' => array('pull_config_id' => '<pullConfigID>'),
 );
 echo json_encode((new ProductCatalog($id))->updateSelf(
   $fields,

@@ -25,6 +25,7 @@ class TargetingFields extends AbstractEnum {
   const ADGROUP_ID = 'adgroup_id';
   const AGE_MAX = 'age_max';
   const AGE_MIN = 'age_min';
+  const AGE_RANGE = 'age_range';
   const APP_INSTALL_STATE = 'app_install_state';
   const AUDIENCE_NETWORK_POSITIONS = 'audience_network_positions';
   const BEHAVIORS = 'behaviors';
@@ -101,6 +102,7 @@ class TargetingFields extends AbstractEnum {
   const REGIONS = 'regions';
   const RELATIONSHIP_STATUSES = 'relationship_statuses';
   const SITE_CATEGORY = 'site_category';
+  const TARGETING_AUTOMATION = 'targeting_automation';
   const TARGETING_OPTIMIZATION = 'targeting_optimization';
   const TARGETING_RELAXATION_TYPES = 'targeting_relaxation_types';
   const USER_ADCLUSTERS = 'user_adclusters';
@@ -117,6 +119,7 @@ class TargetingFields extends AbstractEnum {
       'adgroup_id' => 'string',
       'age_max' => 'unsigned int',
       'age_min' => 'unsigned int',
+      'age_range' => 'list<unsigned int>',
       'app_install_state' => 'string',
       'audience_network_positions' => 'list<string>',
       'behaviors' => 'list<IDName>',
@@ -193,6 +196,7 @@ class TargetingFields extends AbstractEnum {
       'regions' => 'list<IDName>',
       'relationship_statuses' => 'list<unsigned int>',
       'site_category' => 'list<string>',
+      'targeting_automation' => 'TargetingAutomation',
       'targeting_optimization' => 'string',
       'targeting_relaxation_types' => 'TargetingRelaxation',
       'user_adclusters' => 'list<IDName>',

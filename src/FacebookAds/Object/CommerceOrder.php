@@ -265,6 +265,7 @@ class CommerceOrder extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'adjustment_amount' => 'map',
       'deductions' => 'list<map>',
       'idempotency_key' => 'string',
       'items' => 'list<map>',

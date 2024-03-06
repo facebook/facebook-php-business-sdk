@@ -114,9 +114,6 @@ class ProductItemFields extends AbstractEnum {
   const IPHONE_APP_STORE_ID = 'iphone_app_store_id';
   const IPHONE_URL = 'iphone_url';
   const LAUNCH_DATE = 'launch_date';
-  const OFFER_PRICE_AMOUNT = 'offer_price_amount';
-  const OFFER_PRICE_END_DATE = 'offer_price_end_date';
-  const OFFER_PRICE_START_DATE = 'offer_price_start_date';
   const RETURN_POLICY_DAYS = 'return_policy_days';
   const WINDOWS_PHONE_APP_ID = 'windows_phone_app_id';
   const WINDOWS_PHONE_APP_NAME = 'windows_phone_app_name';
@@ -216,9 +213,6 @@ class ProductItemFields extends AbstractEnum {
       'iphone_app_store_id' => 'unsigned int',
       'iphone_url' => 'string',
       'launch_date' => 'string',
-      'offer_price_amount' => 'unsigned int',
-      'offer_price_end_date' => 'datetime',
-      'offer_price_start_date' => 'datetime',
       'return_policy_days' => 'unsigned int',
       'windows_phone_app_id' => 'string',
       'windows_phone_app_name' => 'string',

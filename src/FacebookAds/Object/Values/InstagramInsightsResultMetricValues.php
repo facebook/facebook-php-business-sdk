@@ -22,11 +22,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class InstagramInsightsResultMetricValues extends AbstractEnum {
 
-  const CAROUSEL_ALBUM_ENGAGEMENT = 'carousel_album_engagement';
-  const CAROUSEL_ALBUM_IMPRESSIONS = 'carousel_album_impressions';
-  const CAROUSEL_ALBUM_REACH = 'carousel_album_reach';
-  const CAROUSEL_ALBUM_SAVED = 'carousel_album_saved';
-  const CAROUSEL_ALBUM_VIDEO_VIEWS = 'carousel_album_video_views';
   const CLIPS_REPLAYS_COUNT = 'clips_replays_count';
   const COMMENTS = 'comments';
   const ENGAGEMENT = 'engagement';

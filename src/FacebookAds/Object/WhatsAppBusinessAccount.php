@@ -434,6 +434,8 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       'components' => 'list<map>',
       'cta_url_link_tracking_opted_out' => 'bool',
       'language' => 'string',
+      'library_template_button_inputs' => 'list<map>',
+      'library_template_name' => 'string',
       'message_send_ttl_seconds' => 'unsigned int',
       'name' => 'string',
       'sub_category' => 'sub_category_enum',

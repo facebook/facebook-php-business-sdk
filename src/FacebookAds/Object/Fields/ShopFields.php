@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class ShopFields extends AbstractEnum {
 
+  const COMMERCE_MERCHANT_SETTINGS = 'commerce_merchant_settings';
   const FB_SALES_CHANNEL = 'fb_sales_channel';
   const ID = 'id';
   const IG_SALES_CHANNEL = 'ig_sales_channel';
@@ -31,6 +32,7 @@ class ShopFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'commerce_merchant_settings' => 'CommerceMerchantSettings',
       'fb_sales_channel' => 'Object',
       'id' => 'string',
       'ig_sales_channel' => 'Object',

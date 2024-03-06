@@ -25,4 +25,5 @@ class CampaignBidStrategyValues extends AbstractEnum {
   const COST_CAP = 'COST_CAP';
   const LOWEST_COST_WITHOUT_CAP = 'LOWEST_COST_WITHOUT_CAP';
   const LOWEST_COST_WITH_BID_CAP = 'LOWEST_COST_WITH_BID_CAP';
+  const LOWEST_COST_WITH_MIN_ROAS = 'LOWEST_COST_WITH_MIN_ROAS';
 }

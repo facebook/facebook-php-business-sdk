@@ -43,6 +43,7 @@ use FacebookAds\Object\Values\BusinessVerticalValues;
 use FacebookAds\Object\Values\CPASCollaborationRequestRequesterAgencyOrBrandValues;
 use FacebookAds\Object\Values\CustomConversionCustomEventTypeValues;
 use FacebookAds\Object\Values\OmegaCustomerTrxTypeValues;
+use FacebookAds\Object\Values\ProductCatalogAdditionalVerticalOptionValues;
 use FacebookAds\Object\Values\ProductCatalogVerticalValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
 use FacebookAds\Object\Values\SystemUserRoleValues;
@@ -2120,6 +2121,7 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'additional_vertical_option' => 'additional_vertical_option_enum',
       'catalog_segment_filter' => 'Object',
       'catalog_segment_product_set_id' => 'string',
       'da_display_settings' => 'Object',
@@ -2132,6 +2134,7 @@ class Business extends AbstractCrudObject {
       'vertical' => 'vertical_enum',
     );
     $enums = array(
+      'additional_vertical_option_enum' => ProductCatalogAdditionalVerticalOptionValues::getInstance()->getValues(),
       'vertical_enum' => ProductCatalogVerticalValues::getInstance()->getValues(),
     );
 
@@ -2507,6 +2510,30 @@ class Business extends AbstractCrudObject {
       new BusinessAssetSharingAgreement(),
       'EDGE',
       BusinessAssetSharingAgreement::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getSelfCertifiedWhatsappBusinessSubmissions(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'end_business_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/self_certified_whatsapp_business_submissions',
+      new WhatsAppBusinessPartnerClientVerificationSubmission(),
+      'EDGE',
+      WhatsAppBusinessPartnerClientVerificationSubmission::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

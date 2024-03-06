@@ -20,25 +20,15 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class PageAboutStoryFields extends AbstractEnum {
+class AdAssetCallToActionTypeFields extends AbstractEnum {
 
-  const COMPOSED_TEXT = 'composed_text';
-  const COVER_PHOTO = 'cover_photo';
-  const ENTITY_MAP = 'entity_map';
   const ID = 'id';
-  const IS_PUBLISHED = 'is_published';
-  const PAGE_ID = 'page_id';
-  const TITLE = 'title';
+  const NAME = 'name';
 
   public function getFieldTypes() {
     return array(
-      'composed_text' => 'list<PageAboutStoryComposedBlock>',
-      'cover_photo' => 'Photo',
-      'entity_map' => 'list<Object>',
       'id' => 'string',
-      'is_published' => 'bool',
-      'page_id' => 'string',
-      'title' => 'string',
+      'name' => 'string',
     );
   }
 }

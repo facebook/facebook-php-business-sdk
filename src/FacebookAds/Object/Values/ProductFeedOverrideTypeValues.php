@@ -29,4 +29,5 @@ class ProductFeedOverrideTypeValues extends AbstractEnum {
   const LANGUAGE_AND_COUNTRY = 'LANGUAGE_AND_COUNTRY';
   const LOCAL = 'LOCAL';
   const SMART_PIXEL_LANGUAGE_OR_COUNTRY = 'SMART_PIXEL_LANGUAGE_OR_COUNTRY';
+  const VERSION = 'VERSION';
 }

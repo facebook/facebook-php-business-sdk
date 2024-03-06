@@ -29,6 +29,7 @@ class PageFields extends AbstractEnum {
   const APP_ID = 'app_id';
   const ARTISTS_WE_LIKE = 'artists_we_like';
   const ATTIRE = 'attire';
+  const AVAILABLE_PROMO_OFFER_IDS = 'available_promo_offer_ids';
   const AWARDS = 'awards';
   const BAND_INTERESTS = 'band_interests';
   const BAND_MEMBERS = 'band_members';
@@ -77,7 +78,6 @@ class PageFields extends AbstractEnum {
   const HAS_LEAD_ACCESS = 'has_lead_access';
   const HAS_TRANSITIONED_TO_NEW_PAGE_EXPERIENCE = 'has_transitioned_to_new_page_experience';
   const HAS_WHATSAPP_BUSINESS_NUMBER = 'has_whatsapp_business_number';
-  const HAS_WHATSAPP_ENTERPRISE_NUMBER_USING_CLOUD_API = 'has_whatsapp_enterprise_number_using_cloud_api';
   const HAS_WHATSAPP_NUMBER = 'has_whatsapp_number';
   const HOMETOWN = 'hometown';
   const HOURS = 'hours';
@@ -121,7 +121,6 @@ class PageFields extends AbstractEnum {
   const OFFER_ELIGIBLE = 'offer_eligible';
   const OVERALL_STAR_RATING = 'overall_star_rating';
   const OWNER_BUSINESS = 'owner_business';
-  const PAGE_ABOUT_STORY = 'page_about_story';
   const PAGE_TOKEN = 'page_token';
   const PARENT_PAGE = 'parent_page';
   const PARKING = 'parking';
@@ -182,6 +181,7 @@ class PageFields extends AbstractEnum {
       'app_id' => 'string',
       'artists_we_like' => 'string',
       'attire' => 'string',
+      'available_promo_offer_ids' => 'list<map<string, list<map<string, string>>>>',
       'awards' => 'string',
       'band_interests' => 'string',
       'band_members' => 'string',
@@ -230,7 +230,6 @@ class PageFields extends AbstractEnum {
       'has_lead_access' => 'HasLeadAccess',
       'has_transitioned_to_new_page_experience' => 'bool',
       'has_whatsapp_business_number' => 'bool',
-      'has_whatsapp_enterprise_number_using_cloud_api' => 'bool',
       'has_whatsapp_number' => 'bool',
       'hometown' => 'string',
       'hours' => 'map<string, string>',
@@ -274,7 +273,6 @@ class PageFields extends AbstractEnum {
       'offer_eligible' => 'bool',
       'overall_star_rating' => 'float',
       'owner_business' => 'Business',
-      'page_about_story' => 'PageAboutStory',
       'page_token' => 'string',
       'parent_page' => 'Page',
       'parking' => 'PageParking',
