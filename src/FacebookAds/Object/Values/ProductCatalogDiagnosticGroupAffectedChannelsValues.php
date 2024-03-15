@@ -22,9 +22,18 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ProductCatalogDiagnosticGroupAffectedChannelsValues extends AbstractEnum {
 
-  const BUSINESS_INBOX_IN_MESSENGER = 'business_inbox_in_messenger';
+  const B2C_MARKETPLACE = 'b2c_marketplace';
+  const C2C_MARKETPLACE = 'c2c_marketplace';
+  const DA = 'da';
+  const DAILY_DEALS = 'daily_deals';
+  const DAILY_DEALS_LEGACY = 'daily_deals_legacy';
+  const IG_PRODUCT_TAGGING = 'ig_product_tagging';
+  const MARKETPLACE = 'marketplace';
+  const MARKETPLACE_ADS_DEPRECATED = 'marketplace_ads_deprecated';
+  const MARKETPLACE_SHOPS = 'marketplace_shops';
+  const MINI_SHOPS = 'mini_shops';
+  const OFFLINE_CONVERSIONS = 'offline_conversions';
   const SHOPS = 'shops';
-  const TEST_CAPABILITY = 'test_capability';
   const UNIVERSAL_CHECKOUT = 'universal_checkout';
-  const US_MARKETPLACE = 'us_marketplace';
+  const WHATSAPP = 'whatsapp';
 }
