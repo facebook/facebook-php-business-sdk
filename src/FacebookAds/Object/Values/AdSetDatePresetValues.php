@@ -34,7 +34,7 @@ class AdSetDatePresetValues extends AbstractEnum {
   const LAST_WEEK_MON_SUN = 'LAST_WEEK_MON_SUN';
   const LAST_WEEK_SUN_SAT = 'LAST_WEEK_SUN_SAT';
   const LAST_YEAR = 'LAST_YEAR';
-  const LIFETIME = 'LIFETIME';
+  const MAXIMUM = 'MAXIMUM';
   const THIS_MONTH = 'THIS_MONTH';
   const THIS_QUARTER = 'THIS_QUARTER';
   const THIS_WEEK_MON_TODAY = 'THIS_WEEK_MON_TODAY';

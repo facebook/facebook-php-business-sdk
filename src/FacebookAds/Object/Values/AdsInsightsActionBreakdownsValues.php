@@ -33,6 +33,8 @@ class AdsInsightsActionBreakdownsValues extends AbstractEnum {
   const ACTION_VIDEO_SOUND = 'action_video_sound';
   const ACTION_VIDEO_TYPE = 'action_video_type';
   const CONVERSION_DESTINATION = 'conversion_destination';
+  const MATCHED_PERSONA_ID = 'matched_persona_id';
+  const MATCHED_PERSONA_NAME = 'matched_persona_name';
   const SIGNAL_SOURCE_BUCKET = 'signal_source_bucket';
   const STANDARD_EVENT_CONTENT_TYPE = 'standard_event_content_type';
 }

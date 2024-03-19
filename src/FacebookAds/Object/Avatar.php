@@ -45,6 +45,7 @@ class Avatar extends AbstractCrudObject {
     $param_types = array(
       'client_name' => 'string',
       'client_version' => 'string',
+      'config_id' => 'string',
       'force_generate' => 'bool',
       'platform' => 'string',
       'profile' => 'string',

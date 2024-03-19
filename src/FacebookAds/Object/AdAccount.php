@@ -1243,7 +1243,6 @@ class AdAccount extends AbstractCrudObject {
       'fun_fact_toastee_id' => 'unsigned int',
       'guide' => 'list<list<unsigned int>>',
       'guide_enabled' => 'bool',
-      'has_nickname' => 'bool',
       'holiday_card' => 'string',
       'initial_heading' => 'unsigned int',
       'initial_pitch' => 'unsigned int',
@@ -3142,29 +3141,6 @@ class AdAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_DELETE,
       '/usersofanyaudience',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getValueAdjustmentRulePersonaGroups(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/value_adjustment_rule_persona_groups',
       new AbstractCrudObject(),
       'EDGE',
       array(),

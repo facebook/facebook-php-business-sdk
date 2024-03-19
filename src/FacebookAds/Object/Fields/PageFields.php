@@ -37,6 +37,7 @@ class PageFields extends AbstractEnum {
   const BIO = 'bio';
   const BIRTHDAY = 'birthday';
   const BOOKING_AGENT = 'booking_agent';
+  const BREAKING_NEWS_USAGE = 'breaking_news_usage';
   const BUILT = 'built';
   const BUSINESS = 'business';
   const CAN_CHECKIN = 'can_checkin';
@@ -189,6 +190,7 @@ class PageFields extends AbstractEnum {
       'bio' => 'string',
       'birthday' => 'string',
       'booking_agent' => 'string',
+      'breaking_news_usage' => 'Object',
       'built' => 'string',
       'business' => 'Object',
       'can_checkin' => 'bool',

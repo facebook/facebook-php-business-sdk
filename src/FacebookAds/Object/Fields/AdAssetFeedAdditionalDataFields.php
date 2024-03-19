@@ -27,6 +27,7 @@ class AdAssetFeedAdditionalDataFields extends AbstractEnum {
   const IS_CLICK_TO_MESSAGE = 'is_click_to_message';
   const MULTI_SHARE_END_CARD = 'multi_share_end_card';
   const PAGE_WELCOME_MESSAGE = 'page_welcome_message';
+  const PARTNER_APP_WELCOME_MESSAGE_FLOW_ID = 'partner_app_welcome_message_flow_id';
 
   public function getFieldTypes() {
     return array(
@@ -35,6 +36,7 @@ class AdAssetFeedAdditionalDataFields extends AbstractEnum {
       'is_click_to_message' => 'bool',
       'multi_share_end_card' => 'bool',
       'page_welcome_message' => 'string',
+      'partner_app_welcome_message_flow_id' => 'string',
     );
   }
 }

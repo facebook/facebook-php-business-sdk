@@ -2758,7 +2758,6 @@ class Business extends AbstractCrudObject {
       'fun_fact_toastee_id' => 'unsigned int',
       'guide' => 'list<list<unsigned int>>',
       'guide_enabled' => 'bool',
-      'has_nickname' => 'bool',
       'holiday_card' => 'string',
       'initial_heading' => 'unsigned int',
       'initial_pitch' => 'unsigned int',

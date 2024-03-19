@@ -41,6 +41,8 @@ use FacebookAds\Object\Values\LiveVideoStatusValues;
 use FacebookAds\Object\Values\LiveVideoStereoscopicModeValues;
 use FacebookAds\Object\Values\LiveVideoStreamTypeValues;
 use FacebookAds\Object\Values\MediaFingerprintFingerprintContentTypeValues;
+use FacebookAds\Object\Values\PageActionTypeValues;
+use FacebookAds\Object\Values\PageActionValues;
 use FacebookAds\Object\Values\PageAlignmentValues;
 use FacebookAds\Object\Values\PageAttireValues;
 use FacebookAds\Object\Values\PageBackdatedTimeGranularityValues;
@@ -134,6 +136,8 @@ class Page extends AbstractCrudObject {
     $ref_enums['Model'] = PageModelValues::getInstance()->getValues();
     $ref_enums['DeveloperAction'] = PageDeveloperActionValues::getInstance()->getValues();
     $ref_enums['SubscribedFields'] = PageSubscribedFieldsValues::getInstance()->getValues();
+    $ref_enums['Action'] = PageActionValues::getInstance()->getValues();
+    $ref_enums['ActionType'] = PageActionTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -1267,6 +1271,8 @@ class Page extends AbstractCrudObject {
       'audience_exp' => 'bool',
       'backdated_time' => 'datetime',
       'backdated_time_granularity' => 'backdated_time_granularity_enum',
+      'breaking_news' => 'bool',
+      'breaking_news_expiration' => 'unsigned int',
       'call_to_action' => 'Object',
       'caption' => 'string',
       'child_attachments' => 'list<Object>',
@@ -1292,7 +1298,6 @@ class Page extends AbstractCrudObject {
       'formatting' => 'formatting_enum',
       'fun_fact_prompt_id' => 'unsigned int',
       'fun_fact_toastee_id' => 'unsigned int',
-      'has_nickname' => 'bool',
       'height' => 'unsigned int',
       'holiday_card' => 'string',
       'home_checkin_city_id' => 'Object',
@@ -3080,6 +3085,34 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createThreadAction(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'action' => 'action_enum',
+      'action_type' => 'action_type_enum',
+      'user_id' => 'map',
+    );
+    $enums = array(
+      'action_enum' => PageActionValues::getInstance()->getValues(),
+      'action_type_enum' => PageActionTypeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/thread_action',
+      new Page(),
+      'EDGE',
+      Page::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getThreadOwner(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -3435,7 +3468,6 @@ class Page extends AbstractCrudObject {
       'fun_fact_toastee_id' => 'unsigned int',
       'guide' => 'list<list<unsigned int>>',
       'guide_enabled' => 'bool',
-      'has_nickname' => 'bool',
       'holiday_card' => 'string',
       'initial_heading' => 'unsigned int',
       'initial_pitch' => 'unsigned int',

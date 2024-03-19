@@ -386,6 +386,7 @@ class IGUser extends AbstractCrudObject {
       'product_tags' => 'list<map>',
       'share_to_feed' => 'bool',
       'thumb_offset' => 'string',
+      'upload_type' => 'string',
       'user_tags' => 'list<map>',
       'video_url' => 'string',
     );

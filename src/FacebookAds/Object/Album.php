@@ -228,7 +228,6 @@ class Album extends AbstractCrudObject {
       'proxied_app_id' => 'string',
       'published' => 'bool',
       'qn' => 'string',
-      'scheduled_publish_time' => 'unsigned int',
       'spherical_metadata' => 'map',
       'sponsor_id' => 'string',
       'sponsor_relationship' => 'unsigned int',

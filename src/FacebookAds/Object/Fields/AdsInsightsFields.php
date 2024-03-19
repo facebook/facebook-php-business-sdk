@@ -110,6 +110,7 @@ class AdsInsightsFields extends AbstractEnum {
   const MARKETING_MESSAGES_COST_PER_DELIVERED = 'marketing_messages_cost_per_delivered';
   const MARKETING_MESSAGES_COST_PER_LINK_BTN_CLICK = 'marketing_messages_cost_per_link_btn_click';
   const MARKETING_MESSAGES_SPEND = 'marketing_messages_spend';
+  const MARKETING_MESSAGES_WEBSITE_PURCHASE_VALUES = 'marketing_messages_website_purchase_values';
   const MOBILE_APP_PURCHASE_ROAS = 'mobile_app_purchase_roas';
   const OBJECTIVE = 'objective';
   const OPTIMIZATION_GOAL = 'optimization_goal';
@@ -247,6 +248,7 @@ class AdsInsightsFields extends AbstractEnum {
       'marketing_messages_cost_per_delivered' => 'string',
       'marketing_messages_cost_per_link_btn_click' => 'string',
       'marketing_messages_spend' => 'string',
+      'marketing_messages_website_purchase_values' => 'string',
       'mobile_app_purchase_roas' => 'list<AdsActionStats>',
       'objective' => 'string',
       'optimization_goal' => 'string',

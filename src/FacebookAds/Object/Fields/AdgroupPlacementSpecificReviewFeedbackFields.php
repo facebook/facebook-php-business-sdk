@@ -30,6 +30,7 @@ class AdgroupPlacementSpecificReviewFeedbackFields extends AbstractEnum {
   const BSG = 'bsg';
   const CITY_COMMUNITY = 'city_community';
   const COMMERCE = 'commerce';
+  const COMPROMISE = 'compromise';
   const DAILY_DEALS = 'daily_deals';
   const DAILY_DEALS_LEGACY = 'daily_deals_legacy';
   const DPA = 'dpa';
@@ -69,6 +70,7 @@ class AdgroupPlacementSpecificReviewFeedbackFields extends AbstractEnum {
       'bsg' => 'map<string, string>',
       'city_community' => 'map<string, string>',
       'commerce' => 'map<string, string>',
+      'compromise' => 'map<string, string>',
       'daily_deals' => 'map<string, string>',
       'daily_deals_legacy' => 'map<string, string>',
       'dpa' => 'map<string, string>',

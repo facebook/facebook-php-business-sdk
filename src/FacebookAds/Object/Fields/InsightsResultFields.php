@@ -38,7 +38,7 @@ class InsightsResultFields extends AbstractEnum {
       'name' => 'string',
       'period' => 'string',
       'title' => 'string',
-      'values' => 'list<Object>',
+      'values' => 'list<InsightsValue>',
     );
   }
 }

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -18,23 +18,9 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static PageActionTypeValues getInstance()
  */
+class PageActionTypeValues extends AbstractEnum {
 
-class FundingSourceDetailsFields extends AbstractEnum {
-
-  const COUPON = 'coupon';
-  const COUPONS = 'coupons';
-  const DISPLAY_STRING = 'display_string';
-  const ID = 'id';
-  const TYPE = 'type';
-
-  public function getFieldTypes() {
-    return array(
-      'coupon' => 'FundingSourceDetailsCoupon',
-      'coupons' => 'list<FundingSourceDetailsCoupon>',
-      'display_string' => 'string',
-      'id' => 'string',
-      'type' => 'int',
-    );
-  }
+  const REPORT_THREAD = 'REPORT_THREAD';
 }
