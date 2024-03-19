@@ -157,7 +157,7 @@ class EventRequest implements ArrayAccess {
 
   /**
    * Sets an array of Server Event objects
-   * @param FacebookAds\Object\ServerSide\Event[] $events An array of Server Event objects
+   * @param \FacebookAds\Object\ServerSide\Event[] $events An array of Server Event objects
    * @return $this
    */
   public function setEvents($events) {
@@ -361,7 +361,7 @@ class EventRequest implements ArrayAccess {
 
   /**
    * Gets an array of Server Event objects
-   * @return FacebookAds\Object\ServerSide\Event[]
+   * @return \FacebookAds\Object\ServerSide\Event[]
    */
   public function getEvents() {
     return $this->container['events'];
