@@ -24,7 +24,7 @@
 
 namespace FacebookAds\Object\ServerSide;
 
-use GuzzleHttp\Promise;
+use GuzzleHttp\Promise\Utils;
 
 class BatchProcessor {
   protected $batch_size;
@@ -53,7 +53,7 @@ class BatchProcessor {
   public function processEvents($event_request_params, $events) {
     $generator = $this->processEventsGenerator($event_request_params, $events);
     foreach ($generator as $promises) {
-      Promise\unwrap($promises);
+      Utils::unwrap($promises);
     }
   }
 
@@ -94,7 +94,7 @@ class BatchProcessor {
   public function processEventRequests($event_requests_async) {
     $generator = $this->processEventRequestsGenerator($event_requests_async);
     foreach ($generator as $promises) {
-      Promise\unwrap($promises);
+      Utils::unwrap($promises);
     }
   }
 
