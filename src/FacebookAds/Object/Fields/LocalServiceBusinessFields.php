@@ -56,6 +56,7 @@ class LocalServiceBusinessFields extends AbstractEnum {
   const RETAILER_CATEGORY = 'retailer_category';
   const SANITIZED_IMAGES = 'sanitized_images';
   const SIZE = 'size';
+  const TAGS = 'tags';
   const TITLE = 'title';
   const UNIT_PRICE = 'unit_price';
   const URL = 'url';
@@ -98,6 +99,7 @@ class LocalServiceBusinessFields extends AbstractEnum {
       'retailer_category' => 'string',
       'sanitized_images' => 'list<string>',
       'size' => 'string',
+      'tags' => 'list<string>',
       'title' => 'string',
       'unit_price' => 'Object',
       'url' => 'string',

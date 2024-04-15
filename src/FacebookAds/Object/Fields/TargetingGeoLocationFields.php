@@ -30,7 +30,6 @@ class TargetingGeoLocationFields extends AbstractEnum {
   const GEO_MARKETS = 'geo_markets';
   const LARGE_GEO_AREAS = 'large_geo_areas';
   const LOCATION_CLUSTER_IDS = 'location_cluster_ids';
-  const LOCATION_EXPANSION = 'location_expansion';
   const LOCATION_TYPES = 'location_types';
   const MEDIUM_GEO_AREAS = 'medium_geo_areas';
   const METRO_AREAS = 'metro_areas';
@@ -53,7 +52,6 @@ class TargetingGeoLocationFields extends AbstractEnum {
       'geo_markets' => 'list<TargetingGeoLocationMarket>',
       'large_geo_areas' => 'list<TargetingGeoLocationGeoEntities>',
       'location_cluster_ids' => 'list<TargetingGeoLocationLocationCluster>',
-      'location_expansion' => 'TargetingGeoLocationLocationExpansion',
       'location_types' => 'list<string>',
       'medium_geo_areas' => 'list<TargetingGeoLocationGeoEntities>',
       'metro_areas' => 'list<TargetingGeoLocationGeoEntities>',

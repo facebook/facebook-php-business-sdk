@@ -111,6 +111,7 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const LOCATION_CATEGORIES = 'location_categories';
   const LOCATION_CLUSTER_IDS = 'location_cluster_ids';
   const LOCATION_EXPANSION = 'location_expansion';
+  const MARKETING_MESSAGE_CHANNELS = 'marketing_message_channels';
   const MARKETING_MESSAGE_TARGETING = 'marketing_message_targeting';
   const MARKETPLACE_PRODUCT_CATEGORIES = 'marketplace_product_categories';
   const MESSENGER_POSITIONS = 'messenger_positions';

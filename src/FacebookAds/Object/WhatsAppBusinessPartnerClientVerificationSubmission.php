@@ -14,6 +14,8 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\WhatsAppBusinessPartnerClientVerificationSubmissionFields;
+use FacebookAds\Object\Values\WhatsAppBusinessPartnerClientVerificationSubmissionRejectionReasonsValues;
+use FacebookAds\Object\Values\WhatsAppBusinessPartnerClientVerificationSubmissionVerificationStatusValues;
 
 /**
  * This class is auto-generated.
@@ -35,6 +37,8 @@ class WhatsAppBusinessPartnerClientVerificationSubmission extends AbstractCrudOb
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['RejectionReasons'] = WhatsAppBusinessPartnerClientVerificationSubmissionRejectionReasonsValues::getInstance()->getValues();
+    $ref_enums['VerificationStatus'] = WhatsAppBusinessPartnerClientVerificationSubmissionVerificationStatusValues::getInstance()->getValues();
     return $ref_enums;
   }
 

@@ -40,6 +40,7 @@ class AdAssetFeedSpecFields extends AbstractEnum {
   const MESSAGE_EXTENSIONS = 'message_extensions';
   const ONSITE_DESTINATIONS = 'onsite_destinations';
   const OPTIMIZATION_TYPE = 'optimization_type';
+  const PROMOTIONAL_METADATA = 'promotional_metadata';
   const REASONS_TO_SHOP = 'reasons_to_shop';
   const SHOPS_BUNDLE = 'shops_bundle';
   const TITLES = 'titles';
@@ -65,6 +66,7 @@ class AdAssetFeedSpecFields extends AbstractEnum {
       'message_extensions' => 'list<AdAssetMessageExtensions>',
       'onsite_destinations' => 'list<AdAssetOnsiteDestinations>',
       'optimization_type' => 'string',
+      'promotional_metadata' => 'Object',
       'reasons_to_shop' => 'bool',
       'shops_bundle' => 'bool',
       'titles' => 'list<AdAssetFeedSpecTitle>',

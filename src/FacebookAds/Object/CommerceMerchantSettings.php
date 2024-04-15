@@ -249,29 +249,6 @@ class CommerceMerchantSettings extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getSellerIssues(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/seller_issues',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getSetupStatus(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -384,35 +361,6 @@ class CommerceMerchantSettings extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/tax_settings',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createWhatsappChannel(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'op' => 'op_enum',
-      'whatsapp_business_accounts' => 'list<string>',
-    );
-    $enums = array(
-      'op_enum' => array(
-        'ADD',
-        'REMOVE',
-      ),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/whatsapp_channel',
       new AbstractCrudObject(),
       'EDGE',
       array(),

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -18,17 +18,11 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static WhatsAppBusinessPartnerClientVerificationSubmissionVerificationStatusValues getInstance()
  */
+class WhatsAppBusinessPartnerClientVerificationSubmissionVerificationStatusValues extends AbstractEnum {
 
-class PageCommerceEligibilityFields extends AbstractEnum {
-
-  const OFFSITE = 'offsite';
-  const ONSITE = 'onsite';
-
-  public function getFieldTypes() {
-    return array(
-      'offsite' => 'Object',
-      'onsite' => 'Object',
-    );
-  }
+  const APPROVED = 'APPROVED';
+  const FAILED = 'FAILED';
+  const PENDING = 'PENDING';
 }

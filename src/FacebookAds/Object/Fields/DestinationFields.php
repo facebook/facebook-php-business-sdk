@@ -35,6 +35,7 @@ class DestinationFields extends AbstractEnum {
   const PRICE = 'price';
   const PRICE_CHANGE = 'price_change';
   const SANITIZED_IMAGES = 'sanitized_images';
+  const TAGS = 'tags';
   const TYPES = 'types';
   const UNIT_PRICE = 'unit_price';
   const URL = 'url';
@@ -55,6 +56,7 @@ class DestinationFields extends AbstractEnum {
       'price' => 'string',
       'price_change' => 'string',
       'sanitized_images' => 'list<string>',
+      'tags' => 'list<string>',
       'types' => 'list<string>',
       'unit_price' => 'Object',
       'url' => 'string',

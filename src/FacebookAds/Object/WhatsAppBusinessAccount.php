@@ -160,6 +160,8 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
     $enums = array(
       'conversation_categories_enum' => array(
         'AUTHENTICATION',
+        'AUTHENTICATION_INTERNATIONAL',
+        'FIXED_TEMPLATE_NOTIFY',
         'MARKETING',
         'MARKETING_OPTIMIZED_DELIVERY',
         'SERVICE',
@@ -620,6 +622,29 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/schedules',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createSetOboMobilityIntent(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/set_obo_mobility_intent',
       new AbstractCrudObject(),
       'EDGE',
       array(),

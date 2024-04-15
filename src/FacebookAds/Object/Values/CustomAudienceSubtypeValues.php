@@ -28,6 +28,7 @@ class CustomAudienceSubtypeValues extends AbstractEnum {
   const CLAIM = 'CLAIM';
   const CUSTOM = 'CUSTOM';
   const ENGAGEMENT = 'ENGAGEMENT';
+  const EXCLUSION = 'EXCLUSION';
   const FOX = 'FOX';
   const LOOKALIKE = 'LOOKALIKE';
   const MANAGED = 'MANAGED';

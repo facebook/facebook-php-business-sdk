@@ -18,14 +18,12 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdCreativeLinkDataFormatOptionValues getInstance()
+ * @method static WhatsAppBusinessPartnerClientVerificationSubmissionRejectionReasonsValues getInstance()
  */
-class AdCreativeLinkDataFormatOptionValues extends AbstractEnum {
+class WhatsAppBusinessPartnerClientVerificationSubmissionRejectionReasonsValues extends AbstractEnum {
 
-  const CAROUSEL_AR_EFFECTS = 'carousel_ar_effects';
-  const CAROUSEL_IMAGES_MULTI_ITEMS = 'carousel_images_multi_items';
-  const CAROUSEL_IMAGES_SINGLE_ITEM = 'carousel_images_single_item';
-  const CAROUSEL_SLIDESHOWS = 'carousel_slideshows';
-  const COLLECTION_VIDEO = 'collection_video';
-  const SINGLE_IMAGE = 'single_image';
+  const ADDRESS_NOT_MATCHING = 'ADDRESS_NOT_MATCHING';
+  const LEGAL_NAME_NOT_MATCHING = 'LEGAL_NAME_NOT_MATCHING';
+  const NONE = 'NONE';
+  const WEBSITE_NOT_MATCHING = 'WEBSITE_NOT_MATCHING';
 }

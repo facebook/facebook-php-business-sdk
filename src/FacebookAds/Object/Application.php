@@ -28,7 +28,6 @@ use FacebookAds\Object\Values\ApplicationPostMethodValues;
 use FacebookAds\Object\Values\ApplicationRequestTypeValues;
 use FacebookAds\Object\Values\ApplicationSupportedPlatformsValues;
 use FacebookAds\Object\Values\DACheckConnectionMethodValues;
-use FacebookAds\Object\Values\EventTypeValues;
 
 /**
  * This class is auto-generated.
@@ -192,6 +191,7 @@ class Application extends AbstractCrudObject {
       'page_id' => 'unsigned int',
       'page_scoped_user_id' => 'unsigned int',
       'receipt_data' => 'string',
+      'sdk_version' => 'string',
       'ud' => 'map',
       'url_schemes' => 'list<string>',
       'user_id' => 'string',
@@ -892,32 +892,6 @@ class Application extends AbstractCrudObject {
       new DACheck(),
       'EDGE',
       DACheck::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getEvents(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'include_canceled' => 'bool',
-      'type' => 'type_enum',
-    );
-    $enums = array(
-      'type_enum' => EventTypeValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/events',
-      new Event(),
-      'EDGE',
-      Event::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

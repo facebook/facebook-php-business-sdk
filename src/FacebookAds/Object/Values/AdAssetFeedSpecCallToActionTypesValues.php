@@ -24,15 +24,20 @@ class AdAssetFeedSpecCallToActionTypesValues extends AbstractEnum {
 
   const ADD_TO_CART = 'ADD_TO_CART';
   const APPLY_NOW = 'APPLY_NOW';
+  const ASK_ABOUT_SERVICES = 'ASK_ABOUT_SERVICES';
+  const ASK_FOR_MORE_INFO = 'ASK_FOR_MORE_INFO';
   const AUDIO_CALL = 'AUDIO_CALL';
+  const BOOK_A_CONSULTATION = 'BOOK_A_CONSULTATION';
   const BOOK_NOW = 'BOOK_NOW';
   const BOOK_TRAVEL = 'BOOK_TRAVEL';
   const BUY = 'BUY';
   const BUY_NOW = 'BUY_NOW';
   const BUY_TICKETS = 'BUY_TICKETS';
+  const BUY_VIA_MESSAGE = 'BUY_VIA_MESSAGE';
   const CALL = 'CALL';
   const CALL_ME = 'CALL_ME';
   const CALL_NOW = 'CALL_NOW';
+  const CHAT_WITH_US = 'CHAT_WITH_US';
   const CONFIRM = 'CONFIRM';
   const CONTACT = 'CONTACT';
   const CONTACT_US = 'CONTACT_US';
@@ -45,6 +50,7 @@ class AdAssetFeedSpecCallToActionTypesValues extends AbstractEnum {
   const FOLLOW_NEWS_STORYLINE = 'FOLLOW_NEWS_STORYLINE';
   const FOLLOW_PAGE = 'FOLLOW_PAGE';
   const FOLLOW_USER = 'FOLLOW_USER';
+  const GET_A_QUOTE = 'GET_A_QUOTE';
   const GET_DIRECTIONS = 'GET_DIRECTIONS';
   const GET_OFFER = 'GET_OFFER';
   const GET_OFFER_VIEW = 'GET_OFFER_VIEW';
@@ -60,6 +66,7 @@ class AdAssetFeedSpecCallToActionTypesValues extends AbstractEnum {
   const LIKE_PAGE = 'LIKE_PAGE';
   const LISTEN_MUSIC = 'LISTEN_MUSIC';
   const LISTEN_NOW = 'LISTEN_NOW';
+  const MAKE_AN_APPOINTMENT = 'MAKE_AN_APPOINTMENT';
   const MESSAGE_PAGE = 'MESSAGE_PAGE';
   const MOBILE_DOWNLOAD = 'MOBILE_DOWNLOAD';
   const NO_BUTTON = 'NO_BUTTON';

@@ -70,6 +70,7 @@ class AdSetFields extends AbstractEnum {
   const PROMOTED_OBJECT = 'promoted_object';
   const RECOMMENDATIONS = 'recommendations';
   const RECURRING_BUDGET_SEMANTICS = 'recurring_budget_semantics';
+  const REGIONAL_REGULATION_IDENTITIES = 'regional_regulation_identities';
   const REVIEW_FEEDBACK = 'review_feedback';
   const RF_PREDICTION_ID = 'rf_prediction_id';
   const SOURCE_ADSET = 'source_adset';
@@ -143,6 +144,7 @@ class AdSetFields extends AbstractEnum {
       'promoted_object' => 'AdPromotedObject',
       'recommendations' => 'list<AdRecommendation>',
       'recurring_budget_semantics' => 'bool',
+      'regional_regulation_identities' => 'Object',
       'review_feedback' => 'string',
       'rf_prediction_id' => 'string',
       'source_adset' => 'AdSet',

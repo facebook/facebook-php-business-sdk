@@ -31,6 +31,7 @@ class AdAccountFields extends AbstractEnum {
   const AMOUNT_SPENT = 'amount_spent';
   const ATTRIBUTION_SPEC = 'attribution_spec';
   const BALANCE = 'balance';
+  const BRAND_SAFETY_CONTENT_FILTER_LEVELS = 'brand_safety_content_filter_levels';
   const BUSINESS = 'business';
   const BUSINESS_CITY = 'business_city';
   const BUSINESS_COUNTRY_CODE = 'business_country_code';
@@ -103,6 +104,7 @@ class AdAccountFields extends AbstractEnum {
       'amount_spent' => 'string',
       'attribution_spec' => 'list<AttributionSpec>',
       'balance' => 'string',
+      'brand_safety_content_filter_levels' => 'list<string>',
       'business' => 'Business',
       'business_city' => 'string',
       'business_country_code' => 'string',

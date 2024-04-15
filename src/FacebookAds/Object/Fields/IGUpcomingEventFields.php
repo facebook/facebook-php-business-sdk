@@ -20,13 +20,19 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class TargetingGeoLocationLocationExpansionFields extends AbstractEnum {
+class IGUpcomingEventFields extends AbstractEnum {
 
-  const ALLOWED = 'allowed';
+  const END_TIME = 'end_time';
+  const ID = 'id';
+  const START_TIME = 'start_time';
+  const TITLE = 'title';
 
   public function getFieldTypes() {
     return array(
-      'allowed' => 'bool',
+      'end_time' => 'datetime',
+      'id' => 'string',
+      'start_time' => 'datetime',
+      'title' => 'string',
     );
   }
 }

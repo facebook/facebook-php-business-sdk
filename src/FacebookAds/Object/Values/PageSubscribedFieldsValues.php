@@ -104,6 +104,7 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const PUBLISHER_SUBSCRIPTIONS = 'publisher_subscriptions';
   const RATINGS = 'ratings';
   const REGISTRATION = 'registration';
+  const RESPONSE_FEEDBACK = 'response_feedback';
   const SEND_CART = 'send_cart';
   const STANDBY = 'standby';
   const USER_ACTION = 'user_action';

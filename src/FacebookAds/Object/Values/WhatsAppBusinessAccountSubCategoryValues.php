@@ -22,7 +22,6 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class WhatsAppBusinessAccountSubCategoryValues extends AbstractEnum {
 
-  const CUSTOM = 'CUSTOM';
   const ORDER_DETAILS = 'ORDER_DETAILS';
   const ORDER_STATUS = 'ORDER_STATUS';
 }

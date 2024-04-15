@@ -23,8 +23,11 @@ use FacebookAds\Enum\AbstractEnum;
 class AdCreativeFeaturesSpecFields extends AbstractEnum {
 
   const ADVANTAGE_PLUS_CREATIVE = 'advantage_plus_creative';
+  const APP_HIGHLIGHTS = 'app_highlights';
   const AUDIO = 'audio';
   const CAROUSEL_TO_VIDEO = 'carousel_to_video';
+  const CATALOG_FEED_TAG = 'catalog_feed_tag';
+  const CUSTOMIZE_PRODUCT_RECOMMENDATION = 'customize_product_recommendation';
   const CV_TRANSFORMATION = 'cv_transformation';
   const DESCRIPTION_AUTOMATION = 'description_automation';
   const DHA_OPTIMIZATION = 'dha_optimization';
@@ -43,6 +46,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
   const PRODUCT_METADATA_AUTOMATION = 'product_metadata_automation';
   const PRODUCT_TAGS = 'product_tags';
   const PROFILE_CARD = 'profile_card';
+  const SITE_EXTENSIONS = 'site_extensions';
   const STANDARD_ENHANCEMENTS = 'standard_enhancements';
   const STANDARD_ENHANCEMENTS_CATALOG = 'standard_enhancements_catalog';
   const TEXT_GENERATION = 'text_generation';
@@ -53,8 +57,11 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'advantage_plus_creative' => 'AdCreativeFeatureDetails',
+      'app_highlights' => 'AdCreativeFeatureDetails',
       'audio' => 'AdCreativeFeatureDetails',
       'carousel_to_video' => 'AdCreativeFeatureDetails',
+      'catalog_feed_tag' => 'AdCreativeFeatureDetails',
+      'customize_product_recommendation' => 'AdCreativeFeatureDetails',
       'cv_transformation' => 'AdCreativeFeatureDetails',
       'description_automation' => 'AdCreativeFeatureDetails',
       'dha_optimization' => 'AdCreativeFeatureDetails',
@@ -73,6 +80,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
       'product_metadata_automation' => 'AdCreativeFeatureDetails',
       'product_tags' => 'AdCreativeFeatureDetails',
       'profile_card' => 'AdCreativeFeatureDetails',
+      'site_extensions' => 'AdCreativeFeatureDetails',
       'standard_enhancements' => 'AdCreativeFeatureDetails',
       'standard_enhancements_catalog' => 'AdCreativeFeatureDetails',
       'text_generation' => 'AdCreativeFeatureDetails',

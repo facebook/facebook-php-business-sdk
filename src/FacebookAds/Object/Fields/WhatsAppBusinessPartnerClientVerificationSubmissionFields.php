@@ -34,11 +34,11 @@ class WhatsAppBusinessPartnerClientVerificationSubmissionFields extends Abstract
     return array(
       'client_business_id' => 'string',
       'id' => 'string',
-      'rejection_reasons' => 'list<string>',
+      'rejection_reasons' => 'list<RejectionReasons>',
       'submitted_info' => 'Object',
       'submitted_time' => 'datetime',
       'update_time' => 'datetime',
-      'verification_status' => 'string',
+      'verification_status' => 'VerificationStatus',
     );
   }
 }
