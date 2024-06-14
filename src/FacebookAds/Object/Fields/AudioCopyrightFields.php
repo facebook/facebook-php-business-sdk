@@ -29,6 +29,7 @@ class AudioCopyrightFields extends AbstractEnum {
   const ISRC = 'isrc';
   const MATCH_RULE = 'match_rule';
   const OWNERSHIP_COUNTRIES = 'ownership_countries';
+  const OWNERSHIP_DETAILS = 'ownership_details';
   const REFERENCE_FILE_STATUS = 'reference_file_status';
   const RIDGE_MONITORING_STATUS = 'ridge_monitoring_status';
   const TAGS = 'tags';
@@ -45,6 +46,7 @@ class AudioCopyrightFields extends AbstractEnum {
       'isrc' => 'string',
       'match_rule' => 'VideoCopyrightRule',
       'ownership_countries' => 'list<string>',
+      'ownership_details' => 'list<map<string, Object>>',
       'reference_file_status' => 'string',
       'ridge_monitoring_status' => 'string',
       'tags' => 'list<string>',

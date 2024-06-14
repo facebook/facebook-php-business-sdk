@@ -95,6 +95,7 @@ class IGUser extends AbstractCrudObject {
 
     $param_types = array(
       'creator_instagram_account' => 'string',
+      'creator_instagram_username' => 'string',
       'revoke' => 'bool',
     );
     $enums = array(
@@ -262,7 +263,7 @@ class IGUser extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getDataset(array $fields = array(), array $params = array(), $pending = false) {
+  public function getDataSet(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -275,9 +276,32 @@ class IGUser extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/dataset',
-      new Dataset(),
+      new AdsPixel(),
       'EDGE',
-      Dataset::getFieldsEnum()->getValues(),
+      AdsPixel::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createDataSet(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/dataset',
+      new AdsPixel(),
+      'EDGE',
+      AdsPixel::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

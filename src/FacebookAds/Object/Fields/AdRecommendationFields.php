@@ -29,6 +29,7 @@ class AdRecommendationFields extends AbstractEnum {
   const MESSAGE = 'message';
   const RECOMMENDATION_DATA = 'recommendation_data';
   const TITLE = 'title';
+  const VALUE = 'value';
 
   public function getFieldTypes() {
     return array(
@@ -39,6 +40,7 @@ class AdRecommendationFields extends AbstractEnum {
       'message' => 'string',
       'recommendation_data' => 'AdRecommendationData',
       'title' => 'string',
+      'value' => 'string',
     );
   }
 }

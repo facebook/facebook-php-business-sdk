@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class CustomAudienceDataSourceSubTypeValues extends AbstractEnum {
 
+  const AD_CAMPAIGN = 'AD_CAMPAIGN';
   const ANYTHING = 'ANYTHING';
   const APP_USERS = 'APP_USERS';
   const AR_EFFECTS_EVENTS = 'AR_EFFECTS_EVENTS';
@@ -43,6 +44,7 @@ class CustomAudienceDataSourceSubTypeValues extends AbstractEnum {
   const FACEBOOK_WIFI_EVENTS = 'FACEBOOK_WIFI_EVENTS';
   const FB_EVENT_SIGNALS = 'FB_EVENT_SIGNALS';
   const FB_PIXEL_HITS = 'FB_PIXEL_HITS';
+  const GROUP_EVENTS = 'GROUP_EVENTS';
   const HASHES = 'HASHES';
   const HASHES_OR_USER_IDS = 'HASHES_OR_USER_IDS';
   const HOUSEHOLD_EXPANSION = 'HOUSEHOLD_EXPANSION';

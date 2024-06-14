@@ -44,6 +44,7 @@ class AdAssetFeedSpecFields extends AbstractEnum {
   const REASONS_TO_SHOP = 'reasons_to_shop';
   const SHOPS_BUNDLE = 'shops_bundle';
   const TITLES = 'titles';
+  const UPCOMING_EVENTS = 'upcoming_events';
   const VIDEOS = 'videos';
 
   public function getFieldTypes() {
@@ -70,6 +71,7 @@ class AdAssetFeedSpecFields extends AbstractEnum {
       'reasons_to_shop' => 'bool',
       'shops_bundle' => 'bool',
       'titles' => 'list<AdAssetFeedSpecTitle>',
+      'upcoming_events' => 'list<Object>',
       'videos' => 'list<AdAssetFeedSpecVideo>',
     );
   }

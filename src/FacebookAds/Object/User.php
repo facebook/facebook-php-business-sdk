@@ -24,6 +24,7 @@ use FacebookAds\Object\Values\AdVideoTypeValues;
 use FacebookAds\Object\Values\AdVideoUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\AdVideoUploadPhaseValues;
 use FacebookAds\Object\Values\BusinessSurveyBusinessTypeValues;
+use FacebookAds\Object\Values\BusinessTimezoneIdValues;
 use FacebookAds\Object\Values\BusinessVerticalValues;
 use FacebookAds\Object\Values\EventTypeValues;
 use FacebookAds\Object\Values\FundraiserPersonToCharityFundraiserTypeValues;
@@ -392,6 +393,29 @@ class User extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getAssignedApplications(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/assigned_applications',
+      new Application(),
+      'EDGE',
+      Application::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getAssignedBusinessAssetGroups(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -568,11 +592,12 @@ class User extends AbstractCrudObject {
       'survey_business_type' => 'survey_business_type_enum',
       'survey_num_assets' => 'unsigned int',
       'survey_num_people' => 'unsigned int',
-      'timezone_id' => 'unsigned int',
+      'timezone_id' => 'timezone_id_enum',
       'vertical' => 'vertical_enum',
     );
     $enums = array(
       'survey_business_type_enum' => BusinessSurveyBusinessTypeValues::getInstance()->getValues(),
+      'timezone_id_enum' => BusinessTimezoneIdValues::getInstance()->getValues(),
       'vertical_enum' => BusinessVerticalValues::getInstance()->getValues(),
     );
 
@@ -702,7 +727,6 @@ class User extends AbstractCrudObject {
 
     $param_types = array(
       'actions' => 'Object',
-      'adaptive_type' => 'string',
       'album_id' => 'string',
       'android_key_hash' => 'string',
       'animated_effect_id' => 'unsigned int',
@@ -787,7 +811,6 @@ class User extends AbstractCrudObject {
       'publish_event_id' => 'unsigned int',
       'published' => 'bool',
       'quote' => 'string',
-      'react_mode_metadata' => 'string',
       'ref' => 'list<string>',
       'referenceable_image_ids' => 'list<string>',
       'referral_id' => 'string',
@@ -916,35 +939,6 @@ class User extends AbstractCrudObject {
       new FundraiserPersonToCharity(),
       'EDGE',
       FundraiserPersonToCharity::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createGameTime(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'action' => 'action_enum',
-    );
-    $enums = array(
-      'action_enum' => array(
-        'END',
-        'HEARTBEAT',
-        'START',
-      ),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/game_times',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1563,7 +1557,6 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'adaptive_type' => 'string',
       'animated_effect_id' => 'unsigned int',
       'application_id' => 'string',
       'asked_fun_fact_prompt_id' => 'unsigned int',
@@ -1614,7 +1607,6 @@ class User extends AbstractCrudObject {
       'original_projection_type' => 'original_projection_type_enum',
       'privacy' => 'string',
       'publish_event_id' => 'unsigned int',
-      'react_mode_metadata' => 'string',
       'referenced_sticker_id' => 'string',
       'replace_video_id' => 'string',
       'slideshow_spec' => 'map',

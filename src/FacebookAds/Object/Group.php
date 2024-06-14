@@ -72,7 +72,7 @@ class Group extends AbstractCrudObject {
   }
 
 
-  public function deleteAdmins(array $fields = array(), array $params = array(), $pending = false) {
+  public function deleteAdMIns(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -96,7 +96,7 @@ class Group extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createAdmin(array $fields = array(), array $params = array(), $pending = false) {
+  public function createAdMIn(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -258,7 +258,6 @@ class Group extends AbstractCrudObject {
 
     $param_types = array(
       'actions' => 'Object',
-      'adaptive_type' => 'string',
       'album_id' => 'string',
       'android_key_hash' => 'string',
       'animated_effect_id' => 'unsigned int',
@@ -343,7 +342,6 @@ class Group extends AbstractCrudObject {
       'publish_event_id' => 'unsigned int',
       'published' => 'bool',
       'quote' => 'string',
-      'react_mode_metadata' => 'string',
       'ref' => 'list<string>',
       'referenceable_image_ids' => 'list<string>',
       'referral_id' => 'string',
@@ -760,7 +758,6 @@ class Group extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'adaptive_type' => 'string',
       'animated_effect_id' => 'unsigned int',
       'application_id' => 'string',
       'asked_fun_fact_prompt_id' => 'unsigned int',
@@ -809,7 +806,6 @@ class Group extends AbstractCrudObject {
       'original_projection_type' => 'original_projection_type_enum',
       'publish_event_id' => 'unsigned int',
       'published' => 'bool',
-      'react_mode_metadata' => 'string',
       'referenced_sticker_id' => 'string',
       'replace_video_id' => 'string',
       'scheduled_publish_time' => 'unsigned int',

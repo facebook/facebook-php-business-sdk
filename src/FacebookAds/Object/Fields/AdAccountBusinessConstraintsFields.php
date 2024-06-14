@@ -32,7 +32,7 @@ class AdAccountBusinessConstraintsFields extends AbstractEnum {
       'audience_controls' => 'Object',
       'campaigns_with_error' => 'list<string>',
       'placement_controls' => 'Object',
-      'status' => 'string',
+      'status' => 'Status',
     );
   }
 }

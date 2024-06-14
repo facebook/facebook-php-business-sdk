@@ -23,6 +23,7 @@ use FacebookAds\Enum\AbstractEnum;
 class ProductCatalogDiagnosticGroupAffectedEntityValues extends AbstractEnum {
 
   const PRODUCT_CATALOG = 'product_catalog';
+  const PRODUCT_EVENT = 'product_event';
   const PRODUCT_ITEM = 'product_item';
   const PRODUCT_SET = 'product_set';
 }

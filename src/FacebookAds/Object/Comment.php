@@ -40,10 +40,10 @@ class Comment extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['Order'] = CommentOrderValues::getInstance()->getValues();
     $ref_enums['CommentPrivacyValue'] = CommentCommentPrivacyValueValues::getInstance()->getValues();
     $ref_enums['Filter'] = CommentFilterValues::getInstance()->getValues();
     $ref_enums['LiveFilter'] = CommentLiveFilterValues::getInstance()->getValues();
-    $ref_enums['Order'] = CommentOrderValues::getInstance()->getValues();
     return $ref_enums;
   }
 

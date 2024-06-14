@@ -75,9 +75,9 @@ class InstagramUser extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/ar_effects',
-      new AbstractCrudObject(),
+      new AREffect(),
       'EDGE',
-      array(),
+      AREffect::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

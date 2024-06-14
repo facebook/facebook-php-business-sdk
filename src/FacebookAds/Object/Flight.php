@@ -56,9 +56,9 @@ class Flight extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/augmented_realities_metadata',
-      new AbstractCrudObject(),
+      new DynamicARMetadata(),
       'EDGE',
-      array(),
+      DynamicARMetadata::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

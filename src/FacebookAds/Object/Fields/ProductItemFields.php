@@ -159,7 +159,7 @@ class ProductItemFields extends AbstractEnum {
       'images' => 'list<string>',
       'importer_address' => 'ProductItemImporterAddress',
       'importer_name' => 'string',
-      'invalidation_errors' => 'list<Object>',
+      'invalidation_errors' => 'list<ProductItemInvalidationError>',
       'inventory' => 'int',
       'manufacturer_info' => 'string',
       'manufacturer_part_number' => 'string',

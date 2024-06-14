@@ -276,9 +276,9 @@ class Event extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/ticket_tiers',
-      new AbstractCrudObject(),
+      new EventTicketTier(),
       'EDGE',
-      array(),
+      EventTicketTier::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

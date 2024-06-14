@@ -25,4 +25,5 @@ class WhatsAppBusinessPartnerClientVerificationSubmissionVerificationStatusValue
   const APPROVED = 'APPROVED';
   const FAILED = 'FAILED';
   const PENDING = 'PENDING';
+  const REVOKED = 'REVOKED';
 }

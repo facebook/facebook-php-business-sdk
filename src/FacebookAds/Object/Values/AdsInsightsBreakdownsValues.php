@@ -60,10 +60,13 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
   const PUBLISHER_PLATFORM = 'publisher_platform';
   const REDOWNLOAD = 'redownload';
   const REGION = 'region';
+  const SIGNAL_SOURCE_BUCKET = 'signal_source_bucket';
   const SKAN_CAMPAIGN_ID = 'skan_campaign_id';
   const SKAN_CONVERSION_ID = 'skan_conversion_id';
   const SKAN_VERSION = 'skan_version';
   const STANDARD_EVENT_CONTENT_TYPE = 'standard_event_content_type';
   const TITLE_ASSET = 'title_asset';
+  const USER_PERSONA_ID = 'user_persona_id';
+  const USER_PERSONA_NAME = 'user_persona_name';
   const VIDEO_ASSET = 'video_asset';
 }

@@ -23,6 +23,7 @@ use FacebookAds\Enum\AbstractEnum;
 class BrandedContentShadowIGMediaIDFields extends AbstractEnum {
 
   const ELIGIBILITY_ERRORS = 'eligibility_errors';
+  const HAS_PERMISSION_FOR_PARTNERSHIP_AD = 'has_permission_for_partnership_ad';
   const ID = 'id';
   const OWNER_ID = 'owner_id';
   const PERMALINK = 'permalink';
@@ -30,6 +31,7 @@ class BrandedContentShadowIGMediaIDFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'eligibility_errors' => 'list<string>',
+      'has_permission_for_partnership_ad' => 'bool',
       'id' => 'string',
       'owner_id' => 'string',
       'permalink' => 'string',

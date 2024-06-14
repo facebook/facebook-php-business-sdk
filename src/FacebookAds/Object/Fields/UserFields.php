@@ -81,7 +81,7 @@ class UserFields extends AbstractEnum {
       'community' => 'Group',
       'cover' => 'UserCoverPhoto',
       'currency' => 'Currency',
-      'education' => 'list<Object>',
+      'education' => 'list<EducationExperience>',
       'email' => 'string',
       'favorite_athletes' => 'list<Experience>',
       'favorite_teams' => 'list<Experience>',

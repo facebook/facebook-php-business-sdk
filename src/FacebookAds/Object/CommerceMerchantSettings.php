@@ -146,7 +146,7 @@ class CommerceMerchantSettings extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getOrderManagementApps(array $fields = array(), array $params = array(), $pending = false) {
+  public function getOrderMAnAgeMEntApps(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -169,7 +169,7 @@ class CommerceMerchantSettings extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createOrderManagementApp(array $fields = array(), array $params = array(), $pending = false) {
+  public function createOrderMAnAgeMEntApp(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(

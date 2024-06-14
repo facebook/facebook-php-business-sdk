@@ -46,7 +46,7 @@ class PublisherBlockList extends AbstractCrudObject {
   }
 
 
-  public function createAppEndPublisherUrl(array $fields = array(), array $params = array(), $pending = false) {
+  public function createAppendPublisherUrl(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -84,9 +84,9 @@ class PublisherBlockList extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/paged_web_publishers',
-      new AbstractCrudObject(),
+      new WebPublisher(),
       'EDGE',
-      array(),
+      WebPublisher::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

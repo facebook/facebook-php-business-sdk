@@ -15,6 +15,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\WhatsAppBusinessAccountFields;
 use FacebookAds\Object\Values\WhatsAppBusinessAccountCategoryValues;
+use FacebookAds\Object\Values\WhatsAppBusinessAccountDisplayFormatValues;
 use FacebookAds\Object\Values\WhatsAppBusinessAccountSubCategoryValues;
 use FacebookAds\Object\Values\WhatsAppBusinessAccountTasksValues;
 
@@ -40,6 +41,7 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
     $ref_enums = array();
     $ref_enums['Tasks'] = WhatsAppBusinessAccountTasksValues::getInstance()->getValues();
     $ref_enums['Category'] = WhatsAppBusinessAccountCategoryValues::getInstance()->getValues();
+    $ref_enums['DisplayFormat'] = WhatsAppBusinessAccountDisplayFormatValues::getInstance()->getValues();
     $ref_enums['SubCategory'] = WhatsAppBusinessAccountSubCategoryValues::getInstance()->getValues();
     return $ref_enums;
   }
@@ -161,12 +163,12 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       'conversation_categories_enum' => array(
         'AUTHENTICATION',
         'AUTHENTICATION_INTERNATIONAL',
-        'FIXED_TEMPLATE_NOTIFY',
         'MARKETING',
         'MARKETING_OPTIMIZED_DELIVERY',
         'SERVICE',
         'UNKNOWN',
         'UTILITY',
+        'UTILITY_FIXED_TEMPLATE',
       ),
       'conversation_directions_enum' => array(
         'BUSINESS_INITIATED',
@@ -401,6 +403,7 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       ),
       'status_enum' => array(
         'APPROVED',
+        'ARCHIVED',
         'DELETED',
         'DISABLED',
         'IN_APPEAL',
@@ -435,6 +438,7 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       'category' => 'category_enum',
       'components' => 'list<map>',
       'cta_url_link_tracking_opted_out' => 'bool',
+      'display_format' => 'display_format_enum',
       'language' => 'string',
       'library_template_button_inputs' => 'list<map>',
       'library_template_name' => 'string',
@@ -444,6 +448,7 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
     );
     $enums = array(
       'category_enum' => WhatsAppBusinessAccountCategoryValues::getInstance()->getValues(),
+      'display_format_enum' => WhatsAppBusinessAccountDisplayFormatValues::getInstance()->getValues(),
       'sub_category_enum' => WhatsAppBusinessAccountSubCategoryValues::getInstance()->getValues(),
     );
 
@@ -636,6 +641,7 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'solution_id' => 'string',
     );
     $enums = array(
     );
@@ -645,6 +651,29 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/set_obo_mobility_intent',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getSolutions(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/solutions',
       new AbstractCrudObject(),
       'EDGE',
       array(),
@@ -742,6 +771,7 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       ),
       'metric_types_enum' => array(
         'CLICKED',
+        'COST',
         'DELIVERED',
         'READ',
         'SENT',

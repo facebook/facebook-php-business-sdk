@@ -24,6 +24,7 @@ class CommerceOrderFields extends AbstractEnum {
 
   const BUYER_DETAILS = 'buyer_details';
   const CHANNEL = 'channel';
+  const CONTAINS_BOPIS_ITEMS = 'contains_bopis_items';
   const CREATED = 'created';
   const ESTIMATED_PAYMENT_DETAILS = 'estimated_payment_details';
   const ID = 'id';
@@ -40,6 +41,7 @@ class CommerceOrderFields extends AbstractEnum {
     return array(
       'buyer_details' => 'Object',
       'channel' => 'string',
+      'contains_bopis_items' => 'bool',
       'created' => 'string',
       'estimated_payment_details' => 'Object',
       'id' => 'string',

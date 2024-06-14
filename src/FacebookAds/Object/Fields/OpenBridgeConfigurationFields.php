@@ -22,7 +22,6 @@ use FacebookAds\Enum\AbstractEnum;
 
 class OpenBridgeConfigurationFields extends AbstractEnum {
 
-  const ACCESS_KEY = 'access_key';
   const ACTIVE = 'active';
   const ENDPOINT = 'endpoint';
   const FALLBACK_DOMAIN = 'fallback_domain';
@@ -30,11 +29,11 @@ class OpenBridgeConfigurationFields extends AbstractEnum {
   const HOST_BUSINESS_ID = 'host_business_id';
   const HOST_EXTERNAL_ID = 'host_external_id';
   const ID = 'id';
+  const INSTANCE_ID = 'instance_id';
   const PIXEL_ID = 'pixel_id';
 
   public function getFieldTypes() {
     return array(
-      'access_key' => 'string',
       'active' => 'bool',
       'endpoint' => 'string',
       'fallback_domain' => 'string',
@@ -42,6 +41,7 @@ class OpenBridgeConfigurationFields extends AbstractEnum {
       'host_business_id' => 'string',
       'host_external_id' => 'string',
       'id' => 'string',
+      'instance_id' => 'string',
       'pixel_id' => 'string',
     );
   }

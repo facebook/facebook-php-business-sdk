@@ -239,7 +239,7 @@ class AdVideo extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getCrosspostSharedPages(array $fields = array(), array $params = array(), $pending = false) {
+  public function getCrosspostShareDPages(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -448,9 +448,9 @@ class AdVideo extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/tags',
-      new AbstractCrudObject(),
+      new TaggableSubject(),
       'EDGE',
-      array(),
+      TaggableSubject::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

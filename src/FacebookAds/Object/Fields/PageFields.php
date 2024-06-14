@@ -87,11 +87,11 @@ class PageFields extends AbstractEnum {
   const INFLUENCES = 'influences';
   const INSTAGRAM_BUSINESS_ACCOUNT = 'instagram_business_account';
   const IS_ALWAYS_OPEN = 'is_always_open';
+  const IS_CALLING_ELIGIBLE = 'is_calling_eligible';
   const IS_CHAIN = 'is_chain';
   const IS_COMMUNITY_PAGE = 'is_community_page';
   const IS_ELIGIBLE_FOR_BRANDED_CONTENT = 'is_eligible_for_branded_content';
   const IS_ELIGIBLE_FOR_DISABLE_CONNECT_IG_BTN_FOR_NON_PAGE_ADMIN_AM_WEB = 'is_eligible_for_disable_connect_ig_btn_for_non_page_admin_am_web';
-  const IS_ELIGIBLE_FOR_LIVE_BOOSTING_EXPANSION = 'is_eligible_for_live_boosting_expansion';
   const IS_MESSENGER_BOT_GET_STARTED_ENABLED = 'is_messenger_bot_get_started_enabled';
   const IS_MESSENGER_PLATFORM_BOT = 'is_messenger_platform_bot';
   const IS_OWNED = 'is_owned';
@@ -241,11 +241,11 @@ class PageFields extends AbstractEnum {
       'influences' => 'string',
       'instagram_business_account' => 'IGUser',
       'is_always_open' => 'bool',
+      'is_calling_eligible' => 'bool',
       'is_chain' => 'bool',
       'is_community_page' => 'bool',
       'is_eligible_for_branded_content' => 'bool',
       'is_eligible_for_disable_connect_ig_btn_for_non_page_admin_am_web' => 'bool',
-      'is_eligible_for_live_boosting_expansion' => 'bool',
       'is_messenger_bot_get_started_enabled' => 'bool',
       'is_messenger_platform_bot' => 'bool',
       'is_owned' => 'bool',

@@ -14,6 +14,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\CustomConversionFields;
+use FacebookAds\Object\Values\CustomConversionActionSourceTypeValues;
 use FacebookAds\Object\Values\CustomConversionCustomEventTypeValues;
 use FacebookAds\Object\Values\CustomConversionStatsResultAggregationValues;
 
@@ -45,6 +46,7 @@ class CustomConversion extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['CustomEventType'] = CustomConversionCustomEventTypeValues::getInstance()->getValues();
+    $ref_enums['ActionSourceType'] = CustomConversionActionSourceTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 

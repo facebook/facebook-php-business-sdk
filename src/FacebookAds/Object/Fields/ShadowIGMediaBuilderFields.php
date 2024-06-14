@@ -26,6 +26,7 @@ class ShadowIGMediaBuilderFields extends AbstractEnum {
   const ID = 'id';
   const STATUS = 'status';
   const STATUS_CODE = 'status_code';
+  const VIDEO_STATUS = 'video_status';
 
   public function getFieldTypes() {
     return array(
@@ -33,6 +34,7 @@ class ShadowIGMediaBuilderFields extends AbstractEnum {
       'id' => 'string',
       'status' => 'string',
       'status_code' => 'string',
+      'video_status' => 'IGResumableVideoUploadStatus',
     );
   }
 }

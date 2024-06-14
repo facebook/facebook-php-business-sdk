@@ -54,7 +54,6 @@ class OfflineConversionDataSetFields extends AbstractEnum {
   const OWNER_BUSINESS = 'owner_business';
   const USAGE = 'usage';
   const VALID_ENTRIES = 'valid_entries';
-  const AUTO_ASSIGN_TO_NEW_ACCOUNTS_ONLY = 'auto_assign_to_new_accounts_only';
 
   public function getFieldTypes() {
     return array(
@@ -90,7 +89,6 @@ class OfflineConversionDataSetFields extends AbstractEnum {
       'owner_business' => 'Business',
       'usage' => 'OfflineConversionDataSetUsage',
       'valid_entries' => 'int',
-      'auto_assign_to_new_accounts_only' => 'bool',
     );
   }
 }

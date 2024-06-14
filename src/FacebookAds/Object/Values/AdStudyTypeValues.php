@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdStudyTypeValues extends AbstractEnum {
 
+  const BACKEND_AB_TESTING = 'BACKEND_AB_TESTING';
   const CONTINUOUS_LIFT_CONFIG = 'CONTINUOUS_LIFT_CONFIG';
   const GEO_LIFT = 'GEO_LIFT';
   const LIFT = 'LIFT';

@@ -14,6 +14,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdAccountBusinessConstraintsFields;
+use FacebookAds\Object\Values\AdAccountBusinessConstraintsStatusValues;
 
 /**
  * This class is auto-generated.
@@ -42,6 +43,7 @@ class AdAccountBusinessConstraints extends AbstractObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['Status'] = AdAccountBusinessConstraintsStatusValues::getInstance()->getValues();
     return $ref_enums;
   }
 

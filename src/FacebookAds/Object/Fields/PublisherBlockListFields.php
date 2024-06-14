@@ -35,7 +35,7 @@ class PublisherBlockListFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'app_publishers' => 'list<Object>',
+      'app_publishers' => 'list<AppPublisher>',
       'business_owner_id' => 'string',
       'id' => 'string',
       'is_auto_blocking_on' => 'bool',
@@ -44,7 +44,7 @@ class PublisherBlockListFields extends AbstractEnum {
       'last_update_user' => 'string',
       'name' => 'string',
       'owner_ad_account_id' => 'string',
-      'web_publishers' => 'list<Object>',
+      'web_publishers' => 'list<WebPublisher>',
     );
   }
 }

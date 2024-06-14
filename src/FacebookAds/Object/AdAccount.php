@@ -63,6 +63,7 @@ use FacebookAds\Object\Values\AdSetMultiOptimizationGoalWeightValues;
 use FacebookAds\Object\Values\AdSetOperatorValues;
 use FacebookAds\Object\Values\AdSetOptimizationGoalValues;
 use FacebookAds\Object\Values\AdSetOptimizationSubEventValues;
+use FacebookAds\Object\Values\AdSetRegionalRegulatedCategoriesValues;
 use FacebookAds\Object\Values\AdSetStatusValues;
 use FacebookAds\Object\Values\AdSetTuneForCategoryValues;
 use FacebookAds\Object\Values\AdStatusValues;
@@ -98,6 +99,7 @@ use FacebookAds\Object\Values\CustomAudienceClaimObjectiveValues;
 use FacebookAds\Object\Values\CustomAudienceContentTypeValues;
 use FacebookAds\Object\Values\CustomAudienceCustomerFileSourceValues;
 use FacebookAds\Object\Values\CustomAudienceSubtypeValues;
+use FacebookAds\Object\Values\CustomConversionActionSourceTypeValues;
 use FacebookAds\Object\Values\CustomConversionCustomEventTypeValues;
 use FacebookAds\Object\Values\ReachFrequencyPredictionActionValues;
 use FacebookAds\Object\Values\ReachFrequencyPredictionBuyingTypeValues;
@@ -320,9 +322,9 @@ class AdAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/ad_saved_keywords',
-      new AbstractCrudObject(),
+      new AdSavedKeywords(),
       'EDGE',
-      array(),
+      AdSavedKeywords::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -415,6 +417,7 @@ class AdAccount extends AbstractCrudObject {
       'call_to_action' => 'Object',
       'categorization_criteria' => 'categorization_criteria_enum',
       'category_media_source' => 'category_media_source_enum',
+      'contextual_multi_ads' => 'map',
       'degrees_of_freedom_spec' => 'map',
       'destination_set_id' => 'string',
       'dynamic_ad_voice' => 'dynamic_ad_voice_enum',
@@ -432,7 +435,6 @@ class AdAccount extends AbstractCrudObject {
       'is_dco_internal' => 'bool',
       'link_og_id' => 'string',
       'link_url' => 'string',
-      'messenger_sponsored_message' => 'string',
       'name' => 'string',
       'object_id' => 'unsigned int',
       'object_story_id' => 'string',
@@ -440,6 +442,7 @@ class AdAccount extends AbstractCrudObject {
       'object_type' => 'string',
       'object_url' => 'string',
       'omnichannel_link_spec' => 'map',
+      'page_welcome_message' => 'string',
       'place_page_set_id' => 'string',
       'platform_customizations' => 'Object',
       'playable_asset_id' => 'string',
@@ -808,6 +811,7 @@ class AdAccount extends AbstractCrudObject {
       'bid_amount' => 'int',
       'conversion_domain' => 'string',
       'creative' => 'AdCreative',
+      'creative_asset_groups_spec' => 'Object',
       'date_format' => 'string',
       'display_sequence' => 'unsigned int',
       'draft_adgroup_id' => 'string',
@@ -855,9 +859,9 @@ class AdAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/ads_reporting_mmm_reports',
-      new AbstractCrudObject(),
+      new AdsReportBuilderMMMReport(),
       'EDGE',
-      array(),
+      AdsReportBuilderMMMReport::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -878,9 +882,9 @@ class AdAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/ads_reporting_mmm_schedulers',
-      new AbstractCrudObject(),
+      new AdsReportBuilderMMMReportScheduler(),
       'EDGE',
-      array(),
+      AdsReportBuilderMMMReportScheduler::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -892,7 +896,7 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'page_id' => 'int',
+      'page_id' => 'string',
       'recommendation_type' => 'recommendation_type_enum',
       'show_breakdown_by_actor' => 'bool',
     );
@@ -1013,6 +1017,8 @@ class AdAccount extends AbstractCrudObject {
       'pacing_type' => 'list<string>',
       'promoted_object' => 'Object',
       'rb_prediction_id' => 'string',
+      'regional_regulated_categories' => 'list<regional_regulated_categories_enum>',
+      'regional_regulation_identities' => 'map',
       'rf_prediction_id' => 'string',
       'source_adset_id' => 'string',
       'start_time' => 'datetime',
@@ -1034,6 +1040,7 @@ class AdAccount extends AbstractCrudObject {
       'multi_optimization_goal_weight_enum' => AdSetMultiOptimizationGoalWeightValues::getInstance()->getValues(),
       'optimization_goal_enum' => AdSetOptimizationGoalValues::getInstance()->getValues(),
       'optimization_sub_event_enum' => AdSetOptimizationSubEventValues::getInstance()->getValues(),
+      'regional_regulated_categories_enum' => AdSetRegionalRegulatedCategoriesValues::getInstance()->getValues(),
       'status_enum' => AdSetStatusValues::getInstance()->getValues(),
       'tune_for_category_enum' => AdSetTuneForCategoryValues::getInstance()->getValues(),
     );
@@ -1213,7 +1220,6 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'adaptive_type' => 'string',
       'animated_effect_id' => 'unsigned int',
       'application_id' => 'string',
       'asked_fun_fact_prompt_id' => 'unsigned int',
@@ -1261,7 +1267,6 @@ class AdAccount extends AbstractCrudObject {
       'original_fov' => 'unsigned int',
       'original_projection_type' => 'original_projection_type_enum',
       'publish_event_id' => 'unsigned int',
-      'react_mode_metadata' => 'string',
       'referenced_sticker_id' => 'string',
       'replace_video_id' => 'string',
       'slideshow_spec' => 'map',
@@ -1622,9 +1627,9 @@ class AdAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/audience_funnel',
-      new AbstractCrudObject(),
+      new AudienceFunnel(),
       'EDGE',
-      array(),
+      AudienceFunnel::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1694,9 +1699,9 @@ class AdAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/businessprojects',
-      new AbstractCrudObject(),
+      new BusinessProject(),
       'EDGE',
-      array(),
+      BusinessProject::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1902,9 +1907,9 @@ class AdAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/conversion_goals',
-      new AbstractCrudObject(),
+      new AdsConversionGoal(),
       'EDGE',
-      array(),
+      AdsConversionGoal::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1925,9 +1930,9 @@ class AdAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/cpa_guidance',
-      new AbstractCrudObject(),
+      new BespokePartnerGuidanceLaser(),
       'EDGE',
-      array(),
+      BespokePartnerGuidanceLaser::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2100,6 +2105,7 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'action_source_type' => 'action_source_type_enum',
       'advanced_rule' => 'string',
       'custom_event_type' => 'custom_event_type_enum',
       'default_conversion_value' => 'float',
@@ -2109,6 +2115,7 @@ class AdAccount extends AbstractCrudObject {
       'rule' => 'string',
     );
     $enums = array(
+      'action_source_type_enum' => CustomConversionActionSourceTypeValues::getInstance()->getValues(),
       'custom_event_type_enum' => CustomConversionCustomEventTypeValues::getInstance()->getValues(),
     );
 
@@ -2414,7 +2421,7 @@ class AdAccount extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createManagedPartnerAd(array $fields = array(), array $params = array(), $pending = false) {
+  public function createMAnAgeDPartnerAd(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -2542,29 +2549,6 @@ class AdAccount extends AbstractCrudObject {
       new MinimumBudget(),
       'EDGE',
       MinimumBudget::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getOfflineConversionDataSets(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/offline_conversion_data_sets',
-      new OfflineConversionDataSet(),
-      'EDGE',
-      OfflineConversionDataSet::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -3076,7 +3060,7 @@ class AdAccount extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getTargetingValidation(array $fields = array(), array $params = array(), $pending = false) {
+  public function getTargetingValidATIOn(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -3212,9 +3196,9 @@ class AdAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/value_adjustment_rule_collections',
-      new AbstractCrudObject(),
+      new AdsValueAdjustmentRuleCollection(),
       'EDGE',
-      array(),
+      AdsValueAdjustmentRuleCollection::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -3235,9 +3219,9 @@ class AdAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/value_adjustment_rules',
-      new AbstractCrudObject(),
+      new AdsValueAdjustmentRule(),
       'EDGE',
-      array(),
+      AdsValueAdjustmentRule::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

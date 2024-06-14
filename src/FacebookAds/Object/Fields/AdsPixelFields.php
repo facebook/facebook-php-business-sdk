@@ -37,6 +37,7 @@ class AdsPixelFields extends AbstractEnum {
   const EVENT_TIME_MAX = 'event_time_max';
   const EVENT_TIME_MIN = 'event_time_min';
   const FIRST_PARTY_COOKIE_STATUS = 'first_party_cookie_status';
+  const HAS_1P_PIXEL_EVENT = 'has_1p_pixel_event';
   const ID = 'id';
   const IS_CONSOLIDATED_CONTAINER = 'is_consolidated_container';
   const IS_CREATED_BY_BUSINESS = 'is_created_by_business';
@@ -73,6 +74,7 @@ class AdsPixelFields extends AbstractEnum {
       'event_time_max' => 'int',
       'event_time_min' => 'int',
       'first_party_cookie_status' => 'string',
+      'has_1p_pixel_event' => 'bool',
       'id' => 'string',
       'is_consolidated_container' => 'bool',
       'is_created_by_business' => 'bool',

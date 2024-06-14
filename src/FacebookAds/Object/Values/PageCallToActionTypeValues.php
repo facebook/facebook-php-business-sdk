@@ -28,6 +28,7 @@ class PageCallToActionTypeValues extends AbstractEnum {
   const BUY_TICKETS = 'BUY_TICKETS';
   const CALL_NOW = 'CALL_NOW';
   const CHARITY_DONATE = 'CHARITY_DONATE';
+  const CHECK_IN = 'CHECK_IN';
   const CONTACT_US = 'CONTACT_US';
   const DONATE_NOW = 'DONATE_NOW';
   const EMAIL = 'EMAIL';

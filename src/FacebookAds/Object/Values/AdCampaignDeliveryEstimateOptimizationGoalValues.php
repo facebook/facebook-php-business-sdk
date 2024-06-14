@@ -41,6 +41,7 @@ class AdCampaignDeliveryEstimateOptimizationGoalValues extends AbstractEnum {
   const OFFSITE_CONVERSIONS = 'OFFSITE_CONVERSIONS';
   const PAGE_LIKES = 'PAGE_LIKES';
   const POST_ENGAGEMENT = 'POST_ENGAGEMENT';
+  const PROFILE_VISIT = 'PROFILE_VISIT';
   const QUALITY_CALL = 'QUALITY_CALL';
   const QUALITY_LEAD = 'QUALITY_LEAD';
   const REACH = 'REACH';

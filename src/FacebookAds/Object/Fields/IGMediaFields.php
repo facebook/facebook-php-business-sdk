@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class IGMediaFields extends AbstractEnum {
 
+  const BOOST_ELIGIBILITY_INFO = 'boost_eligibility_info';
   const CAPTION = 'caption';
   const COMMENTS_COUNT = 'comments_count';
   const COPYRIGHT_CHECK_INFORMATION = 'copyright_check_information';
@@ -42,6 +43,7 @@ class IGMediaFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'boost_eligibility_info' => 'IGMediaBoostEligibilityInfo',
       'caption' => 'string',
       'comments_count' => 'int',
       'copyright_check_information' => 'IGVideoCopyrightCheckMatchesInformation',

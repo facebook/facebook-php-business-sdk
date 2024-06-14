@@ -32,13 +32,13 @@ class AdCreativePromotionMetadataSpecFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'end_date' => 'datetime',
+      'end_date' => 'int',
       'id' => 'string',
       'promotion_source' => 'string',
       'promotion_type' => 'string',
       'promotion_value' => 'float',
       'required_code' => 'string',
-      'start_date' => 'datetime',
+      'start_date' => 'int',
     );
   }
 }

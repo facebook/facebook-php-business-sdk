@@ -96,13 +96,13 @@ class OpenBridgeConfiguration extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'access_key' => 'string',
       'active' => 'bool',
       'endpoint' => 'string',
       'fallback_domain' => 'string',
       'fallback_domain_enabled' => 'bool',
       'host_business_id' => 'unsigned int',
       'host_external_id' => 'string',
+      'instance_id' => 'string',
     );
     $enums = array(
     );
