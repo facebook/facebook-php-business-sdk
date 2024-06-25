@@ -86,7 +86,7 @@ class UserData {
 
   /**
    * Sets Gender, in lowercase. Either f or m.
-   * @param FacebookAds\Object\ServerSide\Gender $gender Gender, in lowercase. Either f or m.
+   * @param \FacebookAds\Object\ServerSide\Gender $gender Gender, in lowercase. Either f or m.
    * @return $this
    */
   public function setGender($gender) {
