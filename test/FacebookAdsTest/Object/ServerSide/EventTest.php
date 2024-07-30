@@ -26,14 +26,18 @@ namespace FacebookAdsTest\Object\ServerSide;
 
 use FacebookAdsTest\AbstractUnitTestCase;
 use FacebookAds\Object\ServerSide\ActionSource;
+use FacebookAds\Object\ServerSide\AttributionData;
 use FacebookAds\Object\ServerSide\CustomData;
 use FacebookAds\Object\ServerSide\Event;
+use FacebookAds\Object\ServerSide\OriginalEventData;
 use FacebookAds\Object\ServerSide\UserData;
 
 class EventTest extends AbstractUnitTestCase {
   public function testBuilder() {
     $user_data = new UserData(array('email' => 'eg@test.com'));
     $custom_data = new CustomData(array('order_id' => '123'));
+    $original_event_data = new OriginalEventData(array('event_name' => 'event-name-1'));
+    $attribution_data = new AttributionData(array('scope' => 'click'));
     $expected = array(
       'event_name' => 'event_name-0',
       'event_time' => 1234,
@@ -46,6 +50,8 @@ class EventTest extends AbstractUnitTestCase {
       'data_processing_options_country' => 1,
       'data_processing_options_state' => 2,
       'action_source' => ActionSource::WEBSITE,
+      'original_event_data' => $original_event_data->normalize(),
+      'attribution_data' => $attribution_data->normalize(),
     );
 
     $event = (new Event())
@@ -59,7 +65,9 @@ class EventTest extends AbstractUnitTestCase {
       ->setDataProcessingOptions($expected['data_processing_options'])
       ->setDataProcessingOptionsCountry($expected['data_processing_options_country'])
       ->setDataProcessingOptionsState($expected['data_processing_options_state'])
-      ->setActionSource($expected['action_source']);
+      ->setActionSource($expected['action_source'])
+      ->setOriginalEventData($original_event_data)
+      ->setAttributionData($attribution_data);
 
     $this->assertEquals($expected, $event->normalize());
   }
@@ -75,7 +83,7 @@ class EventTest extends AbstractUnitTestCase {
     $event = (new Event())->setActionSource($action_source);
 
     try {
-     $normalized_payload = $event->normalize();
+      $normalized_payload = $event->normalize();
     } catch (\Exception $exception) {
       $has_thrown_exception = true;
       $expected_string = sprintf("Invalid action_source passed: %s",$action_source);
