@@ -75,7 +75,7 @@ class EventRequest {
 
   /**
    * Sets an array of Signal Event objects
-   * @param FacebookAds\Object\Signal\Event[] $events An array of Signal Event objects
+   * @param \FacebookAds\Object\Signal\Event[] $events An array of Signal Event objects
    * @return $this
    */
   public function setEvents($events) {
