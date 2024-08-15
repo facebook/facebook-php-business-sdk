@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object;
@@ -32,6 +17,7 @@ use FacebookAds\Object\Fields\AdsPixelFields;
 use FacebookAds\Object\Values\AdsPixelAutomaticMatchingFieldsValues;
 use FacebookAds\Object\Values\AdsPixelDataUseSettingValues;
 use FacebookAds\Object\Values\AdsPixelFirstPartyCookieStatusValues;
+use FacebookAds\Object\Values\AdsPixelPermittedTasksValues;
 use FacebookAds\Object\Values\AdsPixelSortByValues;
 use FacebookAds\Object\Values\AdsPixelStatsResultAggregationValues;
 use FacebookAds\Object\Values\AdsPixelTasksValues;
@@ -70,6 +56,7 @@ class AdsPixel extends AbstractCrudObject {
     $ref_enums['AutomaticMatchingFields'] = AdsPixelAutomaticMatchingFieldsValues::getInstance()->getValues();
     $ref_enums['DataUseSetting'] = AdsPixelDataUseSettingValues::getInstance()->getValues();
     $ref_enums['FirstPartyCookieStatus'] = AdsPixelFirstPartyCookieStatusValues::getInstance()->getValues();
+    $ref_enums['PermittedTasks'] = AdsPixelPermittedTasksValues::getInstance()->getValues();
     $ref_enums['Tasks'] = AdsPixelTasksValues::getInstance()->getValues();
     return $ref_enums;
   }
@@ -99,6 +86,30 @@ class AdsPixel extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function deleteAgencies(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'business' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/agencies',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getAgencies(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -115,6 +126,56 @@ class AdsPixel extends AbstractCrudObject {
       new Business(),
       'EDGE',
       Business::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createAgency(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'business' => 'string',
+      'permitted_tasks' => 'list<permitted_tasks_enum>',
+    );
+    $enums = array(
+      'permitted_tasks_enum' => AdsPixelPermittedTasksValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/agencies',
+      new AdsPixel(),
+      'EDGE',
+      AdsPixel::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createAhpConfig(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'applink_autosetup' => 'bool',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/ahp_configs',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -206,6 +267,7 @@ class AdsPixel extends AbstractCrudObject {
       'namespace_id' => 'string',
       'partner_agent' => 'string',
       'platforms' => 'list<map>',
+      'progress' => 'Object',
       'test_event_code' => 'string',
       'trace' => 'unsigned int',
       'upload_id' => 'string',
@@ -220,29 +282,6 @@ class AdsPixel extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/events',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createMeapitocapiconsolidationhelper(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/meapitocapiconsolidationhelper',
       new AbstractCrudObject(),
       'EDGE',
       array(),
@@ -329,7 +368,7 @@ class AdsPixel extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function deleteSharedAccounts(array $fields = array(), array $params = array(), $pending = false) {
+  public function deleteShareDAccounts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -354,7 +393,7 @@ class AdsPixel extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getSharedAccounts(array $fields = array(), array $params = array(), $pending = false) {
+  public function getShareDAccounts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -378,7 +417,7 @@ class AdsPixel extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createSharedAccount(array $fields = array(), array $params = array(), $pending = false) {
+  public function createShareDAccount(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -403,7 +442,7 @@ class AdsPixel extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getSharedAgencies(array $fields = array(), array $params = array(), $pending = false) {
+  public function getShareDAgencies(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -448,29 +487,6 @@ class AdsPixel extends AbstractCrudObject {
       new AdsPixelStatsResult(),
       'EDGE',
       AdsPixelStatsResult::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createTelemetry(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/telemetry',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

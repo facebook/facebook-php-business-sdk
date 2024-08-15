@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Fields;
@@ -42,9 +27,11 @@ class AdAccountFields extends AbstractEnum {
   const AD_ACCOUNT_PROMOTABLE_OBJECTS = 'ad_account_promotable_objects';
   const AGE = 'age';
   const AGENCY_CLIENT_DECLARATION = 'agency_client_declaration';
+  const ALL_CAPABILITIES = 'all_capabilities';
   const AMOUNT_SPENT = 'amount_spent';
   const ATTRIBUTION_SPEC = 'attribution_spec';
   const BALANCE = 'balance';
+  const BRAND_SAFETY_CONTENT_FILTER_LEVELS = 'brand_safety_content_filter_levels';
   const BUSINESS = 'business';
   const BUSINESS_CITY = 'business_city';
   const BUSINESS_COUNTRY_CODE = 'business_country_code';
@@ -57,6 +44,8 @@ class AdAccountFields extends AbstractEnum {
   const CREATED_TIME = 'created_time';
   const CURRENCY = 'currency';
   const CUSTOM_AUDIENCE_INFO = 'custom_audience_info';
+  const DEFAULT_DSA_BENEFICIARY = 'default_dsa_beneficiary';
+  const DEFAULT_DSA_PAYOR = 'default_dsa_payor';
   const DISABLE_REASON = 'disable_reason';
   const END_ADVERTISER = 'end_advertiser';
   const END_ADVERTISER_NAME = 'end_advertiser_name';
@@ -99,6 +88,7 @@ class AdAccountFields extends AbstractEnum {
   const TIMEZONE_NAME = 'timezone_name';
   const TIMEZONE_OFFSET_HOURS_UTC = 'timezone_offset_hours_utc';
   const TOS_ACCEPTED = 'tos_accepted';
+  const USER_ACCESS_EXPIRE_TIME = 'user_access_expire_time';
   const USER_TASKS = 'user_tasks';
   const USER_TOS_ACCEPTED = 'user_tos_accepted';
   const VIEWABLE_BUSINESS = 'viewable_business';
@@ -110,9 +100,11 @@ class AdAccountFields extends AbstractEnum {
       'ad_account_promotable_objects' => 'AdAccountPromotableObjects',
       'age' => 'float',
       'agency_client_declaration' => 'AgencyClientDeclaration',
+      'all_capabilities' => 'list<string>',
       'amount_spent' => 'string',
       'attribution_spec' => 'list<AttributionSpec>',
       'balance' => 'string',
+      'brand_safety_content_filter_levels' => 'list<string>',
       'business' => 'Business',
       'business_city' => 'string',
       'business_country_code' => 'string',
@@ -125,6 +117,8 @@ class AdAccountFields extends AbstractEnum {
       'created_time' => 'datetime',
       'currency' => 'string',
       'custom_audience_info' => 'CustomAudienceGroup',
+      'default_dsa_beneficiary' => 'string',
+      'default_dsa_payor' => 'string',
       'disable_reason' => 'unsigned int',
       'end_advertiser' => 'string',
       'end_advertiser_name' => 'string',
@@ -167,6 +161,7 @@ class AdAccountFields extends AbstractEnum {
       'timezone_name' => 'string',
       'timezone_offset_hours_utc' => 'float',
       'tos_accepted' => 'map<string, int>',
+      'user_access_expire_time' => 'datetime',
       'user_tasks' => 'list<string>',
       'user_tos_accepted' => 'map<string, int>',
       'viewable_business' => 'Business',

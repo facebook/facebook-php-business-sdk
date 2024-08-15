@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Fields;
@@ -39,6 +24,7 @@ class UserFields extends AbstractEnum {
 
   const ABOUT = 'about';
   const AGE_RANGE = 'age_range';
+  const AVATAR_2D_PROFILE_PICTURE = 'avatar_2d_profile_picture';
   const BIRTHDAY = 'birthday';
   const COMMUNITY = 'community';
   const COVER = 'cover';
@@ -56,6 +42,7 @@ class UserFields extends AbstractEnum {
   const INSTALL_TYPE = 'install_type';
   const INSTALLED = 'installed';
   const IS_GUEST_USER = 'is_guest_user';
+  const IS_WORK_ACCOUNT = 'is_work_account';
   const LANGUAGES = 'languages';
   const LAST_NAME = 'last_name';
   const LINK = 'link';
@@ -89,11 +76,12 @@ class UserFields extends AbstractEnum {
     return array(
       'about' => 'string',
       'age_range' => 'AgeRange',
+      'avatar_2d_profile_picture' => 'AvatarProfilePicture',
       'birthday' => 'string',
       'community' => 'Group',
       'cover' => 'UserCoverPhoto',
       'currency' => 'Currency',
-      'education' => 'list<Object>',
+      'education' => 'list<EducationExperience>',
       'email' => 'string',
       'favorite_athletes' => 'list<Experience>',
       'favorite_teams' => 'list<Experience>',
@@ -106,6 +94,7 @@ class UserFields extends AbstractEnum {
       'install_type' => 'string',
       'installed' => 'bool',
       'is_guest_user' => 'bool',
+      'is_work_account' => 'bool',
       'languages' => 'list<Experience>',
       'last_name' => 'string',
       'link' => 'string',
@@ -122,7 +111,7 @@ class UserFields extends AbstractEnum {
       'profile_pic' => 'string',
       'quotes' => 'string',
       'relationship_status' => 'string',
-      'shared_login_upgrade_required_by' => 'Object',
+      'shared_login_upgrade_required_by' => 'datetime',
       'short_name' => 'string',
       'significant_other' => 'User',
       'sports' => 'list<Experience>',

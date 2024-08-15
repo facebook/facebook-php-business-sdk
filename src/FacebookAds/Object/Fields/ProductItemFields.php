@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Fields;
@@ -42,7 +27,6 @@ class ProductItemFields extends AbstractEnum {
   const ADDITIONAL_VARIANT_ATTRIBUTES = 'additional_variant_attributes';
   const AGE_GROUP = 'age_group';
   const APPLINKS = 'applinks';
-  const AR_DATA = 'ar_data';
   const AVAILABILITY = 'availability';
   const BRAND = 'brand';
   const CAPABILITY_TO_REVIEW_STATUS = 'capability_to_review_status';
@@ -93,6 +77,7 @@ class ProductItemFields extends AbstractEnum {
   const PRODUCT_CATALOG = 'product_catalog';
   const PRODUCT_FEED = 'product_feed';
   const PRODUCT_GROUP = 'product_group';
+  const PRODUCT_LOCAL_INFO = 'product_local_info';
   const PRODUCT_TYPE = 'product_type';
   const QUANTITY_TO_SELL_ON_FACEBOOK = 'quantity_to_sell_on_facebook';
   const RETAILER_ID = 'retailer_id';
@@ -107,7 +92,9 @@ class ProductItemFields extends AbstractEnum {
   const SHORT_DESCRIPTION = 'short_description';
   const SIZE = 'size';
   const START_DATE = 'start_date';
+  const TAGS = 'tags';
   const URL = 'url';
+  const VIDEO_FETCH_STATUS = 'video_fetch_status';
   const VISIBILITY = 'visibility';
   const WA_COMPLIANCE_CATEGORY = 'wa_compliance_category';
   const ADDITIONAL_UPLOADED_IMAGE_IDS = 'additional_uploaded_image_ids';
@@ -127,9 +114,6 @@ class ProductItemFields extends AbstractEnum {
   const IPHONE_APP_STORE_ID = 'iphone_app_store_id';
   const IPHONE_URL = 'iphone_url';
   const LAUNCH_DATE = 'launch_date';
-  const OFFER_PRICE_AMOUNT = 'offer_price_amount';
-  const OFFER_PRICE_END_DATE = 'offer_price_end_date';
-  const OFFER_PRICE_START_DATE = 'offer_price_start_date';
   const RETURN_POLICY_DAYS = 'return_policy_days';
   const WINDOWS_PHONE_APP_ID = 'windows_phone_app_id';
   const WINDOWS_PHONE_APP_NAME = 'windows_phone_app_name';
@@ -142,7 +126,6 @@ class ProductItemFields extends AbstractEnum {
       'additional_variant_attributes' => 'list<map<string, string>>',
       'age_group' => 'AgeGroup',
       'applinks' => 'CatalogItemAppLinks',
-      'ar_data' => 'ProductItemARData',
       'availability' => 'Availability',
       'brand' => 'string',
       'capability_to_review_status' => 'list<map<Object, Object>>',
@@ -176,7 +159,7 @@ class ProductItemFields extends AbstractEnum {
       'images' => 'list<string>',
       'importer_address' => 'ProductItemImporterAddress',
       'importer_name' => 'string',
-      'invalidation_errors' => 'list<Object>',
+      'invalidation_errors' => 'list<ProductItemInvalidationError>',
       'inventory' => 'int',
       'manufacturer_info' => 'string',
       'manufacturer_part_number' => 'string',
@@ -193,6 +176,7 @@ class ProductItemFields extends AbstractEnum {
       'product_catalog' => 'ProductCatalog',
       'product_feed' => 'ProductFeed',
       'product_group' => 'ProductGroup',
+      'product_local_info' => 'ProductItemLocalInfo',
       'product_type' => 'string',
       'quantity_to_sell_on_facebook' => 'int',
       'retailer_id' => 'string',
@@ -207,7 +191,9 @@ class ProductItemFields extends AbstractEnum {
       'short_description' => 'string',
       'size' => 'string',
       'start_date' => 'string',
+      'tags' => 'list<string>',
       'url' => 'string',
+      'video_fetch_status' => 'VideoFetchStatus',
       'visibility' => 'Visibility',
       'wa_compliance_category' => 'string',
       'additional_uploaded_image_ids' => 'list<string>',
@@ -227,9 +213,6 @@ class ProductItemFields extends AbstractEnum {
       'iphone_app_store_id' => 'unsigned int',
       'iphone_url' => 'string',
       'launch_date' => 'string',
-      'offer_price_amount' => 'unsigned int',
-      'offer_price_end_date' => 'datetime',
-      'offer_price_start_date' => 'datetime',
       'return_policy_days' => 'unsigned int',
       'windows_phone_app_id' => 'string',
       'windows_phone_app_name' => 'string',

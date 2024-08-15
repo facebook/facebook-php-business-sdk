@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Values;
@@ -37,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class CustomAudienceDataSourceSubTypeValues extends AbstractEnum {
 
+  const AD_CAMPAIGN = 'AD_CAMPAIGN';
   const ANYTHING = 'ANYTHING';
   const APP_USERS = 'APP_USERS';
   const AR_EFFECTS_EVENTS = 'AR_EFFECTS_EVENTS';
@@ -58,6 +44,7 @@ class CustomAudienceDataSourceSubTypeValues extends AbstractEnum {
   const FACEBOOK_WIFI_EVENTS = 'FACEBOOK_WIFI_EVENTS';
   const FB_EVENT_SIGNALS = 'FB_EVENT_SIGNALS';
   const FB_PIXEL_HITS = 'FB_PIXEL_HITS';
+  const GROUP_EVENTS = 'GROUP_EVENTS';
   const HASHES = 'HASHES';
   const HASHES_OR_USER_IDS = 'HASHES_OR_USER_IDS';
   const HOUSEHOLD_EXPANSION = 'HOUSEHOLD_EXPANSION';
@@ -66,6 +53,8 @@ class CustomAudienceDataSourceSubTypeValues extends AbstractEnum {
   const INSTANT_ARTICLE_EVENTS = 'INSTANT_ARTICLE_EVENTS';
   const LOOKALIKE_PLATFORM = 'LOOKALIKE_PLATFORM';
   const MAIL_CHIMP_EMAIL_HASHES = 'MAIL_CHIMP_EMAIL_HASHES';
+  const MARKETPLACE_LISTINGS = 'MARKETPLACE_LISTINGS';
+  const MESSENGER_ONSITE_SUBSCRIPTION = 'MESSENGER_ONSITE_SUBSCRIPTION';
   const MOBILE_ADVERTISER_IDS = 'MOBILE_ADVERTISER_IDS';
   const MOBILE_APP_COMBINATION_EVENTS = 'MOBILE_APP_COMBINATION_EVENTS';
   const MOBILE_APP_CUSTOM_AUDIENCE_USERS = 'MOBILE_APP_CUSTOM_AUDIENCE_USERS';
@@ -95,4 +84,5 @@ class CustomAudienceDataSourceSubTypeValues extends AbstractEnum {
   const WEB_PIXEL_COMBINATION_EVENTS = 'WEB_PIXEL_COMBINATION_EVENTS';
   const WEB_PIXEL_HITS = 'WEB_PIXEL_HITS';
   const WEB_PIXEL_HITS_CUSTOM_AUDIENCE_USERS = 'WEB_PIXEL_HITS_CUSTOM_AUDIENCE_USERS';
+  const WHATSAPP_SUBSCRIBER_POOL = 'WHATSAPP_SUBSCRIBER_POOL';
 }

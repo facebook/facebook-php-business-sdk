@@ -71,6 +71,11 @@ class ActionSource extends AbstractEnum {
   const SYSTEM_GENERATED = 'system_generated';
 
   /**
+   * Conversion happened through a business messaging channel, such as WhatsApp or Instagram Direct.
+   */
+  const BUSINESS_MESSAGING = 'business_messaging';
+
+  /**
    * Conversion happened in a way that is not listed.
    */
   const OTHER = 'other';

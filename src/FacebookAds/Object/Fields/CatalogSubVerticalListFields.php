@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Fields;
@@ -66,7 +51,6 @@ class CatalogSubVerticalListFields extends AbstractEnum {
   const LOCAL_SERVICE_BUSINESS_ITEM = 'local_service_business_item';
   const LOCAL_SERVICE_BUSINESS_RESTAURANT = 'local_service_business_restaurant';
   const LOYALTY_OFFER = 'loyalty_offer';
-  const MEETUP_SPACE = 'meetup_space';
   const NURSERY = 'nursery';
   const PRINTERS_AND_SCANNERS = 'printers_and_scanners';
   const PRINTERS_SCANNERS_AND_FAX_MACHINES = 'printers_scanners_and_fax_machines';
@@ -123,7 +107,6 @@ class CatalogSubVerticalListFields extends AbstractEnum {
       'local_service_business_item' => 'Object',
       'local_service_business_restaurant' => 'Object',
       'loyalty_offer' => 'Object',
-      'meetup_space' => 'Object',
       'nursery' => 'Object',
       'printers_and_scanners' => 'Object',
       'printers_scanners_and_fax_machines' => 'Object',

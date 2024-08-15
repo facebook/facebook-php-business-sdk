@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object;
@@ -34,7 +19,6 @@ use FacebookAds\Object\Values\AdConfiguredStatusValues;
 use FacebookAds\Object\Values\AdDatePresetValues;
 use FacebookAds\Object\Values\AdEffectiveStatusValues;
 use FacebookAds\Object\Values\AdExecutionOptionsValues;
-use FacebookAds\Object\Values\AdMetaRewardAdgroupStatusValues;
 use FacebookAds\Object\Values\AdOperatorValues;
 use FacebookAds\Object\Values\AdPreviewAdFormatValues;
 use FacebookAds\Object\Values\AdPreviewCreativeFeatureValues;
@@ -86,7 +70,6 @@ class Ad extends AbstractArchivableCrudObject
     $ref_enums['Status'] = AdStatusValues::getInstance()->getValues();
     $ref_enums['DatePreset'] = AdDatePresetValues::getInstance()->getValues();
     $ref_enums['ExecutionOptions'] = AdExecutionOptionsValues::getInstance()->getValues();
-    $ref_enums['MetaRewardAdgroupStatus'] = AdMetaRewardAdgroupStatusValues::getInstance()->getValues();
     $ref_enums['Operator'] = AdOperatorValues::getInstance()->getValues();
     $ref_enums['StatusOption'] = AdStatusOptionValues::getInstance()->getValues();
     return $ref_enums;
@@ -172,7 +155,7 @@ class Ad extends AbstractArchivableCrudObject
     $param_types = array(
       'date_preset' => 'date_preset_enum',
       'effective_status' => 'list<string>',
-      'time_range' => 'Object',
+      'time_range' => 'map',
       'updated_since' => 'int',
     );
     $enums = array(
@@ -242,8 +225,8 @@ class Ad extends AbstractArchivableCrudObject
       'summary' => 'list<string>',
       'summary_action_breakdowns' => 'list<summary_action_breakdowns_enum>',
       'time_increment' => 'string',
-      'time_range' => 'Object',
-      'time_ranges' => 'list<Object>',
+      'time_range' => 'map',
+      'time_ranges' => 'list<map>',
       'use_account_attribution_setting' => 'bool',
       'use_unified_attribution_setting' => 'bool',
     );
@@ -293,8 +276,8 @@ class Ad extends AbstractArchivableCrudObject
       'summary' => 'list<string>',
       'summary_action_breakdowns' => 'list<summary_action_breakdowns_enum>',
       'time_increment' => 'string',
-      'time_range' => 'Object',
-      'time_ranges' => 'list<Object>',
+      'time_range' => 'map',
+      'time_ranges' => 'list<map>',
       'use_account_attribution_setting' => 'bool',
       'use_unified_attribution_setting' => 'bool',
     );
@@ -346,7 +329,7 @@ class Ad extends AbstractArchivableCrudObject
     return $pending ? $request : $request->execute();
   }
 
-  public function getPreViews(array $fields = array(), array $params = array(), $pending = false) {
+  public function getPreviews(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -440,7 +423,7 @@ class Ad extends AbstractArchivableCrudObject
       'date_preset' => 'date_preset_enum',
       'from_adtable' => 'bool',
       'review_feedback_breakdown' => 'bool',
-      'time_range' => 'Object',
+      'time_range' => 'map',
     );
     $enums = array(
       'date_preset_enum' => array(
@@ -486,18 +469,20 @@ class Ad extends AbstractArchivableCrudObject
     $this->assureId();
 
     $param_types = array(
+      'ad_schedule_end_time' => 'datetime',
+      'ad_schedule_start_time' => 'datetime',
       'adlabels' => 'list<Object>',
       'adset_spec' => 'AdSet',
       'audience_id' => 'string',
       'bid_amount' => 'int',
       'conversion_domain' => 'string',
       'creative' => 'AdCreative',
+      'creative_asset_groups_spec' => 'Object',
       'display_sequence' => 'unsigned int',
       'draft_adgroup_id' => 'string',
       'engagement_audience' => 'bool',
       'execution_options' => 'list<execution_options_enum>',
       'include_demolink_hashes' => 'bool',
-      'meta_reward_adgroup_status' => 'meta_reward_adgroup_status_enum',
       'name' => 'string',
       'priority' => 'unsigned int',
       'status' => 'status_enum',
@@ -505,7 +490,6 @@ class Ad extends AbstractArchivableCrudObject
     );
     $enums = array(
       'execution_options_enum' => AdExecutionOptionsValues::getInstance()->getValues(),
-      'meta_reward_adgroup_status_enum' => AdMetaRewardAdgroupStatusValues::getInstance()->getValues(),
       'status_enum' => AdStatusValues::getInstance()->getValues(),
     );
 

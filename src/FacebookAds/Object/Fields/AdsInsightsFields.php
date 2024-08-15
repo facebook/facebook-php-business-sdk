@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Fields;
@@ -46,6 +31,7 @@ class AdsInsightsFields extends AbstractEnum {
   const AD_ID = 'ad_id';
   const AD_IMPRESSION_ACTIONS = 'ad_impression_actions';
   const AD_NAME = 'ad_name';
+  const ADJUSTED_OFFLINE_PURCHASE = 'adjusted_offline_purchase';
   const ADSET_END = 'adset_end';
   const ADSET_ID = 'adset_id';
   const ADSET_NAME = 'adset_name';
@@ -120,8 +106,13 @@ class AdsInsightsFields extends AbstractEnum {
   const INTERACTIVE_COMPONENT_TAP = 'interactive_component_tap';
   const LABELS = 'labels';
   const LOCATION = 'location';
+  const MARKETING_MESSAGES_COST_PER_DELIVERED = 'marketing_messages_cost_per_delivered';
+  const MARKETING_MESSAGES_COST_PER_LINK_BTN_CLICK = 'marketing_messages_cost_per_link_btn_click';
+  const MARKETING_MESSAGES_SPEND = 'marketing_messages_spend';
+  const MARKETING_MESSAGES_WEBSITE_PURCHASE_VALUES = 'marketing_messages_website_purchase_values';
   const MOBILE_APP_PURCHASE_ROAS = 'mobile_app_purchase_roas';
   const OBJECTIVE = 'objective';
+  const ONSITE_CONVERSION_MESSAGING_DETECTED_PURCHASE_DEDUPED = 'onsite_conversion_messaging_detected_purchase_deduped';
   const OPTIMIZATION_GOAL = 'optimization_goal';
   const OUTBOUND_CLICKS = 'outbound_clicks';
   const OUTBOUND_CLICKS_CTR = 'outbound_clicks_ctr';
@@ -129,10 +120,8 @@ class AdsInsightsFields extends AbstractEnum {
   const PURCHASE_ROAS = 'purchase_roas';
   const QUALIFYING_QUESTION_QUALIFY_ANSWER_RATE = 'qualifying_question_qualify_answer_rate';
   const QUALITY_RANKING = 'quality_ranking';
-  const QUALITY_SCORE_ECTR = 'quality_score_ectr';
-  const QUALITY_SCORE_ECVR = 'quality_score_ecvr';
-  const QUALITY_SCORE_ORGANIC = 'quality_score_organic';
   const REACH = 'reach';
+  const SHOPS_ASSISTED_PURCHASES = 'shops_assisted_purchases';
   const SOCIAL_SPEND = 'social_spend';
   const SPEND = 'spend';
   const TOTAL_POSTBACKS = 'total_postbacks';
@@ -181,6 +170,7 @@ class AdsInsightsFields extends AbstractEnum {
       'ad_id' => 'string',
       'ad_impression_actions' => 'list<AdsActionStats>',
       'ad_name' => 'string',
+      'adjusted_offline_purchase' => 'list<Object>',
       'adset_end' => 'string',
       'adset_id' => 'string',
       'adset_name' => 'string',
@@ -255,8 +245,13 @@ class AdsInsightsFields extends AbstractEnum {
       'interactive_component_tap' => 'list<AdsActionStats>',
       'labels' => 'string',
       'location' => 'string',
+      'marketing_messages_cost_per_delivered' => 'string',
+      'marketing_messages_cost_per_link_btn_click' => 'string',
+      'marketing_messages_spend' => 'string',
+      'marketing_messages_website_purchase_values' => 'string',
       'mobile_app_purchase_roas' => 'list<AdsActionStats>',
       'objective' => 'string',
+      'onsite_conversion_messaging_detected_purchase_deduped' => 'list<AdsActionStats>',
       'optimization_goal' => 'string',
       'outbound_clicks' => 'list<AdsActionStats>',
       'outbound_clicks_ctr' => 'list<AdsActionStats>',
@@ -264,15 +259,13 @@ class AdsInsightsFields extends AbstractEnum {
       'purchase_roas' => 'list<AdsActionStats>',
       'qualifying_question_qualify_answer_rate' => 'string',
       'quality_ranking' => 'string',
-      'quality_score_ectr' => 'string',
-      'quality_score_ecvr' => 'string',
-      'quality_score_organic' => 'string',
       'reach' => 'string',
+      'shops_assisted_purchases' => 'string',
       'social_spend' => 'string',
       'spend' => 'string',
       'total_postbacks' => 'string',
       'total_postbacks_detailed' => 'list<AdsActionStats>',
-      'total_postbacks_detailed_v4' => 'string',
+      'total_postbacks_detailed_v4' => 'list<AdsActionStats>',
       'unique_actions' => 'list<AdsActionStats>',
       'unique_clicks' => 'string',
       'unique_conversions' => 'list<AdsActionStats>',
@@ -295,10 +288,10 @@ class AdsInsightsFields extends AbstractEnum {
       'video_p75_watched_actions' => 'list<AdsActionStats>',
       'video_p95_watched_actions' => 'list<AdsActionStats>',
       'video_play_actions' => 'list<AdsActionStats>',
-      'video_play_curve_actions' => 'list<Object>',
-      'video_play_retention_0_to_15s_actions' => 'list<Object>',
-      'video_play_retention_20_to_60s_actions' => 'list<Object>',
-      'video_play_retention_graph_actions' => 'list<Object>',
+      'video_play_curve_actions' => 'list<AdsHistogramStats>',
+      'video_play_retention_0_to_15s_actions' => 'list<AdsHistogramStats>',
+      'video_play_retention_20_to_60s_actions' => 'list<AdsHistogramStats>',
+      'video_play_retention_graph_actions' => 'list<AdsHistogramStats>',
       'video_thruplay_watched_actions' => 'list<AdsActionStats>',
       'video_time_watched_actions' => 'list<AdsActionStats>',
       'website_ctr' => 'list<AdsActionStats>',

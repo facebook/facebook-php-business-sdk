@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Fields;
@@ -38,11 +23,26 @@ use FacebookAds\Enum\AbstractEnum;
 class AdsActionStatsFields extends AbstractEnum {
 
   const FIELD_1D_CLICK = '1d_click';
+  const FIELD_1D_CLICK_ALL_CONVERSIONS = '1d_click_all_conversions';
+  const FIELD_1D_CLICK_FIRST_CONVERSION = '1d_click_first_conversion';
+  const FIELD_1D_EV = '1d_ev';
+  const FIELD_1D_EV_ALL_CONVERSIONS = '1d_ev_all_conversions';
+  const FIELD_1D_EV_FIRST_CONVERSION = '1d_ev_first_conversion';
   const FIELD_1D_VIEW = '1d_view';
+  const FIELD_1D_VIEW_ALL_CONVERSIONS = '1d_view_all_conversions';
+  const FIELD_1D_VIEW_FIRST_CONVERSION = '1d_view_first_conversion';
   const FIELD_28D_CLICK = '28d_click';
+  const FIELD_28D_CLICK_ALL_CONVERSIONS = '28d_click_all_conversions';
+  const FIELD_28D_CLICK_FIRST_CONVERSION = '28d_click_first_conversion';
   const FIELD_28D_VIEW = '28d_view';
+  const FIELD_28D_VIEW_ALL_CONVERSIONS = '28d_view_all_conversions';
+  const FIELD_28D_VIEW_FIRST_CONVERSION = '28d_view_first_conversion';
   const FIELD_7D_CLICK = '7d_click';
+  const FIELD_7D_CLICK_ALL_CONVERSIONS = '7d_click_all_conversions';
+  const FIELD_7D_CLICK_FIRST_CONVERSION = '7d_click_first_conversion';
   const FIELD_7D_VIEW = '7d_view';
+  const FIELD_7D_VIEW_ALL_CONVERSIONS = '7d_view_all_conversions';
+  const FIELD_7D_VIEW_FIRST_CONVERSION = '7d_view_first_conversion';
   const ACTION_BRAND = 'action_brand';
   const ACTION_CANVAS_COMPONENT_ID = 'action_canvas_component_id';
   const ACTION_CANVAS_COMPONENT_NAME = 'action_canvas_component_name';
@@ -66,17 +66,36 @@ class AdsActionStatsFields extends AbstractEnum {
   const INTERACTIVE_COMPONENT_STICKER_ID = 'interactive_component_sticker_id';
   const INTERACTIVE_COMPONENT_STICKER_RESPONSE = 'interactive_component_sticker_response';
   const SKAN_CLICK = 'skan_click';
+  const SKAN_CLICK_SECOND_POSTBACK = 'skan_click_second_postback';
+  const SKAN_CLICK_THIRD_POSTBACK = 'skan_click_third_postback';
   const SKAN_VIEW = 'skan_view';
+  const SKAN_VIEW_SECOND_POSTBACK = 'skan_view_second_postback';
+  const SKAN_VIEW_THIRD_POSTBACK = 'skan_view_third_postback';
   const VALUE = 'value';
 
   public function getFieldTypes() {
     return array(
       '1d_click' => 'string',
+      '1d_click_all_conversions' => 'string',
+      '1d_click_first_conversion' => 'string',
+      '1d_ev' => 'string',
+      '1d_ev_all_conversions' => 'string',
+      '1d_ev_first_conversion' => 'string',
       '1d_view' => 'string',
+      '1d_view_all_conversions' => 'string',
+      '1d_view_first_conversion' => 'string',
       '28d_click' => 'string',
+      '28d_click_all_conversions' => 'string',
+      '28d_click_first_conversion' => 'string',
       '28d_view' => 'string',
+      '28d_view_all_conversions' => 'string',
+      '28d_view_first_conversion' => 'string',
       '7d_click' => 'string',
+      '7d_click_all_conversions' => 'string',
+      '7d_click_first_conversion' => 'string',
       '7d_view' => 'string',
+      '7d_view_all_conversions' => 'string',
+      '7d_view_first_conversion' => 'string',
       'action_brand' => 'string',
       'action_canvas_component_id' => 'string',
       'action_canvas_component_name' => 'string',
@@ -100,7 +119,11 @@ class AdsActionStatsFields extends AbstractEnum {
       'interactive_component_sticker_id' => 'string',
       'interactive_component_sticker_response' => 'string',
       'skan_click' => 'string',
+      'skan_click_second_postback' => 'string',
+      'skan_click_third_postback' => 'string',
       'skan_view' => 'string',
+      'skan_view_second_postback' => 'string',
+      'skan_view_third_postback' => 'string',
       'value' => 'string',
     );
   }

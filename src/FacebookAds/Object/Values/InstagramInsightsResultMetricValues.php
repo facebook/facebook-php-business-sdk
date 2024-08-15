@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Values;
@@ -37,15 +22,12 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class InstagramInsightsResultMetricValues extends AbstractEnum {
 
-  const CAROUSEL_ALBUM_ENGAGEMENT = 'carousel_album_engagement';
-  const CAROUSEL_ALBUM_IMPRESSIONS = 'carousel_album_impressions';
-  const CAROUSEL_ALBUM_REACH = 'carousel_album_reach';
-  const CAROUSEL_ALBUM_SAVED = 'carousel_album_saved';
-  const CAROUSEL_ALBUM_VIDEO_VIEWS = 'carousel_album_video_views';
+  const CLIPS_REPLAYS_COUNT = 'clips_replays_count';
   const COMMENTS = 'comments';
-  const ENGAGEMENT = 'engagement';
-  const EXITS = 'exits';
   const FOLLOWS = 'follows';
+  const IG_REELS_AGGREGATED_ALL_PLAYS_COUNT = 'ig_reels_aggregated_all_plays_count';
+  const IG_REELS_AVG_WATCH_TIME = 'ig_reels_avg_watch_time';
+  const IG_REELS_VIDEO_VIEW_TOTAL_TIME = 'ig_reels_video_view_total_time';
   const IMPRESSIONS = 'impressions';
   const LIKES = 'likes';
   const NAVIGATION = 'navigation';
@@ -56,8 +38,6 @@ class InstagramInsightsResultMetricValues extends AbstractEnum {
   const REPLIES = 'replies';
   const SAVED = 'saved';
   const SHARES = 'shares';
-  const TAPS_BACK = 'taps_back';
-  const TAPS_FORWARD = 'taps_forward';
   const TOTAL_INTERACTIONS = 'total_interactions';
   const VIDEO_VIEWS = 'video_views';
 }

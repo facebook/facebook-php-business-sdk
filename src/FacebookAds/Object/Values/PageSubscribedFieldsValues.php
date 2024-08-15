@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Values;
@@ -42,6 +27,7 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const AWARDS = 'awards';
   const BIO = 'bio';
   const BIRTHDAY = 'birthday';
+  const CALLS = 'calls';
   const CATEGORY = 'category';
   const CHECKINS = 'checkins';
   const COMPANY_OVERVIEW = 'company_overview';
@@ -58,8 +44,8 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const GROUP_FEED = 'group_feed';
   const HOMETOWN = 'hometown';
   const HOURS = 'hours';
-  const IN_THREAD_LEAD_FORM_SUBMIT = 'in_thread_lead_form_submit';
   const INBOX_LABELS = 'inbox_labels';
+  const INVALID_TOPIC_PLACEHOLDER = 'invalid_topic_placeholder';
   const INVOICE_ACCESS_BANK_SLIP_EVENTS = 'invoice_access_bank_slip_events';
   const INVOICE_ACCESS_INVOICE_CHANGE = 'invoice_access_invoice_change';
   const INVOICE_ACCESS_INVOICE_DRAFT_CHANGE = 'invoice_access_invoice_draft_change';
@@ -76,6 +62,7 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const MESSAGE_CONTEXT = 'message_context';
   const MESSAGE_DELIVERIES = 'message_deliveries';
   const MESSAGE_ECHOES = 'message_echoes';
+  const MESSAGE_EDITS = 'message_edits';
   const MESSAGE_MENTION = 'message_mention';
   const MESSAGE_REACTIONS = 'message_reactions';
   const MESSAGE_READS = 'message_reads';
@@ -89,6 +76,7 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const MESSAGING_FEEDBACK = 'messaging_feedback';
   const MESSAGING_GAME_PLAYS = 'messaging_game_plays';
   const MESSAGING_HANDOVERS = 'messaging_handovers';
+  const MESSAGING_IN_THREAD_LEAD_FORM_SUBMIT = 'messaging_in_thread_lead_form_submit';
   const MESSAGING_OPTINS = 'messaging_optins';
   const MESSAGING_OPTOUTS = 'messaging_optouts';
   const MESSAGING_PAYMENTS = 'messaging_payments';
@@ -98,11 +86,13 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const MESSAGING_REFERRALS = 'messaging_referrals';
   const MISSION = 'mission';
   const NAME = 'name';
+  const OTP_VERIFICATION = 'otp_verification';
   const PAGE_ABOUT_STORY = 'page_about_story';
   const PAGE_CHANGE_PROPOSAL = 'page_change_proposal';
   const PAGE_UPCOMING_CHANGE = 'page_upcoming_change';
   const PARKING = 'parking';
   const PAYMENT_OPTIONS = 'payment_options';
+  const PAYMENT_REQUEST_UPDATE = 'payment_request_update';
   const PERSONAL_INFO = 'personal_info';
   const PERSONAL_INTERESTS = 'personal_interests';
   const PHONE = 'phone';
@@ -114,6 +104,7 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const PUBLISHER_SUBSCRIPTIONS = 'publisher_subscriptions';
   const RATINGS = 'ratings';
   const REGISTRATION = 'registration';
+  const RESPONSE_FEEDBACK = 'response_feedback';
   const SEND_CART = 'send_cart';
   const STANDBY = 'standby';
   const USER_ACTION = 'user_action';

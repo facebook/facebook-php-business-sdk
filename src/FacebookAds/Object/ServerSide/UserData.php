@@ -86,7 +86,9 @@ class UserData implements ArrayAccess {
     'dobm' => 'string',
     'doby' => 'string',
     'madid' => 'string',
-    'anon_id' => 'string'
+    'anon_id' => 'string',
+    'ctwa_clid' => 'string',
+    'page_id' => 'string'
   );
   /**
    * Array of attributes where the key is the local name, and the value is the original name
@@ -129,7 +131,9 @@ class UserData implements ArrayAccess {
     'dobm' => 'dobm',
     'doby' => 'doby',
     'madid' => 'madid',
-    'anon_id' => 'anon_id'
+    'anon_id' => 'anon_id',
+    'ctwa_clid' => 'ctwa_clid',
+    'page_id' => 'page_id'
   );
   /**
    * Array of attributes to setter functions (for deserialization of responses)
@@ -172,7 +176,9 @@ class UserData implements ArrayAccess {
     'dobm' => 'setDobm',
     'doby' => 'setDoby',
     'madid' => 'setMadid',
-    'anon_id' => 'setAnonId'
+    'anon_id' => 'setAnonId',
+    'ctwa_clid' => 'setCtwaClid',
+    'page_id' => 'setPageId'
   );
   /**
    * Array of attributes to getter functions (for serialization of requests)
@@ -215,7 +221,9 @@ class UserData implements ArrayAccess {
     'dobm' => 'getDobm',
     'doby' => 'getDoby',
     'madid' => 'getMadid',
-    'anon_id' => 'getAnonId'
+    'anon_id' => 'getAnonId',
+    'ctwa_clid' => 'getCtwaClid',
+    'page_id' => 'getPageId'
   );
   /**
    * Associative array for storing property values
@@ -336,6 +344,8 @@ class UserData implements ArrayAccess {
     $this->container['doby'] = isset($data['doby']) ? $data['doby'] : null;
     $this->container['madid'] = isset($data['madid']) ? $data['madid'] : null;
     $this->container['anon_id'] = isset($data['anon_id']) ? $data['anon_id'] : null;
+    $this->container['ctwa_clid'] = isset($data['ctwa_clid']) ? $data['ctwa_clid'] : null;
+    $this->container['page_id'] = isset($data['page_id']) ? $data['page_id'] : null;
 
 
   }
@@ -854,6 +864,30 @@ class UserData implements ArrayAccess {
   }
 
   /**
+   * CtwaClid of the conversation that was started on WhatsApp
+   *
+   * @param ctwa_clid the anonymous id
+   * @return $this
+   */
+  public function setCtwaClid($ctwa_clid) {
+    $this->container['ctwa_clid'] = $ctwa_clid;
+
+    return $this;
+  }
+
+  /**
+   * Set the ID of the page that the ad is associated with
+   *
+   * @param page_id
+   * @return $this
+   */
+  public function setPageId($page_id) {
+    $this->container['page_id'] = $page_id;
+
+    return $this;
+  }
+
+  /**
    * Returns true if offset exists. False otherwise.
    * @param integer $offset Offset
    * @return boolean
@@ -923,6 +957,8 @@ class UserData implements ArrayAccess {
     $normalized_payload['doby'] = Util::hash(Normalizer::normalize('doby', $this->getDoby()));
     $normalized_payload['madid'] = Util::hash(Normalizer::normalize('madid', $this->getMadid()));
     $normalized_payload['anon_id'] = Util::hash(Normalizer::normalize('anon_id', $this->getAnonId()));
+    $normalized_payload['ctwa_clid'] = $this->getCtwaClid();
+    $normalized_payload['page_id'] = $this->getPageId();
     $normalized_payload = array_filter($normalized_payload);
     return $normalized_payload;
   }
@@ -1250,6 +1286,22 @@ class UserData implements ArrayAccess {
    */
   public function getAnonId() {
     return $this->container['anon_id'];
+  }
+
+  /**
+   * CtwaClid of the conversation that was started on WhatsApp
+   * @return string
+   */
+  public function getCtwaClid() {
+    return $this->container['ctwa_clid'];
+  }
+
+  /**
+   * ID of the page that the ad is associated with
+   * @return string
+   */
+  public function getPageId() {
+    return $this->container['page_id'];
   }
 
   /**

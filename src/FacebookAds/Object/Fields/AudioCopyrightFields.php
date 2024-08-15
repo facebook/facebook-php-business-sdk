@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Fields;
@@ -44,6 +29,7 @@ class AudioCopyrightFields extends AbstractEnum {
   const ISRC = 'isrc';
   const MATCH_RULE = 'match_rule';
   const OWNERSHIP_COUNTRIES = 'ownership_countries';
+  const OWNERSHIP_DETAILS = 'ownership_details';
   const REFERENCE_FILE_STATUS = 'reference_file_status';
   const RIDGE_MONITORING_STATUS = 'ridge_monitoring_status';
   const TAGS = 'tags';
@@ -60,6 +46,7 @@ class AudioCopyrightFields extends AbstractEnum {
       'isrc' => 'string',
       'match_rule' => 'VideoCopyrightRule',
       'ownership_countries' => 'list<string>',
+      'ownership_details' => 'list<map<string, Object>>',
       'reference_file_status' => 'string',
       'ridge_monitoring_status' => 'string',
       'tags' => 'list<string>',

@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Fields;
@@ -131,6 +116,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const EXISTING_CAMPAIGN_ID = 'existing_campaign_id';
   const GRP_BUYING = 'grp_buying';
   const IMPRESSION = 'impression';
+  const IS_BALANCED_FREQUENCY = 'is_balanced_frequency';
   const IS_FULL_VIEW = 'is_full_view';
   const IS_REACH_AND_FREQUENCY_IO_BUYING = 'is_reach_and_frequency_io_buying';
   const NUM_CURVE_POINTS = 'num_curve_points';
@@ -139,6 +125,8 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const RF_PREDICTION_ID_TO_RELEASE = 'rf_prediction_id_to_release';
   const RF_PREDICTION_ID_TO_SHARE = 'rf_prediction_id_to_share';
   const STOP_TIME = 'stop_time';
+  const TARGET_FREQUENCY = 'target_frequency';
+  const TARGET_FREQUENCY_RESET_PERIOD = 'target_frequency_reset_period';
 
   public function getFieldTypes() {
     return array(
@@ -236,6 +224,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'existing_campaign_id' => 'string',
       'grp_buying' => 'bool',
       'impression' => 'unsigned int',
+      'is_balanced_frequency' => 'bool',
       'is_full_view' => 'bool',
       'is_reach_and_frequency_io_buying' => 'bool',
       'num_curve_points' => 'unsigned int',
@@ -244,6 +233,8 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'rf_prediction_id_to_release' => 'string',
       'rf_prediction_id_to_share' => 'string',
       'stop_time' => 'unsigned int',
+      'target_frequency' => 'unsigned int',
+      'target_frequency_reset_period' => 'unsigned int',
     );
   }
 }

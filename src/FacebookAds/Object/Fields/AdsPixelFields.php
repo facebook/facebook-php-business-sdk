@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Fields;
@@ -52,6 +37,7 @@ class AdsPixelFields extends AbstractEnum {
   const EVENT_TIME_MAX = 'event_time_max';
   const EVENT_TIME_MIN = 'event_time_min';
   const FIRST_PARTY_COOKIE_STATUS = 'first_party_cookie_status';
+  const HAS_1P_PIXEL_EVENT = 'has_1p_pixel_event';
   const ID = 'id';
   const IS_CONSOLIDATED_CONTAINER = 'is_consolidated_container';
   const IS_CREATED_BY_BUSINESS = 'is_created_by_business';
@@ -68,6 +54,7 @@ class AdsPixelFields extends AbstractEnum {
   const OWNER_AD_ACCOUNT = 'owner_ad_account';
   const OWNER_BUSINESS = 'owner_business';
   const USAGE = 'usage';
+  const USER_ACCESS_EXPIRE_TIME = 'user_access_expire_time';
   const VALID_ENTRIES = 'valid_entries';
 
   public function getFieldTypes() {
@@ -87,6 +74,7 @@ class AdsPixelFields extends AbstractEnum {
       'event_time_max' => 'int',
       'event_time_min' => 'int',
       'first_party_cookie_status' => 'string',
+      'has_1p_pixel_event' => 'bool',
       'id' => 'string',
       'is_consolidated_container' => 'bool',
       'is_created_by_business' => 'bool',
@@ -103,6 +91,7 @@ class AdsPixelFields extends AbstractEnum {
       'owner_ad_account' => 'AdAccount',
       'owner_business' => 'Business',
       'usage' => 'OfflineConversionDataSetUsage',
+      'user_access_expire_time' => 'datetime',
       'valid_entries' => 'int',
     );
   }

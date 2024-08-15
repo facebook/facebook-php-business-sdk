@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Fields;
@@ -62,13 +47,16 @@ class LocalServiceBusinessFields extends AbstractEnum {
   const ID = 'id';
   const IMAGE_FETCH_STATUS = 'image_fetch_status';
   const IMAGES = 'images';
+  const LOCAL_INFO = 'local_info';
   const LOCAL_SERVICE_BUSINESS_ID = 'local_service_business_id';
+  const MAIN_LOCAL_INFO = 'main_local_info';
   const PHONE = 'phone';
   const PRICE = 'price';
   const PRICE_RANGE = 'price_range';
   const RETAILER_CATEGORY = 'retailer_category';
   const SANITIZED_IMAGES = 'sanitized_images';
   const SIZE = 'size';
+  const TAGS = 'tags';
   const TITLE = 'title';
   const UNIT_PRICE = 'unit_price';
   const URL = 'url';
@@ -102,13 +90,16 @@ class LocalServiceBusinessFields extends AbstractEnum {
       'id' => 'string',
       'image_fetch_status' => 'ImageFetchStatus',
       'images' => 'list<string>',
+      'local_info' => 'ProductItemLocalInfo',
       'local_service_business_id' => 'string',
+      'main_local_info' => 'ProductItemLocalInfo',
       'phone' => 'string',
       'price' => 'string',
       'price_range' => 'string',
       'retailer_category' => 'string',
       'sanitized_images' => 'list<string>',
       'size' => 'string',
+      'tags' => 'list<string>',
       'title' => 'string',
       'unit_price' => 'Object',
       'url' => 'string',

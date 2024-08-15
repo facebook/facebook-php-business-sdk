@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Values;
@@ -37,9 +22,18 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ProductCatalogDiagnosticGroupAffectedChannelsValues extends AbstractEnum {
 
-  const BUSINESS_INBOX_IN_MESSENGER = 'business_inbox_in_messenger';
+  const B2C_MARKETPLACE = 'b2c_marketplace';
+  const C2C_MARKETPLACE = 'c2c_marketplace';
+  const DA = 'da';
+  const DAILY_DEALS = 'daily_deals';
+  const DAILY_DEALS_LEGACY = 'daily_deals_legacy';
+  const IG_PRODUCT_TAGGING = 'ig_product_tagging';
+  const MARKETPLACE = 'marketplace';
+  const MARKETPLACE_ADS_DEPRECATED = 'marketplace_ads_deprecated';
+  const MARKETPLACE_SHOPS = 'marketplace_shops';
+  const MINI_SHOPS = 'mini_shops';
+  const OFFLINE_CONVERSIONS = 'offline_conversions';
   const SHOPS = 'shops';
-  const TEST_CAPABILITY = 'test_capability';
   const UNIVERSAL_CHECKOUT = 'universal_checkout';
-  const US_MARKETPLACE = 'us_marketplace';
+  const WHATSAPP = 'whatsapp';
 }

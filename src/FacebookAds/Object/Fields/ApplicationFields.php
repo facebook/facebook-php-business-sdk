@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Fields;
@@ -62,6 +47,8 @@ class ApplicationFields extends AbstractEnum {
   const AUTO_EVENT_MAPPING_ANDROID = 'auto_event_mapping_android';
   const AUTO_EVENT_MAPPING_IOS = 'auto_event_mapping_ios';
   const AUTO_EVENT_SETUP_ENABLED = 'auto_event_setup_enabled';
+  const AUTO_LOG_APP_EVENTS_DEFAULT = 'auto_log_app_events_default';
+  const AUTO_LOG_APP_EVENTS_ENABLED = 'auto_log_app_events_enabled';
   const BUSINESS = 'business';
   const CANVAS_FLUID_HEIGHT = 'canvas_fluid_height';
   const CANVAS_FLUID_WIDTH = 'canvas_fluid_width';
@@ -114,6 +101,7 @@ class ApplicationFields extends AbstractEnum {
   const PRIVACY_POLICY_URL = 'privacy_policy_url';
   const PROFILE_SECTION_URL = 'profile_section_url';
   const PROPERTY_ID = 'property_id';
+  const PROTECTED_MODE_RULES = 'protected_mode_rules';
   const REAL_TIME_MODE_DEVICES = 'real_time_mode_devices';
   const RESTRICTIONS = 'restrictions';
   const RESTRICTIVE_DATA_FILTER_PARAMS = 'restrictive_data_filter_params';
@@ -167,6 +155,8 @@ class ApplicationFields extends AbstractEnum {
       'auto_event_mapping_android' => 'list<Object>',
       'auto_event_mapping_ios' => 'list<Object>',
       'auto_event_setup_enabled' => 'bool',
+      'auto_log_app_events_default' => 'bool',
+      'auto_log_app_events_enabled' => 'bool',
       'business' => 'Business',
       'canvas_fluid_height' => 'bool',
       'canvas_fluid_width' => 'unsigned int',
@@ -219,6 +209,7 @@ class ApplicationFields extends AbstractEnum {
       'privacy_policy_url' => 'string',
       'profile_section_url' => 'string',
       'property_id' => 'string',
+      'protected_mode_rules' => 'Object',
       'real_time_mode_devices' => 'list<string>',
       'restrictions' => 'Object',
       'restrictive_data_filter_params' => 'string',

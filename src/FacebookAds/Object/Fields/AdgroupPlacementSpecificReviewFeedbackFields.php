@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Fields;
@@ -45,6 +30,7 @@ class AdgroupPlacementSpecificReviewFeedbackFields extends AbstractEnum {
   const BSG = 'bsg';
   const CITY_COMMUNITY = 'city_community';
   const COMMERCE = 'commerce';
+  const COMPROMISE = 'compromise';
   const DAILY_DEALS = 'daily_deals';
   const DAILY_DEALS_LEGACY = 'daily_deals_legacy';
   const DPA = 'dpa';
@@ -84,6 +70,7 @@ class AdgroupPlacementSpecificReviewFeedbackFields extends AbstractEnum {
       'bsg' => 'map<string, string>',
       'city_community' => 'map<string, string>',
       'commerce' => 'map<string, string>',
+      'compromise' => 'map<string, string>',
       'daily_deals' => 'map<string, string>',
       'daily_deals_legacy' => 'map<string, string>',
       'dpa' => 'map<string, string>',
