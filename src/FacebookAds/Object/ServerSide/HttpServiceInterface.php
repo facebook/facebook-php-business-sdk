@@ -27,7 +27,7 @@ namespace FacebookAds\Object\ServerSide;
 interface HttpServiceInterface {
   /**
    * @param string $url The graph API endpoint that will be requested
-   * @param FacebookAds\Object\ServerSide\HttpMethod $method The HTTP request method
+   * @param \FacebookAds\Object\ServerSide\HttpMethod $method The HTTP request method
    * @param array $curl_options Contains curl options
    * @param array $headers Contains HTTP request headers including User-Agent and Accept-Encoding
    * @param array $params Contains request parameters including access_token, data, test_event_code, etc.
