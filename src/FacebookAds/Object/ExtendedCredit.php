@@ -145,7 +145,7 @@ class ExtendedCredit extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createWhatsAppCreditSharingAnDAttach(array $fields = array(), array $params = array(), $pending = false) {
+  public function createWhatsAppCreditSharingAndAttach(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(

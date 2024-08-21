@@ -368,7 +368,7 @@ class AdsPixel extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function deleteShareDAccounts(array $fields = array(), array $params = array(), $pending = false) {
+  public function deleteSharedAccounts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -393,7 +393,7 @@ class AdsPixel extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getShareDAccounts(array $fields = array(), array $params = array(), $pending = false) {
+  public function getSharedAccounts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -417,7 +417,7 @@ class AdsPixel extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createShareDAccount(array $fields = array(), array $params = array(), $pending = false) {
+  public function createSharedAccount(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -442,7 +442,7 @@ class AdsPixel extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getShareDAgencies(array $fields = array(), array $params = array(), $pending = false) {
+  public function getSharedAgencies(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(

@@ -1908,7 +1908,7 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createMessageAttachMEnt(array $fields = array(), array $params = array(), $pending = false) {
+  public function createMessageAttachment(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -2044,7 +2044,7 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getMessengerLeadForMs(array $fields = array(), array $params = array(), $pending = false) {
+  public function getMessengerLeadForms(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -2067,7 +2067,7 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createMessengerLeadForM(array $fields = array(), array $params = array(), $pending = false) {
+  public function createMessengerLeadForm(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -2863,7 +2863,7 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getScheduleDPosts(array $fields = array(), array $params = array(), $pending = false) {
+  public function getScheduledPosts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(

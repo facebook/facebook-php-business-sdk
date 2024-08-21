@@ -1480,7 +1480,7 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function deleteMAnAgeDBusinesses(array $fields = array(), array $params = array(), $pending = false) {
+  public function deleteManagedBusinesses(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -1504,7 +1504,7 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createMAnAgeDBusiness(array $fields = array(), array $params = array(), $pending = false) {
+  public function createManagedBusiness(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -1539,7 +1539,7 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createMAnAgeDPartnerBusinessSetup(array $fields = array(), array $params = array(), $pending = false) {
+  public function createManagedPartnerBusinessSetup(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -1569,7 +1569,7 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function deleteMAnAgeDPartnerBusinesses(array $fields = array(), array $params = array(), $pending = false) {
+  public function deleteManagedPartnerBusinesses(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -1594,7 +1594,7 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createMAnAgeDPartnerBusiness(array $fields = array(), array $params = array(), $pending = false) {
+  public function createManagedPartnerBusiness(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -2807,7 +2807,7 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getPendingShareDOffsiteSignalContainerBusinessObjects(array $fields = array(), array $params = array(), $pending = false) {
+  public function getPendingSharedOffsiteSignalContainerBusinessObjects(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -3004,7 +3004,7 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createSetupMAnAgeDPartnerAdAccount(array $fields = array(), array $params = array(), $pending = false) {
+  public function createSetupManagedPartnerAdAccount(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(

@@ -72,7 +72,7 @@ class Group extends AbstractCrudObject {
   }
 
 
-  public function deleteAdMIns(array $fields = array(), array $params = array(), $pending = false) {
+  public function deleteAdmins(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -96,7 +96,7 @@ class Group extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createAdMIn(array $fields = array(), array $params = array(), $pending = false) {
+  public function createAdmin(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
