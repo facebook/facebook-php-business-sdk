@@ -15,7 +15,7 @@ All notable changes to this project will be documented in this file.
 
 
 ### Changed
-- Graph API call upgrade to [v11.0]https://developers.facebook.com/docs/graph-api/changelog/version11.0
+- Graph API call upgrade to [v11.0](https://developers.facebook.com/docs/graph-api/changelog/version11.0)
 
 ## v10.0.1
 
