@@ -14,6 +14,8 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\IGUpcomingEventFields;
+use FacebookAds\Object\Values\IGUpcomingEventNotificationSubtypesValues;
+use FacebookAds\Object\Values\IGUpcomingEventNotificationTargetTimeValues;
 
 /**
  * This class is auto-generated.
@@ -35,6 +37,8 @@ class IGUpcomingEvent extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['NotificationSubtypes'] = IGUpcomingEventNotificationSubtypesValues::getInstance()->getValues();
+    $ref_enums['NotificationTargetTime'] = IGUpcomingEventNotificationTargetTimeValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -67,10 +71,14 @@ class IGUpcomingEvent extends AbstractCrudObject {
 
     $param_types = array(
       'end_time' => 'datetime',
+      'notification_subtypes' => 'list<notification_subtypes_enum>',
+      'notification_target_time' => 'notification_target_time_enum',
       'start_time' => 'datetime',
       'title' => 'string',
     );
     $enums = array(
+      'notification_subtypes_enum' => IGUpcomingEventNotificationSubtypesValues::getInstance()->getValues(),
+      'notification_target_time_enum' => IGUpcomingEventNotificationTargetTimeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

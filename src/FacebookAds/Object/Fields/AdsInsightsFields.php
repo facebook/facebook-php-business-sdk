@@ -31,7 +31,6 @@ class AdsInsightsFields extends AbstractEnum {
   const AD_ID = 'ad_id';
   const AD_IMPRESSION_ACTIONS = 'ad_impression_actions';
   const AD_NAME = 'ad_name';
-  const ADJUSTED_OFFLINE_PURCHASE = 'adjusted_offline_purchase';
   const ADSET_END = 'adset_end';
   const ADSET_ID = 'adset_id';
   const ADSET_NAME = 'adset_name';
@@ -105,6 +104,9 @@ class AdsInsightsFields extends AbstractEnum {
   const INSTANT_EXPERIENCE_OUTBOUND_CLICKS = 'instant_experience_outbound_clicks';
   const INTERACTIVE_COMPONENT_TAP = 'interactive_component_tap';
   const LABELS = 'labels';
+  const LANDING_PAGE_VIEW_ACTIONS_PER_LINK_CLICK = 'landing_page_view_actions_per_link_click';
+  const LANDING_PAGE_VIEW_PER_PURCHASE_RATE = 'landing_page_view_per_purchase_rate';
+  const LINK_CLICKS_PER_RESULTS = 'link_clicks_per_results';
   const LOCATION = 'location';
   const MARKETING_MESSAGES_COST_PER_DELIVERED = 'marketing_messages_cost_per_delivered';
   const MARKETING_MESSAGES_COST_PER_LINK_BTN_CLICK = 'marketing_messages_cost_per_link_btn_click';
@@ -118,6 +120,7 @@ class AdsInsightsFields extends AbstractEnum {
   const OUTBOUND_CLICKS_CTR = 'outbound_clicks_ctr';
   const PLACE_PAGE_NAME = 'place_page_name';
   const PURCHASE_ROAS = 'purchase_roas';
+  const PURCHASES_PER_LINK_CLICK = 'purchases_per_link_click';
   const QUALIFYING_QUESTION_QUALIFY_ANSWER_RATE = 'qualifying_question_qualify_answer_rate';
   const QUALITY_RANKING = 'quality_ranking';
   const REACH = 'reach';
@@ -170,7 +173,6 @@ class AdsInsightsFields extends AbstractEnum {
       'ad_id' => 'string',
       'ad_impression_actions' => 'list<AdsActionStats>',
       'ad_name' => 'string',
-      'adjusted_offline_purchase' => 'list<Object>',
       'adset_end' => 'string',
       'adset_id' => 'string',
       'adset_name' => 'string',
@@ -244,6 +246,9 @@ class AdsInsightsFields extends AbstractEnum {
       'instant_experience_outbound_clicks' => 'list<AdsActionStats>',
       'interactive_component_tap' => 'list<AdsActionStats>',
       'labels' => 'string',
+      'landing_page_view_actions_per_link_click' => 'list<AdsActionStats>',
+      'landing_page_view_per_purchase_rate' => 'list<AdsActionStats>',
+      'link_clicks_per_results' => 'list<AdsActionStats>',
       'location' => 'string',
       'marketing_messages_cost_per_delivered' => 'string',
       'marketing_messages_cost_per_link_btn_click' => 'string',
@@ -257,6 +262,7 @@ class AdsInsightsFields extends AbstractEnum {
       'outbound_clicks_ctr' => 'list<AdsActionStats>',
       'place_page_name' => 'string',
       'purchase_roas' => 'list<AdsActionStats>',
+      'purchases_per_link_click' => 'list<AdsActionStats>',
       'qualifying_question_qualify_answer_rate' => 'string',
       'quality_ranking' => 'string',
       'reach' => 'string',

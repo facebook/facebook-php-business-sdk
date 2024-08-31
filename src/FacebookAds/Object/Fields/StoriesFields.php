@@ -28,6 +28,7 @@ class StoriesFields extends AbstractEnum {
   const POST_ID = 'post_id';
   const STATUS = 'status';
   const URL = 'url';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -37,6 +38,7 @@ class StoriesFields extends AbstractEnum {
       'post_id' => 'string',
       'status' => 'string',
       'url' => 'string',
+      'id' => 'string',
     );
   }
 }

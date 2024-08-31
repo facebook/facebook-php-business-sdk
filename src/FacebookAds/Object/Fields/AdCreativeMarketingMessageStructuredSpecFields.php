@@ -25,6 +25,7 @@ class AdCreativeMarketingMessageStructuredSpecFields extends AbstractEnum {
   const BUTTONS = 'buttons';
   const FOOTER = 'footer';
   const GREETING = 'greeting';
+  const IS_OPTIMIZED_TEXT = 'is_optimized_text';
   const LANGUAGE = 'language';
   const REFERENCED_ADGROUP_ID = 'referenced_adgroup_id';
   const WHATS_APP_BUSINESS_PHONE_NUMBER_ID = 'whats_app_business_phone_number_id';
@@ -34,6 +35,7 @@ class AdCreativeMarketingMessageStructuredSpecFields extends AbstractEnum {
       'buttons' => 'list<Object>',
       'footer' => 'string',
       'greeting' => 'string',
+      'is_optimized_text' => 'bool',
       'language' => 'string',
       'referenced_adgroup_id' => 'string',
       'whats_app_business_phone_number_id' => 'string',

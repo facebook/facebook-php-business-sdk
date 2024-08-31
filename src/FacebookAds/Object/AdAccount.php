@@ -18,6 +18,7 @@ use FacebookAds\Object\Values\AdAccountActionSourceValues;
 use FacebookAds\Object\Values\AdAccountAdRulesHistoryActionValues;
 use FacebookAds\Object\Values\AdAccountAdRulesHistoryEvaluationTypeValues;
 use FacebookAds\Object\Values\AdAccountAdVolumeRecommendationTypeValues;
+use FacebookAds\Object\Values\AdAccountBrandSafetyContentFilterLevelsValues;
 use FacebookAds\Object\Values\AdAccountClaimObjectiveValues;
 use FacebookAds\Object\Values\AdAccountContentTypeValues;
 use FacebookAds\Object\Values\AdAccountCurrencyValues;
@@ -135,6 +136,7 @@ class AdAccount extends AbstractCrudObject {
     $ref_enums['Currency'] = AdAccountCurrencyValues::getInstance()->getValues();
     $ref_enums['PermittedTasks'] = AdAccountPermittedTasksValues::getInstance()->getValues();
     $ref_enums['Tasks'] = AdAccountTasksValues::getInstance()->getValues();
+    $ref_enums['BrandSafetyContentFilterLevels'] = AdAccountBrandSafetyContentFilterLevelsValues::getInstance()->getValues();
     $ref_enums['ClaimObjective'] = AdAccountClaimObjectiveValues::getInstance()->getValues();
     $ref_enums['ContentType'] = AdAccountContentTypeValues::getInstance()->getValues();
     $ref_enums['Subtype'] = AdAccountSubtypeValues::getInstance()->getValues();
@@ -1220,7 +1222,6 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'animated_effect_id' => 'unsigned int',
       'application_id' => 'string',
       'asked_fun_fact_prompt_id' => 'unsigned int',
       'audio_story_wave_animation_handle' => 'string',
@@ -1651,6 +1652,32 @@ class AdAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/block_list_drafts',
+      new AdAccount(),
+      'EDGE',
+      AdAccount::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createBrandSafetyContentFilterLevel(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'brand_safety_content_filter_levels' => 'list<brand_safety_content_filter_levels_enum>',
+      'business_id' => 'string',
+    );
+    $enums = array(
+      'brand_safety_content_filter_levels_enum' => AdAccountBrandSafetyContentFilterLevelsValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/brand_safety_content_filter_levels',
       new AdAccount(),
       'EDGE',
       AdAccount::getFieldsEnum()->getValues(),
@@ -2810,6 +2837,53 @@ class AdAccount extends AbstractCrudObject {
       new ReachFrequencyPrediction(),
       'EDGE',
       ReachFrequencyPrediction::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getRecommendations(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/recommendations',
+      new AdAccountRecommendations(),
+      'EDGE',
+      AdAccountRecommendations::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createRecommendation(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'recommendation_signature' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/recommendations',
+      new AdAccountRecommendations(),
+      'EDGE',
+      AdAccountRecommendations::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

@@ -62,6 +62,53 @@ class IGMediaForIGOnlyAPI extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getComments(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/comments',
+      new Comment(),
+      'EDGE',
+      Comment::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createComment(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'message' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/comments',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -78,6 +125,30 @@ class IGMediaForIGOnlyAPI extends AbstractCrudObject {
       new IGMediaForIGOnlyAPI(),
       'NODE',
       IGMediaForIGOnlyAPI::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'comment_enabled' => 'bool',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/',
+      new AbstractCrudObject(),
+      'NODE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

@@ -53,6 +53,7 @@ class CampaignFields extends AbstractEnum {
   const SMART_PROMOTION_TYPE = 'smart_promotion_type';
   const SOURCE_CAMPAIGN = 'source_campaign';
   const SOURCE_CAMPAIGN_ID = 'source_campaign_id';
+  const SOURCE_RECOMMENDATION_TYPE = 'source_recommendation_type';
   const SPECIAL_AD_CATEGORIES = 'special_ad_categories';
   const SPECIAL_AD_CATEGORY = 'special_ad_category';
   const SPECIAL_AD_CATEGORY_COUNTRY = 'special_ad_category_country';
@@ -99,6 +100,7 @@ class CampaignFields extends AbstractEnum {
       'smart_promotion_type' => 'string',
       'source_campaign' => 'Campaign',
       'source_campaign_id' => 'string',
+      'source_recommendation_type' => 'string',
       'special_ad_categories' => 'list<string>',
       'special_ad_category' => 'string',
       'special_ad_category_country' => 'list<string>',

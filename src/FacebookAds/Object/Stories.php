@@ -14,6 +14,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\StoriesFields;
+use FacebookAds\Object\Values\InsightsResultMetricValues;
 use FacebookAds\Object\Values\StoriesStatusValues;
 
 /**
@@ -25,7 +26,7 @@ use FacebookAds\Object\Values\StoriesStatusValues;
  *
  */
 
-class Stories extends AbstractObject {
+class Stories extends AbstractCrudObject {
 
   /**
    * @return StoriesFields
@@ -40,5 +41,53 @@ class Stories extends AbstractObject {
     return $ref_enums;
   }
 
+
+  public function getInsights(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'metric' => 'list<metric_enum>',
+    );
+    $enums = array(
+      'metric_enum' => InsightsResultMetricValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/insights',
+      new InsightsResult(),
+      'EDGE',
+      InsightsResult::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/',
+      new Stories(),
+      'NODE',
+      Stories::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
 }

@@ -260,7 +260,6 @@ class Group extends AbstractCrudObject {
       'actions' => 'Object',
       'album_id' => 'string',
       'android_key_hash' => 'string',
-      'animated_effect_id' => 'unsigned int',
       'application_id' => 'string',
       'asked_fun_fact_prompt_id' => 'unsigned int',
       'asset3d_id' => 'unsigned int',
@@ -758,7 +757,6 @@ class Group extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'animated_effect_id' => 'unsigned int',
       'application_id' => 'string',
       'asked_fun_fact_prompt_id' => 'unsigned int',
       'audio_story_wave_animation_handle' => 'string',

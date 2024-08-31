@@ -39,10 +39,10 @@ class ThirdPartyPartnerViewabilityRequestFields extends AbstractEnum {
       'description' => 'string',
       'hour' => 'datetime',
       'id' => 'string',
-      'metric' => 'string',
+      'metric' => 'Metric',
       'modified_time' => 'datetime',
       'owner_instance_id' => 'string',
-      'platform' => 'string',
+      'platform' => 'Platform',
       'status' => 'Status',
       'total_file_count' => 'unsigned int',
     );

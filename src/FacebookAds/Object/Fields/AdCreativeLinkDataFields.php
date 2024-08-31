@@ -52,6 +52,7 @@ class AdCreativeLinkDataFields extends AbstractEnum {
   const PICTURE = 'picture';
   const POST_CLICK_CONFIGURATION = 'post_click_configuration';
   const PREFERRED_IMAGE_TAGS = 'preferred_image_tags';
+  const PREFERRED_VIDEO_TAGS = 'preferred_video_tags';
   const RETAILER_ITEM_IDS = 'retailer_item_ids';
   const SHOW_MULTIPLE_IMAGES = 'show_multiple_images';
   const STATIC_FALLBACK_SPEC = 'static_fallback_spec';
@@ -89,6 +90,7 @@ class AdCreativeLinkDataFields extends AbstractEnum {
       'picture' => 'string',
       'post_click_configuration' => 'AdCreativePostClickConfiguration',
       'preferred_image_tags' => 'list<string>',
+      'preferred_video_tags' => 'list<string>',
       'retailer_item_ids' => 'list<string>',
       'show_multiple_images' => 'bool',
       'static_fallback_spec' => 'AdCreativeStaticFallbackSpec',

@@ -16,6 +16,7 @@ use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\HotelFields;
 use FacebookAds\Object\Values\HotelImageFetchStatusValues;
 use FacebookAds\Object\Values\HotelVisibilityValues;
+use FacebookAds\Object\Values\OverrideDetailsTypeValues;
 
 /**
  * This class is auto-generated.
@@ -49,29 +50,6 @@ class Hotel extends AbstractCrudObject {
     return $ref_enums;
   }
 
-
-  public function getAugmentedRealitiesMetadata(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/augmented_realities_metadata',
-      new DynamicARMetadata(),
-      'EDGE',
-      DynamicARMetadata::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
 
   public function getChannelsToIntegrityStatus(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
@@ -112,6 +90,32 @@ class Hotel extends AbstractCrudObject {
       new HotelRoom(),
       'EDGE',
       HotelRoom::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getOverrideDetails(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'keys' => 'list<string>',
+      'type' => 'type_enum',
+    );
+    $enums = array(
+      'type_enum' => OverrideDetailsTypeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/override_details',
+      new OverrideDetails(),
+      'EDGE',
+      OverrideDetails::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

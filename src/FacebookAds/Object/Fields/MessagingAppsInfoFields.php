@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class MessagingAppsInfoFields extends AbstractEnum {
 
+  const CTD_SUPPORT_ONLY_FOR_IG_APP = 'ctd_support_only_for_ig_app';
   const HAS_INSTAGRAM_MESSAGING_PERMISSION = 'has_instagram_messaging_permission';
   const HAS_MESSENGER_MESSAGING_PERMISSION = 'has_messenger_messaging_permission';
   const ID = 'id';
@@ -29,6 +30,7 @@ class MessagingAppsInfoFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'ctd_support_only_for_ig_app' => 'bool',
       'has_instagram_messaging_permission' => 'bool',
       'has_messenger_messaging_permission' => 'bool',
       'id' => 'string',

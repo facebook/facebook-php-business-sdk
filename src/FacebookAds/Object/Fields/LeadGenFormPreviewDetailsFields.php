@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class LeadGenFormPreviewDetailsFields extends AbstractEnum {
 
+  const CALL_BUSINESS_TEXT = 'call_business_text';
   const CALL_TO_ACTION_TITLE = 'call_to_action_title';
   const CONTACT_INFORMATION_TEXT = 'contact_information_text';
   const CREATIVES_OVERVIEW_DEFAULT_TEXT = 'creatives_overview_default_text';
@@ -46,18 +47,22 @@ class LeadGenFormPreviewDetailsFields extends AbstractEnum {
   const OPTIONAL_QUESTION_TEXT = 'optional_question_text';
   const PERSONAL_INFO_TEXT = 'personal_info_text';
   const PHONE_NUMBER_INLINE_CONTEXT_TEXT = 'phone_number_inline_context_text';
+  const PRIVACY_POLICY_LINK_TEXT = 'privacy_policy_link_text';
   const PRIVACY_POLICY_TITLE_SECTION_TITLE_TEXT = 'privacy_policy_title_section_title_text';
   const PRIVACY_SETTING_DESCRIPTION = 'privacy_setting_description';
   const PRODUCTS_SECTION_HEADERS = 'products_section_headers';
   const QUALIFIED_THANK_YOU_CARD_TRANSPARENCY_INFO_TEXT = 'qualified_thank_you_card_transparency_info_text';
+  const REDEEM_PROMO_CODE_TEXT = 'redeem_promo_code_text';
   const REVIEW_YOUR_INFO_TEXT = 'review_your_info_text';
   const SECURE_SHARING_TEXT = 'secure_sharing_text';
   const SLIDE_TO_SUBMIT_TEXT = 'slide_to_submit_text';
   const SOCIAL_PROOF_SECTION_HEADERS = 'social_proof_section_headers';
   const SUBMIT_BUTTON_TEXT = 'submit_button_text';
+  const VIEW_FILE_TEXT = 'view_file_text';
 
   public function getFieldTypes() {
     return array(
+      'call_business_text' => 'string',
       'call_to_action_title' => 'string',
       'contact_information_text' => 'string',
       'creatives_overview_default_text' => 'string',
@@ -82,15 +87,18 @@ class LeadGenFormPreviewDetailsFields extends AbstractEnum {
       'optional_question_text' => 'string',
       'personal_info_text' => 'string',
       'phone_number_inline_context_text' => 'string',
+      'privacy_policy_link_text' => 'string',
       'privacy_policy_title_section_title_text' => 'string',
       'privacy_setting_description' => 'string',
       'products_section_headers' => 'list<map<string, string>>',
       'qualified_thank_you_card_transparency_info_text' => 'string',
+      'redeem_promo_code_text' => 'string',
       'review_your_info_text' => 'string',
       'secure_sharing_text' => 'string',
       'slide_to_submit_text' => 'string',
       'social_proof_section_headers' => 'list<map<string, string>>',
       'submit_button_text' => 'string',
+      'view_file_text' => 'string',
     );
   }
 }

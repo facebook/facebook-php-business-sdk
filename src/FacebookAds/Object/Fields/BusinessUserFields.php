@@ -36,6 +36,7 @@ class BusinessUserFields extends AbstractEnum {
   const ROLE = 'role';
   const TITLE = 'title';
   const TWO_FAC_STATUS = 'two_fac_status';
+  const INVITED_USER_TYPE = 'invited_user_type';
 
   public function getFieldTypes() {
     return array(
@@ -53,6 +54,7 @@ class BusinessUserFields extends AbstractEnum {
       'role' => 'string',
       'title' => 'string',
       'two_fac_status' => 'string',
+      'invited_user_type' => 'list<InvitedUserType>',
     );
   }
 }

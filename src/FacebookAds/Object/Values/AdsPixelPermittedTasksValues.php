@@ -24,5 +24,6 @@ class AdsPixelPermittedTasksValues extends AbstractEnum {
 
   const ADVERTISE = 'ADVERTISE';
   const ANALYZE = 'ANALYZE';
+  const EDIT = 'EDIT';
   const UPLOAD = 'UPLOAD';
 }

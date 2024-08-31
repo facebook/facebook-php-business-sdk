@@ -14,6 +14,8 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ThirdPartyPartnerViewabilityRequestFields;
+use FacebookAds\Object\Values\ThirdPartyPartnerViewabilityRequestMetricValues;
+use FacebookAds\Object\Values\ThirdPartyPartnerViewabilityRequestPlatformValues;
 use FacebookAds\Object\Values\ThirdPartyPartnerViewabilityRequestStatusValues;
 
 /**
@@ -36,6 +38,8 @@ class ThirdPartyPartnerViewabilityRequest extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['Metric'] = ThirdPartyPartnerViewabilityRequestMetricValues::getInstance()->getValues();
+    $ref_enums['Platform'] = ThirdPartyPartnerViewabilityRequestPlatformValues::getInstance()->getValues();
     $ref_enums['Status'] = ThirdPartyPartnerViewabilityRequestStatusValues::getInstance()->getValues();
     return $ref_enums;
   }

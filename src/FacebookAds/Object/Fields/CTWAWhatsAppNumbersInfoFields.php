@@ -26,6 +26,7 @@ class CTWAWhatsAppNumbersInfoFields extends AbstractEnum {
   const FORMATTED_WHATSAPP_NUMBER = 'formatted_whatsapp_number';
   const IS_BUSINESS_NUMBER = 'is_business_number';
   const PAGE_WHATSAPP_NUMBER_ID = 'page_whatsapp_number_id';
+  const WABA_ID = 'waba_id';
   const WHATSAPP_NUMBER = 'whatsapp_number';
   const WHATSAPP_SMB_DEVICE = 'whatsapp_smb_device';
 
@@ -35,6 +36,7 @@ class CTWAWhatsAppNumbersInfoFields extends AbstractEnum {
       'formatted_whatsapp_number' => 'string',
       'is_business_number' => 'bool',
       'page_whatsapp_number_id' => 'string',
+      'waba_id' => 'string',
       'whatsapp_number' => 'string',
       'whatsapp_smb_device' => 'string',
     );

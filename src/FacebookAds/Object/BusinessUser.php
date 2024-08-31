@@ -14,6 +14,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\BusinessUserFields;
+use FacebookAds\Object\Values\BusinessUserInvitedUserTypeValues;
 use FacebookAds\Object\Values\BusinessUserRoleValues;
 
 /**
@@ -43,6 +44,7 @@ class BusinessUser extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['InvitedUserType'] = BusinessUserInvitedUserTypeValues::getInstance()->getValues();
     $ref_enums['Role'] = BusinessUserRoleValues::getInstance()->getValues();
     return $ref_enums;
   }

@@ -38,6 +38,7 @@ use FacebookAds\Object\Values\BusinessSubverticalV2Values;
 use FacebookAds\Object\Values\BusinessSurveyBusinessTypeValues;
 use FacebookAds\Object\Values\BusinessTimezoneIdValues;
 use FacebookAds\Object\Values\BusinessTwoFactorTypeValues;
+use FacebookAds\Object\Values\BusinessUserInvitedUserTypeValues;
 use FacebookAds\Object\Values\BusinessUserRoleValues;
 use FacebookAds\Object\Values\BusinessVerticalV2Values;
 use FacebookAds\Object\Values\BusinessVerticalValues;
@@ -111,6 +112,32 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getAdAccountInfos(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'ad_account_id' => 'string',
+      'parent_advertiser_id' => 'string',
+      'user_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/ad_account_infos',
+      new ALMAdAccountInfo(),
+      'EDGE',
+      ALMAdAccountInfo::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function deleteAdAccounts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -125,6 +152,30 @@ class Business extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_DELETE,
       '/ad_accounts',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createAdReviewRequest(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'ad_account_ids' => 'list<string>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/ad_review_requests',
       new AbstractCrudObject(),
       'EDGE',
       array(),
@@ -569,6 +620,30 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createBmReviewRequest(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'business_manager_ids' => 'list<string>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/bm_review_requests',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getBusinessAssetGroups(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -651,9 +726,11 @@ class Business extends AbstractCrudObject {
 
     $param_types = array(
       'email' => 'string',
+      'invited_user_type' => 'list<invited_user_type_enum>',
       'role' => 'role_enum',
     );
     $enums = array(
+      'invited_user_type_enum' => BusinessUserInvitedUserTypeValues::getInstance()->getValues(),
       'role_enum' => BusinessUserRoleValues::getInstance()->getValues(),
     );
 
@@ -2980,7 +3057,7 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getSelfCertifiedWhatsappBusinessSubmissions(array $fields = array(), array $params = array(), $pending = false) {
+  public function getSelfCertifiedWhatsAppBusinessSubmissions(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -3190,7 +3267,6 @@ class Business extends AbstractCrudObject {
 
     $param_types = array(
       'ad_placements_validation_only' => 'bool',
-      'animated_effect_id' => 'unsigned int',
       'application_id' => 'string',
       'asked_fun_fact_prompt_id' => 'unsigned int',
       'audio_story_wave_animation_handle' => 'string',

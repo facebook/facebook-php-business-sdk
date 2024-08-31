@@ -27,4 +27,5 @@ class CatalogItemRejectionReasonsCapabilityValues extends AbstractEnum {
   const TEST_CAPABILITY = 'test_capability';
   const UNIVERSAL_CHECKOUT = 'universal_checkout';
   const US_MARKETPLACE = 'us_marketplace';
+  const WHATSAPP_MARKETING_MESSAGE = 'whatsapp_marketing_message';
 }

@@ -39,6 +39,7 @@ class AdAccountUserSettingsFields extends AbstractEnum {
   const EXPORT_DELETED_ITEMS_WITH_DELIVERY = 'export_deleted_items_with_delivery';
   const EXPORT_SUMMARY_ROW = 'export_summary_row';
   const HAS_SEEN_GROUPS_COLUMN_FLEXING_EXPERIENCE = 'has_seen_groups_column_flexing_experience';
+  const HAS_SEEN_INSTAGRAM_COLUMN_FLEXING_EXPERIENCE = 'has_seen_instagram_column_flexing_experience';
   const HAS_SEEN_LEADS_COLUMN_FLEXING_EXPERIENCE = 'has_seen_leads_column_flexing_experience';
   const HAS_SEEN_SHOPS_ADS_METRICS_ONBOARDING_TOUR = 'has_seen_shops_ads_metrics_onboarding_tour';
   const HAS_SEEN_SHOPS_COLUMN_FLEXING_EXPERIENCE = 'has_seen_shops_column_flexing_experience';
@@ -96,6 +97,7 @@ class AdAccountUserSettingsFields extends AbstractEnum {
       'export_deleted_items_with_delivery' => 'bool',
       'export_summary_row' => 'bool',
       'has_seen_groups_column_flexing_experience' => 'bool',
+      'has_seen_instagram_column_flexing_experience' => 'bool',
       'has_seen_leads_column_flexing_experience' => 'bool',
       'has_seen_shops_ads_metrics_onboarding_tour' => 'bool',
       'has_seen_shops_column_flexing_experience' => 'bool',

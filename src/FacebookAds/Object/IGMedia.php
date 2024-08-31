@@ -235,12 +235,10 @@ class IGMedia extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function deleteProductTags(array $fields = array(), array $params = array(), $pending = false) {
+  public function deletePartnershipAdCode(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
-      'child_index' => 'unsigned int',
-      'deleted_tags' => 'list<map>',
     );
     $enums = array(
     );
@@ -249,7 +247,30 @@ class IGMedia extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_DELETE,
-      '/product_tags',
+      '/partnership_ad_code',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createPartnershipAdCode(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/partnership_ad_code',
       new AbstractCrudObject(),
       'EDGE',
       array(),

@@ -42,6 +42,8 @@ use FacebookAds\Object\Values\AdsInsightsDatePresetValues;
 use FacebookAds\Object\Values\AdsInsightsLevelValues;
 use FacebookAds\Object\Values\AdsInsightsSummaryActionBreakdownsValues;
 use FacebookAds\Object\Values\HighDemandPeriodBudgetValueTypeValues;
+use FacebookAds\Object\Values\MessageDeliveryEstimateOptimizationGoalValues;
+use FacebookAds\Object\Values\MessageDeliveryEstimatePacingTypeValues;
 use FacebookAds\Object\Traits\AdLabelAwareCrudObjectTrait;
 use FacebookAds\Object\Traits\ObjectValidation;
 
@@ -512,6 +514,38 @@ class AdSet extends AbstractArchivableCrudObject
       new AdReportRun(),
       'EDGE',
       AdReportRun::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getMessageDeliveryEstimate(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'bid_amount' => 'unsigned int',
+      'lifetime_budget' => 'unsigned int',
+      'lifetime_in_days' => 'unsigned int',
+      'optimization_goal' => 'optimization_goal_enum',
+      'pacing_type' => 'pacing_type_enum',
+      'promoted_object' => 'Object',
+      'targeting_spec' => 'Targeting',
+    );
+    $enums = array(
+      'optimization_goal_enum' => MessageDeliveryEstimateOptimizationGoalValues::getInstance()->getValues(),
+      'pacing_type_enum' => MessageDeliveryEstimatePacingTypeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/message_delivery_estimate',
+      new MessageDeliveryEstimate(),
+      'EDGE',
+      MessageDeliveryEstimate::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

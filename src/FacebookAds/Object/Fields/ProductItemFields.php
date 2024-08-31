@@ -29,6 +29,8 @@ class ProductItemFields extends AbstractEnum {
   const APPLINKS = 'applinks';
   const AVAILABILITY = 'availability';
   const BRAND = 'brand';
+  const BUNDLE_ITEMS = 'bundle_items';
+  const BUNDLE_RETAILER_IDS = 'bundle_retailer_ids';
   const CAPABILITY_TO_REVIEW_STATUS = 'capability_to_review_status';
   const CATEGORY = 'category';
   const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
@@ -62,6 +64,7 @@ class ProductItemFields extends AbstractEnum {
   const IMPORTER_NAME = 'importer_name';
   const INVALIDATION_ERRORS = 'invalidation_errors';
   const INVENTORY = 'inventory';
+  const IS_BUNDLE_HERO = 'is_bundle_hero';
   const MANUFACTURER_INFO = 'manufacturer_info';
   const MANUFACTURER_PART_NUMBER = 'manufacturer_part_number';
   const MARKED_FOR_PRODUCT_LAUNCH = 'marked_for_product_launch';
@@ -97,7 +100,6 @@ class ProductItemFields extends AbstractEnum {
   const VIDEO_FETCH_STATUS = 'video_fetch_status';
   const VISIBILITY = 'visibility';
   const WA_COMPLIANCE_CATEGORY = 'wa_compliance_category';
-  const ADDITIONAL_UPLOADED_IMAGE_IDS = 'additional_uploaded_image_ids';
   const ANDROID_APP_NAME = 'android_app_name';
   const ANDROID_CLASS = 'android_class';
   const ANDROID_PACKAGE = 'android_package';
@@ -114,6 +116,11 @@ class ProductItemFields extends AbstractEnum {
   const IPHONE_APP_STORE_ID = 'iphone_app_store_id';
   const IPHONE_URL = 'iphone_url';
   const LAUNCH_DATE = 'launch_date';
+  const PRODUCT_PRIORITY_0 = 'product_priority_0';
+  const PRODUCT_PRIORITY_1 = 'product_priority_1';
+  const PRODUCT_PRIORITY_2 = 'product_priority_2';
+  const PRODUCT_PRIORITY_3 = 'product_priority_3';
+  const PRODUCT_PRIORITY_4 = 'product_priority_4';
   const RETURN_POLICY_DAYS = 'return_policy_days';
   const WINDOWS_PHONE_APP_ID = 'windows_phone_app_id';
   const WINDOWS_PHONE_APP_NAME = 'windows_phone_app_name';
@@ -128,6 +135,8 @@ class ProductItemFields extends AbstractEnum {
       'applinks' => 'CatalogItemAppLinks',
       'availability' => 'Availability',
       'brand' => 'string',
+      'bundle_items' => 'list<string>',
+      'bundle_retailer_ids' => 'list<string>',
       'capability_to_review_status' => 'list<map<Object, Object>>',
       'category' => 'string',
       'category_specific_fields' => 'CatalogSubVerticalList',
@@ -161,6 +170,7 @@ class ProductItemFields extends AbstractEnum {
       'importer_name' => 'string',
       'invalidation_errors' => 'list<ProductItemInvalidationError>',
       'inventory' => 'int',
+      'is_bundle_hero' => 'bool',
       'manufacturer_info' => 'string',
       'manufacturer_part_number' => 'string',
       'marked_for_product_launch' => 'string',
@@ -196,7 +206,6 @@ class ProductItemFields extends AbstractEnum {
       'video_fetch_status' => 'VideoFetchStatus',
       'visibility' => 'Visibility',
       'wa_compliance_category' => 'string',
-      'additional_uploaded_image_ids' => 'list<string>',
       'android_app_name' => 'string',
       'android_class' => 'string',
       'android_package' => 'string',
@@ -213,6 +222,11 @@ class ProductItemFields extends AbstractEnum {
       'iphone_app_store_id' => 'unsigned int',
       'iphone_url' => 'string',
       'launch_date' => 'string',
+      'product_priority_0' => 'float',
+      'product_priority_1' => 'float',
+      'product_priority_2' => 'float',
+      'product_priority_3' => 'float',
+      'product_priority_4' => 'float',
       'return_policy_days' => 'unsigned int',
       'windows_phone_app_id' => 'string',
       'windows_phone_app_name' => 'string',

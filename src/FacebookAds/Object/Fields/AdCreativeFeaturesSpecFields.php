@@ -23,6 +23,7 @@ use FacebookAds\Enum\AbstractEnum;
 class AdCreativeFeaturesSpecFields extends AbstractEnum {
 
   const ADAPT_TO_PLACEMENT = 'adapt_to_placement';
+  const ADD_TEXT_OVERLAY = 'add_text_overlay';
   const ADS_WITH_BENEFITS = 'ads_with_benefits';
   const ADVANTAGE_PLUS_CREATIVE = 'advantage_plus_creative';
   const APP_HIGHLIGHTS = 'app_highlights';
@@ -33,6 +34,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
   const CV_TRANSFORMATION = 'cv_transformation';
   const DESCRIPTION_AUTOMATION = 'description_automation';
   const DHA_OPTIMIZATION = 'dha_optimization';
+  const ENHANCE_CTA = 'enhance_cta';
   const FEED_CAPTION_OPTIMIZATION = 'feed_caption_optimization';
   const IG_GLADOS_FEED = 'ig_glados_feed';
   const IMAGE_AUTO_CROP = 'image_auto_crop';
@@ -43,6 +45,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
   const IMAGE_TOUCHUPS = 'image_touchups';
   const IMAGE_UNCROP = 'image_uncrop';
   const INLINE_COMMENT = 'inline_comment';
+  const LOCAL_STORE_EXTENSION = 'local_store_extension';
   const MEDIA_LIQUIDITY_ANIMATED_IMAGE = 'media_liquidity_animated_image';
   const MEDIA_ORDER = 'media_order';
   const MEDIA_TYPE_AUTOMATION = 'media_type_automation';
@@ -62,6 +65,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'adapt_to_placement' => 'AdCreativeFeatureDetails',
+      'add_text_overlay' => 'AdCreativeFeatureDetails',
       'ads_with_benefits' => 'AdCreativeFeatureDetails',
       'advantage_plus_creative' => 'AdCreativeFeatureDetails',
       'app_highlights' => 'AdCreativeFeatureDetails',
@@ -72,6 +76,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
       'cv_transformation' => 'AdCreativeFeatureDetails',
       'description_automation' => 'AdCreativeFeatureDetails',
       'dha_optimization' => 'AdCreativeFeatureDetails',
+      'enhance_cta' => 'AdCreativeFeatureDetails',
       'feed_caption_optimization' => 'AdCreativeFeatureDetails',
       'ig_glados_feed' => 'AdCreativeFeatureDetails',
       'image_auto_crop' => 'AdCreativeFeatureDetails',
@@ -82,6 +87,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
       'image_touchups' => 'AdCreativeFeatureDetails',
       'image_uncrop' => 'AdCreativeFeatureDetails',
       'inline_comment' => 'AdCreativeFeatureDetails',
+      'local_store_extension' => 'AdCreativeFeatureDetails',
       'media_liquidity_animated_image' => 'AdCreativeFeatureDetails',
       'media_order' => 'AdCreativeFeatureDetails',
       'media_type_automation' => 'AdCreativeFeatureDetails',

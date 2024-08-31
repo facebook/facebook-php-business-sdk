@@ -458,32 +458,6 @@ class AdVideo extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createTag(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'tag_uid' => 'int',
-      'uid' => 'int',
-      'vid' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/tags',
-      new AdVideo(),
-      'EDGE',
-      AdVideo::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getThumbnails(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 

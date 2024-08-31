@@ -27,6 +27,7 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const AWARDS = 'awards';
   const BIO = 'bio';
   const BIRTHDAY = 'birthday';
+  const CALL_PERMISSION_REPLY = 'call_permission_reply';
   const CALLS = 'calls';
   const CATEGORY = 'category';
   const CHECKINS = 'checkins';
@@ -77,6 +78,7 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const MESSAGING_GAME_PLAYS = 'messaging_game_plays';
   const MESSAGING_HANDOVERS = 'messaging_handovers';
   const MESSAGING_IN_THREAD_LEAD_FORM_SUBMIT = 'messaging_in_thread_lead_form_submit';
+  const MESSAGING_INTEGRITY = 'messaging_integrity';
   const MESSAGING_OPTINS = 'messaging_optins';
   const MESSAGING_OPTOUTS = 'messaging_optouts';
   const MESSAGING_PAYMENTS = 'messaging_payments';

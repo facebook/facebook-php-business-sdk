@@ -100,6 +100,7 @@ class AdAssetFeedSpecCallToActionTypesValues extends AbstractEnum {
   const USE_MOBILE_APP = 'USE_MOBILE_APP';
   const VIDEO_ANNOTATION = 'VIDEO_ANNOTATION';
   const VIDEO_CALL = 'VIDEO_CALL';
+  const VIEW_CHANNEL = 'VIEW_CHANNEL';
   const VIEW_PRODUCT = 'VIEW_PRODUCT';
   const VISIT_PAGES_FEED = 'VISIT_PAGES_FEED';
   const WATCH_MORE = 'WATCH_MORE';

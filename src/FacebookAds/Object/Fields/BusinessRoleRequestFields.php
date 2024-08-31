@@ -30,6 +30,7 @@ class BusinessRoleRequestFields extends AbstractEnum {
   const FINANCE_ROLE = 'finance_role';
   const ID = 'id';
   const INVITE_LINK = 'invite_link';
+  const INVITED_USER_TYPE = 'invited_user_type';
   const IP_ROLE = 'ip_role';
   const OWNER = 'owner';
   const ROLE = 'role';
@@ -47,6 +48,7 @@ class BusinessRoleRequestFields extends AbstractEnum {
       'finance_role' => 'string',
       'id' => 'string',
       'invite_link' => 'string',
+      'invited_user_type' => 'list<string>',
       'ip_role' => 'string',
       'owner' => 'Business',
       'role' => 'string',

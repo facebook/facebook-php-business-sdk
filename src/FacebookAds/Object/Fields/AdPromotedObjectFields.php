@@ -23,6 +23,7 @@ use FacebookAds\Enum\AbstractEnum;
 class AdPromotedObjectFields extends AbstractEnum {
 
   const APPLICATION_ID = 'application_id';
+  const BOOSTED_PRODUCT_SET_ID = 'boosted_product_set_id';
   const CONVERSION_GOAL_ID = 'conversion_goal_id';
   const CUSTOM_CONVERSION_ID = 'custom_conversion_id';
   const CUSTOM_EVENT_STR = 'custom_event_str';
@@ -51,6 +52,7 @@ class AdPromotedObjectFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'application_id' => 'string',
+      'boosted_product_set_id' => 'string',
       'conversion_goal_id' => 'string',
       'custom_conversion_id' => 'string',
       'custom_event_str' => 'string',

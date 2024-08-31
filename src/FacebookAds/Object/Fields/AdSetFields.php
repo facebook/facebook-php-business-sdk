@@ -33,6 +33,7 @@ class AdSetFields extends AbstractEnum {
   const BID_INFO = 'bid_info';
   const BID_STRATEGY = 'bid_strategy';
   const BILLING_EVENT = 'billing_event';
+  const BRAND_SAFETY_CONFIG = 'brand_safety_config';
   const BUDGET_REMAINING = 'budget_remaining';
   const CAMPAIGN = 'campaign';
   const CAMPAIGN_ACTIVE_TIME = 'campaign_active_time';
@@ -108,6 +109,7 @@ class AdSetFields extends AbstractEnum {
       'bid_info' => 'map<string, unsigned int>',
       'bid_strategy' => 'BidStrategy',
       'billing_event' => 'BillingEvent',
+      'brand_safety_config' => 'BrandSafetyCampaignConfig',
       'budget_remaining' => 'string',
       'campaign' => 'Campaign',
       'campaign_active_time' => 'string',

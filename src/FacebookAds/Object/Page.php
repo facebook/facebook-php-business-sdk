@@ -1122,7 +1122,7 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getDataSet(array $fields = array(), array $params = array(), $pending = false) {
+  public function getDataset(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -1135,9 +1135,9 @@ class Page extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/dataset',
-      new AdsPixel(),
+      new Dataset(),
       'EDGE',
-      AdsPixel::getFieldsEnum()->getValues(),
+      Dataset::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1145,10 +1145,11 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createDataSet(array $fields = array(), array $params = array(), $pending = false) {
+  public function createDataset(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
+      'dataset_name' => 'string',
     );
     $enums = array(
     );
@@ -1158,9 +1159,9 @@ class Page extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/dataset',
-      new AdsPixel(),
+      new Dataset(),
       'EDGE',
-      AdsPixel::getFieldsEnum()->getValues(),
+      Dataset::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1281,7 +1282,6 @@ class Page extends AbstractCrudObject {
       'actions' => 'Object',
       'album_id' => 'string',
       'android_key_hash' => 'string',
-      'animated_effect_id' => 'unsigned int',
       'application_id' => 'string',
       'asked_fun_fact_prompt_id' => 'unsigned int',
       'asset3d_id' => 'unsigned int',
@@ -1430,31 +1430,6 @@ class Page extends AbstractCrudObject {
       new Page(),
       'EDGE',
       Page::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getGroups(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'admin_only' => 'bool',
-      'parent' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/groups',
-      new Group(),
-      'EDGE',
-      Group::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2361,7 +2336,7 @@ class Page extends AbstractCrudObject {
     $param_types = array(
       'metadata' => 'string',
       'recipient' => 'Object',
-      'target_app_id' => 'int',
+      'target_app_id' => 'string',
     );
     $enums = array(
     );
@@ -3497,7 +3472,6 @@ class Page extends AbstractCrudObject {
 
     $param_types = array(
       'ad_breaks' => 'list',
-      'animated_effect_id' => 'unsigned int',
       'application_id' => 'string',
       'asked_fun_fact_prompt_id' => 'unsigned int',
       'audio_story_wave_animation_handle' => 'string',
@@ -3703,6 +3677,7 @@ class Page extends AbstractCrudObject {
       'eligible_platforms_enum' => array(
         'INSTAGRAM',
         'MESSENGER',
+        'WHATSAPP',
       ),
     );
 

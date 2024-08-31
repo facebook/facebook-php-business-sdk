@@ -24,6 +24,7 @@ class IGRefreshAccessTokenForIGOnlyAPIFields extends AbstractEnum {
 
   const ACCESS_TOKEN = 'access_token';
   const EXPIRES_IN = 'expires_in';
+  const PERMISSIONS = 'permissions';
   const TOKEN_TYPE = 'token_type';
   const ID = 'id';
 
@@ -31,6 +32,7 @@ class IGRefreshAccessTokenForIGOnlyAPIFields extends AbstractEnum {
     return array(
       'access_token' => 'string',
       'expires_in' => 'int',
+      'permissions' => 'string',
       'token_type' => 'string',
       'id' => 'string',
     );
