@@ -106,8 +106,6 @@ class RequestException extends Exception {
   /**
    * @param array|string $array
    * @param string|int $key
-   * @param mixed $default
-   * @return mixed
    */
   protected static function idx($array, $key, $default = null) {
     if (is_string($array)) {

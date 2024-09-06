@@ -196,7 +196,6 @@ class AbstractCrudObject extends AbstractObject {
   }
   /**
    * @param string $name
-   * @param mixed $value
    */
   public function __set($name, $value) {
     if (!array_key_exists($name, $this->data)
@@ -485,7 +484,6 @@ class AbstractCrudObject extends AbstractObject {
    * Read function for the object. Convert fields and filters into the query
    * part of uri and return objects.
    *
-   * @param mixed $ids Array or single object IDs
    * @param array $fields Array of field names to read
    * @param array $params Additional filters for the reading, in assoc
    * @param Api $api Api Object to use

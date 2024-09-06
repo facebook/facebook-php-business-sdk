@@ -75,13 +75,11 @@ class EventResponse implements ArrayAccess {
   );
   /**
    * Associative array for storing property values
-   * @var mixed[]
    */
   protected $container = array();
 
   /**
    * Constructor
-   * @param mixed[] $data Associated array of property value initalizing the model
    */
   public function __construct(array $data = null) {
     $this->container['events_received'] = isset($data['events_received']) ? $data['events_received'] : null;
@@ -158,7 +156,6 @@ class EventResponse implements ArrayAccess {
 
     /**
      * Gets custom endpoint response results.
-     * @return mixed $array
      */
     public function getCustomEndpointResponses() {
         return $this->container['custom_endpoint_responses'];
@@ -213,16 +210,14 @@ class EventResponse implements ArrayAccess {
   /**
    * Gets offset.
    * @param integer $offset Offset
-   * @return mixed
    */
-  public function offsetGet($offset) : mixed {
+  public function offsetGet($offset) {
     return isset($this->container[$offset]) ? $this->container[$offset] : null;
   }
 
   /**
    * Sets value based on offset.
    * @param integer $offset Offset
-   * @param mixed $value Value to be set
    * @return void
    */
   public function offsetSet($offset, $value) : void {

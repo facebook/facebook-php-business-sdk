@@ -250,16 +250,14 @@ class AppData implements ArrayAccess {
   /**
    * Gets offset.
    * @param integer $offset Offset
-   * @return mixed
    */
-  public function offsetGet($offset) : mixed {
+  public function offsetGet($offset) {
     return isset($this->container[$offset]) ? $this->container[$offset] : null;
   }
 
   /**
    * Sets value based on offset.
    * @param integer $offset Offset
-   * @param mixed $value Value to be set
    * @return void
    */
   public function offsetSet($offset, $value) : void {

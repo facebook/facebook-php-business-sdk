@@ -18,7 +18,6 @@ trait FieldValidation {
 
   /**
    * @param string $name
-   * @param mixed $value
    * @throws \InvalidArgumentException
    * @staticvar array $fields
    */

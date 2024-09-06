@@ -60,8 +60,6 @@ class IntegrationBootstrap extends Bootstrap {
 
   /**
    * @param string|int $key
-   * @param mixed $default
-   * @return mixed
    */
   protected function confx($key, $default = null) {
     return $this->idx($this->getConfigData(), $key, $default);
@@ -69,7 +67,6 @@ class IntegrationBootstrap extends Bootstrap {
 
   /**
    * @param string|int $key
-   * @return mixed
    * @throws \Exception
    */
   protected function confxt($key) {

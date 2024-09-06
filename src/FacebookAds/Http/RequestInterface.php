@@ -111,9 +111,6 @@ interface RequestInterface {
    */
   public function setGraphVersion($version);
 
-  /**
-   * @return mixed
-   */
   public function getGraphVersion();
 
   /**

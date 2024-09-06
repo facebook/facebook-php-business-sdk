@@ -117,7 +117,6 @@ abstract class AbstractEnum implements EnumInstanceInterface {
 
   /**
    * @param string|int|float $name
-   * @return mixed
    */
   public function getValueForName($name) {
     $copy = $this->getArrayCopy();
@@ -128,7 +127,6 @@ abstract class AbstractEnum implements EnumInstanceInterface {
 
   /**
    * @param string|int|float $name
-   * @return mixed
    * @throws \InvalidArgumentException
    */
   public function assureValueForName($name) {
@@ -169,7 +167,6 @@ abstract class AbstractEnum implements EnumInstanceInterface {
   }
 
   /**
-   * @param mixed $value
    * @throws \InvalidArgumentException
    */
   public function assureIsValidValue($value) {

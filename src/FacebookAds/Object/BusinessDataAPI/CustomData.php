@@ -28,13 +28,11 @@ class CustomData {
 
   /**
    * Associative array for storing property values
-   * @var mixed[]
    */
   protected $container = array();
 
   /**
    * Constructor
-   * @param mixed[] $data Associated array of property value initializing the model
    */
   public function __construct(array $data = null) {
     $this->container['value'] = isset($data['value']) ? $data['value'] : null;

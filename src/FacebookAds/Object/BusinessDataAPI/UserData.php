@@ -33,13 +33,11 @@ class UserData {
 
   /**
    * Associative array for storing property values
-   * @var mixed[]
    */
   protected $container = array();
 
   /**
    * Constructor
-   * @param mixed[] $data Associated array of property value initalizing the model
    */
   public function __construct(array $data = null) {
     $this->container['email'] = isset($data['email']) ? $data['email'] : null;

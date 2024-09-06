@@ -12,9 +12,6 @@ use FacebookAds\ApiConfig;
 use FacebookAds\TypeChecker;
 use FacebookAds\Enum\EmptyEnum;
 class AbstractObject {
-  /**
-   * @var mixed[] set of key value pairs representing data
-   */
   protected $data = array();
   protected $_type_checker;
 
@@ -39,7 +36,6 @@ class AbstractObject {
 
   /**
    * @param string $name
-   * @param mixed $value
    */
   public function __set($name, $value) {
     if (ApiConfig::TYPE_CHECKER_STRICT_MODE
@@ -60,7 +56,6 @@ class AbstractObject {
 
   /**
    * @param string $name
-   * @return mixed
    * @throws \InvalidArgumentException
    */
   public function __get($name) {
@@ -115,10 +110,6 @@ class AbstractObject {
   public function getData() {
     return $this->data;
   }
-  /**
-   * @param mixed $value
-   * @return mixed
-   */
   protected function exportValue($value) {
     $result = $value;
     switch (true) {

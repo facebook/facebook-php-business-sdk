@@ -82,16 +82,12 @@ abstract class AbstractCurl implements CurlInterface {
     return curl_error($this->handle);
   }
 
-  /**
-   * @return mixed
-   */
   public function exec() {
     return curl_exec($this->handle);
   }
 
   /**
    * @param int $opt
-   * @return mixed
    */
   public function getInfo($opt = 0) {
     return curl_getinfo($this->handle, $opt);
@@ -113,7 +109,6 @@ abstract class AbstractCurl implements CurlInterface {
 
   /**
    * @param int $option
-   * @param mixed $value
    * @return bool
    */
   public function setopt($option, $value) {

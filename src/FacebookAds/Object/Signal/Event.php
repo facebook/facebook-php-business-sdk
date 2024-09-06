@@ -43,7 +43,6 @@ class Event {
 
   /**
    * Constructor
-   * @param mixed[] $data Associated array of property value initalizing the model
    */
   public function __construct(array $data = null) {
     $business_data = $data;

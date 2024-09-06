@@ -203,7 +203,6 @@ class CurlLogger implements LoggerInterface {
   }
 
   /**
-   * @param mixed $level
    * @param string $message
    * @param array $context
    */
@@ -213,8 +212,6 @@ class CurlLogger implements LoggerInterface {
 
   /**
    * @param array $array
-   * @param mixed $key
-   * @return mixed
    */
   protected function removeArrayKey(array &$array, $key) {
     if (array_key_exists($key, $array)) {
