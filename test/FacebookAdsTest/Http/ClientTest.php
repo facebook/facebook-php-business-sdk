@@ -41,7 +41,6 @@ use \PHPUnit_Framework_MockObject_Builder_InvocationMocker as Mock;
 class ClientTest extends AbstractUnitTestCase {
 
   /**
-   * @param mixed $response_content
    * @return Mock|AdapterInterface
    */
   protected function createMockChain($response_content) {

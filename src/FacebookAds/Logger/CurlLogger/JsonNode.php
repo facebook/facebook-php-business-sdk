@@ -36,9 +36,6 @@ final class JsonNode {
    */
   const EXPLOSION_THRESHOLD = 78;
 
-  /**
-   * @var mixed
-   */
   protected $value;
 
   /**
@@ -47,7 +44,6 @@ final class JsonNode {
   protected $children;
 
   /**
-   * @param mixed $value
    * @return $this
    * @throws \InvalidArgumentException
    */
@@ -77,15 +73,11 @@ final class JsonNode {
     $this->children = new \ArrayObject();
   }
 
-  /**
-   * @return mixed
-   */
   public function getValue() {
     return $this->value;
   }
 
   /**
-   * @param mixed $value
    * @return $this
    */
   public function setValue($value) {
@@ -124,9 +116,6 @@ final class JsonNode {
     return str_repeat(' ', $indent * self::INDENT_UNIT);
   }
 
-  /**
-   * @return mixed
-   */
   protected function getLastChildKey() {
     if ($this->getChildren()->count() === 0) {
       return null;

@@ -46,9 +46,6 @@ class Response implements ResponseInterface {
    */
   protected $body;
 
-  /**
-   * @var mixed
-   */
   protected $content;
 
   /**

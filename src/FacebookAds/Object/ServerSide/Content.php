@@ -29,13 +29,11 @@ use ArrayAccess;
 class Content implements ArrayAccess {
   /**
    * Associative array for storing property values
-   * @var mixed[]
    */
   protected $container = array();
 
   /**
    * Constructor
-   * @param mixed[] $data Associated array of property value initializing the model
    */
   public function __construct(array $data = null) {
     $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;;
@@ -212,16 +210,14 @@ class Content implements ArrayAccess {
   /**
    * Gets offset.
    * @param integer $offset Offset
-   * @return mixed
    */
-  public function offsetGet($offset) : mixed {
+  public function offsetGet($offset) {
     return isset($this->container[$offset]) ? $this->container[$offset] : null;
   }
 
   /**
    * Sets value based on offset.
    * @param integer $offset Offset
-   * @param mixed $value Value to be set
    * @return void
    */
   public function offsetSet($offset, $value) : void {

@@ -32,7 +32,6 @@ class JsonAwareParametersTest extends AbstractUnitTestCase {
 
   /**
    * @dataProvider parameterProvider
-   * @param mixed $param_data
    */
   public function testExtract($param_data) {
     foreach ((new JsonAwareParameters($param_data))->export() as $param) {

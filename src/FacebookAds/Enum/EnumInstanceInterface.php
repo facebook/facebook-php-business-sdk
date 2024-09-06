@@ -53,13 +53,11 @@ interface EnumInstanceInterface {
 
   /**
    * @param string|int|float $name
-   * @return mixed
    */
   public function getValueForName($name);
 
   /**
    * @param string|int|float $name
-   * @return mixed
    * @throws \InvalidArgumentException
    */
   public function assureValueForName($name);
@@ -78,13 +76,11 @@ interface EnumInstanceInterface {
   public function assureIsValid($name);
 
   /**
-   * @param mixed $value
    * @return bool
    */
   public function isValidValue($value);
 
   /**
-   * @param mixed $value
    * @throws \InvalidArgumentException
    */
   public function assureIsValidValue($value);

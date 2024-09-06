@@ -27,13 +27,11 @@ namespace FacebookAds\Object\BusinessDataAPI;
 class Content {
   /**
    * Associative array for storing property values
-   * @var mixed[]
    */
   protected $container = array();
 
   /**
    * Constructor
-   * @param mixed[] $data Associated array of property value initializing the model
    */
   public function __construct(array $data = null) {
     $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;;

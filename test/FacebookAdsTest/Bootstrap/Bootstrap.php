@@ -48,9 +48,6 @@ class Bootstrap {
    */
   protected $config;
 
-  /**
-   * @var mixed
-   */
   protected $autoloader;
 
   /**
@@ -71,9 +68,6 @@ class Bootstrap {
     return __DIR__.'/../../../vendor/autoload.php';
   }
 
-  /**
-   * @return mixed
-   */
   public function getAutoloader() {
     if ($this->autoloader === null) {
       $autoload_path = $this->getComposerAutoloadPath();
@@ -93,8 +87,6 @@ class Bootstrap {
    *
    * @param array $array
    * @param string|int $key
-   * @param mixed $default
-   * @return mixed
    */
   protected function idx(array $array, $key, $default = null) {
     return array_key_exists($key, $array) && $array[$key] !== ''
@@ -108,7 +100,6 @@ class Bootstrap {
    *
    * @param array $array
    * @param string|int $key
-   * @return mixed
    * @throws \Exception
    */
   protected function idxt(array $array, $key) {

@@ -108,7 +108,6 @@ abstract class AbstractCrudObjectTestCase extends AbstractIntegrationTestCase {
    * @param string $connection_name
    * @param array $fields
    * @param array $params
-   * @return mixed
    */
   protected function fetchConnection(
     AbstractCrudObject $subject,

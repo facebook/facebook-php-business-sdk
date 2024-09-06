@@ -96,7 +96,6 @@ class AbstractTestCase extends TestCase {
   }
 
   /**
-   * @param mixed $mock
    * @param array $data
    */
   protected function makeMockIterable(

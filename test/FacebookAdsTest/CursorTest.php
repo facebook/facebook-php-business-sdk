@@ -178,7 +178,6 @@ class CursorTest extends AbstractUnitTestCase {
 
   /**
    * @dataProvider responseDataStructureProvider
-   * @param mixed $content
    */
   public function testResponseDataStructure($content) {
     $response = $this->createResponseMock();

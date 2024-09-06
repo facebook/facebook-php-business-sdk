@@ -89,7 +89,6 @@ class EventRequest implements ArrayAccess {
   );
   /**
    * Associative array for storing property values
-   * @var mixed[]
    */
   protected $container = array();
 
@@ -100,7 +99,6 @@ class EventRequest implements ArrayAccess {
   /**
    * Constructor
    * @param string $pixel_id pixel id
-   * @param mixed[] $data Associated array of property value initializing the model
    */
   public function __construct($pixel_id, array $data = null) {
     $this->container['pixel_id'] = $pixel_id;
@@ -457,16 +455,14 @@ class EventRequest implements ArrayAccess {
   /**
    * Gets offset.
    * @param integer $offset Offset
-   * @return mixed
    */
-  public function offsetGet($offset) : mixed {
+  public function offsetGet($offset) {
     return isset($this->container[$offset]) ? $this->container[$offset] : null;
   }
 
   /**
    * Sets value based on offset.
    * @param integer $offset Offset
-   * @param mixed $value Value to be set
    * @return void
    */
   public function offsetSet($offset, $value) : void {

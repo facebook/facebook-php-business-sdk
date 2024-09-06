@@ -72,10 +72,7 @@ class AbstractCrudObjectTest extends AbstractCrudObjectTestCase {
     $this->assertInvalidArgumentException($id);
   }
 
-  /**
-   * @param mixed $id
-   */
-  public function assertInvalidArgumentException(mixed $id) {
+  public function assertInvalidArgumentException($id) {
     $has_throw_exception = false;
     try {
       new EmptyCrudObject($id);

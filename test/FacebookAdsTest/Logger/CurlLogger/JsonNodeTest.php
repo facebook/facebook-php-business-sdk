@@ -32,7 +32,6 @@ class JsonNodeTest extends AbstractUnitTestCase {
 
   /**
    * @dataProvider parameterProvider
-   * @param mixed $param_data
    */
   public function testEncoding($param_data) {
     JsonNode::factory($param_data)->encode();

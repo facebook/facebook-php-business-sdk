@@ -50,7 +50,6 @@ class UserData {
 
   /**
    * Constructor
-   * @param mixed[] $data Associated array of property value initalizing the model
    */
   public function __construct(array $data = null) {
     $this->businessDataUserData = new BusinessDataUserData($data);

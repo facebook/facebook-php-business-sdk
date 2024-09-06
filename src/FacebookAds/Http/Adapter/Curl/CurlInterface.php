@@ -47,14 +47,10 @@ interface CurlInterface {
    */
   public function escape($string);
 
-  /**
-   * @return mixed
-   */
   public function exec();
 
   /**
    * @param int $opt
-   * @return mixed
    */
   public function getInfo($opt = 0);
 
@@ -87,7 +83,6 @@ interface CurlInterface {
 
   /**
    * @param int $option
-   * @param mixed $value
    * @return bool
    */
   public function setopt($option, $value);

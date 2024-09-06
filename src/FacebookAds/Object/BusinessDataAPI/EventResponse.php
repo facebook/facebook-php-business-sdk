@@ -33,13 +33,11 @@ class EventResponse {
 
   /**
    * Associative array for storing property values
-   * @var mixed[]
    */
   protected $container = array();
 
   /**
    * Constructor
-   * @param mixed[] $data Associated array of property value initalizing the model
    */
   public function __construct(array $data = null) {
     $this->container['events_received'] = isset($data['events_received']) ? $data['events_received'] : null;

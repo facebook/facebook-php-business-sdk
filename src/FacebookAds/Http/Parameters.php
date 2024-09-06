@@ -36,7 +36,6 @@ class Parameters extends \ArrayObject {
   }
 
   /**
-   * @param mixed $value
    * @return string
    */
   protected function exportNonScalar($value) {
