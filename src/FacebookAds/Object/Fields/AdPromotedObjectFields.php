@@ -30,6 +30,7 @@ class AdPromotedObjectFields extends AbstractEnum {
   const CUSTOM_EVENT_TYPE = 'custom_event_type';
   const EVENT_ID = 'event_id';
   const FUNDRAISER_CAMPAIGN_ID = 'fundraiser_campaign_id';
+  const LEAD_ADS_FORM_EVENT_SOURCE_TYPE = 'lead_ads_form_event_source_type';
   const MCME_CONVERSION_ID = 'mcme_conversion_id';
   const OBJECT_STORE_URL = 'object_store_url';
   const OFFER_ID = 'offer_id';
@@ -47,6 +48,8 @@ class AdPromotedObjectFields extends AbstractEnum {
   const PRODUCT_SET = 'product_set';
   const PRODUCT_SET_ID = 'product_set_id';
   const RETENTION_DAYS = 'retention_days';
+  const VALUE_SEMANTIC_TYPE = 'value_semantic_type';
+  const VARIATION = 'variation';
   const WHATSAPP_PHONE_NUMBER = 'whatsapp_phone_number';
 
   public function getFieldTypes() {
@@ -59,6 +62,7 @@ class AdPromotedObjectFields extends AbstractEnum {
       'custom_event_type' => 'CustomEventType',
       'event_id' => 'string',
       'fundraiser_campaign_id' => 'string',
+      'lead_ads_form_event_source_type' => 'string',
       'mcme_conversion_id' => 'string',
       'object_store_url' => 'string',
       'offer_id' => 'string',
@@ -76,6 +80,8 @@ class AdPromotedObjectFields extends AbstractEnum {
       'product_set' => 'ProductSet',
       'product_set_id' => 'string',
       'retention_days' => 'string',
+      'value_semantic_type' => 'string',
+      'variation' => 'string',
       'whatsapp_phone_number' => 'string',
     );
   }

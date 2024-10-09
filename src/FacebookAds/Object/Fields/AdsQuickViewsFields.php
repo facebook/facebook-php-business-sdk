@@ -20,29 +20,27 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class ALMAdAccountInfoFields extends AbstractEnum {
+class AdsQuickViewsFields extends AbstractEnum {
 
-  const AD_ACCOUNT_ID = 'ad_account_id';
+  const ATTRIBUTION_WINDOWS = 'attribution_windows';
+  const BREAKDOWNS = 'breakdowns';
+  const COLUMN_FIELDS = 'column_fields';
+  const DESCRIPTION = 'description';
   const ID = 'id';
-  const MANAGED_BY = 'managed_by';
-  const OWNED_BY = 'owned_by';
-  const PARENT_ADVERTISER_ID = 'parent_advertiser_id';
-  const SUB_VERTICAL = 'sub_vertical';
-  const TAG = 'tag';
-  const USER_IDS = 'user_ids';
-  const VERTICAL = 'vertical';
+  const NAME = 'name';
+  const PERMISSION = 'permission';
+  const SORT = 'sort';
 
   public function getFieldTypes() {
     return array(
-      'ad_account_id' => 'string',
+      'attribution_windows' => 'list<string>',
+      'breakdowns' => 'list<string>',
+      'column_fields' => 'list<string>',
+      'description' => 'string',
       'id' => 'string',
-      'managed_by' => 'string',
-      'owned_by' => 'string',
-      'parent_advertiser_id' => 'string',
-      'sub_vertical' => 'string',
-      'tag' => 'list<string>',
-      'user_ids' => 'list<string>',
-      'vertical' => 'string',
+      'name' => 'string',
+      'permission' => 'string',
+      'sort' => 'list<Object>',
     );
   }
 }

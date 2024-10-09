@@ -592,7 +592,7 @@ class AdVideo extends AbstractCrudObject {
       'call_to_action' => 'Object',
       'content_category' => 'content_category_enum',
       'content_tags' => 'list<string>',
-      'custom_labels' => 'list<string>',
+      'custom_labels' => 'string',
       'description' => 'string',
       'direct_share_status' => 'unsigned int',
       'embeddable' => 'bool',

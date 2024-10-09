@@ -34,10 +34,12 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const AD_ACCOUNT_REMOVE_USER_FROM_ROLE = 'ad_account_remove_user_from_role';
   const AD_ACCOUNT_RESET_SPEND_LIMIT = 'ad_account_reset_spend_limit';
   const AD_ACCOUNT_SET_BUSINESS_INFORMATION = 'ad_account_set_business_information';
+  const AD_ACCOUNT_UPDATE_AUDIENCE_TYPE_URL_PARAMETER = 'ad_account_update_audience_type_url_parameter';
   const AD_ACCOUNT_UPDATE_SPEND_LIMIT = 'ad_account_update_spend_limit';
   const AD_ACCOUNT_UPDATE_STATUS = 'ad_account_update_status';
   const AD_REVIEW_APPROVED = 'ad_review_approved';
   const AD_REVIEW_DECLINED = 'ad_review_declined';
+  const ADACCOUNT_UPDATE_AUDIENCE_SEGMENT = 'adaccount_update_audience_segment';
   const ADD_FUNDING_SOURCE = 'add_funding_source';
   const ADD_IMAGES = 'add_images';
   const BILLING_EVENT = 'billing_event';
@@ -93,6 +95,7 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const UPDATE_CAMPAIGN_BUDGET_OPTIMIZATION_TOGGLING_STATUS = 'update_campaign_budget_optimization_toggling_status';
   const UPDATE_CAMPAIGN_BUDGET_SCHEDULING_STATE = 'update_campaign_budget_scheduling_state';
   const UPDATE_CAMPAIGN_CONVERSION_GOAL = 'update_campaign_conversion_goal';
+  const UPDATE_CAMPAIGN_DELIVERY_DESTINATION = 'update_campaign_delivery_destination';
   const UPDATE_CAMPAIGN_DELIVERY_TYPE = 'update_campaign_delivery_type';
   const UPDATE_CAMPAIGN_GROUP_AD_SCHEDULING = 'update_campaign_group_ad_scheduling';
   const UPDATE_CAMPAIGN_GROUP_BUDGET_SCHEDULING_STATE = 'update_campaign_group_budget_scheduling_state';

@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AdsValueAdjustmentRuleCollectionFields;
+use FacebookAds\Object\Fields\AdsQuickViewsFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\AdsValueAdjustmentRuleCollectionFields;
  *
  */
 
-class AdsValueAdjustmentRuleCollection extends AbstractCrudObject {
+class AdsQuickViews extends AbstractCrudObject {
 
   /**
-   * @return AdsValueAdjustmentRuleCollectionFields
+   * @return AdsQuickViewsFields
    */
   public static function getFieldsEnum() {
-    return AdsValueAdjustmentRuleCollectionFields::getInstance();
+    return AdsQuickViewsFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -38,29 +38,6 @@ class AdsValueAdjustmentRuleCollection extends AbstractCrudObject {
     return $ref_enums;
   }
 
-
-  public function getRules(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/rules',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
 
   public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
@@ -75,9 +52,9 @@ class AdsValueAdjustmentRuleCollection extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new AdsValueAdjustmentRuleCollection(),
+      new AdsQuickViews(),
       'NODE',
-      AdsValueAdjustmentRuleCollection::getFieldsEnum()->getValues(),
+      AdsQuickViews::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

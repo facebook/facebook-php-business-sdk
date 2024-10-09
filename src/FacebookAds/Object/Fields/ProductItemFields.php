@@ -137,7 +137,7 @@ class ProductItemFields extends AbstractEnum {
       'brand' => 'string',
       'bundle_items' => 'list<string>',
       'bundle_retailer_ids' => 'list<string>',
-      'capability_to_review_status' => 'list<map<Object, Object>>',
+      'capability_to_review_status' => 'list<map<string, ProductItem_capability_to_review_status>>',
       'category' => 'string',
       'category_specific_fields' => 'CatalogSubVerticalList',
       'color' => 'string',

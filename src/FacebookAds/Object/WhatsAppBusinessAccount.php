@@ -169,6 +169,59 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getCallAnalytics(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'country_codes' => 'list<string>',
+      'dimensions' => 'list<dimensions_enum>',
+      'directions' => 'list<directions_enum>',
+      'end' => 'unsigned int',
+      'granularity' => 'granularity_enum',
+      'metric_types' => 'list<metric_types_enum>',
+      'phone_numbers' => 'list<string>',
+      'start' => 'unsigned int',
+    );
+    $enums = array(
+      'dimensions_enum' => array(
+        'COUNTRY',
+        'DIRECTION',
+        'PHONE',
+        'UNKNOWN',
+      ),
+      'directions_enum' => array(
+        'BUSINESS_INITIATED',
+        'UNKNOWN',
+        'USER_INITIATED',
+      ),
+      'granularity_enum' => array(
+        'DAILY',
+        'HALF_HOUR',
+        'MONTHLY',
+      ),
+      'metric_types_enum' => array(
+        'AVERAGE_DURATION',
+        'COST',
+        'COUNT',
+        'UNKNOWN',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/call_analytics',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getConversationAnalytics(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -538,6 +591,7 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       'cta_url_link_tracking_opted_out' => 'bool',
       'display_format' => 'display_format_enum',
       'language' => 'string',
+      'library_template_body_inputs' => 'map',
       'library_template_button_inputs' => 'list<map>',
       'library_template_name' => 'string',
       'message_send_ttl_seconds' => 'unsigned int',

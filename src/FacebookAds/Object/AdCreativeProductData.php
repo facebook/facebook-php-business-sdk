@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\CatalogItemRejectionReasonsFields;
+use FacebookAds\Object\Fields\AdCreativeProductDataFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\CatalogItemRejectionReasonsFields;
  *
  */
 
-class CatalogItemRejectionReasons extends AbstractObject {
+class AdCreativeProductData extends AbstractObject {
 
   /**
-   * @return CatalogItemRejectionReasonsFields
+   * @return AdCreativeProductDataFields
    */
   public static function getFieldsEnum() {
-    return CatalogItemRejectionReasonsFields::getInstance();
+    return AdCreativeProductDataFields::getInstance();
   }
 
   protected static function getReferencedEnums() {

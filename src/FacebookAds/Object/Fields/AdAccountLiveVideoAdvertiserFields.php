@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -18,15 +18,19 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static CampaignSpecialAdCategoryValues getInstance()
  */
-class CampaignSpecialAdCategoryValues extends AbstractEnum {
 
-  const CREDIT = 'CREDIT';
-  const EMPLOYMENT = 'EMPLOYMENT';
-  const FINANCIAL_PRODUCTS_SERVICES = 'FINANCIAL_PRODUCTS_SERVICES';
-  const HOUSING = 'HOUSING';
-  const ISSUES_ELECTIONS_POLITICS = 'ISSUES_ELECTIONS_POLITICS';
-  const NONE = 'NONE';
-  const ONLINE_GAMBLING_AND_GAMING = 'ONLINE_GAMBLING_AND_GAMING';
+class AdAccountLiveVideoAdvertiserFields extends AbstractEnum {
+
+  const IS_LVA_TOGGLE_ON = 'is_lva_toggle_on';
+  const LVA_DEFAULT_BUDGET = 'lva_default_budget';
+  const SHOULD_SHOW_LVA_TOGGLE = 'should_show_lva_toggle';
+
+  public function getFieldTypes() {
+    return array(
+      'is_lva_toggle_on' => 'bool',
+      'lva_default_budget' => 'int',
+      'should_show_lva_toggle' => 'bool',
+    );
+  }
 }

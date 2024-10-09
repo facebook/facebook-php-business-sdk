@@ -54,6 +54,11 @@ class VehicleFields extends AbstractEnum {
   const PREVIOUS_CURRENCY = 'previous_currency';
   const PREVIOUS_PRICE = 'previous_price';
   const PRICE = 'price';
+  const PRODUCT_PRIORITY_0 = 'product_priority_0';
+  const PRODUCT_PRIORITY_1 = 'product_priority_1';
+  const PRODUCT_PRIORITY_2 = 'product_priority_2';
+  const PRODUCT_PRIORITY_3 = 'product_priority_3';
+  const PRODUCT_PRIORITY_4 = 'product_priority_4';
   const SALE_CURRENCY = 'sale_currency';
   const SALE_PRICE = 'sale_price';
   const SANITIZED_IMAGES = 'sanitized_images';
@@ -105,6 +110,11 @@ class VehicleFields extends AbstractEnum {
       'previous_currency' => 'string',
       'previous_price' => 'string',
       'price' => 'string',
+      'product_priority_0' => 'float',
+      'product_priority_1' => 'float',
+      'product_priority_2' => 'float',
+      'product_priority_3' => 'float',
+      'product_priority_4' => 'float',
       'sale_currency' => 'string',
       'sale_price' => 'string',
       'sanitized_images' => 'list<string>',

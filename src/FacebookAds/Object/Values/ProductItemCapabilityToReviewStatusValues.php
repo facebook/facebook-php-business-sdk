@@ -18,15 +18,13 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdAccountTargetingUnifiedRegulatedCategoriesValues getInstance()
+ * @method static ProductItemCapabilityToReviewStatusValues getInstance()
  */
-class AdAccountTargetingUnifiedRegulatedCategoriesValues extends AbstractEnum {
+class ProductItemCapabilityToReviewStatusValues extends AbstractEnum {
 
-  const CREDIT = 'CREDIT';
-  const EMPLOYMENT = 'EMPLOYMENT';
-  const FINANCIAL_PRODUCTS_SERVICES = 'FINANCIAL_PRODUCTS_SERVICES';
-  const HOUSING = 'HOUSING';
-  const ISSUES_ELECTIONS_POLITICS = 'ISSUES_ELECTIONS_POLITICS';
-  const NONE = 'NONE';
-  const ONLINE_GAMBLING_AND_GAMING = 'ONLINE_GAMBLING_AND_GAMING';
+  const APPROVED = 'APPROVED';
+  const NO_REVIEW = 'NO_REVIEW';
+  const OUTDATED = 'OUTDATED';
+  const PENDING = 'PENDING';
+  const REJECTED = 'REJECTED';
 }

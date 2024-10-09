@@ -17,6 +17,7 @@ use FacebookAds\Object\Fields\ProductItemFields;
 use FacebookAds\Object\Values\OverrideDetailsTypeValues;
 use FacebookAds\Object\Values\ProductItemAgeGroupValues;
 use FacebookAds\Object\Values\ProductItemAvailabilityValues;
+use FacebookAds\Object\Values\ProductItemCapabilityToReviewStatusValues;
 use FacebookAds\Object\Values\ProductItemCommerceTaxCategoryValues;
 use FacebookAds\Object\Values\ProductItemConditionValues;
 use FacebookAds\Object\Values\ProductItemErrorPriorityValues;
@@ -60,6 +61,7 @@ class ProductItem extends AbstractCrudObject {
     $ref_enums = array();
     $ref_enums['AgeGroup'] = ProductItemAgeGroupValues::getInstance()->getValues();
     $ref_enums['Availability'] = ProductItemAvailabilityValues::getInstance()->getValues();
+    $ref_enums['CapabilityToReviewStatus'] = ProductItemCapabilityToReviewStatusValues::getInstance()->getValues();
     $ref_enums['Condition'] = ProductItemConditionValues::getInstance()->getValues();
     $ref_enums['Gender'] = ProductItemGenderValues::getInstance()->getValues();
     $ref_enums['ImageFetchStatus'] = ProductItemImageFetchStatusValues::getInstance()->getValues();

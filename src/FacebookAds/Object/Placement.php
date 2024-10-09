@@ -13,7 +13,9 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\CatalogItemRejectionReasonsFields;
+use FacebookAds\Object\Fields\PlacementFields;
+use FacebookAds\Object\Values\PlacementDevicePlatformsValues;
+use FacebookAds\Object\Values\PlacementEffectiveDevicePlatformsValues;
 
 /**
  * This class is auto-generated.
@@ -24,17 +26,19 @@ use FacebookAds\Object\Fields\CatalogItemRejectionReasonsFields;
  *
  */
 
-class CatalogItemRejectionReasons extends AbstractObject {
+class Placement extends AbstractObject {
 
   /**
-   * @return CatalogItemRejectionReasonsFields
+   * @return PlacementFields
    */
   public static function getFieldsEnum() {
-    return CatalogItemRejectionReasonsFields::getInstance();
+    return PlacementFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['DevicePlatforms'] = PlacementDevicePlatformsValues::getInstance()->getValues();
+    $ref_enums['EffectiveDevicePlatforms'] = PlacementEffectiveDevicePlatformsValues::getInstance()->getValues();
     return $ref_enums;
   }
 

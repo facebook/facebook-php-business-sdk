@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class WhatsAppBusinessAccountProviderNameValues extends AbstractEnum {
 
+  const BILLDESK = 'BILLDESK';
   const PAYU = 'PAYU';
   const RAZORPAY = 'RAZORPAY';
   const UPI_VPA = 'UPI_VPA';

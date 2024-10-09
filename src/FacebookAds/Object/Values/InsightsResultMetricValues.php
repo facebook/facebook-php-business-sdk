@@ -22,11 +22,28 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class InsightsResultMetricValues extends AbstractEnum {
 
-  const PAGES_FB_STORY_REPLIES = 'PAGES_FB_STORY_REPLIES';
-  const PAGES_FB_STORY_SHARES = 'PAGES_FB_STORY_SHARES';
-  const PAGES_FB_STORY_STICKER_INTERACTIONS = 'PAGES_FB_STORY_STICKER_INTERACTIONS';
-  const PAGES_FB_STORY_THREAD_LIGHTWEIGHT_REACTIONS = 'PAGES_FB_STORY_THREAD_LIGHTWEIGHT_REACTIONS';
-  const PAGE_STORY_IMPRESSIONS_BY_STORY_ID = 'PAGE_STORY_IMPRESSIONS_BY_STORY_ID';
-  const PAGE_STORY_IMPRESSIONS_BY_STORY_ID_UNIQUE = 'PAGE_STORY_IMPRESSIONS_BY_STORY_ID_UNIQUE';
-  const STORY_INTERACTION = 'STORY_INTERACTION';
+  const CLIPS_REPLAYS_COUNT = 'clips_replays_count';
+  const COMMENTS = 'comments';
+  const FOLLOWS = 'follows';
+  const IG_REELS_AGGREGATED_ALL_PLAYS_COUNT = 'ig_reels_aggregated_all_plays_count';
+  const IG_REELS_AVG_WATCH_TIME = 'ig_reels_avg_watch_time';
+  const IG_REELS_VIDEO_VIEW_TOTAL_TIME = 'ig_reels_video_view_total_time';
+  const IMPRESSIONS = 'impressions';
+  const LIKES = 'likes';
+  const NAVIGATION = 'navigation';
+  const PEAK_CONCURRENT_VIEWERS = 'peak_concurrent_viewers';
+  const PLAYS = 'plays';
+  const PROFILE_ACTIVITY = 'profile_activity';
+  const PROFILE_VISITS = 'profile_visits';
+  const QUOTES = 'quotes';
+  const REACH = 'reach';
+  const REPLIES = 'replies';
+  const REPOSTS = 'reposts';
+  const SAVED = 'saved';
+  const SHARES = 'shares';
+  const THREAD_REPLIES = 'thread_replies';
+  const THREAD_SHARES = 'thread_shares';
+  const TOTAL_INTERACTIONS = 'total_interactions';
+  const VIDEO_VIEWS = 'video_views';
+  const VIEWS = 'views';
 }

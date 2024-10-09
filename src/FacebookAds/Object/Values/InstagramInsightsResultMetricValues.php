@@ -42,6 +42,7 @@ class InstagramInsightsResultMetricValues extends AbstractEnum {
   const SAVED = 'saved';
   const SHARES = 'shares';
   const THREAD_REPLIES = 'thread_replies';
+  const THREAD_SHARES = 'thread_shares';
   const TOTAL_INTERACTIONS = 'total_interactions';
   const VIDEO_VIEWS = 'video_views';
   const VIEWS = 'views';

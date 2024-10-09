@@ -23,6 +23,7 @@ use FacebookAds\Enum\AbstractEnum;
 class AdsUserSettingsFields extends AbstractEnum {
 
   const A_PLUS_C_SURVEY_SEEN = 'a_plus_c_survey_seen';
+  const ADD_OVERLAYS_OPT_IN_STATUS = 'add_overlays_opt_in_status';
   const ADGROUP_NAME_TEMPLATE = 'adgroup_name_template';
   const ADS_CS_CATALOG_OPT_OUT_TIMESTAMP = 'ads_cs_catalog_opt_out_timestamp';
   const ADS_TOOL_VISITS = 'ads_tool_visits';
@@ -44,6 +45,7 @@ class AdsUserSettingsFields extends AbstractEnum {
   const FOCUS_MODE_DEFAULT = 'focus_mode_default';
   const GEN_AI_ALPHA_TEST_STATUS = 'gen_ai_alpha_test_status';
   const ID = 'id';
+  const IMAGE_BACKGROUND_GENERATION_OPT_IN_STATUS = 'image_background_generation_opt_in_status';
   const IMAGE_EXPANSION_OPT_IN_STATUS = 'image_expansion_opt_in_status';
   const IS_ADS_AI_CONSENTED = 'is_ads_ai_consented';
   const IS_CBO_DEFAULT_ON = 'is_cbo_default_on';
@@ -83,6 +85,7 @@ class AdsUserSettingsFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'a_plus_c_survey_seen' => 'bool',
+      'add_overlays_opt_in_status' => 'string',
       'adgroup_name_template' => 'Object',
       'ads_cs_catalog_opt_out_timestamp' => 'list<map<string, int>>',
       'ads_tool_visits' => 'list<Object>',
@@ -104,6 +107,7 @@ class AdsUserSettingsFields extends AbstractEnum {
       'focus_mode_default' => 'string',
       'gen_ai_alpha_test_status' => 'int',
       'id' => 'string',
+      'image_background_generation_opt_in_status' => 'string',
       'image_expansion_opt_in_status' => 'string',
       'is_ads_ai_consented' => 'bool',
       'is_cbo_default_on' => 'bool',
