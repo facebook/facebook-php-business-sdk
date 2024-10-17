@@ -11,16 +11,9 @@
     "page"
   ],
   "homepage": "https://developers.facebook.com/",
-  "repositories": [
-       {
-           "type": "composer",
-           "url": "https://capi-automation.s3.amazonaws.com/public/php"
-       }
-   ],
   "require": {
     "php": ">=8.0",
-    "guzzlehttp/guzzle": "^6.5 || ^7.0",
-    "facebook/php-capi-param-builder": "0.1.0-dev"
+    "guzzlehttp/guzzle": "^6.5 || ^7.0"
   },
   "require-dev": {
     "phpunit/phpunit": "~9",
@@ -31,6 +24,5 @@
     "psr-4": {
       "FacebookAds\\": "src/FacebookAds/"
     }
-  },
-   "minimum-stability": "dev"
+  }
 }
