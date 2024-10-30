@@ -157,6 +157,7 @@ class CurlLogger implements LoggerInterface {
       if ($is_file && $params->offsetGet($name) instanceof FileParameter) {
         $value = "@" . $this->normalizeFileParam($params->offsetGet($name));
       } else {
+        $value = (string) $value;
         $value = addcslashes(
           strpos($value, "\n") !== false
             ? $this->indent($value, 2)
