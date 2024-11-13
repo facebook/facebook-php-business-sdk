@@ -23,6 +23,5 @@ use FacebookAds\Enum\AbstractEnum;
 class AdCreativeLinkDataMomentTypeValues extends AbstractEnum {
 
   const FB_LIVE_SHOPPING = 'FB_LIVE_SHOPPING';
-  const IG_DROPS = 'IG_DROPS';
   const IG_LIVE_SHOPPING = 'IG_LIVE_SHOPPING';
 }

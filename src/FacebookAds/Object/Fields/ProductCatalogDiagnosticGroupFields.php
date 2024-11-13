@@ -36,7 +36,7 @@ class ProductCatalogDiagnosticGroupFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'affected_channels' => 'list<AffectedChannels>',
+      'affected_channels' => 'list<string>',
       'affected_entity' => 'AffectedEntity',
       'affected_features' => 'list<AffectedFeatures>',
       'diagnostics' => 'list<Object>',

@@ -27,6 +27,13 @@ use FacebookAds\Object\Fields\AdAccountRecommendationsFields;
 class AdAccountRecommendations extends AbstractObject {
 
   /**
+   * @deprecated getEndpoint function is deprecated
+   */
+  protected function getEndpoint() {
+    return 'recommendations';
+  }
+
+  /**
    * @return AdAccountRecommendationsFields
    */
   public static function getFieldsEnum() {

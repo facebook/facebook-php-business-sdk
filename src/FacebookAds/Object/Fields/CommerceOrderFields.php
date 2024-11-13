@@ -33,6 +33,7 @@ class CommerceOrderFields extends AbstractEnum {
   const LAST_UPDATED = 'last_updated';
   const MERCHANT_ORDER_ID = 'merchant_order_id';
   const ORDER_STATUS = 'order_status';
+  const PRE_ORDER_DETAILS = 'pre_order_details';
   const SELECTED_SHIPPING_OPTION = 'selected_shipping_option';
   const SHIP_BY_DATE = 'ship_by_date';
   const SHIPPING_ADDRESS = 'shipping_address';
@@ -50,6 +51,7 @@ class CommerceOrderFields extends AbstractEnum {
       'last_updated' => 'string',
       'merchant_order_id' => 'string',
       'order_status' => 'Object',
+      'pre_order_details' => 'Object',
       'selected_shipping_option' => 'Object',
       'ship_by_date' => 'string',
       'shipping_address' => 'Object',

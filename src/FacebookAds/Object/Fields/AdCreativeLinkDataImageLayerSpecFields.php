@@ -24,6 +24,7 @@ class AdCreativeLinkDataImageLayerSpecFields extends AbstractEnum {
 
   const BLENDING_MODE = 'blending_mode';
   const CONTENT = 'content';
+  const FRAME_AUTO_SHOW_ENROLL_STATUS = 'frame_auto_show_enroll_status';
   const FRAME_IMAGE_HASH = 'frame_image_hash';
   const FRAME_SOURCE = 'frame_source';
   const IMAGE_SOURCE = 'image_source';
@@ -40,6 +41,7 @@ class AdCreativeLinkDataImageLayerSpecFields extends AbstractEnum {
     return array(
       'blending_mode' => 'BlendingMode',
       'content' => 'Object',
+      'frame_auto_show_enroll_status' => 'string',
       'frame_image_hash' => 'string',
       'frame_source' => 'FrameSource',
       'image_source' => 'ImageSource',

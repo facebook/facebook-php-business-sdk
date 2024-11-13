@@ -33,6 +33,7 @@ class AdSetFields extends AbstractEnum {
   const BID_INFO = 'bid_info';
   const BID_STRATEGY = 'bid_strategy';
   const BILLING_EVENT = 'billing_event';
+  const BRAND_SAFETY_CONFIG = 'brand_safety_config';
   const BUDGET_REMAINING = 'budget_remaining';
   const CAMPAIGN = 'campaign';
   const CAMPAIGN_ACTIVE_TIME = 'campaign_active_time';
@@ -62,6 +63,8 @@ class AdSetFields extends AbstractEnum {
   const LIFETIME_IMPS = 'lifetime_imps';
   const LIFETIME_MIN_SPEND_TARGET = 'lifetime_min_spend_target';
   const LIFETIME_SPEND_CAP = 'lifetime_spend_cap';
+  const MAX_BUDGET_SPEND_PERCENTAGE = 'max_budget_spend_percentage';
+  const MIN_BUDGET_SPEND_PERCENTAGE = 'min_budget_spend_percentage';
   const MULTI_OPTIMIZATION_GOAL_WEIGHT = 'multi_optimization_goal_weight';
   const NAME = 'name';
   const OPTIMIZATION_GOAL = 'optimization_goal';
@@ -108,6 +111,7 @@ class AdSetFields extends AbstractEnum {
       'bid_info' => 'map<string, unsigned int>',
       'bid_strategy' => 'BidStrategy',
       'billing_event' => 'BillingEvent',
+      'brand_safety_config' => 'BrandSafetyCampaignConfig',
       'budget_remaining' => 'string',
       'campaign' => 'Campaign',
       'campaign_active_time' => 'string',
@@ -137,6 +141,8 @@ class AdSetFields extends AbstractEnum {
       'lifetime_imps' => 'int',
       'lifetime_min_spend_target' => 'string',
       'lifetime_spend_cap' => 'string',
+      'max_budget_spend_percentage' => 'string',
+      'min_budget_spend_percentage' => 'string',
       'multi_optimization_goal_weight' => 'string',
       'name' => 'string',
       'optimization_goal' => 'OptimizationGoal',

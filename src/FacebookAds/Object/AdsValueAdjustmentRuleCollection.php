@@ -39,7 +39,7 @@ class AdsValueAdjustmentRuleCollection extends AbstractCrudObject {
   }
 
 
-  public function getPersonas(array $fields = array(), array $params = array(), $pending = false) {
+  public function getRules(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -51,7 +51,7 @@ class AdsValueAdjustmentRuleCollection extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
-      '/personas',
+      '/rules',
       new AbstractCrudObject(),
       'EDGE',
       array(),

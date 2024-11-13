@@ -25,6 +25,7 @@ class AdRuleFields extends AbstractEnum {
   const ACCOUNT_ID = 'account_id';
   const CREATED_BY = 'created_by';
   const CREATED_TIME = 'created_time';
+  const DISABLE_ERROR_CODE = 'disable_error_code';
   const EVALUATION_SPEC = 'evaluation_spec';
   const EXECUTION_SPEC = 'execution_spec';
   const ID = 'id';
@@ -39,6 +40,7 @@ class AdRuleFields extends AbstractEnum {
       'account_id' => 'string',
       'created_by' => 'User',
       'created_time' => 'datetime',
+      'disable_error_code' => 'int',
       'evaluation_spec' => 'AdRuleEvaluationSpec',
       'execution_spec' => 'AdRuleExecutionSpec',
       'id' => 'string',

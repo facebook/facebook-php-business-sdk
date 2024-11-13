@@ -25,20 +25,24 @@ class CTXPartnerAppWelcomeMessageFlowFields extends AbstractEnum {
   const COMPATIBLE_PLATFORMS = 'compatible_platforms';
   const ELIGIBLE_PLATFORMS = 'eligible_platforms';
   const ID = 'id';
+  const IS_IG_ONLY_FLOW = 'is_ig_only_flow';
   const IS_USED_IN_AD = 'is_used_in_ad';
   const LAST_UPDATE_TIME = 'last_update_time';
   const NAME = 'name';
   const WELCOME_MESSAGE_FLOW = 'welcome_message_flow';
+  const WELCOME_MESSAGE_SEQUENCE = 'welcome_message_sequence';
 
   public function getFieldTypes() {
     return array(
       'compatible_platforms' => 'list<string>',
       'eligible_platforms' => 'list<string>',
       'id' => 'string',
+      'is_ig_only_flow' => 'bool',
       'is_used_in_ad' => 'bool',
       'last_update_time' => 'datetime',
       'name' => 'string',
       'welcome_message_flow' => 'string',
+      'welcome_message_sequence' => 'string',
     );
   }
 }

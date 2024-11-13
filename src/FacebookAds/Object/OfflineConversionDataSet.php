@@ -164,7 +164,7 @@ class OfflineConversionDataSet extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getShareDAccounts(array $fields = array(), array $params = array(), $pending = false) {
+  public function getSharedAccounts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -190,7 +190,7 @@ class OfflineConversionDataSet extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getShareDAgencies(array $fields = array(), array $params = array(), $pending = false) {
+  public function getSharedAgencies(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(

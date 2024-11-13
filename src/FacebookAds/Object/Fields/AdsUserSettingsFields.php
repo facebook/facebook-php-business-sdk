@@ -23,7 +23,9 @@ use FacebookAds\Enum\AbstractEnum;
 class AdsUserSettingsFields extends AbstractEnum {
 
   const A_PLUS_C_SURVEY_SEEN = 'a_plus_c_survey_seen';
+  const ADD_OVERLAYS_OPT_IN_STATUS = 'add_overlays_opt_in_status';
   const ADGROUP_NAME_TEMPLATE = 'adgroup_name_template';
+  const ADS_CS_CATALOG_OPT_OUT_TIMESTAMP = 'ads_cs_catalog_opt_out_timestamp';
   const ADS_TOOL_VISITS = 'ads_tool_visits';
   const APLUSC_CAROUSEL_CDA_OPT_IN_STATUS = 'aplusc_carousel_cda_opt_in_status';
   const APLUSC_CAROUSEL_INLINE_COMMENT_OPT_IN_STATUS = 'aplusc_carousel_inline_comment_opt_in_status';
@@ -32,6 +34,7 @@ class AdsUserSettingsFields extends AbstractEnum {
   const AUTOFLOW_LITE_OPT_IN_STATUS = 'autoflow_lite_opt_in_status';
   const AUTOFLOW_LITE_SHOULD_OPT_IN = 'autoflow_lite_should_opt_in';
   const BLENDED_ADS_CREATION_DEFAULTING_OPT_IN_STATUS = 'blended_ads_creation_defaulting_opt_in_status';
+  const BLENDED_ADS_CREATION_DEFAULTING_OPT_OUT_CAMPAIGN_GROUP_IDS = 'blended_ads_creation_defaulting_opt_out_campaign_group_ids';
   const BOOKMARKED_PAGES = 'bookmarked_pages';
   const CAMPAIGN_GROUP_NAME_TEMPLATE = 'campaign_group_name_template';
   const CAMPAIGN_NAME_TEMPLATE = 'campaign_name_template';
@@ -42,13 +45,13 @@ class AdsUserSettingsFields extends AbstractEnum {
   const FOCUS_MODE_DEFAULT = 'focus_mode_default';
   const GEN_AI_ALPHA_TEST_STATUS = 'gen_ai_alpha_test_status';
   const ID = 'id';
+  const IMAGE_BACKGROUND_GENERATION_OPT_IN_STATUS = 'image_background_generation_opt_in_status';
   const IMAGE_EXPANSION_OPT_IN_STATUS = 'image_expansion_opt_in_status';
   const IS_ADS_AI_CONSENTED = 'is_ads_ai_consented';
   const IS_CBO_DEFAULT_ON = 'is_cbo_default_on';
   const IS_SE_REMOVAL_GUIDANCE_DISMISSED = 'is_se_removal_guidance_dismissed';
   const LAST_USED_POST_FORMAT = 'last_used_post_format';
   const LAST_VISITED_TIME = 'last_visited_time';
-  const MULTI_ADS_SETTINGS = 'multi_ads_settings';
   const MUSIC_ON_REELS_OPT_IN = 'music_on_reels_opt_in';
   const MUTED_CBO_MIDFLIGHT_EDUCATION_MESSAGES = 'muted_cbo_midflight_education_messages';
   const ONSITE_DESTINATION_OPTIMIZATION_OPT_IN = 'onsite_destination_optimization_opt_in';
@@ -74,6 +77,7 @@ class AdsUserSettingsFields extends AbstractEnum {
   const SYD_CAMPAIGN_TRENDS_METRIC = 'syd_campaign_trends_metric';
   const TOTAL_COUPON_SYD_DISMISSALS = 'total_coupon_syd_dismissals';
   const TOTAL_COUPON_UPSELL_DISMISSALS = 'total_coupon_upsell_dismissals';
+  const URL_PREFILL_REMOVAL_TIMESTAMP = 'url_prefill_removal_timestamp';
   const USE_PE_CREATE_FLOW = 'use_pe_create_flow';
   const USE_STEPPER_PRIMARY_ENTRY = 'use_stepper_primary_entry';
   const USER = 'user';
@@ -81,7 +85,9 @@ class AdsUserSettingsFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'a_plus_c_survey_seen' => 'bool',
+      'add_overlays_opt_in_status' => 'string',
       'adgroup_name_template' => 'Object',
+      'ads_cs_catalog_opt_out_timestamp' => 'list<map<string, int>>',
       'ads_tool_visits' => 'list<Object>',
       'aplusc_carousel_cda_opt_in_status' => 'string',
       'aplusc_carousel_inline_comment_opt_in_status' => 'string',
@@ -90,6 +96,7 @@ class AdsUserSettingsFields extends AbstractEnum {
       'autoflow_lite_opt_in_status' => 'string',
       'autoflow_lite_should_opt_in' => 'bool',
       'blended_ads_creation_defaulting_opt_in_status' => 'string',
+      'blended_ads_creation_defaulting_opt_out_campaign_group_ids' => 'list<int>',
       'bookmarked_pages' => 'list<Page>',
       'campaign_group_name_template' => 'Object',
       'campaign_name_template' => 'Object',
@@ -100,13 +107,13 @@ class AdsUserSettingsFields extends AbstractEnum {
       'focus_mode_default' => 'string',
       'gen_ai_alpha_test_status' => 'int',
       'id' => 'string',
+      'image_background_generation_opt_in_status' => 'string',
       'image_expansion_opt_in_status' => 'string',
       'is_ads_ai_consented' => 'bool',
       'is_cbo_default_on' => 'bool',
       'is_se_removal_guidance_dismissed' => 'bool',
       'last_used_post_format' => 'string',
       'last_visited_time' => 'datetime',
-      'multi_ads_settings' => 'list<map<string, string>>',
       'music_on_reels_opt_in' => 'list<map<string, string>>',
       'muted_cbo_midflight_education_messages' => 'list<string>',
       'onsite_destination_optimization_opt_in' => 'string',
@@ -132,6 +139,7 @@ class AdsUserSettingsFields extends AbstractEnum {
       'syd_campaign_trends_metric' => 'string',
       'total_coupon_syd_dismissals' => 'int',
       'total_coupon_upsell_dismissals' => 'int',
+      'url_prefill_removal_timestamp' => 'int',
       'use_pe_create_flow' => 'bool',
       'use_stepper_primary_entry' => 'bool',
       'user' => 'User',

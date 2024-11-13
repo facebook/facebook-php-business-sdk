@@ -18,7 +18,9 @@ use FacebookAds\Object\Values\CustomAudienceActionSourceValues;
 use FacebookAds\Object\Values\CustomAudienceClaimObjectiveValues;
 use FacebookAds\Object\Values\CustomAudienceContentTypeValues;
 use FacebookAds\Object\Values\CustomAudienceCustomerFileSourceValues;
+use FacebookAds\Object\Values\CustomAudienceSubscriptionInfoValues;
 use FacebookAds\Object\Values\CustomAudienceSubtypeValues;
+use FacebookAds\Object\Values\CustomAudienceUseForProductsValues;
 use FacebookAds\Object\Values\CustomAudienceTypes;
 use FacebookAds\Object\Fields\CustomAudienceMultikeySchemaFields;
 use FacebookAds\Object\CustomAudienceNormalizers\EmailNormalizer;
@@ -66,7 +68,9 @@ class CustomAudience extends AbstractCrudObject {
     $ref_enums['ClaimObjective'] = CustomAudienceClaimObjectiveValues::getInstance()->getValues();
     $ref_enums['ContentType'] = CustomAudienceContentTypeValues::getInstance()->getValues();
     $ref_enums['CustomerFileSource'] = CustomAudienceCustomerFileSourceValues::getInstance()->getValues();
+    $ref_enums['SubscriptionInfo'] = CustomAudienceSubscriptionInfoValues::getInstance()->getValues();
     $ref_enums['Subtype'] = CustomAudienceSubtypeValues::getInstance()->getValues();
+    $ref_enums['UseForProducts'] = CustomAudienceUseForProductsValues::getInstance()->getValues();
     $ref_enums['ActionSource'] = CustomAudienceActionSourceValues::getInstance()->getValues();
     return $ref_enums;
   }
@@ -246,7 +250,7 @@ class CustomAudience extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getShareDAccountInfo(array $fields = array(), array $params = array(), $pending = false) {
+  public function getSharedAccountInfo(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(

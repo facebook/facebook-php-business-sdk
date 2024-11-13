@@ -14,6 +14,9 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\IGMediaForIGOnlyAPIFields;
+use FacebookAds\Object\Values\InsightsResultBreakdownValues;
+use FacebookAds\Object\Values\InsightsResultMetricValues;
+use FacebookAds\Object\Values\InsightsResultPeriodValues;
 
 /**
  * This class is auto-generated.
@@ -62,6 +65,82 @@ class IGMediaForIGOnlyAPI extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getComments(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/comments',
+      new Comment(),
+      'EDGE',
+      Comment::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createComment(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'message' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/comments',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getInsights(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'breakdown' => 'list<breakdown_enum>',
+      'metric' => 'list<metric_enum>',
+      'period' => 'list<period_enum>',
+    );
+    $enums = array(
+      'breakdown_enum' => InsightsResultBreakdownValues::getInstance()->getValues(),
+      'metric_enum' => InsightsResultMetricValues::getInstance()->getValues(),
+      'period_enum' => InsightsResultPeriodValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/insights',
+      new InsightsResult(),
+      'EDGE',
+      InsightsResult::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -78,6 +157,30 @@ class IGMediaForIGOnlyAPI extends AbstractCrudObject {
       new IGMediaForIGOnlyAPI(),
       'NODE',
       IGMediaForIGOnlyAPI::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'comment_enabled' => 'bool',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/',
+      new AbstractCrudObject(),
+      'NODE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

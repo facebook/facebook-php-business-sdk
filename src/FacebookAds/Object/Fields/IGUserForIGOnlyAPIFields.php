@@ -23,16 +23,30 @@ use FacebookAds\Enum\AbstractEnum;
 class IGUserForIGOnlyAPIFields extends AbstractEnum {
 
   const ACCOUNT_TYPE = 'account_type';
+  const BIOGRAPHY = 'biography';
+  const FOLLOWERS_COUNT = 'followers_count';
+  const FOLLOWS_COUNT = 'follows_count';
   const ID = 'id';
   const MEDIA_COUNT = 'media_count';
+  const NAME = 'name';
+  const PROFILE_PICTURE_URL = 'profile_picture_url';
+  const USER_ID = 'user_id';
   const USERNAME = 'username';
+  const WEBSITE = 'website';
 
   public function getFieldTypes() {
     return array(
       'account_type' => 'string',
+      'biography' => 'string',
+      'followers_count' => 'int',
+      'follows_count' => 'int',
       'id' => 'string',
       'media_count' => 'int',
+      'name' => 'string',
+      'profile_picture_url' => 'string',
+      'user_id' => 'int',
       'username' => 'string',
+      'website' => 'string',
     );
   }
 }

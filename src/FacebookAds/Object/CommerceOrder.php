@@ -93,7 +93,7 @@ class CommerceOrder extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createCanCellATIOn(array $fields = array(), array $params = array(), $pending = false) {
+  public function createCancellation(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(

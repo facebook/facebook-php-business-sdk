@@ -33,6 +33,7 @@ class AdAccountSubtypeValues extends AbstractEnum {
   const LOOKALIKE = 'LOOKALIKE';
   const MANAGED = 'MANAGED';
   const MEASUREMENT = 'MEASUREMENT';
+  const MESSENGER_SUBSCRIBER_LIST = 'MESSENGER_SUBSCRIBER_LIST';
   const OFFLINE_CONVERSION = 'OFFLINE_CONVERSION';
   const PARTNER = 'PARTNER';
   const PRIMARY = 'PRIMARY';

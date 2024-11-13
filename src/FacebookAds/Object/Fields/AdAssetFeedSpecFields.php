@@ -28,6 +28,7 @@ class AdAssetFeedSpecFields extends AbstractEnum {
   const ASSET_CUSTOMIZATION_RULES = 'asset_customization_rules';
   const AUTOTRANSLATE = 'autotranslate';
   const BODIES = 'bodies';
+  const CALL_ADS_CONFIGURATION = 'call_ads_configuration';
   const CALL_TO_ACTION_TYPES = 'call_to_action_types';
   const CALL_TO_ACTIONS = 'call_to_actions';
   const CAPTIONS = 'captions';
@@ -55,6 +56,7 @@ class AdAssetFeedSpecFields extends AbstractEnum {
       'asset_customization_rules' => 'list<AdAssetFeedSpecAssetCustomizationRule>',
       'autotranslate' => 'list<string>',
       'bodies' => 'list<AdAssetFeedSpecBody>',
+      'call_ads_configuration' => 'Object',
       'call_to_action_types' => 'list<CallToActionTypes>',
       'call_to_actions' => 'list<AdAssetFeedSpecCallToAction>',
       'captions' => 'list<AdAssetFeedSpecCaption>',

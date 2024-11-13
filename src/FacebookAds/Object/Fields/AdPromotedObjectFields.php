@@ -23,12 +23,14 @@ use FacebookAds\Enum\AbstractEnum;
 class AdPromotedObjectFields extends AbstractEnum {
 
   const APPLICATION_ID = 'application_id';
+  const BOOSTED_PRODUCT_SET_ID = 'boosted_product_set_id';
   const CONVERSION_GOAL_ID = 'conversion_goal_id';
   const CUSTOM_CONVERSION_ID = 'custom_conversion_id';
   const CUSTOM_EVENT_STR = 'custom_event_str';
   const CUSTOM_EVENT_TYPE = 'custom_event_type';
   const EVENT_ID = 'event_id';
   const FUNDRAISER_CAMPAIGN_ID = 'fundraiser_campaign_id';
+  const LEAD_ADS_FORM_EVENT_SOURCE_TYPE = 'lead_ads_form_event_source_type';
   const MCME_CONVERSION_ID = 'mcme_conversion_id';
   const OBJECT_STORE_URL = 'object_store_url';
   const OFFER_ID = 'offer_id';
@@ -46,17 +48,21 @@ class AdPromotedObjectFields extends AbstractEnum {
   const PRODUCT_SET = 'product_set';
   const PRODUCT_SET_ID = 'product_set_id';
   const RETENTION_DAYS = 'retention_days';
+  const VALUE_SEMANTIC_TYPE = 'value_semantic_type';
+  const VARIATION = 'variation';
   const WHATSAPP_PHONE_NUMBER = 'whatsapp_phone_number';
 
   public function getFieldTypes() {
     return array(
       'application_id' => 'string',
+      'boosted_product_set_id' => 'string',
       'conversion_goal_id' => 'string',
       'custom_conversion_id' => 'string',
       'custom_event_str' => 'string',
       'custom_event_type' => 'CustomEventType',
       'event_id' => 'string',
       'fundraiser_campaign_id' => 'string',
+      'lead_ads_form_event_source_type' => 'string',
       'mcme_conversion_id' => 'string',
       'object_store_url' => 'string',
       'offer_id' => 'string',
@@ -74,6 +80,8 @@ class AdPromotedObjectFields extends AbstractEnum {
       'product_set' => 'ProductSet',
       'product_set_id' => 'string',
       'retention_days' => 'string',
+      'value_semantic_type' => 'string',
+      'variation' => 'string',
       'whatsapp_phone_number' => 'string',
     );
   }

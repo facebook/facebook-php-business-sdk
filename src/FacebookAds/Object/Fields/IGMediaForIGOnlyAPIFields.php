@@ -23,7 +23,9 @@ use FacebookAds\Enum\AbstractEnum;
 class IGMediaForIGOnlyAPIFields extends AbstractEnum {
 
   const CAPTION = 'caption';
+  const COMMENTS_COUNT = 'comments_count';
   const ID = 'id';
+  const IS_COMMENT_ENABLED = 'is_comment_enabled';
   const IS_SHARED_TO_FEED = 'is_shared_to_feed';
   const LIKE_COUNT = 'like_count';
   const MEDIA_PRODUCT_TYPE = 'media_product_type';
@@ -39,7 +41,9 @@ class IGMediaForIGOnlyAPIFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'caption' => 'string',
+      'comments_count' => 'int',
       'id' => 'string',
+      'is_comment_enabled' => 'bool',
       'is_shared_to_feed' => 'bool',
       'like_count' => 'int',
       'media_product_type' => 'string',

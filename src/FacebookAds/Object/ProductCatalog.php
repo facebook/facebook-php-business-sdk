@@ -149,7 +149,7 @@ class ProductCatalog extends AbstractCrudObject {
       'business' => 'string',
       'permitted_roles' => 'list<permitted_roles_enum>',
       'permitted_tasks' => 'list<permitted_tasks_enum>',
-      'skip_default_utms' => 'bool',
+      'skip_defaults' => 'bool',
       'utm_settings' => 'map',
     );
     $enums = array(
@@ -934,6 +934,30 @@ class ProductCatalog extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createMarketPlacePartnerSellersDetail(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'requests' => 'map',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/marketplace_partner_sellers_details',
+      new ProductCatalog(),
+      'EDGE',
+      ProductCatalog::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getPricingVariablesBatch(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1223,7 +1247,6 @@ class ProductCatalog extends AbstractCrudObject {
 
     $param_types = array(
       'additional_image_urls' => 'list<string>',
-      'additional_uploaded_image_ids' => 'list<string>',
       'additional_variant_attributes' => 'map',
       'android_app_name' => 'string',
       'android_class' => 'string',
@@ -1278,6 +1301,11 @@ class ProductCatalog extends AbstractCrudObject {
       'origin_country' => 'origin_country_enum',
       'pattern' => 'string',
       'price' => 'unsigned int',
+      'product_priority_0' => 'float',
+      'product_priority_1' => 'float',
+      'product_priority_2' => 'float',
+      'product_priority_3' => 'float',
+      'product_priority_4' => 'float',
       'product_type' => 'string',
       'quantity_to_sell_on_facebook' => 'unsigned int',
       'retailer_id' => 'string',

@@ -23,6 +23,7 @@ use FacebookAds\Enum\AbstractEnum;
 class ProductFeedFeedTypeValues extends AbstractEnum {
 
   const AUTOMOTIVE_MODEL = 'AUTOMOTIVE_MODEL';
+  const COLLECTION = 'COLLECTION';
   const DESTINATION = 'DESTINATION';
   const FLIGHT = 'FLIGHT';
   const HOME_LISTING = 'HOME_LISTING';

@@ -27,8 +27,6 @@ class CatalogSmartPixelSettingsFields extends AbstractEnum {
   const CATALOG = 'catalog';
   const CBB_CUSTOM_OVERRIDE_FILTERS = 'cbb_custom_override_filters';
   const CBB_DEFAULT_FILTER = 'cbb_default_filter';
-  const CBB_DEFAULT_FILTER_CRAWL_PARAMS = 'cbb_default_filter_crawl_params';
-  const CBB_OVERRIDE_TYPE_FIELD_MAPPING = 'cbb_override_type_field_mapping';
   const DEFAULTS = 'defaults';
   const FILTERS = 'filters';
   const ID = 'id';
@@ -39,7 +37,6 @@ class CatalogSmartPixelSettingsFields extends AbstractEnum {
   const MICRODATA_FORMAT_PRECEDENCE = 'microdata_format_precedence';
   const PIXEL = 'pixel';
   const PROPERTY_FILTER = 'property_filter';
-  const RETENTION_TIME_SEC = 'retention_time_sec';
   const TRUSTED_DOMAINS = 'trusted_domains';
 
   public function getFieldTypes() {
@@ -49,8 +46,6 @@ class CatalogSmartPixelSettingsFields extends AbstractEnum {
       'catalog' => 'ProductCatalog',
       'cbb_custom_override_filters' => 'list<Object>',
       'cbb_default_filter' => 'list<map<string, list<string>>>',
-      'cbb_default_filter_crawl_params' => 'string',
-      'cbb_override_type_field_mapping' => 'list<map<string, list<string>>>',
       'defaults' => 'list<map<string, string>>',
       'filters' => 'list<map<string, list<string>>>',
       'id' => 'string',
@@ -61,7 +56,6 @@ class CatalogSmartPixelSettingsFields extends AbstractEnum {
       'microdata_format_precedence' => 'list<string>',
       'pixel' => 'AdsPixel',
       'property_filter' => 'list<string>',
-      'retention_time_sec' => 'int',
       'trusted_domains' => 'list<string>',
     );
   }

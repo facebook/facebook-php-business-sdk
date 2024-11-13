@@ -54,6 +54,11 @@ class VehicleOfferFields extends AbstractEnum {
   const OFFER_DISCLAIMER = 'offer_disclaimer';
   const OFFER_TYPE = 'offer_type';
   const PRICE = 'price';
+  const PRODUCT_PRIORITY_0 = 'product_priority_0';
+  const PRODUCT_PRIORITY_1 = 'product_priority_1';
+  const PRODUCT_PRIORITY_2 = 'product_priority_2';
+  const PRODUCT_PRIORITY_3 = 'product_priority_3';
+  const PRODUCT_PRIORITY_4 = 'product_priority_4';
   const SANITIZED_IMAGES = 'sanitized_images';
   const START_DATE = 'start_date';
   const START_TIME = 'start_time';
@@ -102,6 +107,11 @@ class VehicleOfferFields extends AbstractEnum {
       'offer_disclaimer' => 'string',
       'offer_type' => 'string',
       'price' => 'string',
+      'product_priority_0' => 'float',
+      'product_priority_1' => 'float',
+      'product_priority_2' => 'float',
+      'product_priority_3' => 'float',
+      'product_priority_4' => 'float',
       'sanitized_images' => 'list<string>',
       'start_date' => 'string',
       'start_time' => 'int',

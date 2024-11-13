@@ -108,9 +108,9 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'business_app' => 'int',
+      'business_app' => 'string',
       'page_id' => 'string',
-      'scope' => 'list<Permission>',
+      'scope' => 'list<string>',
       'set_token_expires_in_60_days' => 'bool',
     );
     $enums = array(
@@ -135,6 +135,7 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'ad_id' => 'string',
       'is_place' => 'bool',
       'is_promotable' => 'bool',
     );
@@ -729,10 +730,9 @@ class User extends AbstractCrudObject {
       'actions' => 'Object',
       'album_id' => 'string',
       'android_key_hash' => 'string',
-      'animated_effect_id' => 'unsigned int',
       'application_id' => 'string',
       'asked_fun_fact_prompt_id' => 'unsigned int',
-      'asset3d_id' => 'unsigned int',
+      'asset3d_id' => 'string',
       'associated_id' => 'string',
       'attach_place_suggestion' => 'bool',
       'attached_media' => 'list<Object>',
@@ -763,10 +763,9 @@ class User extends AbstractCrudObject {
       'expanded_width' => 'unsigned int',
       'feed_targeting' => 'Object',
       'formatting' => 'formatting_enum',
-      'fun_fact_prompt_id' => 'unsigned int',
+      'fun_fact_prompt_id' => 'string',
       'fun_fact_toastee_id' => 'unsigned int',
       'height' => 'unsigned int',
-      'holiday_card' => 'string',
       'home_checkin_city_id' => 'Object',
       'image_crops' => 'map',
       'implicit_with_tags' => 'list<int>',
@@ -787,7 +786,6 @@ class User extends AbstractCrudObject {
       'name' => 'string',
       'nectar_module' => 'string',
       'object_attachment' => 'string',
-      'offer_like_post_id' => 'unsigned int',
       'og_action_type_id' => 'string',
       'og_hide_object_attachment' => 'bool',
       'og_icon_id' => 'string',
@@ -1557,7 +1555,6 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'animated_effect_id' => 'unsigned int',
       'application_id' => 'string',
       'asked_fun_fact_prompt_id' => 'unsigned int',
       'audio_story_wave_animation_handle' => 'string',
@@ -1582,11 +1579,10 @@ class User extends AbstractCrudObject {
       'formatting' => 'formatting_enum',
       'fov' => 'unsigned int',
       'front_z_rotation' => 'float',
-      'fun_fact_prompt_id' => 'unsigned int',
+      'fun_fact_prompt_id' => 'string',
       'fun_fact_toastee_id' => 'unsigned int',
       'guide' => 'list<list<unsigned int>>',
       'guide_enabled' => 'bool',
-      'holiday_card' => 'string',
       'initial_heading' => 'unsigned int',
       'initial_pitch' => 'unsigned int',
       'instant_game_entry_point_data' => 'string',
@@ -1597,7 +1593,6 @@ class User extends AbstractCrudObject {
       'location_source_id' => 'string',
       'manual_privacy' => 'bool',
       'no_story' => 'bool',
-      'offer_like_post_id' => 'unsigned int',
       'og_action_type_id' => 'string',
       'og_icon_id' => 'string',
       'og_object_id' => 'string',

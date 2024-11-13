@@ -38,6 +38,7 @@ use FacebookAds\Object\Values\BusinessSubverticalV2Values;
 use FacebookAds\Object\Values\BusinessSurveyBusinessTypeValues;
 use FacebookAds\Object\Values\BusinessTimezoneIdValues;
 use FacebookAds\Object\Values\BusinessTwoFactorTypeValues;
+use FacebookAds\Object\Values\BusinessUserInvitedUserTypeValues;
 use FacebookAds\Object\Values\BusinessUserRoleValues;
 use FacebookAds\Object\Values\BusinessVerticalV2Values;
 use FacebookAds\Object\Values\BusinessVerticalValues;
@@ -111,6 +112,32 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getAdAccountInfos(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'ad_account_id' => 'string',
+      'parent_advertiser_id' => 'string',
+      'user_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/ad_account_infos',
+      new ALMAdAccountInfo(),
+      'EDGE',
+      ALMAdAccountInfo::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function deleteAdAccounts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -125,6 +152,30 @@ class Business extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_DELETE,
       '/ad_accounts',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createAdReviewRequest(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'ad_account_ids' => 'list<string>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/ad_review_requests',
       new AbstractCrudObject(),
       'EDGE',
       array(),
@@ -569,6 +620,30 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createBmReviewRequest(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'business_manager_ids' => 'list<string>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/bm_review_requests',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getBusinessAssetGroups(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -651,9 +726,11 @@ class Business extends AbstractCrudObject {
 
     $param_types = array(
       'email' => 'string',
+      'invited_user_type' => 'list<invited_user_type_enum>',
       'role' => 'role_enum',
     );
     $enums = array(
+      'invited_user_type_enum' => BusinessUserInvitedUserTypeValues::getInstance()->getValues(),
       'role_enum' => BusinessUserRoleValues::getInstance()->getValues(),
     );
 
@@ -1480,7 +1557,7 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function deleteMAnAgeDBusinesses(array $fields = array(), array $params = array(), $pending = false) {
+  public function deleteManagedBusinesses(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -1504,7 +1581,7 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createMAnAgeDBusiness(array $fields = array(), array $params = array(), $pending = false) {
+  public function createManagedBusiness(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -1539,7 +1616,7 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createMAnAgeDPartnerBusinessSetup(array $fields = array(), array $params = array(), $pending = false) {
+  public function createManagedPartnerBusinessSetup(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -1569,7 +1646,7 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function deleteMAnAgeDPartnerBusinesses(array $fields = array(), array $params = array(), $pending = false) {
+  public function deleteManagedPartnerBusinesses(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -1594,7 +1671,7 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createMAnAgeDPartnerBusiness(array $fields = array(), array $params = array(), $pending = false) {
+  public function createManagedPartnerBusiness(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -2807,7 +2884,7 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getPendingShareDOffsiteSignalContainerBusinessObjects(array $fields = array(), array $params = array(), $pending = false) {
+  public function getPendingSharedOffsiteSignalContainerBusinessObjects(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -2980,7 +3057,7 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getSelfCertifiedWhatsappBusinessSubmissions(array $fields = array(), array $params = array(), $pending = false) {
+  public function getSelfCertifiedWhatsAppBusinessSubmissions(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -3004,7 +3081,7 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createSetupMAnAgeDPartnerAdAccount(array $fields = array(), array $params = array(), $pending = false) {
+  public function createSetupManagedPartnerAdAccount(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -3190,7 +3267,6 @@ class Business extends AbstractCrudObject {
 
     $param_types = array(
       'ad_placements_validation_only' => 'bool',
-      'animated_effect_id' => 'unsigned int',
       'application_id' => 'string',
       'asked_fun_fact_prompt_id' => 'unsigned int',
       'audio_story_wave_animation_handle' => 'string',
@@ -3216,11 +3292,10 @@ class Business extends AbstractCrudObject {
       'formatting' => 'formatting_enum',
       'fov' => 'unsigned int',
       'front_z_rotation' => 'float',
-      'fun_fact_prompt_id' => 'unsigned int',
+      'fun_fact_prompt_id' => 'string',
       'fun_fact_toastee_id' => 'unsigned int',
       'guide' => 'list<list<unsigned int>>',
       'guide_enabled' => 'bool',
-      'holiday_card' => 'string',
       'initial_heading' => 'unsigned int',
       'initial_pitch' => 'unsigned int',
       'instant_game_entry_point_data' => 'string',
@@ -3228,7 +3303,6 @@ class Business extends AbstractCrudObject {
       'is_group_linking_post' => 'bool',
       'is_voice_clip' => 'bool',
       'location_source_id' => 'string',
-      'offer_like_post_id' => 'unsigned int',
       'og_action_type_id' => 'string',
       'og_icon_id' => 'string',
       'og_object_id' => 'string',

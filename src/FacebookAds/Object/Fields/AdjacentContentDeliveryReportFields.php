@@ -22,11 +22,15 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdjacentContentDeliveryReportFields extends AbstractEnum {
 
+  const AD_ID = 'ad_id';
   const CONTENT = 'content';
+  const IMPRESSION_ID = 'impression_id';
 
   public function getFieldTypes() {
     return array(
+      'ad_id' => 'string',
       'content' => 'list<Object>',
+      'impression_id' => 'string',
     );
   }
 }

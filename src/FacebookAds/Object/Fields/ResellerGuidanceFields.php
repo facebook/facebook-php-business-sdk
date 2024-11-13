@@ -28,10 +28,7 @@ class ResellerGuidanceFields extends AbstractEnum {
   const ADVERTISER_NAME = 'advertiser_name';
   const ATTRIBUTED_TO_RESELLER_L7D = 'attributed_to_reseller_l7d';
   const AVAILABLE_GUIDANCE = 'available_guidance';
-  const BENCHMARK_REPORT_LINK = 'benchmark_report_link';
   const GUIDANCE_ADOPTION_RATE_L7D = 'guidance_adoption_rate_l7d';
-  const NO_ADSETS_GTE_BENCHMARK = 'no_adsets_gte_benchmark';
-  const NO_ADSETS_LT_BENCHMARK = 'no_adsets_lt_benchmark';
   const NURTURED_BY_RESELLER_L7D = 'nurtured_by_reseller_l7d';
   const PLANNING_AGENCY_NAME = 'planning_agency_name';
   const RECOMMENDATION_TIME = 'recommendation_time';
@@ -48,10 +45,7 @@ class ResellerGuidanceFields extends AbstractEnum {
       'advertiser_name' => 'string',
       'attributed_to_reseller_l7d' => 'bool',
       'available_guidance' => 'list<string>',
-      'benchmark_report_link' => 'string',
       'guidance_adoption_rate_l7d' => 'float',
-      'no_adsets_gte_benchmark' => 'int',
-      'no_adsets_lt_benchmark' => 'int',
       'nurtured_by_reseller_l7d' => 'bool',
       'planning_agency_name' => 'string',
       'recommendation_time' => 'datetime',

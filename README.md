@@ -151,7 +151,7 @@ $adset = $account->createAdSet(
     array(),
     array(
       AdSetFields::NAME => 'My Test AdSet',
-      AdSetFields::CAMPAIGN_ID => campaign_id,
+      AdSetFields::CAMPAIGN_ID => $campaign_id,
       AdSetFields::DAILY_BUDGET => 150,
       AdSetFields::START_TIME => (new \DateTime("+1 week"))->format(\DateTime::ISO8601),
       AdSetFields::END_TIME => (new \DateTime("+2 week"))->format(\DateTime::ISO8601),
@@ -332,7 +332,7 @@ $account->read(array('id'));
 ```
 
 When running this code, this cURL request will be printed to the console as:
-```
+```shell
 curl -G \
   -d 'fields=id' \
   -d 'access_token=<access_token>' \

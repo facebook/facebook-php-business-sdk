@@ -120,6 +120,7 @@ class IGUser extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'ad_code' => 'string',
       'creator_username' => 'string',
       'only_fetch_allowlisted' => 'bool',
       'permalinks' => 'list<string>',
@@ -263,7 +264,7 @@ class IGUser extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getDataSet(array $fields = array(), array $params = array(), $pending = false) {
+  public function getDataset(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -276,9 +277,9 @@ class IGUser extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/dataset',
-      new AdsPixel(),
+      new Dataset(),
       'EDGE',
-      AdsPixel::getFieldsEnum()->getValues(),
+      Dataset::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -286,10 +287,11 @@ class IGUser extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createDataSet(array $fields = array(), array $params = array(), $pending = false) {
+  public function createDataset(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
+      'dataset_name' => 'string',
     );
     $enums = array(
     );
@@ -299,9 +301,9 @@ class IGUser extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/dataset',
-      new AdsPixel(),
+      new Dataset(),
       'EDGE',
-      AdsPixel::getFieldsEnum()->getValues(),
+      Dataset::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

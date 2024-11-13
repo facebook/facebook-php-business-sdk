@@ -23,10 +23,12 @@ use FacebookAds\Enum\AbstractEnum;
 class AdAccountRecommendationsFields extends AbstractEnum {
 
   const RECOMMENDATIONS = 'recommendations';
+  const RECOMMENDATION_SIGNATURE = 'recommendation_signature';
 
   public function getFieldTypes() {
     return array(
       'recommendations' => 'list<Object>',
+      'recommendation_signature' => 'string',
     );
   }
 }

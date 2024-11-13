@@ -24,6 +24,8 @@ class IGUpcomingEventFields extends AbstractEnum {
 
   const END_TIME = 'end_time';
   const ID = 'id';
+  const NOTIFICATION_SUBTYPES = 'notification_subtypes';
+  const NOTIFICATION_TARGET_TIME = 'notification_target_time';
   const START_TIME = 'start_time';
   const TITLE = 'title';
 
@@ -31,6 +33,8 @@ class IGUpcomingEventFields extends AbstractEnum {
     return array(
       'end_time' => 'datetime',
       'id' => 'string',
+      'notification_subtypes' => 'list<string>',
+      'notification_target_time' => 'string',
       'start_time' => 'datetime',
       'title' => 'string',
     );

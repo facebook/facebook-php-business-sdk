@@ -58,6 +58,7 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const EFFECTIVE_MESSENGER_POSITIONS = 'effective_messenger_positions';
   const EFFECTIVE_OCULUS_POSITIONS = 'effective_oculus_positions';
   const EFFECTIVE_PUBLISHER_PLATFORMS = 'effective_publisher_platforms';
+  const EFFECTIVE_THREADS_POSITIONS = 'effective_threads_positions';
   const EFFECTIVE_WHATSAPP_POSITIONS = 'effective_whatsapp_positions';
   const ENGAGEMENT_SPECS = 'engagement_specs';
   const ETHNIC_AFFINITY = 'ethnic_affinity';
@@ -137,6 +138,7 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const TARGETING_AUTOMATION = 'targeting_automation';
   const TARGETING_OPTIMIZATION = 'targeting_optimization';
   const TARGETING_RELAXATION_TYPES = 'targeting_relaxation_types';
+  const THREADS_POSITIONS = 'threads_positions';
   const TIMEZONES = 'timezones';
   const TOPIC = 'topic';
   const TRENDING = 'trending';

@@ -22,7 +22,6 @@ use FacebookAds\Enum\AbstractEnum;
 
 class SavedMessageResponseFields extends AbstractEnum {
 
-  const CATEGORY = 'category';
   const ID = 'id';
   const IMAGE = 'image';
   const IS_ENABLED = 'is_enabled';
@@ -31,7 +30,6 @@ class SavedMessageResponseFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'category' => 'string',
       'id' => 'string',
       'image' => 'string',
       'is_enabled' => 'bool',

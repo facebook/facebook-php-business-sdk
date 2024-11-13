@@ -28,8 +28,12 @@ class AdCreativeBrandedContentAdsFields extends AbstractEnum {
   const FACEBOOK_BOOST_POST_ACCESS_TOKEN = 'facebook_boost_post_access_token';
   const INSTAGRAM_BOOST_POST_ACCESS_TOKEN = 'instagram_boost_post_access_token';
   const IS_MCA_INTERNAL = 'is_mca_internal';
+  const PARENT_SOURCE_FACEBOOK_POST_ID = 'parent_source_facebook_post_id';
+  const PARENT_SOURCE_INSTAGRAM_MEDIA_ID = 'parent_source_instagram_media_id';
   const PARTNERS = 'partners';
+  const PRODUCT_SET_PARTNER_SELECTION_STATUS = 'product_set_partner_selection_status';
   const PROMOTED_PAGE_ID = 'promoted_page_id';
+  const TESTIMONIAL = 'testimonial';
   const UI_VERSION = 'ui_version';
 
   public function getFieldTypes() {
@@ -40,8 +44,12 @@ class AdCreativeBrandedContentAdsFields extends AbstractEnum {
       'facebook_boost_post_access_token' => 'string',
       'instagram_boost_post_access_token' => 'string',
       'is_mca_internal' => 'bool',
+      'parent_source_facebook_post_id' => 'string',
+      'parent_source_instagram_media_id' => 'string',
       'partners' => 'list<AdCreativeBrandedContentAdsPartners>',
+      'product_set_partner_selection_status' => 'string',
       'promoted_page_id' => 'string',
+      'testimonial' => 'string',
       'ui_version' => 'int',
     );
   }

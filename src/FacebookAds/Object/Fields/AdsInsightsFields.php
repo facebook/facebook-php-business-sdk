@@ -31,7 +31,6 @@ class AdsInsightsFields extends AbstractEnum {
   const AD_ID = 'ad_id';
   const AD_IMPRESSION_ACTIONS = 'ad_impression_actions';
   const AD_NAME = 'ad_name';
-  const ADJUSTED_OFFLINE_PURCHASE = 'adjusted_offline_purchase';
   const ADSET_END = 'adset_end';
   const ADSET_ID = 'adset_id';
   const ADSET_NAME = 'adset_name';
@@ -41,6 +40,7 @@ class AdsInsightsFields extends AbstractEnum {
   const AUCTION_BID = 'auction_bid';
   const AUCTION_COMPETITIVENESS = 'auction_competitiveness';
   const AUCTION_MAX_COMPETITOR_BID = 'auction_max_competitor_bid';
+  const AVERAGE_PURCHASES_CONVERSION_VALUE = 'average_purchases_conversion_value';
   const BUYING_TYPE = 'buying_type';
   const CAMPAIGN_ID = 'campaign_id';
   const CAMPAIGN_NAME = 'campaign_name';
@@ -170,7 +170,6 @@ class AdsInsightsFields extends AbstractEnum {
       'ad_id' => 'string',
       'ad_impression_actions' => 'list<AdsActionStats>',
       'ad_name' => 'string',
-      'adjusted_offline_purchase' => 'list<Object>',
       'adset_end' => 'string',
       'adset_id' => 'string',
       'adset_name' => 'string',
@@ -180,6 +179,7 @@ class AdsInsightsFields extends AbstractEnum {
       'auction_bid' => 'string',
       'auction_competitiveness' => 'string',
       'auction_max_competitor_bid' => 'string',
+      'average_purchases_conversion_value' => 'list<AdsActionStats>',
       'buying_type' => 'string',
       'campaign_id' => 'string',
       'campaign_name' => 'string',

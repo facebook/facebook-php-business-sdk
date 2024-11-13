@@ -26,6 +26,7 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
   const AGE = 'age';
   const APP_ID = 'app_id';
   const BODY_ASSET = 'body_asset';
+  const BREAKDOWN_REPORTING_AD_ID = 'breakdown_reporting_ad_id';
   const CALL_TO_ACTION_ASSET = 'call_to_action_asset';
   const COARSE_CONVERSION_VALUE = 'coarse_conversion_value';
   const CONVERSION_DESTINATION = 'conversion_destination';
@@ -42,6 +43,7 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
   const IMAGE_ASSET = 'image_asset';
   const IMPRESSION_DEVICE = 'impression_device';
   const IS_CONVERSION_ID_MODELED = 'is_conversion_id_modeled';
+  const IS_RENDERED_AS_DELAYED_SKIP_AD = 'is_rendered_as_delayed_skip_ad';
   const LANDING_DESTINATION = 'landing_destination';
   const LINK_URL_ASSET = 'link_url_asset';
   const MARKETING_MESSAGES_BTN_NAME = 'marketing_messages_btn_name';
@@ -52,6 +54,7 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
   const MEDIA_FORMAT = 'media_format';
   const MEDIA_ORIGIN_URL = 'media_origin_url';
   const MEDIA_TEXT_CONTENT = 'media_text_content';
+  const MEDIA_TYPE = 'media_type';
   const MMM = 'mmm';
   const PLACE_PAGE_ID = 'place_page_id';
   const PLATFORM_POSITION = 'platform_position';

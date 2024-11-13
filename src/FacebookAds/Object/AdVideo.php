@@ -239,7 +239,7 @@ class AdVideo extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getCrosspostShareDPages(array $fields = array(), array $params = array(), $pending = false) {
+  public function getCrosspostSharedPages(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -458,32 +458,6 @@ class AdVideo extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createTag(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'tag_uid' => 'int',
-      'uid' => 'int',
-      'vid' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/tags',
-      new AdVideo(),
-      'EDGE',
-      AdVideo::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getThumbnails(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -618,7 +592,7 @@ class AdVideo extends AbstractCrudObject {
       'call_to_action' => 'Object',
       'content_category' => 'content_category_enum',
       'content_tags' => 'list<string>',
-      'custom_labels' => 'list<string>',
+      'custom_labels' => 'string',
       'description' => 'string',
       'direct_share_status' => 'unsigned int',
       'embeddable' => 'bool',

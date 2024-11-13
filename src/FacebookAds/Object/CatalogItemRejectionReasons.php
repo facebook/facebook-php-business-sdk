@@ -14,7 +14,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\CatalogItemRejectionReasonsFields;
-use FacebookAds\Object\Values\CatalogItemRejectionReasonsCapabilityValues;
 
 /**
  * This class is auto-generated.
@@ -36,7 +35,6 @@ class CatalogItemRejectionReasons extends AbstractObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Capability'] = CatalogItemRejectionReasonsCapabilityValues::getInstance()->getValues();
     return $ref_enums;
   }
 

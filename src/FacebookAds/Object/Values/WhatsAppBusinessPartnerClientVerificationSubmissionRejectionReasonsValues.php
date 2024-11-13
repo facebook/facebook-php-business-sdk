@@ -23,6 +23,8 @@ use FacebookAds\Enum\AbstractEnum;
 class WhatsAppBusinessPartnerClientVerificationSubmissionRejectionReasonsValues extends AbstractEnum {
 
   const ADDRESS_NOT_MATCHING = 'ADDRESS_NOT_MATCHING';
+  const BUSINESS_NOT_ELIGIBLE = 'BUSINESS_NOT_ELIGIBLE';
+  const LEGAL_NAME_NOT_FOUND_IN_DOCUMENTS = 'LEGAL_NAME_NOT_FOUND_IN_DOCUMENTS';
   const LEGAL_NAME_NOT_MATCHING = 'LEGAL_NAME_NOT_MATCHING';
   const NONE = 'NONE';
   const WEBSITE_NOT_MATCHING = 'WEBSITE_NOT_MATCHING';

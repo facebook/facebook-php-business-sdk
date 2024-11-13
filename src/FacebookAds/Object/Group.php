@@ -72,7 +72,7 @@ class Group extends AbstractCrudObject {
   }
 
 
-  public function deleteAdMIns(array $fields = array(), array $params = array(), $pending = false) {
+  public function deleteAdmins(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -96,7 +96,7 @@ class Group extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createAdMIn(array $fields = array(), array $params = array(), $pending = false) {
+  public function createAdmin(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -132,41 +132,6 @@ class Group extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
-      '/albums',
-      new Album(),
-      'EDGE',
-      Album::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createAlbum(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'contributors' => 'list<int>',
-      'description' => 'string',
-      'is_default' => 'bool',
-      'location' => 'string',
-      'make_shared_album' => 'bool',
-      'message' => 'string',
-      'name' => 'string',
-      'place' => 'Object',
-      'privacy' => 'string',
-      'session_id' => 'string',
-      'tags' => 'list<int>',
-      'visible' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
       '/albums',
       new Album(),
       'EDGE',
@@ -260,10 +225,9 @@ class Group extends AbstractCrudObject {
       'actions' => 'Object',
       'album_id' => 'string',
       'android_key_hash' => 'string',
-      'animated_effect_id' => 'unsigned int',
       'application_id' => 'string',
       'asked_fun_fact_prompt_id' => 'unsigned int',
-      'asset3d_id' => 'unsigned int',
+      'asset3d_id' => 'string',
       'associated_id' => 'string',
       'attach_place_suggestion' => 'bool',
       'attached_media' => 'list<Object>',
@@ -294,10 +258,9 @@ class Group extends AbstractCrudObject {
       'expanded_width' => 'unsigned int',
       'feed_targeting' => 'Object',
       'formatting' => 'formatting_enum',
-      'fun_fact_prompt_id' => 'unsigned int',
+      'fun_fact_prompt_id' => 'string',
       'fun_fact_toastee_id' => 'unsigned int',
       'height' => 'unsigned int',
-      'holiday_card' => 'string',
       'home_checkin_city_id' => 'Object',
       'image_crops' => 'map',
       'implicit_with_tags' => 'list<int>',
@@ -318,7 +281,6 @@ class Group extends AbstractCrudObject {
       'name' => 'string',
       'nectar_module' => 'string',
       'object_attachment' => 'string',
-      'offer_like_post_id' => 'unsigned int',
       'og_action_type_id' => 'string',
       'og_hide_object_attachment' => 'bool',
       'og_icon_id' => 'string',
@@ -758,7 +720,6 @@ class Group extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'animated_effect_id' => 'unsigned int',
       'application_id' => 'string',
       'asked_fun_fact_prompt_id' => 'unsigned int',
       'audio_story_wave_animation_handle' => 'string',
@@ -782,11 +743,10 @@ class Group extends AbstractCrudObject {
       'formatting' => 'formatting_enum',
       'fov' => 'unsigned int',
       'front_z_rotation' => 'float',
-      'fun_fact_prompt_id' => 'unsigned int',
+      'fun_fact_prompt_id' => 'string',
       'fun_fact_toastee_id' => 'unsigned int',
       'guide' => 'list<list<unsigned int>>',
       'guide_enabled' => 'bool',
-      'holiday_card' => 'string',
       'initial_heading' => 'unsigned int',
       'initial_pitch' => 'unsigned int',
       'instant_game_entry_point_data' => 'string',
@@ -796,7 +756,6 @@ class Group extends AbstractCrudObject {
       'is_voice_clip' => 'bool',
       'location_source_id' => 'string',
       'manual_privacy' => 'bool',
-      'offer_like_post_id' => 'unsigned int',
       'og_action_type_id' => 'string',
       'og_icon_id' => 'string',
       'og_object_id' => 'string',
