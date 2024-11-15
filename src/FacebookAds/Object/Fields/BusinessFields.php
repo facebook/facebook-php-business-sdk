@@ -64,7 +64,7 @@ class BusinessFields extends AbstractEnum {
       'updated_by' => 'Object',
       'updated_time' => 'datetime',
       'user_access_expire_time' => 'datetime',
-      'verification_status' => 'string',
+      'verification_status' => 'VerificationStatus',
       'vertical' => 'string',
       'vertical_id' => 'unsigned int',
     );

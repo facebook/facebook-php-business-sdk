@@ -410,6 +410,7 @@ class AdAccount extends AbstractCrudObject {
 
     $param_types = array(
       'actor_id' => 'unsigned int',
+      'ad_disclaimer_spec' => 'map',
       'adlabels' => 'list<Object>',
       'applink_treatment' => 'applink_treatment_enum',
       'asset_feed_spec' => 'Object',
@@ -422,6 +423,7 @@ class AdAccount extends AbstractCrudObject {
       'categorization_criteria' => 'categorization_criteria_enum',
       'category_media_source' => 'category_media_source_enum',
       'contextual_multi_ads' => 'map',
+      'creative_sourcing_spec' => 'map',
       'degrees_of_freedom_spec' => 'map',
       'destination_set_id' => 'string',
       'dynamic_ad_voice' => 'dynamic_ad_voice_enum',
@@ -1279,7 +1281,6 @@ class AdAccount extends AbstractCrudObject {
       'start_offset' => 'unsigned int',
       'swap_mode' => 'swap_mode_enum',
       'text_format_metadata' => 'string',
-      'throwback_camera_roll_media' => 'string',
       'thumb' => 'file',
       'time_since_original_post' => 'unsigned int',
       'title' => 'string',
@@ -2879,7 +2880,12 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'asc_fragmentation_parameters' => 'map',
+      'autoflow_parameters' => 'map',
+      'fragmentation_parameters' => 'map',
+      'music_parameters' => 'map',
       'recommendation_signature' => 'string',
+      'scale_good_campaign_parameters' => 'map',
     );
     $enums = array(
     );

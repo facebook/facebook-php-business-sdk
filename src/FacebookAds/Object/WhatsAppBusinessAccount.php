@@ -14,8 +14,10 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\WhatsAppBusinessAccountFields;
+use FacebookAds\Object\Values\WhatsAppBusinessAccountBusinessVerificationStatusValues;
 use FacebookAds\Object\Values\WhatsAppBusinessAccountCategoryValues;
 use FacebookAds\Object\Values\WhatsAppBusinessAccountDisplayFormatValues;
+use FacebookAds\Object\Values\WhatsAppBusinessAccountParameterFormatValues;
 use FacebookAds\Object\Values\WhatsAppBusinessAccountProviderNameValues;
 use FacebookAds\Object\Values\WhatsAppBusinessAccountSubCategoryValues;
 use FacebookAds\Object\Values\WhatsAppBusinessAccountTasksValues;
@@ -40,9 +42,11 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['BusinessVerificationStatus'] = WhatsAppBusinessAccountBusinessVerificationStatusValues::getInstance()->getValues();
     $ref_enums['Tasks'] = WhatsAppBusinessAccountTasksValues::getInstance()->getValues();
     $ref_enums['Category'] = WhatsAppBusinessAccountCategoryValues::getInstance()->getValues();
     $ref_enums['DisplayFormat'] = WhatsAppBusinessAccountDisplayFormatValues::getInstance()->getValues();
+    $ref_enums['ParameterFormat'] = WhatsAppBusinessAccountParameterFormatValues::getInstance()->getValues();
     $ref_enums['SubCategory'] = WhatsAppBusinessAccountSubCategoryValues::getInstance()->getValues();
     $ref_enums['ProviderName'] = WhatsAppBusinessAccountProviderNameValues::getInstance()->getValues();
     return $ref_enums;
@@ -242,11 +246,9 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
         'AUTHENTICATION',
         'AUTHENTICATION_INTERNATIONAL',
         'MARKETING',
-        'MARKETING_OPTIMIZED_DELIVERY',
+        'MARKETING_LITE',
         'SERVICE',
-        'UNKNOWN',
         'UTILITY',
-        'UTILITY_FIXED_TEMPLATE',
       ),
       'conversation_directions_enum' => array(
         'BUSINESS_INITIATED',
@@ -596,11 +598,13 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       'library_template_name' => 'string',
       'message_send_ttl_seconds' => 'unsigned int',
       'name' => 'string',
+      'parameter_format' => 'parameter_format_enum',
       'sub_category' => 'sub_category_enum',
     );
     $enums = array(
       'category_enum' => WhatsAppBusinessAccountCategoryValues::getInstance()->getValues(),
       'display_format_enum' => WhatsAppBusinessAccountDisplayFormatValues::getInstance()->getValues(),
+      'parameter_format_enum' => WhatsAppBusinessAccountParameterFormatValues::getInstance()->getValues(),
       'sub_category_enum' => WhatsAppBusinessAccountSubCategoryValues::getInstance()->getValues(),
     );
 

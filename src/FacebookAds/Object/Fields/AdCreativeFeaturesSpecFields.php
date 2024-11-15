@@ -57,6 +57,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
   const MEDIA_LIQUIDITY_ANIMATED_IMAGE = 'media_liquidity_animated_image';
   const MEDIA_ORDER = 'media_order';
   const MEDIA_TYPE_AUTOMATION = 'media_type_automation';
+  const MULTI_PHOTO_TO_VIDEO = 'multi_photo_to_video';
   const PAC_RELAXATION = 'pac_relaxation';
   const PRODUCT_EXTENSIONS = 'product_extensions';
   const PRODUCT_METADATA_AUTOMATION = 'product_metadata_automation';
@@ -109,6 +110,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
       'media_liquidity_animated_image' => 'AdCreativeFeatureDetails',
       'media_order' => 'AdCreativeFeatureDetails',
       'media_type_automation' => 'AdCreativeFeatureDetails',
+      'multi_photo_to_video' => 'AdCreativeFeatureDetails',
       'pac_relaxation' => 'AdCreativeFeatureDetails',
       'product_extensions' => 'AdCreativeFeatureDetails',
       'product_metadata_automation' => 'AdCreativeFeatureDetails',

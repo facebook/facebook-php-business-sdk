@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -18,10 +18,17 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static PageGuestChatModeValues getInstance()
  */
-class PageGuestChatModeValues extends AbstractEnum {
 
-  const DISABLED = 'DISABLED';
-  const ENABLED = 'ENABLED';
+class IGUserSubscribedAppsDataFields extends AbstractEnum {
+
+  const APP_ID = 'app_id';
+  const SUBSCRIBED_FIELDS = 'subscribed_fields';
+
+  public function getFieldTypes() {
+    return array(
+      'app_id' => 'string',
+      'subscribed_fields' => 'list<string>',
+    );
+  }
 }

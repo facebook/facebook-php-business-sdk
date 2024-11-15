@@ -18,10 +18,18 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static PageAlignmentValues getInstance()
+ * @method static WhatsAppBusinessAccountBusinessVerificationStatusValues getInstance()
  */
-class PageAlignmentValues extends AbstractEnum {
+class WhatsAppBusinessAccountBusinessVerificationStatusValues extends AbstractEnum {
 
-  const LEFT = 'LEFT';
-  const RIGHT = 'RIGHT';
+  const EXPIRED = 'expired';
+  const FAILED = 'failed';
+  const INELIGIBLE = 'ineligible';
+  const NOT_VERIFIED = 'not_verified';
+  const PENDING = 'pending';
+  const PENDING_NEED_MORE_INFO = 'pending_need_more_info';
+  const PENDING_SUBMISSION = 'pending_submission';
+  const REJECTED = 'rejected';
+  const REVOKED = 'revoked';
+  const VERIFIED = 'verified';
 }

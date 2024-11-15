@@ -30,6 +30,7 @@ class IGMediaFields extends AbstractEnum {
   const IG_ID = 'ig_id';
   const IS_COMMENT_ENABLED = 'is_comment_enabled';
   const IS_SHARED_TO_FEED = 'is_shared_to_feed';
+  const LEGACY_INSTAGRAM_MEDIA_ID = 'legacy_instagram_media_id';
   const LIKE_COUNT = 'like_count';
   const MEDIA_PRODUCT_TYPE = 'media_product_type';
   const MEDIA_TYPE = 'media_type';
@@ -51,6 +52,7 @@ class IGMediaFields extends AbstractEnum {
       'ig_id' => 'string',
       'is_comment_enabled' => 'bool',
       'is_shared_to_feed' => 'bool',
+      'legacy_instagram_media_id' => 'string',
       'like_count' => 'int',
       'media_product_type' => 'string',
       'media_type' => 'string',

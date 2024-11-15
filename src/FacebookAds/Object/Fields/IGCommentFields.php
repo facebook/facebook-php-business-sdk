@@ -25,6 +25,7 @@ class IGCommentFields extends AbstractEnum {
   const FROM = 'from';
   const HIDDEN = 'hidden';
   const ID = 'id';
+  const LEGACY_INSTAGRAM_COMMENT_ID = 'legacy_instagram_comment_id';
   const LIKE_COUNT = 'like_count';
   const MEDIA = 'media';
   const PARENT_ID = 'parent_id';
@@ -38,6 +39,7 @@ class IGCommentFields extends AbstractEnum {
       'from' => 'IGCommentFromUser',
       'hidden' => 'bool',
       'id' => 'string',
+      'legacy_instagram_comment_id' => 'string',
       'like_count' => 'int',
       'media' => 'IGMedia',
       'parent_id' => 'string',

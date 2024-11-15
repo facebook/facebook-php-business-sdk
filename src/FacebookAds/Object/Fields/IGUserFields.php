@@ -28,6 +28,7 @@ class IGUserFields extends AbstractEnum {
   const FOLLOWS_COUNT = 'follows_count';
   const ID = 'id';
   const IG_ID = 'ig_id';
+  const LEGACY_INSTAGRAM_USER_ID = 'legacy_instagram_user_id';
   const MEDIA_COUNT = 'media_count';
   const MENTIONED_COMMENT = 'mentioned_comment';
   const MENTIONED_MEDIA = 'mentioned_media';
@@ -47,6 +48,7 @@ class IGUserFields extends AbstractEnum {
       'follows_count' => 'int',
       'id' => 'string',
       'ig_id' => 'int',
+      'legacy_instagram_user_id' => 'string',
       'media_count' => 'int',
       'mentioned_comment' => 'IGComment',
       'mentioned_media' => 'IGMedia',

@@ -26,6 +26,12 @@ class DestinationFields extends AbstractEnum {
   const APPLINKS = 'applinks';
   const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
   const CURRENCY = 'currency';
+  const CUSTOM_LABEL_0 = 'custom_label_0';
+  const CUSTOM_LABEL_1 = 'custom_label_1';
+  const CUSTOM_LABEL_2 = 'custom_label_2';
+  const CUSTOM_NUMBER_0 = 'custom_number_0';
+  const CUSTOM_NUMBER_1 = 'custom_number_1';
+  const CUSTOM_NUMBER_2 = 'custom_number_2';
   const DESCRIPTION = 'description';
   const DESTINATION_ID = 'destination_id';
   const ID = 'id';
@@ -47,6 +53,12 @@ class DestinationFields extends AbstractEnum {
       'applinks' => 'CatalogItemAppLinks',
       'category_specific_fields' => 'CatalogSubVerticalList',
       'currency' => 'string',
+      'custom_label_0' => 'string',
+      'custom_label_1' => 'string',
+      'custom_label_2' => 'string',
+      'custom_number_0' => 'unsigned int',
+      'custom_number_1' => 'unsigned int',
+      'custom_number_2' => 'unsigned int',
       'description' => 'string',
       'destination_id' => 'string',
       'id' => 'string',

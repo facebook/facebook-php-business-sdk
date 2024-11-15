@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AnalyticsCohortQueryResultFields;
+use FacebookAds\Object\Fields\IGUserSubscribedAppsDataFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\AnalyticsCohortQueryResultFields;
  *
  */
 
-class AnalyticsCohortQueryResult extends AbstractObject {
+class IGUserSubscribedAppsData extends AbstractObject {
 
   /**
-   * @return AnalyticsCohortQueryResultFields
+   * @return IGUserSubscribedAppsDataFields
    */
   public static function getFieldsEnum() {
-    return AnalyticsCohortQueryResultFields::getInstance();
+    return IGUserSubscribedAppsDataFields::getInstance();
   }
 
   protected static function getReferencedEnums() {

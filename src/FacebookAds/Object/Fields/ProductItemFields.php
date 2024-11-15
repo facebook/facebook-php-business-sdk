@@ -97,6 +97,7 @@ class ProductItemFields extends AbstractEnum {
   const START_DATE = 'start_date';
   const TAGS = 'tags';
   const URL = 'url';
+  const VENDOR_ID = 'vendor_id';
   const VIDEO_FETCH_STATUS = 'video_fetch_status';
   const VISIBILITY = 'visibility';
   const WA_COMPLIANCE_CATEGORY = 'wa_compliance_category';
@@ -203,6 +204,7 @@ class ProductItemFields extends AbstractEnum {
       'start_date' => 'string',
       'tags' => 'list<string>',
       'url' => 'string',
+      'vendor_id' => 'string',
       'video_fetch_status' => 'VideoFetchStatus',
       'visibility' => 'Visibility',
       'wa_compliance_category' => 'string',

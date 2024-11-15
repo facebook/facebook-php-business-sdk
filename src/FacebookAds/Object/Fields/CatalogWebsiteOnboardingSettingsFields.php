@@ -23,11 +23,13 @@ use FacebookAds\Enum\AbstractEnum;
 class CatalogWebsiteOnboardingSettingsFields extends AbstractEnum {
 
   const ID = 'id';
+  const QUALITY_BAND = 'quality_band';
   const STATUS = 'status';
 
   public function getFieldTypes() {
     return array(
       'id' => 'string',
+      'quality_band' => 'string',
       'status' => 'string',
     );
   }

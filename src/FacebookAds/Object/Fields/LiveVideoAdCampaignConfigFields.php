@@ -20,19 +20,15 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class AnalyticsCohortQueryResultFields extends AbstractEnum {
+class LiveVideoAdCampaignConfigFields extends AbstractEnum {
 
-  const DATA = 'data';
-  const ERROR = 'error';
-  const QUERY_ID = 'query_id';
-  const STATUS = 'status';
+  const ID = 'id';
+  const LIVE_VIDEO_AD_TYPE = 'live_video_ad_type';
 
   public function getFieldTypes() {
     return array(
-      'data' => 'Object',
-      'error' => 'Object',
-      'query_id' => 'string',
-      'status' => 'string',
+      'id' => 'string',
+      'live_video_ad_type' => 'string',
     );
   }
 }

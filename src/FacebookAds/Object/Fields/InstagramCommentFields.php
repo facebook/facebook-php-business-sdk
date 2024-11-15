@@ -25,6 +25,7 @@ class InstagramCommentFields extends AbstractEnum {
   const COMMENT_TYPE = 'comment_type';
   const CREATED_AT = 'created_at';
   const ID = 'id';
+  const IG_COMMENT_ID = 'ig_comment_id';
   const INSTAGRAM_COMMENT_ID = 'instagram_comment_id';
   const INSTAGRAM_USER = 'instagram_user';
   const MENTIONED_INSTAGRAM_USERS = 'mentioned_instagram_users';
@@ -36,6 +37,7 @@ class InstagramCommentFields extends AbstractEnum {
       'comment_type' => 'string',
       'created_at' => 'datetime',
       'id' => 'string',
+      'ig_comment_id' => 'string',
       'instagram_comment_id' => 'string',
       'instagram_user' => 'InstagramUser',
       'mentioned_instagram_users' => 'list<InstagramUser>',

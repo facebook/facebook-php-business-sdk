@@ -209,9 +209,9 @@ class ExtendedCredit extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/whatsapp_credit_sharing_and_attach',
-      new AbstractCrudObject(),
+      new ExtendedCreditAllocationConfig(),
       'EDGE',
-      array(),
+      ExtendedCreditAllocationConfig::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

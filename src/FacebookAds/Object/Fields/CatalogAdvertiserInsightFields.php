@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -18,10 +18,17 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static PageMobileChatDisplayValues getInstance()
  */
-class PageMobileChatDisplayValues extends AbstractEnum {
 
-  const APP_SWITCH = 'APP_SWITCH';
-  const CHAT_TAB = 'CHAT_TAB';
+class CatalogAdvertiserInsightFields extends AbstractEnum {
+
+  const CATEGORY = 'category';
+  const COUNTRY = 'country';
+
+  public function getFieldTypes() {
+    return array(
+      'category' => 'string',
+      'country' => 'string',
+    );
+  }
 }

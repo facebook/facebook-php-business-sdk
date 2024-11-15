@@ -39,6 +39,7 @@ class UserFields extends AbstractEnum {
   const ID = 'id';
   const ID_FOR_AVATARS = 'id_for_avatars';
   const INSPIRATIONAL_PEOPLE = 'inspirational_people';
+  const INSTAGRAM_USER_SELF_ASSET = 'instagram_user_self_asset';
   const INSTALL_TYPE = 'install_type';
   const INSTALLED = 'installed';
   const IS_GUEST_USER = 'is_guest_user';
@@ -59,6 +60,7 @@ class UserFields extends AbstractEnum {
   const PROFILE_PIC = 'profile_pic';
   const QUOTES = 'quotes';
   const RELATIONSHIP_STATUS = 'relationship_status';
+  const RELIGION = 'religion';
   const SHARED_LOGIN_UPGRADE_REQUIRED_BY = 'shared_login_upgrade_required_by';
   const SHORT_NAME = 'short_name';
   const SIGNIFICANT_OTHER = 'significant_other';
@@ -91,6 +93,7 @@ class UserFields extends AbstractEnum {
       'id' => 'string',
       'id_for_avatars' => 'string',
       'inspirational_people' => 'list<Experience>',
+      'instagram_user_self_asset' => 'InstagramUser',
       'install_type' => 'string',
       'installed' => 'bool',
       'is_guest_user' => 'bool',
@@ -111,6 +114,7 @@ class UserFields extends AbstractEnum {
       'profile_pic' => 'string',
       'quotes' => 'string',
       'relationship_status' => 'string',
+      'religion' => 'string',
       'shared_login_upgrade_required_by' => 'datetime',
       'short_name' => 'string',
       'significant_other' => 'User',

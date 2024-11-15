@@ -18,12 +18,10 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static PageEntryPointIconValues getInstance()
+ * @method static WhatsAppBusinessAccountParameterFormatValues getInstance()
  */
-class PageEntryPointIconValues extends AbstractEnum {
+class WhatsAppBusinessAccountParameterFormatValues extends AbstractEnum {
 
-  const CHAT_ANGULAR_ICON = 'CHAT_ANGULAR_ICON';
-  const CHAT_ROUND_ICON = 'CHAT_ROUND_ICON';
-  const MESSENGER_ICON = 'MESSENGER_ICON';
-  const NONE = 'NONE';
+  const NAMED = 'NAMED';
+  const POSITIONAL = 'POSITIONAL';
 }

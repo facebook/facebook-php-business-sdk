@@ -23,7 +23,6 @@ use FacebookAds\Enum\AbstractEnum;
 class AdNetworkAnalyticsAsyncQueryResultFields extends AbstractEnum {
 
   const DATA = 'data';
-  const ERROR = 'error';
   const OMITTED_RESULTS = 'omitted_results';
   const QUERY_ID = 'query_id';
   const RESULTS = 'results';
@@ -32,7 +31,6 @@ class AdNetworkAnalyticsAsyncQueryResultFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'data' => 'Object',
-      'error' => 'Object',
       'omitted_results' => 'list<Object>',
       'query_id' => 'string',
       'results' => 'list<Object>',

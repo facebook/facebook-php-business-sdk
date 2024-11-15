@@ -18,12 +18,9 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static PageEntryPointLabelValues getInstance()
+ * @method static PageCategoryValues getInstance()
  */
-class PageEntryPointLabelValues extends AbstractEnum {
+class PageCategoryValues extends AbstractEnum {
 
-  const ASK_US = 'ASK_US';
-  const CHAT = 'CHAT';
-  const HELP = 'HELP';
-  const NONE = 'NONE';
+  const UTILITY = 'UTILITY';
 }

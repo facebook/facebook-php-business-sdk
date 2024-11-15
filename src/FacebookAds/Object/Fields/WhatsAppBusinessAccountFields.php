@@ -50,7 +50,7 @@ class WhatsAppBusinessAccountFields extends AbstractEnum {
       'account_review_status' => 'string',
       'analytics' => 'Object',
       'auth_international_rate_eligibility' => 'Object',
-      'business_verification_status' => 'string',
+      'business_verification_status' => 'BusinessVerificationStatus',
       'country' => 'string',
       'creation_time' => 'int',
       'currency' => 'string',

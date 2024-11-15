@@ -28,6 +28,7 @@ class InstagramMediaFields extends AbstractEnum {
   const DISPLAY_URL = 'display_url';
   const FILTER_NAME = 'filter_name';
   const ID = 'id';
+  const IG_MEDIA_ID = 'ig_media_id';
   const LATITUDE = 'latitude';
   const LIKE_COUNT = 'like_count';
   const LOCATION = 'location';
@@ -46,6 +47,7 @@ class InstagramMediaFields extends AbstractEnum {
       'display_url' => 'string',
       'filter_name' => 'string',
       'id' => 'string',
+      'ig_media_id' => 'string',
       'latitude' => 'float',
       'like_count' => 'int',
       'location' => 'Location',

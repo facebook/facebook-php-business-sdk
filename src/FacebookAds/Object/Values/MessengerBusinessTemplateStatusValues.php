@@ -18,12 +18,18 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdSetRegionalRegulatedCategoriesValues getInstance()
+ * @method static MessengerBusinessTemplateStatusValues getInstance()
  */
-class AdSetRegionalRegulatedCategoriesValues extends AbstractEnum {
+class MessengerBusinessTemplateStatusValues extends AbstractEnum {
 
-  const VALUE_0 = '0';
-  const VALUE_1 = '1';
-  const VALUE_2 = '2';
-  const VALUE_3 = '3';
+  const APPROVED = 'APPROVED';
+  const ARCHIVED = 'ARCHIVED';
+  const DELETED = 'DELETED';
+  const DISABLED = 'DISABLED';
+  const IN_APPEAL = 'IN_APPEAL';
+  const LIMIT_EXCEEDED = 'LIMIT_EXCEEDED';
+  const PAUSED = 'PAUSED';
+  const PENDING = 'PENDING';
+  const PENDING_DELETION = 'PENDING_DELETION';
+  const REJECTED = 'REJECTED';
 }

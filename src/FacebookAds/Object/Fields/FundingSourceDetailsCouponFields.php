@@ -30,6 +30,7 @@ class FundingSourceDetailsCouponFields extends AbstractEnum {
   const EXPIRATION = 'expiration';
   const ORIGINAL_AMOUNT = 'original_amount';
   const ORIGINAL_DISPLAY_AMOUNT = 'original_display_amount';
+  const START_DATE = 'start_date';
 
   public function getFieldTypes() {
     return array(
@@ -41,6 +42,7 @@ class FundingSourceDetailsCouponFields extends AbstractEnum {
       'expiration' => 'datetime',
       'original_amount' => 'int',
       'original_display_amount' => 'string',
+      'start_date' => 'datetime',
     );
   }
 }
