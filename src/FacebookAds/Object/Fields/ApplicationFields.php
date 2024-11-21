@@ -65,6 +65,7 @@ class ApplicationFields extends AbstractEnum {
   const DEAUTH_CALLBACK_URL = 'deauth_callback_url';
   const DEFAULT_SHARE_MODE = 'default_share_mode';
   const DESCRIPTION = 'description';
+  const ENIGMA_CONFIG = 'enigma_config';
   const FINANCIAL_ID = 'financial_id';
   const GDPV4_CHROME_CUSTOM_TABS_ENABLED = 'gdpv4_chrome_custom_tabs_enabled';
   const GDPV4_ENABLED = 'gdpv4_enabled';
@@ -173,6 +174,7 @@ class ApplicationFields extends AbstractEnum {
       'deauth_callback_url' => 'string',
       'default_share_mode' => 'string',
       'description' => 'string',
+      'enigma_config' => 'Object',
       'financial_id' => 'string',
       'gdpv4_chrome_custom_tabs_enabled' => 'bool',
       'gdpv4_enabled' => 'bool',

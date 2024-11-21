@@ -24,11 +24,15 @@ class CustomAudienceSaltsFields extends AbstractEnum {
 
   const APP_ID = 'app_id';
   const PUBLIC_KEY = 'public_key';
+  const SALTS = 'salts';
+  const USER_ID = 'user_id';
 
   public function getFieldTypes() {
     return array(
       'app_id' => 'int',
       'public_key' => 'string',
+      'salts' => 'list<Object>',
+      'user_id' => 'int',
     );
   }
 }

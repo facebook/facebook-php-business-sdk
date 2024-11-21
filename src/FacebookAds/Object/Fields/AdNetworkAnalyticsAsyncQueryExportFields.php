@@ -22,14 +22,12 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdNetworkAnalyticsAsyncQueryExportFields extends AbstractEnum {
 
-  const ERROR = 'error';
   const EXPORT_LINK = 'export_link';
   const QUERY_ID = 'query_id';
   const STATUS = 'status';
 
   public function getFieldTypes() {
     return array(
-      'error' => 'Object',
       'export_link' => 'string',
       'query_id' => 'string',
       'status' => 'string',

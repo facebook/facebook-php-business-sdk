@@ -41,6 +41,7 @@ class AdsUserSettingsFields extends AbstractEnum {
   const CAROUSEL_TO_VIDEO_OPT_IN_STATUS = 'carousel_to_video_opt_in_status';
   const CONNECTED_SOURCES_CATALOG_OPT_IN_STATUS = 'connected_sources_catalog_opt_in_status';
   const DEFAULT_CREATION_MODE = 'default_creation_mode';
+  const ENHANCE_CTA_TEXT_EXTRACTION_OPT_IN_STATUS = 'enhance_cta_text_extraction_opt_in_status';
   const EXPORT_FORMAT_DEFAULT = 'export_format_default';
   const FOCUS_MODE_DEFAULT = 'focus_mode_default';
   const GEN_AI_ALPHA_TEST_STATUS = 'gen_ai_alpha_test_status';
@@ -75,6 +76,8 @@ class AdsUserSettingsFields extends AbstractEnum {
   const STATIC_AD_PRODUCT_EXTENSIONS_OPT_IN = 'static_ad_product_extensions_opt_in';
   const STICKY_SETTING_AFTER_DEFAULT_ON = 'sticky_setting_after_default_on';
   const SYD_CAMPAIGN_TRENDS_METRIC = 'syd_campaign_trends_metric';
+  const TEXT_OPTIMIZATIONS_TEXT_EXTRACTION_OPT_IN_STATUS = 'text_optimizations_text_extraction_opt_in_status';
+  const TEXT_VARIATIONS_STICKY_OPT_IN_STATUS = 'text_variations_sticky_opt_in_status';
   const TOTAL_COUPON_SYD_DISMISSALS = 'total_coupon_syd_dismissals';
   const TOTAL_COUPON_UPSELL_DISMISSALS = 'total_coupon_upsell_dismissals';
   const URL_PREFILL_REMOVAL_TIMESTAMP = 'url_prefill_removal_timestamp';
@@ -103,6 +106,7 @@ class AdsUserSettingsFields extends AbstractEnum {
       'carousel_to_video_opt_in_status' => 'string',
       'connected_sources_catalog_opt_in_status' => 'string',
       'default_creation_mode' => 'string',
+      'enhance_cta_text_extraction_opt_in_status' => 'string',
       'export_format_default' => 'string',
       'focus_mode_default' => 'string',
       'gen_ai_alpha_test_status' => 'int',
@@ -137,6 +141,8 @@ class AdsUserSettingsFields extends AbstractEnum {
       'static_ad_product_extensions_opt_in' => 'string',
       'sticky_setting_after_default_on' => 'string',
       'syd_campaign_trends_metric' => 'string',
+      'text_optimizations_text_extraction_opt_in_status' => 'string',
+      'text_variations_sticky_opt_in_status' => 'string',
       'total_coupon_syd_dismissals' => 'int',
       'total_coupon_upsell_dismissals' => 'int',
       'url_prefill_removal_timestamp' => 'int',

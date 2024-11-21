@@ -625,6 +625,48 @@ class IGUser extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createUpcomingEvent(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'end_time' => 'datetime',
+      'notification_subtypes' => 'list<notification_subtypes_enum>',
+      'start_time' => 'datetime',
+      'title' => 'string',
+    );
+    $enums = array(
+      'notification_subtypes_enum' => array(
+        'AFTER_EVENT_1DAY',
+        'AFTER_EVENT_2DAY',
+        'AFTER_EVENT_3DAY',
+        'AFTER_EVENT_4DAY',
+        'AFTER_EVENT_5DAY',
+        'AFTER_EVENT_6DAY',
+        'AFTER_EVENT_7DAY',
+        'BEFORE_EVENT_15MIN',
+        'BEFORE_EVENT_1DAY',
+        'BEFORE_EVENT_1HOUR',
+        'BEFORE_EVENT_2DAY',
+        'EVENT_START',
+        'RESCHEDULED',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/upcoming_events',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 

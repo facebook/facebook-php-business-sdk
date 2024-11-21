@@ -1526,7 +1526,6 @@ class ProductCatalog extends AbstractCrudObject {
         'COLLAB_ADS',
         'COLLAB_ADS_FOR_MARKETPLACE_PARTNER',
         'COLLAB_ADS_SEGMENT_WITHOUT_SEGMENT_SYNCING',
-        'CREATORS_AS_SELLERS',
         'DIGITAL_CIRCULARS',
         'FB_LIVE_SHOPPING',
         'IG_SHOPPING',

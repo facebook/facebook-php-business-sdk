@@ -67,6 +67,7 @@ class AdAccountUserSettingsFields extends AbstractEnum {
   const SHOULD_DEFAULT_INSTAGRAM_PROFILE_CARD_OPTIMIZATION = 'should_default_instagram_profile_card_optimization';
   const SHOULD_DEFAULT_TEXT_SWAPPING_OPTIMIZATION = 'should_default_text_swapping_optimization';
   const SHOULD_LOGOUT_OF_3P_SOURCING = 'should_logout_of_3p_sourcing';
+  const SHOULD_SHOW_SHOPS_ADS_METRICS_ONBOARDING_TOUR = 'should_show_shops_ads_metrics_onboarding_tour';
   const SHOW_ARCHIVED_DATA = 'show_archived_data';
   const SHOW_TEXT_VARIATION_NUX_TOOLTIP = 'show_text_variation_nux_tooltip';
   const SYD_CAMPAIGN_TRENDS_ACTIVEMETRIC = 'syd_campaign_trends_activemetric';
@@ -125,6 +126,7 @@ class AdAccountUserSettingsFields extends AbstractEnum {
       'should_default_instagram_profile_card_optimization' => 'bool',
       'should_default_text_swapping_optimization' => 'bool',
       'should_logout_of_3p_sourcing' => 'bool',
+      'should_show_shops_ads_metrics_onboarding_tour' => 'bool',
       'show_archived_data' => 'bool',
       'show_text_variation_nux_tooltip' => 'bool',
       'syd_campaign_trends_activemetric' => 'string',

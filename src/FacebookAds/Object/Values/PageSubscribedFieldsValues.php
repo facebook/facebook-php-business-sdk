@@ -88,7 +88,6 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const MESSAGING_REFERRALS = 'messaging_referrals';
   const MISSION = 'mission';
   const NAME = 'name';
-  const OTP_VERIFICATION = 'otp_verification';
   const PAGE_ABOUT_STORY = 'page_about_story';
   const PAGE_CHANGE_PROPOSAL = 'page_change_proposal';
   const PAGE_UPCOMING_CHANGE = 'page_upcoming_change';

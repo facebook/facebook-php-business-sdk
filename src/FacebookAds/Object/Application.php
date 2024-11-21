@@ -284,6 +284,7 @@ class Application extends AbstractCrudObject {
       'metrics' => 'list<metrics_enum>',
       'ordering_column' => 'ordering_column_enum',
       'ordering_type' => 'ordering_type_enum',
+      'should_include_until' => 'bool',
       'since' => 'datetime',
       'until' => 'datetime',
     );
@@ -1651,7 +1652,6 @@ class Application extends AbstractCrudObject {
       'app_type' => 'bool',
       'auth_dialog_headline' => 'string',
       'auth_dialog_perms_explanation' => 'string',
-      'auth_referral_default_activity_privacy' => 'string',
       'auth_referral_enabled' => 'bool',
       'auth_referral_extended_perms' => 'list<string>',
       'auth_referral_friend_perms' => 'list<string>',

@@ -27,6 +27,7 @@ class InstagramCarouselFields extends AbstractEnum {
   const CONTENT_TYPE = 'content_type';
   const DISPLAY_URL = 'display_url';
   const ID = 'id';
+  const IG_MEDIA_ID = 'ig_media_id';
   const LIKE_COUNT = 'like_count';
   const OWNER_INSTAGRAM_USER = 'owner_instagram_user';
   const PERMALINK = 'permalink';
@@ -40,6 +41,7 @@ class InstagramCarouselFields extends AbstractEnum {
       'content_type' => 'int',
       'display_url' => 'string',
       'id' => 'string',
+      'ig_media_id' => 'string',
       'like_count' => 'int',
       'owner_instagram_user' => 'InstagramUser',
       'permalink' => 'string',

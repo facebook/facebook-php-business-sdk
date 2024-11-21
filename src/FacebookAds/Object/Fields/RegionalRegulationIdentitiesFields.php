@@ -22,11 +22,15 @@ use FacebookAds\Enum\AbstractEnum;
 
 class RegionalRegulationIdentitiesFields extends AbstractEnum {
 
+  const AUSTRALIA_FINSERV_BENEFICIARY = 'australia_finserv_beneficiary';
+  const AUSTRALIA_FINSERV_PAYER = 'australia_finserv_payer';
   const TAIWAN_FINSERV_BENEFICIARY = 'taiwan_finserv_beneficiary';
   const TAIWAN_FINSERV_PAYER = 'taiwan_finserv_payer';
 
   public function getFieldTypes() {
     return array(
+      'australia_finserv_beneficiary' => 'string',
+      'australia_finserv_payer' => 'string',
       'taiwan_finserv_beneficiary' => 'string',
       'taiwan_finserv_payer' => 'string',
     );

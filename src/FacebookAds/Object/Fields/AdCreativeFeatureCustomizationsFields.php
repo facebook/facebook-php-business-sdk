@@ -22,10 +22,12 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdCreativeFeatureCustomizationsFields extends AbstractEnum {
 
+  const IMAGE_CROP_STYLE = 'image_crop_style';
   const SHOWCASE_CARD_DISPLAY = 'showcase_card_display';
 
   public function getFieldTypes() {
     return array(
+      'image_crop_style' => 'string',
       'showcase_card_display' => 'string',
     );
   }
