@@ -235,7 +235,7 @@ class UserData implements ArrayAccess {
    * Constructor
    * @param mixed[] $data Associated array of property value initalizing the model
    */
-  public function __construct(array $data = null) {
+  public function __construct(array $data = []) {
 
     # Let's make sure not both singular and plural parameters are set
     if(isset($data['email']) And isset($data['emails'])) {

@@ -35,7 +35,7 @@ class Content {
    * Constructor
    * @param mixed[] $data Associated array of property value initializing the model
    */
-  public function __construct(array $data = null) {
+  public function __construct(array $data = []) {
     $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;;
     $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
     $this->container['price'] = isset($data['price']) ? $data['price'] : null;

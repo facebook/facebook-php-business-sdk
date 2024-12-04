@@ -102,7 +102,7 @@ class EventRequest implements ArrayAccess {
    * @param string $pixel_id pixel id
    * @param mixed[] $data Associated array of property value initializing the model
    */
-  public function __construct($pixel_id, array $data = null) {
+  public function __construct($pixel_id, array $data = []) {
     $this->container['pixel_id'] = $pixel_id;
     $this->container['events'] = isset($data['events']) ? $data['events'] : null;
     $this->container['test_event_code'] = isset($data['test_event_code']) ? $data['test_event_code'] : null;
