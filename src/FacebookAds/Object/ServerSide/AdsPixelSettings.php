@@ -47,7 +47,7 @@ class AdsPixelSettings implements ArrayAccess {
    * Constructor
    * @param mixed[] $data Associated array of property value initializing the model
    */
-  public function __construct(array $data = null) {
+  public function __construct(array $data = []) {
     $this->container['enable_automatic_matching'] = isset($data['enableAutomaticMatching']) ? $data['enableAutomaticMatching'] : null;;
     $this->container['enabled_automatic_matching_fields'] = isset($data['enabledAutomaticMatchingFields']) ? $data['enabledAutomaticMatchingFields'] : null;
     $this->container['pixel_id'] = isset($data['pixel_id']) ? $data['pixel_id'] : null;

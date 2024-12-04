@@ -45,7 +45,7 @@ class Event {
    * Constructor
    * @param mixed[] $data Associated array of property value initalizing the model
    */
-  public function __construct(array $data = null) {
+  public function __construct(array $data = []) {
     $business_data = $data;
     $server_data = $data;
     $business_data['user_data'] = isset($data['user_data']) ? $data['user_data']->getBusinessDataUserData() : null;

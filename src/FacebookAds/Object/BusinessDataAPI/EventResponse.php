@@ -41,7 +41,7 @@ class EventResponse {
    * Constructor
    * @param mixed[] $data Associated array of property value initalizing the model
    */
-  public function __construct(array $data = null) {
+  public function __construct(array $data = []) {
     $this->container['events_received'] = isset($data['events_received']) ? $data['events_received'] : null;
     $this->container['events_dropped'] = isset($data['events_dropped']) ? $data['events_dropped'] : null;
     $this->container['message'] = isset($data['message']) ? $data['message'] : null;

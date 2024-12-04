@@ -77,11 +77,11 @@ class AdImage extends AbstractCrudObject {
    * @param string $file_path
    * @param string $account_id
    * @param array $params
-   * @param Api $api
+   * @param Api|null $api
    * @return array
    */
   public static function createFromZip(
-    $file_path, $account_id, array $params = array(), Api $api = null) {
+    $file_path, $account_id, array $params = array(), ?Api $api = null) {
 
     $image = new AdImage(null, $account_id, $api);
     $image->{AdImageFields::FILENAME} = $file_path;

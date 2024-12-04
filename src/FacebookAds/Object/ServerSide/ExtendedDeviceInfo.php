@@ -123,7 +123,7 @@ class ExtendedDeviceInfo implements ArrayAccess {
 
   protected $container = array();
 
-  public function __construct(array $data = null) {
+  public function __construct(array $data = []) {
     $this->container['ext_info_version'] = isset($data['ext_info_version']) ? $data['ext_info_version'] : null;
     $this->container['app_package_name'] = isset($data['app_package_name']) ? $data['app_package_name'] : null;
     $this->container['short_version'] = isset($data['short_version']) ? $data['short_version'] : null;

@@ -36,7 +36,7 @@ class Event {
    * Constructor
    * @param mixed[] $data Associated array of property value initalizing the model
    */
-  public function __construct(array $data = null) {
+  public function __construct(array $data = []) {
     $this->container['event_name'] = isset($data['event_name']) ? $data['event_name'] : null;
     $this->container['event_time'] = isset($data['event_time']) ? $data['event_time'] : null;
     $this->container['event_id'] = isset($data['event_id']) ? $data['event_id'] : null;

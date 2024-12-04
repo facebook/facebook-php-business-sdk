@@ -108,7 +108,7 @@ class AppData implements ArrayAccess {
 
   protected $container = array();
 
-  public function __construct(array $data = null) {
+  public function __construct(array $data = []) {
     $this->container['application_tracking_enabled'] = isset($data['application_tracking_enabled']) ? $data['application_tracking_enabled'] : null;
     $this->container['advertiser_tracking_enabled'] = isset($data['advertiser_tracking_enabled']) ? $data['advertiser_tracking_enabled'] : null;
     $this->container['app_user_id'] = isset($data['app_user_id']) ? $data['app_user_id'] : null;

@@ -20,7 +20,7 @@ class TargetingSearch extends AbstractObject {
    * @param string $type
    * @param string $class
    * @param array $params
-   * @param Api $api
+   * @param Api|null $api
    * @return Cursor
    * @throws \InvalidArgumentException
    */
@@ -29,7 +29,7 @@ class TargetingSearch extends AbstractObject {
     $class=null,
     $query=null,
     array $params = array(),
-    Api $api = null) {
+    ?Api $api = null) {
 
     $api = $api ?: Api::instance();
     if (!$api) {

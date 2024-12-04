@@ -89,7 +89,7 @@ class AttributionData implements ArrayAccess {
 
   protected $container = array();
 
-  public function __construct(array $data = null) {
+  public function __construct(array $data = []) {
     $this->container['scope'] = isset($data['scope']) ? $data['scope'] : null;
     $this->container['visit_time'] = isset($data['visit_time']) ? $data['visit_time'] : null;
     $this->container['ad_id'] = isset($data['ad_id']) ? $data['ad_id'] : null;

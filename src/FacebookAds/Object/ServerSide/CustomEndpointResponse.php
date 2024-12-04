@@ -47,7 +47,7 @@ class CustomEndpointResponse {
      * Constructor
      * @param mixed[] $data Associated array of property value initializing the model
      */
-    public function __construct(array $data = null) {
+    public function __construct(array $data = []) {
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['response_code'] = isset($data['response_code']) ? $data['response_code'] : null;
     }

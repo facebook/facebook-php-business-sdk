@@ -59,7 +59,7 @@ class OriginalEventData implements ArrayAccess {
 
   protected $container = array();
 
-  public function __construct(array $data = null) {
+  public function __construct(array $data = []) {
     $this->container['event_name'] = isset($data['event_name']) ? $data['event_name'] : null;
     $this->container['event_time'] = isset($data['event_time']) ? $data['event_time'] : null;
   }
