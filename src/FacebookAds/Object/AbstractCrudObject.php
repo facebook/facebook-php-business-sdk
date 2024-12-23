@@ -38,9 +38,9 @@ class AbstractCrudObject extends AbstractObject {
    * @deprecated deprecate constructor with null and parent_id
    * @param string $id Optional (do not set for new objects)
    * @param string $parent_id Optional, needed for creating new objects.
-   * @param Api $api The Api instance this object should use to make calls
+   * @param Api|null $api The Api instance this object should use to make calls
    */
-  public function __construct($id = null, $parent_id = null, Api $api = null) {
+  public function __construct($id = null, $parent_id = null, ?Api $api = null) {
     parent::__construct();
 
     // check that $id is an integer or a string integer or a string of
@@ -113,7 +113,7 @@ class AbstractCrudObject extends AbstractObject {
    * @return Api
    * @throws \InvalidArgumentException
    */
-  protected static function assureApi(Api $instance = null) {
+  protected static function assureApi(?Api $instance = null) {
     $instance = $instance ?: Api::instance();
     if (!$instance) {
       throw new \InvalidArgumentException(
@@ -457,10 +457,10 @@ class AbstractCrudObject extends AbstractObject {
    * Used batch API calls to delete multiple objects at once
    *
    * @param string[] $ids Array or single Object ID to delete
-   * @param Api $api Api Object to use
+   * @param Api|null $api Api Object to use
    * @return bool Returns true on success
    */
-  public static function deleteIds(array $ids, Api $api = null) {
+  public static function deleteIds(array $ids, ?Api $api = null) {
     $batch = array();
     foreach ($ids as $id) {
       $request = array(
@@ -488,14 +488,14 @@ class AbstractCrudObject extends AbstractObject {
    * @param mixed $ids Array or single object IDs
    * @param array $fields Array of field names to read
    * @param array $params Additional filters for the reading, in assoc
-   * @param Api $api Api Object to use
+   * @param Api|null $api Api Object to use
    * @return Cursor
    */
   public static function readIds(
     array $ids,
     array $fields = array(),
     array $params = array(),
-    Api $api = null) {
+    ?Api $api = null) {
     if (empty($fields)) {
       $fields = static::getDefaultReadFields();
     }

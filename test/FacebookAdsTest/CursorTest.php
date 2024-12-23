@@ -95,7 +95,7 @@ class CursorTest extends AbstractUnitTestCase {
    * @return Mock|ResponseInterface
    */
   protected function createResponseChainMock(
-    $num_pages, RequestInterface $prev = null) {
+    $num_pages, ?RequestInterface $prev = null) {
 
     $query_params = $prev ? clone $prev->getQueryParams() : new Parameters();
     $sample_content = $this->createSampleResponseContent();

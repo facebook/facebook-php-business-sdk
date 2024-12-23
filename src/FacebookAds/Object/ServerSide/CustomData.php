@@ -124,7 +124,7 @@ class CustomData implements ArrayAccess {
    * Constructor
    * @param mixed[] $data Associated array of property value initializing the model
    */
-  public function __construct(array $data = null) {
+  public function __construct(array $data = []) {
     $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
     $this->container['content_name'] = isset($data['content_name']) ? $data['content_name'] : null;
