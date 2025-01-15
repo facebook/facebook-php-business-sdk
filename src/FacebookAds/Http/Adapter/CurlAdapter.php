@@ -90,7 +90,7 @@ class CurlAdapter extends AbstractAdapter {
    * @return int
    */
   protected function getheaderSize() {
-    return $this->getCurl()->getInfo(CURLINFO_HEADER_SIZE);
+    return $this->getCurl()->getInfo(CURLINFO_HEADER_SIZE) ?? 0;
   }
 
   /**
