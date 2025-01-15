@@ -36,7 +36,7 @@ class ApiRequest {
     $return_prototype = null,
     $api_type = null,
     $accepted_fields = array(),
-    TypeChecker $param_checker = null,
+    ?TypeChecker $param_checker = null,
     $allow_file_upload = false,
     $use_graph_video_endpoint = false) {
     $this->fields = [];

@@ -49,7 +49,7 @@ class CurlAdapter extends AbstractAdapter {
    * @param Client $client
    * @param CurlInterface $curl
    */
-  public function __construct(Client $client, CurlInterface $curl = null) {
+  public function __construct(Client $client, ?CurlInterface $curl = null) {
     parent::__construct($client);
     $this->curl = $curl ?: AbstractCurl::createOptimalVersion();
     $this->curl->init();

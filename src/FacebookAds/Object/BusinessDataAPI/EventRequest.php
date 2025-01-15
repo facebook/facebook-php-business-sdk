@@ -46,7 +46,7 @@ class EventRequest {
    * @param string $page_id page id
    * @param mixed[] $data Associated array of property value initializing the model
    */
-  public function __construct(string $page_id, array $data = null) {
+  public function __construct(string $page_id, ?array $data = null) {
     $this->container['page_id'] = $page_id;
     $this->container['events'] = isset($data['events']) ? $data['events'] : null;
   }

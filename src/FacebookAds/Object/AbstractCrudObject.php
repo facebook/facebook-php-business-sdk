@@ -40,7 +40,7 @@ class AbstractCrudObject extends AbstractObject {
    * @param string $parent_id Optional, needed for creating new objects.
    * @param Api $api The Api instance this object should use to make calls
    */
-  public function __construct($id = null, $parent_id = null, Api $api = null) {
+  public function __construct($id = null, $parent_id = null, ?Api $api = null) {
     parent::__construct();
 
     // check that $id is an integer or a string integer or a string of
@@ -113,7 +113,7 @@ class AbstractCrudObject extends AbstractObject {
    * @return Api
    * @throws \InvalidArgumentException
    */
-  protected static function assureApi(Api $instance = null) {
+  protected static function assureApi(?Api $instance = null) {
     $instance = $instance ?: Api::instance();
     if (!$instance) {
       throw new \InvalidArgumentException(
@@ -460,7 +460,7 @@ class AbstractCrudObject extends AbstractObject {
    * @param Api $api Api Object to use
    * @return bool Returns true on success
    */
-  public static function deleteIds(array $ids, Api $api = null) {
+  public static function deleteIds(array $ids, ?Api $api = null) {
     $batch = array();
     foreach ($ids as $id) {
       $request = array(
@@ -495,7 +495,7 @@ class AbstractCrudObject extends AbstractObject {
     array $ids,
     array $fields = array(),
     array $params = array(),
-    Api $api = null) {
+    ?Api $api = null) {
     if (empty($fields)) {
       $fields = static::getDefaultReadFields();
     }
