@@ -45,7 +45,7 @@ class CustomData {
    * Constructor
    * @param mixed[] $data Associated array of property value initializing the model
    */
-  public function __construct(array $data = null) {
+  public function __construct(?array $data = null) {
     $business_contents = array();
     $server_contents = array();
     if(isset($data['contents'])){

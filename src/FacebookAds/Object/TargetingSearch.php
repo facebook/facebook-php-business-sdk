@@ -29,7 +29,7 @@ class TargetingSearch extends AbstractObject {
     $class=null,
     $query=null,
     array $params = array(),
-    Api $api = null) {
+    ?Api $api = null) {
 
     $api = $api ?: Api::instance();
     if (!$api) {

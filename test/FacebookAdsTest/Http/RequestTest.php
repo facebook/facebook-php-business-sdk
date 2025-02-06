@@ -69,7 +69,7 @@ class RequestTest extends AbstractUnitTestCase {
       ->willReturn('not.facebook.com');
     $request = new Request($client);
     $domain = $request->getDomain();
-    $this->assertRegExp('/.+\.not\.facebook\.com/', $domain);
+    $this->assertMatchesRegularExpression('/.+\.not\.facebook\.com/', $domain);
     $this->assertEquals($domain, $request->getDomain());
 
     // Partially set

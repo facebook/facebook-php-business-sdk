@@ -87,7 +87,7 @@ class RequestException extends Exception {
     $this->response = $response;
     $error_data = static::getErrorData($response);
 
-    parent::__construct($error_data['message'], $error_data['code'] ?? 0);
+    parent::__construct($error_data['message'] ?? '', $error_data['code'] ?? 0);
 
     $this->errorSubcode = $error_data['error_subcode'];
     $this->errorUserTitle = $error_data['error_user_title'];

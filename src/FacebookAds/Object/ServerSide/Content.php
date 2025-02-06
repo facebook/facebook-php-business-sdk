@@ -37,7 +37,7 @@ class Content implements ArrayAccess {
    * Constructor
    * @param mixed[] $data Associated array of property value initializing the model
    */
-  public function __construct(array $data = null) {
+  public function __construct(?array $data = null) {
     $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;;
     $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
     $this->container['item_price'] = isset($data['item_price']) ? $data['item_price'] : null;
