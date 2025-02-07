@@ -66,6 +66,8 @@ class CursorTest extends AbstractUnitTestCase {
           'after' => $this->getUniquePageId(),
           'before' => $this->getUniquePageId(),
         ),
+          'next' => $this->createUnparameterizedUrl() . '?after=' . $this->getUniquePageId(),
+          'previous' => $this->createUnparameterizedUrl() . '?before=' . $this->getUniquePageId(),
       ),
     ) + $this->createEmptyResponseContent();
 
@@ -339,7 +341,6 @@ class CursorTest extends AbstractUnitTestCase {
     $response = $this->createResponseChainMock(3);
     $cursor = new Cursor($response, $this->objectPrototype);
 
-    $count = 0;
     while ($cursor->valid()) {
       $cursor->prev();
     }

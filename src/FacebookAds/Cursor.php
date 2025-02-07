@@ -274,13 +274,6 @@ class Cursor implements \Iterator, \Countable, \ArrayAccess {
       return $content['paging']['previous'];
     }
 
-    $before = $this->getBefore();
-    if ($before !== null) {
-      $request = $this->createUndirectionalizedRequest();
-      $request->getQueryParams()->offsetSet('before', $before);
-      return $request->getUrl();
-    }
-
     return null;
   }
 
@@ -291,13 +284,6 @@ class Cursor implements \Iterator, \Countable, \ArrayAccess {
     $content = $this->getLastResponse()->getContent();
     if (isset($content['paging']['next'])) {
       return $content['paging']['next'];
-    }
-
-    $after = $this->getAfter();
-    if ($after !== null) {
-      $request = $this->createUndirectionalizedRequest();
-      $request->getQueryParams()->offsetSet('after', $after);
-      return $request->getUrl();
     }
 
     return null;
