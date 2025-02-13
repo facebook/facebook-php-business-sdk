@@ -75,6 +75,7 @@ use FacebookAds\Object\Values\AdVideoOriginalProjectionTypeValues;
 use FacebookAds\Object\Values\AdVideoSwapModeValues;
 use FacebookAds\Object\Values\AdVideoUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\AdVideoUploadPhaseValues;
+use FacebookAds\Object\Values\AdVideoVideoStateValues;
 use FacebookAds\Object\Values\AdsInsightsActionAttributionWindowsValues;
 use FacebookAds\Object\Values\AdsInsightsActionBreakdownsValues;
 use FacebookAds\Object\Values\AdsInsightsActionReportTimeValues;
@@ -433,7 +434,6 @@ class AdAccount extends AbstractCrudObject {
       'image_file' => 'string',
       'image_hash' => 'string',
       'image_url' => 'string',
-      'instagram_actor_id' => 'string',
       'instagram_branded_content' => 'map',
       'instagram_permalink_url' => 'string',
       'instagram_user_id' => 'string',
@@ -455,6 +455,7 @@ class AdAccount extends AbstractCrudObject {
       'portrait_customizations' => 'map',
       'product_set_id' => 'string',
       'recommender_settings' => 'map',
+      'regional_regulation_disclaimer_spec' => 'map',
       'source_instagram_media_id' => 'string',
       'template_url' => 'string',
       'template_url_spec' => 'string',
@@ -1011,6 +1012,7 @@ class AdAccount extends AbstractCrudObject {
       'frequency_control_specs' => 'list<Object>',
       'full_funnel_exploration_mode' => 'full_funnel_exploration_mode_enum',
       'is_dynamic_creative' => 'bool',
+      'is_sac_cfca_terms_certified' => 'bool',
       'lifetime_budget' => 'unsigned int',
       'lifetime_imps' => 'unsigned int',
       'lifetime_min_spend_target' => 'unsigned int',
@@ -3002,6 +3004,33 @@ class AdAccount extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getSuggestedProductTags(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'image_hash' => 'string',
+      'instagram_actor_id' => 'string',
+      'is_shops_ad' => 'bool',
+      'page_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/suggested_product_tags',
+      new AdAccountSuggestedTag(),
+      'EDGE',
+      AdAccountSuggestedTag::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getTargetingBrowse(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -3331,6 +3360,37 @@ class AdAccount extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
+      '/video_ads',
+      new AdVideo(),
+      'EDGE',
+      AdVideo::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createVideoAd(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'description' => 'string',
+      'privacy' => 'string',
+      'title' => 'string',
+      'upload_phase' => 'upload_phase_enum',
+      'video_id' => 'string',
+      'video_state' => 'video_state_enum',
+    );
+    $enums = array(
+      'upload_phase_enum' => AdVideoUploadPhaseValues::getInstance()->getValues(),
+      'video_state_enum' => AdVideoVideoStateValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
       '/video_ads',
       new AdVideo(),
       'EDGE',

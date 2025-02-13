@@ -56,6 +56,7 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const LIVE_VIDEOS = 'live_videos';
   const LOCAL_DELIVERY = 'local_delivery';
   const LOCATION = 'location';
+  const MARKETING_MESSAGE_DELIVERY_FAILED = 'marketing_message_delivery_failed';
   const MCOM_INVOICE_CHANGE = 'mcom_invoice_change';
   const MEMBERS = 'members';
   const MENTION = 'mention';
@@ -67,6 +68,7 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const MESSAGE_MENTION = 'message_mention';
   const MESSAGE_REACTIONS = 'message_reactions';
   const MESSAGE_READS = 'message_reads';
+  const MESSAGE_TEMPLATE_STATUS_UPDATE = 'message_template_status_update';
   const MESSAGES = 'messages';
   const MESSAGING_ACCOUNT_LINKING = 'messaging_account_linking';
   const MESSAGING_APPOINTMENTS = 'messaging_appointments';

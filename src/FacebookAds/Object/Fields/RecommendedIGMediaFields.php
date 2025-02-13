@@ -23,12 +23,10 @@ use FacebookAds\Enum\AbstractEnum;
 class RecommendedIGMediaFields extends AbstractEnum {
 
   const INTENT_SCORE = 'intent_score';
-  const MEDIA = 'media';
 
   public function getFieldTypes() {
     return array(
       'intent_score' => 'float',
-      'media' => 'InstagramMedia',
     );
   }
 }

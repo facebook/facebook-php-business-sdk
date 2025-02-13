@@ -20,21 +20,15 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class MarketingMessageTargetingFields extends AbstractEnum {
+class FundingSourceDetailsCouponTieringFields extends AbstractEnum {
 
-  const AUTOMATION_TYPE = 'automation_type';
-  const DELAY_SEND_TIME_SECOND = 'delay_send_time_second';
-  const DELAY_SEND_TIME_UNIT = 'delay_send_time_unit';
-  const SUBSCRIBER_LISTS = 'subscriber_lists';
-  const TARGETING_RULES = 'targeting_rules';
+  const COUPON_TIERING_NEW = 'coupon_tiering_new';
+  const COUPON_TIERING_REACTIVATION = 'coupon_tiering_reactivation';
 
   public function getFieldTypes() {
     return array(
-      'automation_type' => 'string',
-      'delay_send_time_second' => 'unsigned int',
-      'delay_send_time_unit' => 'string',
-      'subscriber_lists' => 'list<RawCustomAudience>',
-      'targeting_rules' => 'list<Object>',
+      'coupon_tiering_new' => 'Object',
+      'coupon_tiering_reactivation' => 'Object',
     );
   }
 }

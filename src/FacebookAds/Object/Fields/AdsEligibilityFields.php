@@ -20,15 +20,13 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class ParentCatalogReportFields extends AbstractEnum {
+class AdsEligibilityFields extends AbstractEnum {
 
-  const PURCHASE_CONVERSION_VALUE = 'purchase_conversion_value';
-  const PURCHASES = 'purchases';
+  const LIVE_SHOPPING = 'live_shopping';
 
   public function getFieldTypes() {
     return array(
-      'purchase_conversion_value' => 'float',
-      'purchases' => 'int',
+      'live_shopping' => 'Object',
     );
   }
 }

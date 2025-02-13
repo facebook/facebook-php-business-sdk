@@ -29,6 +29,7 @@ class CopyrightReferenceContainerFields extends AbstractEnum {
   const ID = 'id';
   const ISWC = 'iswc';
   const METADATA = 'metadata';
+  const PLAYABLE_VIDEO_URI = 'playable_video_uri';
   const PUBLISHED_TIME = 'published_time';
   const THUMBNAIL_URL = 'thumbnail_url';
   const TITLE = 'title';
@@ -44,6 +45,7 @@ class CopyrightReferenceContainerFields extends AbstractEnum {
       'id' => 'string',
       'iswc' => 'string',
       'metadata' => 'Object',
+      'playable_video_uri' => 'string',
       'published_time' => 'datetime',
       'thumbnail_url' => 'string',
       'title' => 'string',

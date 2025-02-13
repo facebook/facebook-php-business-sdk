@@ -74,6 +74,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const INSTREAM_PACKAGES = 'instream_packages';
   const INTERVAL_FREQUENCY_CAP = 'interval_frequency_cap';
   const INTERVAL_FREQUENCY_CAP_RESET_PERIOD = 'interval_frequency_cap_reset_period';
+  const IS_BALANCED_FREQUENCY = 'is_balanced_frequency';
   const IS_BONUS_MEDIA = 'is_bonus_media';
   const IS_CONVERSION_GOAL = 'is_conversion_goal';
   const IS_HIGHER_AVERAGE_FREQUENCY = 'is_higher_average_frequency';
@@ -101,6 +102,8 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const STATUS = 'status';
   const STORY_EVENT_TYPE = 'story_event_type';
   const TARGET_CPM = 'target_cpm';
+  const TARGET_FREQUENCY = 'target_frequency';
+  const TARGET_FREQUENCY_RESET_PERIOD = 'target_frequency_reset_period';
   const TARGET_SPEC = 'target_spec';
   const TIME_CREATED = 'time_created';
   const TIME_UPDATED = 'time_updated';
@@ -117,7 +120,6 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const EXISTING_CAMPAIGN_ID = 'existing_campaign_id';
   const GRP_BUYING = 'grp_buying';
   const IMPRESSION = 'impression';
-  const IS_BALANCED_FREQUENCY = 'is_balanced_frequency';
   const IS_FULL_VIEW = 'is_full_view';
   const IS_REACH_AND_FREQUENCY_IO_BUYING = 'is_reach_and_frequency_io_buying';
   const NUM_CURVE_POINTS = 'num_curve_points';
@@ -126,8 +128,6 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const RF_PREDICTION_ID_TO_RELEASE = 'rf_prediction_id_to_release';
   const RF_PREDICTION_ID_TO_SHARE = 'rf_prediction_id_to_share';
   const STOP_TIME = 'stop_time';
-  const TARGET_FREQUENCY = 'target_frequency';
-  const TARGET_FREQUENCY_RESET_PERIOD = 'target_frequency_reset_period';
 
   public function getFieldTypes() {
     return array(
@@ -183,6 +183,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'instream_packages' => 'list<string>',
       'interval_frequency_cap' => 'unsigned int',
       'interval_frequency_cap_reset_period' => 'unsigned int',
+      'is_balanced_frequency' => 'bool',
       'is_bonus_media' => 'unsigned int',
       'is_conversion_goal' => 'unsigned int',
       'is_higher_average_frequency' => 'bool',
@@ -210,6 +211,8 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'status' => 'unsigned int',
       'story_event_type' => 'unsigned int',
       'target_cpm' => 'unsigned int',
+      'target_frequency' => 'unsigned int',
+      'target_frequency_reset_period' => 'unsigned int',
       'target_spec' => 'Targeting',
       'time_created' => 'datetime',
       'time_updated' => 'datetime',
@@ -226,7 +229,6 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'existing_campaign_id' => 'string',
       'grp_buying' => 'bool',
       'impression' => 'unsigned int',
-      'is_balanced_frequency' => 'bool',
       'is_full_view' => 'bool',
       'is_reach_and_frequency_io_buying' => 'bool',
       'num_curve_points' => 'unsigned int',
@@ -235,8 +237,6 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'rf_prediction_id_to_release' => 'string',
       'rf_prediction_id_to_share' => 'string',
       'stop_time' => 'unsigned int',
-      'target_frequency' => 'unsigned int',
-      'target_frequency_reset_period' => 'unsigned int',
     );
   }
 }

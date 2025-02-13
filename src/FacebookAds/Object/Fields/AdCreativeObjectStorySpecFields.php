@@ -22,7 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdCreativeObjectStorySpecFields extends AbstractEnum {
 
-  const INSTAGRAM_ACTOR_ID = 'instagram_actor_id';
+  const INSTAGRAM_USER_ID = 'instagram_user_id';
   const LINK_DATA = 'link_data';
   const PAGE_ID = 'page_id';
   const PHOTO_DATA = 'photo_data';
@@ -34,7 +34,7 @@ class AdCreativeObjectStorySpecFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'instagram_actor_id' => 'string',
+      'instagram_user_id' => 'string',
       'link_data' => 'AdCreativeLinkData',
       'page_id' => 'string',
       'photo_data' => 'AdCreativePhotoData',

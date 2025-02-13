@@ -27,6 +27,7 @@ class FBImageCopyrightMatchFields extends AbstractEnum {
   const AUDIT_LOG = 'audit_log';
   const AVAILABLE_UI_ACTIONS = 'available_ui_actions';
   const EXPIRATION_DAYS = 'expiration_days';
+  const GENERIC_MATCH_DATA = 'generic_match_data';
   const ID = 'id';
   const IS_BUSINESS_PAGE_MATCH = 'is_business_page_match';
   const LAST_MODIFIED_TIME = 'last_modified_time';
@@ -43,6 +44,7 @@ class FBImageCopyrightMatchFields extends AbstractEnum {
       'audit_log' => 'list<Object>',
       'available_ui_actions' => 'list<string>',
       'expiration_days' => 'int',
+      'generic_match_data' => 'list<Object>',
       'id' => 'string',
       'is_business_page_match' => 'bool',
       'last_modified_time' => 'datetime',

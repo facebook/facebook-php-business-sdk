@@ -15,6 +15,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdPromotedObjectFields;
 use FacebookAds\Object\Values\AdPromotedObjectCustomEventTypeValues;
+use FacebookAds\Object\Values\AdPromotedObjectLeadAdsCustomEventTypeValues;
 
 /**
  * This class is auto-generated.
@@ -37,6 +38,7 @@ class AdPromotedObject extends AbstractObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['CustomEventType'] = AdPromotedObjectCustomEventTypeValues::getInstance()->getValues();
+    $ref_enums['LeadAdsCustomEventType'] = AdPromotedObjectLeadAdsCustomEventTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 

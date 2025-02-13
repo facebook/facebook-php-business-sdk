@@ -20,23 +20,25 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class PrivateComputationEnvironmentFields extends AbstractEnum {
+class AdsMcmeConversionFields extends AbstractEnum {
 
-  const PUBLISHER_ACCOUNT_ID = 'publisher_account_id';
-  const PUBLISHER_PCE_DEPLOYMENT_STATUS = 'publisher_pce_deployment_status';
-  const PUBLISHER_PCE_ID = 'publisher_pce_id';
-  const PUBLISHER_REGION = 'publisher_region';
-  const PUBLISHER_VPC_ID = 'publisher_vpc_id';
+  const CREATION_TIME = 'creation_time';
+  const DESCRIPTION = 'description';
   const ID = 'id';
+  const IS_ARCHIVED = 'is_archived';
+  const MCME_CONVERSION_TYPE = 'mcme_conversion_type';
+  const NAME = 'name';
+  const OMNICHANNEL_OBJECT_ID = 'omnichannel_object_id';
 
   public function getFieldTypes() {
     return array(
-      'publisher_account_id' => 'string',
-      'publisher_pce_deployment_status' => 'int',
-      'publisher_pce_id' => 'string',
-      'publisher_region' => 'string',
-      'publisher_vpc_id' => 'string',
+      'creation_time' => 'datetime',
+      'description' => 'string',
       'id' => 'string',
+      'is_archived' => 'bool',
+      'mcme_conversion_type' => 'string',
+      'name' => 'string',
+      'omnichannel_object_id' => 'string',
     );
   }
 }

@@ -20,17 +20,15 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class DomainFields extends AbstractEnum {
+class TargetingSubscriberUniverseFields extends AbstractEnum {
 
-  const ID = 'id';
-  const NAME = 'name';
-  const URL = 'url';
+  const MESSENGER_SUBSCRIBER_SOURCE = 'messenger_subscriber_source';
+  const WHATSAPP_SUBSCRIBER_SOURCE = 'whatsapp_subscriber_source';
 
   public function getFieldTypes() {
     return array(
-      'id' => 'string',
-      'name' => 'string',
-      'url' => 'string',
+      'messenger_subscriber_source' => 'IDName',
+      'whatsapp_subscriber_source' => 'IDName',
     );
   }
 }

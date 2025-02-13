@@ -52,6 +52,7 @@ class AdAssetFeedSpecCallToActionTypesValues extends AbstractEnum {
   const FOLLOW_USER = 'FOLLOW_USER';
   const GET_A_QUOTE = 'GET_A_QUOTE';
   const GET_DIRECTIONS = 'GET_DIRECTIONS';
+  const GET_IN_TOUCH = 'GET_IN_TOUCH';
   const GET_OFFER = 'GET_OFFER';
   const GET_OFFER_VIEW = 'GET_OFFER_VIEW';
   const GET_PROMOTIONS = 'GET_PROMOTIONS';
@@ -103,6 +104,7 @@ class AdAssetFeedSpecCallToActionTypesValues extends AbstractEnum {
   const VIEW_CHANNEL = 'VIEW_CHANNEL';
   const VIEW_PRODUCT = 'VIEW_PRODUCT';
   const VISIT_PAGES_FEED = 'VISIT_PAGES_FEED';
+  const WATCH_LIVE_VIDEO = 'WATCH_LIVE_VIDEO';
   const WATCH_MORE = 'WATCH_MORE';
   const WATCH_VIDEO = 'WATCH_VIDEO';
   const WHATSAPP_MESSAGE = 'WHATSAPP_MESSAGE';

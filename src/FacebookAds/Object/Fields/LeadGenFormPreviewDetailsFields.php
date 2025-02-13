@@ -55,6 +55,7 @@ class LeadGenFormPreviewDetailsFields extends AbstractEnum {
   const PRODUCTS_SECTION_HEADERS = 'products_section_headers';
   const QUALIFIED_THANK_YOU_CARD_TRANSPARENCY_INFO_TEXT = 'qualified_thank_you_card_transparency_info_text';
   const REDEEM_PROMO_CODE_TEXT = 'redeem_promo_code_text';
+  const RETURN_TO_FACEBOOK_TEXT = 'return_to_facebook_text';
   const REVIEW_YOUR_INFO_TEXT = 'review_your_info_text';
   const SECURE_SHARING_TEXT = 'secure_sharing_text';
   const SLIDE_TO_SUBMIT_TEXT = 'slide_to_submit_text';
@@ -97,6 +98,7 @@ class LeadGenFormPreviewDetailsFields extends AbstractEnum {
       'products_section_headers' => 'list<map<string, string>>',
       'qualified_thank_you_card_transparency_info_text' => 'string',
       'redeem_promo_code_text' => 'string',
+      'return_to_facebook_text' => 'string',
       'review_your_info_text' => 'string',
       'secure_sharing_text' => 'string',
       'slide_to_submit_text' => 'string',

@@ -1162,6 +1162,30 @@ class User extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createMessengerKidsAccountsUnreadBadge(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'proxied_app_id' => 'int',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/messenger_kids_accounts_unread_badge',
+      new User(),
+      'EDGE',
+      User::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getMusic(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1384,6 +1408,7 @@ class User extends AbstractCrudObject {
       'place' => 'Object',
       'privacy' => 'string',
       'profile_id' => 'int',
+      'provenance_info' => 'map',
       'proxied_app_id' => 'string',
       'published' => 'bool',
       'qn' => 'string',

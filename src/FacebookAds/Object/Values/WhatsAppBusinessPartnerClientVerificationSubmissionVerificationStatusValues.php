@@ -23,6 +23,7 @@ use FacebookAds\Enum\AbstractEnum;
 class WhatsAppBusinessPartnerClientVerificationSubmissionVerificationStatusValues extends AbstractEnum {
 
   const APPROVED = 'APPROVED';
+  const DISCARDED = 'DISCARDED';
   const FAILED = 'FAILED';
   const PENDING = 'PENDING';
   const REVOKED = 'REVOKED';

@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\DomainFields;
+use FacebookAds\Object\Fields\AdsEligibilityFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\DomainFields;
  *
  */
 
-class Domain extends AbstractCrudObject {
+class AdsEligibility extends AbstractObject {
 
   /**
-   * @return DomainFields
+   * @return AdsEligibilityFields
    */
   public static function getFieldsEnum() {
-    return DomainFields::getInstance();
+    return AdsEligibilityFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -38,28 +38,5 @@ class Domain extends AbstractCrudObject {
     return $ref_enums;
   }
 
-
-  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/',
-      new Domain(),
-      'NODE',
-      Domain::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
 
 }

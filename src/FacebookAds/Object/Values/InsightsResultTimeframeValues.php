@@ -18,9 +18,14 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static PageActionValues getInstance()
+ * @method static InsightsResultTimeframeValues getInstance()
  */
-class PageActionValues extends AbstractEnum {
+class InsightsResultTimeframeValues extends AbstractEnum {
 
-  const SPAM = 'SPAM';
+  const LAST_14_DAYS = 'last_14_days';
+  const LAST_30_DAYS = 'last_30_days';
+  const LAST_90_DAYS = 'last_90_days';
+  const PREV_MONTH = 'prev_month';
+  const THIS_MONTH = 'this_month';
+  const THIS_WEEK = 'this_week';
 }

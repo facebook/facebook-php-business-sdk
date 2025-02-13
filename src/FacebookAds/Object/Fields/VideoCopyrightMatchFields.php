@@ -29,6 +29,7 @@ class VideoCopyrightMatchFields extends AbstractEnum {
   const MATCH_STATUS = 'match_status';
   const NOTES = 'notes';
   const PERMALINK = 'permalink';
+  const UGC_CONTENT_FORMAT = 'ugc_content_format';
 
   public function getFieldTypes() {
     return array(
@@ -39,6 +40,7 @@ class VideoCopyrightMatchFields extends AbstractEnum {
       'match_status' => 'string',
       'notes' => 'string',
       'permalink' => 'string',
+      'ugc_content_format' => 'string',
     );
   }
 }

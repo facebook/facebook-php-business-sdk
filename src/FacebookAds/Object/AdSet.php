@@ -676,6 +676,7 @@ class AdSet extends AbstractArchivableCrudObject
       'execution_options' => 'list<execution_options_enum>',
       'existing_customer_budget_percentage' => 'unsigned int',
       'full_funnel_exploration_mode' => 'full_funnel_exploration_mode_enum',
+      'is_sac_cfca_terms_certified' => 'bool',
       'lifetime_budget' => 'unsigned int',
       'lifetime_imps' => 'unsigned int',
       'lifetime_min_spend_target' => 'unsigned int',

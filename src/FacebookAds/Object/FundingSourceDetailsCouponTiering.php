@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\ParentCatalogReportFields;
+use FacebookAds\Object\Fields\FundingSourceDetailsCouponTieringFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\ParentCatalogReportFields;
  *
  */
 
-class ParentCatalogReport extends AbstractObject {
+class FundingSourceDetailsCouponTiering extends AbstractObject {
 
   /**
-   * @return ParentCatalogReportFields
+   * @return FundingSourceDetailsCouponTieringFields
    */
   public static function getFieldsEnum() {
-    return ParentCatalogReportFields::getInstance();
+    return FundingSourceDetailsCouponTieringFields::getInstance();
   }
 
   protected static function getReferencedEnums() {

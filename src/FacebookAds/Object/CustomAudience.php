@@ -379,6 +379,8 @@ class CustomAudience extends AbstractCrudObject {
 
     $param_types = array(
       'ad_account_id' => 'string',
+      'special_ad_categories' => 'list<string>',
+      'special_ad_category_countries' => 'list<string>',
       'target_countries' => 'list<string>',
     );
     $enums = array(
