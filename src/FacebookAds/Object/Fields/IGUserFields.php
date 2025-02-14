@@ -26,8 +26,10 @@ class IGUserFields extends AbstractEnum {
   const BUSINESS_DISCOVERY = 'business_discovery';
   const FOLLOWERS_COUNT = 'followers_count';
   const FOLLOWS_COUNT = 'follows_count';
+  const HAS_PROFILE_PIC = 'has_profile_pic';
   const ID = 'id';
   const IG_ID = 'ig_id';
+  const IS_PUBLISHED = 'is_published';
   const LEGACY_INSTAGRAM_USER_ID = 'legacy_instagram_user_id';
   const MEDIA_COUNT = 'media_count';
   const MENTIONED_COMMENT = 'mentioned_comment';
@@ -46,8 +48,10 @@ class IGUserFields extends AbstractEnum {
       'business_discovery' => 'IGUser',
       'followers_count' => 'int',
       'follows_count' => 'int',
+      'has_profile_pic' => 'bool',
       'id' => 'string',
       'ig_id' => 'int',
+      'is_published' => 'bool',
       'legacy_instagram_user_id' => 'string',
       'media_count' => 'int',
       'mentioned_comment' => 'IGComment',

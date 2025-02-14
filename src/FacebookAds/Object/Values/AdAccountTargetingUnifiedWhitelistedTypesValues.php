@@ -113,7 +113,6 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const LOCATION_CLUSTER_IDS = 'location_cluster_ids';
   const LOCATION_EXPANSION = 'location_expansion';
   const MARKETING_MESSAGE_CHANNELS = 'marketing_message_channels';
-  const MARKETING_MESSAGE_TARGETING = 'marketing_message_targeting';
   const MARKETPLACE_PRODUCT_CATEGORIES = 'marketplace_product_categories';
   const MESSENGER_POSITIONS = 'messenger_positions';
   const MOBILE_DEVICE_MODEL = 'mobile_device_model';
@@ -134,6 +133,7 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const RELATIONSHIP_STATUSES = 'relationship_statuses';
   const RTB_FLAG = 'rtb_flag';
   const SITE_CATEGORY = 'site_category';
+  const SUBSCRIBER_UNIVERSE = 'subscriber_universe';
   const TAFE_CA_MITIGATION_STRATEGY = 'tafe_ca_mitigation_strategy';
   const TARGETING_AUTOMATION = 'targeting_automation';
   const TARGETING_OPTIMIZATION = 'targeting_optimization';

@@ -25,6 +25,7 @@ class AudioVisualReferenceMatchFields extends AbstractEnum {
   const AUDIO_CONFLICTING_SEGMENTS = 'audio_conflicting_segments';
   const AUDIO_CURRENT_CONFLICT_RESOLVED_SEGMENTS = 'audio_current_conflict_resolved_segments';
   const AUDIO_SEGMENT_RESOLUTION_HISTORY = 'audio_segment_resolution_history';
+  const CONFLICT_STATUS = 'conflict_status';
   const CONFLICT_TYPE = 'conflict_type';
   const CONFLICTING_COUNTRIES = 'conflicting_countries';
   const COUNTRY_RESOLUTION_HISTORY = 'country_resolution_history';
@@ -59,6 +60,7 @@ class AudioVisualReferenceMatchFields extends AbstractEnum {
       'audio_conflicting_segments' => 'list<Object>',
       'audio_current_conflict_resolved_segments' => 'list<Object>',
       'audio_segment_resolution_history' => 'list<Object>',
+      'conflict_status' => 'string',
       'conflict_type' => 'string',
       'conflicting_countries' => 'list<string>',
       'country_resolution_history' => 'list<map<string, list<Object>>>',

@@ -37,6 +37,7 @@ class CustomAudienceFields extends AbstractEnum {
   const HOUSEHOLD_AUDIENCE = 'household_audience';
   const ID = 'id';
   const INCLUDED_CUSTOM_AUDIENCES = 'included_custom_audiences';
+  const IS_ELIGIBLE_FOR_SAC_CAMPAIGNS = 'is_eligible_for_sac_campaigns';
   const IS_HOUSEHOLD = 'is_household';
   const IS_SNAPSHOT = 'is_snapshot';
   const IS_VALUE_BASED = 'is_value_based';
@@ -104,6 +105,7 @@ class CustomAudienceFields extends AbstractEnum {
       'household_audience' => 'int',
       'id' => 'string',
       'included_custom_audiences' => 'list<CustomAudience>',
+      'is_eligible_for_sac_campaigns' => 'bool',
       'is_household' => 'bool',
       'is_snapshot' => 'bool',
       'is_value_based' => 'bool',

@@ -30,7 +30,10 @@ class AdPromotedObjectFields extends AbstractEnum {
   const CUSTOM_EVENT_TYPE = 'custom_event_type';
   const EVENT_ID = 'event_id';
   const FUNDRAISER_CAMPAIGN_ID = 'fundraiser_campaign_id';
+  const LEAD_ADS_CUSTOM_EVENT_STR = 'lead_ads_custom_event_str';
+  const LEAD_ADS_CUSTOM_EVENT_TYPE = 'lead_ads_custom_event_type';
   const LEAD_ADS_FORM_EVENT_SOURCE_TYPE = 'lead_ads_form_event_source_type';
+  const LEAD_ADS_OFFSITE_CONVERSION_TYPE = 'lead_ads_offsite_conversion_type';
   const MCME_CONVERSION_ID = 'mcme_conversion_id';
   const OBJECT_STORE_URL = 'object_store_url';
   const OFFER_ID = 'offer_id';
@@ -62,7 +65,10 @@ class AdPromotedObjectFields extends AbstractEnum {
       'custom_event_type' => 'CustomEventType',
       'event_id' => 'string',
       'fundraiser_campaign_id' => 'string',
+      'lead_ads_custom_event_str' => 'string',
+      'lead_ads_custom_event_type' => 'LeadAdsCustomEventType',
       'lead_ads_form_event_source_type' => 'string',
+      'lead_ads_offsite_conversion_type' => 'string',
       'mcme_conversion_id' => 'string',
       'object_store_url' => 'string',
       'offer_id' => 'string',

@@ -23,6 +23,7 @@ use FacebookAds\Enum\AbstractEnum;
 class InsightsValueFields extends AbstractEnum {
 
   const CAMPAIGN_ID = 'campaign_id';
+  const EARNING_SOURCE = 'earning_source';
   const END_TIME = 'end_time';
   const ENGAGEMENT_SOURCE = 'engagement_source';
   const MESSAGE_TYPE = 'message_type';
@@ -36,6 +37,7 @@ class InsightsValueFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'campaign_id' => 'string',
+      'earning_source' => 'string',
       'end_time' => 'datetime',
       'engagement_source' => 'string',
       'message_type' => 'string',

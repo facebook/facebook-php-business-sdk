@@ -44,7 +44,7 @@ class Content {
    * Constructor
    * @param mixed[] $data Associated array of property value initializing the model
    */
-  public function __construct(array $data = null) {
+  public function __construct(?array $data = null) {
     $this->businessDataContent = new BusinessDataContent($data);
     $this->serverSideContent = new ServerSideContent($data);
   }

@@ -166,6 +166,7 @@ class Application extends AbstractCrudObject {
       'app_user_id' => 'string',
       'application_tracking_enabled' => 'bool',
       'attribution' => 'string',
+      'attribution_sources' => 'list<map>',
       'auto_publish' => 'bool',
       'bundle_id' => 'string',
       'bundle_short_version' => 'string',
@@ -187,8 +188,10 @@ class Application extends AbstractCrudObject {
       'install_referrer' => 'string',
       'install_timestamp' => 'unsigned int',
       'installer_package' => 'string',
+      'is_fb' => 'bool',
       'limited_data_use' => 'bool',
       'migration_bundle' => 'string',
+      'operational_parameters' => 'list<map>',
       'page_id' => 'unsigned int',
       'page_scoped_user_id' => 'unsigned int',
       'receipt_data' => 'string',
@@ -1025,18 +1028,27 @@ class Application extends AbstractCrudObject {
     $param_types = array(
       'advertiser_id' => 'string',
       'attribution' => 'string',
+      'attribution_method' => 'string',
       'attribution_model' => 'string',
+      'attribution_referrer' => 'string',
       'auditing_token' => 'string',
       'click_attr_window' => 'unsigned int',
       'custom_events' => 'list<Object>',
       'decline_reason' => 'string',
+      'device_os' => 'string',
       'engagement_type' => 'string',
       'event' => 'string',
+      'event_id' => 'string',
       'event_reported_time' => 'unsigned int',
       'fb_ad_id' => 'unsigned int',
+      'fb_adgroup_id' => 'unsigned int',
       'fb_click_time' => 'unsigned int',
       'fb_view_time' => 'unsigned int',
+      'google_install_referrer' => 'string',
+      'inactivity_window_hours' => 'unsigned int',
+      'install_id' => 'string',
       'is_fb' => 'bool',
+      'meta_install_referrer' => 'string',
       'used_install_referrer' => 'bool',
       'view_attr_window' => 'unsigned int',
     );
@@ -1202,30 +1214,6 @@ class Application extends AbstractCrudObject {
       new AbstractCrudObject(),
       'EDGE',
       array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createPaymentCurrency(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'currency_url' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/payment_currencies',
-      new Application(),
-      'EDGE',
-      Application::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

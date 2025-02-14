@@ -26,6 +26,7 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
   const AGE = 'age';
   const APP_ID = 'app_id';
   const BODY_ASSET = 'body_asset';
+  const BREAKDOWN_AD_OBJECTIVE = 'breakdown_ad_objective';
   const BREAKDOWN_REPORTING_AD_ID = 'breakdown_reporting_ad_id';
   const CALL_TO_ACTION_ASSET = 'call_to_action_asset';
   const COARSE_CONVERSION_VALUE = 'coarse_conversion_value';
@@ -42,6 +43,7 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
   const HSID = 'hsid';
   const IMAGE_ASSET = 'image_asset';
   const IMPRESSION_DEVICE = 'impression_device';
+  const IMPRESSION_VIEW_TIME_ADVERTISER_HOUR_V2 = 'impression_view_time_advertiser_hour_v2';
   const IS_CONVERSION_ID_MODELED = 'is_conversion_id_modeled';
   const IS_RENDERED_AS_DELAYED_SKIP_AD = 'is_rendered_as_delayed_skip_ad';
   const LANDING_DESTINATION = 'landing_destination';

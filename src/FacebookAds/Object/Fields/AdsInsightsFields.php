@@ -52,6 +52,8 @@ class AdsInsightsFields extends AbstractEnum {
   const CATALOG_SEGMENT_VALUE_OMNI_PURCHASE_ROAS = 'catalog_segment_value_omni_purchase_roas';
   const CATALOG_SEGMENT_VALUE_WEBSITE_PURCHASE_ROAS = 'catalog_segment_value_website_purchase_roas';
   const CLICKS = 'clicks';
+  const CONVERSION_LEAD_RATE = 'conversion_lead_rate';
+  const CONVERSION_LEADS = 'conversion_leads';
   const CONVERSION_RATE_RANKING = 'conversion_rate_ranking';
   const CONVERSION_VALUES = 'conversion_values';
   const CONVERSIONS = 'conversions';
@@ -62,6 +64,7 @@ class AdsInsightsFields extends AbstractEnum {
   const COST_PER_ACTION_TYPE = 'cost_per_action_type';
   const COST_PER_AD_CLICK = 'cost_per_ad_click';
   const COST_PER_CONVERSION = 'cost_per_conversion';
+  const COST_PER_CONVERSION_LEAD = 'cost_per_conversion_lead';
   const COST_PER_DDA_COUNTBY_CONVS = 'cost_per_dda_countby_convs';
   const COST_PER_ESTIMATED_AD_RECALLERS = 'cost_per_estimated_ad_recallers';
   const COST_PER_INLINE_LINK_CLICK = 'cost_per_inline_link_click';
@@ -105,6 +108,8 @@ class AdsInsightsFields extends AbstractEnum {
   const INSTANT_EXPERIENCE_OUTBOUND_CLICKS = 'instant_experience_outbound_clicks';
   const INTERACTIVE_COMPONENT_TAP = 'interactive_component_tap';
   const LABELS = 'labels';
+  const LANDING_PAGE_VIEW_ACTIONS_PER_LINK_CLICK = 'landing_page_view_actions_per_link_click';
+  const LANDING_PAGE_VIEW_PER_PURCHASE_RATE = 'landing_page_view_per_purchase_rate';
   const LOCATION = 'location';
   const MARKETING_MESSAGES_COST_PER_DELIVERED = 'marketing_messages_cost_per_delivered';
   const MARKETING_MESSAGES_COST_PER_LINK_BTN_CLICK = 'marketing_messages_cost_per_link_btn_click';
@@ -124,9 +129,11 @@ class AdsInsightsFields extends AbstractEnum {
   const OUTBOUND_CLICKS_CTR = 'outbound_clicks_ctr';
   const PLACE_PAGE_NAME = 'place_page_name';
   const PURCHASE_ROAS = 'purchase_roas';
+  const PURCHASES_PER_LINK_CLICK = 'purchases_per_link_click';
   const QUALIFYING_QUESTION_QUALIFY_ANSWER_RATE = 'qualifying_question_qualify_answer_rate';
   const QUALITY_RANKING = 'quality_ranking';
   const REACH = 'reach';
+  const RESULT_VALUES_PERFORMANCE_INDICATOR = 'result_values_performance_indicator';
   const SHOPS_ASSISTED_PURCHASES = 'shops_assisted_purchases';
   const SOCIAL_SPEND = 'social_spend';
   const SPEND = 'spend';
@@ -161,6 +168,7 @@ class AdsInsightsFields extends AbstractEnum {
   const VIDEO_PLAY_RETENTION_GRAPH_ACTIONS = 'video_play_retention_graph_actions';
   const VIDEO_THRUPLAY_WATCHED_ACTIONS = 'video_thruplay_watched_actions';
   const VIDEO_TIME_WATCHED_ACTIONS = 'video_time_watched_actions';
+  const VIDEO_VIEW_PER_IMPRESSION = 'video_view_per_impression';
   const WEBSITE_CTR = 'website_ctr';
   const WEBSITE_PURCHASE_ROAS = 'website_purchase_roas';
   const WISH_BID = 'wish_bid';
@@ -197,6 +205,8 @@ class AdsInsightsFields extends AbstractEnum {
       'catalog_segment_value_omni_purchase_roas' => 'list<AdsActionStats>',
       'catalog_segment_value_website_purchase_roas' => 'list<AdsActionStats>',
       'clicks' => 'string',
+      'conversion_lead_rate' => 'list<AdsActionStats>',
+      'conversion_leads' => 'list<AdsActionStats>',
       'conversion_rate_ranking' => 'string',
       'conversion_values' => 'list<AdsActionStats>',
       'conversions' => 'list<AdsActionStats>',
@@ -207,6 +217,7 @@ class AdsInsightsFields extends AbstractEnum {
       'cost_per_action_type' => 'list<AdsActionStats>',
       'cost_per_ad_click' => 'list<AdsActionStats>',
       'cost_per_conversion' => 'list<AdsActionStats>',
+      'cost_per_conversion_lead' => 'list<AdsActionStats>',
       'cost_per_dda_countby_convs' => 'string',
       'cost_per_estimated_ad_recallers' => 'string',
       'cost_per_inline_link_click' => 'string',
@@ -250,6 +261,8 @@ class AdsInsightsFields extends AbstractEnum {
       'instant_experience_outbound_clicks' => 'list<AdsActionStats>',
       'interactive_component_tap' => 'list<AdsActionStats>',
       'labels' => 'string',
+      'landing_page_view_actions_per_link_click' => 'string',
+      'landing_page_view_per_purchase_rate' => 'string',
       'location' => 'string',
       'marketing_messages_cost_per_delivered' => 'string',
       'marketing_messages_cost_per_link_btn_click' => 'string',
@@ -269,9 +282,11 @@ class AdsInsightsFields extends AbstractEnum {
       'outbound_clicks_ctr' => 'list<AdsActionStats>',
       'place_page_name' => 'string',
       'purchase_roas' => 'list<AdsActionStats>',
+      'purchases_per_link_click' => 'string',
       'qualifying_question_qualify_answer_rate' => 'string',
       'quality_ranking' => 'string',
       'reach' => 'string',
+      'result_values_performance_indicator' => 'string',
       'shops_assisted_purchases' => 'string',
       'social_spend' => 'string',
       'spend' => 'string',
@@ -306,6 +321,7 @@ class AdsInsightsFields extends AbstractEnum {
       'video_play_retention_graph_actions' => 'list<AdsHistogramStats>',
       'video_thruplay_watched_actions' => 'list<AdsActionStats>',
       'video_time_watched_actions' => 'list<AdsActionStats>',
+      'video_view_per_impression' => 'list<AdsActionStats>',
       'website_ctr' => 'list<AdsActionStats>',
       'website_purchase_roas' => 'list<AdsActionStats>',
       'wish_bid' => 'string',

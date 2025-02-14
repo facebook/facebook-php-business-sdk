@@ -45,7 +45,6 @@ class AdCreativeFields extends AbstractEnum {
   const DYNAMIC_AD_VOICE = 'dynamic_ad_voice';
   const EFFECTIVE_AUTHORIZATION_CATEGORY = 'effective_authorization_category';
   const EFFECTIVE_INSTAGRAM_MEDIA_ID = 'effective_instagram_media_id';
-  const EFFECTIVE_INSTAGRAM_STORY_ID = 'effective_instagram_story_id';
   const EFFECTIVE_OBJECT_STORY_ID = 'effective_object_story_id';
   const ENABLE_DIRECT_INSTALL = 'enable_direct_install';
   const ENABLE_LAUNCH_INSTANT_APP = 'enable_launch_instant_app';
@@ -54,10 +53,8 @@ class AdCreativeFields extends AbstractEnum {
   const IMAGE_CROPS = 'image_crops';
   const IMAGE_HASH = 'image_hash';
   const IMAGE_URL = 'image_url';
-  const INSTAGRAM_ACTOR_ID = 'instagram_actor_id';
   const INSTAGRAM_BRANDED_CONTENT = 'instagram_branded_content';
   const INSTAGRAM_PERMALINK_URL = 'instagram_permalink_url';
-  const INSTAGRAM_STORY_ID = 'instagram_story_id';
   const INSTAGRAM_USER_ID = 'instagram_user_id';
   const INTERACTIVE_COMPONENTS_SPEC = 'interactive_components_spec';
   const LINK_DEEP_LINK_URL = 'link_deep_link_url';
@@ -82,6 +79,7 @@ class AdCreativeFields extends AbstractEnum {
   const PRODUCT_DATA = 'product_data';
   const PRODUCT_SET_ID = 'product_set_id';
   const RECOMMENDER_SETTINGS = 'recommender_settings';
+  const REGIONAL_REGULATION_DISCLAIMER_SPEC = 'regional_regulation_disclaimer_spec';
   const SOURCE_INSTAGRAM_MEDIA_ID = 'source_instagram_media_id';
   const STATUS = 'status';
   const TEMPLATE_URL = 'template_url';
@@ -121,7 +119,6 @@ class AdCreativeFields extends AbstractEnum {
       'dynamic_ad_voice' => 'string',
       'effective_authorization_category' => 'string',
       'effective_instagram_media_id' => 'string',
-      'effective_instagram_story_id' => 'string',
       'effective_object_story_id' => 'string',
       'enable_direct_install' => 'bool',
       'enable_launch_instant_app' => 'bool',
@@ -130,10 +127,8 @@ class AdCreativeFields extends AbstractEnum {
       'image_crops' => 'AdsImageCrops',
       'image_hash' => 'string',
       'image_url' => 'string',
-      'instagram_actor_id' => 'string',
       'instagram_branded_content' => 'AdCreativeInstagramBrandedContent',
       'instagram_permalink_url' => 'string',
-      'instagram_story_id' => 'string',
       'instagram_user_id' => 'string',
       'interactive_components_spec' => 'AdCreativeInteractiveComponentsSpec',
       'link_deep_link_url' => 'string',
@@ -158,6 +153,7 @@ class AdCreativeFields extends AbstractEnum {
       'product_data' => 'list<AdCreativeProductData>',
       'product_set_id' => 'string',
       'recommender_settings' => 'AdCreativeRecommenderSettings',
+      'regional_regulation_disclaimer_spec' => 'AdCreativeRegionalRegulationDisclaimer',
       'source_instagram_media_id' => 'string',
       'status' => 'Status',
       'template_url' => 'string',

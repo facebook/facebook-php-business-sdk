@@ -20,33 +20,17 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class VideoMetricsReportFields extends AbstractEnum {
+class CatalogContentVersionConfigFields extends AbstractEnum {
 
-  const CHECKSUM = 'checksum';
-  const CHUNKS = 'chunks';
-  const END_DATE = 'end_date';
   const ID = 'id';
-  const INDEX = 'index';
   const NAME = 'name';
-  const PLATFORM = 'platform';
-  const START_DATE = 'start_date';
-  const TYPE = 'type';
-  const UPLOAD_DATE = 'upload_date';
-  const URL = 'url';
+  const VERSION = 'version';
 
   public function getFieldTypes() {
     return array(
-      'checksum' => 'string',
-      'chunks' => 'int',
-      'end_date' => 'datetime',
       'id' => 'string',
-      'index' => 'int',
       'name' => 'string',
-      'platform' => 'string',
-      'start_date' => 'datetime',
-      'type' => 'string',
-      'upload_date' => 'datetime',
-      'url' => 'string',
+      'version' => 'string',
     );
   }
 }

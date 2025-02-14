@@ -32,6 +32,8 @@ class MessengerBusinessTemplateFields extends AbstractEnum {
   const LIBRARY_TEMPLATE_NAME = 'library_template_name';
   const NAME = 'name';
   const REJECTED_REASON = 'rejected_reason';
+  const REJECTION_REASONS = 'rejection_reasons';
+  const SPECIFIC_REJECTION_REASONS = 'specific_rejection_reasons';
   const STATUS = 'status';
 
   public function getFieldTypes() {
@@ -46,6 +48,8 @@ class MessengerBusinessTemplateFields extends AbstractEnum {
       'library_template_name' => 'string',
       'name' => 'string',
       'rejected_reason' => 'string',
+      'rejection_reasons' => 'Object',
+      'specific_rejection_reasons' => 'Object',
       'status' => 'string',
     );
   }

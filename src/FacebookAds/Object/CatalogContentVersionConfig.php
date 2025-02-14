@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\PrivateComputationEnvironmentFields;
+use FacebookAds\Object\Fields\CatalogContentVersionConfigFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\PrivateComputationEnvironmentFields;
  *
  */
 
-class PrivateComputationEnvironment extends AbstractCrudObject {
+class CatalogContentVersionConfig extends AbstractCrudObject {
 
   /**
-   * @return PrivateComputationEnvironmentFields
+   * @return CatalogContentVersionConfigFields
    */
   public static function getFieldsEnum() {
-    return PrivateComputationEnvironmentFields::getInstance();
+    return CatalogContentVersionConfigFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -52,9 +52,9 @@ class PrivateComputationEnvironment extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new PrivateComputationEnvironment(),
+      new CatalogContentVersionConfig(),
       'NODE',
-      PrivateComputationEnvironment::getFieldsEnum()->getValues(),
+      CatalogContentVersionConfig::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

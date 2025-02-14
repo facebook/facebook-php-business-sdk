@@ -54,7 +54,7 @@ class EventRequest {
    * @param string $page_id page id
    * @param mixed[] $data Associated array of property value initializing the model
    */
-  public function __construct(string $pixel_id, string $page_id, array $data = null) {
+  public function __construct(string $pixel_id, string $page_id, ?array $data = null) {
     $business_data = $data;
     $server_data = $data;
 

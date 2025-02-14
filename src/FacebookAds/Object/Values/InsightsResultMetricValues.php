@@ -24,6 +24,7 @@ class InsightsResultMetricValues extends AbstractEnum {
 
   const CLIPS_REPLAYS_COUNT = 'clips_replays_count';
   const COMMENTS = 'comments';
+  const CONTENT_VIEWS = 'content_views';
   const FOLLOWS = 'follows';
   const IG_REELS_AGGREGATED_ALL_PLAYS_COUNT = 'ig_reels_aggregated_all_plays_count';
   const IG_REELS_AVG_WATCH_TIME = 'ig_reels_avg_watch_time';
@@ -43,6 +44,7 @@ class InsightsResultMetricValues extends AbstractEnum {
   const SHARES = 'shares';
   const THREAD_REPLIES = 'thread_replies';
   const THREAD_SHARES = 'thread_shares';
+  const THREADS_VIEWS = 'threads_views';
   const TOTAL_INTERACTIONS = 'total_interactions';
   const VIDEO_VIEWS = 'video_views';
   const VIEWS = 'views';

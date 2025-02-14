@@ -24,6 +24,8 @@ class AdAccountUserSettingsFields extends AbstractEnum {
 
   const ACF_SHOULD_OPT_OUT_VIDEO_ADJUSTMENTS = 'acf_should_opt_out_video_adjustments';
   const ACO_STICKY_SETTINGS = 'aco_sticky_settings';
+  const ACTIONS_QUICK_VIEW_CREATED = 'actions_quick_view_created';
+  const ACTIVE_ADS_QUICK_VIEW_CREATED = 'active_ads_quick_view_created';
   const AD_ACCOUNT = 'ad_account';
   const AD_OBJECT_EXPORT_FORMAT = 'ad_object_export_format';
   const AUTO_REVIEW_VIDEO_CAPTION = 'auto_review_video_caption';
@@ -38,6 +40,7 @@ class AdAccountUserSettingsFields extends AbstractEnum {
   const DRAFT_MODE_ENABLED = 'draft_mode_enabled';
   const EXPORT_DELETED_ITEMS_WITH_DELIVERY = 'export_deleted_items_with_delivery';
   const EXPORT_SUMMARY_ROW = 'export_summary_row';
+  const HAD_DELIVERY_QUICK_VIEW_CREATED = 'had_delivery_quick_view_created';
   const HAS_SEEN_GROUPS_COLUMN_FLEXING_EXPERIENCE = 'has_seen_groups_column_flexing_experience';
   const HAS_SEEN_INSTAGRAM_COLUMN_FLEXING_EXPERIENCE = 'has_seen_instagram_column_flexing_experience';
   const HAS_SEEN_LEADS_COLUMN_FLEXING_EXPERIENCE = 'has_seen_leads_column_flexing_experience';
@@ -83,6 +86,8 @@ class AdAccountUserSettingsFields extends AbstractEnum {
     return array(
       'acf_should_opt_out_video_adjustments' => 'bool',
       'aco_sticky_settings' => 'list<map<string, string>>',
+      'actions_quick_view_created' => 'bool',
+      'active_ads_quick_view_created' => 'bool',
       'ad_account' => 'AdAccount',
       'ad_object_export_format' => 'string',
       'auto_review_video_caption' => 'bool',
@@ -97,6 +102,7 @@ class AdAccountUserSettingsFields extends AbstractEnum {
       'draft_mode_enabled' => 'bool',
       'export_deleted_items_with_delivery' => 'bool',
       'export_summary_row' => 'bool',
+      'had_delivery_quick_view_created' => 'bool',
       'has_seen_groups_column_flexing_experience' => 'bool',
       'has_seen_instagram_column_flexing_experience' => 'bool',
       'has_seen_leads_column_flexing_experience' => 'bool',

@@ -39,7 +39,6 @@ class CustomAudienceSubtypeValues extends AbstractEnum {
   const PRIMARY = 'PRIMARY';
   const REGULATED_CATEGORIES_AUDIENCE = 'REGULATED_CATEGORIES_AUDIENCE';
   const STUDY_RULE_AUDIENCE = 'STUDY_RULE_AUDIENCE';
-  const SUBSCRIBER_SEGMENT = 'SUBSCRIBER_SEGMENT';
   const VIDEO = 'VIDEO';
   const WEBSITE = 'WEBSITE';
 }

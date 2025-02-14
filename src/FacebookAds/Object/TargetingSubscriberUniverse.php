@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\InstagramVideoMetadataFields;
+use FacebookAds\Object\Fields\TargetingSubscriberUniverseFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\InstagramVideoMetadataFields;
  *
  */
 
-class InstagramVideoMetadata extends AbstractObject {
+class TargetingSubscriberUniverse extends AbstractObject {
 
   /**
-   * @return InstagramVideoMetadataFields
+   * @return TargetingSubscriberUniverseFields
    */
   public static function getFieldsEnum() {
-    return InstagramVideoMetadataFields::getInstance();
+    return TargetingSubscriberUniverseFields::getInstance();
   }
 
   protected static function getReferencedEnums() {

@@ -18,9 +18,16 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static PageActionTypeValues getInstance()
+ * @method static PageGenAiProvenanceTypeValues getInstance()
  */
-class PageActionTypeValues extends AbstractEnum {
+class PageGenAiProvenanceTypeValues extends AbstractEnum {
 
-  const REPORT_THREAD = 'REPORT_THREAD';
+  const C2PA = 'C2PA';
+  const C2PA_METADATA_EDITED = 'C2PA_METADATA_EDITED';
+  const EXPLICIT = 'EXPLICIT';
+  const EXPLICIT_IMAGINE = 'EXPLICIT_IMAGINE';
+  const EXPLICIT_IMAGINE_ME = 'EXPLICIT_IMAGINE_ME';
+  const INVISIBLE_WATERMARK = 'INVISIBLE_WATERMARK';
+  const IPTC = 'IPTC';
+  const IPTC_METADATA_EDITED = 'IPTC_METADATA_EDITED';
 }

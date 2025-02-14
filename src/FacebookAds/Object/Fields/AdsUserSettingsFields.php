@@ -29,7 +29,9 @@ class AdsUserSettingsFields extends AbstractEnum {
   const ADS_TOOL_VISITS = 'ads_tool_visits';
   const APLUSC_CAROUSEL_CDA_OPT_IN_STATUS = 'aplusc_carousel_cda_opt_in_status';
   const APLUSC_CAROUSEL_INLINE_COMMENT_OPT_IN_STATUS = 'aplusc_carousel_inline_comment_opt_in_status';
+  const APLUSC_ENHANCE_CTA_OPT_IN_STATUS = 'aplusc_enhance_cta_opt_in_status';
   const APLUSC_EPA_OPT_IN_STATUS = 'aplusc_epa_opt_in_status';
+  const APLUSC_LOCAL_STORE_EXTENSION_OPT_IN_STATUS = 'aplusc_local_store_extension_opt_in_status';
   const APLUSC_OPT_OUT_FRICTION = 'aplusc_opt_out_friction';
   const AUTOFLOW_LITE_OPT_IN_STATUS = 'autoflow_lite_opt_in_status';
   const AUTOFLOW_LITE_SHOULD_OPT_IN = 'autoflow_lite_should_opt_in';
@@ -41,6 +43,7 @@ class AdsUserSettingsFields extends AbstractEnum {
   const CAROUSEL_TO_VIDEO_OPT_IN_STATUS = 'carousel_to_video_opt_in_status';
   const CONNECTED_SOURCES_CATALOG_OPT_IN_STATUS = 'connected_sources_catalog_opt_in_status';
   const DEFAULT_CREATION_MODE = 'default_creation_mode';
+  const DYNAMIC_PARTNERSHIP_ADS_OPT_IN_STATUS = 'dynamic_partnership_ads_opt_in_status';
   const ENHANCE_CTA_TEXT_EXTRACTION_OPT_IN_STATUS = 'enhance_cta_text_extraction_opt_in_status';
   const EXPORT_FORMAT_DEFAULT = 'export_format_default';
   const FOCUS_MODE_DEFAULT = 'focus_mode_default';
@@ -94,7 +97,9 @@ class AdsUserSettingsFields extends AbstractEnum {
       'ads_tool_visits' => 'list<Object>',
       'aplusc_carousel_cda_opt_in_status' => 'string',
       'aplusc_carousel_inline_comment_opt_in_status' => 'string',
+      'aplusc_enhance_cta_opt_in_status' => 'string',
       'aplusc_epa_opt_in_status' => 'string',
+      'aplusc_local_store_extension_opt_in_status' => 'string',
       'aplusc_opt_out_friction' => 'list<string>',
       'autoflow_lite_opt_in_status' => 'string',
       'autoflow_lite_should_opt_in' => 'bool',
@@ -106,6 +111,7 @@ class AdsUserSettingsFields extends AbstractEnum {
       'carousel_to_video_opt_in_status' => 'string',
       'connected_sources_catalog_opt_in_status' => 'string',
       'default_creation_mode' => 'string',
+      'dynamic_partnership_ads_opt_in_status' => 'string',
       'enhance_cta_text_extraction_opt_in_status' => 'string',
       'export_format_default' => 'string',
       'focus_mode_default' => 'string',

@@ -28,8 +28,11 @@ class ThirdPartyPartnerLiftRequestFields extends AbstractEnum {
   const DESCRIPTION = 'description';
   const HOLDOUT_SIZE = 'holdout_size';
   const ID = 'id';
+  const LEGACY_ADS_DATA_PARTNER_ID = 'legacy_ads_data_partner_id';
+  const LEGACY_ADS_DATA_PARTNER_NAME = 'legacy_ads_data_partner_name';
   const MODIFIED_TIME = 'modified_time';
   const OWNER_INSTANCE_ID = 'owner_instance_id';
+  const PARTNER_HOUSEHOLD_GRAPH_DATASET_ID = 'partner_household_graph_dataset_id';
   const REGION = 'region';
   const STATUS = 'status';
   const STUDY_CELLS = 'study_cells';
@@ -44,8 +47,11 @@ class ThirdPartyPartnerLiftRequestFields extends AbstractEnum {
       'description' => 'string',
       'holdout_size' => 'float',
       'id' => 'string',
+      'legacy_ads_data_partner_id' => 'string',
+      'legacy_ads_data_partner_name' => 'string',
       'modified_time' => 'datetime',
       'owner_instance_id' => 'string',
+      'partner_household_graph_dataset_id' => 'string',
       'region' => 'string',
       'status' => 'Status',
       'study_cells' => 'list<string>',

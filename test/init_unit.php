@@ -24,7 +24,7 @@
 
 namespace FacebookAdsTest\Bootstrap;
 
-error_reporting(E_ALL | E_STRICT);
+error_reporting(E_ALL);
 if (!ini_get('date.timezone')) {
   ini_set('date.timezone', 'UTC');
 }
