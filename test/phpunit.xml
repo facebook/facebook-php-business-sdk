@@ -1,16 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="init_integration.php" colors="true" backupGlobals="true">
+
     <testsuites>
         <testsuite name="Facebook AdsAPI PHP SDK">
             <directory>./FacebookAdsTest</directory>
         </testsuite>
     </testsuites>
-    <logging>
-        <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
-        <log type="coverage-html" target="report/" charset="UTF-8" highlight="false" lowUpperBound="60" highLowerBound="99"/>
-    </logging>
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
+
+    <coverage>
+        <include>
             <directory suffix=".php">../src</directory>
-        </whitelist>
-    </filter>
+        </include>
+    </coverage>
+
+    <logging>
+        <log type="coverage-text" target="php://stdout"/>
+        <log type="coverage-html" target="report/"/>
+    </logging>
+
 </phpunit>
