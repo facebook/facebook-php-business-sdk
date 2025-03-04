@@ -7,15 +7,10 @@
         </testsuite>
     </testsuites>
 
-    <coverage>
+    <source ignoreIndirectDeprecations="true" restrictNotices="true" restrictWarnings="true">
         <include>
             <directory suffix=".php">../src</directory>
         </include>
-    </coverage>
-
-    <logging>
-        <log type="coverage-text" target="php://stdout"/>
-        <log type="coverage-html" target="report/"/>
-    </logging>
+    </source>
 
 </phpunit>

@@ -30,7 +30,7 @@ use FacebookAds\Http\Adapter\CurlAdapter;
 use FacebookAds\Http\Client;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\Http\ResponseInterface;
-use \PHPUnit_Framework_MockObject_Builder_InvocationMocker as Mock;
+use PHPUnit\Framework\MockObject\Builder\InvocationMocker as Mock;
 
 class CurlAdapterTest extends AbstractAdapterTest {
 

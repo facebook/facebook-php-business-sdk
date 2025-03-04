@@ -28,7 +28,7 @@ use FacebookAdsTest\AbstractUnitTestCase;
 use FacebookAds\Object\ServerSide\Event;
 
 
-class ServerSideNormalizeTest extends AbstractUnitTestCase {
+class ServerSideEventTest extends AbstractUnitTestCase {
 
   public function testEventData(){
     $testName = 'Test123Event';

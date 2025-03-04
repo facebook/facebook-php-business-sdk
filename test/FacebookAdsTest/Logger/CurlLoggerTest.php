@@ -27,115 +27,127 @@ namespace FacebookAdsTest\Logger;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\Logger\CurlLogger;
 use FacebookAds\Logger\CurlLogger\JsonAwareParameters;
+use PHPUnit\Framework\Attributes\DataProvider;
 
-class CurlLoggerTest extends AbstractLoggerTest {
+class CurlLoggerTest extends AbstractLoggerTest
+{
+    /**
+     * @var resource
+     */
+    protected $handle;
 
-  /**
-   * @var resource
-   */
-  protected $handle;
+    public function setup(): void
+    {
+        $this->handle = fopen('php://temp', 'w+');
+    }
 
-  public function setup(): void {
-    $this->handle = fopen('php://temp', 'w+');
-  }
+    public function tearDown(): void
+    {
+        fclose($this->handle);
+    }
 
-  public function tearDown(): void {
-    fclose($this->handle);
-  }
+    /**
+     * @return resource
+     */
+    protected function getHandle()
+    {
+        return $this->handle;
+    }
 
-  /**
-   * @return resource
-   */
-  protected function getHandle() {
-    return $this->handle;
-  }
+    /**
+     * @return CurlLogger
+     */
+    protected function createLogger()
+    {
+        return new CurlLogger($this->getHandle());
+    }
 
-  /**
-   * @return CurlLogger
-   */
-  protected function createLogger() {
-    return new CurlLogger($this->getHandle());
-  }
+    protected function createRequestMock()
+    {
+        $query = $this->createParametersMock();
+        $query->method('export')->willReturn(array(
+            'appsecret_proof' => '<APPSECRET_PROOF>',
+            'access_token' => '<ACCESS_TOKEN>',
+            'query_field' => 'query_value',
+        ));
 
-  protected function createRequestMock() {
-    $query = $this->createParametersMock();
-    $query->method('export')->willReturn(array(
-      'appsecret_proof' => '<APPSECRET_PROOF>',
-      'access_token' => '<ACCESS_TOKEN>',
-      'query_field' => 'query_value',
-    ));
+        $body = $this->createParametersMock();
+        $body->method('export')->willReturn(array(
+            'body_field' => 'body_value',
+        ));
 
-    $body = $this->createParametersMock();
-    $body->method('export')->willReturn(array(
-      'body_field' => 'body_value',
-    ));
+        $files = $this->createParametersMock();
+        $files->method('export')->willReturn(array(
+            'file_field' => 'filepath',
+        ));
 
-    $files = $this->createParametersMock();
-    $files->method('export')->willReturn(array(
-      'file_field' => 'filepath',
-    ));
+        $request = parent::createRequestMock();
+        $request->method('getQueryParams')->willReturn($query);
+        $request->method('getBodyParams')->willReturn($body);
+        $request->method('getFileParams')->willReturn($files);
 
-    $request = parent::createRequestMock();
-    $request->method('getQueryParams')->willReturn($query);
-    $request->method('getBodyParams')->willReturn($body);
-    $request->method('getFileParams')->willReturn($files);
+        return $request;
+    }
 
-    return $request;
-  }
+    public function testLog()
+    {
+        $this->expectNotToPerformAssertions();
 
-  public function testLog() {
-    $this->createLogger()->log(
-      static::VALUE_LOG_LEVEL, static::VALUE_LOG_MESSAGE);
-  }
+        $this->createLogger()->log(static::VALUE_LOG_LEVEL, static::VALUE_LOG_MESSAGE);
+    }
 
-  /**
-   * @return array
-   */
-  public function logRequestProvider() {
-    return array(
-      array(RequestInterface::METHOD_GET),
-      array(RequestInterface::METHOD_POST),
-      array(RequestInterface::METHOD_PUT),
-      array(RequestInterface::METHOD_DELETE),
-    );
-  }
+    /**
+     * @return array
+     */
+    public static function logRequestProvider()
+    {
+        return array(
+            array(RequestInterface::METHOD_GET),
+            array(RequestInterface::METHOD_POST),
+            array(RequestInterface::METHOD_PUT),
+            array(RequestInterface::METHOD_DELETE),
+        );
+    }
 
-  /**
-   * @dataProvider logRequestProvider
-   * @param string $http_method
-   */
-  public function testLogRequest($http_method) {
-    $request = $this->createRequestMock();
-    $request->method('getMethod')->willReturn($http_method);
+    #[DataProvider('logRequestProvider')]
+    public function testLogRequest($http_method)
+    {
+        $this->expectNotToPerformAssertions();
 
-    $logger = $this->createLogger();
-    $logger->logRequest(static::VALUE_LOG_LEVEL, $request);
-  }
+        $request = $this->createRequestMock();
+        $request->method('getMethod')->willReturn($http_method);
 
-  public function testLogResponse() {
-    $this->createLogger()->logResponse(
-      static::VALUE_LOG_LEVEL, $this->createResponseMock());
-  }
+        $logger = $this->createLogger();
+        $logger->logRequest(static::VALUE_LOG_LEVEL, $request);
+    }
 
-  public function testJsonPrettyPrint() {
-    $logger = $this->createLogger();
-    $this->assertFalse($logger->isJsonPrettyPrint());
-    $logger->setJsonPrettyPrint(true);
-    $this->assertTrue($logger->isJsonPrettyPrint());
+    public function testLogResponse()
+    {
+        $this->expectNotToPerformAssertions();
 
-    $query = new JsonAwareParameters(array(
-      'json_field' => array_fill(0, 3, 'json_value'),
-    ));
-    $body = $files = $this->createParametersMock();
+        $this->createLogger()->logResponse(static::VALUE_LOG_LEVEL, $this->createResponseMock());
+    }
 
-    $request = parent::createRequestMock();
-    $request->method('getQueryParams')->willReturn($query);
-    $request->method('getBodyParams')->willReturn($body);
-    $request->method('getFileParams')->willReturn($files);
+    public function testJsonPrettyPrint()
+    {
+        $logger = $this->createLogger();
+        $this->assertFalse($logger->isJsonPrettyPrint());
+        $logger->setJsonPrettyPrint(true);
+        $this->assertTrue($logger->isJsonPrettyPrint());
 
-    $logger->logRequest(static::VALUE_LOG_LEVEL, $request);
+        $query = new JsonAwareParameters(array(
+            'json_field' => array_fill(0, 3, 'json_value'),
+        ));
+        $body = $files = $this->createParametersMock();
 
-    $logger->setJsonPrettyPrint(false);
-    $this->assertFalse($logger->isJsonPrettyPrint());
-  }
+        $request = parent::createRequestMock();
+        $request->method('getQueryParams')->willReturn($query);
+        $request->method('getBodyParams')->willReturn($body);
+        $request->method('getFileParams')->willReturn($files);
+
+        $logger->logRequest(static::VALUE_LOG_LEVEL, $request);
+
+        $logger->setJsonPrettyPrint(false);
+        $this->assertFalse($logger->isJsonPrettyPrint());
+    }
 }

@@ -37,7 +37,8 @@ class CustomAudienceMultikeyTest extends AbstractCrudObjectTestCase {
   */
   protected $customaudience;
 
-  public function setup() {
+  public function setup(): void
+  {
     parent::setup();
     $adaccount = new AdAccount($this->getConfig()->accountId);
     $params = array(
@@ -50,7 +51,8 @@ class CustomAudienceMultikeyTest extends AbstractCrudObjectTestCase {
     );
   }
 
-  public function tearDown() {
+  public function tearDown(): void
+  {
     if ($this->customaudience) {
       $this->customaudience->deleteSelf();
     }

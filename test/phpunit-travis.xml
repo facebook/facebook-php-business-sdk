@@ -8,7 +8,7 @@
         </testsuite>
     </testsuites>
 
-    <coverage>
+    <source ignoreIndirectDeprecations="true" restrictNotices="true" restrictWarnings="true">
         <include>
             <directory suffix=".php">../src</directory>
         </include>
@@ -16,11 +16,6 @@
             <directory>../src/FacebookAds/Http/Adapter/Curl/</directory>
             <directory>../src/FacebookAds/Object/</directory>
         </exclude>
-    </coverage>
-
-    <logging>
-        <log type="coverage-text" target="php://stdout"/>
-        <log type="coverage-html" target="report/"/>
-    </logging>
+    </source>
 
 </phpunit>

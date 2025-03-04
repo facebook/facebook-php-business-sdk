@@ -27,97 +27,99 @@ namespace FacebookAdsTest\Http\Exception;
 use FacebookAds\Http\Exception\RequestException;
 use FacebookAds\Http\Response;
 use FacebookAdsTest\AbstractUnitTestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
-class RequestExceptionTest extends AbstractUnitTestCase {
+class RequestExceptionTest extends AbstractUnitTestCase
+{
+    public function testGetters()
+    {
+        $data = array(
+            'error' => array(
+                'message' => 'Stub Server Error Message',
+                'type' => 'FacebookApiException',
+                'code' => 1,
+                'error_data' => array(
+                    'blame_field_specs' => array(
+                        array('mandatory_field'),
+                        array('field_with_malformed_value'),
+                    ),
+                ),
+                'error_subcode' => 1,
+                'is_transient' => false,
+                'error_user_title' => 'Just a test',
+                'error_user_msg' => 'Let\'s avoid alarmism',
+            ),
+        );
+        $status_code = 400;
+        $response = new Response();
+        $response->setBody(json_encode($data));
+        $response->setStatusCode($status_code);
+        $e = new RequestException($response);
+        $this->assertEquals($status_code, $e->getHttpStatusCode());
+        $this->assertEquals(
+            $data['error']['error_subcode'], $e->getErrorSubcode());
+        $this->assertEquals(
+            $data['error']['error_user_title'], $e->getErrorUserTitle());
+        $this->assertEquals(
+            $data['error']['error_user_msg'], $e->getErrorUserMessage());
+        $this->assertEquals(
+            $data['error']['error_data']['blame_field_specs'],
+            $e->getErrorBlameFieldSpecs());
+    }
 
-  public function testGetters() {
-    $data = array(
-      'error' => array(
-        'message' => 'Stub Server Error Message',
-        'type' => 'FacebookApiException',
-        'code' => 1,
-        'error_data' => array(
-          'blame_field_specs' => array(
-            array('mandatory_field'),
-            array('field_with_malformed_value'),
-          ),
-        ),
-        'error_subcode' => 1,
-        'is_transient' => false,
-        'error_user_title' => 'Just a test',
-        'error_user_msg' => 'Let\'s avoid alarmism',
-      ),
-    );
-    $status_code = 400;
-    $response = new Response();
-    $response->setBody(json_encode($data));
-    $response->setStatusCode($status_code);
-    $e = new RequestException($response);
-    $this->assertEquals($status_code, $e->getHttpStatusCode());
-    $this->assertEquals(
-      $data['error']['error_subcode'], $e->getErrorSubcode());
-    $this->assertEquals(
-      $data['error']['error_user_title'], $e->getErrorUserTitle());
-    $this->assertEquals(
-      $data['error']['error_user_msg'], $e->getErrorUserMessage());
-    $this->assertEquals(
-      $data['error']['error_data']['blame_field_specs'],
-      $e->getErrorBlameFieldSpecs());
-  }
+    public function testGetFacebookTraceIdReturnsValueFromResponseErrorData()
+    {
+        $data = array(
+            'error' => array(
+                'fbtrace_id' => 'abc123',
+            ),
+        );
 
-  public function testGetFacebookTraceIdReturnsValueFromResponseErrorData() {
-    $data = array(
-      'error' => array(
-        'fbtrace_id' => 'abc123',
-      ),
-    );
+        $response = new Response();
+        $response->setBody(json_encode($data));
+        $e = new RequestException($response);
 
-    $response = new Response();
-    $response->setBody(json_encode($data));
-    $e = new RequestException($response);
+        $this->assertSame('abc123', $e->getFacebookTraceId());
+    }
 
-    $this->assertSame('abc123', $e->getFacebookTraceId());
-  }
+    public function testGetErrorBlameFieldSpecsReturnsNullWithNullErrorData()
+    {
+        $data = array(
+            'error' => array(
+                'error_data' => null,
+            ),
+        );
 
-  public function testGetErrorBlameFieldSpecsReturnsNullWithNullErrorData() {
-    $data = array(
-      'error' => array(
-          'error_data' => null,
-      ),
-    );
+        $response = new Response();
+        $response->setBody(json_encode($data));
+        $e = new RequestException($response);
 
-    $response = new Response();
-    $response->setBody(json_encode($data));
-    $e = new RequestException($response);
+        $this->assertNull($e->getErrorBlameFieldSpecs());
+    }
 
-    $this->assertNull($e->getErrorBlameFieldSpecs());
-  }
+    /**
+     * @return array
+     */
+    public static function createConcreteProvider()
+    {
+        return array(
+            array(array('type' => 'OAuthException'), 'AuthorizationException'),
+            array(array('code' => 1), 'ServerException'),
+            array(array('code' => 4), 'ThrottleException'),
+            array(array('code' => 506), 'ClientException'),
+            array(array('code' => 10), 'PermissionException'),
+            array(array(), 'RequestException'),
+        );
+    }
 
-  /**
-   * @return array
-   */
-  public function createConcreteProvider() {
-    return array(
-      array(array('type' => 'OAuthException'), 'AuthorizationException'),
-      array(array('code' => 1), 'ServerException'),
-      array(array('code' => 4), 'ThrottleException'),
-      array(array('code' => 506), 'ClientException'),
-      array(array('code' => 10), 'PermissionException'),
-      array(array(), 'RequestException'),
-    );
-  }
-
-  /**
-   * @param array $data
-   * @param string $expected_class
-   * @dataProvider createConcreteProvider
-   */
-  public function testCreateConcrete($data, $expected_class) {
-    $response = new Response();
-    $response->setBody(json_encode(array('error' => $data)));
-    $response->setStatusCode(400);
-    $e = RequestException::create($response);
-    $fqn = '\FacebookAds\Http\Exception\\'.$expected_class;
-    $this->assertTrue(is_a($e, $fqn));
-  }
+    #[DataProvider('createConcreteProvider')]
+    public function testCreateConcrete($data, $expected_class)
+    {
+        $response = new Response();
+        $response->setBody(json_encode(array('error' => $data)));
+        $response->setStatusCode(400);
+        $e = RequestException::create($response);
+        $fqn = '\FacebookAds\Http\Exception\\' . $expected_class;
+        $this->assertTrue(is_a($e, $fqn));
+    }
 }

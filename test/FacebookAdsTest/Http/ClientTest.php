@@ -36,7 +36,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\Http\Response;
 use FacebookAds\Http\ResponseInterface;
 use FacebookAdsTest\AbstractUnitTestCase;
-use \PHPUnit_Framework_MockObject_Builder_InvocationMocker as Mock;
+use PHPUnit\Framework\MockObject\Builder\InvocationMocker as Mock;
 
 class ClientTest extends AbstractUnitTestCase {
 

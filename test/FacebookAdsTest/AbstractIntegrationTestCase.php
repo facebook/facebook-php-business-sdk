@@ -151,9 +151,10 @@ class AbstractIntegrationTestCase extends AbstractTestCase {
    * @param \Throwable $e
    * @throws \Throwable
    */
-  protected function onNotSuccessfulTest(\Throwable $e) : void {
+  protected function onNotSuccessfulTest(\Throwable $e) : never
+  {
     if ($e instanceof RequestException) {
-      throw new PHPUnitRequestExceptionWrapper($e);
+      throw new RequestException($e);
     } else {
       throw $e;
     }

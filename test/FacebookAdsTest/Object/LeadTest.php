@@ -37,7 +37,8 @@ class LeadTest extends AbstractCrudObjectTestCase {
    */
   protected $leadId;
 
-  public function setup() {
+  public function setup(): void
+  {
     parent::setup();
 
     $limit = 25;
@@ -66,7 +67,8 @@ class LeadTest extends AbstractCrudObjectTestCase {
     }
   }
 
-  public function tearDown() {
+  public function tearDown(): void
+  {
     $this->leadId = null;
 
     parent::tearDown();

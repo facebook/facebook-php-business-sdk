@@ -56,7 +56,8 @@ class ProductAudienceTest extends AbstractCrudObjectTestCase {
    */
   protected $adsPixel;
 
-  public function setup() {
+  public function setup(): void
+  {
     parent::setup();
 
     $this->account = new AdAccount($this->getConfig()->accountId);
@@ -84,7 +85,8 @@ class ProductAudienceTest extends AbstractCrudObjectTestCase {
     $this->productSet->create();
   }
 
-  public function tearDown() {
+  public function tearDown(): void
+  {
     if ($this->productSet) {
       $this->productSet->deleteSelf();
       $this->productSet = null;

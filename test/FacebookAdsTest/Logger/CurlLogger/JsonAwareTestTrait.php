@@ -26,62 +26,63 @@ namespace FacebookAdsTest\Logger\CurlLogger;
 
 use FacebookAds\Logger\CurlLogger\JsonNode;
 
-trait JsonAwareTestTrait {
-
-  /**
-   * @return array
-   */
-  public function parameterProvider() {
-    $base = array(
-      'appsecret_proof' => '<APPSECRET_PROOF>',
-      'access_token' => '<ACCESS_TOKEN>',
-      'query_field' => 'query_value',
-    );
-
-    return array(
-      array(
-        $base + array(
-          'json_field' => array(
+trait JsonAwareTestTrait
+{
+    /**
+     * @return array
+     */
+    public static function parameterProvider()
+    {
+        $base = array(
+            'appsecret_proof' => '<APPSECRET_PROOF>',
+            'access_token' => '<ACCESS_TOKEN>',
             'query_field' => 'query_value',
-          ),
-        )
-      ),
-      array(
-        $base + array(
-          'json_field' => array(
-            'query_field' => 'query_value',
-            'query_field_1' => 'query_value_1',
-            'query_field_2' => 'query_value_2',
-          ),
-        )
-      ),
-      array(
-        $base + array(
-          'json_field' => array(
-            'query_field' => str_repeat('x', JsonNode::EXPLOSION_THRESHOLD + 1),
-          ),
-        ),
-      ),
-      array(
-        $base + array(
-          'json_field' => array(),
-        ),
-      ),
-      array(
-        $base + array(
-          'json_field' => array(
-            'vector_value_1',
-            'vector_value_2',
-            'vector_value_3',
-          ),
-        ),
-      ),
-      array(
-        array(),
-      ),
-      array(
-        new \StdClass(),
-      )
-    );
-  }
+        );
+
+        return array(
+            array(
+                $base + array(
+                    'json_field' => array(
+                        'query_field' => 'query_value',
+                    ),
+                )
+            ),
+            array(
+                $base + array(
+                    'json_field' => array(
+                        'query_field' => 'query_value',
+                        'query_field_1' => 'query_value_1',
+                        'query_field_2' => 'query_value_2',
+                    ),
+                )
+            ),
+            array(
+                $base + array(
+                    'json_field' => array(
+                        'query_field' => str_repeat('x', JsonNode::EXPLOSION_THRESHOLD + 1),
+                    ),
+                ),
+            ),
+            array(
+                $base + array(
+                    'json_field' => array(),
+                ),
+            ),
+            array(
+                $base + array(
+                    'json_field' => array(
+                        'vector_value_1',
+                        'vector_value_2',
+                        'vector_value_3',
+                    ),
+                ),
+            ),
+            array(
+                array(),
+            ),
+            array(
+                new \StdClass(),
+            )
+        );
+    }
 }

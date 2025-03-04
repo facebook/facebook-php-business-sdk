@@ -78,7 +78,8 @@ class AdPreviewTest extends AbstractCrudObjectTestCase
     return array('no_payment_method');
   }
 
-  public function setup() {
+  public function setup(): void
+  {
     parent::setup();
 
     $targeting = new TargetingSpecs();
@@ -131,7 +132,8 @@ class AdPreviewTest extends AbstractCrudObjectTestCase
     ));
   }
 
-  public function tearDown() {
+  public function tearDown(): void
+  {
 
     if ($this->ad) {
       $this->ad->deleteSelf();

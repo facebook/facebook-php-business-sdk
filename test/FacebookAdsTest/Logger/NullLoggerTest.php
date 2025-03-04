@@ -26,24 +26,31 @@ namespace FacebookAdsTest\Logger;
 
 use FacebookAds\Logger\NullLogger;
 
-class NullLoggerTest extends AbstractLoggerTest {
+class NullLoggerTest extends AbstractLoggerTest
+{
+    protected function createLogger()
+    {
+        return new NullLogger();
+    }
 
-  protected function createLogger() {
-    return new NullLogger();
-  }
+    public function testLog()
+    {
+        $this->expectNotToPerformAssertions();
 
-  public function testLog() {
-    $this->createLogger()->log(
-      static::VALUE_LOG_LEVEL, static::VALUE_LOG_MESSAGE);
-  }
+        $this->createLogger()->log(static::VALUE_LOG_LEVEL, static::VALUE_LOG_MESSAGE);
+    }
 
-  public function testLogRequest() {
-    $this->createLogger()->logRequest(
-      static::VALUE_LOG_LEVEL, $this->createRequestMock());
-  }
+    public function testLogRequest()
+    {
+        $this->expectNotToPerformAssertions();
 
-  public function testLogResponse() {
-    $this->createLogger()->logResponse(
-      static::VALUE_LOG_LEVEL, $this->createResponseMock());
-  }
+        $this->createLogger()->logRequest(static::VALUE_LOG_LEVEL, $this->createRequestMock());
+    }
+
+    public function testLogResponse()
+    {
+        $this->expectNotToPerformAssertions();
+
+        $this->createLogger()->logResponse(static::VALUE_LOG_LEVEL, $this->createResponseMock());
+    }
 }

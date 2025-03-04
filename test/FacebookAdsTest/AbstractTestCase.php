@@ -26,7 +26,7 @@ namespace FacebookAdsTest;
 
 use FacebookAdsTest\Config\Config;
 use FacebookAdsTest\Config\SkippableFeaturesManager;
-use \PHPUnit_Framework_MockObject_Builder_InvocationMocker as Mock;
+use PHPUnit\Framework\MockObject\Builder\InvocationMocker as Mock;
 use PHPUnit\Framework\TestCase;
 
 /**

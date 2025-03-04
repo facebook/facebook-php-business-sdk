@@ -26,34 +26,38 @@ namespace FacebookAdsTest\Logger\CurlLogger;
 
 use FacebookAds\Logger\CurlLogger\JsonNode;
 use FacebookAdsTest\AbstractUnitTestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
-class JsonNodeTest extends AbstractUnitTestCase {
-  use JsonAwareTestTrait;
+class JsonNodeTest extends AbstractUnitTestCase
+{
+    use JsonAwareTestTrait;
 
-  /**
-   * @dataProvider parameterProvider
-   * @param mixed $param_data
-   */
-  public function testEncoding($param_data) {
-    JsonNode::factory($param_data)->encode();
-  }
+    #[DataProvider('parameterProvider')]
+    public function testEncoding($param_data)
+    {
+        $this->expectNotToPerformAssertions();
 
-  public function testInvalidType() {
-    $this->expectException(\InvalidArgumentException::class);
-    JsonNode::factory(fopen('php://memory', 'r'))->encode();
-  }
+        JsonNode::factory($param_data)->encode();
+    }
 
-  /**
-   * Test the sanity check for behaviour on empty children list
-   * which should never happen as this is protected method
-   */
-  public function testGetLastChildKey() {
-    $object = JsonNode::factory(array());
-    $method = new \ReflectionMethod($object, 'getLastChildKey');
-    $method->setAccessible(true);
+    public function testInvalidType()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        JsonNode::factory(fopen('php://memory', 'r'))->encode();
+    }
 
-    $this->assertNull($method->invoke($object));
+    /**
+     * Test the sanity check for behaviour on empty children list
+     * which should never happen as this is protected method
+     */
+    public function testGetLastChildKey()
+    {
+        $object = JsonNode::factory(array());
+        $method = new \ReflectionMethod($object, 'getLastChildKey');
+        $method->setAccessible(true);
 
-    $method->setAccessible(false);
-  }
+        $this->assertNull($method->invoke($object));
+
+        $method->setAccessible(false);
+    }
 }
