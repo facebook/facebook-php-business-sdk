@@ -42,6 +42,7 @@ use FacebookAds\Object\Values\LiveVideoStereoscopicModeValues;
 use FacebookAds\Object\Values\LiveVideoStreamTypeValues;
 use FacebookAds\Object\Values\MediaFingerprintFingerprintContentTypeValues;
 use FacebookAds\Object\Values\MessengerBusinessTemplateStatusValues;
+use FacebookAds\Object\Values\PageActionsValues;
 use FacebookAds\Object\Values\PageAttireValues;
 use FacebookAds\Object\Values\PageBackdatedTimeGranularityValues;
 use FacebookAds\Object\Values\PageCategoryValues;
@@ -127,6 +128,7 @@ class Page extends AbstractCrudObject {
     $ref_enums['SenderAction'] = PageSenderActionValues::getInstance()->getValues();
     $ref_enums['SuggestionAction'] = PageSuggestionActionValues::getInstance()->getValues();
     $ref_enums['Platform'] = PagePlatformValues::getInstance()->getValues();
+    $ref_enums['Actions'] = PageActionsValues::getInstance()->getValues();
     $ref_enums['Model'] = PageModelValues::getInstance()->getValues();
     $ref_enums['DeveloperAction'] = PageDeveloperActionValues::getInstance()->getValues();
     $ref_enums['SubscribedFields'] = PageSubscribedFieldsValues::getInstance()->getValues();
@@ -2236,6 +2238,32 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createModerateConversation(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'actions' => 'list<actions_enum>',
+      'user_ids' => 'list<map>',
+    );
+    $enums = array(
+      'actions_enum' => PageActionsValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/moderate_conversations',
+      new Page(),
+      'EDGE',
+      Page::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createNlpConfig(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -2403,32 +2431,6 @@ class Page extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/pass_thread_control',
-      new Page(),
-      'EDGE',
-      Page::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createPassThreadMetadatum(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'metadata' => 'string',
-      'recipient' => 'Object',
-      'target_app_id' => 'int',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/pass_thread_metadata',
       new Page(),
       'EDGE',
       Page::getFieldsEnum()->getValues(),
@@ -2984,6 +2986,29 @@ class Page extends AbstractCrudObject {
       new CommerceMerchantSettingsSetupStatus(),
       'EDGE',
       CommerceMerchantSettingsSetupStatus::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getStoreLocations(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/store_locations',
+      new StoreLocation(),
+      'EDGE',
+      StoreLocation::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

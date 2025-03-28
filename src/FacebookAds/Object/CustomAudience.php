@@ -176,6 +176,34 @@ class CustomAudience extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getHealth(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'calculated_date' => 'string',
+      'processed_date' => 'string',
+      'value_aggregation_duration' => 'unsigned int',
+      'value_currency' => 'string',
+      'value_version' => 'unsigned int',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/health',
+      new CustomAudienceHealth(),
+      'EDGE',
+      CustomAudienceHealth::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getSalts(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 

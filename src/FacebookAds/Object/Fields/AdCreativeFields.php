@@ -34,6 +34,7 @@ class AdCreativeFields extends AbstractEnum {
   const BRANDED_CONTENT = 'branded_content';
   const BRANDED_CONTENT_SPONSOR_PAGE_ID = 'branded_content_sponsor_page_id';
   const BUNDLE_FOLDER_ID = 'bundle_folder_id';
+  const CALL_TO_ACTION = 'call_to_action';
   const CALL_TO_ACTION_TYPE = 'call_to_action_type';
   const CATEGORIZATION_CRITERIA = 'categorization_criteria';
   const CATEGORY_MEDIA_SOURCE = 'category_media_source';
@@ -90,7 +91,6 @@ class AdCreativeFields extends AbstractEnum {
   const URL_TAGS = 'url_tags';
   const USE_PAGE_ACTOR_OVERRIDE = 'use_page_actor_override';
   const VIDEO_ID = 'video_id';
-  const CALL_TO_ACTION = 'call_to_action';
   const IMAGE_FILE = 'image_file';
   const IS_DCO_INTERNAL = 'is_dco_internal';
 
@@ -108,6 +108,7 @@ class AdCreativeFields extends AbstractEnum {
       'branded_content' => 'AdCreativeBrandedContentAds',
       'branded_content_sponsor_page_id' => 'string',
       'bundle_folder_id' => 'string',
+      'call_to_action' => 'AdCreativeLinkDataCallToAction',
       'call_to_action_type' => 'CallToActionType',
       'categorization_criteria' => 'string',
       'category_media_source' => 'string',
@@ -164,7 +165,6 @@ class AdCreativeFields extends AbstractEnum {
       'url_tags' => 'string',
       'use_page_actor_override' => 'bool',
       'video_id' => 'string',
-      'call_to_action' => 'Object',
       'image_file' => 'string',
       'is_dco_internal' => 'bool',
     );

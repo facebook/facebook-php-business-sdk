@@ -25,6 +25,7 @@ class EventTypeValues extends AbstractEnum {
   const COMMUNITY = 'community';
   const FRIENDS = 'friends';
   const GROUP = 'group';
+  const MESSENGER_COMMUNITY = 'messenger_community';
   const VALUE_PRIVATE = 'private';
   const VALUE_PUBLIC = 'public';
   const WORK_COMPANY = 'work_company';

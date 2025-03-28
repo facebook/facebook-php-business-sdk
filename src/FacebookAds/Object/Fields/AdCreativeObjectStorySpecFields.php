@@ -29,7 +29,6 @@ class AdCreativeObjectStorySpecFields extends AbstractEnum {
   const PRODUCT_DATA = 'product_data';
   const TEMPLATE_DATA = 'template_data';
   const TEXT_DATA = 'text_data';
-  const THREADS_USER_ID = 'threads_user_id';
   const VIDEO_DATA = 'video_data';
 
   public function getFieldTypes() {
@@ -41,7 +40,6 @@ class AdCreativeObjectStorySpecFields extends AbstractEnum {
       'product_data' => 'list<AdCreativeProductData>',
       'template_data' => 'AdCreativeLinkData',
       'text_data' => 'AdCreativeTextData',
-      'threads_user_id' => 'string',
       'video_data' => 'AdCreativeVideoData',
     );
   }

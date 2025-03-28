@@ -72,6 +72,7 @@ class VehicleFields extends AbstractEnum {
   const SALE_PRICE = 'sale_price';
   const SANITIZED_IMAGES = 'sanitized_images';
   const STATE_OF_VEHICLE = 'state_of_vehicle';
+  const TAGS = 'tags';
   const TITLE = 'title';
   const TRANSMISSION = 'transmission';
   const TRIM = 'trim';
@@ -137,6 +138,7 @@ class VehicleFields extends AbstractEnum {
       'sale_price' => 'string',
       'sanitized_images' => 'list<string>',
       'state_of_vehicle' => 'string',
+      'tags' => 'list<string>',
       'title' => 'string',
       'transmission' => 'string',
       'trim' => 'string',

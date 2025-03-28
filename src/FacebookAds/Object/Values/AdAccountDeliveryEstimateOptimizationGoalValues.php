@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdAccountDeliveryEstimateOptimizationGoalValues extends AbstractEnum {
 
+  const ADVERTISER_SILOED_VALUE = 'ADVERTISER_SILOED_VALUE';
   const AD_RECALL_LIFT = 'AD_RECALL_LIFT';
   const APP_INSTALLS = 'APP_INSTALLS';
   const APP_INSTALLS_AND_OFFSITE_CONVERSIONS = 'APP_INSTALLS_AND_OFFSITE_CONVERSIONS';
@@ -41,6 +42,7 @@ class AdAccountDeliveryEstimateOptimizationGoalValues extends AbstractEnum {
   const OFFSITE_CONVERSIONS = 'OFFSITE_CONVERSIONS';
   const PAGE_LIKES = 'PAGE_LIKES';
   const POST_ENGAGEMENT = 'POST_ENGAGEMENT';
+  const PROFILE_AND_PAGE_ENGAGEMENT = 'PROFILE_AND_PAGE_ENGAGEMENT';
   const PROFILE_VISIT = 'PROFILE_VISIT';
   const QUALITY_CALL = 'QUALITY_CALL';
   const QUALITY_LEAD = 'QUALITY_LEAD';

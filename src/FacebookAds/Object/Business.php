@@ -432,6 +432,33 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createAdsDataSet(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'ad_account_id' => 'string',
+      'app_id' => 'string',
+      'is_crm' => 'bool',
+      'name' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/ads_dataset',
+      new Business(),
+      'EDGE',
+      Business::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getAdsReportingMmmReports(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1310,30 +1337,6 @@ class Business extends AbstractCrudObject {
       new CustomConversion(),
       'EDGE',
       CustomConversion::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createDraftNegativeKeywordList(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'negative_keyword_list_file' => 'file',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/draft_negative_keyword_lists',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2239,10 +2242,11 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getNegativeKeywordLists(array $fields = array(), array $params = array(), $pending = false) {
+  public function createOnboardPartnersToMmLite(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
+      'solution_id' => 'string',
     );
     $enums = array(
     );
@@ -2250,11 +2254,11 @@ class Business extends AbstractCrudObject {
     $request = new ApiRequest(
       $this->api,
       $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/negative_keyword_lists',
-      new NegativeKeywordList(),
+      RequestInterface::METHOD_POST,
+      '/onboard_partners_to_mm_lite',
+      new AbstractCrudObject(),
       'EDGE',
-      NegativeKeywordList::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2649,6 +2653,7 @@ class Business extends AbstractCrudObject {
 
     $param_types = array(
       'additional_vertical_option' => 'additional_vertical_option_enum',
+      'business_metadata' => 'map',
       'catalog_segment_filter' => 'Object',
       'catalog_segment_product_set_id' => 'string',
       'da_display_settings' => 'Object',
@@ -2769,6 +2774,29 @@ class Business extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/partner_premium_options',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getPassbackAttributionMetadataConfigs(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/passback_attribution_metadata_configs',
       new AbstractCrudObject(),
       'EDGE',
       array(),

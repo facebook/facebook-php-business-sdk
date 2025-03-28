@@ -23,6 +23,7 @@ use FacebookAds\Enum\AbstractEnum;
 class BusinessAgreementRequestStatusValues extends AbstractEnum {
 
   const APPROVE = 'APPROVE';
+  const CANCELED = 'CANCELED';
   const DECLINE = 'DECLINE';
   const EXPIRED = 'EXPIRED';
   const IN_PROGRESS = 'IN_PROGRESS';

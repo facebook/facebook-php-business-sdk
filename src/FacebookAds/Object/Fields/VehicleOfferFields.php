@@ -72,6 +72,7 @@ class VehicleOfferFields extends AbstractEnum {
   const SANITIZED_IMAGES = 'sanitized_images';
   const START_DATE = 'start_date';
   const START_TIME = 'start_time';
+  const TAGS = 'tags';
   const TERM_LENGTH = 'term_length';
   const TERM_QUALIFIER = 'term_qualifier';
   const TITLE = 'title';
@@ -135,6 +136,7 @@ class VehicleOfferFields extends AbstractEnum {
       'sanitized_images' => 'list<string>',
       'start_date' => 'string',
       'start_time' => 'int',
+      'tags' => 'list<string>',
       'term_length' => 'unsigned int',
       'term_qualifier' => 'string',
       'title' => 'string',

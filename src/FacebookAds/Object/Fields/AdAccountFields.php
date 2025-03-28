@@ -61,6 +61,7 @@ class AdAccountFields extends AbstractEnum {
   const ID = 'id';
   const IO_NUMBER = 'io_number';
   const IS_ATTRIBUTION_SPEC_SYSTEM_DEFAULT = 'is_attribution_spec_system_default';
+  const IS_BA_SKIP_DELAYED_ELIGIBLE = 'is_ba_skip_delayed_eligible';
   const IS_DIRECT_DEALS_ENABLED = 'is_direct_deals_enabled';
   const IS_IN_3DS_AUTHORIZATION_ENABLED_MARKET = 'is_in_3ds_authorization_enabled_market';
   const IS_NOTIFICATIONS_ENABLED = 'is_notifications_enabled';
@@ -135,6 +136,7 @@ class AdAccountFields extends AbstractEnum {
       'id' => 'string',
       'io_number' => 'string',
       'is_attribution_spec_system_default' => 'bool',
+      'is_ba_skip_delayed_eligible' => 'bool',
       'is_direct_deals_enabled' => 'bool',
       'is_in_3ds_authorization_enabled_market' => 'bool',
       'is_notifications_enabled' => 'bool',

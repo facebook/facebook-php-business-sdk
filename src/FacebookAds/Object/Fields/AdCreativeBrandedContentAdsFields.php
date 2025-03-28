@@ -34,6 +34,7 @@ class AdCreativeBrandedContentAdsFields extends AbstractEnum {
   const PRODUCT_SET_PARTNER_SELECTION_STATUS = 'product_set_partner_selection_status';
   const PROMOTED_PAGE_ID = 'promoted_page_id';
   const TESTIMONIAL = 'testimonial';
+  const TESTIMONIAL_LOCALE = 'testimonial_locale';
   const UI_VERSION = 'ui_version';
 
   public function getFieldTypes() {
@@ -50,6 +51,7 @@ class AdCreativeBrandedContentAdsFields extends AbstractEnum {
       'product_set_partner_selection_status' => 'string',
       'promoted_page_id' => 'string',
       'testimonial' => 'string',
+      'testimonial_locale' => 'string',
       'ui_version' => 'int',
     );
   }

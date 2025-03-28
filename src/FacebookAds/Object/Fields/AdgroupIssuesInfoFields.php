@@ -27,6 +27,7 @@ class AdgroupIssuesInfoFields extends AbstractEnum {
   const ERROR_SUMMARY = 'error_summary';
   const ERROR_TYPE = 'error_type';
   const LEVEL = 'level';
+  const MID = 'mid';
 
   public function getFieldTypes() {
     return array(
@@ -35,6 +36,7 @@ class AdgroupIssuesInfoFields extends AbstractEnum {
       'error_summary' => 'string',
       'error_type' => 'string',
       'level' => 'string',
+      'mid' => 'string',
     );
   }
 }
