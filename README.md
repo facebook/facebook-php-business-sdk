@@ -1,4 +1,4 @@
-# Facebook Business SDK for PHP
+# Facebook Business SDK for PHP 
 
 [![Packagist](https://img.shields.io/packagist/v/facebook/php-business-sdk)](https://packagist.org/packages/facebook/php-business-sdk)
 [![License](https://img.shields.io/badge/license-Facebook%20Platform-blue.svg?style=flat-square)](https://github.com/facebook/facebook-php-business-sdk/blob/main/LICENSE)
