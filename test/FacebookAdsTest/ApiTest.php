@@ -95,7 +95,7 @@ class ApiTest extends AbstractUnitTestCase {
     // Test default
     $api = $this->createApi();
     $this->assertTrue(is_string($api->getDefaultGraphVersion()));
-    $this->assertRegExp('/^\d+\.\d+$/', $api->getDefaultGraphVersion());
+    $this->assertMatchesRegularExpression('/^\d+\.\d+$/', $api->getDefaultGraphVersion());
   }
 
   public function testCall() {

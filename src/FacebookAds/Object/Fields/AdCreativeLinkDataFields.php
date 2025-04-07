@@ -27,6 +27,7 @@ class AdCreativeLinkDataFields extends AbstractEnum {
   const APP_LINK_SPEC = 'app_link_spec';
   const ATTACHMENT_STYLE = 'attachment_style';
   const AUTOMATED_PRODUCT_TAGS = 'automated_product_tags';
+  const BOOSTED_PRODUCT_SET_ID = 'boosted_product_set_id';
   const BRANDED_CONTENT_SHARED_TO_SPONSOR_STATUS = 'branded_content_shared_to_sponsor_status';
   const BRANDED_CONTENT_SPONSOR_PAGE_ID = 'branded_content_sponsor_page_id';
   const CALL_TO_ACTION = 'call_to_action';
@@ -65,6 +66,7 @@ class AdCreativeLinkDataFields extends AbstractEnum {
       'app_link_spec' => 'AdCreativeLinkDataAppLinkSpec',
       'attachment_style' => 'string',
       'automated_product_tags' => 'bool',
+      'boosted_product_set_id' => 'string',
       'branded_content_shared_to_sponsor_status' => 'string',
       'branded_content_sponsor_page_id' => 'string',
       'call_to_action' => 'AdCreativeLinkDataCallToAction',

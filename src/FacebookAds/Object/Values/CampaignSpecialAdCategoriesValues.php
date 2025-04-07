@@ -24,6 +24,7 @@ class CampaignSpecialAdCategoriesValues extends AbstractEnum {
 
   const CREDIT = 'CREDIT';
   const EMPLOYMENT = 'EMPLOYMENT';
+  const FINANCIAL_PRODUCTS_SERVICES = 'FINANCIAL_PRODUCTS_SERVICES';
   const HOUSING = 'HOUSING';
   const ISSUES_ELECTIONS_POLITICS = 'ISSUES_ELECTIONS_POLITICS';
   const NONE = 'NONE';

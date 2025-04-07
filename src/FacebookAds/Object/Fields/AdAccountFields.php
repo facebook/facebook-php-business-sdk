@@ -50,6 +50,7 @@ class AdAccountFields extends AbstractEnum {
   const END_ADVERTISER = 'end_advertiser';
   const END_ADVERTISER_NAME = 'end_advertiser_name';
   const EXISTING_CUSTOMERS = 'existing_customers';
+  const EXPIRED_FUNDING_SOURCE_DETAILS = 'expired_funding_source_details';
   const EXTENDED_CREDIT_INVOICE_GROUP = 'extended_credit_invoice_group';
   const FAILED_DELIVERY_CHECKS = 'failed_delivery_checks';
   const FB_ENTITY = 'fb_entity';
@@ -60,6 +61,7 @@ class AdAccountFields extends AbstractEnum {
   const ID = 'id';
   const IO_NUMBER = 'io_number';
   const IS_ATTRIBUTION_SPEC_SYSTEM_DEFAULT = 'is_attribution_spec_system_default';
+  const IS_BA_SKIP_DELAYED_ELIGIBLE = 'is_ba_skip_delayed_eligible';
   const IS_DIRECT_DEALS_ENABLED = 'is_direct_deals_enabled';
   const IS_IN_3DS_AUTHORIZATION_ENABLED_MARKET = 'is_in_3ds_authorization_enabled_market';
   const IS_NOTIFICATIONS_ENABLED = 'is_notifications_enabled';
@@ -123,6 +125,7 @@ class AdAccountFields extends AbstractEnum {
       'end_advertiser' => 'string',
       'end_advertiser_name' => 'string',
       'existing_customers' => 'list<string>',
+      'expired_funding_source_details' => 'FundingSourceDetails',
       'extended_credit_invoice_group' => 'ExtendedCreditInvoiceGroup',
       'failed_delivery_checks' => 'list<DeliveryCheck>',
       'fb_entity' => 'unsigned int',
@@ -133,6 +136,7 @@ class AdAccountFields extends AbstractEnum {
       'id' => 'string',
       'io_number' => 'string',
       'is_attribution_spec_system_default' => 'bool',
+      'is_ba_skip_delayed_eligible' => 'bool',
       'is_direct_deals_enabled' => 'bool',
       'is_in_3ds_authorization_enabled_market' => 'bool',
       'is_notifications_enabled' => 'bool',

@@ -31,6 +31,7 @@ use FacebookAds\Object\Values\AdVideoValidationAdPlacementsValues;
 use FacebookAds\Object\Values\AdsPixelSortByValues;
 use FacebookAds\Object\Values\BusinessActionSourceValues;
 use FacebookAds\Object\Values\BusinessAssetSharingAgreementRequestStatusValues;
+use FacebookAds\Object\Values\BusinessBusinessVerticalValues;
 use FacebookAds\Object\Values\BusinessImageValidationAdPlacementsValues;
 use FacebookAds\Object\Values\BusinessPagePermittedTasksValues;
 use FacebookAds\Object\Values\BusinessPermittedTasksValues;
@@ -40,6 +41,7 @@ use FacebookAds\Object\Values\BusinessTimezoneIdValues;
 use FacebookAds\Object\Values\BusinessTwoFactorTypeValues;
 use FacebookAds\Object\Values\BusinessUserInvitedUserTypeValues;
 use FacebookAds\Object\Values\BusinessUserRoleValues;
+use FacebookAds\Object\Values\BusinessVerificationStatusValues;
 use FacebookAds\Object\Values\BusinessVerticalV2Values;
 use FacebookAds\Object\Values\BusinessVerticalValues;
 use FacebookAds\Object\Values\CPASCollaborationRequestRequesterAgencyOrBrandValues;
@@ -72,12 +74,14 @@ class Business extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['VerificationStatus'] = BusinessVerificationStatusValues::getInstance()->getValues();
     $ref_enums['TwoFactorType'] = BusinessTwoFactorTypeValues::getInstance()->getValues();
     $ref_enums['Vertical'] = BusinessVerticalValues::getInstance()->getValues();
     $ref_enums['PermittedTasks'] = BusinessPermittedTasksValues::getInstance()->getValues();
     $ref_enums['SurveyBusinessType'] = BusinessSurveyBusinessTypeValues::getInstance()->getValues();
     $ref_enums['TimezoneId'] = BusinessTimezoneIdValues::getInstance()->getValues();
     $ref_enums['PagePermittedTasks'] = BusinessPagePermittedTasksValues::getInstance()->getValues();
+    $ref_enums['BusinessVertical'] = BusinessBusinessVerticalValues::getInstance()->getValues();
     $ref_enums['SubverticalV2'] = BusinessSubverticalV2Values::getInstance()->getValues();
     $ref_enums['VerticalV2'] = BusinessVerticalV2Values::getInstance()->getValues();
     $ref_enums['ActionSource'] = BusinessActionSourceValues::getInstance()->getValues();
@@ -340,6 +344,7 @@ class Business extends AbstractCrudObject {
       'metrics' => 'list<metrics_enum>',
       'ordering_column' => 'ordering_column_enum',
       'ordering_type' => 'ordering_type_enum',
+      'should_include_until' => 'bool',
       'since' => 'datetime',
       'until' => 'datetime',
     );
@@ -420,6 +425,33 @@ class Business extends AbstractCrudObject {
       new AdNetworkAnalyticsAsyncQueryResult(),
       'EDGE',
       AdNetworkAnalyticsAsyncQueryResult::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createAdsDataSet(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'ad_account_id' => 'string',
+      'app_id' => 'string',
+      'is_crm' => 'bool',
+      'name' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/ads_dataset',
+      new Business(),
+      'EDGE',
+      Business::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1305,30 +1337,6 @@ class Business extends AbstractCrudObject {
       new CustomConversion(),
       'EDGE',
       CustomConversion::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createDraftNegativeKeywordList(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'negative_keyword_list_file' => 'file',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/draft_negative_keyword_lists',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2234,10 +2242,11 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getNegativeKeywordLists(array $fields = array(), array $params = array(), $pending = false) {
+  public function createOnboardPartnersToMmLite(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
+      'solution_id' => 'string',
     );
     $enums = array(
     );
@@ -2245,11 +2254,11 @@ class Business extends AbstractCrudObject {
     $request = new ApiRequest(
       $this->api,
       $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/negative_keyword_lists',
-      new NegativeKeywordList(),
+      RequestInterface::METHOD_POST,
+      '/onboard_partners_to_mm_lite',
+      new AbstractCrudObject(),
       'EDGE',
-      NegativeKeywordList::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2285,12 +2294,17 @@ class Business extends AbstractCrudObject {
 
     $param_types = array(
       'active' => 'bool',
+      'cloud_provider' => 'string',
+      'cloud_region' => 'string',
+      'destination_id' => 'string',
       'endpoint' => 'string',
       'fallback_domain' => 'string',
-      'fallback_domain_enabled' => 'bool',
+      'first_party_domain' => 'string',
       'host_business_id' => 'unsigned int',
-      'host_external_id' => 'string',
       'instance_id' => 'string',
+      'instance_version' => 'string',
+      'is_sgw_instance' => 'bool',
+      'partner_name' => 'string',
       'pixel_id' => 'unsigned int',
     );
     $enums = array(
@@ -2639,6 +2653,7 @@ class Business extends AbstractCrudObject {
 
     $param_types = array(
       'additional_vertical_option' => 'additional_vertical_option_enum',
+      'business_metadata' => 'map',
       'catalog_segment_filter' => 'Object',
       'catalog_segment_product_set_id' => 'string',
       'da_display_settings' => 'Object',
@@ -2759,6 +2774,29 @@ class Business extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/partner_premium_options',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getPassbackAttributionMetadataConfigs(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/passback_attribution_metadata_configs',
       new AbstractCrudObject(),
       'EDGE',
       array(),
@@ -3081,6 +3119,39 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createSelfCertifyWhatsAppBusiness(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'average_monthly_revenue_spend_with_partner' => 'map',
+      'business_documents' => 'list<file>',
+      'business_vertical' => 'business_vertical_enum',
+      'end_business_address' => 'map',
+      'end_business_id' => 'string',
+      'end_business_legal_name' => 'string',
+      'end_business_trade_names' => 'list<string>',
+      'end_business_website' => 'string',
+      'num_billing_cycles_with_partner' => 'unsigned int',
+    );
+    $enums = array(
+      'business_vertical_enum' => BusinessBusinessVerticalValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/self_certify_whatsapp_business',
+      new Business(),
+      'EDGE',
+      Business::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createSetupManagedPartnerAdAccount(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -3292,11 +3363,10 @@ class Business extends AbstractCrudObject {
       'formatting' => 'formatting_enum',
       'fov' => 'unsigned int',
       'front_z_rotation' => 'float',
-      'fun_fact_prompt_id' => 'unsigned int',
+      'fun_fact_prompt_id' => 'string',
       'fun_fact_toastee_id' => 'unsigned int',
       'guide' => 'list<list<unsigned int>>',
       'guide_enabled' => 'bool',
-      'holiday_card' => 'string',
       'initial_heading' => 'unsigned int',
       'initial_pitch' => 'unsigned int',
       'instant_game_entry_point_data' => 'string',
@@ -3304,7 +3374,6 @@ class Business extends AbstractCrudObject {
       'is_group_linking_post' => 'bool',
       'is_voice_clip' => 'bool',
       'location_source_id' => 'string',
-      'offer_like_post_id' => 'unsigned int',
       'og_action_type_id' => 'string',
       'og_icon_id' => 'string',
       'og_object_id' => 'string',
@@ -3322,7 +3391,6 @@ class Business extends AbstractCrudObject {
       'start_offset' => 'unsigned int',
       'swap_mode' => 'swap_mode_enum',
       'text_format_metadata' => 'string',
-      'throwback_camera_roll_media' => 'string',
       'thumb' => 'file',
       'time_since_original_post' => 'unsigned int',
       'title' => 'string',

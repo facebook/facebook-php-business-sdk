@@ -1,4 +1,11 @@
-<phpunit bootstrap="init_unit.php" colors="true">
+<phpunit
+    bootstrap="init_unit.php"
+    colors="true"
+    convertDeprecationsToExceptions="true"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+>
     <testsuites>
         <testsuite name="Facebook AdsAPI PHP SDK">
             <directory>./FacebookAdsTest</directory>

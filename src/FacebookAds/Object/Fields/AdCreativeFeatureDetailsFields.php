@@ -22,10 +22,12 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdCreativeFeatureDetailsFields extends AbstractEnum {
 
+  const CUSTOMIZATIONS = 'customizations';
   const ENROLL_STATUS = 'enroll_status';
 
   public function getFieldTypes() {
     return array(
+      'customizations' => 'AdCreativeFeatureCustomizations',
       'enroll_status' => 'string',
     );
   }

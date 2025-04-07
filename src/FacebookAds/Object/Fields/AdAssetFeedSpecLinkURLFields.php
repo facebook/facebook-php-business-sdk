@@ -26,6 +26,7 @@ class AdAssetFeedSpecLinkURLFields extends AbstractEnum {
   const CAROUSEL_SEE_MORE_URL = 'carousel_see_more_url';
   const DEEPLINK_URL = 'deeplink_url';
   const DISPLAY_URL = 'display_url';
+  const OBJECT_STORE_URLS = 'object_store_urls';
   const URL_TAGS = 'url_tags';
   const WEBSITE_URL = 'website_url';
 
@@ -35,6 +36,7 @@ class AdAssetFeedSpecLinkURLFields extends AbstractEnum {
       'carousel_see_more_url' => 'string',
       'deeplink_url' => 'string',
       'display_url' => 'string',
+      'object_store_urls' => 'list<string>',
       'url_tags' => 'string',
       'website_url' => 'string',
     );

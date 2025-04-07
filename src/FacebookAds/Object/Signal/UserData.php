@@ -51,7 +51,7 @@ class UserData {
   /**
    * Constructor
    */
-  public function __construct(array $data = null) {
+  public function __construct(?array $data = null) {
     $this->businessDataUserData = new BusinessDataUserData($data);
     $this->serverSideUserData = new ServerSideUserData($data);
   }

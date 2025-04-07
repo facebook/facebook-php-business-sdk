@@ -22,9 +22,19 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdCreativeRegionalRegulationDisclaimerFields extends AbstractEnum {
 
+  const AUSTRALIA_FINSERV = 'australia_finserv';
+  const INDIA_FINSERV = 'india_finserv';
+  const SINGAPORE_UNIVERSAL = 'singapore_universal';
+  const TAIWAN_FINSERV = 'taiwan_finserv';
+  const TAIWAN_UNIVERSAL = 'taiwan_universal';
 
   public function getFieldTypes() {
     return array(
+      'australia_finserv' => 'Object',
+      'india_finserv' => 'Object',
+      'singapore_universal' => 'Object',
+      'taiwan_finserv' => 'Object',
+      'taiwan_universal' => 'Object',
     );
   }
 }

@@ -81,7 +81,7 @@ class EventResponse implements ArrayAccess {
   /**
    * Constructor
    */
-  public function __construct(array $data = null) {
+  public function __construct(?array $data = null) {
     $this->container['events_received'] = isset($data['events_received']) ? $data['events_received'] : null;
     $this->container['messages'] = isset($data['messages']) ? $data['messages'] : null;
     $this->container['fbtrace_id'] = isset($data['fbtrace_id']) ? $data['fbtrace_id'] : null;

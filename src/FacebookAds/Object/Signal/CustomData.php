@@ -44,7 +44,7 @@ class CustomData {
   /**
    * Constructor
    */
-  public function __construct(array $data = null) {
+  public function __construct(?array $data = null) {
     $business_contents = array();
     $server_contents = array();
     if(isset($data['contents'])){

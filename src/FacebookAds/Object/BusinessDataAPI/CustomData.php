@@ -34,7 +34,7 @@ class CustomData {
   /**
    * Constructor
    */
-  public function __construct(array $data = null) {
+  public function __construct(?array $data = null) {
     $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
     $this->container['contents'] = isset($data['contents']) ? $data['contents'] : null;

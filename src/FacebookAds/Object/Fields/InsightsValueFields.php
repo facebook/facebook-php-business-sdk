@@ -23,10 +23,12 @@ use FacebookAds\Enum\AbstractEnum;
 class InsightsValueFields extends AbstractEnum {
 
   const CAMPAIGN_ID = 'campaign_id';
+  const EARNING_SOURCE = 'earning_source';
   const END_TIME = 'end_time';
   const ENGAGEMENT_SOURCE = 'engagement_source';
   const MESSAGE_TYPE = 'message_type';
   const MESSAGING_CHANNEL = 'messaging_channel';
+  const MONETIZATION_TOOL = 'monetization_tool';
   const RECURRING_NOTIFICATIONS_ENTRY_POINT = 'recurring_notifications_entry_point';
   const RECURRING_NOTIFICATIONS_FREQUENCY = 'recurring_notifications_frequency';
   const RECURRING_NOTIFICATIONS_TOPIC = 'recurring_notifications_topic';
@@ -36,10 +38,12 @@ class InsightsValueFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'campaign_id' => 'string',
+      'earning_source' => 'string',
       'end_time' => 'datetime',
       'engagement_source' => 'string',
       'message_type' => 'string',
       'messaging_channel' => 'string',
+      'monetization_tool' => 'string',
       'recurring_notifications_entry_point' => 'string',
       'recurring_notifications_frequency' => 'string',
       'recurring_notifications_topic' => 'string',

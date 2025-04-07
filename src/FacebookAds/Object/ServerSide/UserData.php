@@ -233,7 +233,7 @@ class UserData implements ArrayAccess {
   /**
    * Constructor
    */
-  public function __construct(array $data = null) {
+  public function __construct(?array $data = null) {
 
     # Let's make sure not both singular and plural parameters are set
     if(isset($data['email']) And isset($data['emails'])) {

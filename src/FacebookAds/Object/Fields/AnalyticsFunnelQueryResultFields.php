@@ -22,15 +22,11 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AnalyticsFunnelQueryResultFields extends AbstractEnum {
 
-  const DATA = 'data';
-  const ERROR = 'error';
   const QUERY_ID = 'query_id';
   const STATUS = 'status';
 
   public function getFieldTypes() {
     return array(
-      'data' => 'Object',
-      'error' => 'Object',
       'query_id' => 'string',
       'status' => 'string',
     );

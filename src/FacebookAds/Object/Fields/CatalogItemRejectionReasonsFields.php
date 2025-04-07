@@ -27,7 +27,7 @@ class CatalogItemRejectionReasonsFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'capability' => 'Capability',
+      'capability' => 'string',
       'rejection_information' => 'list<Object>',
     );
   }

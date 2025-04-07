@@ -45,7 +45,7 @@ class CustomEndpointResponse {
     /**
      * Constructor
      */
-    public function __construct(array $data = null) {
+    public function __construct(?array $data = null) {
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['response_code'] = isset($data['response_code']) ? $data['response_code'] : null;
     }

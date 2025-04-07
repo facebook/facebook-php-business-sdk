@@ -27,6 +27,7 @@ class BrandedContentShadowIGMediaIDFields extends AbstractEnum {
   const ID = 'id';
   const OWNER_ID = 'owner_id';
   const PERMALINK = 'permalink';
+  const RECOMMENDED_CAMPAIGN_OBJECTIVES = 'recommended_campaign_objectives';
 
   public function getFieldTypes() {
     return array(
@@ -35,6 +36,7 @@ class BrandedContentShadowIGMediaIDFields extends AbstractEnum {
       'id' => 'string',
       'owner_id' => 'string',
       'permalink' => 'string',
+      'recommended_campaign_objectives' => 'list<string>',
     );
   }
 }

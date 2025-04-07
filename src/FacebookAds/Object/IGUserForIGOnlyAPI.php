@@ -14,6 +14,11 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\IGUserForIGOnlyAPIFields;
+use FacebookAds\Object\Values\InsightsResultBreakdownValues;
+use FacebookAds\Object\Values\InsightsResultMetricTypeValues;
+use FacebookAds\Object\Values\InsightsResultMetricValues;
+use FacebookAds\Object\Values\InsightsResultPeriodValues;
+use FacebookAds\Object\Values\InsightsResultTimeframeValues;
 use FacebookAds\Object\Values\UnifiedThreadPlatformValues;
 
 /**
@@ -92,6 +97,41 @@ class IGUserForIGOnlyAPI extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getInsights(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'breakdown' => 'list<breakdown_enum>',
+      'metric' => 'list<metric_enum>',
+      'metric_type' => 'metric_type_enum',
+      'period' => 'list<period_enum>',
+      'since' => 'datetime',
+      'timeframe' => 'timeframe_enum',
+      'until' => 'datetime',
+    );
+    $enums = array(
+      'breakdown_enum' => InsightsResultBreakdownValues::getInstance()->getValues(),
+      'metric_enum' => InsightsResultMetricValues::getInstance()->getValues(),
+      'metric_type_enum' => InsightsResultMetricTypeValues::getInstance()->getValues(),
+      'period_enum' => InsightsResultPeriodValues::getInstance()->getValues(),
+      'timeframe_enum' => InsightsResultTimeframeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/insights',
+      new InsightsResult(),
+      'EDGE',
+      InsightsResult::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getLiveMedia(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -144,6 +184,7 @@ class IGUserForIGOnlyAPI extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'alt_text' => 'string',
       'audio_name' => 'string',
       'caption' => 'string',
       'children' => 'list<string>',
@@ -473,8 +514,10 @@ class IGUserForIGOnlyAPI extends AbstractCrudObject {
         'messaging_postbacks',
         'messaging_referral',
         'messaging_seen',
+        'onboarding_welcome_message_series',
         'standby',
         'story_insights',
+        'story_reactions',
       ),
     );
 
@@ -516,6 +559,30 @@ class IGUserForIGOnlyAPI extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function deleteWelcomeMessageFlows(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'flow_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/welcome_message_flows',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getWelcomeMessageFlows(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -534,6 +601,38 @@ class IGUserForIGOnlyAPI extends AbstractCrudObject {
       new CTXPartnerAppWelcomeMessageFlow(),
       'EDGE',
       CTXPartnerAppWelcomeMessageFlow::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createWelcomeMessageFlow(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'eligible_platforms' => 'list<eligible_platforms_enum>',
+      'flow_id' => 'string',
+      'name' => 'string',
+      'welcome_message_flow' => 'list<Object>',
+    );
+    $enums = array(
+      'eligible_platforms_enum' => array(
+        'INSTAGRAM',
+        'MESSENGER',
+        'WHATSAPP',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/welcome_message_flows',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

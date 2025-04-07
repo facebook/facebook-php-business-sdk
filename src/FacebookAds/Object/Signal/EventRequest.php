@@ -53,7 +53,7 @@ class EventRequest {
    * @param string $pixel_id pixel id
    * @param string $page_id page id
    */
-  public function __construct(string $pixel_id, string $page_id, array $data = null) {
+  public function __construct(string $pixel_id, string $page_id, ?array $data = null) {
     $business_data = $data;
     $server_data = $data;
 

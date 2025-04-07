@@ -20,8 +20,6 @@ use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultMetricsValues;
 use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultOrderingColumnValues;
 use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultOrderingTypeValues;
 use FacebookAds\Object\Values\ApplicationAnPlatformsValues;
-use FacebookAds\Object\Values\ApplicationLoggingSourceValues;
-use FacebookAds\Object\Values\ApplicationLoggingTargetValues;
 use FacebookAds\Object\Values\ApplicationMutationMethodValues;
 use FacebookAds\Object\Values\ApplicationOwnerPermissionsValues;
 use FacebookAds\Object\Values\ApplicationPartnerPermissionsValues;
@@ -64,8 +62,6 @@ class Application extends AbstractCrudObject {
     $ref_enums['RequestType'] = ApplicationRequestTypeValues::getInstance()->getValues();
     $ref_enums['MutationMethod'] = ApplicationMutationMethodValues::getInstance()->getValues();
     $ref_enums['PostMethod'] = ApplicationPostMethodValues::getInstance()->getValues();
-    $ref_enums['LoggingSource'] = ApplicationLoggingSourceValues::getInstance()->getValues();
-    $ref_enums['LoggingTarget'] = ApplicationLoggingTargetValues::getInstance()->getValues();
     $ref_enums['OwnerPermissions'] = ApplicationOwnerPermissionsValues::getInstance()->getValues();
     $ref_enums['PartnerPermissions'] = ApplicationPartnerPermissionsValues::getInstance()->getValues();
     return $ref_enums;
@@ -170,6 +166,8 @@ class Application extends AbstractCrudObject {
       'app_user_id' => 'string',
       'application_tracking_enabled' => 'bool',
       'attribution' => 'string',
+      'attribution_referrer' => 'string',
+      'attribution_sources' => 'list<map>',
       'auto_publish' => 'bool',
       'bundle_id' => 'string',
       'bundle_short_version' => 'string',
@@ -184,14 +182,20 @@ class Application extends AbstractCrudObject {
       'data_processing_options_state' => 'unsigned int',
       'device_token' => 'string',
       'event' => 'event_enum',
+      'event_id' => 'string',
       'extinfo' => 'Object',
+      'google_install_referrer' => 'string',
       'include_dwell_data' => 'bool',
       'include_video_data' => 'bool',
+      'install_id' => 'string',
       'install_referrer' => 'string',
       'install_timestamp' => 'unsigned int',
       'installer_package' => 'string',
+      'is_fb' => 'bool',
       'limited_data_use' => 'bool',
+      'meta_install_referrer' => 'string',
       'migration_bundle' => 'string',
+      'operational_parameters' => 'list<map>',
       'page_id' => 'unsigned int',
       'page_scoped_user_id' => 'unsigned int',
       'receipt_data' => 'string',
@@ -287,6 +291,7 @@ class Application extends AbstractCrudObject {
       'metrics' => 'list<metrics_enum>',
       'ordering_column' => 'ordering_column_enum',
       'ordering_type' => 'ordering_type_enum',
+      'should_include_until' => 'bool',
       'since' => 'datetime',
       'until' => 'datetime',
     );
@@ -997,24 +1002,57 @@ class Application extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getMessageTemplates(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'template_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/message_templates',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createMmpAuditing(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
       'advertiser_id' => 'string',
       'attribution' => 'string',
+      'attribution_method' => 'string',
       'attribution_model' => 'string',
+      'attribution_referrer' => 'string',
       'auditing_token' => 'string',
       'click_attr_window' => 'unsigned int',
       'custom_events' => 'list<Object>',
       'decline_reason' => 'string',
+      'device_os' => 'string',
       'engagement_type' => 'string',
       'event' => 'string',
+      'event_id' => 'string',
       'event_reported_time' => 'unsigned int',
       'fb_ad_id' => 'unsigned int',
+      'fb_adgroup_id' => 'unsigned int',
       'fb_click_time' => 'unsigned int',
       'fb_view_time' => 'unsigned int',
+      'google_install_referrer' => 'string',
+      'inactivity_window_hours' => 'unsigned int',
+      'install_id' => 'string',
       'is_fb' => 'bool',
+      'meta_install_referrer' => 'string',
       'used_install_referrer' => 'bool',
       'view_attr_window' => 'unsigned int',
     );
@@ -1180,62 +1218,6 @@ class Application extends AbstractCrudObject {
       new AbstractCrudObject(),
       'EDGE',
       array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createPageActivity(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'advertiser_tracking_enabled' => 'bool',
-      'application_tracking_enabled' => 'bool',
-      'custom_events' => 'list<Object>',
-      'logging_source' => 'logging_source_enum',
-      'logging_target' => 'logging_target_enum',
-      'page_id' => 'unsigned int',
-      'page_scoped_user_id' => 'unsigned int',
-    );
-    $enums = array(
-      'logging_source_enum' => ApplicationLoggingSourceValues::getInstance()->getValues(),
-      'logging_target_enum' => ApplicationLoggingTargetValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/page_activities',
-      new Application(),
-      'EDGE',
-      Application::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createPaymentCurrency(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'currency_url' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/payment_currencies',
-      new Application(),
-      'EDGE',
-      Application::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1662,7 +1644,6 @@ class Application extends AbstractCrudObject {
       'app_type' => 'bool',
       'auth_dialog_headline' => 'string',
       'auth_dialog_perms_explanation' => 'string',
-      'auth_referral_default_activity_privacy' => 'string',
       'auth_referral_enabled' => 'bool',
       'auth_referral_extended_perms' => 'list<string>',
       'auth_referral_friend_perms' => 'list<string>',

@@ -81,6 +81,7 @@ class ProductItemFields extends AbstractEnum {
   const PRODUCT_FEED = 'product_feed';
   const PRODUCT_GROUP = 'product_group';
   const PRODUCT_LOCAL_INFO = 'product_local_info';
+  const PRODUCT_RELATIONSHIP = 'product_relationship';
   const PRODUCT_TYPE = 'product_type';
   const QUANTITY_TO_SELL_ON_FACEBOOK = 'quantity_to_sell_on_facebook';
   const RETAILER_ID = 'retailer_id';
@@ -97,6 +98,7 @@ class ProductItemFields extends AbstractEnum {
   const START_DATE = 'start_date';
   const TAGS = 'tags';
   const URL = 'url';
+  const VENDOR_ID = 'vendor_id';
   const VIDEO_FETCH_STATUS = 'video_fetch_status';
   const VISIBILITY = 'visibility';
   const WA_COMPLIANCE_CATEGORY = 'wa_compliance_category';
@@ -137,7 +139,7 @@ class ProductItemFields extends AbstractEnum {
       'brand' => 'string',
       'bundle_items' => 'list<string>',
       'bundle_retailer_ids' => 'list<string>',
-      'capability_to_review_status' => 'list<map<Object, Object>>',
+      'capability_to_review_status' => 'list<map<string, ProductItem_capability_to_review_status>>',
       'category' => 'string',
       'category_specific_fields' => 'CatalogSubVerticalList',
       'color' => 'string',
@@ -187,6 +189,7 @@ class ProductItemFields extends AbstractEnum {
       'product_feed' => 'ProductFeed',
       'product_group' => 'ProductGroup',
       'product_local_info' => 'ProductItemLocalInfo',
+      'product_relationship' => 'string',
       'product_type' => 'string',
       'quantity_to_sell_on_facebook' => 'int',
       'retailer_id' => 'string',
@@ -203,6 +206,7 @@ class ProductItemFields extends AbstractEnum {
       'start_date' => 'string',
       'tags' => 'list<string>',
       'url' => 'string',
+      'vendor_id' => 'string',
       'video_fetch_status' => 'VideoFetchStatus',
       'visibility' => 'Visibility',
       'wa_compliance_category' => 'string',

@@ -44,7 +44,7 @@ class Event {
   /**
    * Constructor
    */
-  public function __construct(array $data = null) {
+  public function __construct(?array $data = null) {
     $business_data = $data;
     $server_data = $data;
     $business_data['user_data'] = isset($data['user_data']) ? $data['user_data']->getBusinessDataUserData() : null;

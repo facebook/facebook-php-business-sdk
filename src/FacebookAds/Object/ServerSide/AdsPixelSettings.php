@@ -45,7 +45,7 @@ class AdsPixelSettings implements ArrayAccess {
    /**
    * Constructor
    */
-  public function __construct(array $data = null) {
+  public function __construct(?array $data = null) {
     $this->container['enable_automatic_matching'] = isset($data['enableAutomaticMatching']) ? $data['enableAutomaticMatching'] : null;;
     $this->container['enabled_automatic_matching_fields'] = isset($data['enabledAutomaticMatchingFields']) ? $data['enabledAutomaticMatchingFields'] : null;
     $this->container['pixel_id'] = isset($data['pixel_id']) ? $data['pixel_id'] : null;

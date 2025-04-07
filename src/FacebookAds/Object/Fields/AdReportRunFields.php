@@ -24,12 +24,14 @@ class AdReportRunFields extends AbstractEnum {
 
   const ACCOUNT_ID = 'account_id';
   const ASYNC_PERCENT_COMPLETION = 'async_percent_completion';
+  const ASYNC_REPORT_URL = 'async_report_url';
   const ASYNC_STATUS = 'async_status';
   const DATE_START = 'date_start';
   const DATE_STOP = 'date_stop';
   const EMAILS = 'emails';
   const FRIENDLY_NAME = 'friendly_name';
   const ID = 'id';
+  const IS_ASYNC_EXPORT = 'is_async_export';
   const IS_BOOKMARKED = 'is_bookmarked';
   const IS_RUNNING = 'is_running';
   const SCHEDULE_ID = 'schedule_id';
@@ -61,12 +63,14 @@ class AdReportRunFields extends AbstractEnum {
     return array(
       'account_id' => 'string',
       'async_percent_completion' => 'unsigned int',
+      'async_report_url' => 'string',
       'async_status' => 'string',
       'date_start' => 'string',
       'date_stop' => 'string',
       'emails' => 'list<string>',
       'friendly_name' => 'string',
       'id' => 'string',
+      'is_async_export' => 'int',
       'is_bookmarked' => 'bool',
       'is_running' => 'bool',
       'schedule_id' => 'string',

@@ -97,12 +97,17 @@ class OpenBridgeConfiguration extends AbstractCrudObject {
 
     $param_types = array(
       'active' => 'bool',
+      'cloud_provider' => 'string',
+      'cloud_region' => 'string',
+      'destination_id' => 'string',
       'endpoint' => 'string',
       'fallback_domain' => 'string',
-      'fallback_domain_enabled' => 'bool',
+      'first_party_domain' => 'string',
       'host_business_id' => 'unsigned int',
-      'host_external_id' => 'string',
       'instance_id' => 'string',
+      'instance_version' => 'string',
+      'is_sgw_instance' => 'bool',
+      'partner_name' => 'string',
     );
     $enums = array(
     );

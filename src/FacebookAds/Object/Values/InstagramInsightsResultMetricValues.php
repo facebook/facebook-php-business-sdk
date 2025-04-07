@@ -31,17 +31,13 @@ class InstagramInsightsResultMetricValues extends AbstractEnum {
   const IMPRESSIONS = 'impressions';
   const LIKES = 'likes';
   const NAVIGATION = 'navigation';
-  const PEAK_CONCURRENT_VIEWERS = 'peak_concurrent_viewers';
   const PLAYS = 'plays';
   const PROFILE_ACTIVITY = 'profile_activity';
   const PROFILE_VISITS = 'profile_visits';
-  const QUOTES = 'quotes';
   const REACH = 'reach';
   const REPLIES = 'replies';
-  const REPOSTS = 'reposts';
   const SAVED = 'saved';
   const SHARES = 'shares';
-  const THREAD_REPLIES = 'thread_replies';
   const TOTAL_INTERACTIONS = 'total_interactions';
   const VIDEO_VIEWS = 'video_views';
   const VIEWS = 'views';

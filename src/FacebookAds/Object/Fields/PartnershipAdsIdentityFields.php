@@ -22,11 +22,13 @@ use FacebookAds\Enum\AbstractEnum;
 
 class PartnershipAdsIdentityFields extends AbstractEnum {
 
+  const IS_SAVED = 'is_saved';
   const POST_TYPES = 'post_types';
   const SECONDARY_IDENTITIES = 'secondary_identities';
 
   public function getFieldTypes() {
     return array(
+      'is_saved' => 'bool',
       'post_types' => 'list<string>',
       'secondary_identities' => 'list<Object>',
     );

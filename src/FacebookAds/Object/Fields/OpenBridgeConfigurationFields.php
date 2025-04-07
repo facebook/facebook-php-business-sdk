@@ -23,25 +23,35 @@ use FacebookAds\Enum\AbstractEnum;
 class OpenBridgeConfigurationFields extends AbstractEnum {
 
   const ACTIVE = 'active';
+  const CLOUD_PROVIDER = 'cloud_provider';
+  const CLOUD_REGION = 'cloud_region';
+  const DESTINATION_ID = 'destination_id';
   const ENDPOINT = 'endpoint';
   const FALLBACK_DOMAIN = 'fallback_domain';
-  const FALLBACK_DOMAIN_ENABLED = 'fallback_domain_enabled';
+  const FIRST_PARTY_DOMAIN = 'first_party_domain';
   const HOST_BUSINESS_ID = 'host_business_id';
-  const HOST_EXTERNAL_ID = 'host_external_id';
   const ID = 'id';
   const INSTANCE_ID = 'instance_id';
+  const INSTANCE_VERSION = 'instance_version';
+  const IS_SGW_INSTANCE = 'is_sgw_instance';
+  const PARTNER_NAME = 'partner_name';
   const PIXEL_ID = 'pixel_id';
 
   public function getFieldTypes() {
     return array(
       'active' => 'bool',
+      'cloud_provider' => 'string',
+      'cloud_region' => 'string',
+      'destination_id' => 'string',
       'endpoint' => 'string',
       'fallback_domain' => 'string',
-      'fallback_domain_enabled' => 'bool',
+      'first_party_domain' => 'string',
       'host_business_id' => 'string',
-      'host_external_id' => 'string',
       'id' => 'string',
       'instance_id' => 'string',
+      'instance_version' => 'string',
+      'is_sgw_instance' => 'bool',
+      'partner_name' => 'string',
       'pixel_id' => 'string',
     );
   }

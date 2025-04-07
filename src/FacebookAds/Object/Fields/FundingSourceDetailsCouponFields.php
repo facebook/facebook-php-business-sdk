@@ -25,22 +25,26 @@ class FundingSourceDetailsCouponFields extends AbstractEnum {
   const AMOUNT = 'amount';
   const CAMPAIGN_IDS = 'campaign_ids';
   const COUPON_ID = 'coupon_id';
+  const COUPON_TIERING = 'coupon_tiering';
   const CURRENCY = 'currency';
   const DISPLAY_AMOUNT = 'display_amount';
   const EXPIRATION = 'expiration';
   const ORIGINAL_AMOUNT = 'original_amount';
   const ORIGINAL_DISPLAY_AMOUNT = 'original_display_amount';
+  const START_DATE = 'start_date';
 
   public function getFieldTypes() {
     return array(
       'amount' => 'int',
       'campaign_ids' => 'list<int>',
       'coupon_id' => 'string',
+      'coupon_tiering' => 'FundingSourceDetailsCouponTiering',
       'currency' => 'string',
       'display_amount' => 'string',
       'expiration' => 'datetime',
       'original_amount' => 'int',
       'original_display_amount' => 'string',
+      'start_date' => 'datetime',
     );
   }
 }

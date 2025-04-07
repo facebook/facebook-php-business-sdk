@@ -26,6 +26,7 @@ class InstagramUserFields extends AbstractEnum {
   const FOLLOWED_BY_COUNT = 'followed_by_count';
   const HAS_PROFILE_PICTURE = 'has_profile_picture';
   const ID = 'id';
+  const IG_USER_ID = 'ig_user_id';
   const IS_PRIVATE = 'is_private';
   const IS_PUBLISHED = 'is_published';
   const MEDIA_COUNT = 'media_count';
@@ -40,6 +41,7 @@ class InstagramUserFields extends AbstractEnum {
       'followed_by_count' => 'int',
       'has_profile_picture' => 'bool',
       'id' => 'string',
+      'ig_user_id' => 'string',
       'is_private' => 'bool',
       'is_published' => 'bool',
       'media_count' => 'int',

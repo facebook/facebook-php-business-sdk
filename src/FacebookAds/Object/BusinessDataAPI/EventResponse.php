@@ -39,7 +39,7 @@ class EventResponse {
   /**
    * Constructor
    */
-  public function __construct(array $data = null) {
+  public function __construct(?array $data = null) {
     $this->container['events_received'] = isset($data['events_received']) ? $data['events_received'] : null;
     $this->container['events_dropped'] = isset($data['events_dropped']) ? $data['events_dropped'] : null;
     $this->container['message'] = isset($data['message']) ? $data['message'] : null;

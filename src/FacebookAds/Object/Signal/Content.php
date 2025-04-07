@@ -43,7 +43,7 @@ class Content {
   /**
    * Constructor
    */
-  public function __construct(array $data = null) {
+  public function __construct(?array $data = null) {
     $this->businessDataContent = new BusinessDataContent($data);
     $this->serverSideContent = new ServerSideContent($data);
   }

@@ -25,6 +25,7 @@ class ALMAdAccountInfoFields extends AbstractEnum {
   const AD_ACCOUNT_ID = 'ad_account_id';
   const ID = 'id';
   const MANAGED_BY = 'managed_by';
+  const OWNED_BY = 'owned_by';
   const PARENT_ADVERTISER_ID = 'parent_advertiser_id';
   const SUB_VERTICAL = 'sub_vertical';
   const TAG = 'tag';
@@ -36,6 +37,7 @@ class ALMAdAccountInfoFields extends AbstractEnum {
       'ad_account_id' => 'string',
       'id' => 'string',
       'managed_by' => 'string',
+      'owned_by' => 'string',
       'parent_advertiser_id' => 'string',
       'sub_vertical' => 'string',
       'tag' => 'list<string>',
