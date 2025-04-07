@@ -86,6 +86,7 @@ class CurlLoggerTest extends AbstractLoggerTest {
   public function testLog() {
     $this->createLogger()->log(
       static::VALUE_LOG_LEVEL, static::VALUE_LOG_MESSAGE);
+    $this->expectNotToPerformAssertions();
   }
 
   /**
@@ -110,11 +111,13 @@ class CurlLoggerTest extends AbstractLoggerTest {
 
     $logger = $this->createLogger();
     $logger->logRequest(static::VALUE_LOG_LEVEL, $request);
+    $this->expectNotToPerformAssertions();
   }
 
   public function testLogResponse() {
     $this->createLogger()->logResponse(
       static::VALUE_LOG_LEVEL, $this->createResponseMock());
+    $this->expectNotToPerformAssertions();
   }
 
   public function testJsonPrettyPrint() {

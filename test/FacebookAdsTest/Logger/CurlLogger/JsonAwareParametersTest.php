@@ -24,6 +24,7 @@
 
 namespace FacebookAdsTest\Logger\CurlLogger;
 
+use FacebookAds\Exception\Exception;
 use FacebookAds\Logger\CurlLogger\JsonAwareParameters;
 use FacebookAdsTest\AbstractUnitTestCase;
 
@@ -34,6 +35,11 @@ class JsonAwareParametersTest extends AbstractUnitTestCase {
    * @dataProvider parameterProvider
    */
   public function testExtract($param_data) {
+
+	  if (empty((new JsonAwareParameters($param_data))->export())) {
+		$this->expectNotToPerformAssertions();
+	  }
+
     foreach ((new JsonAwareParameters($param_data))->export() as $param) {
       $this->assertTrue(is_scalar($param) || is_null($param));
     }
