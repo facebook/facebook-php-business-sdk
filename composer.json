@@ -11,11 +11,6 @@
     "page"
   ],
   "homepage": "https://developers.facebook.com/",
-   "config": {
-      "platform": {
-         "php": "7.4"
-      }
-   },
   "require": {
     "guzzlehttp/guzzle": "^6.5 || ^7.0"
   },
