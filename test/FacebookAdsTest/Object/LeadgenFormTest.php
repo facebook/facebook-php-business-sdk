@@ -35,7 +35,7 @@ class LeadgenFormTest extends AbstractCrudObjectTestCase {
    */
   protected $leadgenFormId;
 
-  public function setup() {
+  public function setup() : void {
     parent::setup();
 
     $page = new Page($this->getConfig()->pageId);
@@ -51,7 +51,7 @@ class LeadgenFormTest extends AbstractCrudObjectTestCase {
     $this->leadgenFormId = $forms->current()->{LeadgenFormFields::ID};
   }
 
-  public function tearDown() {
+  public function tearDown() : void {
     $this->leadgenFormId = null;
 
     parent::tearDown();

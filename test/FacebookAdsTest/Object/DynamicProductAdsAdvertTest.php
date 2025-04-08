@@ -94,7 +94,7 @@ class DynamicProductAdsAdvertTest extends AbstractCrudObjectTestCase {
    */
   protected $creative;
 
-  public function setup() {
+  public function setup() : void {
     parent::setup();
 
     $account = new AdAccount($this->getConfig()->accountId);
@@ -144,7 +144,7 @@ class DynamicProductAdsAdvertTest extends AbstractCrudObjectTestCase {
     $this->productAudience->create();
   }
 
-  public function tearDown() {
+  public function tearDown() : void {
     if ($this->productSet) {
       $this->productSet->deleteSelf();
       $this->productSet = null;

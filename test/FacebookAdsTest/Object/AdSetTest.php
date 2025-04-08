@@ -40,7 +40,7 @@ class AdSetTest extends AbstractCrudObjectTestCase {
    */
   protected $campaign;
 
-  public function setup() {
+  public function setup() : void {
     parent::setup();
     $this->campaign = new Campaign(null, $this->getConfig()->accountId);
     $this->campaign->{CampaignFields::NAME}
@@ -48,7 +48,7 @@ class AdSetTest extends AbstractCrudObjectTestCase {
     $this->campaign->create();
   }
 
-  public function tearDown() {
+  public function tearDown() : void {
     $this->campaign->deleteSelf();
     $this->campaign = null;
     parent::tearDown();

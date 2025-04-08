@@ -43,7 +43,7 @@ class AdAccountTest extends AbstractCrudObjectTestCase {
    */
   protected $adLabel;
 
-  public function setup() {
+  public function setup() : void {
     parent::setup();
 
     $this->adLabel = new AdLabel(null, $this->getConfig()->accountId);
@@ -51,7 +51,7 @@ class AdAccountTest extends AbstractCrudObjectTestCase {
     $this->adLabel->create();
   }
 
-  public function tearDown() {
+  public function tearDown() : void {
     if ($this->adLabel !== null) {
       $this->adLabel->deleteSelf();
       $this->adLabel = null;

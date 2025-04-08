@@ -36,7 +36,7 @@ class ProductFeedTest extends AbstractCrudObjectTestCase {
    */
   protected $productCatalog;
 
-  public function setup() {
+  public function setup() : void {
     parent::setup();
 
     $this->productCatalog
@@ -47,7 +47,7 @@ class ProductFeedTest extends AbstractCrudObjectTestCase {
     $this->productCatalog->create();
   }
 
-  public function tearDown() {
+  public function tearDown() : void {
     if ($this->productCatalog) {
       $this->productCatalog->deleteSelf();
       $this->productCatalog = null;
