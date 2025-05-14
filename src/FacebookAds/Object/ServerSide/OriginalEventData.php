@@ -36,25 +36,35 @@ class OriginalEventData implements ArrayAccess {
 
   private $event_name;
   private $event_time;
+  private $order_id;
+  private $event_id;
 
   protected static $param_types = array(
     'event_name' => 'string',
     'event_time' => 'int',
+    'order_id' => 'string',
+    'event_id' => 'string',
   );
 
   protected static $attributeMap = array(
     'event_name' => 'event_name',
     'event_time' => 'event_time',
+    'order_id' => 'order_id',
+    'event_id' => 'event_id',
   );
 
   protected static $setters = array(
     'event_name' => 'setEventName',
     'event_time' => 'setEventTime',
+    'order_id' => 'setOrderID',
+    'event_id' => 'setEventID',
   );
 
   protected static $getters = array(
     'event_name' => 'getEventName',
     'event_time' => 'getEventTime',
+    'order_id' => 'getOrderID',
+    'event_id' => 'getEventID',
   );
 
   protected $container = array();
@@ -62,6 +72,8 @@ class OriginalEventData implements ArrayAccess {
   public function __construct(?array $data = null) {
     $this->container['event_name'] = isset($data['event_name']) ? $data['event_name'] : null;
     $this->container['event_time'] = isset($data['event_time']) ? $data['event_time'] : null;
+    $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
+    $this->container['event_id'] = isset($data['event_id']) ? $data['event_id'] : null;
   }
 
   public static function paramTypes() {
@@ -112,6 +124,28 @@ class OriginalEventData implements ArrayAccess {
   }
 
   /**
+   * Sets the order ID
+   * @param string $order_id The order ID for this transaction as a string.
+   * @return $this
+   */
+  public function setOrderID($order_id) {
+    $this->container['order_id'] = $order_id;
+
+    return $this;
+  }
+
+  /**
+   * Sets the event ID
+   * @param string $event_id A unique string chosen by the advertiser.
+   * @return $this
+   */
+  public function setEventID($event_id) {
+    $this->container['event_id'] = $event_id;
+
+    return $this;
+  }
+
+  /**
    * Gets Meta pixel Standard Event or Custom Event name.
    * @return string
    */
@@ -127,11 +161,29 @@ class OriginalEventData implements ArrayAccess {
     return $this->container['event_time'];
   }
 
+  /**
+   * Gets order ID of the original event.
+   * @return string
+   */
+  public function getOrderID() {
+    return $this->container['order_id'];
+  }
+
+  /**
+   * Gets event ID of the original event.
+   * @return string
+   */
+  public function getEventID() {
+    return $this->container['event_id'];
+  }
+
   public function normalize() {
     $normalized_payload = array();
 
     $normalized_payload['event_name'] = $this->getEventName();
     $normalized_payload['event_time'] = $this->getEventTime();
+    $normalized_payload['order_id'] = $this->getOrderID();
+    $normalized_payload['event_id'] = $this->getEventID();
     return $normalized_payload;
   }
 

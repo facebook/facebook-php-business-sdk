@@ -38,6 +38,7 @@ class AttributionDataTest extends AbstractUnitTestCase {
       'attr_window' => 7,
       'attribution_share' => 0.5,
       'attribution_model' => 'last_touch'
+      'attribution_value' => 3.45
     );
     $builder = (new AttributionData())
       ->setScope($expected['scope'])
@@ -47,7 +48,8 @@ class AttributionDataTest extends AbstractUnitTestCase {
       ->setCampaignId($expected['campaign_id'])
       ->setAttrWindow($expected['attr_window'])
       ->setAttributionShare($expected['attribution_share'])
-      ->setAttributionModel($expected['attribution_model']);
+      ->setAttributionModel($expected['attribution_model'])
+      ->setAttributionValue($expected['attribution_value']);
     $this->assertEquals($expected, $builder->normalize());
 
     $constructor = new AttributionData(array(
@@ -58,7 +60,8 @@ class AttributionDataTest extends AbstractUnitTestCase {
       'campaign_id' => $expected['campaign_id'],
       'attr_window' => $expected['attr_window'],
       'attribution_share' => $expected['attribution_share'],
-      'attribution_model' => $expected['attribution_model']
+      'attribution_model' => $expected['attribution_model'],
+      'attribution_value' => $expected['attribution_value']
     ));
     $this->assertEquals($expected, $constructor->normalize());
   }
