@@ -125,7 +125,7 @@ class AppData implements ArrayAccess {
   }
 
   public static function paramTypes() {
-    return $self::param_types;
+    return self::$param_types;
   }
 
   public static function attributeMap() {
