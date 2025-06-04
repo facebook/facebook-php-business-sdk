@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## v22.0.3
+### Changed
+- Fix the OriginalEventData class to add the missing methods
+
 ## v22.0.2
 ### Changed
 - Update attribution_data, custom_data and original_event_data fields
