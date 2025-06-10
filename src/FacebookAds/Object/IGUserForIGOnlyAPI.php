@@ -514,6 +514,7 @@ class IGUserForIGOnlyAPI extends AbstractCrudObject {
         'messaging_postbacks',
         'messaging_referral',
         'messaging_seen',
+        'onboarding_welcome_message_series',
         'standby',
         'story_insights',
         'story_reactions',
@@ -548,6 +549,30 @@ class IGUserForIGOnlyAPI extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/tags',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function deleteWelcomeMessageFlows(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'flow_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/welcome_message_flows',
       new AbstractCrudObject(),
       'EDGE',
       array(),

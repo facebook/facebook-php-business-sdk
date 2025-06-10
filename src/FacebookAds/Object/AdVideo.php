@@ -122,7 +122,7 @@ class AdVideo extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createCaption(array $fields = array(), array $params = array(), $pending = false) {
+  public function createCapTIOn(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(

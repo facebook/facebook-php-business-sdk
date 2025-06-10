@@ -36,6 +36,7 @@ class CustomData implements ArrayAccess {
    */
   protected static $param_types = array(
     'value' => 'float',
+    'net_revenue' => 'float',
     'currency' => 'string',
     'content_name' => 'string',
     'content_category' => 'string',
@@ -57,6 +58,7 @@ class CustomData implements ArrayAccess {
    */
   protected static $attributeMap = array(
     'value' => 'value',
+    'net_revenue' => 'net_revenue',
     'currency' => 'currency',
     'content_name' => 'content_name',
     'content_category' => 'content_category',
@@ -78,6 +80,7 @@ class CustomData implements ArrayAccess {
    */
   protected static $setters = array(
     'value' => 'setValue',
+    'net_revenue' => 'setNetRevenue',
     'currency' => 'setCurrency',
     'content_name' => 'setContentName',
     'content_category' => 'setContentCategory',
@@ -99,6 +102,7 @@ class CustomData implements ArrayAccess {
    */
   protected static $getters = array(
     'value' => 'getValue',
+    'net_revenue' => 'getNetRevenue',
     'currency' => 'getCurrency',
     'content_name' => 'getContentName',
     'content_category' => 'getContentCategory',
@@ -126,6 +130,7 @@ class CustomData implements ArrayAccess {
    */
   public function __construct(?array $data = null) {
     $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+    $this->container['net_revenue'] = isset($data['net_revenue']) ? $data['net_revenue'] : null;
     $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
     $this->container['content_name'] = isset($data['content_name']) ? $data['content_name'] : null;
     $this->container['content_category'] = isset($data['content_category']) ? $data['content_category'] : null;
@@ -186,6 +191,18 @@ class CustomData implements ArrayAccess {
    */
   public function setValue($value) {
     $this->container['value'] = $value;
+
+    return $this;
+  }
+
+  /**
+   * Sets net_revenue
+   * @param float $net_revenue A numeric net_revenue associated with this event.
+   *         This could be a monetary net_revenue or a net_revenue in some other metric.
+   * @return $this
+   */
+  public function setNetRevenue($net_revenue) {
+    $this->container['net_revenue'] = $net_revenue;
 
     return $this;
   }
@@ -422,6 +439,7 @@ class CustomData implements ArrayAccess {
     $normalized_payload = array();
 
     $normalized_payload['value'] = $this->getValue();
+    $normalized_payload['net_revenue'] = $this->getNetRevenue();
     $normalized_payload['currency'] =
       Normalizer::normalize('currency', $this->getCurrency());
     $normalized_payload['content_name'] = $this->getContentName();
@@ -474,6 +492,15 @@ class CustomData implements ArrayAccess {
    */
   public function getValue() {
     return $this->container['value'];
+  }
+
+  /**
+   * Gets a numeric net_revenue associated with this event.
+   * This could be a monetary net_revenue or a net_revenue in some other metric.
+   * @return float
+   */
+  public function getNetRevenue() {
+    return $this->container['net_revenue'];
   }
 
   /**

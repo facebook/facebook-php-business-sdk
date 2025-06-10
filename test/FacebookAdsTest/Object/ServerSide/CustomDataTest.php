@@ -39,6 +39,7 @@ class CustomDataTest extends AbstractUnitTestCase {
     $content = new Content($content_state);
     $state = array(
       'value' => 0.1,
+      'net_revenue' => 0.05,
       'currency' => 'usd',
       'content_name' => 'content-name-2',
       'content_category' => 'content-category-3',
@@ -59,6 +60,7 @@ class CustomDataTest extends AbstractUnitTestCase {
     );
     $builder = (new CustomData())
       ->setValue($state['value'])
+      ->setNetRevenue($state['net_revenue'])
       ->setCurrency($state['currency'])
       ->setContentName($state['content_name'])
       ->setContentCategory($state['content_category'])
@@ -77,6 +79,7 @@ class CustomDataTest extends AbstractUnitTestCase {
 
     $constructor = new CustomData(array(
       'value' => $state['value'],
+      'net_revenue' => $state['net_revenue'],
       'currency' => $state['currency'],
       'content_name' => $state['content_name'],
       'content_category' => $state['content_category'],

@@ -36,5 +36,9 @@ class AdsInsightsActionAttributionWindowsValues extends AbstractEnum {
   const DDA = 'dda';
   const VALUE_DEFAULT = 'default';
   const SKAN_CLICK = 'skan_click';
+  const SKAN_CLICK_SECOND_POSTBACK = 'skan_click_second_postback';
+  const SKAN_CLICK_THIRD_POSTBACK = 'skan_click_third_postback';
   const SKAN_VIEW = 'skan_view';
+  const SKAN_VIEW_SECOND_POSTBACK = 'skan_view_second_postback';
+  const SKAN_VIEW_THIRD_POSTBACK = 'skan_view_third_postback';
 }

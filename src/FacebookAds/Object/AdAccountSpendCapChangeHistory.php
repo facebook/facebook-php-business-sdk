@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AdsPixelCAPISetupQualityFields;
+use FacebookAds\Object\Fields\AdAccountSpendCapChangeHistoryFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\AdsPixelCAPISetupQualityFields;
  *
  */
 
-class AdsPixelCAPISetupQuality extends AbstractObject {
+class AdAccountSpendCapChangeHistory extends AbstractObject {
 
   /**
-   * @return AdsPixelCAPISetupQualityFields
+   * @return AdAccountSpendCapChangeHistoryFields
    */
   public static function getFieldsEnum() {
-    return AdsPixelCAPISetupQualityFields::getInstance();
+    return AdAccountSpendCapChangeHistoryFields::getInstance();
   }
 
   protected static function getReferencedEnums() {

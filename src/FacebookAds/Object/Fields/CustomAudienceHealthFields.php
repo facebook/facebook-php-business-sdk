@@ -20,15 +20,13 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class AdsPixelCAPISetupQualityFields extends AbstractEnum {
+class CustomAudienceHealthFields extends AbstractEnum {
 
-  const EVENT_MATCH_QUALITY = 'event_match_quality';
-  const EVENT_NAME = 'event_name';
+  const HEALTH = 'health';
 
   public function getFieldTypes() {
     return array(
-      'event_match_quality' => 'Object',
-      'event_name' => 'string',
+      'health' => 'list<Object>',
     );
   }
 }

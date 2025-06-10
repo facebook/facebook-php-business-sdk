@@ -74,6 +74,7 @@ class HomeListingFields extends AbstractEnum {
   const PRICE = 'price';
   const PROPERTY_TYPE = 'property_type';
   const SANITIZED_IMAGES = 'sanitized_images';
+  const TAGS = 'tags';
   const UNIT_PRICE = 'unit_price';
   const URL = 'url';
   const VISIBILITY = 'visibility';
@@ -133,6 +134,7 @@ class HomeListingFields extends AbstractEnum {
       'price' => 'string',
       'property_type' => 'string',
       'sanitized_images' => 'list<string>',
+      'tags' => 'list<string>',
       'unit_price' => 'Object',
       'url' => 'string',
       'visibility' => 'Visibility',

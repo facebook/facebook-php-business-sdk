@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\NegativeKeywordListFields;
+use FacebookAds\Object\Fields\StoreLocationFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\NegativeKeywordListFields;
  *
  */
 
-class NegativeKeywordList extends AbstractCrudObject {
+class StoreLocation extends AbstractCrudObject {
 
   /**
-   * @return NegativeKeywordListFields
+   * @return StoreLocationFields
    */
   public static function getFieldsEnum() {
-    return NegativeKeywordListFields::getInstance();
+    return StoreLocationFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -52,34 +52,9 @@ class NegativeKeywordList extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new NegativeKeywordList(),
+      new StoreLocation(),
       'NODE',
-      NegativeKeywordList::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'business_id' => 'unsigned int',
-      'list_name' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/',
-      new NegativeKeywordList(),
-      'NODE',
-      NegativeKeywordList::getFieldsEnum()->getValues(),
+      StoreLocation::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

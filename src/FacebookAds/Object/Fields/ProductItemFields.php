@@ -81,6 +81,7 @@ class ProductItemFields extends AbstractEnum {
   const PRODUCT_FEED = 'product_feed';
   const PRODUCT_GROUP = 'product_group';
   const PRODUCT_LOCAL_INFO = 'product_local_info';
+  const PRODUCT_RELATIONSHIP = 'product_relationship';
   const PRODUCT_TYPE = 'product_type';
   const QUANTITY_TO_SELL_ON_FACEBOOK = 'quantity_to_sell_on_facebook';
   const RETAILER_ID = 'retailer_id';
@@ -188,6 +189,7 @@ class ProductItemFields extends AbstractEnum {
       'product_feed' => 'ProductFeed',
       'product_group' => 'ProductGroup',
       'product_local_info' => 'ProductItemLocalInfo',
+      'product_relationship' => 'string',
       'product_type' => 'string',
       'quantity_to_sell_on_facebook' => 'int',
       'retailer_id' => 'string',

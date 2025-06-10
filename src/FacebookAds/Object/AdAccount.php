@@ -84,6 +84,7 @@ use FacebookAds\Object\Values\AdsInsightsDatePresetValues;
 use FacebookAds\Object\Values\AdsInsightsLevelValues;
 use FacebookAds\Object\Values\AdsInsightsSummaryActionBreakdownsValues;
 use FacebookAds\Object\Values\AdsPixelSortByValues;
+use FacebookAds\Object\Values\AdsValueAdjustmentRuleCollectionProductTypeValues;
 use FacebookAds\Object\Values\AsyncRequestStatusValues;
 use FacebookAds\Object\Values\AsyncRequestTypeValues;
 use FacebookAds\Object\Values\BusinessOwnedObjectOnBehalfOfRequestStatusValues;
@@ -1011,6 +1012,7 @@ class AdAccount extends AbstractCrudObject {
       'existing_customer_budget_percentage' => 'unsigned int',
       'frequency_control_specs' => 'list<Object>',
       'full_funnel_exploration_mode' => 'full_funnel_exploration_mode_enum',
+      'is_ba_skip_delayed_eligible' => 'bool',
       'is_dynamic_creative' => 'bool',
       'is_sac_cfca_terms_certified' => 'bool',
       'lifetime_budget' => 'unsigned int',
@@ -2570,6 +2572,29 @@ class AdAccount extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getMcmeConversions(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/mcmeconversions',
+      new AdsMcmeConversion(),
+      'EDGE',
+      AdsMcmeConversion::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getMinimumBudgets(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -3327,14 +3352,43 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'product_type' => 'product_type_enum',
     );
     $enums = array(
+      'product_type_enum' => AdsValueAdjustmentRuleCollectionProductTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
+      '/value_rule_set',
+      new AdsValueAdjustmentRuleCollection(),
+      'EDGE',
+      AdsValueAdjustmentRuleCollection::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createValueRuleSet(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'name' => 'string',
+      'product_type' => 'product_type_enum',
+      'rules' => 'list<map>',
+    );
+    $enums = array(
+      'product_type_enum' => AdsValueAdjustmentRuleCollectionProductTypeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
       '/value_rule_set',
       new AdsValueAdjustmentRuleCollection(),
       'EDGE',
@@ -3438,6 +3492,7 @@ class AdAccount extends AbstractCrudObject {
       'default_dsa_payor' => 'string',
       'end_advertiser' => 'string',
       'existing_customers' => 'list<string>',
+      'is_ba_skip_delayed_eligible' => 'bool',
       'is_notifications_enabled' => 'bool',
       'media_agency' => 'string',
       'name' => 'string',

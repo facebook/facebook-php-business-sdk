@@ -55,6 +55,7 @@ class AdSetFields extends AbstractEnum {
   const FULL_FUNNEL_EXPLORATION_MODE = 'full_funnel_exploration_mode';
   const ID = 'id';
   const INSTAGRAM_USER_ID = 'instagram_user_id';
+  const IS_BA_SKIP_DELAYED_ELIGIBLE = 'is_ba_skip_delayed_eligible';
   const IS_BUDGET_SCHEDULE_ENABLED = 'is_budget_schedule_enabled';
   const IS_DYNAMIC_CREATIVE = 'is_dynamic_creative';
   const ISSUES_INFO = 'issues_info';
@@ -134,6 +135,7 @@ class AdSetFields extends AbstractEnum {
       'full_funnel_exploration_mode' => 'string',
       'id' => 'string',
       'instagram_user_id' => 'string',
+      'is_ba_skip_delayed_eligible' => 'bool',
       'is_budget_schedule_enabled' => 'bool',
       'is_dynamic_creative' => 'bool',
       'issues_info' => 'list<AdCampaignIssuesInfo>',

@@ -28,6 +28,8 @@ class LeadGenFormPreviewDetailsFields extends AbstractEnum {
   const CHAT_ON_WHATSAPP_TEXT = 'chat_on_whatsapp_text';
   const CONTACT_INFORMATION_TEXT = 'contact_information_text';
   const CREATIVES_OVERVIEW_DEFAULT_TEXT = 'creatives_overview_default_text';
+  const CUSTOM_DISCLAIMER_EDITOR_STATE = 'custom_disclaimer_editor_state';
+  const CUSTOM_DISCLAIMER_TITLE = 'custom_disclaimer_title';
   const DATA_PRIVACY_POLICY_SETTING_DESCRIPTION = 'data_privacy_policy_setting_description';
   const DEFAULT_APPOINTMENT_SCHEDULING_INLINE_CONTEXT = 'default_appointment_scheduling_inline_context';
   const DEFAULT_DISQUALIFIED_END_COMPONENT = 'default_disqualified_end_component';
@@ -50,6 +52,7 @@ class LeadGenFormPreviewDetailsFields extends AbstractEnum {
   const PERSONAL_INFO_TEXT = 'personal_info_text';
   const PHONE_NUMBER_INLINE_CONTEXT_TEXT = 'phone_number_inline_context_text';
   const PRIVACY_POLICY_LINK_TEXT = 'privacy_policy_link_text';
+  const PRIVACY_POLICY_LINK_TEXT_FOR_OPTIONAL_PRIVACY_POLICY = 'privacy_policy_link_text_for_optional_privacy_policy';
   const PRIVACY_POLICY_TITLE_SECTION_TITLE_TEXT = 'privacy_policy_title_section_title_text';
   const PRIVACY_SETTING_DESCRIPTION = 'privacy_setting_description';
   const PRODUCTS_SECTION_HEADERS = 'products_section_headers';
@@ -58,6 +61,7 @@ class LeadGenFormPreviewDetailsFields extends AbstractEnum {
   const RETURN_TO_FACEBOOK_TEXT = 'return_to_facebook_text';
   const REVIEW_YOUR_INFO_TEXT = 'review_your_info_text';
   const SECURE_SHARING_TEXT = 'secure_sharing_text';
+  const SECURE_SHARING_TEXT_FOR_OPTIONAL_PRIVACY_POLICY = 'secure_sharing_text_for_optional_privacy_policy';
   const SLIDE_TO_SUBMIT_TEXT = 'slide_to_submit_text';
   const SOCIAL_PROOF_SECTION_HEADERS = 'social_proof_section_headers';
   const SUBMIT_BUTTON_TEXT = 'submit_button_text';
@@ -71,6 +75,8 @@ class LeadGenFormPreviewDetailsFields extends AbstractEnum {
       'chat_on_whatsapp_text' => 'string',
       'contact_information_text' => 'string',
       'creatives_overview_default_text' => 'string',
+      'custom_disclaimer_editor_state' => 'string',
+      'custom_disclaimer_title' => 'string',
       'data_privacy_policy_setting_description' => 'string',
       'default_appointment_scheduling_inline_context' => 'string',
       'default_disqualified_end_component' => 'Object',
@@ -93,6 +99,7 @@ class LeadGenFormPreviewDetailsFields extends AbstractEnum {
       'personal_info_text' => 'string',
       'phone_number_inline_context_text' => 'string',
       'privacy_policy_link_text' => 'string',
+      'privacy_policy_link_text_for_optional_privacy_policy' => 'string',
       'privacy_policy_title_section_title_text' => 'string',
       'privacy_setting_description' => 'string',
       'products_section_headers' => 'list<map<string, string>>',
@@ -101,6 +108,7 @@ class LeadGenFormPreviewDetailsFields extends AbstractEnum {
       'return_to_facebook_text' => 'string',
       'review_your_info_text' => 'string',
       'secure_sharing_text' => 'string',
+      'secure_sharing_text_for_optional_privacy_policy' => 'string',
       'slide_to_submit_text' => 'string',
       'social_proof_section_headers' => 'list<map<string, string>>',
       'submit_button_text' => 'string',

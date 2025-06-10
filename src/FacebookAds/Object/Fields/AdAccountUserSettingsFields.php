@@ -31,6 +31,7 @@ class AdAccountUserSettingsFields extends AbstractEnum {
   const AUTO_REVIEW_VIDEO_CAPTION = 'auto_review_video_caption';
   const CAMPAIGN_OVERVIEW_COLUMNS = 'campaign_overview_columns';
   const COLUMN_SUGGESTION_STATUS = 'column_suggestion_status';
+  const CONDITIONAL_FORMATTING_RULES = 'conditional_formatting_rules';
   const DEFAULT_ACCOUNT_OVERVIEW_AGEGENDER_METRICS = 'default_account_overview_agegender_metrics';
   const DEFAULT_ACCOUNT_OVERVIEW_LOCATION_METRICS = 'default_account_overview_location_metrics';
   const DEFAULT_ACCOUNT_OVERVIEW_METRICS = 'default_account_overview_metrics';
@@ -49,6 +50,8 @@ class AdAccountUserSettingsFields extends AbstractEnum {
   const HIDDEN_OPTIMIZATION_TIPS = 'hidden_optimization_tips';
   const ID = 'id';
   const IS_3P_AUTH_SETTING_SET = 'is_3p_auth_setting_set';
+  const IS_ADS_MANAGER_FOOTER_ROW_PREFERENCE_SET = 'is_ads_manager_footer_row_preference_set';
+  const IS_ADS_MANAGER_FOOTER_ROW_SHOWN = 'is_ads_manager_footer_row_shown';
   const IS_TEXT_VARIATION_NUX_CLOSE = 'is_text_variation_nux_close';
   const LAST_USED_COLUMNS = 'last_used_columns';
   const LAST_USED_PE_FILTERS = 'last_used_pe_filters';
@@ -93,6 +96,7 @@ class AdAccountUserSettingsFields extends AbstractEnum {
       'auto_review_video_caption' => 'bool',
       'campaign_overview_columns' => 'list<string>',
       'column_suggestion_status' => 'string',
+      'conditional_formatting_rules' => 'list<string>',
       'default_account_overview_agegender_metrics' => 'list<string>',
       'default_account_overview_location_metrics' => 'list<string>',
       'default_account_overview_metrics' => 'list<string>',
@@ -111,6 +115,8 @@ class AdAccountUserSettingsFields extends AbstractEnum {
       'hidden_optimization_tips' => 'list<map<string, bool>>',
       'id' => 'string',
       'is_3p_auth_setting_set' => 'bool',
+      'is_ads_manager_footer_row_preference_set' => 'bool',
+      'is_ads_manager_footer_row_shown' => 'bool',
       'is_text_variation_nux_close' => 'bool',
       'last_used_columns' => 'Object',
       'last_used_pe_filters' => 'list<Object>',

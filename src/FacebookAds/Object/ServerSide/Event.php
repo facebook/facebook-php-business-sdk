@@ -574,8 +574,8 @@ class Event implements ArrayAccess {
    * Sets the attribution data of the event.
    * @return $this
    */
-  public function setAttributionData($attribute_data) {
-    $this->container['attribute_data'] = $attribute_data;
+  public function setAttributionData($attribution_data) {
+    $this->container['attribution_data'] = $attribution_data;
     return $this;
   }
 

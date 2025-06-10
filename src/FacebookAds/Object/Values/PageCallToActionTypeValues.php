@@ -30,6 +30,7 @@ class PageCallToActionTypeValues extends AbstractEnum {
   const CHARITY_DONATE = 'CHARITY_DONATE';
   const CHECK_IN = 'CHECK_IN';
   const CONTACT_US = 'CONTACT_US';
+  const CREATOR_STOREFRONT = 'CREATOR_STOREFRONT';
   const DONATE_NOW = 'DONATE_NOW';
   const EMAIL = 'EMAIL';
   const FOLLOW_PAGE = 'FOLLOW_PAGE';

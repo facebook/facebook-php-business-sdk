@@ -14,6 +14,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdsValueAdjustmentRuleCollectionFields;
+use FacebookAds\Object\Values\AdsValueAdjustmentRuleCollectionProductTypeValues;
 
 /**
  * This class is auto-generated.
@@ -27,6 +28,13 @@ use FacebookAds\Object\Fields\AdsValueAdjustmentRuleCollectionFields;
 class AdsValueAdjustmentRuleCollection extends AbstractCrudObject {
 
   /**
+   * @deprecated getEndpoint function is deprecated
+   */
+  protected function getEndpoint() {
+    return 'value_rule_set';
+  }
+
+  /**
    * @return AdsValueAdjustmentRuleCollectionFields
    */
   public static function getFieldsEnum() {
@@ -35,6 +43,7 @@ class AdsValueAdjustmentRuleCollection extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['ProductType'] = AdsValueAdjustmentRuleCollectionProductTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -74,6 +83,32 @@ class AdsValueAdjustmentRuleCollection extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
+      '/',
+      new AdsValueAdjustmentRuleCollection(),
+      'NODE',
+      AdsValueAdjustmentRuleCollection::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'is_default_setting' => 'bool',
+      'name' => 'string',
+      'rules' => 'list<map>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
       '/',
       new AdsValueAdjustmentRuleCollection(),
       'NODE',

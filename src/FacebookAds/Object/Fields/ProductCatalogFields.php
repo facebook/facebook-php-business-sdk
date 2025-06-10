@@ -42,6 +42,7 @@ class ProductCatalogFields extends AbstractEnum {
   const USER_ACCESS_EXPIRE_TIME = 'user_access_expire_time';
   const VERTICAL = 'vertical';
   const ADDITIONAL_VERTICAL_OPTION = 'additional_vertical_option';
+  const BUSINESS_METADATA = 'business_metadata';
   const CATALOG_SEGMENT_FILTER = 'catalog_segment_filter';
   const CATALOG_SEGMENT_PRODUCT_SET_ID = 'catalog_segment_product_set_id';
   const DESTINATION_CATALOG_SETTINGS = 'destination_catalog_settings';
@@ -71,6 +72,7 @@ class ProductCatalogFields extends AbstractEnum {
       'user_access_expire_time' => 'datetime',
       'vertical' => 'string',
       'additional_vertical_option' => 'AdditionalVerticalOption',
+      'business_metadata' => 'map',
       'catalog_segment_filter' => 'Object',
       'catalog_segment_product_set_id' => 'string',
       'destination_catalog_settings' => 'map',
