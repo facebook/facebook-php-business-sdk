@@ -22,19 +22,31 @@ use FacebookAds\Enum\AbstractEnum;
 
 class IGUserExportForCAMFields extends AbstractEnum {
 
+  const AGE_BUCKET = 'age_bucket';
+  const BIOGRAPHY = 'biography';
+  const COUNTRY = 'country';
   const EMAIL = 'email';
+  const GENDER = 'gender';
   const ID = 'id';
+  const IS_ACCOUNT_VERIFIED = 'is_account_verified';
   const IS_PAID_PARTNERSHIP_MESSAGES_ENABLED = 'is_paid_partnership_messages_enabled';
   const MESSAGING_ID = 'messaging_id';
+  const ONBOARDED_STATUS = 'onboarded_status';
   const PORTFOLIO_URL = 'portfolio_url';
   const USERNAME = 'username';
 
   public function getFieldTypes() {
     return array(
+      'age_bucket' => 'string',
+      'biography' => 'string',
+      'country' => 'string',
       'email' => 'string',
+      'gender' => 'string',
       'id' => 'string',
+      'is_account_verified' => 'bool',
       'is_paid_partnership_messages_enabled' => 'bool',
       'messaging_id' => 'string',
+      'onboarded_status' => 'bool',
       'portfolio_url' => 'string',
       'username' => 'string',
     );

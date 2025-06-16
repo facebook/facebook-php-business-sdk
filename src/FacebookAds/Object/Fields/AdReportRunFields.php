@@ -29,6 +29,7 @@ class AdReportRunFields extends AbstractEnum {
   const DATE_START = 'date_start';
   const DATE_STOP = 'date_stop';
   const EMAILS = 'emails';
+  const ERROR_CODE = 'error_code';
   const FRIENDLY_NAME = 'friendly_name';
   const ID = 'id';
   const IS_ASYNC_EXPORT = 'is_async_export';
@@ -49,6 +50,7 @@ class AdReportRunFields extends AbstractEnum {
   const FIELDS = 'fields';
   const FILTERING = 'filtering';
   const LEVEL = 'level';
+  const LIMIT = 'limit';
   const PRODUCT_ID_LIMIT = 'product_id_limit';
   const SORT = 'sort';
   const SUMMARY = 'summary';
@@ -68,6 +70,7 @@ class AdReportRunFields extends AbstractEnum {
       'date_start' => 'string',
       'date_stop' => 'string',
       'emails' => 'list<string>',
+      'error_code' => 'unsigned int',
       'friendly_name' => 'string',
       'id' => 'string',
       'is_async_export' => 'int',
@@ -88,6 +91,7 @@ class AdReportRunFields extends AbstractEnum {
       'fields' => 'list<string>',
       'filtering' => 'list<Object>',
       'level' => 'Level',
+      'limit' => 'int',
       'product_id_limit' => 'int',
       'sort' => 'list<string>',
       'summary' => 'list<string>',

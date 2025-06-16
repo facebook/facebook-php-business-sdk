@@ -231,6 +231,7 @@ class ProductItem extends AbstractCrudObject {
     $param_types = array(
       'additional_image_urls' => 'list<string>',
       'additional_variant_attributes' => 'map',
+      'age_group' => 'age_group_enum',
       'android_app_name' => 'string',
       'android_class' => 'string',
       'android_package' => 'string',
@@ -307,6 +308,7 @@ class ProductItem extends AbstractCrudObject {
       'windows_phone_url' => 'string',
     );
     $enums = array(
+      'age_group_enum' => ProductItemAgeGroupValues::getInstance()->getValues(),
       'availability_enum' => ProductItemAvailabilityValues::getInstance()->getValues(),
       'commerce_tax_category_enum' => ProductItemCommerceTaxCategoryValues::getInstance()->getValues(),
       'condition_enum' => ProductItemConditionValues::getInstance()->getValues(),

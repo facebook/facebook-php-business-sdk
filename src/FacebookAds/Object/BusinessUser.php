@@ -16,6 +16,7 @@ use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\BusinessUserFields;
 use FacebookAds\Object\Values\BusinessUserInvitedUserTypeValues;
 use FacebookAds\Object\Values\BusinessUserRoleValues;
+use FacebookAds\Object\Values\BusinessUserTasksValues;
 
 /**
  * This class is auto-generated.
@@ -46,6 +47,7 @@ class BusinessUser extends AbstractCrudObject {
     $ref_enums = array();
     $ref_enums['InvitedUserType'] = BusinessUserInvitedUserTypeValues::getInstance()->getValues();
     $ref_enums['Role'] = BusinessUserRoleValues::getInstance()->getValues();
+    $ref_enums['Tasks'] = BusinessUserTasksValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -201,10 +203,12 @@ class BusinessUser extends AbstractCrudObject {
       'pending_email' => 'string',
       'role' => 'role_enum',
       'skip_verification_email' => 'bool',
+      'tasks' => 'list<tasks_enum>',
       'title' => 'string',
     );
     $enums = array(
       'role_enum' => BusinessUserRoleValues::getInstance()->getValues(),
+      'tasks_enum' => BusinessUserTasksValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

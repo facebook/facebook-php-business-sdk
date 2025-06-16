@@ -15,6 +15,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdsValueAdjustmentRuleCollectionFields;
 use FacebookAds\Object\Values\AdsValueAdjustmentRuleCollectionProductTypeValues;
+use FacebookAds\Object\Values\AdsValueAdjustmentRuleCollectionStatusValues;
 
 /**
  * This class is auto-generated.
@@ -44,9 +45,33 @@ class AdsValueAdjustmentRuleCollection extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['ProductType'] = AdsValueAdjustmentRuleCollectionProductTypeValues::getInstance()->getValues();
+    $ref_enums['Status'] = AdsValueAdjustmentRuleCollectionStatusValues::getInstance()->getValues();
     return $ref_enums;
   }
 
+
+  public function createDeleteRuleSet(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/delete_rule_set',
+      new AdsValueAdjustmentRuleCollection(),
+      'EDGE',
+      AdsValueAdjustmentRuleCollection::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
   public function getRules(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();

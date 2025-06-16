@@ -20,23 +20,23 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class ShadowIGMediaBoostedInsightsResultFields extends AbstractEnum {
+class CopyrightOwnershipTransferFields extends AbstractEnum {
 
-  const DESCRIPTION = 'description';
-  const NAME = 'name';
-  const ORGANIC_MEDIA_ID = 'organic_media_id';
-  const SOURCE_TYPE = 'source_type';
-  const TITLE = 'title';
-  const VALUES = 'values';
+  const ID = 'id';
+  const RECEIVING_RIGHTS_HOLDER = 'receiving_rights_holder';
+  const SENDING_RIGHTS_HOLDER = 'sending_rights_holder';
+  const STATUS = 'status';
+  const TRANSFER_TERRITORIES = 'transfer_territories';
+  const TRANSFER_TIME = 'transfer_time';
 
   public function getFieldTypes() {
     return array(
-      'description' => 'string',
-      'name' => 'string',
-      'organic_media_id' => 'string',
-      'source_type' => 'string',
-      'title' => 'string',
-      'values' => 'list<Object>',
+      'id' => 'string',
+      'receiving_rights_holder' => 'Profile',
+      'sending_rights_holder' => 'Profile',
+      'status' => 'string',
+      'transfer_territories' => 'list<string>',
+      'transfer_time' => 'datetime',
     );
   }
 }

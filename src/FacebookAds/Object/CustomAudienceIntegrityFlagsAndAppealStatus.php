@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\BespokePartnerGuidanceLaserFields;
+use FacebookAds\Object\Fields\CustomAudienceIntegrityFlagsAndAppealStatusFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\BespokePartnerGuidanceLaserFields;
  *
  */
 
-class BespokePartnerGuidanceLaser extends AbstractCrudObject {
+class CustomAudienceIntegrityFlagsAndAppealStatus extends AbstractObject {
 
   /**
-   * @return BespokePartnerGuidanceLaserFields
+   * @return CustomAudienceIntegrityFlagsAndAppealStatusFields
    */
   public static function getFieldsEnum() {
-    return BespokePartnerGuidanceLaserFields::getInstance();
+    return CustomAudienceIntegrityFlagsAndAppealStatusFields::getInstance();
   }
 
   protected static function getReferencedEnums() {

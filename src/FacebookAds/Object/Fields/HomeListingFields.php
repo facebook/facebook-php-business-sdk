@@ -74,6 +74,8 @@ class HomeListingFields extends AbstractEnum {
   const PRICE = 'price';
   const PROPERTY_TYPE = 'property_type';
   const SANITIZED_IMAGES = 'sanitized_images';
+  const SECURITYDEPOSIT_CURRENCY = 'securitydeposit_currency';
+  const SECURITYDEPOSIT_PRICE = 'securitydeposit_price';
   const TAGS = 'tags';
   const UNIT_PRICE = 'unit_price';
   const URL = 'url';
@@ -134,6 +136,8 @@ class HomeListingFields extends AbstractEnum {
       'price' => 'string',
       'property_type' => 'string',
       'sanitized_images' => 'list<string>',
+      'securitydeposit_currency' => 'string',
+      'securitydeposit_price' => 'string',
       'tags' => 'list<string>',
       'unit_price' => 'Object',
       'url' => 'string',

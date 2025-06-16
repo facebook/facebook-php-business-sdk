@@ -22,11 +22,13 @@ use FacebookAds\Enum\AbstractEnum;
 
 class CTXDefaultOptimizationConfigFields extends AbstractEnum {
 
+  const DESTINATION_TYPE = 'destination_type';
   const OBJECTIVE = 'objective';
   const OPTIMIZATION_GOAL = 'optimization_goal';
 
   public function getFieldTypes() {
     return array(
+      'destination_type' => 'string',
       'objective' => 'string',
       'optimization_goal' => 'string',
     );

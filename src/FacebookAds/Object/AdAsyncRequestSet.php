@@ -32,7 +32,7 @@ class AdAsyncRequestSet extends AbstractCrudObject {
    * @deprecated getEndpoint function is deprecated
    */
   protected function getEndpoint() {
-    return 'asyncadrequestsets';
+    return 'asyncadcreatives';
   }
 
   /**

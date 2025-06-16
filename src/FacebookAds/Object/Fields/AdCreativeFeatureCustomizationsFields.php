@@ -26,6 +26,7 @@ class AdCreativeFeatureCustomizationsFields extends AbstractEnum {
   const CATALOG_FEED_TAG_NAME = 'catalog_feed_tag_name';
   const FONT_NAME = 'font_name';
   const IMAGE_CROP_STYLE = 'image_crop_style';
+  const PE_CAROUSEL = 'pe_carousel';
   const SHOWCASE_CARD_DISPLAY = 'showcase_card_display';
   const TEXT_EXTRACTION = 'text_extraction';
   const TEXT_STYLE = 'text_style';
@@ -36,6 +37,7 @@ class AdCreativeFeatureCustomizationsFields extends AbstractEnum {
       'catalog_feed_tag_name' => 'string',
       'font_name' => 'string',
       'image_crop_style' => 'string',
+      'pe_carousel' => 'Object',
       'showcase_card_display' => 'string',
       'text_extraction' => 'Object',
       'text_style' => 'string',

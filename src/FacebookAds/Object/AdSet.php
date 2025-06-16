@@ -20,7 +20,9 @@ use FacebookAds\Object\Values\AdCampaignDeliveryEstimateOptimizationGoalValues;
 use FacebookAds\Object\Values\AdDatePresetValues;
 use FacebookAds\Object\Values\AdSetBidStrategyValues;
 use FacebookAds\Object\Values\AdSetBillingEventValues;
+use FacebookAds\Object\Values\AdSetBudgetSourceValues;
 use FacebookAds\Object\Values\AdSetConfiguredStatusValues;
+use FacebookAds\Object\Values\AdSetCreativeSequenceRepetitionPatternValues;
 use FacebookAds\Object\Values\AdSetDatePresetValues;
 use FacebookAds\Object\Values\AdSetDestinationTypeValues;
 use FacebookAds\Object\Values\AdSetEffectiveStatusValues;
@@ -84,6 +86,8 @@ class AdSet extends AbstractArchivableCrudObject
     $ref_enums['EffectiveStatus'] = AdSetEffectiveStatusValues::getInstance()->getValues();
     $ref_enums['OptimizationGoal'] = AdSetOptimizationGoalValues::getInstance()->getValues();
     $ref_enums['Status'] = AdSetStatusValues::getInstance()->getValues();
+    $ref_enums['BudgetSource'] = AdSetBudgetSourceValues::getInstance()->getValues();
+    $ref_enums['CreativeSequenceRepetitionPattern'] = AdSetCreativeSequenceRepetitionPatternValues::getInstance()->getValues();
     $ref_enums['DatePreset'] = AdSetDatePresetValues::getInstance()->getValues();
     $ref_enums['DestinationType'] = AdSetDestinationTypeValues::getInstance()->getValues();
     $ref_enums['ExecutionOptions'] = AdSetExecutionOptionsValues::getInstance()->getValues();
@@ -435,6 +439,7 @@ class AdSet extends AbstractArchivableCrudObject
       'fields' => 'list<string>',
       'filtering' => 'list<Object>',
       'level' => 'level_enum',
+      'limit' => 'int',
       'product_id_limit' => 'int',
       'sort' => 'list<string>',
       'summary' => 'list<string>',
@@ -486,6 +491,7 @@ class AdSet extends AbstractArchivableCrudObject
       'fields' => 'list<string>',
       'filtering' => 'list<Object>',
       'level' => 'level_enum',
+      'limit' => 'int',
       'product_id_limit' => 'int',
       'sort' => 'list<string>',
       'summary' => 'list<string>',
@@ -526,6 +532,8 @@ class AdSet extends AbstractArchivableCrudObject
 
     $param_types = array(
       'bid_amount' => 'unsigned int',
+      'daily_budget' => 'unsigned int',
+      'is_direct_send_campaign' => 'bool',
       'lifetime_budget' => 'unsigned int',
       'lifetime_in_days' => 'unsigned int',
       'optimization_goal' => 'optimization_goal_enum',
@@ -664,6 +672,7 @@ class AdSet extends AbstractArchivableCrudObject
       'campaign_attribution' => 'Object',
       'campaign_spec' => 'Object',
       'creative_sequence' => 'list<string>',
+      'creative_sequence_repetition_pattern' => 'creative_sequence_repetition_pattern_enum',
       'daily_budget' => 'unsigned int',
       'daily_imps' => 'unsigned int',
       'daily_min_spend_target' => 'unsigned int',
@@ -677,6 +686,7 @@ class AdSet extends AbstractArchivableCrudObject
       'existing_customer_budget_percentage' => 'unsigned int',
       'full_funnel_exploration_mode' => 'full_funnel_exploration_mode_enum',
       'is_ba_skip_delayed_eligible' => 'bool',
+      'is_incremental_attribution_enabled' => 'bool',
       'is_sac_cfca_terms_certified' => 'bool',
       'lifetime_budget' => 'unsigned int',
       'lifetime_imps' => 'unsigned int',
@@ -706,6 +716,7 @@ class AdSet extends AbstractArchivableCrudObject
     $enums = array(
       'bid_strategy_enum' => AdSetBidStrategyValues::getInstance()->getValues(),
       'billing_event_enum' => AdSetBillingEventValues::getInstance()->getValues(),
+      'creative_sequence_repetition_pattern_enum' => AdSetCreativeSequenceRepetitionPatternValues::getInstance()->getValues(),
       'destination_type_enum' => AdSetDestinationTypeValues::getInstance()->getValues(),
       'execution_options_enum' => AdSetExecutionOptionsValues::getInstance()->getValues(),
       'full_funnel_exploration_mode_enum' => AdSetFullFunnelExplorationModeValues::getInstance()->getValues(),

@@ -50,6 +50,8 @@ class EventFields extends AbstractEnum {
   const REGISTRATION_SETTING = 'registration_setting';
   const SCHEDULED_PUBLISH_TIME = 'scheduled_publish_time';
   const START_TIME = 'start_time';
+  const SUB_CATEGORIES = 'sub_categories';
+  const TICKET_SELLING_STATUS = 'ticket_selling_status';
   const TICKET_SETTING = 'ticket_setting';
   const TICKET_URI = 'ticket_uri';
   const TICKET_URI_START_SALES_TIME = 'ticket_uri_start_sales_time';
@@ -89,6 +91,8 @@ class EventFields extends AbstractEnum {
       'registration_setting' => 'EventRegistrationSetting',
       'scheduled_publish_time' => 'string',
       'start_time' => 'string',
+      'sub_categories' => 'list<string>',
+      'ticket_selling_status' => 'string',
       'ticket_setting' => 'EventTicketSetting',
       'ticket_uri' => 'string',
       'ticket_uri_start_sales_time' => 'string',

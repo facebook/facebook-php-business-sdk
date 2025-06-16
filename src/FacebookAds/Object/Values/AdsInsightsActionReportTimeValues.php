@@ -24,5 +24,6 @@ class AdsInsightsActionReportTimeValues extends AbstractEnum {
 
   const CONVERSION = 'conversion';
   const IMPRESSION = 'impression';
+  const LIFETIME = 'lifetime';
   const MIXED = 'mixed';
 }

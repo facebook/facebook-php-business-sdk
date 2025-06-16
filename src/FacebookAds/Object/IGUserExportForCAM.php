@@ -39,6 +39,105 @@ class IGUserExportForCAM extends AbstractCrudObject {
   }
 
 
+  public function getBrandedContentMedia(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/branded_content_media',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getInsights(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'breakdown' => 'breakdown_enum',
+      'metrics' => 'list<metrics_enum>',
+      'period' => 'period_enum',
+      'time_range' => 'time_range_enum',
+    );
+    $enums = array(
+      'breakdown_enum' => array(
+        'AGE',
+        'FOLLOW_TYPE',
+        'GENDER',
+        'MEDIA_TYPE',
+        'TOP_CITIES',
+        'TOP_COUNTRIES',
+      ),
+      'metrics_enum' => array(
+        'CREATOR_ENGAGED_ACCOUNTS',
+        'CREATOR_REACH',
+        'REELS_HOOK_RATE',
+        'REELS_INTERACTION_RATE',
+        'TOTAL_FOLLOWERS',
+      ),
+      'period_enum' => array(
+        'DAY',
+        'OVERALL',
+      ),
+      'time_range_enum' => array(
+        'LAST_14_DAYS',
+        'LAST_90_DAYS',
+        'LIFETIME',
+        'THIS_MONTH',
+        'THIS_WEEK',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/insights',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getRecentMedia(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/recent_media',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 

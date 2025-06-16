@@ -22,13 +22,21 @@ use FacebookAds\Enum\AbstractEnum;
 
 class CreativeMulticellTestConfigFields extends AbstractEnum {
 
+  const BUDGET_PERCENTAGE = 'budget_percentage';
+  const CONFIGURED_CELL_COUNT = 'configured_cell_count';
   const DAILY_BUDGET = 'daily_budget';
+  const ENTRY_SOURCE = 'entry_source';
   const LIFETIME_BUDGET = 'lifetime_budget';
+  const USE_EXISTING_DAILY_BUDGET = 'use_existing_daily_budget';
 
   public function getFieldTypes() {
     return array(
+      'budget_percentage' => 'int',
+      'configured_cell_count' => 'int',
       'daily_budget' => 'int',
+      'entry_source' => 'string',
       'lifetime_budget' => 'int',
+      'use_existing_daily_budget' => 'bool',
     );
   }
 }

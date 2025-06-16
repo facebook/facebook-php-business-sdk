@@ -30,6 +30,7 @@ class AdAssetTargetRuleTargetingFields extends AbstractEnum {
   const GEO_LOCATIONS = 'geo_locations';
   const INSTAGRAM_POSITIONS = 'instagram_positions';
   const PUBLISHER_PLATFORMS = 'publisher_platforms';
+  const THREADS_POSITIONS = 'threads_positions';
 
   public function getFieldTypes() {
     return array(
@@ -41,6 +42,7 @@ class AdAssetTargetRuleTargetingFields extends AbstractEnum {
       'geo_locations' => 'TargetingGeoLocation',
       'instagram_positions' => 'list<string>',
       'publisher_platforms' => 'list<string>',
+      'threads_positions' => 'list<string>',
     );
   }
 }

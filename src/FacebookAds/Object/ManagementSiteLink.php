@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AdsValueAdjustmentRuleFields;
+use FacebookAds\Object\Fields\ManagementSiteLinkFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\AdsValueAdjustmentRuleFields;
  *
  */
 
-class AdsValueAdjustmentRule extends AbstractCrudObject {
+class ManagementSiteLink extends AbstractCrudObject {
 
   /**
-   * @return AdsValueAdjustmentRuleFields
+   * @return ManagementSiteLinkFields
    */
   public static function getFieldsEnum() {
-    return AdsValueAdjustmentRuleFields::getInstance();
+    return ManagementSiteLinkFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -38,29 +38,6 @@ class AdsValueAdjustmentRule extends AbstractCrudObject {
     return $ref_enums;
   }
 
-
-  public function getCriterias(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/criterias',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
 
   public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
@@ -75,9 +52,9 @@ class AdsValueAdjustmentRule extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new AdsValueAdjustmentRule(),
+      new ManagementSiteLink(),
       'NODE',
-      AdsValueAdjustmentRule::getFieldsEnum()->getValues(),
+      ManagementSiteLink::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

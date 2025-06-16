@@ -25,6 +25,7 @@ class AdAssetOnsiteDestinationsFields extends AbstractEnum {
   const AUTO_OPTIMIZATION = 'auto_optimization';
   const DETAILS_PAGE_PRODUCT_ID = 'details_page_product_id';
   const SHOP_COLLECTION_PRODUCT_SET_ID = 'shop_collection_product_set_id';
+  const SOURCE = 'source';
   const STOREFRONT_SHOP_ID = 'storefront_shop_id';
 
   public function getFieldTypes() {
@@ -32,6 +33,7 @@ class AdAssetOnsiteDestinationsFields extends AbstractEnum {
       'auto_optimization' => 'string',
       'details_page_product_id' => 'string',
       'shop_collection_product_set_id' => 'string',
+      'source' => 'string',
       'storefront_shop_id' => 'string',
     );
   }

@@ -24,4 +24,5 @@ class AdCreativeLinkDataImageOverlaySpecCustomTextTypeValues extends AbstractEnu
 
   const FREE_SHIPPING = 'free_shipping';
   const POPULAR = 'popular';
+  const SALE = 'sale';
 }

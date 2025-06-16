@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\SplitTestConfigFields;
+use FacebookAds\Object\Fields\AdCreativeMediaSourcingSpecFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\SplitTestConfigFields;
  *
  */
 
-class SplitTestConfig extends AbstractCrudObject {
+class AdCreativeMediaSourcingSpec extends AbstractObject {
 
   /**
-   * @return SplitTestConfigFields
+   * @return AdCreativeMediaSourcingSpecFields
    */
   public static function getFieldsEnum() {
-    return SplitTestConfigFields::getInstance();
+    return AdCreativeMediaSourcingSpecFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -38,28 +38,5 @@ class SplitTestConfig extends AbstractCrudObject {
     return $ref_enums;
   }
 
-
-  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/',
-      new SplitTestConfig(),
-      'NODE',
-      SplitTestConfig::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
 
 }

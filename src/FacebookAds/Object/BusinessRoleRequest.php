@@ -15,6 +15,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\BusinessRoleRequestFields;
 use FacebookAds\Object\Values\BusinessRoleRequestRoleValues;
+use FacebookAds\Object\Values\BusinessRoleRequestTasksValues;
 
 /**
  * This class is auto-generated.
@@ -37,6 +38,7 @@ class BusinessRoleRequest extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['Role'] = BusinessRoleRequestRoleValues::getInstance()->getValues();
+    $ref_enums['Tasks'] = BusinessRoleRequestTasksValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -92,9 +94,11 @@ class BusinessRoleRequest extends AbstractCrudObject {
 
     $param_types = array(
       'role' => 'role_enum',
+      'tasks' => 'list<tasks_enum>',
     );
     $enums = array(
       'role_enum' => BusinessRoleRequestRoleValues::getInstance()->getValues(),
+      'tasks_enum' => BusinessRoleRequestTasksValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

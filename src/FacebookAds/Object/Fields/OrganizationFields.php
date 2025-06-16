@@ -22,18 +22,14 @@ use FacebookAds\Enum\AbstractEnum;
 
 class OrganizationFields extends AbstractEnum {
 
-  const HQ_COUNTRY = 'hq_country';
   const ID = 'id';
   const LEGAL_ENTITY_NAME = 'legal_entity_name';
-  const MASTER_BM_ID = 'master_bm_id';
   const OWNER_BUSINESS = 'owner_business';
 
   public function getFieldTypes() {
     return array(
-      'hq_country' => 'string',
       'id' => 'string',
       'legal_entity_name' => 'string',
-      'master_bm_id' => 'string',
       'owner_business' => 'Business',
     );
   }

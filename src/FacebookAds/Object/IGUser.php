@@ -465,29 +465,6 @@ class IGUser extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createInstagramBackedThreadsUser(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/instagram_backed_threads_user',
-      new ThreadsUser(),
-      'EDGE',
-      ThreadsUser::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getLiveMedia(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -826,6 +803,31 @@ class IGUser extends AbstractCrudObject {
       new AbstractCrudObject(),
       'EDGE',
       array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getWelcomeMessageFlows(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'app_id' => 'string',
+      'flow_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/welcome_message_flows',
+      new ShadowIGUserCTXPartnerAppWelcomeMessageFlow(),
+      'EDGE',
+      ShadowIGUserCTXPartnerAppWelcomeMessageFlow::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

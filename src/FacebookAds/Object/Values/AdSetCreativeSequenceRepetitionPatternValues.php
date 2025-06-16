@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -18,19 +18,10 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static AdSetCreativeSequenceRepetitionPatternValues getInstance()
  */
+class AdSetCreativeSequenceRepetitionPatternValues extends AbstractEnum {
 
-class AdAccountSuggestedTagFields extends AbstractEnum {
-
-  const PRODUCT_ID = 'product_id';
-  const X = 'x';
-  const Y = 'y';
-
-  public function getFieldTypes() {
-    return array(
-      'product_id' => 'int',
-      'x' => 'float',
-      'y' => 'float',
-    );
-  }
+  const FULL_SEQUENCE = 'FULL_SEQUENCE';
+  const LAST_AD = 'LAST_AD';
 }

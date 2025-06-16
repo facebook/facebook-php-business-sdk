@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\KeywordDeliveryReportFields;
+use FacebookAds\Object\Fields\AIGeneratedProductImageFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\KeywordDeliveryReportFields;
  *
  */
 
-class KeywordDeliveryReport extends AbstractObject {
+class AIGeneratedProductImage extends AbstractObject {
 
   /**
-   * @return KeywordDeliveryReportFields
+   * @return AIGeneratedProductImageFields
    */
   public static function getFieldsEnum() {
-    return KeywordDeliveryReportFields::getInstance();
+    return AIGeneratedProductImageFields::getInstance();
   }
 
   protected static function getReferencedEnums() {

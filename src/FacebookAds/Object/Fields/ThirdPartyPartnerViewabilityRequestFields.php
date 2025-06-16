@@ -24,6 +24,7 @@ class ThirdPartyPartnerViewabilityRequestFields extends AbstractEnum {
 
   const CREATED_TIME = 'created_time';
   const DESCRIPTION = 'description';
+  const DS = 'ds';
   const HOUR = 'hour';
   const ID = 'id';
   const METRIC = 'metric';
@@ -37,6 +38,7 @@ class ThirdPartyPartnerViewabilityRequestFields extends AbstractEnum {
     return array(
       'created_time' => 'datetime',
       'description' => 'string',
+      'ds' => 'string',
       'hour' => 'datetime',
       'id' => 'string',
       'metric' => 'Metric',

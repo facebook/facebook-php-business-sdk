@@ -20,21 +20,17 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class BespokePartnerGuidanceLaserFields extends AbstractEnum {
+class LeadGenClientValidationRulesFields extends AbstractEnum {
 
-  const BUSINESS = 'business';
-  const CAMPAIGN_GROUP = 'campaign_group';
-  const CPA_IMPROVEMENT = 'cpa_improvement';
-  const GUIDANCE_TYPE = 'guidance_type';
-  const ID = 'id';
+  const EXCLUDE_EMOJI_AND_SPECIAL_CHARS_ENABLED = 'exclude_emoji_and_special_chars_enabled';
+  const MAX_LENGTH_VALUE = 'max_length_value';
+  const MIN_LENGTH_VALUE = 'min_length_value';
 
   public function getFieldTypes() {
     return array(
-      'business' => 'Business',
-      'campaign_group' => 'Campaign',
-      'cpa_improvement' => 'float',
-      'guidance_type' => 'string',
-      'id' => 'string',
+      'exclude_emoji_and_special_chars_enabled' => 'bool',
+      'max_length_value' => 'int',
+      'min_length_value' => 'int',
     );
   }
 }

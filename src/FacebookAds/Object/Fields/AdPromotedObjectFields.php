@@ -50,9 +50,11 @@ class AdPromotedObjectFields extends AbstractEnum {
   const PRODUCT_ITEM_ID = 'product_item_id';
   const PRODUCT_SET = 'product_set';
   const PRODUCT_SET_ID = 'product_set_id';
+  const PRODUCT_SET_OPTIMIZATION = 'product_set_optimization';
   const RETENTION_DAYS = 'retention_days';
   const VALUE_SEMANTIC_TYPE = 'value_semantic_type';
   const VARIATION = 'variation';
+  const WHATS_APP_BUSINESS_PHONE_NUMBER_ID = 'whats_app_business_phone_number_id';
   const WHATSAPP_PHONE_NUMBER = 'whatsapp_phone_number';
 
   public function getFieldTypes() {
@@ -85,9 +87,11 @@ class AdPromotedObjectFields extends AbstractEnum {
       'product_item_id' => 'string',
       'product_set' => 'ProductSet',
       'product_set_id' => 'string',
+      'product_set_optimization' => 'string',
       'retention_days' => 'string',
       'value_semantic_type' => 'string',
       'variation' => 'string',
+      'whats_app_business_phone_number_id' => 'string',
       'whatsapp_phone_number' => 'string',
     );
   }

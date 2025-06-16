@@ -25,4 +25,5 @@ class VehicleAvailabilityValues extends AbstractEnum {
   const AVAILABLE = 'AVAILABLE';
   const NOT_AVAILABLE = 'NOT_AVAILABLE';
   const PENDING = 'PENDING';
+  const UNKNOWN = 'UNKNOWN';
 }

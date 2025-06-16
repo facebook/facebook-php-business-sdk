@@ -107,7 +107,11 @@ class OpenBridgeConfiguration extends AbstractCrudObject {
       'instance_id' => 'string',
       'instance_version' => 'string',
       'is_sgw_instance' => 'bool',
+      'is_sgw_pixel_from_meta_pixel' => 'bool',
       'partner_name' => 'string',
+      'sgw_account_id' => 'string',
+      'sgw_instance_url' => 'string',
+      'sgw_pixel_id' => 'unsigned int',
     );
     $enums = array(
     );

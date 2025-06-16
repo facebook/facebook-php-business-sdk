@@ -20,25 +20,15 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class SplitTestConfigFields extends AbstractEnum {
+class AdCreativeFormatTransformationSpecFields extends AbstractEnum {
 
-  const BUDGET = 'budget';
-  const EARLY_WINNER_DECLARATION_ENABLED = 'early_winner_declaration_enabled';
-  const END_TIME = 'end_time';
-  const SPLITS = 'splits';
-  const START_TIME = 'start_time';
-  const TEST_VARIABLE = 'test_variable';
-  const ID = 'id';
+  const DATA_SOURCE = 'data_source';
+  const FORMAT = 'format';
 
   public function getFieldTypes() {
     return array(
-      'budget' => 'int',
-      'early_winner_declaration_enabled' => 'bool',
-      'end_time' => 'datetime',
-      'splits' => 'list<int>',
-      'start_time' => 'datetime',
-      'test_variable' => 'string',
-      'id' => 'string',
+      'data_source' => 'list<string>',
+      'format' => 'string',
     );
   }
 }

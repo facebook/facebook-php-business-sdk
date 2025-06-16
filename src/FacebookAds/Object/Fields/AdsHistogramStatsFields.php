@@ -62,6 +62,9 @@ class AdsHistogramStatsFields extends AbstractEnum {
   const ACTION_VIDEO_SOUND = 'action_video_sound';
   const ACTION_VIDEO_TYPE = 'action_video_type';
   const DDA = 'dda';
+  const INCREMENTALITY = 'incrementality';
+  const INCREMENTALITY_ALL_CONVERSIONS = 'incrementality_all_conversions';
+  const INCREMENTALITY_FIRST_CONVERSION = 'incrementality_first_conversion';
   const INLINE = 'inline';
   const INTERACTIVE_COMPONENT_STICKER_ID = 'interactive_component_sticker_id';
   const INTERACTIVE_COMPONENT_STICKER_RESPONSE = 'interactive_component_sticker_response';
@@ -115,6 +118,9 @@ class AdsHistogramStatsFields extends AbstractEnum {
       'action_video_sound' => 'string',
       'action_video_type' => 'string',
       'dda' => 'list<int>',
+      'incrementality' => 'list<int>',
+      'incrementality_all_conversions' => 'list<int>',
+      'incrementality_first_conversion' => 'list<int>',
       'inline' => 'list<int>',
       'interactive_component_sticker_id' => 'string',
       'interactive_component_sticker_response' => 'string',

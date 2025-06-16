@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AdAccountSuggestedTagFields;
+use FacebookAds\Object\Fields\AdCampaignGroupAgencyFeeConfigForApiFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\AdAccountSuggestedTagFields;
  *
  */
 
-class AdAccountSuggestedTag extends AbstractObject {
+class AdCampaignGroupAgencyFeeConfigForApi extends AbstractObject {
 
   /**
-   * @return AdAccountSuggestedTagFields
+   * @return AdCampaignGroupAgencyFeeConfigForApiFields
    */
   public static function getFieldsEnum() {
-    return AdAccountSuggestedTagFields::getInstance();
+    return AdCampaignGroupAgencyFeeConfigForApiFields::getInstance();
   }
 
   protected static function getReferencedEnums() {

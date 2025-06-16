@@ -81,6 +81,7 @@ class AdCreativeFields extends AbstractEnum {
   const PRODUCT_SET_ID = 'product_set_id';
   const RECOMMENDER_SETTINGS = 'recommender_settings';
   const REGIONAL_REGULATION_DISCLAIMER_SPEC = 'regional_regulation_disclaimer_spec';
+  const SOURCE_FACEBOOK_POST_ID = 'source_facebook_post_id';
   const SOURCE_INSTAGRAM_MEDIA_ID = 'source_instagram_media_id';
   const STATUS = 'status';
   const TEMPLATE_URL = 'template_url';
@@ -155,6 +156,7 @@ class AdCreativeFields extends AbstractEnum {
       'product_set_id' => 'string',
       'recommender_settings' => 'AdCreativeRecommenderSettings',
       'regional_regulation_disclaimer_spec' => 'AdCreativeRegionalRegulationDisclaimer',
+      'source_facebook_post_id' => 'string',
       'source_instagram_media_id' => 'string',
       'status' => 'Status',
       'template_url' => 'string',
