@@ -29,6 +29,7 @@ class AdCreativeSourcingSpecFields extends AbstractEnum {
   const PROMOTION_METADATA_SPEC = 'promotion_metadata_spec';
   const SITE_LINKS_SPEC = 'site_links_spec';
   const SOURCE_URL = 'source_url';
+  const WEBSITE_SUMMARY_SPEC = 'website_summary_spec';
 
   public function getFieldTypes() {
     return array(
@@ -39,6 +40,7 @@ class AdCreativeSourcingSpecFields extends AbstractEnum {
       'promotion_metadata_spec' => 'list<AdCreativePromotionMetadataSpec>',
       'site_links_spec' => 'list<AdCreativeSiteLinksSpec>',
       'source_url' => 'string',
+      'website_summary_spec' => 'Object',
     );
   }
 }

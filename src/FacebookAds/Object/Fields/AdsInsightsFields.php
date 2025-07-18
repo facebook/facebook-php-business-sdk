@@ -131,6 +131,7 @@ class AdsInsightsFields extends AbstractEnum {
   const LANDING_PAGE_VIEW_ACTIONS_PER_LINK_CLICK = 'landing_page_view_actions_per_link_click';
   const LANDING_PAGE_VIEW_PER_LINK_CLICK = 'landing_page_view_per_link_click';
   const LANDING_PAGE_VIEW_PER_PURCHASE_RATE = 'landing_page_view_per_purchase_rate';
+  const LINK_CLICKS_PER_RESULTS = 'link_clicks_per_results';
   const LOCATION = 'location';
   const MARKETING_MESSAGES_CLICK_RATE_BENCHMARK = 'marketing_messages_click_rate_benchmark';
   const MARKETING_MESSAGES_COST_PER_DELIVERED = 'marketing_messages_cost_per_delivered';
@@ -174,6 +175,7 @@ class AdsInsightsFields extends AbstractEnum {
   const PRODUCT_GROUP_RETAILER_ID = 'product_group_retailer_id';
   const PRODUCT_NAME = 'product_name';
   const PRODUCT_RETAILER_ID = 'product_retailer_id';
+  const PRODUCT_VIEWS = 'product_views';
   const PURCHASE_PER_LANDING_PAGE_VIEW = 'purchase_per_landing_page_view';
   const PURCHASE_ROAS = 'purchase_roas';
   const PURCHASES_PER_LINK_CLICK = 'purchases_per_link_click';
@@ -186,6 +188,7 @@ class AdsInsightsFields extends AbstractEnum {
   const SHOPS_ASSISTED_PURCHASES = 'shops_assisted_purchases';
   const SOCIAL_SPEND = 'social_spend';
   const SPEND = 'spend';
+  const TOTAL_CARD_VIEW = 'total_card_view';
   const TOTAL_POSTBACKS = 'total_postbacks';
   const TOTAL_POSTBACKS_DETAILED = 'total_postbacks_detailed';
   const TOTAL_POSTBACKS_DETAILED_V4 = 'total_postbacks_detailed_v4';
@@ -333,6 +336,7 @@ class AdsInsightsFields extends AbstractEnum {
       'landing_page_view_actions_per_link_click' => 'string',
       'landing_page_view_per_link_click' => 'string',
       'landing_page_view_per_purchase_rate' => 'string',
+      'link_clicks_per_results' => 'list<Object>',
       'location' => 'string',
       'marketing_messages_click_rate_benchmark' => 'string',
       'marketing_messages_cost_per_delivered' => 'string',
@@ -376,6 +380,7 @@ class AdsInsightsFields extends AbstractEnum {
       'product_group_retailer_id' => 'string',
       'product_name' => 'string',
       'product_retailer_id' => 'string',
+      'product_views' => 'string',
       'purchase_per_landing_page_view' => 'string',
       'purchase_roas' => 'list<AdsActionStats>',
       'purchases_per_link_click' => 'string',
@@ -388,6 +393,7 @@ class AdsInsightsFields extends AbstractEnum {
       'shops_assisted_purchases' => 'string',
       'social_spend' => 'string',
       'spend' => 'string',
+      'total_card_view' => 'string',
       'total_postbacks' => 'string',
       'total_postbacks_detailed' => 'list<AdsActionStats>',
       'total_postbacks_detailed_v4' => 'list<AdsActionStats>',

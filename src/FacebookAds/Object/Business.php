@@ -53,6 +53,7 @@ use FacebookAds\Object\Values\ManagedPartnerBusinessPartitionTypeValues;
 use FacebookAds\Object\Values\ManagedPartnerBusinessSurveyBusinessTypeValues;
 use FacebookAds\Object\Values\ManagedPartnerBusinessTimezoneIdValues;
 use FacebookAds\Object\Values\ManagedPartnerBusinessVerticalValues;
+use FacebookAds\Object\Values\OmegaCustomerTrxProductTypesValues;
 use FacebookAds\Object\Values\OmegaCustomerTrxTypeValues;
 use FacebookAds\Object\Values\ProductCatalogAdditionalVerticalOptionValues;
 use FacebookAds\Object\Values\ProductCatalogVerticalValues;
@@ -736,15 +737,21 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'account_ids' => 'list<unsigned int>',
+      'advertiser_name' => 'string',
+      'billing_period_end' => 'string',
+      'billing_period_start' => 'string',
       'end_date' => 'string',
       'invoice_id' => 'string',
       'issue_end_date' => 'string',
       'issue_start_date' => 'string',
+      'product_types' => 'list<product_types_enum>',
       'root_id' => 'unsigned int',
       'start_date' => 'string',
       'type' => 'type_enum',
     );
     $enums = array(
+      'product_types_enum' => OmegaCustomerTrxProductTypesValues::getInstance()->getValues(),
       'type_enum' => OmegaCustomerTrxTypeValues::getInstance()->getValues(),
     );
 
@@ -927,6 +934,29 @@ class Business extends AbstractCrudObject {
       new Business(),
       'EDGE',
       Business::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getClientInstagramAssets(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/client_instagram_assets',
+      new InstagramBusinessAsset(),
+      'EDGE',
+      InstagramBusinessAsset::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2071,6 +2101,29 @@ class Business extends AbstractCrudObject {
       new IGUser(),
       'EDGE',
       IGUser::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getOwnedInstagramAssets(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/owned_instagram_assets',
+      new InstagramBusinessAsset(),
+      'EDGE',
+      InstagramBusinessAsset::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

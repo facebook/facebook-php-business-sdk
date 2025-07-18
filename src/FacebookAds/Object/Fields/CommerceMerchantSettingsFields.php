@@ -33,12 +33,14 @@ class CommerceMerchantSettingsFields extends AbstractEnum {
   const KOREA_FTC_LISTING = 'korea_ftc_listing';
   const MERCHANT_PAGE = 'merchant_page';
   const MERCHANT_STATUS = 'merchant_status';
+  const OFFSITE_IAB_CHECKOUT_ENABLED_COUNTRIES = 'offsite_iab_checkout_enabled_countries';
   const ONSITE_COMMERCE_MERCHANT = 'onsite_commerce_merchant';
   const PAYMENT_PROVIDER = 'payment_provider';
   const PRIVACY_POLICY_LOCALIZED = 'privacy_policy_localized';
   const RETURN_POLICY_LOCALIZED = 'return_policy_localized';
   const REVIEW_REJECTION_MESSAGES = 'review_rejection_messages';
   const REVIEW_REJECTION_REASONS = 'review_rejection_reasons';
+  const SHOPS_ADS_SETUP = 'shops_ads_setup';
   const TERMS = 'terms';
 
   public function getFieldTypes() {
@@ -54,12 +56,14 @@ class CommerceMerchantSettingsFields extends AbstractEnum {
       'korea_ftc_listing' => 'string',
       'merchant_page' => 'Profile',
       'merchant_status' => 'string',
+      'offsite_iab_checkout_enabled_countries' => 'list<string>',
       'onsite_commerce_merchant' => 'Object',
       'payment_provider' => 'string',
       'privacy_policy_localized' => 'string',
       'return_policy_localized' => 'string',
       'review_rejection_messages' => 'list<string>',
       'review_rejection_reasons' => 'list<string>',
+      'shops_ads_setup' => 'Object',
       'terms' => 'string',
     );
   }

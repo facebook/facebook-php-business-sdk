@@ -73,12 +73,14 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
   const STANDARD_ENHANCEMENTS_CATALOG = 'standard_enhancements_catalog';
   const TEXT_GENERATION = 'text_generation';
   const TEXT_OPTIMIZATIONS = 'text_optimizations';
+  const TEXT_OVERLAY_TRANSLATION = 'text_overlay_translation';
   const TEXT_TRANSLATION = 'text_translation';
   const VIDEO_AUTO_CROP = 'video_auto_crop';
   const VIDEO_FILTERING = 'video_filtering';
   const VIDEO_HIGHLIGHT = 'video_highlight';
   const VIDEO_TO_IMAGE = 'video_to_image';
   const VIDEO_UNCROP = 'video_uncrop';
+  const WA_MM_TEXT_TRUNCATION_LENGTH = 'wa_mm_text_truncation_length';
 
   public function getFieldTypes() {
     return array(
@@ -133,12 +135,14 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
       'standard_enhancements_catalog' => 'AdCreativeFeatureDetails',
       'text_generation' => 'AdCreativeFeatureDetails',
       'text_optimizations' => 'AdCreativeFeatureDetails',
+      'text_overlay_translation' => 'AdCreativeFeatureDetails',
       'text_translation' => 'AdCreativeFeatureDetails',
       'video_auto_crop' => 'AdCreativeFeatureDetails',
       'video_filtering' => 'AdCreativeFeatureDetails',
       'video_highlight' => 'AdCreativeFeatureDetails',
       'video_to_image' => 'AdCreativeFeatureDetails',
       'video_uncrop' => 'AdCreativeFeatureDetails',
+      'wa_mm_text_truncation_length' => 'AdCreativeFeatureDetails',
     );
   }
 }

@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class CampaignSpecialAdCategoryCountryValues extends AbstractEnum {
 
+  const AC = 'AC';
   const AD = 'AD';
   const AE = 'AE';
   const AF = 'AF';

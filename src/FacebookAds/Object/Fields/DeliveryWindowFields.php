@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class DeliveryWindowFields extends AbstractEnum {
 
+  const AC = 'ac';
   const AD = 'ad';
   const AE = 'ae';
   const AF = 'af';
@@ -277,6 +278,7 @@ class DeliveryWindowFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'ac' => 'int',
       'ad' => 'int',
       'ae' => 'int',
       'af' => 'int',

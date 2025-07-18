@@ -14,6 +14,10 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\IGUserFields;
+use FacebookAds\Object\Values\IGUserExportForCAMCreatorCountriesValues;
+use FacebookAds\Object\Values\IGUserExportForCAMCreatorGenderValues;
+use FacebookAds\Object\Values\IGUserExportForCAMMajorAudienceCountriesValues;
+use FacebookAds\Object\Values\IGUserExportForCAMMajorAudienceGenderValues;
 use FacebookAds\Object\Values\InstagramInsightsResultBreakdownValues;
 use FacebookAds\Object\Values\InstagramInsightsResultMetricTypeValues;
 use FacebookAds\Object\Values\InstagramInsightsResultMetricValues;
@@ -360,6 +364,47 @@ class IGUser extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getCreatorMarketPlaceCreators(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'creator_age_bucket' => 'list<Object>',
+      'creator_countries' => 'list<creator_countries_enum>',
+      'creator_gender' => 'list<creator_gender_enum>',
+      'creator_interests' => 'list<Object>',
+      'creator_max_engaged_accounts' => 'unsigned int',
+      'creator_max_followers' => 'unsigned int',
+      'creator_min_engaged_accounts' => 'unsigned int',
+      'creator_min_followers' => 'unsigned int',
+      'major_audience_age_bucket' => 'list<Object>',
+      'major_audience_countries' => 'list<major_audience_countries_enum>',
+      'major_audience_gender' => 'list<major_audience_gender_enum>',
+      'query' => 'string',
+      'reels_interaction_rate' => 'Object',
+      'similar_to_creators' => 'list<string>',
+    );
+    $enums = array(
+      'creator_countries_enum' => IGUserExportForCAMCreatorCountriesValues::getInstance()->getValues(),
+      'creator_gender_enum' => IGUserExportForCAMCreatorGenderValues::getInstance()->getValues(),
+      'major_audience_countries_enum' => IGUserExportForCAMMajorAudienceCountriesValues::getInstance()->getValues(),
+      'major_audience_gender_enum' => IGUserExportForCAMMajorAudienceGenderValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/creator_marketplace_creators',
+      new IGUserExportForCAM(),
+      'EDGE',
+      IGUserExportForCAM::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getDataset(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -454,6 +499,29 @@ class IGUser extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
+      '/instagram_backed_threads_user',
+      new ThreadsUser(),
+      'EDGE',
+      ThreadsUser::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createInstagramBackedThreadsUser(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
       '/instagram_backed_threads_user',
       new ThreadsUser(),
       'EDGE',

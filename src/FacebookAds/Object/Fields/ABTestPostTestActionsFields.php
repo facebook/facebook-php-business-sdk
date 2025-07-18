@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -18,16 +18,15 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdSetRegionalRegulatedCategoriesValues getInstance()
  */
-class AdSetRegionalRegulatedCategoriesValues extends AbstractEnum {
 
-  const VALUE_0 = '0';
-  const VALUE_1 = '1';
-  const VALUE_2 = '2';
-  const VALUE_3 = '3';
-  const VALUE_4 = '4';
-  const VALUE_5 = '5';
-  const VALUE_6 = '6';
-  const VALUE_7 = '7';
+class ABTestPostTestActionsFields extends AbstractEnum {
+
+  const AUTO_CHANGE_BUDGET_TO_WINNER = 'auto_change_budget_to_winner';
+
+  public function getFieldTypes() {
+    return array(
+      'auto_change_budget_to_winner' => 'int',
+    );
+  }
 }

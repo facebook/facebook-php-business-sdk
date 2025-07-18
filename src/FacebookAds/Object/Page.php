@@ -593,9 +593,12 @@ class Page extends AbstractCrudObject {
     $param_types = array(
       'action' => 'action_enum',
       'call_id' => 'string',
+      'from_version' => 'unsigned int',
       'platform' => 'platform_enum',
       'session' => 'map',
       'to' => 'string',
+      'to_version' => 'unsigned int',
+      'tracks' => 'list<map>',
     );
     $enums = array(
       'action_enum' => array(
@@ -1579,6 +1582,7 @@ class Page extends AbstractCrudObject {
       'follow_up_action_url' => 'string',
       'is_for_canvas' => 'bool',
       'is_optimized_for_quality' => 'bool',
+      'is_phone_sms_verify_enabled' => 'bool',
       'locale' => 'locale_enum',
       'name' => 'string',
       'privacy_policy' => 'Object',
@@ -1981,7 +1985,7 @@ class Page extends AbstractCrudObject {
       'payload' => 'string',
       'persona_id' => 'string',
       'recipient' => 'Object',
-      'reply_to' => 'string',
+      'reply_to' => 'Object',
       'sender_action' => 'sender_action_enum',
       'suggestion_action' => 'suggestion_action_enum',
       'tag' => 'Object',

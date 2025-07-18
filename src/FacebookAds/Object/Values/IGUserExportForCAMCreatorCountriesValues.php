@@ -18,9 +18,9 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdAccountTargetingUnifiedRegulatedCountriesValues getInstance()
+ * @method static IGUserExportForCAMCreatorCountriesValues getInstance()
  */
-class AdAccountTargetingUnifiedRegulatedCountriesValues extends AbstractEnum {
+class IGUserExportForCAMCreatorCountriesValues extends AbstractEnum {
 
   const AC = 'AC';
   const AD = 'AD';

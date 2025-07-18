@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdActivityEventTypeValues extends AbstractEnum {
 
+  const ACCEPT_CUSTOM_AUDIENCE_APPEAL = 'accept_custom_audience_appeal';
   const ACCOUNT_SPENDING_LIMIT_REACHED = 'account_spending_limit_reached';
   const AD_ACCOUNT_ADD_USER_TO_ROLE = 'ad_account_add_user_to_role';
   const AD_ACCOUNT_BILLING_CHARGE = 'ad_account_billing_charge';
@@ -42,15 +43,19 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const ADACCOUNT_UPDATE_AUDIENCE_SEGMENT = 'adaccount_update_audience_segment';
   const ADD_FUNDING_SOURCE = 'add_funding_source';
   const ADD_IMAGES = 'add_images';
+  const APPLY_RESTRICTIONS_CUSTOM_AUDIENCE = 'apply_restrictions_custom_audience';
   const BILLING_EVENT = 'billing_event';
   const CAMPAIGN_ENDED = 'campaign_ended';
   const CAMPAIGN_SPENDING_LIMIT_REACHED = 'campaign_spending_limit_reached';
   const CONVERSION_EVENT_UPDATED = 'conversion_event_updated';
   const CREATE_AD = 'create_ad';
   const CREATE_AD_SET = 'create_ad_set';
+  const CREATE_ADACCOUNT_AGENCY_FEE = 'create_adaccount_agency_fee';
   const CREATE_AUDIENCE = 'create_audience';
   const CREATE_CAMPAIGN_GROUP = 'create_campaign_group';
+  const CREATE_CAMPAIGN_GROUP_AGENCY_FEE = 'create_campaign_group_agency_fee';
   const CREATE_CAMPAIGN_LEGACY = 'create_campaign_legacy';
+  const CREATE_CUSTOM_AUDIENCE_APPEAL = 'create_custom_audience_appeal';
   const DELETE_AUDIENCE = 'delete_audience';
   const DELETE_IMAGES = 'delete_images';
   const DI_AD_SET_LEARNING_STAGE_EXIT = 'di_ad_set_learning_stage_exit';
@@ -62,6 +67,7 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const LIFETIME_BUDGET_SPENT = 'lifetime_budget_spent';
   const MERGE_CAMPAIGNS = 'merge_campaigns';
   const RECEIVE_AUDIENCE = 'receive_audience';
+  const REJECT_CUSTOM_AUDIENCE_APPEAL = 'reject_custom_audience_appeal';
   const REMOVE_FUNDING_SOURCE = 'remove_funding_source';
   const REMOVE_SHARED_AUDIENCE = 'remove_shared_audience';
   const SHARE_AUDIENCE = 'share_audience';
@@ -88,6 +94,7 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const UPDATE_AD_SET_SPEND_CAP = 'update_ad_set_spend_cap';
   const UPDATE_AD_SET_TARGET_SPEC = 'update_ad_set_target_spec';
   const UPDATE_AD_TARGETS_SPEC = 'update_ad_targets_spec';
+  const UPDATE_ADACCOUNT_AGENCY_FEE = 'update_adaccount_agency_fee';
   const UPDATE_ADGROUP_STOP_DELIVERY = 'update_adgroup_stop_delivery';
   const UPDATE_AUDIENCE = 'update_audience';
   const UPDATE_CAMPAIGN_AD_SCHEDULING = 'update_campaign_ad_scheduling';
@@ -98,6 +105,7 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const UPDATE_CAMPAIGN_DELIVERY_DESTINATION = 'update_campaign_delivery_destination';
   const UPDATE_CAMPAIGN_DELIVERY_TYPE = 'update_campaign_delivery_type';
   const UPDATE_CAMPAIGN_GROUP_AD_SCHEDULING = 'update_campaign_group_ad_scheduling';
+  const UPDATE_CAMPAIGN_GROUP_AGENCY_FEE = 'update_campaign_group_agency_fee';
   const UPDATE_CAMPAIGN_GROUP_BUDGET_SCHEDULING_STATE = 'update_campaign_group_budget_scheduling_state';
   const UPDATE_CAMPAIGN_GROUP_DELIVERY_TYPE = 'update_campaign_group_delivery_type';
   const UPDATE_CAMPAIGN_GROUP_HIGH_DEMAND_PERIODS = 'update_campaign_group_high_demand_periods';

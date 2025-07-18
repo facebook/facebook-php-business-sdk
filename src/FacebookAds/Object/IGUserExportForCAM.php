@@ -14,6 +14,10 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\IGUserExportForCAMFields;
+use FacebookAds\Object\Values\IGUserExportForCAMCreatorCountriesValues;
+use FacebookAds\Object\Values\IGUserExportForCAMCreatorGenderValues;
+use FacebookAds\Object\Values\IGUserExportForCAMMajorAudienceCountriesValues;
+use FacebookAds\Object\Values\IGUserExportForCAMMajorAudienceGenderValues;
 
 /**
  * This class is auto-generated.
@@ -35,6 +39,10 @@ class IGUserExportForCAM extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['CreatorCountries'] = IGUserExportForCAMCreatorCountriesValues::getInstance()->getValues();
+    $ref_enums['CreatorGender'] = IGUserExportForCAMCreatorGenderValues::getInstance()->getValues();
+    $ref_enums['MajorAudienceCountries'] = IGUserExportForCAMMajorAudienceCountriesValues::getInstance()->getValues();
+    $ref_enums['MajorAudienceGender'] = IGUserExportForCAMMajorAudienceGenderValues::getInstance()->getValues();
     return $ref_enums;
   }
 

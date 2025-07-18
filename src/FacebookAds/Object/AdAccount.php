@@ -53,6 +53,7 @@ use FacebookAds\Object\Values\AdPreviewCreativeFeatureValues;
 use FacebookAds\Object\Values\AdPreviewRenderTypeValues;
 use FacebookAds\Object\Values\AdRuleStatusValues;
 use FacebookAds\Object\Values\AdRuleUiCreationSourceValues;
+use FacebookAds\Object\Values\AdSetAutomaticManualStateValues;
 use FacebookAds\Object\Values\AdSetBidStrategyValues;
 use FacebookAds\Object\Values\AdSetBillingEventValues;
 use FacebookAds\Object\Values\AdSetBudgetSourceValues;
@@ -431,9 +432,11 @@ class AdAccount extends AbstractCrudObject {
       'creative_sourcing_spec' => 'map',
       'degrees_of_freedom_spec' => 'map',
       'destination_set_id' => 'string',
+      'destination_spec' => 'map',
       'dynamic_ad_voice' => 'dynamic_ad_voice_enum',
       'enable_launch_instant_app' => 'bool',
       'facebook_branded_content' => 'map',
+      'format_transformation_spec' => 'list<map>',
       'image_crops' => 'map',
       'image_file' => 'string',
       'image_hash' => 'string',
@@ -993,6 +996,7 @@ class AdAccount extends AbstractCrudObject {
       'adlabels' => 'list<Object>',
       'adset_schedule' => 'list<Object>',
       'attribution_spec' => 'list<map>',
+      'automatic_manual_state' => 'automatic_manual_state_enum',
       'bid_adjustments' => 'Object',
       'bid_amount' => 'int',
       'bid_constraints' => 'map<string, Object>',
@@ -1051,6 +1055,7 @@ class AdAccount extends AbstractCrudObject {
       'tune_for_category' => 'tune_for_category_enum',
     );
     $enums = array(
+      'automatic_manual_state_enum' => AdSetAutomaticManualStateValues::getInstance()->getValues(),
       'bid_strategy_enum' => AdSetBidStrategyValues::getInstance()->getValues(),
       'billing_event_enum' => AdSetBillingEventValues::getInstance()->getValues(),
       'budget_source_enum' => AdSetBudgetSourceValues::getInstance()->getValues(),
@@ -2842,6 +2847,7 @@ class AdAccount extends AbstractCrudObject {
       'target_frequency' => 'unsigned int',
       'target_frequency_reset_period' => 'unsigned int',
       'target_spec' => 'Targeting',
+      'trending_topics_spec' => 'map',
       'video_view_length_constraint' => 'unsigned int',
     );
     $enums = array(

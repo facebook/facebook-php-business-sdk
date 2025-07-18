@@ -853,6 +853,7 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       'pricing_types_enum' => array(
         'FREE_CUSTOMER_SERVICE',
         'FREE_ENTRY_POINT',
+        'FREE_GROUP_CUSTOMER_SERVICE',
         'REGULAR',
       ),
     );

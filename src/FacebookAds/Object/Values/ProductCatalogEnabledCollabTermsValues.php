@@ -18,16 +18,10 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdSetRegionalRegulatedCategoriesValues getInstance()
+ * @method static ProductCatalogEnabledCollabTermsValues getInstance()
  */
-class AdSetRegionalRegulatedCategoriesValues extends AbstractEnum {
+class ProductCatalogEnabledCollabTermsValues extends AbstractEnum {
 
-  const VALUE_0 = '0';
-  const VALUE_1 = '1';
-  const VALUE_2 = '2';
-  const VALUE_3 = '3';
-  const VALUE_4 = '4';
-  const VALUE_5 = '5';
-  const VALUE_6 = '6';
-  const VALUE_7 = '7';
+  const ENFORCE_CREATE_NEW_AD_ACCOUNT = 'ENFORCE_CREATE_NEW_AD_ACCOUNT';
+  const ENFORCE_SHARE_AD_PERFORMANCE_ACCESS = 'ENFORCE_SHARE_AD_PERFORMANCE_ACCESS';
 }

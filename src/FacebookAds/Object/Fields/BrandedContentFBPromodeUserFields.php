@@ -20,17 +20,21 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class ContentDeliveryReportFields extends AbstractEnum {
+class BrandedContentFBPromodeUserFields extends AbstractEnum {
 
-  const CONTENT_ID = 'content_id';
-  const CREATOR_ID = 'creator_id';
-  const ESTIMATED_IMPRESSIONS = 'estimated_impressions';
+  const DELEGATE_PAGE_FOR_ADS_ONLY_ID = 'delegate_page_for_ads_only_id';
+  const IS_IABP = 'is_iabp';
+  const IS_MANAGED = 'is_managed';
+  const NAME = 'name';
+  const PROFILE_PICTURE_URL = 'profile_picture_url';
 
   public function getFieldTypes() {
     return array(
-      'content_id' => 'string',
-      'creator_id' => 'string',
-      'estimated_impressions' => 'unsigned int',
+      'delegate_page_for_ads_only_id' => 'string',
+      'is_iabp' => 'bool',
+      'is_managed' => 'bool',
+      'name' => 'string',
+      'profile_picture_url' => 'string',
     );
   }
 }

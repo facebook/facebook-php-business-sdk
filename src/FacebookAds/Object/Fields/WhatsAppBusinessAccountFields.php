@@ -35,6 +35,7 @@ class WhatsAppBusinessAccountFields extends AbstractEnum {
   const IS_SHARED_WITH_PARTNERS = 'is_shared_with_partners';
   const LINKED_COMMERCE_ACCOUNT = 'linked_commerce_account';
   const MARKETING_MESSAGES_LITE_API_STATUS = 'marketing_messages_lite_api_status';
+  const MARKETING_MESSAGES_ONBOARDING_STATUS = 'marketing_messages_onboarding_status';
   const MESSAGE_TEMPLATE_NAMESPACE = 'message_template_namespace';
   const NAME = 'name';
   const ON_BEHALF_OF_BUSINESS_INFO = 'on_behalf_of_business_info';
@@ -62,6 +63,7 @@ class WhatsAppBusinessAccountFields extends AbstractEnum {
       'is_shared_with_partners' => 'bool',
       'linked_commerce_account' => 'CommerceMerchantSettings',
       'marketing_messages_lite_api_status' => 'string',
+      'marketing_messages_onboarding_status' => 'string',
       'message_template_namespace' => 'string',
       'name' => 'string',
       'on_behalf_of_business_info' => 'Object',

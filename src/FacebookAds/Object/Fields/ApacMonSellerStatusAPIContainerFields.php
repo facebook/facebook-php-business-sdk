@@ -22,9 +22,11 @@ use FacebookAds\Enum\AbstractEnum;
 
 class ApacMonSellerStatusAPIContainerFields extends AbstractEnum {
 
+  const STRUCTURED_MESSAGING_COMMERCE = 'structured_messaging_commerce';
 
   public function getFieldTypes() {
     return array(
+      'structured_messaging_commerce' => 'Object',
     );
   }
 }

@@ -35,7 +35,6 @@ class UnifiedThreadFields extends AbstractEnum {
   const SCOPED_THREAD_KEY = 'scoped_thread_key';
   const SENDERS = 'senders';
   const SNIPPET = 'snippet';
-  const SUBJECT = 'subject';
   const UNREAD_COUNT = 'unread_count';
   const UPDATED_TIME = 'updated_time';
   const WALLPAPER = 'wallpaper';
@@ -55,7 +54,6 @@ class UnifiedThreadFields extends AbstractEnum {
       'scoped_thread_key' => 'string',
       'senders' => 'Object',
       'snippet' => 'string',
-      'subject' => 'string',
       'unread_count' => 'int',
       'updated_time' => 'datetime',
       'wallpaper' => 'string',

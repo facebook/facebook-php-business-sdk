@@ -18,6 +18,7 @@ use FacebookAds\Object\Values\AdActivityCategoryValues;
 use FacebookAds\Object\Values\AdAsyncRequestStatusesValues;
 use FacebookAds\Object\Values\AdCampaignDeliveryEstimateOptimizationGoalValues;
 use FacebookAds\Object\Values\AdDatePresetValues;
+use FacebookAds\Object\Values\AdSetAutomaticManualStateValues;
 use FacebookAds\Object\Values\AdSetBidStrategyValues;
 use FacebookAds\Object\Values\AdSetBillingEventValues;
 use FacebookAds\Object\Values\AdSetBudgetSourceValues;
@@ -86,6 +87,7 @@ class AdSet extends AbstractArchivableCrudObject
     $ref_enums['EffectiveStatus'] = AdSetEffectiveStatusValues::getInstance()->getValues();
     $ref_enums['OptimizationGoal'] = AdSetOptimizationGoalValues::getInstance()->getValues();
     $ref_enums['Status'] = AdSetStatusValues::getInstance()->getValues();
+    $ref_enums['AutomaticManualState'] = AdSetAutomaticManualStateValues::getInstance()->getValues();
     $ref_enums['BudgetSource'] = AdSetBudgetSourceValues::getInstance()->getValues();
     $ref_enums['CreativeSequenceRepetitionPattern'] = AdSetCreativeSequenceRepetitionPatternValues::getInstance()->getValues();
     $ref_enums['DatePreset'] = AdSetDatePresetValues::getInstance()->getValues();
@@ -664,6 +666,7 @@ class AdSet extends AbstractArchivableCrudObject
       'adlabels' => 'list<Object>',
       'adset_schedule' => 'list<Object>',
       'attribution_spec' => 'list<map>',
+      'automatic_manual_state' => 'automatic_manual_state_enum',
       'bid_adjustments' => 'Object',
       'bid_amount' => 'int',
       'bid_constraints' => 'map<string, Object>',
@@ -714,6 +717,7 @@ class AdSet extends AbstractArchivableCrudObject
       'tune_for_category' => 'tune_for_category_enum',
     );
     $enums = array(
+      'automatic_manual_state_enum' => AdSetAutomaticManualStateValues::getInstance()->getValues(),
       'bid_strategy_enum' => AdSetBidStrategyValues::getInstance()->getValues(),
       'billing_event_enum' => AdSetBillingEventValues::getInstance()->getValues(),
       'creative_sequence_repetition_pattern_enum' => AdSetCreativeSequenceRepetitionPatternValues::getInstance()->getValues(),

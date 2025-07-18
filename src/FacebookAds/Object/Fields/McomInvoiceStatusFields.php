@@ -32,8 +32,11 @@ class McomInvoiceStatusFields extends AbstractEnum {
   const PAYOUT_AMOUNT = 'payout_amount';
   const SLIP_VERIFICATION_ERROR = 'slip_verification_error';
   const SLIP_VERIFICATION_STATUS = 'slip_verification_status';
+  const SOF_TRANSFER_ID = 'sof_transfer_id';
+  const SOF_TRANSFER_TIMESTAMP = 'sof_transfer_timestamp';
   const TRANSACTION_FEE = 'transaction_fee';
   const TRANSFER_SLIP = 'transfer_slip';
+  const TRANSFER_SLIP_QR_CODE = 'transfer_slip_qr_code';
 
   public function getFieldTypes() {
     return array(
@@ -47,8 +50,11 @@ class McomInvoiceStatusFields extends AbstractEnum {
       'payout_amount' => 'Object',
       'slip_verification_error' => 'string',
       'slip_verification_status' => 'string',
+      'sof_transfer_id' => 'string',
+      'sof_transfer_timestamp' => 'int',
       'transaction_fee' => 'Object',
       'transfer_slip' => 'string',
+      'transfer_slip_qr_code' => 'string',
     );
   }
 }

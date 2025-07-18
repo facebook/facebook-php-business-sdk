@@ -24,6 +24,7 @@ use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupAffectedEntitiesValue
 use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupAffectedFeaturesValues;
 use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupSeveritiesValues;
 use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupTypesValues;
+use FacebookAds\Object\Values\ProductCatalogEnabledCollabTermsValues;
 use FacebookAds\Object\Values\ProductCatalogEventNameValues;
 use FacebookAds\Object\Values\ProductCatalogItemSubTypeValues;
 use FacebookAds\Object\Values\ProductCatalogPermittedRolesValues;
@@ -88,6 +89,7 @@ class ProductCatalog extends AbstractCrudObject {
     $ref_enums = array();
     $ref_enums['AdditionalVerticalOption'] = ProductCatalogAdditionalVerticalOptionValues::getInstance()->getValues();
     $ref_enums['Vertical'] = ProductCatalogVerticalValues::getInstance()->getValues();
+    $ref_enums['EnabledCollabTerms'] = ProductCatalogEnabledCollabTermsValues::getInstance()->getValues();
     $ref_enums['PermittedRoles'] = ProductCatalogPermittedRolesValues::getInstance()->getValues();
     $ref_enums['PermittedTasks'] = ProductCatalogPermittedTasksValues::getInstance()->getValues();
     $ref_enums['Tasks'] = ProductCatalogTasksValues::getInstance()->getValues();
@@ -150,12 +152,14 @@ class ProductCatalog extends AbstractCrudObject {
 
     $param_types = array(
       'business' => 'string',
+      'enabled_collab_terms' => 'list<enabled_collab_terms_enum>',
       'permitted_roles' => 'list<permitted_roles_enum>',
       'permitted_tasks' => 'list<permitted_tasks_enum>',
       'skip_defaults' => 'bool',
       'utm_settings' => 'map',
     );
     $enums = array(
+      'enabled_collab_terms_enum' => ProductCatalogEnabledCollabTermsValues::getInstance()->getValues(),
       'permitted_roles_enum' => ProductCatalogPermittedRolesValues::getInstance()->getValues(),
       'permitted_tasks_enum' => ProductCatalogPermittedTasksValues::getInstance()->getValues(),
     );

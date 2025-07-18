@@ -88,6 +88,7 @@ class AdsUserSettingsFields extends AbstractEnum {
   const SHOULD_NOT_SHOW_CBO_CAMPAIGN_TOGGLE_OFF_CONFIRMATION_MESSAGE = 'should_not_show_cbo_campaign_toggle_off_confirmation_message';
   const SHOULD_NOT_SHOW_PUBLISH_MESSAGE_ON_EDITOR_CLOSE = 'should_not_show_publish_message_on_editor_close';
   const SHOW_ORIGINAL_VIDEOS_OPT_IN = 'show_original_videos_opt_in';
+  const SHOW_SUMMARY_OPT_IN_STATUS = 'show_summary_opt_in_status';
   const STATIC_AD_PRODUCT_EXTENSIONS_OPT_IN = 'static_ad_product_extensions_opt_in';
   const STICKY_SETTING_AFTER_DEFAULT_ON = 'sticky_setting_after_default_on';
   const SYD_CAMPAIGN_TRENDS_METRIC = 'syd_campaign_trends_metric';
@@ -169,6 +170,7 @@ class AdsUserSettingsFields extends AbstractEnum {
       'should_not_show_cbo_campaign_toggle_off_confirmation_message' => 'bool',
       'should_not_show_publish_message_on_editor_close' => 'bool',
       'show_original_videos_opt_in' => 'string',
+      'show_summary_opt_in_status' => 'string',
       'static_ad_product_extensions_opt_in' => 'string',
       'sticky_setting_after_default_on' => 'string',
       'syd_campaign_trends_metric' => 'string',
