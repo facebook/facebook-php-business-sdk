@@ -37,7 +37,7 @@ class AttributionDataTest extends AbstractUnitTestCase {
       'campaign_id' => '345',
       'attr_window' => 7,
       'attribution_share' => 0.5,
-      'attribution_model' => 'last_touch'
+      'attribution_model' => 'last_touch',
       'attribution_value' => 3.45
     );
     $builder = (new AttributionData())
