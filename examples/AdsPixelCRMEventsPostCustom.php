@@ -28,7 +28,7 @@ $user_data = (new UserData())
     ->setLeadId('525645896321548');
 
 $custom_data = (new CustomData())
-    ->setCustomProperties(array('lead_event_source' => 'Salesforce');
+    ->setCustomProperties(array('lead_event_source' => 'Salesforce'));
 
 $event = (new Event())
     ->setEventName('QualifiedLead')
