@@ -26,9 +26,12 @@ class ChinaBusinessOnboardingVettingRequestFields extends AbstractEnum {
   const AD_ACCOUNT_LIMIT = 'ad_account_limit';
   const AD_ACCOUNT_NUMBER = 'ad_account_number';
   const AD_ACCOUNTS_INFO = 'ad_accounts_info';
+  const ADVERTISER_BUSINESS_ID = 'advertiser_business_id';
+  const ADVERTISER_BUSINESS_NAME = 'advertiser_business_name';
   const BUSINESS_MANAGER_ID = 'business_manager_id';
   const BUSINESS_REGISTRATION = 'business_registration';
   const BUSINESS_REGISTRATION_ID = 'business_registration_id';
+  const BUSINESS_VERIFICATION_STATUS = 'business_verification_status';
   const CHINESE_ADDRESS = 'chinese_address';
   const CHINESE_LEGAL_ENTITY_NAME = 'chinese_legal_entity_name';
   const CITY = 'city';
@@ -71,9 +74,12 @@ class ChinaBusinessOnboardingVettingRequestFields extends AbstractEnum {
       'ad_account_limit' => 'int',
       'ad_account_number' => 'string',
       'ad_accounts_info' => 'list<Object>',
+      'advertiser_business_id' => 'string',
+      'advertiser_business_name' => 'string',
       'business_manager_id' => 'string',
       'business_registration' => 'string',
       'business_registration_id' => 'string',
+      'business_verification_status' => 'string',
       'chinese_address' => 'string',
       'chinese_legal_entity_name' => 'string',
       'city' => 'string',

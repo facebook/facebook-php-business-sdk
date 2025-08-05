@@ -25,6 +25,8 @@ class VehicleFields extends AbstractEnum {
   const ADDRESS = 'address';
   const APPLINKS = 'applinks';
   const AVAILABILITY = 'availability';
+  const AVAILABILITY_CIRCLE_RADIUS = 'availability_circle_radius';
+  const AVAILABILITY_CIRCLE_RADIUS_UNIT = 'availability_circle_radius_unit';
   const BODY_STYLE = 'body_style';
   const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
   const CONDITION = 'condition';
@@ -91,6 +93,8 @@ class VehicleFields extends AbstractEnum {
       'address' => 'Object',
       'applinks' => 'CatalogItemAppLinks',
       'availability' => 'string',
+      'availability_circle_radius' => 'float',
+      'availability_circle_radius_unit' => 'string',
       'body_style' => 'string',
       'category_specific_fields' => 'CatalogSubVerticalList',
       'condition' => 'string',

@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AdAccountSuggestedTagFields;
+use FacebookAds\Object\Fields\ProductItemVideoDataFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\AdAccountSuggestedTagFields;
  *
  */
 
-class AdAccountSuggestedTag extends AbstractObject {
+class ProductItemVideoData extends AbstractObject {
 
   /**
-   * @return AdAccountSuggestedTagFields
+   * @return ProductItemVideoDataFields
    */
   public static function getFieldsEnum() {
-    return AdAccountSuggestedTagFields::getInstance();
+    return ProductItemVideoDataFields::getInstance();
   }
 
   protected static function getReferencedEnums() {

@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class IGMediaFields extends AbstractEnum {
 
+  const ALT_TEXT = 'alt_text';
   const BOOST_ELIGIBILITY_INFO = 'boost_eligibility_info';
   const CAPTION = 'caption';
   const COMMENTS_COUNT = 'comments_count';
@@ -41,9 +42,11 @@ class IGMediaFields extends AbstractEnum {
   const THUMBNAIL_URL = 'thumbnail_url';
   const TIMESTAMP = 'timestamp';
   const USERNAME = 'username';
+  const VIEW_COUNT = 'view_count';
 
   public function getFieldTypes() {
     return array(
+      'alt_text' => 'string',
       'boost_eligibility_info' => 'IGMediaBoostEligibilityInfo',
       'caption' => 'string',
       'comments_count' => 'int',
@@ -63,6 +66,7 @@ class IGMediaFields extends AbstractEnum {
       'thumbnail_url' => 'string',
       'timestamp' => 'datetime',
       'username' => 'string',
+      'view_count' => 'int',
     );
   }
 }

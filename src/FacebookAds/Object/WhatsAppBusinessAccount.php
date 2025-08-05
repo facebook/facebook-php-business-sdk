@@ -191,6 +191,7 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
         'COUNTRY',
         'DIRECTION',
         'PHONE',
+        'TIER',
         'UNKNOWN',
       ),
       'directions_enum' => array(
@@ -570,6 +571,7 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       'category' => 'category_enum',
       'components' => 'list<map>',
       'cta_url_link_tracking_opted_out' => 'bool',
+      'degrees_of_freedom_spec' => 'map',
       'display_format' => 'display_format_enum',
       'language' => 'string',
       'library_template_body_inputs' => 'map',
@@ -818,6 +820,7 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       'pricing_categories' => 'list<pricing_categories_enum>',
       'pricing_types' => 'list<pricing_types_enum>',
       'start' => 'unsigned int',
+      'tiers' => 'list<string>',
     );
     $enums = array(
       'dimensions_enum' => array(
@@ -825,6 +828,7 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
         'PHONE',
         'PRICING_CATEGORY',
         'PRICING_TYPE',
+        'TIER',
       ),
       'granularity_enum' => array(
         'DAILY',
@@ -838,6 +842,9 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       'pricing_categories_enum' => array(
         'AUTHENTICATION',
         'AUTHENTICATION_INTERNATIONAL',
+        'GROUP_MARKETING',
+        'GROUP_SERVICE',
+        'GROUP_UTILITY',
         'MARKETING',
         'MARKETING_LITE',
         'SERVICE',
@@ -846,6 +853,7 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       'pricing_types_enum' => array(
         'FREE_CUSTOMER_SERVICE',
         'FREE_ENTRY_POINT',
+        'FREE_GROUP_CUSTOMER_SERVICE',
         'REGULAR',
       ),
     );

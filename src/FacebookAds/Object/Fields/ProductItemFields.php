@@ -31,6 +31,7 @@ class ProductItemFields extends AbstractEnum {
   const BRAND = 'brand';
   const BUNDLE_ITEMS = 'bundle_items';
   const BUNDLE_RETAILER_IDS = 'bundle_retailer_ids';
+  const CAPABILITIES_DISABLED_BY_USER = 'capabilities_disabled_by_user';
   const CAPABILITY_TO_REVIEW_STATUS = 'capability_to_review_status';
   const CATEGORY = 'category';
   const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
@@ -54,6 +55,8 @@ class ProductItemFields extends AbstractEnum {
   const EXPIRATION_DATE = 'expiration_date';
   const FB_PRODUCT_CATEGORY = 'fb_product_category';
   const GENDER = 'gender';
+  const GENERATED_BACKGROUND_IMAGES = 'generated_background_images';
+  const GENERATED_BACKGROUND_IMAGES_AD_USAGE = 'generated_background_images_ad_usage';
   const GTIN = 'gtin';
   const ID = 'id';
   const IMAGE_CDN_URLS = 'image_cdn_urls';
@@ -100,6 +103,7 @@ class ProductItemFields extends AbstractEnum {
   const URL = 'url';
   const VENDOR_ID = 'vendor_id';
   const VIDEO_FETCH_STATUS = 'video_fetch_status';
+  const VIDEOS = 'videos';
   const VISIBILITY = 'visibility';
   const WA_COMPLIANCE_CATEGORY = 'wa_compliance_category';
   const ANDROID_APP_NAME = 'android_app_name';
@@ -139,6 +143,7 @@ class ProductItemFields extends AbstractEnum {
       'brand' => 'string',
       'bundle_items' => 'list<string>',
       'bundle_retailer_ids' => 'list<string>',
+      'capabilities_disabled_by_user' => 'list<string>',
       'capability_to_review_status' => 'list<map<string, ProductItem_capability_to_review_status>>',
       'category' => 'string',
       'category_specific_fields' => 'CatalogSubVerticalList',
@@ -162,6 +167,8 @@ class ProductItemFields extends AbstractEnum {
       'expiration_date' => 'string',
       'fb_product_category' => 'string',
       'gender' => 'Gender',
+      'generated_background_images' => 'list<AIGeneratedProductImage>',
+      'generated_background_images_ad_usage' => 'bool',
       'gtin' => 'string',
       'id' => 'string',
       'image_cdn_urls' => 'list<map<string, string>>',
@@ -208,6 +215,7 @@ class ProductItemFields extends AbstractEnum {
       'url' => 'string',
       'vendor_id' => 'string',
       'video_fetch_status' => 'VideoFetchStatus',
+      'videos' => 'list<ProductItemVideoData>',
       'visibility' => 'Visibility',
       'wa_compliance_category' => 'string',
       'android_app_name' => 'string',

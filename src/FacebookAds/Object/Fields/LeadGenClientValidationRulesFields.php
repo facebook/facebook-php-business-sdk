@@ -20,23 +20,17 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class ShadowIGMediaBoostedInsightsResultFields extends AbstractEnum {
+class LeadGenClientValidationRulesFields extends AbstractEnum {
 
-  const DESCRIPTION = 'description';
-  const NAME = 'name';
-  const ORGANIC_MEDIA_ID = 'organic_media_id';
-  const SOURCE_TYPE = 'source_type';
-  const TITLE = 'title';
-  const VALUES = 'values';
+  const EXCLUDE_EMOJI_AND_SPECIAL_CHARS_ENABLED = 'exclude_emoji_and_special_chars_enabled';
+  const MAX_LENGTH_VALUE = 'max_length_value';
+  const MIN_LENGTH_VALUE = 'min_length_value';
 
   public function getFieldTypes() {
     return array(
-      'description' => 'string',
-      'name' => 'string',
-      'organic_media_id' => 'string',
-      'source_type' => 'string',
-      'title' => 'string',
-      'values' => 'list<Object>',
+      'exclude_emoji_and_special_chars_enabled' => 'bool',
+      'max_length_value' => 'int',
+      'min_length_value' => 'int',
     );
   }
 }

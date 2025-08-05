@@ -24,6 +24,7 @@ class ALMGuidanceFields extends AbstractEnum {
 
   const AD_ACCOUNT_ID = 'ad_account_id';
   const GUIDANCES = 'guidances';
+  const OPPORTUNITY_SCORE = 'opportunity_score';
   const PARENT_ADVERTISER_ID = 'parent_advertiser_id';
   const PARENT_ADVERTISER_NAME = 'parent_advertiser_name';
 
@@ -31,6 +32,7 @@ class ALMGuidanceFields extends AbstractEnum {
     return array(
       'ad_account_id' => 'string',
       'guidances' => 'list<Object>',
+      'opportunity_score' => 'float',
       'parent_advertiser_id' => 'string',
       'parent_advertiser_name' => 'string',
     );

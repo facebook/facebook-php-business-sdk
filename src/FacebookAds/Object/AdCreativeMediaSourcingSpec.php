@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\ShadowIGMediaBoostedInsightsResultFields;
+use FacebookAds\Object\Fields\AdCreativeMediaSourcingSpecFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\ShadowIGMediaBoostedInsightsResultFields;
  *
  */
 
-class ShadowIGMediaBoostedInsightsResult extends AbstractObject {
+class AdCreativeMediaSourcingSpec extends AbstractObject {
 
   /**
-   * @return ShadowIGMediaBoostedInsightsResultFields
+   * @return AdCreativeMediaSourcingSpecFields
    */
   public static function getFieldsEnum() {
-    return ShadowIGMediaBoostedInsightsResultFields::getInstance();
+    return AdCreativeMediaSourcingSpecFields::getInstance();
   }
 
   protected static function getReferencedEnums() {

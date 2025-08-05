@@ -183,6 +183,7 @@ class CustomAudience extends AbstractCrudObject {
       'calculated_date' => 'string',
       'processed_date' => 'string',
       'value_aggregation_duration' => 'unsigned int',
+      'value_country' => 'string',
       'value_currency' => 'string',
       'value_version' => 'unsigned int',
     );

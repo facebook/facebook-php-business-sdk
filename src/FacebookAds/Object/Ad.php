@@ -182,6 +182,7 @@ class Ad extends AbstractArchivableCrudObject
 
     $param_types = array(
       'adset_id' => 'string',
+      'creative_parameters' => 'AdCreative',
       'rename_options' => 'Object',
       'status_option' => 'status_option_enum',
     );
@@ -220,6 +221,7 @@ class Ad extends AbstractArchivableCrudObject
       'fields' => 'list<string>',
       'filtering' => 'list<Object>',
       'level' => 'level_enum',
+      'limit' => 'int',
       'product_id_limit' => 'int',
       'sort' => 'list<string>',
       'summary' => 'list<string>',
@@ -271,6 +273,7 @@ class Ad extends AbstractArchivableCrudObject
       'fields' => 'list<string>',
       'filtering' => 'list<Object>',
       'level' => 'level_enum',
+      'limit' => 'int',
       'product_id_limit' => 'int',
       'sort' => 'list<string>',
       'summary' => 'list<string>',

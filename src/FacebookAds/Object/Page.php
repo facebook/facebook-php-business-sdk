@@ -593,14 +593,18 @@ class Page extends AbstractCrudObject {
     $param_types = array(
       'action' => 'action_enum',
       'call_id' => 'string',
+      'from_version' => 'unsigned int',
       'platform' => 'platform_enum',
       'session' => 'map',
       'to' => 'string',
+      'to_version' => 'unsigned int',
+      'tracks' => 'list<map>',
     );
     $enums = array(
       'action_enum' => array(
         'ACCEPT',
         'CONNECT',
+        'MEDIA_UPDATE',
         'REJECT',
         'TERMINATE',
       ),
@@ -1533,9 +1537,9 @@ class Page extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/instagram_accounts',
-      new InstagramUser(),
+      new IGUser(),
       'EDGE',
-      InstagramUser::getFieldsEnum()->getValues(),
+      IGUser::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1578,6 +1582,7 @@ class Page extends AbstractCrudObject {
       'follow_up_action_url' => 'string',
       'is_for_canvas' => 'bool',
       'is_optimized_for_quality' => 'bool',
+      'is_phone_sms_verify_enabled' => 'bool',
       'locale' => 'locale_enum',
       'name' => 'string',
       'privacy_policy' => 'Object',
@@ -1980,6 +1985,7 @@ class Page extends AbstractCrudObject {
       'payload' => 'string',
       'persona_id' => 'string',
       'recipient' => 'Object',
+      'reply_to' => 'Object',
       'sender_action' => 'sender_action_enum',
       'suggestion_action' => 'suggestion_action_enum',
       'tag' => 'Object',
@@ -2058,6 +2064,8 @@ class Page extends AbstractCrudObject {
 
     $param_types = array(
       'audio_enabled' => 'bool',
+      'call_hours' => 'map',
+      'call_routing' => 'map',
       'icon_enabled' => 'bool',
     );
     $enums = array(
@@ -2151,11 +2159,9 @@ class Page extends AbstractCrudObject {
         'GREETING',
         'HOME_URL',
         'ICE_BREAKERS',
-        'PAYMENT_SETTINGS',
         'PERSISTENT_MENU',
         'PLATFORM',
         'SUBJECT_TO_NEW_EU_PRIVACY_RULES',
-        'TARGET_AUDIENCE',
         'TITLE',
         'WHITELISTED_DOMAINS',
       ),
@@ -2212,10 +2218,8 @@ class Page extends AbstractCrudObject {
       'get_started' => 'Object',
       'greeting' => 'list<Object>',
       'ice_breakers' => 'list<map>',
-      'payment_settings' => 'Object',
       'persistent_menu' => 'list<Object>',
       'platform' => 'platform_enum',
-      'target_audience' => 'Object',
       'title' => 'list<Object>',
       'whitelisted_domains' => 'list<string>',
     );
@@ -2357,9 +2361,9 @@ class Page extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/page_backed_instagram_accounts',
-      new InstagramUser(),
+      new IGUser(),
       'EDGE',
-      InstagramUser::getFieldsEnum()->getValues(),
+      IGUser::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2380,9 +2384,9 @@ class Page extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/page_backed_instagram_accounts',
-      new InstagramUser(),
+      new IGUser(),
       'EDGE',
-      InstagramUser::getFieldsEnum()->getValues(),
+      IGUser::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -3545,6 +3549,7 @@ class Page extends AbstractCrudObject {
       'is_boost_intended' => 'bool',
       'is_explicit_share' => 'bool',
       'is_group_linking_post' => 'bool',
+      'is_partnership_ad' => 'bool',
       'is_voice_clip' => 'bool',
       'location_source_id' => 'string',
       'manual_privacy' => 'bool',
@@ -3557,6 +3562,7 @@ class Page extends AbstractCrudObject {
       'og_suggestion_mechanism' => 'string',
       'original_fov' => 'unsigned int',
       'original_projection_type' => 'original_projection_type_enum',
+      'partnership_ad_ad_code' => 'string',
       'publish_event_id' => 'unsigned int',
       'published' => 'bool',
       'reference_only' => 'bool',

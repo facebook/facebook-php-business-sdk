@@ -45,6 +45,30 @@ class IGUserForIGOnlyAPI extends AbstractCrudObject {
   }
 
 
+  public function getBusinessMessagingFeatureStatus(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'feature' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/business_messaging_feature_status',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getContentPublishingLimit(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -351,11 +375,9 @@ class IGUserForIGOnlyAPI extends AbstractCrudObject {
         'GREETING',
         'HOME_URL',
         'ICE_BREAKERS',
-        'PAYMENT_SETTINGS',
         'PERSISTENT_MENU',
         'PLATFORM',
         'SUBJECT_TO_NEW_EU_PRIVACY_RULES',
-        'TARGET_AUDIENCE',
         'TITLE',
         'WHITELISTED_DOMAINS',
       ),
@@ -501,10 +523,12 @@ class IGUserForIGOnlyAPI extends AbstractCrudObject {
     );
     $enums = array(
       'subscribed_fields_enum' => array(
+        'comment_poll_response',
         'comments',
         'creator_marketplace_invited_creator_onboarding',
         'creator_marketplace_projects',
         'delta',
+        'follow',
         'live_comments',
         'mentions',
         'message_reactions',
@@ -515,8 +539,10 @@ class IGUserForIGOnlyAPI extends AbstractCrudObject {
         'messaging_referral',
         'messaging_seen',
         'onboarding_welcome_message_series',
+        'share_to_story',
         'standby',
         'story_insights',
+        'story_poll_response',
         'story_reactions',
       ),
     );

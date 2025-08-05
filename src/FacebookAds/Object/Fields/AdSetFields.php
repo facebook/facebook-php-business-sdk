@@ -27,6 +27,7 @@ class AdSetFields extends AbstractEnum {
   const ADSET_SCHEDULE = 'adset_schedule';
   const ASSET_FEED_ID = 'asset_feed_id';
   const ATTRIBUTION_SPEC = 'attribution_spec';
+  const AUTOMATIC_MANUAL_STATE = 'automatic_manual_state';
   const BID_ADJUSTMENTS = 'bid_adjustments';
   const BID_AMOUNT = 'bid_amount';
   const BID_CONSTRAINTS = 'bid_constraints';
@@ -42,6 +43,7 @@ class AdSetFields extends AbstractEnum {
   const CONFIGURED_STATUS = 'configured_status';
   const CREATED_TIME = 'created_time';
   const CREATIVE_SEQUENCE = 'creative_sequence';
+  const CREATIVE_SEQUENCE_REPETITION_PATTERN = 'creative_sequence_repetition_pattern';
   const DAILY_BUDGET = 'daily_budget';
   const DAILY_MIN_SPEND_TARGET = 'daily_min_spend_target';
   const DAILY_SPEND_CAP = 'daily_spend_cap';
@@ -58,6 +60,7 @@ class AdSetFields extends AbstractEnum {
   const IS_BA_SKIP_DELAYED_ELIGIBLE = 'is_ba_skip_delayed_eligible';
   const IS_BUDGET_SCHEDULE_ENABLED = 'is_budget_schedule_enabled';
   const IS_DYNAMIC_CREATIVE = 'is_dynamic_creative';
+  const IS_INCREMENTAL_ATTRIBUTION_ENABLED = 'is_incremental_attribution_enabled';
   const ISSUES_INFO = 'issues_info';
   const LEARNING_STAGE_INFO = 'learning_stage_info';
   const LIFETIME_BUDGET = 'lifetime_budget';
@@ -88,6 +91,8 @@ class AdSetFields extends AbstractEnum {
   const TIME_BASED_AD_ROTATION_INTERVALS = 'time_based_ad_rotation_intervals';
   const UPDATED_TIME = 'updated_time';
   const USE_NEW_APP_CLICK = 'use_new_app_click';
+  const BUDGET_SOURCE = 'budget_source';
+  const BUDGET_SPLIT_SET_ID = 'budget_split_set_id';
   const CAMPAIGN_SPEC = 'campaign_spec';
   const DAILY_IMPS = 'daily_imps';
   const DATE_FORMAT = 'date_format';
@@ -107,6 +112,7 @@ class AdSetFields extends AbstractEnum {
       'adset_schedule' => 'list<DayPart>',
       'asset_feed_id' => 'string',
       'attribution_spec' => 'list<AttributionSpec>',
+      'automatic_manual_state' => 'string',
       'bid_adjustments' => 'AdBidAdjustments',
       'bid_amount' => 'unsigned int',
       'bid_constraints' => 'AdCampaignBidConstraint',
@@ -122,6 +128,7 @@ class AdSetFields extends AbstractEnum {
       'configured_status' => 'ConfiguredStatus',
       'created_time' => 'datetime',
       'creative_sequence' => 'list<string>',
+      'creative_sequence_repetition_pattern' => 'string',
       'daily_budget' => 'string',
       'daily_min_spend_target' => 'string',
       'daily_spend_cap' => 'string',
@@ -138,6 +145,7 @@ class AdSetFields extends AbstractEnum {
       'is_ba_skip_delayed_eligible' => 'bool',
       'is_budget_schedule_enabled' => 'bool',
       'is_dynamic_creative' => 'bool',
+      'is_incremental_attribution_enabled' => 'bool',
       'issues_info' => 'list<AdCampaignIssuesInfo>',
       'learning_stage_info' => 'AdCampaignLearningStageInfo',
       'lifetime_budget' => 'string',
@@ -168,6 +176,8 @@ class AdSetFields extends AbstractEnum {
       'time_based_ad_rotation_intervals' => 'list<unsigned int>',
       'updated_time' => 'datetime',
       'use_new_app_click' => 'bool',
+      'budget_source' => 'BudgetSource',
+      'budget_split_set_id' => 'string',
       'campaign_spec' => 'Object',
       'daily_imps' => 'unsigned int',
       'date_format' => 'string',

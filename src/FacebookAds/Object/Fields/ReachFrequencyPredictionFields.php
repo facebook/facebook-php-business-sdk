@@ -128,6 +128,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const RF_PREDICTION_ID_TO_RELEASE = 'rf_prediction_id_to_release';
   const RF_PREDICTION_ID_TO_SHARE = 'rf_prediction_id_to_share';
   const STOP_TIME = 'stop_time';
+  const TRENDING_TOPICS_SPEC = 'trending_topics_spec';
 
   public function getFieldTypes() {
     return array(
@@ -237,6 +238,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'rf_prediction_id_to_release' => 'string',
       'rf_prediction_id_to_share' => 'string',
       'stop_time' => 'unsigned int',
+      'trending_topics_spec' => 'map',
     );
   }
 }

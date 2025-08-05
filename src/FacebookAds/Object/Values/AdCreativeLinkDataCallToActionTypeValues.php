@@ -103,6 +103,7 @@ class AdCreativeLinkDataCallToActionTypeValues extends AbstractEnum {
   const VIDEO_CALL = 'VIDEO_CALL';
   const VIEW_CART = 'VIEW_CART';
   const VIEW_CHANNEL = 'VIEW_CHANNEL';
+  const VIEW_IN_CART = 'VIEW_IN_CART';
   const VIEW_PRODUCT = 'VIEW_PRODUCT';
   const VISIT_PAGES_FEED = 'VISIT_PAGES_FEED';
   const WATCH_LIVE_VIDEO = 'WATCH_LIVE_VIDEO';

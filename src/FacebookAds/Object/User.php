@@ -488,6 +488,29 @@ class User extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getAssignedWhatsAppBusinessAccounts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/assigned_whatsapp_business_accounts',
+      new WhatsAppBusinessAccount(),
+      'EDGE',
+      WhatsAppBusinessAccount::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getAvatars(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1412,6 +1435,7 @@ class User extends AbstractCrudObject {
       'proxied_app_id' => 'string',
       'published' => 'bool',
       'qn' => 'string',
+      'scheduled_publish_time' => 'unsigned int',
       'spherical_metadata' => 'map',
       'sponsor_id' => 'string',
       'sponsor_relationship' => 'unsigned int',
@@ -1613,6 +1637,7 @@ class User extends AbstractCrudObject {
       'is_boost_intended' => 'bool',
       'is_explicit_share' => 'bool',
       'is_group_linking_post' => 'bool',
+      'is_partnership_ad' => 'bool',
       'is_voice_clip' => 'bool',
       'location_source_id' => 'string',
       'manual_privacy' => 'bool',
@@ -1624,6 +1649,7 @@ class User extends AbstractCrudObject {
       'og_suggestion_mechanism' => 'string',
       'original_fov' => 'unsigned int',
       'original_projection_type' => 'original_projection_type_enum',
+      'partnership_ad_ad_code' => 'string',
       'privacy' => 'string',
       'publish_event_id' => 'unsigned int',
       'referenced_sticker_id' => 'string',

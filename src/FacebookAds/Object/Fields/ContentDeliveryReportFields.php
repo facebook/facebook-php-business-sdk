@@ -22,18 +22,14 @@ use FacebookAds\Enum\AbstractEnum;
 
 class ContentDeliveryReportFields extends AbstractEnum {
 
-  const CONTENT_NAME = 'content_name';
-  const CONTENT_URL = 'content_url';
-  const CREATOR_NAME = 'creator_name';
-  const CREATOR_URL = 'creator_url';
+  const CONTENT_ID = 'content_id';
+  const CREATOR_ID = 'creator_id';
   const ESTIMATED_IMPRESSIONS = 'estimated_impressions';
 
   public function getFieldTypes() {
     return array(
-      'content_name' => 'string',
-      'content_url' => 'string',
-      'creator_name' => 'string',
-      'creator_url' => 'string',
+      'content_id' => 'string',
+      'creator_id' => 'string',
       'estimated_impressions' => 'unsigned int',
     );
   }

@@ -24,11 +24,13 @@ class CollaborativeAdsPartnerBusinessesFields extends AbstractEnum {
 
   const COLLABORATIVE_ADS_PARTNER_BUSINESSES_INFO = 'collaborative_ads_partner_businesses_info';
   const DEDICATED_PARTNER_BUSINESS_INFO = 'dedicated_partner_business_info';
+  const DEDICATED_PARTNERS_BUSINESS_INFO = 'dedicated_partners_business_info';
 
   public function getFieldTypes() {
     return array(
       'collaborative_ads_partner_businesses_info' => 'list<Business>',
       'dedicated_partner_business_info' => 'Business',
+      'dedicated_partners_business_info' => 'list<Business>',
     );
   }
 }

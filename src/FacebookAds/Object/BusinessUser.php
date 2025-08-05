@@ -16,6 +16,7 @@ use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\BusinessUserFields;
 use FacebookAds\Object\Values\BusinessUserInvitedUserTypeValues;
 use FacebookAds\Object\Values\BusinessUserRoleValues;
+use FacebookAds\Object\Values\BusinessUserTasksValues;
 
 /**
  * This class is auto-generated.
@@ -46,6 +47,7 @@ class BusinessUser extends AbstractCrudObject {
     $ref_enums = array();
     $ref_enums['InvitedUserType'] = BusinessUserInvitedUserTypeValues::getInstance()->getValues();
     $ref_enums['Role'] = BusinessUserRoleValues::getInstance()->getValues();
+    $ref_enums['Tasks'] = BusinessUserTasksValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -144,6 +146,29 @@ class BusinessUser extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getAssignedWhatsAppBusinessAccounts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/assigned_whatsapp_business_accounts',
+      new WhatsAppBusinessAccount(),
+      'EDGE',
+      WhatsAppBusinessAccount::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function deleteSelf(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -201,10 +226,12 @@ class BusinessUser extends AbstractCrudObject {
       'pending_email' => 'string',
       'role' => 'role_enum',
       'skip_verification_email' => 'bool',
+      'tasks' => 'list<tasks_enum>',
       'title' => 'string',
     );
     $enums = array(
       'role_enum' => BusinessUserRoleValues::getInstance()->getValues(),
+      'tasks_enum' => BusinessUserTasksValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

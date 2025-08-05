@@ -20,21 +20,21 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class BespokePartnerGuidanceLaserFields extends AbstractEnum {
+class BrandedContentFBPromodeUserFields extends AbstractEnum {
 
-  const BUSINESS = 'business';
-  const CAMPAIGN_GROUP = 'campaign_group';
-  const CPA_IMPROVEMENT = 'cpa_improvement';
-  const GUIDANCE_TYPE = 'guidance_type';
-  const ID = 'id';
+  const DELEGATE_PAGE_FOR_ADS_ONLY_ID = 'delegate_page_for_ads_only_id';
+  const IS_IABP = 'is_iabp';
+  const IS_MANAGED = 'is_managed';
+  const NAME = 'name';
+  const PROFILE_PICTURE_URL = 'profile_picture_url';
 
   public function getFieldTypes() {
     return array(
-      'business' => 'Business',
-      'campaign_group' => 'Campaign',
-      'cpa_improvement' => 'float',
-      'guidance_type' => 'string',
-      'id' => 'string',
+      'delegate_page_for_ads_only_id' => 'string',
+      'is_iabp' => 'bool',
+      'is_managed' => 'bool',
+      'name' => 'string',
+      'profile_picture_url' => 'string',
     );
   }
 }

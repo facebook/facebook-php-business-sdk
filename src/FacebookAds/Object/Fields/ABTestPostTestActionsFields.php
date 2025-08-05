@@ -20,25 +20,13 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class SplitTestConfigFields extends AbstractEnum {
+class ABTestPostTestActionsFields extends AbstractEnum {
 
-  const BUDGET = 'budget';
-  const EARLY_WINNER_DECLARATION_ENABLED = 'early_winner_declaration_enabled';
-  const END_TIME = 'end_time';
-  const SPLITS = 'splits';
-  const START_TIME = 'start_time';
-  const TEST_VARIABLE = 'test_variable';
-  const ID = 'id';
+  const AUTO_CHANGE_BUDGET_TO_WINNER = 'auto_change_budget_to_winner';
 
   public function getFieldTypes() {
     return array(
-      'budget' => 'int',
-      'early_winner_declaration_enabled' => 'bool',
-      'end_time' => 'datetime',
-      'splits' => 'list<int>',
-      'start_time' => 'datetime',
-      'test_variable' => 'string',
-      'id' => 'string',
+      'auto_change_budget_to_winner' => 'int',
     );
   }
 }

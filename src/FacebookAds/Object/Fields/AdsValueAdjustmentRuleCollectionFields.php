@@ -26,6 +26,7 @@ class AdsValueAdjustmentRuleCollectionFields extends AbstractEnum {
   const IS_DEFAULT_SETTING = 'is_default_setting';
   const NAME = 'name';
   const PRODUCT_TYPE = 'product_type';
+  const STATUS = 'status';
   const RULES = 'rules';
 
   public function getFieldTypes() {
@@ -34,6 +35,7 @@ class AdsValueAdjustmentRuleCollectionFields extends AbstractEnum {
       'is_default_setting' => 'bool',
       'name' => 'string',
       'product_type' => 'string',
+      'status' => 'string',
       'rules' => 'list<map>',
     );
   }

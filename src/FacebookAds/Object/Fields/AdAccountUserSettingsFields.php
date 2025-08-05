@@ -28,6 +28,7 @@ class AdAccountUserSettingsFields extends AbstractEnum {
   const ACTIVE_ADS_QUICK_VIEW_CREATED = 'active_ads_quick_view_created';
   const AD_ACCOUNT = 'ad_account';
   const AD_OBJECT_EXPORT_FORMAT = 'ad_object_export_format';
+  const ADS_MANAGER_FOOTER_ROW_TOAST_IMPRESSIONS = 'ads_manager_footer_row_toast_impressions';
   const AUTO_REVIEW_VIDEO_CAPTION = 'auto_review_video_caption';
   const CAMPAIGN_OVERVIEW_COLUMNS = 'campaign_overview_columns';
   const COLUMN_SUGGESTION_STATUS = 'column_suggestion_status';
@@ -47,7 +48,9 @@ class AdAccountUserSettingsFields extends AbstractEnum {
   const HAS_SEEN_LEADS_COLUMN_FLEXING_EXPERIENCE = 'has_seen_leads_column_flexing_experience';
   const HAS_SEEN_SHOPS_ADS_METRICS_ONBOARDING_TOUR = 'has_seen_shops_ads_metrics_onboarding_tour';
   const HAS_SEEN_SHOPS_COLUMN_FLEXING_EXPERIENCE = 'has_seen_shops_column_flexing_experience';
+  const HAS_USED_QUICK_VIEWS_PANEL = 'has_used_quick_views_panel';
   const HIDDEN_OPTIMIZATION_TIPS = 'hidden_optimization_tips';
+  const HIGH_PERFORMING_QUICK_VIEW_CREATED = 'high_performing_quick_view_created';
   const ID = 'id';
   const IS_3P_AUTH_SETTING_SET = 'is_3p_auth_setting_set';
   const IS_ADS_MANAGER_FOOTER_ROW_PREFERENCE_SET = 'is_ads_manager_footer_row_preference_set';
@@ -61,6 +64,7 @@ class AdAccountUserSettingsFields extends AbstractEnum {
   const RB_EXPORT_FORMAT = 'rb_export_format';
   const RB_EXPORT_RAW_DATA = 'rb_export_raw_data';
   const RB_EXPORT_SUMMARY_ROW = 'rb_export_summary_row';
+  const RECENTLY_USED_QUICK_VIEWS = 'recently_used_quick_views';
   const SAIP_ADVERTISER_SETUP_OPTIMISATION_GUIDANCE_OVERALL_STATE = 'saip_advertiser_setup_optimisation_guidance_overall_state';
   const SAIP_ADVERTISER_SETUP_OPTIMISATION_GUIDANCE_STATE = 'saip_advertiser_setup_optimisation_guidance_state';
   const SHOPS_ADS_METRICS_ONBOARDING_TOUR_CLOSE_COUNT = 'shops_ads_metrics_onboarding_tour_close_count';
@@ -82,6 +86,8 @@ class AdAccountUserSettingsFields extends AbstractEnum {
   const SYD_CAMPAIGN_TRENDS_OBJECTIVE = 'syd_campaign_trends_objective';
   const SYD_CAMPAIGN_TRENDS_TIME_RANGE = 'syd_campaign_trends_time_range';
   const SYD_LANDING_PAGE_OPT_IN_STATUS = 'syd_landing_page_opt_in_status';
+  const TEXT_GEN_PERSONA_OPT_IN_TYPE = 'text_gen_persona_opt_in_type';
+  const TEXT_VARIATIONS_OPT_IN_OUT_TS = 'text_variations_opt_in_out_ts';
   const TEXT_VARIATIONS_OPT_IN_TYPE = 'text_variations_opt_in_type';
   const USER = 'user';
 
@@ -93,6 +99,7 @@ class AdAccountUserSettingsFields extends AbstractEnum {
       'active_ads_quick_view_created' => 'bool',
       'ad_account' => 'AdAccount',
       'ad_object_export_format' => 'string',
+      'ads_manager_footer_row_toast_impressions' => 'int',
       'auto_review_video_caption' => 'bool',
       'campaign_overview_columns' => 'list<string>',
       'column_suggestion_status' => 'string',
@@ -112,7 +119,9 @@ class AdAccountUserSettingsFields extends AbstractEnum {
       'has_seen_leads_column_flexing_experience' => 'bool',
       'has_seen_shops_ads_metrics_onboarding_tour' => 'bool',
       'has_seen_shops_column_flexing_experience' => 'bool',
+      'has_used_quick_views_panel' => 'bool',
       'hidden_optimization_tips' => 'list<map<string, bool>>',
+      'high_performing_quick_view_created' => 'bool',
       'id' => 'string',
       'is_3p_auth_setting_set' => 'bool',
       'is_ads_manager_footer_row_preference_set' => 'bool',
@@ -126,6 +135,7 @@ class AdAccountUserSettingsFields extends AbstractEnum {
       'rb_export_format' => 'string',
       'rb_export_raw_data' => 'bool',
       'rb_export_summary_row' => 'bool',
+      'recently_used_quick_views' => 'list<string>',
       'saip_advertiser_setup_optimisation_guidance_overall_state' => 'string',
       'saip_advertiser_setup_optimisation_guidance_state' => 'list<map<string, string>>',
       'shops_ads_metrics_onboarding_tour_close_count' => 'int',
@@ -147,6 +157,8 @@ class AdAccountUserSettingsFields extends AbstractEnum {
       'syd_campaign_trends_objective' => 'SydCampaignTrendsObjective',
       'syd_campaign_trends_time_range' => 'string',
       'syd_landing_page_opt_in_status' => 'string',
+      'text_gen_persona_opt_in_type' => 'string',
+      'text_variations_opt_in_out_ts' => 'datetime',
       'text_variations_opt_in_type' => 'string',
       'user' => 'User',
     );

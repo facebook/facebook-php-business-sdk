@@ -22,6 +22,8 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdsInsightsBreakdownsValues extends AbstractEnum {
 
+  const AD_EXTENSION_DOMAIN = 'ad_extension_domain';
+  const AD_EXTENSION_URL = 'ad_extension_url';
   const AD_FORMAT_ASSET = 'ad_format_asset';
   const AGE = 'age';
   const APP_ID = 'app_id';
@@ -30,13 +32,18 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
   const BREAKDOWN_REPORTING_AD_ID = 'breakdown_reporting_ad_id';
   const CALL_TO_ACTION_ASSET = 'call_to_action_asset';
   const COARSE_CONVERSION_VALUE = 'coarse_conversion_value';
+  const COMSCORE_MARKET = 'comscore_market';
+  const COMSCORE_MARKET_CODE = 'comscore_market_code';
   const CONVERSION_DESTINATION = 'conversion_destination';
   const COUNTRY = 'country';
+  const CREATIVE_RELAXATION_ASSET_TYPE = 'creative_relaxation_asset_type';
   const DESCRIPTION_ASSET = 'description_asset';
   const DEVICE_PLATFORM = 'device_platform';
   const DMA = 'dma';
   const FIDELITY_TYPE = 'fidelity_type';
+  const FLEXIBLE_FORMAT_ASSET_TYPE = 'flexible_format_asset_type';
   const FREQUENCY_VALUE = 'frequency_value';
+  const GEN_AI_ASSET_TYPE = 'gen_ai_asset_type';
   const GENDER = 'gender';
   const HOURLY_STATS_AGGREGATED_BY_ADVERTISER_TIME_ZONE = 'hourly_stats_aggregated_by_advertiser_time_zone';
   const HOURLY_STATS_AGGREGATED_BY_AUDIENCE_TIME_ZONE = 'hourly_stats_aggregated_by_audience_time_zone';
@@ -44,6 +51,7 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
   const IMAGE_ASSET = 'image_asset';
   const IMPRESSION_DEVICE = 'impression_device';
   const IMPRESSION_VIEW_TIME_ADVERTISER_HOUR_V2 = 'impression_view_time_advertiser_hour_v2';
+  const IS_AUTO_ADVANCE = 'is_auto_advance';
   const IS_CONVERSION_ID_MODELED = 'is_conversion_id_modeled';
   const IS_RENDERED_AS_DELAYED_SKIP_AD = 'is_rendered_as_delayed_skip_ad';
   const LANDING_DESTINATION = 'landing_destination';

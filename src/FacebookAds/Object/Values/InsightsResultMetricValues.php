@@ -32,7 +32,6 @@ class InsightsResultMetricValues extends AbstractEnum {
   const IMPRESSIONS = 'impressions';
   const LIKES = 'likes';
   const NAVIGATION = 'navigation';
-  const PEAK_CONCURRENT_VIEWERS = 'peak_concurrent_viewers';
   const PLAYS = 'plays';
   const PROFILE_ACTIVITY = 'profile_activity';
   const PROFILE_VISITS = 'profile_visits';
@@ -44,8 +43,8 @@ class InsightsResultMetricValues extends AbstractEnum {
   const SHARES = 'shares';
   const THREAD_REPLIES = 'thread_replies';
   const THREAD_SHARES = 'thread_shares';
+  const THREADS_MEDIA_CLICKS = 'threads_media_clicks';
   const THREADS_VIEWS = 'threads_views';
   const TOTAL_INTERACTIONS = 'total_interactions';
-  const VIDEO_VIEWS = 'video_views';
   const VIEWS = 'views';
 }

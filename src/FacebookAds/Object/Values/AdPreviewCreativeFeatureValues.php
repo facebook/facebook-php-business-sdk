@@ -25,4 +25,6 @@ class AdPreviewCreativeFeatureValues extends AbstractEnum {
   const PRODUCT_METADATA_AUTOMATION = 'product_metadata_automation';
   const PROFILE_CARD = 'profile_card';
   const STANDARD_ENHANCEMENTS_CATALOG = 'standard_enhancements_catalog';
+  const TEXT_OVERLAY_TRANSLATION = 'text_overlay_translation';
+  const VIDEO_TO_IMAGE = 'video_to_image';
 }

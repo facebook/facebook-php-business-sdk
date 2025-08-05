@@ -24,6 +24,8 @@ use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupAffectedEntitiesValue
 use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupAffectedFeaturesValues;
 use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupSeveritiesValues;
 use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupTypesValues;
+use FacebookAds\Object\Values\ProductCatalogEnabledCollabTermsValues;
+use FacebookAds\Object\Values\ProductCatalogEventNameValues;
 use FacebookAds\Object\Values\ProductCatalogItemSubTypeValues;
 use FacebookAds\Object\Values\ProductCatalogPermittedRolesValues;
 use FacebookAds\Object\Values\ProductCatalogPermittedTasksValues;
@@ -38,6 +40,7 @@ use FacebookAds\Object\Values\ProductFeedIngestionSourceTypeValues;
 use FacebookAds\Object\Values\ProductFeedItemSubTypeValues;
 use FacebookAds\Object\Values\ProductFeedOverrideTypeValues;
 use FacebookAds\Object\Values\ProductFeedQuotedFieldsModeValues;
+use FacebookAds\Object\Values\ProductItemAgeGroupValues;
 use FacebookAds\Object\Values\ProductItemAvailabilityValues;
 use FacebookAds\Object\Values\ProductItemCommerceTaxCategoryValues;
 use FacebookAds\Object\Values\ProductItemConditionValues;
@@ -86,11 +89,13 @@ class ProductCatalog extends AbstractCrudObject {
     $ref_enums = array();
     $ref_enums['AdditionalVerticalOption'] = ProductCatalogAdditionalVerticalOptionValues::getInstance()->getValues();
     $ref_enums['Vertical'] = ProductCatalogVerticalValues::getInstance()->getValues();
+    $ref_enums['EnabledCollabTerms'] = ProductCatalogEnabledCollabTermsValues::getInstance()->getValues();
     $ref_enums['PermittedRoles'] = ProductCatalogPermittedRolesValues::getInstance()->getValues();
     $ref_enums['PermittedTasks'] = ProductCatalogPermittedTasksValues::getInstance()->getValues();
     $ref_enums['Tasks'] = ProductCatalogTasksValues::getInstance()->getValues();
     $ref_enums['Standard'] = ProductCatalogStandardValues::getInstance()->getValues();
     $ref_enums['ItemSubType'] = ProductCatalogItemSubTypeValues::getInstance()->getValues();
+    $ref_enums['EventName'] = ProductCatalogEventNameValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -147,12 +152,14 @@ class ProductCatalog extends AbstractCrudObject {
 
     $param_types = array(
       'business' => 'string',
+      'enabled_collab_terms' => 'list<enabled_collab_terms_enum>',
       'permitted_roles' => 'list<permitted_roles_enum>',
       'permitted_tasks' => 'list<permitted_tasks_enum>',
       'skip_defaults' => 'bool',
       'utm_settings' => 'map',
     );
     $enums = array(
+      'enabled_collab_terms_enum' => ProductCatalogEnabledCollabTermsValues::getInstance()->getValues(),
       'permitted_roles_enum' => ProductCatalogPermittedRolesValues::getInstance()->getValues(),
       'permitted_tasks_enum' => ProductCatalogPermittedTasksValues::getInstance()->getValues(),
     );
@@ -392,6 +399,30 @@ class ProductCatalog extends AbstractCrudObject {
       new CheckBatchRequestStatus(),
       'EDGE',
       CheckBatchRequestStatus::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getCheckMarketplacePartnerSellersStatus(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'session_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/check_marketplace_partner_sellers_status',
+      new ProductCatalogCheckMarketplacePartnerSellersStatus(),
+      'EDGE',
+      ProductCatalogCheckMarketplacePartnerSellersStatus::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -700,6 +731,32 @@ class ProductCatalog extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createGeolocatedItemsBatch(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'allow_upsert' => 'bool',
+      'item_type' => 'string',
+      'requests' => 'map',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/geolocated_items_batch',
+      new ProductCatalog(),
+      'EDGE',
+      ProductCatalog::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getHomeListings(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -948,6 +1005,35 @@ class ProductCatalog extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/marketplace_partner_sellers_details',
+      new ProductCatalog(),
+      'EDGE',
+      ProductCatalog::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createMarketPlacePartnerSignal(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'event_name' => 'event_name_enum',
+      'event_source_url' => 'string',
+      'event_time' => 'datetime',
+      'order_data' => 'map',
+      'user_data' => 'map',
+    );
+    $enums = array(
+      'event_name_enum' => ProductCatalogEventNameValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/marketplace_partner_signals',
       new ProductCatalog(),
       'EDGE',
       ProductCatalog::getFieldsEnum()->getValues(),
@@ -1248,6 +1334,7 @@ class ProductCatalog extends AbstractCrudObject {
     $param_types = array(
       'additional_image_urls' => 'list<string>',
       'additional_variant_attributes' => 'map',
+      'age_group' => 'age_group_enum',
       'android_app_name' => 'string',
       'android_class' => 'string',
       'android_package' => 'string',
@@ -1325,6 +1412,7 @@ class ProductCatalog extends AbstractCrudObject {
       'windows_phone_url' => 'string',
     );
     $enums = array(
+      'age_group_enum' => ProductItemAgeGroupValues::getInstance()->getValues(),
       'availability_enum' => ProductItemAvailabilityValues::getInstance()->getValues(),
       'commerce_tax_category_enum' => ProductItemCommerceTaxCategoryValues::getInstance()->getValues(),
       'condition_enum' => ProductItemConditionValues::getInstance()->getValues(),
@@ -1343,6 +1431,30 @@ class ProductCatalog extends AbstractCrudObject {
       new ProductItem(),
       'EDGE',
       ProductItem::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createUpdateGeneratedImageConfig(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'data' => 'list<Object>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/update_generated_image_config',
+      new ProductCatalog(),
+      'EDGE',
+      ProductCatalog::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

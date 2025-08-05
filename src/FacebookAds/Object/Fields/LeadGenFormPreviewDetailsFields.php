@@ -66,6 +66,8 @@ class LeadGenFormPreviewDetailsFields extends AbstractEnum {
   const SOCIAL_PROOF_SECTION_HEADERS = 'social_proof_section_headers';
   const SUBMIT_BUTTON_TEXT = 'submit_button_text';
   const VIEW_FILE_TEXT = 'view_file_text';
+  const WHATS_APP_OPT_IN_BODY = 'whats_app_opt_in_body';
+  const WHATS_APP_OPT_IN_TITLE = 'whats_app_opt_in_title';
 
   public function getFieldTypes() {
     return array(
@@ -113,6 +115,8 @@ class LeadGenFormPreviewDetailsFields extends AbstractEnum {
       'social_proof_section_headers' => 'list<map<string, string>>',
       'submit_button_text' => 'string',
       'view_file_text' => 'string',
+      'whats_app_opt_in_body' => 'string',
+      'whats_app_opt_in_title' => 'string',
     );
   }
 }
