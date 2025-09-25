@@ -74,6 +74,7 @@ class AdSetFields extends AbstractEnum {
   const OPTIMIZATION_GOAL = 'optimization_goal';
   const OPTIMIZATION_SUB_EVENT = 'optimization_sub_event';
   const PACING_TYPE = 'pacing_type';
+  const PLACEMENT_SOFT_OPT_OUT = 'placement_soft_opt_out';
   const PROMOTED_OBJECT = 'promoted_object';
   const RECOMMENDATIONS = 'recommendations';
   const RECURRING_BUDGET_SEMANTICS = 'recurring_budget_semantics';
@@ -89,8 +90,12 @@ class AdSetFields extends AbstractEnum {
   const TARGETING_OPTIMIZATION_TYPES = 'targeting_optimization_types';
   const TIME_BASED_AD_ROTATION_ID_BLOCKS = 'time_based_ad_rotation_id_blocks';
   const TIME_BASED_AD_ROTATION_INTERVALS = 'time_based_ad_rotation_intervals';
+  const TRENDING_TOPICS_SPEC = 'trending_topics_spec';
   const UPDATED_TIME = 'updated_time';
   const USE_NEW_APP_CLICK = 'use_new_app_click';
+  const VALUE_RULE_SET_ID = 'value_rule_set_id';
+  const VALUE_RULES_APPLIED = 'value_rules_applied';
+  const BUDGET_SCHEDULE_SPECS = 'budget_schedule_specs';
   const BUDGET_SOURCE = 'budget_source';
   const BUDGET_SPLIT_SET_ID = 'budget_split_set_id';
   const CAMPAIGN_SPEC = 'campaign_spec';
@@ -159,6 +164,7 @@ class AdSetFields extends AbstractEnum {
       'optimization_goal' => 'OptimizationGoal',
       'optimization_sub_event' => 'string',
       'pacing_type' => 'list<string>',
+      'placement_soft_opt_out' => 'Placement',
       'promoted_object' => 'AdPromotedObject',
       'recommendations' => 'list<AdRecommendation>',
       'recurring_budget_semantics' => 'bool',
@@ -174,8 +180,12 @@ class AdSetFields extends AbstractEnum {
       'targeting_optimization_types' => 'list<map<string, int>>',
       'time_based_ad_rotation_id_blocks' => 'list<list<int>>',
       'time_based_ad_rotation_intervals' => 'list<unsigned int>',
+      'trending_topics_spec' => 'TrendingTopicsSpec',
       'updated_time' => 'datetime',
       'use_new_app_click' => 'bool',
+      'value_rule_set_id' => 'string',
+      'value_rules_applied' => 'bool',
+      'budget_schedule_specs' => 'list<Object>',
       'budget_source' => 'BudgetSource',
       'budget_split_set_id' => 'string',
       'campaign_spec' => 'Object',

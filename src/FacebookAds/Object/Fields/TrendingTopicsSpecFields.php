@@ -20,15 +20,17 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class AvatarProfilePictureFields extends AbstractEnum {
+class TrendingTopicsSpecFields extends AbstractEnum {
 
-  const ID = 'id';
-  const URL = 'url';
+  const IS_ALL_TRENDING = 'is_all_trending';
+  const IS_SPECIAL_BUDGET_ALLOC = 'is_special_budget_alloc';
+  const TRENDING_TOPICS = 'trending_topics';
 
   public function getFieldTypes() {
     return array(
-      'id' => 'string',
-      'url' => 'string',
+      'is_all_trending' => 'bool',
+      'is_special_budget_alloc' => 'bool',
+      'trending_topics' => 'list<string>',
     );
   }
 }

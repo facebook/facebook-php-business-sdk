@@ -23,6 +23,7 @@ use FacebookAds\Enum\AbstractEnum;
 class OpenBridgeConfigurationFields extends AbstractEnum {
 
   const ACTIVE = 'active';
+  const BROWSER_AGENT = 'browser_agent';
   const CLOUD_PROVIDER = 'cloud_provider';
   const CLOUD_REGION = 'cloud_region';
   const DESTINATION_ID = 'destination_id';
@@ -44,6 +45,7 @@ class OpenBridgeConfigurationFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'active' => 'bool',
+      'browser_agent' => 'list<string>',
       'cloud_provider' => 'string',
       'cloud_region' => 'string',
       'destination_id' => 'string',

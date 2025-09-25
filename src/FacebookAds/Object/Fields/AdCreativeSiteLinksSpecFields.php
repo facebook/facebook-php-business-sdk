@@ -23,10 +23,12 @@ use FacebookAds\Enum\AbstractEnum;
 class AdCreativeSiteLinksSpecFields extends AbstractEnum {
 
   const IS_SITE_LINK_STICKY = 'is_site_link_sticky';
+  const SITE_LINK_EXTRA_METADATA = 'site_link_extra_metadata';
   const SITE_LINK_HASH = 'site_link_hash';
   const SITE_LINK_ID = 'site_link_id';
   const SITE_LINK_IMAGE_HASH = 'site_link_image_hash';
   const SITE_LINK_IMAGE_URL = 'site_link_image_url';
+  const SITE_LINK_LANGUAGE = 'site_link_language';
   const SITE_LINK_RECOMMENDATION_TYPE = 'site_link_recommendation_type';
   const SITE_LINK_TITLE = 'site_link_title';
   const SITE_LINK_URL = 'site_link_url';
@@ -34,10 +36,12 @@ class AdCreativeSiteLinksSpecFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'is_site_link_sticky' => 'bool',
+      'site_link_extra_metadata' => 'string',
       'site_link_hash' => 'string',
       'site_link_id' => 'string',
       'site_link_image_hash' => 'string',
       'site_link_image_url' => 'string',
+      'site_link_language' => 'string',
       'site_link_recommendation_type' => 'string',
       'site_link_title' => 'string',
       'site_link_url' => 'string',

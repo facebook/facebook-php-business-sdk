@@ -23,6 +23,7 @@ use FacebookAds\Enum\AbstractEnum;
 class WhatsAppBusinessHealthStatusFields extends AbstractEnum {
 
   const ADDITIONAL_INFO = 'additional_info';
+  const CAN_RECEIVE_CALL_SIP = 'can_receive_call_sip';
   const CAN_SEND_MESSAGE = 'can_send_message';
   const ENTITY_TYPE = 'entity_type';
   const ERRORS = 'errors';
@@ -31,6 +32,7 @@ class WhatsAppBusinessHealthStatusFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'additional_info' => 'list<string>',
+      'can_receive_call_sip' => 'string',
       'can_send_message' => 'string',
       'entity_type' => 'string',
       'errors' => 'list<Object>',

@@ -25,6 +25,7 @@ class AdgroupMetadataFields extends AbstractEnum {
   const AD_STANDARD_ENHANCEMENTS_EDIT_SOURCE = 'ad_standard_enhancements_edit_source';
   const ADGROUP_CREATION_SOURCE = 'adgroup_creation_source';
   const ADGROUP_EDIT_SOURCE = 'adgroup_edit_source';
+  const ADGROUP_MEDIA_SOURCE = 'adgroup_media_source';
   const CAROUSEL_STYLE = 'carousel_style';
   const CAROUSEL_WITH_STATIC_CARD_STYLE = 'carousel_with_static_card_style';
 
@@ -33,6 +34,7 @@ class AdgroupMetadataFields extends AbstractEnum {
       'ad_standard_enhancements_edit_source' => 'int',
       'adgroup_creation_source' => 'string',
       'adgroup_edit_source' => 'string',
+      'adgroup_media_source' => 'string',
       'carousel_style' => 'string',
       'carousel_with_static_card_style' => 'string',
     );

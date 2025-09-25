@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -18,17 +18,10 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static WhatsAppBusinessAccountTypeValues getInstance()
  */
+class WhatsAppBusinessAccountTypeValues extends AbstractEnum {
 
-class FavoriteCatalogFields extends AbstractEnum {
-
-  const CATALOG = 'catalog';
-  const ID = 'id';
-
-  public function getFieldTypes() {
-    return array(
-      'catalog' => 'ProductCatalog',
-      'id' => 'string',
-    );
-  }
+  const INTERACTIVE = 'INTERACTIVE';
+  const TEXT = 'TEXT';
 }

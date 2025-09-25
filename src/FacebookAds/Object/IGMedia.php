@@ -345,6 +345,7 @@ class IGMedia extends AbstractCrudObject {
     $enums = array(
       'boostable_media_callsite_enum' => array(
         'ADS_MANAGER_L1_EDITOR_DYNAMIC_ADS_WITH_EXISTING_POST',
+        'PA_HUB_CATALOG_INGESTION_CREATOR_ASSET',
       ),
     );
 

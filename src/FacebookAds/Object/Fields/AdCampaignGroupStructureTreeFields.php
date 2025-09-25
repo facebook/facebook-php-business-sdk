@@ -25,14 +25,14 @@ class AdCampaignGroupStructureTreeFields extends AbstractEnum {
   const CHILDREN = 'children';
   const ID = 'id';
   const NAME = 'name';
-  const TIME_UPDATED = 'time_updated';
+  const STATUS = 'status';
 
   public function getFieldTypes() {
     return array(
       'children' => 'list<AdCampaignGroupStructureTree>',
       'id' => 'string',
       'name' => 'string',
-      'time_updated' => 'int',
+      'status' => 'string',
     );
   }
 }

@@ -14,6 +14,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\BusinessFields;
+use FacebookAds\Object\Values\AdCustomDerivedMetricsScopeValues;
 use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultAggregationPeriodValues;
 use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultBreakdownsValues;
 use FacebookAds\Object\Values\AdNetworkAnalyticsSyncQueryResultMetricsValues;
@@ -166,6 +167,32 @@ class Business extends AbstractCrudObject {
       new AbstractCrudObject(),
       'EDGE',
       array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getAdCustomDerivedMetrics(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'adhoc_custom_metrics' => 'list<string>',
+      'scope' => 'scope_enum',
+    );
+    $enums = array(
+      'scope_enum' => AdCustomDerivedMetricsScopeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/ad_custom_derived_metrics',
+      new AdCustomDerivedMetrics(),
+      'EDGE',
+      AdCustomDerivedMetrics::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

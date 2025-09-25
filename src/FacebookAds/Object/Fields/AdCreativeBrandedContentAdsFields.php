@@ -22,9 +22,11 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdCreativeBrandedContentAdsFields extends AbstractEnum {
 
+  const ACTING_BUSINESS_ID = 'acting_business_id';
   const AD_FORMAT = 'ad_format';
   const CONTENT_SEARCH_INPUT = 'content_search_input';
   const CREATOR_AD_PERMISSION_TYPE = 'creator_ad_permission_type';
+  const DELIVER_DYNAMIC_PARTNER_CONTENT = 'deliver_dynamic_partner_content';
   const FACEBOOK_BOOST_POST_ACCESS_TOKEN = 'facebook_boost_post_access_token';
   const INSTAGRAM_BOOST_POST_ACCESS_TOKEN = 'instagram_boost_post_access_token';
   const IS_MCA_INTERNAL = 'is_mca_internal';
@@ -39,9 +41,11 @@ class AdCreativeBrandedContentAdsFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'acting_business_id' => 'string',
       'ad_format' => 'int',
       'content_search_input' => 'string',
       'creator_ad_permission_type' => 'string',
+      'deliver_dynamic_partner_content' => 'bool',
       'facebook_boost_post_access_token' => 'string',
       'instagram_boost_post_access_token' => 'string',
       'is_mca_internal' => 'bool',

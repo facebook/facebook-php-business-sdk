@@ -31,6 +31,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
   const BIZ_AI = 'biz_ai';
   const CAROUSEL_TO_VIDEO = 'carousel_to_video';
   const CATALOG_FEED_TAG = 'catalog_feed_tag';
+  const CREATIVE_STICKERS = 'creative_stickers';
   const CUSTOMIZE_PRODUCT_RECOMMENDATION = 'customize_product_recommendation';
   const CV_TRANSFORMATION = 'cv_transformation';
   const DESCRIPTION_AUTOMATION = 'description_automation';
@@ -67,6 +68,9 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
   const PRODUCT_TAGS = 'product_tags';
   const PROFILE_CARD = 'profile_card';
   const PROFILE_EXTENSION = 'profile_extension';
+  const REPLACE_MEDIA_TEXT = 'replace_media_text';
+  const REVEAL_DETAILS_OVER_TIME = 'reveal_details_over_time';
+  const SHOW_DESTINATION_BLURBS = 'show_destination_blurbs';
   const SHOW_SUMMARY = 'show_summary';
   const SITE_EXTENSIONS = 'site_extensions';
   const STANDARD_ENHANCEMENTS = 'standard_enhancements';
@@ -78,8 +82,10 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
   const VIDEO_AUTO_CROP = 'video_auto_crop';
   const VIDEO_FILTERING = 'video_filtering';
   const VIDEO_HIGHLIGHT = 'video_highlight';
+  const VIDEO_HIGHLIGHTS = 'video_highlights';
   const VIDEO_TO_IMAGE = 'video_to_image';
   const VIDEO_UNCROP = 'video_uncrop';
+  const WA_MM_IMAGE_FILTERING = 'wa_mm_image_filtering';
   const WA_MM_TEXT_TRUNCATION_LENGTH = 'wa_mm_text_truncation_length';
 
   public function getFieldTypes() {
@@ -93,6 +99,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
       'biz_ai' => 'AdCreativeFeatureDetails',
       'carousel_to_video' => 'AdCreativeFeatureDetails',
       'catalog_feed_tag' => 'AdCreativeFeatureDetails',
+      'creative_stickers' => 'AdCreativeFeatureDetails',
       'customize_product_recommendation' => 'AdCreativeFeatureDetails',
       'cv_transformation' => 'AdCreativeFeatureDetails',
       'description_automation' => 'AdCreativeFeatureDetails',
@@ -129,6 +136,9 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
       'product_tags' => 'AdCreativeFeatureDetails',
       'profile_card' => 'AdCreativeFeatureDetails',
       'profile_extension' => 'AdCreativeFeatureDetails',
+      'replace_media_text' => 'AdCreativeFeatureDetails',
+      'reveal_details_over_time' => 'AdCreativeFeatureDetails',
+      'show_destination_blurbs' => 'AdCreativeFeatureDetails',
       'show_summary' => 'AdCreativeFeatureDetails',
       'site_extensions' => 'AdCreativeFeatureDetails',
       'standard_enhancements' => 'AdCreativeFeatureDetails',
@@ -140,8 +150,10 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
       'video_auto_crop' => 'AdCreativeFeatureDetails',
       'video_filtering' => 'AdCreativeFeatureDetails',
       'video_highlight' => 'AdCreativeFeatureDetails',
+      'video_highlights' => 'AdCreativeFeatureDetails',
       'video_to_image' => 'AdCreativeFeatureDetails',
       'video_uncrop' => 'AdCreativeFeatureDetails',
+      'wa_mm_image_filtering' => 'AdCreativeFeatureDetails',
       'wa_mm_text_truncation_length' => 'AdCreativeFeatureDetails',
     );
   }

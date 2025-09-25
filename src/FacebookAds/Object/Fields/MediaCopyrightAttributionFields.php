@@ -35,7 +35,6 @@ class MediaCopyrightAttributionFields extends AbstractEnum {
   const IS_ENABLED = 'is_enabled';
   const LINK_TITLE = 'link_title';
   const MATCH_COUNT = 'match_count';
-  const OWNER = 'owner';
   const STATUS = 'status';
   const TITLE = 'title';
 
@@ -54,7 +53,6 @@ class MediaCopyrightAttributionFields extends AbstractEnum {
       'is_enabled' => 'bool',
       'link_title' => 'string',
       'match_count' => 'int',
-      'owner' => 'Page',
       'status' => 'string',
       'title' => 'string',
     );

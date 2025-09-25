@@ -27,10 +27,13 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const AWARDS = 'awards';
   const BIO = 'bio';
   const BIRTHDAY = 'birthday';
+  const BUSINESS_INTEGRITY = 'business_integrity';
   const CALL_PERMISSION_REPLY = 'call_permission_reply';
+  const CALL_SETTINGS_UPDATE = 'call_settings_update';
   const CALLS = 'calls';
   const CATEGORY = 'category';
   const CHECKINS = 'checkins';
+  const COMMENT_POLL_RESPONSE = 'comment_poll_response';
   const COMPANY_OVERVIEW = 'company_overview';
   const CONVERSATIONS = 'conversations';
   const CULINARY_TEAM = 'culinary_team';
@@ -39,6 +42,7 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const EMAIL = 'email';
   const FEATURE_ACCESS_LIST = 'feature_access_list';
   const FEED = 'feed';
+  const FOLLOW = 'follow';
   const FOUNDED = 'founded';
   const GENERAL_INFO = 'general_info';
   const GENERAL_MANAGER = 'general_manager';
@@ -57,6 +61,8 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const LOCAL_DELIVERY = 'local_delivery';
   const LOCATION = 'location';
   const MARKETING_MESSAGE_DELIVERY_FAILED = 'marketing_message_delivery_failed';
+  const MARKETING_MESSAGE_ECHOES = 'marketing_message_echoes';
+  const MARKETING_MESSAGES_SUBSCRIBER_UPLOAD_STATUS = 'marketing_messages_subscriber_upload_status';
   const MCOM_INVOICE_CHANGE = 'mcom_invoice_change';
   const MEMBERS = 'members';
   const MENTION = 'mention';
@@ -110,6 +116,8 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const RESPONSE_FEEDBACK = 'response_feedback';
   const SEND_CART = 'send_cart';
   const STANDBY = 'standby';
+  const STORY_POLL_RESPONSE = 'story_poll_response';
+  const STORY_SHARE = 'story_share';
   const USER_ACTION = 'user_action';
   const VIDEO_TEXT_QUESTION_RESPONSES = 'video_text_question_responses';
   const VIDEOS = 'videos';

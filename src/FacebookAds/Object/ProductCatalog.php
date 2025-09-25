@@ -406,6 +406,30 @@ class ProductCatalog extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getCheckMarketplacePartnerDealsStatus(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'session_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/check_marketplace_partner_deals_status',
+      new ProductCatalogCheckMarketplacePartnerDealsStatus(),
+      'EDGE',
+      ProductCatalogCheckMarketplacePartnerDealsStatus::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getCheckMarketplacePartnerSellersStatus(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -991,6 +1015,30 @@ class ProductCatalog extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createMarketPlacePartnerDealsDetail(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'requests' => 'map',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/marketplace_partner_deals_details',
+      new ProductCatalog(),
+      'EDGE',
+      ProductCatalog::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createMarketPlacePartnerSellersDetail(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1378,6 +1426,7 @@ class ProductCatalog extends AbstractCrudObject {
       'iphone_app_store_id' => 'unsigned int',
       'iphone_url' => 'string',
       'launch_date' => 'string',
+      'live_special_price' => 'string',
       'manufacturer_info' => 'string',
       'manufacturer_part_number' => 'string',
       'marked_for_product_launch' => 'marked_for_product_launch_enum',
@@ -1398,6 +1447,7 @@ class ProductCatalog extends AbstractCrudObject {
       'retailer_id' => 'string',
       'retailer_product_group_id' => 'string',
       'return_policy_days' => 'unsigned int',
+      'rich_text_description' => 'string',
       'sale_price' => 'unsigned int',
       'sale_price_end_date' => 'datetime',
       'sale_price_start_date' => 'datetime',

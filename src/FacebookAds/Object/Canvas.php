@@ -62,7 +62,7 @@ class Canvas extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getPreViews(array $fields = array(), array $params = array(), $pending = false) {
+  public function getPreviews(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -116,6 +116,8 @@ class Canvas extends AbstractCrudObject {
       'background_color' => 'string',
       'body_element_ids' => 'list<string>',
       'enable_swipe_to_open' => 'bool',
+      'hero_asset_facebook_post_id' => 'string',
+      'hero_asset_instagram_media_id' => 'string',
       'is_hidden' => 'bool',
       'is_published' => 'bool',
       'name' => 'string',

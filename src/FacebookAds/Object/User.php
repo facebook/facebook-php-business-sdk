@@ -511,29 +511,6 @@ class User extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getAvatars(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/avatars',
-      new Avatar(),
-      'EDGE',
-      Avatar::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getBusinessUsers(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -645,6 +622,7 @@ class User extends AbstractCrudObject {
 
     $param_types = array(
       'folder' => 'string',
+      'is_owner' => 'bool',
       'platform' => 'platform_enum',
       'tags' => 'list<string>',
       'user_id' => 'string',

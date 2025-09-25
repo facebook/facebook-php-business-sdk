@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\FBLiteToNTTransitionsFields;
+use FacebookAds\Object\Fields\MarketingMessagesOnboardingStatusFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\FBLiteToNTTransitionsFields;
  *
  */
 
-class FBLiteToNTTransitions extends AbstractObject {
+class MarketingMessagesOnboardingStatus extends AbstractObject {
 
   /**
-   * @return FBLiteToNTTransitionsFields
+   * @return MarketingMessagesOnboardingStatusFields
    */
   public static function getFieldsEnum() {
-    return FBLiteToNTTransitionsFields::getInstance();
+    return MarketingMessagesOnboardingStatusFields::getInstance();
   }
 
   protected static function getReferencedEnums() {

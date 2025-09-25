@@ -64,6 +64,7 @@ class AdCreativeFields extends AbstractEnum {
   const LINK_DESTINATION_DISPLAY_URL = 'link_destination_display_url';
   const LINK_OG_ID = 'link_og_id';
   const LINK_URL = 'link_url';
+  const MEDIA_SOURCING_SPEC = 'media_sourcing_spec';
   const MESSENGER_SPONSORED_MESSAGE = 'messenger_sponsored_message';
   const NAME = 'name';
   const OBJECT_ID = 'object_id';
@@ -128,7 +129,7 @@ class AdCreativeFields extends AbstractEnum {
       'enable_direct_install' => 'bool',
       'enable_launch_instant_app' => 'bool',
       'facebook_branded_content' => 'AdCreativeFacebookBrandedContent',
-      'format_transformation_spec' => 'AdCreativeFormatTransformationSpec',
+      'format_transformation_spec' => 'list<AdCreativeFormatTransformationSpec>',
       'id' => 'string',
       'image_crops' => 'AdsImageCrops',
       'image_hash' => 'string',
@@ -141,6 +142,7 @@ class AdCreativeFields extends AbstractEnum {
       'link_destination_display_url' => 'string',
       'link_og_id' => 'string',
       'link_url' => 'string',
+      'media_sourcing_spec' => 'AdCreativeMediaSourcingSpec',
       'messenger_sponsored_message' => 'string',
       'name' => 'string',
       'object_id' => 'string',

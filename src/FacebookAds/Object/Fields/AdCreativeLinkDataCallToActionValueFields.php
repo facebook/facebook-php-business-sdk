@@ -22,10 +22,14 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdCreativeLinkDataCallToActionValueFields extends AbstractEnum {
 
+  const ANDROID_URL = 'android_url';
   const APP_DESTINATION = 'app_destination';
   const APP_LINK = 'app_link';
   const APPLICATION = 'application';
   const EVENT_ID = 'event_id';
+  const IOS_URL = 'ios_url';
+  const LAND_ON_WHATSAPP_CATALOG = 'land_on_whatsapp_catalog';
+  const LAND_ON_WHATSAPP_PROFILE = 'land_on_whatsapp_profile';
   const LEAD_GEN_FORM_ID = 'lead_gen_form_id';
   const LINK = 'link';
   const LINK_CAPTION = 'link_caption';
@@ -37,10 +41,14 @@ class AdCreativeLinkDataCallToActionValueFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'android_url' => 'string',
       'app_destination' => 'string',
       'app_link' => 'string',
       'application' => 'string',
       'event_id' => 'string',
+      'ios_url' => 'string',
+      'land_on_whatsapp_catalog' => 'int',
+      'land_on_whatsapp_profile' => 'int',
       'lead_gen_form_id' => 'string',
       'link' => 'string',
       'link_caption' => 'string',

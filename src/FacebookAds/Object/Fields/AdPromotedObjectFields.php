@@ -29,6 +29,7 @@ class AdPromotedObjectFields extends AbstractEnum {
   const CUSTOM_EVENT_STR = 'custom_event_str';
   const CUSTOM_EVENT_TYPE = 'custom_event_type';
   const DATASET_SPLIT_ID = 'dataset_split_id';
+  const DATASET_SPLIT_IDS = 'dataset_split_ids';
   const EVENT_ID = 'event_id';
   const FULL_FUNNEL_OBJECTIVE = 'full_funnel_objective';
   const FUNDRAISER_CAMPAIGN_ID = 'fundraiser_campaign_id';
@@ -36,7 +37,9 @@ class AdPromotedObjectFields extends AbstractEnum {
   const LEAD_ADS_CUSTOM_EVENT_TYPE = 'lead_ads_custom_event_type';
   const LEAD_ADS_FORM_EVENT_SOURCE_TYPE = 'lead_ads_form_event_source_type';
   const LEAD_ADS_OFFSITE_CONVERSION_TYPE = 'lead_ads_offsite_conversion_type';
+  const LEAD_ADS_SELECTED_PIXEL_ID = 'lead_ads_selected_pixel_id';
   const MCME_CONVERSION_ID = 'mcme_conversion_id';
+  const MULTI_EVENT_PRODUCT = 'multi_event_product';
   const OBJECT_STORE_URL = 'object_store_url';
   const OBJECT_STORE_URLS = 'object_store_urls';
   const OFFER_ID = 'offer_id';
@@ -44,6 +47,8 @@ class AdPromotedObjectFields extends AbstractEnum {
   const OFFSITE_CONVERSION_EVENT_ID = 'offsite_conversion_event_id';
   const OMNICHANNEL_OBJECT = 'omnichannel_object';
   const PAGE_ID = 'page_id';
+  const PASSBACK_APPLICATION_ID = 'passback_application_id';
+  const PASSBACK_PIXEL_ID = 'passback_pixel_id';
   const PIXEL_AGGREGATION_RULE = 'pixel_aggregation_rule';
   const PIXEL_ID = 'pixel_id';
   const PIXEL_RULE = 'pixel_rule';
@@ -69,6 +74,7 @@ class AdPromotedObjectFields extends AbstractEnum {
       'custom_event_str' => 'string',
       'custom_event_type' => 'CustomEventType',
       'dataset_split_id' => 'string',
+      'dataset_split_ids' => 'list<string>',
       'event_id' => 'string',
       'full_funnel_objective' => 'FullFunnelObjective',
       'fundraiser_campaign_id' => 'string',
@@ -76,7 +82,9 @@ class AdPromotedObjectFields extends AbstractEnum {
       'lead_ads_custom_event_type' => 'LeadAdsCustomEventType',
       'lead_ads_form_event_source_type' => 'string',
       'lead_ads_offsite_conversion_type' => 'string',
+      'lead_ads_selected_pixel_id' => 'string',
       'mcme_conversion_id' => 'string',
+      'multi_event_product' => 'string',
       'object_store_url' => 'string',
       'object_store_urls' => 'list<string>',
       'offer_id' => 'string',
@@ -84,6 +92,8 @@ class AdPromotedObjectFields extends AbstractEnum {
       'offsite_conversion_event_id' => 'string',
       'omnichannel_object' => 'Object',
       'page_id' => 'string',
+      'passback_application_id' => 'string',
+      'passback_pixel_id' => 'string',
       'pixel_aggregation_rule' => 'string',
       'pixel_id' => 'string',
       'pixel_rule' => 'string',

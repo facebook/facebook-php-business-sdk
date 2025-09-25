@@ -14,6 +14,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\IGUserFields;
+use FacebookAds\Object\Values\BrandedContentShadowIGMediaIDMediaRelationshipValues;
 use FacebookAds\Object\Values\IGUserExportForCAMCreatorCountriesValues;
 use FacebookAds\Object\Values\IGUserExportForCAMCreatorGenderValues;
 use FacebookAds\Object\Values\IGUserExportForCAMMajorAudienceCountriesValues;
@@ -198,11 +199,13 @@ class IGUser extends AbstractCrudObject {
     $param_types = array(
       'ad_code' => 'string',
       'creator_username' => 'string',
+      'media_relationship' => 'list<media_relationship_enum>',
       'only_fetch_allowlisted' => 'bool',
       'only_fetch_recommended_content' => 'bool',
       'permalinks' => 'list<string>',
     );
     $enums = array(
+      'media_relationship_enum' => BrandedContentShadowIGMediaIDMediaRelationshipValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -317,6 +320,29 @@ class IGUser extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getCollaborationInvites(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/collaboration_invites',
+      new ShadowIGUserCollaborationInvites(),
+      'EDGE',
+      ShadowIGUserCollaborationInvites::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getConnectedThreadsUser(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -381,7 +407,9 @@ class IGUser extends AbstractCrudObject {
       'major_audience_gender' => 'list<major_audience_gender_enum>',
       'query' => 'string',
       'reels_interaction_rate' => 'Object',
+      'show_onboarded_creators_only' => 'bool',
       'similar_to_creators' => 'list<string>',
+      'username' => 'string',
     );
     $enums = array(
       'creator_countries_enum' => IGUserExportForCAMCreatorCountriesValues::getInstance()->getValues(),
