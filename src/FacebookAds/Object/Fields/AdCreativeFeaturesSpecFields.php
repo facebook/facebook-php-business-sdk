@@ -42,6 +42,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
   const FB_REELS_TAG = 'fb_reels_tag';
   const FB_STORY_TAG = 'fb_story_tag';
   const FEED_CAPTION_OPTIMIZATION = 'feed_caption_optimization';
+  const GENERATE_CTA = 'generate_cta';
   const HIDE_PRICE = 'hide_price';
   const IG_FEED_TAG = 'ig_feed_tag';
   const IG_GLADOS_FEED = 'ig_glados_feed';
@@ -75,10 +76,13 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
   const SITE_EXTENSIONS = 'site_extensions';
   const STANDARD_ENHANCEMENTS = 'standard_enhancements';
   const STANDARD_ENHANCEMENTS_CATALOG = 'standard_enhancements_catalog';
+  const TEXT_EXTRACTION_FOR_HEADLINE = 'text_extraction_for_headline';
+  const TEXT_EXTRACTION_FOR_TAP_TARGET = 'text_extraction_for_tap_target';
   const TEXT_GENERATION = 'text_generation';
   const TEXT_OPTIMIZATIONS = 'text_optimizations';
   const TEXT_OVERLAY_TRANSLATION = 'text_overlay_translation';
   const TEXT_TRANSLATION = 'text_translation';
+  const TRANSLATE_VOICEOVER = 'translate_voiceover';
   const VIDEO_AUTO_CROP = 'video_auto_crop';
   const VIDEO_FILTERING = 'video_filtering';
   const VIDEO_HIGHLIGHT = 'video_highlight';
@@ -110,6 +114,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
       'fb_reels_tag' => 'AdCreativeFeatureDetails',
       'fb_story_tag' => 'AdCreativeFeatureDetails',
       'feed_caption_optimization' => 'AdCreativeFeatureDetails',
+      'generate_cta' => 'AdCreativeFeatureDetails',
       'hide_price' => 'AdCreativeFeatureDetails',
       'ig_feed_tag' => 'AdCreativeFeatureDetails',
       'ig_glados_feed' => 'AdCreativeFeatureDetails',
@@ -143,10 +148,13 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
       'site_extensions' => 'AdCreativeFeatureDetails',
       'standard_enhancements' => 'AdCreativeFeatureDetails',
       'standard_enhancements_catalog' => 'AdCreativeFeatureDetails',
+      'text_extraction_for_headline' => 'AdCreativeFeatureDetails',
+      'text_extraction_for_tap_target' => 'AdCreativeFeatureDetails',
       'text_generation' => 'AdCreativeFeatureDetails',
       'text_optimizations' => 'AdCreativeFeatureDetails',
       'text_overlay_translation' => 'AdCreativeFeatureDetails',
       'text_translation' => 'AdCreativeFeatureDetails',
+      'translate_voiceover' => 'AdCreativeFeatureDetails',
       'video_auto_crop' => 'AdCreativeFeatureDetails',
       'video_filtering' => 'AdCreativeFeatureDetails',
       'video_highlight' => 'AdCreativeFeatureDetails',

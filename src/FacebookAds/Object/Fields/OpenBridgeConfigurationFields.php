@@ -23,11 +23,14 @@ use FacebookAds\Enum\AbstractEnum;
 class OpenBridgeConfigurationFields extends AbstractEnum {
 
   const ACTIVE = 'active';
+  const BLOCKED_EVENT_TYPES = 'blocked_event_types';
+  const BLOCKED_WEBSITES = 'blocked_websites';
   const BROWSER_AGENT = 'browser_agent';
   const CLOUD_PROVIDER = 'cloud_provider';
   const CLOUD_REGION = 'cloud_region';
   const DESTINATION_ID = 'destination_id';
   const ENDPOINT = 'endpoint';
+  const EVENT_ENRICHMENT_STATE = 'event_enrichment_state';
   const FALLBACK_DOMAIN = 'fallback_domain';
   const FIRST_PARTY_DOMAIN = 'first_party_domain';
   const HOST_BUSINESS_ID = 'host_business_id';
@@ -45,11 +48,14 @@ class OpenBridgeConfigurationFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'active' => 'bool',
+      'blocked_event_types' => 'list<string>',
+      'blocked_websites' => 'list<string>',
       'browser_agent' => 'list<string>',
       'cloud_provider' => 'string',
       'cloud_region' => 'string',
       'destination_id' => 'string',
       'endpoint' => 'string',
+      'event_enrichment_state' => 'string',
       'fallback_domain' => 'string',
       'first_party_domain' => 'string',
       'host_business_id' => 'string',

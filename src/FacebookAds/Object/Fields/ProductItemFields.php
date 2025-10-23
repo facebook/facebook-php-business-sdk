@@ -109,6 +109,7 @@ class ProductItemFields extends AbstractEnum {
   const VIDEOS = 'videos';
   const VISIBILITY = 'visibility';
   const WA_COMPLIANCE_CATEGORY = 'wa_compliance_category';
+  const ALLOW_UPSERT = 'allow_upsert';
   const ANDROID_APP_NAME = 'android_app_name';
   const ANDROID_CLASS = 'android_class';
   const ANDROID_PACKAGE = 'android_package';
@@ -224,6 +225,7 @@ class ProductItemFields extends AbstractEnum {
       'videos' => 'list<ProductItemVideoData>',
       'visibility' => 'Visibility',
       'wa_compliance_category' => 'string',
+      'allow_upsert' => 'bool',
       'android_app_name' => 'string',
       'android_class' => 'string',
       'android_package' => 'string',

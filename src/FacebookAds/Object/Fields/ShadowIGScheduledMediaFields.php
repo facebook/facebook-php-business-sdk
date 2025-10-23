@@ -20,15 +20,23 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class AdCreativeDestinationSpecFields extends AbstractEnum {
+class ShadowIGScheduledMediaFields extends AbstractEnum {
 
-  const DESTINATION_TYPE = 'destination_type';
-  const WEBSITE = 'website';
+  const CAPTION = 'caption';
+  const ID = 'id';
+  const MEDIA_TYPE = 'media_type';
+  const MEDIA_URL = 'media_url';
+  const PUBLISH_TIMESTAMP = 'publish_timestamp';
+  const THUMBNAIL_URL = 'thumbnail_url';
 
   public function getFieldTypes() {
     return array(
-      'destination_type' => 'string',
-      'website' => 'Object',
+      'caption' => 'string',
+      'id' => 'string',
+      'media_type' => 'string',
+      'media_url' => 'string',
+      'publish_timestamp' => 'int',
+      'thumbnail_url' => 'string',
     );
   }
 }

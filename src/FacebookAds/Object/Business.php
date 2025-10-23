@@ -47,6 +47,7 @@ use FacebookAds\Object\Values\BusinessUserTasksValues;
 use FacebookAds\Object\Values\BusinessVerificationStatusValues;
 use FacebookAds\Object\Values\BusinessVerticalV2Values;
 use FacebookAds\Object\Values\BusinessVerticalValues;
+use FacebookAds\Object\Values\BusinessWhatsappBusinessManagerMessagingLimitValues;
 use FacebookAds\Object\Values\CPASCollaborationRequestRequesterAgencyOrBrandValues;
 use FacebookAds\Object\Values\CustomConversionActionSourceTypeValues;
 use FacebookAds\Object\Values\CustomConversionCustomEventTypeValues;
@@ -54,8 +55,8 @@ use FacebookAds\Object\Values\ManagedPartnerBusinessPartitionTypeValues;
 use FacebookAds\Object\Values\ManagedPartnerBusinessSurveyBusinessTypeValues;
 use FacebookAds\Object\Values\ManagedPartnerBusinessTimezoneIdValues;
 use FacebookAds\Object\Values\ManagedPartnerBusinessVerticalValues;
-use FacebookAds\Object\Values\OmegaCustomerTrxProductTypesValues;
 use FacebookAds\Object\Values\OmegaCustomerTrxTypeValues;
+use FacebookAds\Object\Values\OpenBridgeConfigurationEventEnrichmentStateValues;
 use FacebookAds\Object\Values\ProductCatalogAdditionalVerticalOptionValues;
 use FacebookAds\Object\Values\ProductCatalogVerticalValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
@@ -83,6 +84,7 @@ class Business extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['VerificationStatus'] = BusinessVerificationStatusValues::getInstance()->getValues();
+    $ref_enums['WhatsappBusinessManagerMessagingLimit'] = BusinessWhatsappBusinessManagerMessagingLimitValues::getInstance()->getValues();
     $ref_enums['TwoFactorType'] = BusinessTwoFactorTypeValues::getInstance()->getValues();
     $ref_enums['Vertical'] = BusinessVerticalValues::getInstance()->getValues();
     $ref_enums['PermittedTasks'] = BusinessPermittedTasksValues::getInstance()->getValues();
@@ -764,21 +766,15 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'account_ids' => 'list<unsigned int>',
-      'advertiser_name' => 'string',
-      'billing_period_end' => 'string',
-      'billing_period_start' => 'string',
       'end_date' => 'string',
       'invoice_id' => 'string',
       'issue_end_date' => 'string',
       'issue_start_date' => 'string',
-      'product_types' => 'list<product_types_enum>',
       'root_id' => 'unsigned int',
       'start_date' => 'string',
       'type' => 'type_enum',
     );
     $enums = array(
-      'product_types_enum' => OmegaCustomerTrxProductTypesValues::getInstance()->getValues(),
       'type_enum' => OmegaCustomerTrxTypeValues::getInstance()->getValues(),
     );
 
@@ -1895,10 +1891,13 @@ class Business extends AbstractCrudObject {
 
     $param_types = array(
       'active' => 'bool',
+      'blocked_event_types' => 'list<string>',
+      'blocked_websites' => 'list<string>',
       'cloud_provider' => 'string',
       'cloud_region' => 'string',
       'destination_id' => 'string',
       'endpoint' => 'string',
+      'event_enrichment_state' => 'event_enrichment_state_enum',
       'fallback_domain' => 'string',
       'first_party_domain' => 'string',
       'host_business_id' => 'unsigned int',
@@ -1913,6 +1912,7 @@ class Business extends AbstractCrudObject {
       'sgw_pixel_id' => 'unsigned int',
     );
     $enums = array(
+      'event_enrichment_state_enum' => OpenBridgeConfigurationEventEnrichmentStateValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -2383,7 +2383,7 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createPartnerPremiumOption(array $fields = array(), array $params = array(), $pending = false) {
+  public function createPartnerPremiumOptIOn(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(

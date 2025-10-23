@@ -444,6 +444,7 @@ class CustomAudience extends AbstractCrudObject {
       'event_source_group' => 'string',
       'event_sources' => 'list<map>',
       'exclusions' => 'list<Object>',
+      'inclusionOperator' => 'string',
       'inclusions' => 'list<Object>',
       'lookalike_spec' => 'string',
       'name' => 'string',

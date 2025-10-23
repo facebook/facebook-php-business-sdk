@@ -26,8 +26,11 @@ class AdsUserSettingsFields extends AbstractEnum {
   const ADD_OVERLAYS_OPT_IN_STATUS = 'add_overlays_opt_in_status';
   const ADGROUP_NAME_TEMPLATE = 'adgroup_name_template';
   const ADS_CS_CATALOG_OPT_OUT_TIMESTAMP = 'ads_cs_catalog_opt_out_timestamp';
+  const ADS_CS_DYNAMIC_SE_OPT_IN_STATUS = 'ads_cs_dynamic_se_opt_in_status';
+  const ADS_CS_DYNAMIC_SE_OPT_OUT_TIMESTAMP = 'ads_cs_dynamic_se_opt_out_timestamp';
   const ADS_CS_SITELINKS_OPT_IN_STATUS = 'ads_cs_sitelinks_opt_in_status';
   const ADS_CS_SITELINKS_OPT_OUT_TIMESTAMP = 'ads_cs_sitelinks_opt_out_timestamp';
+  const ADS_DESTINATION_OPTIMIZATION_OPT_OUT_TIMESTAMP = 'ads_destination_optimization_opt_out_timestamp';
   const ADS_TOOL_VISITS = 'ads_tool_visits';
   const APLUSC_AI_AGENT_OPT_IN_STATUS = 'aplusc_ai_agent_opt_in_status';
   const APLUSC_CAROUSEL_CDA_OPT_IN_STATUS = 'aplusc_carousel_cda_opt_in_status';
@@ -51,7 +54,9 @@ class AdsUserSettingsFields extends AbstractEnum {
   const CREATE_CTA_STICKER_OPT_IN_STATUS = 'create_cta_sticker_opt_in_status';
   const CREATIVE_FLEX_OPT_IN_STATUS = 'creative_flex_opt_in_status';
   const DA_ADD_OVERLAYS_OPT_IN_STATUS = 'da_add_overlays_opt_in_status';
+  const DA_CREATIVE_FLEX_OPT_IN_STATUS = 'da_creative_flex_opt_in_status';
   const DA_HIDE_PRICE_OPT_IN_STATUS = 'da_hide_price_opt_in_status';
+  const DA_MANUAL_MEDIA_NUX_IMPRESSIONS = 'da_manual_media_nux_impressions';
   const DEFAULT_CREATION_MODE = 'default_creation_mode';
   const DYNAMIC_PARTNERSHIP_ADS_OPT_IN_STATUS = 'dynamic_partnership_ads_opt_in_status';
   const ENHANCE_CTA_TEXT_EXTRACTION_OPT_IN_STATUS = 'enhance_cta_text_extraction_opt_in_status';
@@ -122,8 +127,11 @@ class AdsUserSettingsFields extends AbstractEnum {
       'add_overlays_opt_in_status' => 'string',
       'adgroup_name_template' => 'Object',
       'ads_cs_catalog_opt_out_timestamp' => 'list<map<string, int>>',
+      'ads_cs_dynamic_se_opt_in_status' => 'string',
+      'ads_cs_dynamic_se_opt_out_timestamp' => 'list<map<string, int>>',
       'ads_cs_sitelinks_opt_in_status' => 'string',
       'ads_cs_sitelinks_opt_out_timestamp' => 'list<map<string, int>>',
+      'ads_destination_optimization_opt_out_timestamp' => 'list<map<string, int>>',
       'ads_tool_visits' => 'list<Object>',
       'aplusc_ai_agent_opt_in_status' => 'string',
       'aplusc_carousel_cda_opt_in_status' => 'string',
@@ -147,7 +155,9 @@ class AdsUserSettingsFields extends AbstractEnum {
       'create_cta_sticker_opt_in_status' => 'string',
       'creative_flex_opt_in_status' => 'string',
       'da_add_overlays_opt_in_status' => 'string',
+      'da_creative_flex_opt_in_status' => 'string',
       'da_hide_price_opt_in_status' => 'string',
+      'da_manual_media_nux_impressions' => 'int',
       'default_creation_mode' => 'string',
       'dynamic_partnership_ads_opt_in_status' => 'string',
       'enhance_cta_text_extraction_opt_in_status' => 'string',

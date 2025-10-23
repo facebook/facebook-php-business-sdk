@@ -20,15 +20,11 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class AdCreativeDestinationSpecFields extends AbstractEnum {
+class ShadowIGUserThreadOwnerFields extends AbstractEnum {
 
-  const DESTINATION_TYPE = 'destination_type';
-  const WEBSITE = 'website';
 
   public function getFieldTypes() {
     return array(
-      'destination_type' => 'string',
-      'website' => 'Object',
     );
   }
 }

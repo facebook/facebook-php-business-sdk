@@ -622,7 +622,6 @@ class User extends AbstractCrudObject {
 
     $param_types = array(
       'folder' => 'string',
-      'is_owner' => 'bool',
       'platform' => 'platform_enum',
       'tags' => 'list<string>',
       'user_id' => 'string',

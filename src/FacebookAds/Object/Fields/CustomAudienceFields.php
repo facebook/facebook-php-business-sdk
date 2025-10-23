@@ -75,6 +75,7 @@ class CustomAudienceFields extends AbstractEnum {
   const EVENT_SOURCES = 'event_sources';
   const EXCLUSIONS = 'exclusions';
   const FACEBOOK_PAGE_ID = 'facebook_page_id';
+  const INCLUSIONOPERATOR = 'inclusionOperator';
   const INCLUSIONS = 'inclusions';
   const LIST_OF_ACCOUNTS = 'list_of_accounts';
   const MARKETING_MESSAGE_CHANNELS = 'marketing_message_channels';
@@ -144,6 +145,7 @@ class CustomAudienceFields extends AbstractEnum {
       'event_sources' => 'list<map>',
       'exclusions' => 'list<Object>',
       'facebook_page_id' => 'string',
+      'inclusionOperator' => 'string',
       'inclusions' => 'list<Object>',
       'list_of_accounts' => 'list<unsigned int>',
       'marketing_message_channels' => 'Object',

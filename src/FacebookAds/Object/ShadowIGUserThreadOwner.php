@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AudioReleaseFields;
+use FacebookAds\Object\Fields\ShadowIGUserThreadOwnerFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\AudioReleaseFields;
  *
  */
 
-class AudioRelease extends AbstractCrudObject {
+class ShadowIGUserThreadOwner extends AbstractObject {
 
   /**
-   * @return AudioReleaseFields
+   * @return ShadowIGUserThreadOwnerFields
    */
   public static function getFieldsEnum() {
-    return AudioReleaseFields::getInstance();
+    return ShadowIGUserThreadOwnerFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -38,28 +38,5 @@ class AudioRelease extends AbstractCrudObject {
     return $ref_enums;
   }
 
-
-  public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/',
-      new AudioRelease(),
-      'NODE',
-      AudioRelease::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
 
 }

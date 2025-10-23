@@ -343,6 +343,31 @@ class IGUser extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createCollaborationInvite(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'accept' => 'bool',
+      'media_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/collaboration_invites',
+      new ShadowIGUserCollaborationInvites(),
+      'EDGE',
+      ShadowIGUserCollaborationInvites::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getConnectedThreadsUser(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -402,6 +427,7 @@ class IGUser extends AbstractCrudObject {
       'creator_max_followers' => 'unsigned int',
       'creator_min_engaged_accounts' => 'unsigned int',
       'creator_min_followers' => 'unsigned int',
+      'has_public_contact_email' => 'bool',
       'major_audience_age_bucket' => 'list<Object>',
       'major_audience_countries' => 'list<major_audience_countries_enum>',
       'major_audience_gender' => 'list<major_audience_gender_enum>',
@@ -628,6 +654,7 @@ class IGUser extends AbstractCrudObject {
       'product_tags' => 'list<map>',
       'share_to_feed' => 'bool',
       'thumb_offset' => 'string',
+      'trial_params' => 'map',
       'upload_type' => 'string',
       'user_tags' => 'list<map>',
       'video_url' => 'string',
@@ -788,6 +815,29 @@ class IGUser extends AbstractCrudObject {
       new ShadowIGHashtag(),
       'EDGE',
       ShadowIGHashtag::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getScheduledMedia(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/scheduled_media',
+      new ShadowIGScheduledMedia(),
+      'EDGE',
+      ShadowIGScheduledMedia::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

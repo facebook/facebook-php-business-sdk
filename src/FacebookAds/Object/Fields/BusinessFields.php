@@ -44,6 +44,7 @@ class BusinessFields extends AbstractEnum {
   const VERIFICATION_STATUS = 'verification_status';
   const VERTICAL = 'vertical';
   const VERTICAL_ID = 'vertical_id';
+  const WHATSAPP_BUSINESS_MANAGER_MESSAGING_LIMIT = 'whatsapp_business_manager_messaging_limit';
 
   public function getFieldTypes() {
     return array(
@@ -69,6 +70,7 @@ class BusinessFields extends AbstractEnum {
       'verification_status' => 'VerificationStatus',
       'vertical' => 'string',
       'vertical_id' => 'unsigned int',
+      'whatsapp_business_manager_messaging_limit' => 'WhatsappBusinessManagerMessagingLimit',
     );
   }
 }

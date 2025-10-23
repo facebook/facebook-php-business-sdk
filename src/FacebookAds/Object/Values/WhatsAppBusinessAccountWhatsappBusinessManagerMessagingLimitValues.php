@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -18,17 +18,14 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static WhatsAppBusinessAccountWhatsappBusinessManagerMessagingLimitValues getInstance()
  */
+class WhatsAppBusinessAccountWhatsappBusinessManagerMessagingLimitValues extends AbstractEnum {
 
-class AdCreativeDestinationSpecFields extends AbstractEnum {
-
-  const DESTINATION_TYPE = 'destination_type';
-  const WEBSITE = 'website';
-
-  public function getFieldTypes() {
-    return array(
-      'destination_type' => 'string',
-      'website' => 'Object',
-    );
-  }
+  const TIER_100K = 'TIER_100K';
+  const TIER_10K = 'TIER_10K';
+  const TIER_250 = 'TIER_250';
+  const TIER_2K = 'TIER_2K';
+  const TIER_UNLIMITED = 'TIER_UNLIMITED';
+  const UNTIERED = 'UNTIERED';
 }

@@ -62,7 +62,7 @@ class AdsValueAdjustmentRuleCollection extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_POST,
-      '/deleteruleset',
+      '/delete_rule_set',
       new AdsValueAdjustmentRuleCollection(),
       'EDGE',
       AdsValueAdjustmentRuleCollection::getFieldsEnum()->getValues(),

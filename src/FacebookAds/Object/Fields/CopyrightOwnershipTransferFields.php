@@ -23,6 +23,7 @@ use FacebookAds\Enum\AbstractEnum;
 class CopyrightOwnershipTransferFields extends AbstractEnum {
 
   const ASSETS = 'assets';
+  const HAS_OWNERSHIP_BEEN_UPDATED = 'has_ownership_been_updated';
   const ID = 'id';
   const RECEIVING_RIGHTS_HOLDER = 'receiving_rights_holder';
   const SENDING_RIGHTS_HOLDER = 'sending_rights_holder';
@@ -33,6 +34,7 @@ class CopyrightOwnershipTransferFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'assets' => 'list<Object>',
+      'has_ownership_been_updated' => 'bool',
       'id' => 'string',
       'receiving_rights_holder' => 'Profile',
       'sending_rights_holder' => 'Profile',

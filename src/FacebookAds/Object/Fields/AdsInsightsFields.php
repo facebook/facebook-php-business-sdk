@@ -36,6 +36,7 @@ class AdsInsightsFields extends AbstractEnum {
   const ADSET_NAME = 'adset_name';
   const ADSET_START = 'adset_start';
   const AGE_TARGETING = 'age_targeting';
+  const ANCHOR_EVENTS_PERFORMANCE_INDICATOR = 'anchor_events_performance_indicator';
   const ATTRIBUTION_SETTING = 'attribution_setting';
   const AUCTION_BID = 'auction_bid';
   const AUCTION_COMPETITIVENESS = 'auction_competitiveness';
@@ -231,6 +232,7 @@ class AdsInsightsFields extends AbstractEnum {
       'adset_name' => 'string',
       'adset_start' => 'string',
       'age_targeting' => 'string',
+      'anchor_events_performance_indicator' => 'string',
       'attribution_setting' => 'string',
       'auction_bid' => 'string',
       'auction_competitiveness' => 'string',

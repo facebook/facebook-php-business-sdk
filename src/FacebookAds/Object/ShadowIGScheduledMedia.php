@@ -13,8 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\OmegaCustomerTrxFields;
-use FacebookAds\Object\Values\OmegaCustomerTrxTypeValues;
+use FacebookAds\Object\Fields\ShadowIGScheduledMediaFields;
 
 /**
  * This class is auto-generated.
@@ -25,44 +24,20 @@ use FacebookAds\Object\Values\OmegaCustomerTrxTypeValues;
  *
  */
 
-class OmegaCustomerTrx extends AbstractCrudObject {
+class ShadowIGScheduledMedia extends AbstractCrudObject {
 
   /**
-   * @return OmegaCustomerTrxFields
+   * @return ShadowIGScheduledMediaFields
    */
   public static function getFieldsEnum() {
-    return OmegaCustomerTrxFields::getInstance();
+    return ShadowIGScheduledMediaFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Type'] = OmegaCustomerTrxTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 
-
-  public function getCampaigns(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/campaigns',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
 
   public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
@@ -77,9 +52,9 @@ class OmegaCustomerTrx extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new OmegaCustomerTrx(),
+      new ShadowIGScheduledMedia(),
       'NODE',
-      OmegaCustomerTrx::getFieldsEnum()->getValues(),
+      ShadowIGScheduledMedia::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

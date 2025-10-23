@@ -27,6 +27,8 @@ class IGMediaFields extends AbstractEnum {
   const CAPTION = 'caption';
   const COMMENTS_COUNT = 'comments_count';
   const COPYRIGHT_CHECK_INFORMATION = 'copyright_check_information';
+  const HAS_POLL = 'has_poll';
+  const HAS_SLIDER = 'has_slider';
   const ID = 'id';
   const IG_ID = 'ig_id';
   const IS_COMMENT_ENABLED = 'is_comment_enabled';
@@ -52,6 +54,8 @@ class IGMediaFields extends AbstractEnum {
       'caption' => 'string',
       'comments_count' => 'int',
       'copyright_check_information' => 'IGVideoCopyrightCheckMatchesInformation',
+      'has_poll' => 'bool',
+      'has_slider' => 'bool',
       'id' => 'string',
       'ig_id' => 'string',
       'is_comment_enabled' => 'bool',

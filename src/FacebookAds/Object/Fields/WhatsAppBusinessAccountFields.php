@@ -47,6 +47,7 @@ class WhatsAppBusinessAccountFields extends AbstractEnum {
   const PURCHASE_ORDER_NUMBER = 'purchase_order_number';
   const STATUS = 'status';
   const TIMEZONE_ID = 'timezone_id';
+  const WHATSAPP_BUSINESS_MANAGER_MESSAGING_LIMIT = 'whatsapp_business_manager_messaging_limit';
 
   public function getFieldTypes() {
     return array(
@@ -75,6 +76,7 @@ class WhatsAppBusinessAccountFields extends AbstractEnum {
       'purchase_order_number' => 'string',
       'status' => 'string',
       'timezone_id' => 'string',
+      'whatsapp_business_manager_messaging_limit' => 'WhatsappBusinessManagerMessagingLimit',
     );
   }
 }

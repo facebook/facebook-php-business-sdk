@@ -731,6 +731,7 @@ class AdSet extends AbstractArchivableCrudObject
       'optimization_goal' => 'optimization_goal_enum',
       'optimization_sub_event' => 'optimization_sub_event_enum',
       'pacing_type' => 'list<string>',
+      'placement_soft_opt_out' => 'Object',
       'promoted_object' => 'Object',
       'rb_prediction_id' => 'string',
       'regional_regulated_categories' => 'list<regional_regulated_categories_enum>',

@@ -25,6 +25,7 @@ class AdSetFields extends AbstractEnum {
   const ACCOUNT_ID = 'account_id';
   const ADLABELS = 'adlabels';
   const ADSET_SCHEDULE = 'adset_schedule';
+  const ANCHOR_EVENT_ATTRIBUTION_WINDOW_DAYS = 'anchor_event_attribution_window_days';
   const ASSET_FEED_ID = 'asset_feed_id';
   const ATTRIBUTION_SPEC = 'attribution_spec';
   const AUTOMATIC_MANUAL_STATE = 'automatic_manual_state';
@@ -115,6 +116,7 @@ class AdSetFields extends AbstractEnum {
       'account_id' => 'string',
       'adlabels' => 'list<AdLabel>',
       'adset_schedule' => 'list<DayPart>',
+      'anchor_event_attribution_window_days' => 'int',
       'asset_feed_id' => 'string',
       'attribution_spec' => 'list<AttributionSpec>',
       'automatic_manual_state' => 'string',
@@ -164,7 +166,7 @@ class AdSetFields extends AbstractEnum {
       'optimization_goal' => 'OptimizationGoal',
       'optimization_sub_event' => 'string',
       'pacing_type' => 'list<string>',
-      'placement_soft_opt_out' => 'Placement',
+      'placement_soft_opt_out' => 'PlacementSoftOptOut',
       'promoted_object' => 'AdPromotedObject',
       'recommendations' => 'list<AdRecommendation>',
       'recurring_budget_semantics' => 'bool',

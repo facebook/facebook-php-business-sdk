@@ -14,6 +14,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\OpenBridgeConfigurationFields;
+use FacebookAds\Object\Values\OpenBridgeConfigurationEventEnrichmentStateValues;
 
 /**
  * This class is auto-generated.
@@ -42,6 +43,7 @@ class OpenBridgeConfiguration extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['EventEnrichmentState'] = OpenBridgeConfigurationEventEnrichmentStateValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -97,10 +99,13 @@ class OpenBridgeConfiguration extends AbstractCrudObject {
 
     $param_types = array(
       'active' => 'bool',
+      'blocked_event_types' => 'list<string>',
+      'blocked_websites' => 'list<string>',
       'cloud_provider' => 'string',
       'cloud_region' => 'string',
       'destination_id' => 'string',
       'endpoint' => 'string',
+      'event_enrichment_state' => 'event_enrichment_state_enum',
       'fallback_domain' => 'string',
       'first_party_domain' => 'string',
       'host_business_id' => 'unsigned int',
@@ -114,6 +119,7 @@ class OpenBridgeConfiguration extends AbstractCrudObject {
       'sgw_pixel_id' => 'unsigned int',
     );
     $enums = array(
+      'event_enrichment_state_enum' => OpenBridgeConfigurationEventEnrichmentStateValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

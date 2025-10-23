@@ -43,6 +43,7 @@ use FacebookAds\Object\Values\AdCreativeAuthorizationCategoryValues;
 use FacebookAds\Object\Values\AdCreativeCategorizationCriteriaValues;
 use FacebookAds\Object\Values\AdCreativeCategoryMediaSourceValues;
 use FacebookAds\Object\Values\AdCreativeDynamicAdVoiceValues;
+use FacebookAds\Object\Values\AdCreativeExecutionOptionsValues;
 use FacebookAds\Object\Values\AdCreativeOperatorValues;
 use FacebookAds\Object\Values\AdDatePresetValues;
 use FacebookAds\Object\Values\AdExecutionOptionsValues;
@@ -438,6 +439,7 @@ class AdAccount extends AbstractCrudObject {
       'destination_spec' => 'map',
       'dynamic_ad_voice' => 'dynamic_ad_voice_enum',
       'enable_launch_instant_app' => 'bool',
+      'execution_options' => 'list<execution_options_enum>',
       'facebook_branded_content' => 'map',
       'format_transformation_spec' => 'list<map>',
       'image_crops' => 'map',
@@ -481,6 +483,7 @@ class AdAccount extends AbstractCrudObject {
       'categorization_criteria_enum' => AdCreativeCategorizationCriteriaValues::getInstance()->getValues(),
       'category_media_source_enum' => AdCreativeCategoryMediaSourceValues::getInstance()->getValues(),
       'dynamic_ad_voice_enum' => AdCreativeDynamicAdVoiceValues::getInstance()->getValues(),
+      'execution_options_enum' => AdCreativeExecutionOptionsValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1044,6 +1047,7 @@ class AdAccount extends AbstractCrudObject {
       'optimization_goal' => 'optimization_goal_enum',
       'optimization_sub_event' => 'optimization_sub_event_enum',
       'pacing_type' => 'list<string>',
+      'placement_soft_opt_out' => 'Object',
       'promoted_object' => 'Object',
       'rb_prediction_id' => 'string',
       'regional_regulated_categories' => 'list<regional_regulated_categories_enum>',
@@ -2079,6 +2083,7 @@ class AdAccount extends AbstractCrudObject {
       'event_sources' => 'list<map>',
       'exclusions' => 'list<Object>',
       'facebook_page_id' => 'string',
+      'inclusionOperator' => 'string',
       'inclusions' => 'list<Object>',
       'is_snapshot' => 'bool',
       'is_value_based' => 'bool',
@@ -2755,6 +2760,7 @@ class AdAccount extends AbstractCrudObject {
       'event_source_group' => 'string',
       'event_sources' => 'list<map>',
       'exclusions' => 'list<Object>',
+      'inclusionOperator' => 'string',
       'inclusions' => 'list<Object>',
       'is_snapshot' => 'bool',
       'is_value_based' => 'bool',

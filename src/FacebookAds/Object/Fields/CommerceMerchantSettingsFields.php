@@ -34,7 +34,6 @@ class CommerceMerchantSettingsFields extends AbstractEnum {
   const MERCHANT_PAGE = 'merchant_page';
   const MERCHANT_STATUS = 'merchant_status';
   const OFFSITE_IAB_CHECKOUT_ENABLED_COUNTRIES = 'offsite_iab_checkout_enabled_countries';
-  const ONSITE_COMMERCE_MERCHANT = 'onsite_commerce_merchant';
   const PAYMENT_PROVIDER = 'payment_provider';
   const PRIVACY_POLICY_LOCALIZED = 'privacy_policy_localized';
   const RETURN_POLICY_LOCALIZED = 'return_policy_localized';
@@ -55,7 +54,6 @@ class CommerceMerchantSettingsFields extends AbstractEnum {
       'merchant_page' => 'Profile',
       'merchant_status' => 'string',
       'offsite_iab_checkout_enabled_countries' => 'list<string>',
-      'onsite_commerce_merchant' => 'Object',
       'payment_provider' => 'string',
       'privacy_policy_localized' => 'string',
       'return_policy_localized' => 'string',

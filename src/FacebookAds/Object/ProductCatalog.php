@@ -40,6 +40,7 @@ use FacebookAds\Object\Values\ProductFeedIngestionSourceTypeValues;
 use FacebookAds\Object\Values\ProductFeedItemSubTypeValues;
 use FacebookAds\Object\Values\ProductFeedOverrideTypeValues;
 use FacebookAds\Object\Values\ProductFeedQuotedFieldsModeValues;
+use FacebookAds\Object\Values\ProductFeedUseCaseValues;
 use FacebookAds\Object\Values\ProductItemAgeGroupValues;
 use FacebookAds\Object\Values\ProductItemAvailabilityValues;
 use FacebookAds\Object\Values\ProductItemCommerceTaxCategoryValues;
@@ -1192,6 +1193,7 @@ class ProductCatalog extends AbstractCrudObject {
       'schedule' => 'string',
       'selected_override_fields' => 'list<string>',
       'update_schedule' => 'string',
+      'use_case' => 'use_case_enum',
     );
     $enums = array(
       'delimiter_enum' => ProductFeedDelimiterValues::getInstance()->getValues(),
@@ -1201,6 +1203,7 @@ class ProductCatalog extends AbstractCrudObject {
       'item_sub_type_enum' => ProductFeedItemSubTypeValues::getInstance()->getValues(),
       'override_type_enum' => ProductFeedOverrideTypeValues::getInstance()->getValues(),
       'quoted_fields_mode_enum' => ProductFeedQuotedFieldsModeValues::getInstance()->getValues(),
+      'use_case_enum' => ProductFeedUseCaseValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1383,6 +1386,7 @@ class ProductCatalog extends AbstractCrudObject {
       'additional_image_urls' => 'list<string>',
       'additional_variant_attributes' => 'map',
       'age_group' => 'age_group_enum',
+      'allow_upsert' => 'bool',
       'android_app_name' => 'string',
       'android_class' => 'string',
       'android_package' => 'string',

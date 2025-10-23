@@ -98,7 +98,6 @@ class IGUserForIGOnlyAPI extends AbstractCrudObject {
 
     $param_types = array(
       'folder' => 'string',
-      'is_owner' => 'bool',
       'platform' => 'platform_enum',
       'tags' => 'list<string>',
       'user_id' => 'string',
@@ -222,6 +221,7 @@ class IGUserForIGOnlyAPI extends AbstractCrudObject {
       'product_tags' => 'list<map>',
       'share_to_feed' => 'bool',
       'thumb_offset' => 'string',
+      'trial_params' => 'map',
       'upload_type' => 'string',
       'user_tags' => 'list<map>',
       'video_url' => 'string',

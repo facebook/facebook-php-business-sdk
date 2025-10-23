@@ -18,10 +18,11 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static OmegaCustomerTrxProductTypesValues getInstance()
+ * @method static OpenBridgeConfigurationEventEnrichmentStateValues getInstance()
  */
-class OmegaCustomerTrxProductTypesValues extends AbstractEnum {
+class OpenBridgeConfigurationEventEnrichmentStateValues extends AbstractEnum {
 
-  const FACEBOOK = 'FACEBOOK';
-  const WHATSAPP = 'WHATSAPP';
+  const NO = 'NO';
+  const NOT_INITIALIZED = 'NOT_INITIALIZED';
+  const YES = 'YES';
 }

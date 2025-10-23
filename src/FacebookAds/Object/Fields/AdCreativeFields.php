@@ -95,6 +95,7 @@ class AdCreativeFields extends AbstractEnum {
   const URL_TAGS = 'url_tags';
   const USE_PAGE_ACTOR_OVERRIDE = 'use_page_actor_override';
   const VIDEO_ID = 'video_id';
+  const EXECUTION_OPTIONS = 'execution_options';
   const IMAGE_FILE = 'image_file';
   const IS_DCO_INTERNAL = 'is_dco_internal';
 
@@ -173,6 +174,7 @@ class AdCreativeFields extends AbstractEnum {
       'url_tags' => 'string',
       'use_page_actor_override' => 'bool',
       'video_id' => 'string',
+      'execution_options' => 'list<ExecutionOptions>',
       'image_file' => 'string',
       'is_dco_internal' => 'bool',
     );

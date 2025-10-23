@@ -26,6 +26,7 @@ class AdCreativeLinkDataChildAttachmentFields extends AbstractEnum {
   const CALL_TO_ACTION = 'call_to_action';
   const CAPTION = 'caption';
   const DESCRIPTION = 'description';
+  const IG_MEDIA_ID = 'ig_media_id';
   const IMAGE_CROPS = 'image_crops';
   const IMAGE_HASH = 'image_hash';
   const IOS_URL = 'ios_url';
@@ -43,6 +44,7 @@ class AdCreativeLinkDataChildAttachmentFields extends AbstractEnum {
       'call_to_action' => 'AdCreativeLinkDataCallToAction',
       'caption' => 'string',
       'description' => 'string',
+      'ig_media_id' => 'string',
       'image_crops' => 'AdsImageCrops',
       'image_hash' => 'string',
       'ios_url' => 'string',

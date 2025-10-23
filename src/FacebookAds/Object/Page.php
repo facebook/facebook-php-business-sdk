@@ -926,7 +926,6 @@ class Page extends AbstractCrudObject {
 
     $param_types = array(
       'folder' => 'string',
-      'is_owner' => 'bool',
       'platform' => 'platform_enum',
       'tags' => 'list<string>',
       'user_id' => 'string',
@@ -3304,7 +3303,6 @@ class Page extends AbstractCrudObject {
 
     $param_types = array(
       'folder' => 'string',
-      'is_owner' => 'bool',
       'platform' => 'platform_enum',
       'tags' => 'list<string>',
       'user_id' => 'string',
@@ -3889,6 +3887,7 @@ class Page extends AbstractCrudObject {
       'pickup_options' => 'list<pickup_options_enum>',
       'plot_outline' => 'string',
       'price_range' => 'string',
+      'priority_hours' => 'map',
       'public_transit' => 'string',
       'restaurant_services' => 'map',
       'restaurant_specialties' => 'map',
