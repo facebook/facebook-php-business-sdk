@@ -88,7 +88,9 @@ class UserData implements ArrayAccess {
     'madid' => 'string',
     'anon_id' => 'string',
     'ctwa_clid' => 'string',
-    'page_id' => 'string'
+    'page_id' => 'string',
+    'ig_account_id' => 'string',
+    'ig_sid' => 'string'
   );
   /**
    * Array of attributes where the key is the local name, and the value is the original name
@@ -133,7 +135,9 @@ class UserData implements ArrayAccess {
     'madid' => 'madid',
     'anon_id' => 'anon_id',
     'ctwa_clid' => 'ctwa_clid',
-    'page_id' => 'page_id'
+    'page_id' => 'page_id',
+    'ig_account_id' => 'ig_account_id',
+    'ig_sid' => 'ig_sid'
   );
   /**
    * Array of attributes to setter functions (for deserialization of responses)
@@ -178,7 +182,9 @@ class UserData implements ArrayAccess {
     'madid' => 'setMadid',
     'anon_id' => 'setAnonId',
     'ctwa_clid' => 'setCtwaClid',
-    'page_id' => 'setPageId'
+    'page_id' => 'setPageId',
+    'ig_account_id' => 'setIgAccountId',
+    'ig_sid' => 'setIgSid'
   );
   /**
    * Array of attributes to getter functions (for serialization of requests)
@@ -223,7 +229,9 @@ class UserData implements ArrayAccess {
     'madid' => 'getMadid',
     'anon_id' => 'getAnonId',
     'ctwa_clid' => 'getCtwaClid',
-    'page_id' => 'getPageId'
+    'page_id' => 'getPageId',
+    'ig_account_id' => 'getIgAccountId',
+    'ig_sid' => 'getIgSid'
   );
   /**
    * Associative array for storing property values
@@ -346,6 +354,8 @@ class UserData implements ArrayAccess {
     $this->container['anon_id'] = isset($data['anon_id']) ? $data['anon_id'] : null;
     $this->container['ctwa_clid'] = isset($data['ctwa_clid']) ? $data['ctwa_clid'] : null;
     $this->container['page_id'] = isset($data['page_id']) ? $data['page_id'] : null;
+    $this->container['ig_account_id'] = isset($data['ig_account_id']) ? $data['ig_account_id'] : null;
+    $this->container['ig_sid'] = isset($data['ig_sid']) ? $data['ig_sid'] : null;
 
 
   }
@@ -888,6 +898,30 @@ class UserData implements ArrayAccess {
   }
 
   /**
+   * Set the ID of the Instagram account that is associated with the business
+   *
+   * @param ig_account_id
+   * @return $this
+   */
+  public function setIgAccountId($ig_account_id) {
+    $this->container['ig_account_id'] = $ig_account_id;
+
+    return $this;
+  }
+
+  /**
+   * Set the Instagram-Scoped User ID (IGSID) of the user who interact with Instagram
+   *
+   * @param ig_sid
+   * @return $this
+   */
+  public function setIgSid($ig_sid) {
+    $this->container['ig_sid'] = $ig_sid;
+
+    return $this;
+  }
+
+  /**
    * Returns true if offset exists. False otherwise.
    * @param integer $offset Offset
    * @return boolean
@@ -959,6 +993,8 @@ class UserData implements ArrayAccess {
     $normalized_payload['anon_id'] = Util::hash(Normalizer::normalize('anon_id', $this->getAnonId()));
     $normalized_payload['ctwa_clid'] = $this->getCtwaClid();
     $normalized_payload['page_id'] = $this->getPageId();
+    $normalized_payload['ig_account_id'] = $this->getIgAccountId();
+    $normalized_payload['ig_sid'] = $this->getIgSid();
     $normalized_payload = array_filter($normalized_payload);
     return $normalized_payload;
   }
@@ -1302,6 +1338,22 @@ class UserData implements ArrayAccess {
    */
   public function getPageId() {
     return $this->container['page_id'];
+  }
+
+  /**
+   * ID of the Instagram account that is associated with the business
+   * @return string
+   */
+  public function getIgAccountId() {
+    return $this->container['ig_account_id'];
+  }
+
+  /**
+   * Instagram-Scoped User ID (IGSID) of the user who interact with Instagram
+   * @return string
+   */
+  public function getIgSid() {
+    return $this->container['ig_sid'];
   }
 
   /**

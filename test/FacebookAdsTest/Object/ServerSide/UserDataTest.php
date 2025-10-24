@@ -56,7 +56,9 @@ class UserDataTest extends AbstractUnitTestCase {
       'fi' => 'f',
       'dobd' => '01',
       'dobm' => '01',
-      'doby' => '2001'
+      'doby' => '2001',
+      'ig_account_id' => 'ig_account_id-18',
+      'ig_sid' => 'ig_sid-19'
     );
     $expected = array(
       'em' => array(Util::hash($initial_state['email'])),
@@ -82,7 +84,9 @@ class UserDataTest extends AbstractUnitTestCase {
       'fi' => Util::hash($initial_state['fi']),
       'dobd' => Util::hash($initial_state['dobd']),
       'dobm' => Util::hash($initial_state['dobm']),
-      'doby' => Util::hash($initial_state['doby'])
+      'doby' => Util::hash($initial_state['doby']),
+      'ig_account_id' => 'ig_account_id-18',
+      'ig_sid' => 'ig_sid-19'
     );
     $builder = (new UserData())
       ->setEmail($initial_state['email'])
@@ -108,7 +112,9 @@ class UserDataTest extends AbstractUnitTestCase {
       ->setFi($initial_state['fi'])
       ->setDobd($initial_state['dobd'])
       ->setDobm($initial_state['dobm'])
-      ->setDoby($initial_state['doby']);
+      ->setDoby($initial_state['doby'])
+      ->setIgAccountId($initial_state['ig_account_id'])
+      ->setIgSid($initial_state['ig_sid']);
 
     $this->assertEquals($expected, $builder->normalize());
 
