@@ -361,7 +361,7 @@ class EventRequest implements ArrayAccess {
 
   /**
    * Gets an array of Server Event objects
-   * @return FacebookAds\Object\ServerSide\Event[]
+   * @return \FacebookAds\Object\ServerSide\Event[]
    */
   public function getEvents() {
     return $this->container['events'];

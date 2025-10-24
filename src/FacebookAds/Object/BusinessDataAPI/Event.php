@@ -192,7 +192,7 @@ class Event {
 
   /**
    * Gets UserData object that contains user data
-   * @return FacebookAds\Object\BusinessDataAPI\UserData
+   * @return \FacebookAds\Object\BusinessDataAPI\UserData
    */
   public function getUserData() {
     return $this->container['user_data'];
@@ -200,7 +200,7 @@ class Event {
 
   /**
    * Gets customData object that includes additional business data about the event.
-   * @return FacebookAds\Object\BusinessDataAPI\CustomData
+   * @return \FacebookAds\Object\BusinessDataAPI\CustomData
    */
   public function getCustomData() {
     return $this->container['custom_data'];

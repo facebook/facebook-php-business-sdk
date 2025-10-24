@@ -113,7 +113,7 @@ class EventRequest {
 
   /**
    * Gets an array of Event objects
-   * @return FacebookAds\Object\BusinessDataAPI\Event[]
+   * @return \FacebookAds\Object\BusinessDataAPI\Event[]
    */
   public function getEvents() {
     return $this->container['events'];
