@@ -310,6 +310,31 @@ class AdSet extends AbstractArchivableCrudObject
     return $pending ? $request : $request->execute();
   }
 
+  public function getBudgetSchedules(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'time_start' => 'datetime',
+      'time_stop' => 'datetime',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/budget_schedules',
+      new HighDemandPeriod(),
+      'EDGE',
+      HighDemandPeriod::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createBudgetSchedule(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -440,6 +465,7 @@ class AdSet extends AbstractArchivableCrudObject
       'export_name' => 'string',
       'fields' => 'list<string>',
       'filtering' => 'list<Object>',
+      'graph_cache' => 'bool',
       'level' => 'level_enum',
       'limit' => 'int',
       'product_id_limit' => 'int',
@@ -492,6 +518,7 @@ class AdSet extends AbstractArchivableCrudObject
       'export_name' => 'string',
       'fields' => 'list<string>',
       'filtering' => 'list<Object>',
+      'graph_cache' => 'bool',
       'level' => 'level_enum',
       'limit' => 'int',
       'product_id_limit' => 'int',
@@ -672,6 +699,7 @@ class AdSet extends AbstractArchivableCrudObject
       'bid_constraints' => 'map<string, Object>',
       'bid_strategy' => 'bid_strategy_enum',
       'billing_event' => 'billing_event_enum',
+      'budget_schedule_specs' => 'list<Object>',
       'campaign_attribution' => 'Object',
       'campaign_spec' => 'Object',
       'creative_sequence' => 'list<string>',
@@ -689,6 +717,7 @@ class AdSet extends AbstractArchivableCrudObject
       'existing_customer_budget_percentage' => 'unsigned int',
       'full_funnel_exploration_mode' => 'full_funnel_exploration_mode_enum',
       'is_ba_skip_delayed_eligible' => 'bool',
+      'is_budget_schedule_enabled' => 'bool',
       'is_incremental_attribution_enabled' => 'bool',
       'is_sac_cfca_terms_certified' => 'bool',
       'lifetime_budget' => 'unsigned int',
@@ -702,6 +731,7 @@ class AdSet extends AbstractArchivableCrudObject
       'optimization_goal' => 'optimization_goal_enum',
       'optimization_sub_event' => 'optimization_sub_event_enum',
       'pacing_type' => 'list<string>',
+      'placement_soft_opt_out' => 'Object',
       'promoted_object' => 'Object',
       'rb_prediction_id' => 'string',
       'regional_regulated_categories' => 'list<regional_regulated_categories_enum>',
@@ -714,7 +744,10 @@ class AdSet extends AbstractArchivableCrudObject
       'time_based_ad_rotation_intervals' => 'list<unsigned int>',
       'time_start' => 'datetime',
       'time_stop' => 'datetime',
+      'trending_topics_spec' => 'map',
       'tune_for_category' => 'tune_for_category_enum',
+      'value_rule_set_id' => 'string',
+      'value_rules_applied' => 'bool',
     );
     $enums = array(
       'automatic_manual_state_enum' => AdSetAutomaticManualStateValues::getInstance()->getValues(),

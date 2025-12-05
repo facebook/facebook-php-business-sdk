@@ -28,6 +28,7 @@ use FacebookAds\Object\Values\ProductItemMarkedForProductLaunchValues;
 use FacebookAds\Object\Values\ProductItemOriginCountryValues;
 use FacebookAds\Object\Values\ProductItemReviewStatusValues;
 use FacebookAds\Object\Values\ProductItemShippingWeightUnitValues;
+use FacebookAds\Object\Values\ProductItemStatusValues;
 use FacebookAds\Object\Values\ProductItemVideoFetchStatusValues;
 use FacebookAds\Object\Values\ProductItemVisibilityValues;
 use FacebookAds\Object\Values\ProductItemWaComplianceCategoryValues;
@@ -67,6 +68,7 @@ class ProductItem extends AbstractCrudObject {
     $ref_enums['ImageFetchStatus'] = ProductItemImageFetchStatusValues::getInstance()->getValues();
     $ref_enums['ReviewStatus'] = ProductItemReviewStatusValues::getInstance()->getValues();
     $ref_enums['ShippingWeightUnit'] = ProductItemShippingWeightUnitValues::getInstance()->getValues();
+    $ref_enums['Status'] = ProductItemStatusValues::getInstance()->getValues();
     $ref_enums['VideoFetchStatus'] = ProductItemVideoFetchStatusValues::getInstance()->getValues();
     $ref_enums['Visibility'] = ProductItemVisibilityValues::getInstance()->getValues();
     $ref_enums['CommerceTaxCategory'] = ProductItemCommerceTaxCategoryValues::getInstance()->getValues();
@@ -275,6 +277,7 @@ class ProductItem extends AbstractCrudObject {
       'iphone_app_store_id' => 'unsigned int',
       'iphone_url' => 'string',
       'launch_date' => 'string',
+      'live_special_price' => 'string',
       'manufacturer_info' => 'string',
       'manufacturer_part_number' => 'string',
       'marked_for_product_launch' => 'marked_for_product_launch_enum',
@@ -294,6 +297,7 @@ class ProductItem extends AbstractCrudObject {
       'quantity_to_sell_on_facebook' => 'unsigned int',
       'retailer_id' => 'string',
       'return_policy_days' => 'unsigned int',
+      'rich_text_description' => 'string',
       'sale_price' => 'unsigned int',
       'sale_price_end_date' => 'datetime',
       'sale_price_start_date' => 'datetime',

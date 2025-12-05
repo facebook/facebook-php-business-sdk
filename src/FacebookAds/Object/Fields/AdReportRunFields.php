@@ -49,6 +49,7 @@ class AdReportRunFields extends AbstractEnum {
   const EXPORT_NAME = 'export_name';
   const FIELDS = 'fields';
   const FILTERING = 'filtering';
+  const GRAPH_CACHE = 'graph_cache';
   const LEVEL = 'level';
   const LIMIT = 'limit';
   const PRODUCT_ID_LIMIT = 'product_id_limit';
@@ -90,6 +91,7 @@ class AdReportRunFields extends AbstractEnum {
       'export_name' => 'string',
       'fields' => 'list<string>',
       'filtering' => 'list<Object>',
+      'graph_cache' => 'bool',
       'level' => 'Level',
       'limit' => 'int',
       'product_id_limit' => 'int',

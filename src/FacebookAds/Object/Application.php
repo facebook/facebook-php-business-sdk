@@ -189,7 +189,7 @@ class Application extends AbstractCrudObject {
       'include_video_data' => 'bool',
       'install_id' => 'string',
       'install_referrer' => 'string',
-      'install_timestamp' => 'unsigned int',
+      'install_timestamp' => 'float',
       'installer_package' => 'string',
       'is_fb' => 'bool',
       'limited_data_use' => 'bool',
@@ -1421,31 +1421,6 @@ class Application extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createSubscribedDomain(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'subscribe' => 'list<string>',
-      'unsubscribe' => 'list<string>',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/subscribed_domains',
-      new Application(),
-      'EDGE',
-      Application::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getSubscribedDomainsPhishing(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1462,31 +1437,6 @@ class Application extends AbstractCrudObject {
       new AbstractCrudObject(),
       'EDGE',
       array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createSubscribedDomainsPhishing(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'subscribe' => 'list<string>',
-      'unsubscribe' => 'list<string>',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/subscribed_domains_phishing',
-      new Application(),
-      'EDGE',
-      Application::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

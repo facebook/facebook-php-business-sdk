@@ -43,6 +43,7 @@ class AdCreativeLinkDataFields extends AbstractEnum {
   const IMAGE_HASH = 'image_hash';
   const IMAGE_LAYER_SPECS = 'image_layer_specs';
   const IMAGE_OVERLAY_SPEC = 'image_overlay_spec';
+  const IS_LOCAL_EXPANSION = 'is_local_expansion';
   const LINK = 'link';
   const MESSAGE = 'message';
   const MULTI_SHARE_END_CARD = 'multi_share_end_card';
@@ -82,6 +83,7 @@ class AdCreativeLinkDataFields extends AbstractEnum {
       'image_hash' => 'string',
       'image_layer_specs' => 'list<AdCreativeLinkDataImageLayerSpec>',
       'image_overlay_spec' => 'AdCreativeLinkDataImageOverlaySpec',
+      'is_local_expansion' => 'bool',
       'link' => 'string',
       'message' => 'string',
       'multi_share_end_card' => 'bool',

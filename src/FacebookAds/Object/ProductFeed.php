@@ -22,6 +22,7 @@ use FacebookAds\Object\Values\ProductFeedItemSubTypeValues;
 use FacebookAds\Object\Values\ProductFeedOverrideTypeValues;
 use FacebookAds\Object\Values\ProductFeedQuotedFieldsModeValues;
 use FacebookAds\Object\Values\ProductFeedRuleRuleTypeValues;
+use FacebookAds\Object\Values\ProductFeedUseCaseValues;
 use FacebookAds\Object\Values\ProductItemErrorPriorityValues;
 use FacebookAds\Object\Values\ProductItemErrorTypeValues;
 
@@ -59,6 +60,7 @@ class ProductFeed extends AbstractCrudObject {
     $ref_enums['FeedType'] = ProductFeedFeedTypeValues::getInstance()->getValues();
     $ref_enums['ItemSubType'] = ProductFeedItemSubTypeValues::getInstance()->getValues();
     $ref_enums['OverrideType'] = ProductFeedOverrideTypeValues::getInstance()->getValues();
+    $ref_enums['UseCase'] = ProductFeedUseCaseValues::getInstance()->getValues();
     return $ref_enums;
   }
 

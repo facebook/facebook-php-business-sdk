@@ -34,6 +34,7 @@ class CustomAudienceFields extends AbstractEnum {
   const DESCRIPTION = 'description';
   const EXCLUDED_CUSTOM_AUDIENCES = 'excluded_custom_audiences';
   const EXTERNAL_EVENT_SOURCE = 'external_event_source';
+  const FIELDS_VIOLATING_INTEGRITY_POLICY = 'fields_violating_integrity_policy';
   const HOUSEHOLD_AUDIENCE = 'household_audience';
   const ID = 'id';
   const INCLUDED_CUSTOM_AUDIENCES = 'included_custom_audiences';
@@ -74,6 +75,7 @@ class CustomAudienceFields extends AbstractEnum {
   const EVENT_SOURCES = 'event_sources';
   const EXCLUSIONS = 'exclusions';
   const FACEBOOK_PAGE_ID = 'facebook_page_id';
+  const INCLUSIONOPERATOR = 'inclusionOperator';
   const INCLUSIONS = 'inclusions';
   const LIST_OF_ACCOUNTS = 'list_of_accounts';
   const MARKETING_MESSAGE_CHANNELS = 'marketing_message_channels';
@@ -102,6 +104,7 @@ class CustomAudienceFields extends AbstractEnum {
       'description' => 'string',
       'excluded_custom_audiences' => 'list<CustomAudience>',
       'external_event_source' => 'AdsPixel',
+      'fields_violating_integrity_policy' => 'list<string>',
       'household_audience' => 'int',
       'id' => 'string',
       'included_custom_audiences' => 'list<CustomAudience>',
@@ -142,6 +145,7 @@ class CustomAudienceFields extends AbstractEnum {
       'event_sources' => 'list<map>',
       'exclusions' => 'list<Object>',
       'facebook_page_id' => 'string',
+      'inclusionOperator' => 'string',
       'inclusions' => 'list<Object>',
       'list_of_accounts' => 'list<unsigned int>',
       'marketing_message_channels' => 'Object',

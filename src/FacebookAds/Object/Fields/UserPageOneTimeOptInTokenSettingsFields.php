@@ -23,6 +23,7 @@ use FacebookAds\Enum\AbstractEnum;
 class UserPageOneTimeOptInTokenSettingsFields extends AbstractEnum {
 
   const CREATION_TIMESTAMP = 'creation_timestamp';
+  const CUSTOM_AUDIENCE_IDS = 'custom_audience_ids';
   const NEXT_ELIGIBLE_TIME = 'next_eligible_time';
   const NEXT_ELIGIBLE_TIME_FOR_PAID_MESSAGING = 'next_eligible_time_for_paid_messaging';
   const NOTIFICATION_MESSAGES_FREQUENCY = 'notification_messages_frequency';
@@ -38,6 +39,7 @@ class UserPageOneTimeOptInTokenSettingsFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'creation_timestamp' => 'int',
+      'custom_audience_ids' => 'list<string>',
       'next_eligible_time' => 'int',
       'next_eligible_time_for_paid_messaging' => 'int',
       'notification_messages_frequency' => 'string',

@@ -330,6 +330,29 @@ class IGMedia extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function deleteSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/',
+      new AbstractCrudObject(),
+      'NODE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getSelf(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -345,6 +368,7 @@ class IGMedia extends AbstractCrudObject {
     $enums = array(
       'boostable_media_callsite_enum' => array(
         'ADS_MANAGER_L1_EDITOR_DYNAMIC_ADS_WITH_EXISTING_POST',
+        'PA_HUB_CATALOG_INGESTION_CREATOR_ASSET',
       ),
     );
 

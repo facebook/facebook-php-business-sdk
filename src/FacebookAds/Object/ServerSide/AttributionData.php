@@ -43,6 +43,14 @@ class AttributionData implements ArrayAccess {
   private $attribution_model;
   private $attr_window;
   private $attribution_value;
+  private $attribution_source;
+  private $touchpoint_type;
+  private $touchpoint_ts;
+  private $attribution_method;
+  private $decline_reason;
+  private $auditing_token;
+  private $linkage_key;
+  private $attribution_setting;
 
   protected static $param_types = array(
     'scope' => 'string',
@@ -54,6 +62,14 @@ class AttributionData implements ArrayAccess {
     'attribution_model' => 'FacebookAds\Object\ServerSide\AttributionModel',
     'attr_window' => 'int',
     'attribution_value' => 'float',
+    'attribution_source' => 'string',
+    'touchpoint_type' => 'string',
+    'touchpoint_ts' => 'int',
+    'attribution_method' => 'FacebookAds\Object\ServerSide\AttributionMethod',
+    'decline_reason' => 'FacebookAds\Object\ServerSide\DeclineReason',
+    'auditing_token' => 'string',
+    'linkage_key' => 'string',
+    'attribution_setting' => 'FacebookAds\Object\ServerSide\AttributionSetting',
   );
 
   protected static $attributeMap = array(
@@ -66,6 +82,14 @@ class AttributionData implements ArrayAccess {
     'attribution_model' => 'attribution_model',
     'attr_window' => 'attr_window',
     'attribution_value' => 'attribution_value',
+    'attribution_source' => 'attribution_source',
+    'touchpoint_type' => 'touchpoint_type',
+    'touchpoint_ts' => 'touchpoint_ts',
+    'attribution_method' => 'attribution_method',
+    'decline_reason' => 'decline_reason',
+    'auditing_token' => 'auditing_token',
+    'linkage_key' => 'linkage_key',
+    'attribution_setting' => 'attribution_setting',
   );
 
   protected static $setters = array(
@@ -78,6 +102,14 @@ class AttributionData implements ArrayAccess {
     'attribution_model' => 'setAttributionModel',
     'attr_window' => 'setAttrWindow',
     'attribution_value' => 'setAttributionValue',
+    'attribution_source' => 'setAttributionSource',
+    'touchpoint_type' => 'setTouchpointType',
+    'touchpoint_ts' => 'setTouchpointTs',
+    'attribution_method' => 'setAttributionMethod',
+    'decline_reason' => 'setDeclineReason',
+    'auditing_token' => 'setAuditingToken',
+    'linkage_key' => 'setLinkageKey',
+    'attribution_setting' => 'setAttributionSetting',
   );
 
   protected static $getters = array(
@@ -90,6 +122,14 @@ class AttributionData implements ArrayAccess {
     'attribution_model' => 'getAttributionModel',
     'attr_window' => 'getAttrWindow',
     'attribution_value' => 'getAttributionValue',
+    'attribution_source' => 'getAttributionSource',
+    'touchpoint_type' => 'getTouchpointType',
+    'touchpoint_ts' => 'getTouchpointTs',
+    'attribution_method' => 'getAttributionMethod',
+    'decline_reason' => 'getDeclineReason',
+    'auditing_token' => 'getAuditingToken',
+    'linkage_key' => 'getLinkageKey',
+    'attribution_setting' => 'getAttributionSetting',
   );
 
   protected $container = array();
@@ -104,6 +144,14 @@ class AttributionData implements ArrayAccess {
     $this->container['attribution_model'] = isset($data['attribution_model']) ? $data['attribution_model'] : null;
     $this->container['attr_window'] = isset($data['attr_window']) ? $data['attr_window'] : null;
     $this->container['attribution_value'] = isset($data['attribution_value']) ? $data['attribution_value'] : null;
+    $this->container['attribution_source'] = isset($data['attribution_source']) ? $data['attribution_source'] : null;
+    $this->container['touchpoint_type'] = isset($data['touchpoint_type']) ? $data['touchpoint_type'] : null;
+    $this->container['touchpoint_ts'] = isset($data['touchpoint_ts']) ? $data['touchpoint_ts'] : null;
+    $this->container['attribution_method'] = isset($data['attribution_method']) ? $data['attribution_method'] : null;
+    $this->container['decline_reason'] = isset($data['decline_reason']) ? $data['decline_reason'] : null;
+    $this->container['auditing_token'] = isset($data['auditing_token']) ? $data['auditing_token'] : null;
+    $this->container['linkage_key'] = isset($data['linkage_key']) ? $data['linkage_key'] : null;
+    $this->container['attribution_setting'] = isset($data['attribution_setting']) ? $data['attribution_setting'] : null;
   }
 
   public static function paramTypes() {
@@ -231,6 +279,94 @@ class AttributionData implements ArrayAccess {
   }
 
   /**
+   * Sets attribution_source
+   * @param string $attribution_source The attribution source to differentiate the source of the data, e.g. whether this is from AMM or Custom Attribution or any other sources.
+   * @return $this
+   */
+  public function setAttributionSource($attribution_source) {
+    $this->container['attribution_source'] = $attribution_source;
+
+    return $this;
+  }
+
+  /**
+   * Sets touchpoint_type
+   * @param string $touchpoint_type The engagement type that caused the original credited conversion.
+   * @return $this
+   */
+  public function setTouchpointType($touchpoint_type) {
+    $this->container['touchpoint_type'] = $touchpoint_type;
+
+    return $this;
+  }
+
+  /**
+   * Sets touchpoint_ts
+   * @param int $touchpoint_ts The time when the touchpoint event occurred with the ad that the install was credited to.
+   * @return $this
+   */
+  public function setTouchpointTs($touchpoint_ts) {
+    $this->container['touchpoint_ts'] = $touchpoint_ts;
+
+    return $this;
+  }
+
+  /**
+   * Sets attribution_method
+   * @param string $attribution_method The attribution method used to attribute the event.
+   * @return $this
+   */
+  public function setAttributionMethod($attribution_method) {
+    $this->container['attribution_method'] = $attribution_method;
+
+    return $this;
+  }
+
+  /**
+   * Sets decline_reason
+   * @param string $decline_reason The decline reason for the attribution.
+   * @return $this
+   */
+  public function setDeclineReason($decline_reason) {
+    $this->container['decline_reason'] = $decline_reason;
+
+    return $this;
+  }
+
+  /**
+   * Sets auditing_token
+   * @param string $auditing_token The auditing token for the attribution.
+   * @return $this
+   */
+  public function setAuditingToken($auditing_token) {
+    $this->container['auditing_token'] = $auditing_token;
+
+    return $this;
+  }
+
+  /**
+   * Sets linkage_key
+   * @param string $linkage_key The linkage key for the attribution.
+   * @return $this
+   */
+  public function setLinkageKey($linkage_key) {
+    $this->container['linkage_key'] = $linkage_key;
+
+    return $this;
+  }
+
+  /**
+   * Sets attribution_setting
+   * @param AttributionSetting $attribution_setting The attribution setting for the attribution.
+   * @return $this
+   */
+  public function setAttributionSetting($attribution_setting) {
+    $this->container['attribution_setting'] = $attribution_setting;
+
+    return $this;
+  }
+
+  /**
    * Gets touchpoint type.
    * @return string
    */
@@ -303,6 +439,70 @@ class AttributionData implements ArrayAccess {
   }
 
   /**
+   * Gets attribution source.
+   * @return string
+   */
+  public function getAttributionSource() {
+    return $this->container['attribution_source'];
+  }
+
+  /**
+   * Gets touchpoint type.
+   * @return string
+   */
+  public function getTouchpointType() {
+    return $this->container['touchpoint_type'];
+  }
+
+  /**
+   * Gets touchpoint timestamp.
+   * @return int
+   */
+  public function getTouchpointTs() {
+    return $this->container['touchpoint_ts'];
+  }
+
+  /**
+   * Gets attribution method.
+   * @return string
+   */
+  public function getAttributionMethod() {
+    return $this->container['attribution_method'];
+  }
+
+  /**
+   * Gets decline reason.
+   * @return string
+   */
+  public function getDeclineReason() {
+    return $this->container['decline_reason'];
+  }
+
+  /**
+   * Gets auditing token.
+   * @return string
+   */
+  public function getAuditingToken() {
+    return $this->container['auditing_token'];
+  }
+
+  /**
+   * Gets linkage key.
+   * @return string
+   */
+  public function getLinkageKey() {
+    return $this->container['linkage_key'];
+  }
+
+  /**
+   * Gets attribution setting.
+   * @return AttributionSetting
+   */
+  public function getAttributionSetting() {
+    return $this->container['attribution_setting'];
+  }
+
+  /**
    * Returns true if offset exists. False otherwise.
    * @param integer $offset Offset
    * @return boolean
@@ -355,6 +555,15 @@ class AttributionData implements ArrayAccess {
     $normalized_payload['attribution_model'] = $this->getAttributionModel();
     $normalized_payload['attr_window'] = $this->getAttrWindow();
     $normalized_payload['attribution_value'] = $this->getAttributionValue();
+    $normalized_payload['attribution_source'] = $this->getAttributionSource();
+    $normalized_payload['touchpoint_type'] = $this->getTouchpointType();
+    $normalized_payload['touchpoint_ts'] = $this->getTouchpointTs();
+    $normalized_payload['attribution_method'] = $this->getAttributionMethod();
+    $normalized_payload['decline_reason'] = $this->getDeclineReason();
+    $normalized_payload['auditing_token'] = $this->getAuditingToken();
+    $normalized_payload['linkage_key'] = $this->getLinkageKey();
+    $attribution_setting = $this->getAttributionSetting();
+    $normalized_payload['attribution_setting'] = $attribution_setting != null ? $attribution_setting->normalize() : null;
     return $normalized_payload;
   }
 

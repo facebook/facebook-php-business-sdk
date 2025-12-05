@@ -26,6 +26,8 @@ class InsightsValueFields extends AbstractEnum {
   const EARNING_SOURCE = 'earning_source';
   const END_TIME = 'end_time';
   const ENGAGEMENT_SOURCE = 'engagement_source';
+  const IS_FROM_ADS = 'is_from_ads';
+  const IS_FROM_FOLLOWERS = 'is_from_followers';
   const MESSAGE_TYPE = 'message_type';
   const MESSAGING_CHANNEL = 'messaging_channel';
   const MONETIZATION_TOOL = 'monetization_tool';
@@ -41,6 +43,8 @@ class InsightsValueFields extends AbstractEnum {
       'earning_source' => 'string',
       'end_time' => 'datetime',
       'engagement_source' => 'string',
+      'is_from_ads' => 'string',
+      'is_from_followers' => 'string',
       'message_type' => 'string',
       'messaging_channel' => 'string',
       'monetization_tool' => 'string',

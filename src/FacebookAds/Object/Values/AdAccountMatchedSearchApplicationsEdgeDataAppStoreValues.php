@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdAccountMatchedSearchApplicationsEdgeDataAppStoreValues extends AbstractEnum {
 
+  const ALL_APP_STORES_FOR_ANDROID_AND_IOS = 'ALL_APP_STORES_FOR_ANDROID_AND_IOS';
   const AMAZON_APP_STORE = 'AMAZON_APP_STORE';
   const APK_MIRROR = 'APK_MIRROR';
   const APK_MONK = 'APK_MONK';

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -18,15 +18,13 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static InstagramBusinessAssetTasksValues getInstance()
  */
+class InstagramBusinessAssetTasksValues extends AbstractEnum {
 
-class FBLiteToNTTransitionsFields extends AbstractEnum {
-
-  const TRANSITION = 'transition';
-
-  public function getFieldTypes() {
-    return array(
-      'transition' => 'Object',
-    );
-  }
+  const ADVERTISE = 'ADVERTISE';
+  const ANALYZE = 'ANALYZE';
+  const COMMUNITY_ACTIVITY = 'COMMUNITY_ACTIVITY';
+  const CONTENT = 'CONTENT';
+  const MESSAGES = 'MESSAGES';
 }

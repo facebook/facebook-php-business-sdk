@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class LeadGenFormPreviewDetailsFields extends AbstractEnum {
 
+  const BOOK_ON_WEBSITE_TEXT = 'book_on_website_text';
   const CALL_BUSINESS_TEXT = 'call_business_text';
   const CALL_TO_ACTION_TITLE = 'call_to_action_title';
   const CHAT_ON_MESSENGER_TEXT = 'chat_on_messenger_text';
@@ -71,6 +72,7 @@ class LeadGenFormPreviewDetailsFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'book_on_website_text' => 'string',
       'call_business_text' => 'string',
       'call_to_action_title' => 'string',
       'chat_on_messenger_text' => 'string',

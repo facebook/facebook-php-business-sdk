@@ -25,6 +25,7 @@ class AdsImageCropsFields extends AbstractEnum {
   const FIELD_100X100 = '100x100';
   const FIELD_100X72 = '100x72';
   const FIELD_191X100 = '191x100';
+  const FIELD_300X400 = '300x400';
   const FIELD_400X150 = '400x150';
   const FIELD_400X500 = '400x500';
   const FIELD_600X360 = '600x360';
@@ -35,6 +36,7 @@ class AdsImageCropsFields extends AbstractEnum {
       '100x100' => 'list<list>',
       '100x72' => 'list<list>',
       '191x100' => 'list<list>',
+      '300x400' => 'list<list>',
       '400x150' => 'list<list>',
       '400x500' => 'list<list>',
       '600x360' => 'list<list>',

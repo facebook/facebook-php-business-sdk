@@ -32,6 +32,8 @@ class RegionalRegulationIdentitiesFields extends AbstractEnum {
   const TAIWAN_FINSERV_PAYER = 'taiwan_finserv_payer';
   const TAIWAN_UNIVERSAL_BENEFICIARY = 'taiwan_universal_beneficiary';
   const TAIWAN_UNIVERSAL_PAYER = 'taiwan_universal_payer';
+  const UNIVERSAL_BENEFICIARY = 'universal_beneficiary';
+  const UNIVERSAL_PAYER = 'universal_payer';
 
   public function getFieldTypes() {
     return array(
@@ -45,6 +47,8 @@ class RegionalRegulationIdentitiesFields extends AbstractEnum {
       'taiwan_finserv_payer' => 'string',
       'taiwan_universal_beneficiary' => 'string',
       'taiwan_universal_payer' => 'string',
+      'universal_beneficiary' => 'string',
+      'universal_payer' => 'string',
     );
   }
 }

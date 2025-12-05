@@ -34,6 +34,7 @@ class LeadGenDataDraftFields extends AbstractEnum {
   const PAGE = 'page';
   const QUESTION_PAGE_CUSTOM_HEADLINE = 'question_page_custom_headline';
   const QUESTIONS = 'questions';
+  const SHOULD_ENFORCE_WORK_EMAIL = 'should_enforce_work_email';
   const STATUS = 'status';
   const THANK_YOU_PAGE = 'thank_you_page';
   const TRACKING_PARAMETERS = 'tracking_parameters';
@@ -52,6 +53,7 @@ class LeadGenDataDraftFields extends AbstractEnum {
       'page' => 'Page',
       'question_page_custom_headline' => 'string',
       'questions' => 'list<LeadGenDraftQuestion>',
+      'should_enforce_work_email' => 'bool',
       'status' => 'string',
       'thank_you_page' => 'Object',
       'tracking_parameters' => 'list<map<string, string>>',

@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdCreativeFeatureCustomizationsFields extends AbstractEnum {
 
+  const ASPECT_RATIO_CONFIG = 'aspect_ratio_config';
   const BACKGROUND_COLOR = 'background_color';
   const CATALOG_FEED_TAG_NAME = 'catalog_feed_tag_name';
   const FONT_NAME = 'font_name';
@@ -33,6 +34,7 @@ class AdCreativeFeatureCustomizationsFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'aspect_ratio_config' => 'Object',
       'background_color' => 'string',
       'catalog_feed_tag_name' => 'string',
       'font_name' => 'string',

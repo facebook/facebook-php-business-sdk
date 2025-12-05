@@ -20,6 +20,7 @@ use FacebookAds\Object\Values\AdCreativeCallToActionTypeValues;
 use FacebookAds\Object\Values\AdCreativeCategorizationCriteriaValues;
 use FacebookAds\Object\Values\AdCreativeCategoryMediaSourceValues;
 use FacebookAds\Object\Values\AdCreativeDynamicAdVoiceValues;
+use FacebookAds\Object\Values\AdCreativeExecutionOptionsValues;
 use FacebookAds\Object\Values\AdCreativeObjectTypeValues;
 use FacebookAds\Object\Values\AdCreativeOperatorValues;
 use FacebookAds\Object\Values\AdCreativeStatusValues;
@@ -65,6 +66,7 @@ class AdCreative extends AbstractCrudObject {
     $ref_enums['CategorizationCriteria'] = AdCreativeCategorizationCriteriaValues::getInstance()->getValues();
     $ref_enums['CategoryMediaSource'] = AdCreativeCategoryMediaSourceValues::getInstance()->getValues();
     $ref_enums['DynamicAdVoice'] = AdCreativeDynamicAdVoiceValues::getInstance()->getValues();
+    $ref_enums['ExecutionOptions'] = AdCreativeExecutionOptionsValues::getInstance()->getValues();
     $ref_enums['Operator'] = AdCreativeOperatorValues::getInstance()->getValues();
     return $ref_enums;
   }

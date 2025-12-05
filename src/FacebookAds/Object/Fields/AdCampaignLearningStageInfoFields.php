@@ -24,6 +24,9 @@ class AdCampaignLearningStageInfoFields extends AbstractEnum {
 
   const ATTRIBUTION_WINDOWS = 'attribution_windows';
   const CONVERSIONS = 'conversions';
+  const DYNAMIC_LP_CONVERSIONS_THRESHOLD = 'dynamic_lp_conversions_threshold';
+  const DYNAMIC_LP_DAYS_THRESHOLD = 'dynamic_lp_days_threshold';
+  const DYNAMIC_LP_STATUS = 'dynamic_lp_status';
   const LAST_SIG_EDIT_TS = 'last_sig_edit_ts';
   const STATUS = 'status';
 
@@ -31,6 +34,9 @@ class AdCampaignLearningStageInfoFields extends AbstractEnum {
     return array(
       'attribution_windows' => 'list<string>',
       'conversions' => 'unsigned int',
+      'dynamic_lp_conversions_threshold' => 'unsigned int',
+      'dynamic_lp_days_threshold' => 'unsigned int',
+      'dynamic_lp_status' => 'string',
       'last_sig_edit_ts' => 'int',
       'status' => 'string',
     );

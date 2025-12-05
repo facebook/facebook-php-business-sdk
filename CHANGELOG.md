@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## v24.0.1
+### Added
+- Add additional AMM fields: attribution_method, decline_reason, auditing_token, linkage_key
+- Add attribution_setting nested field with inactivity_window_hours, reattribution_window_hours
+
+## v24.0.0
+### Added
+- Add AMM fields to attribution data
+
 ## v22.0.3
 ### Changed
 - Fix the OriginalEventData class to add the missing methods
@@ -161,4 +170,3 @@ All notable changes to this project will be documented in this file.
     $async_job = $async_job->getSelf();
   }
   ```
-

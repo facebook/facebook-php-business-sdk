@@ -24,6 +24,7 @@ class AdsValueAdjustmentRuleCollectionFields extends AbstractEnum {
 
   const ID = 'id';
   const IS_DEFAULT_SETTING = 'is_default_setting';
+  const LAST_ATTACH_TIME = 'last_attach_time';
   const NAME = 'name';
   const PRODUCT_TYPE = 'product_type';
   const STATUS = 'status';
@@ -33,6 +34,7 @@ class AdsValueAdjustmentRuleCollectionFields extends AbstractEnum {
     return array(
       'id' => 'string',
       'is_default_setting' => 'bool',
+      'last_attach_time' => 'datetime',
       'name' => 'string',
       'product_type' => 'string',
       'status' => 'string',

@@ -218,6 +218,31 @@ class Campaign extends AbstractArchivableCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getBudgetSchedules(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'time_start' => 'datetime',
+      'time_stop' => 'datetime',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/budget_schedules',
+      new HighDemandPeriod(),
+      'EDGE',
+      HighDemandPeriod::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createBudgetSchedule(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -281,6 +306,8 @@ class Campaign extends AbstractArchivableCrudObject {
     $param_types = array(
       'deep_copy' => 'bool',
       'end_time' => 'datetime',
+      'migrate_to_advantage_plus' => 'bool',
+      'parameter_overrides' => 'Object',
       'rename_options' => 'Object',
       'start_time' => 'datetime',
       'status_option' => 'status_option_enum',
@@ -319,6 +346,7 @@ class Campaign extends AbstractArchivableCrudObject {
       'export_name' => 'string',
       'fields' => 'list<string>',
       'filtering' => 'list<Object>',
+      'graph_cache' => 'bool',
       'level' => 'level_enum',
       'limit' => 'int',
       'product_id_limit' => 'int',
@@ -371,6 +399,7 @@ class Campaign extends AbstractArchivableCrudObject {
       'export_name' => 'string',
       'fields' => 'list<string>',
       'filtering' => 'list<Object>',
+      'graph_cache' => 'bool',
       'level' => 'level_enum',
       'limit' => 'int',
       'product_id_limit' => 'int',
@@ -489,11 +518,17 @@ class Campaign extends AbstractArchivableCrudObject {
       'adset_budgets' => 'list<map>',
       'bid_strategy' => 'bid_strategy_enum',
       'budget_rebalance_flag' => 'bool',
+      'budget_schedule_specs' => 'list<Object>',
       'daily_budget' => 'unsigned int',
       'execution_options' => 'list<execution_options_enum>',
+      'is_adset_budget_sharing_enabled' => 'bool',
+      'is_budget_schedule_enabled' => 'bool',
+      'is_direct_send_campaign' => 'bool',
+      'is_message_campaign' => 'bool',
       'is_skadnetwork_attribution' => 'bool',
       'iterative_split_test_configs' => 'list<Object>',
       'lifetime_budget' => 'unsigned int',
+      'migrate_to_advantage_plus' => 'bool',
       'name' => 'string',
       'objective' => 'objective_enum',
       'pacing_type' => 'list<string>',

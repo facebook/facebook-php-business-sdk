@@ -32,6 +32,7 @@ class BusinessFields extends AbstractEnum {
   const ID = 'id';
   const IS_HIDDEN = 'is_hidden';
   const LINK = 'link';
+  const MARKETING_MESSAGES_ONBOARDING_STATUS = 'marketing_messages_onboarding_status';
   const NAME = 'name';
   const PRIMARY_PAGE = 'primary_page';
   const PROFILE_PICTURE_URI = 'profile_picture_uri';
@@ -43,6 +44,7 @@ class BusinessFields extends AbstractEnum {
   const VERIFICATION_STATUS = 'verification_status';
   const VERTICAL = 'vertical';
   const VERTICAL_ID = 'vertical_id';
+  const WHATSAPP_BUSINESS_MANAGER_MESSAGING_LIMIT = 'whatsapp_business_manager_messaging_limit';
 
   public function getFieldTypes() {
     return array(
@@ -56,6 +58,7 @@ class BusinessFields extends AbstractEnum {
       'id' => 'string',
       'is_hidden' => 'bool',
       'link' => 'string',
+      'marketing_messages_onboarding_status' => 'MarketingMessagesOnboardingStatus',
       'name' => 'string',
       'primary_page' => 'Page',
       'profile_picture_uri' => 'string',
@@ -67,6 +70,7 @@ class BusinessFields extends AbstractEnum {
       'verification_status' => 'VerificationStatus',
       'vertical' => 'string',
       'vertical_id' => 'unsigned int',
+      'whatsapp_business_manager_messaging_limit' => 'WhatsappBusinessManagerMessagingLimit',
     );
   }
 }

@@ -19,8 +19,11 @@ use FacebookAds\Object\Values\WhatsAppBusinessAccountCategoryValues;
 use FacebookAds\Object\Values\WhatsAppBusinessAccountDisplayFormatValues;
 use FacebookAds\Object\Values\WhatsAppBusinessAccountParameterFormatValues;
 use FacebookAds\Object\Values\WhatsAppBusinessAccountProviderNameValues;
+use FacebookAds\Object\Values\WhatsAppBusinessAccountSendTypeValues;
 use FacebookAds\Object\Values\WhatsAppBusinessAccountSubCategoryValues;
 use FacebookAds\Object\Values\WhatsAppBusinessAccountTasksValues;
+use FacebookAds\Object\Values\WhatsAppBusinessAccountTypeValues;
+use FacebookAds\Object\Values\WhatsAppBusinessAccountWhatsappBusinessManagerMessagingLimitValues;
 
 /**
  * This class is auto-generated.
@@ -43,10 +46,13 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['BusinessVerificationStatus'] = WhatsAppBusinessAccountBusinessVerificationStatusValues::getInstance()->getValues();
+    $ref_enums['WhatsappBusinessManagerMessagingLimit'] = WhatsAppBusinessAccountWhatsappBusinessManagerMessagingLimitValues::getInstance()->getValues();
     $ref_enums['Tasks'] = WhatsAppBusinessAccountTasksValues::getInstance()->getValues();
+    $ref_enums['Type'] = WhatsAppBusinessAccountTypeValues::getInstance()->getValues();
     $ref_enums['Category'] = WhatsAppBusinessAccountCategoryValues::getInstance()->getValues();
     $ref_enums['DisplayFormat'] = WhatsAppBusinessAccountDisplayFormatValues::getInstance()->getValues();
     $ref_enums['ParameterFormat'] = WhatsAppBusinessAccountParameterFormatValues::getInstance()->getValues();
+    $ref_enums['SendType'] = WhatsAppBusinessAccountSendTypeValues::getInstance()->getValues();
     $ref_enums['SubCategory'] = WhatsAppBusinessAccountSubCategoryValues::getInstance()->getValues();
     $ref_enums['ProviderName'] = WhatsAppBusinessAccountProviderNameValues::getInstance()->getValues();
     return $ref_enums;
@@ -185,6 +191,7 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       'metric_types' => 'list<metric_types_enum>',
       'phone_numbers' => 'list<string>',
       'start' => 'unsigned int',
+      'tiers' => 'list<string>',
     );
     $enums = array(
       'dimensions_enum' => array(
@@ -344,6 +351,29 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getDegreesOfFreedomSpec(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/degrees_of_freedom_spec',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getFlows(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -432,6 +462,70 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getGroupAnalytics(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'end' => 'datetime',
+      'granularity' => 'granularity_enum',
+      'group_ids' => 'list<string>',
+      'metric_types' => 'list<metric_types_enum>',
+      'start' => 'datetime',
+    );
+    $enums = array(
+      'granularity_enum' => array(
+        'DAILY',
+      ),
+      'metric_types_enum' => array(
+        'CLICKS',
+        'COST',
+        'DELIVERED',
+        'PARTICIPANTS_JOINED',
+        'PARTICIPANTS_LEFT',
+        'READ',
+        'REPLIES',
+        'SENT',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/group_analytics',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getMarketingCampaigns(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/marketing_campaigns',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getMessageCampaigns(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -455,11 +549,39 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createMessageSample(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'interactive' => 'map',
+      'text' => 'map',
+      'type' => 'type_enum',
+    );
+    $enums = array(
+      'type_enum' => WhatsAppBusinessAccountTypeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/message_samples',
+      new WhatsAppBusinessAccount(),
+      'EDGE',
+      WhatsAppBusinessAccount::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getMessageTemplatePreviews(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
       'add_security_recommendation' => 'bool',
+      'business_name' => 'string',
       'button_types' => 'list<button_types_enum>',
       'category' => 'category_enum',
       'code_expiration_minutes' => 'unsigned int',
@@ -524,6 +646,7 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       'name' => 'string',
       'name_or_content' => 'string',
       'quality_score' => 'list<quality_score_enum>',
+      'source' => 'source_enum',
       'status' => 'list<status_enum>',
     );
     $enums = array(
@@ -533,6 +656,10 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
         'RED',
         'UNKNOWN',
         'YELLOW',
+      ),
+      'source_enum' => array(
+        'AUTO_GENERATED',
+        'MANUAL',
       ),
       'status_enum' => array(
         'APPROVED',
@@ -568,8 +695,10 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
 
     $param_types = array(
       'allow_category_change' => 'bool',
+      'bid_spec' => 'map',
       'category' => 'category_enum',
       'components' => 'list<map>',
+      'creative_sourcing_spec' => 'map',
       'cta_url_link_tracking_opted_out' => 'bool',
       'degrees_of_freedom_spec' => 'map',
       'display_format' => 'display_format_enum',
@@ -580,12 +709,14 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       'message_send_ttl_seconds' => 'unsigned int',
       'name' => 'string',
       'parameter_format' => 'parameter_format_enum',
+      'send_type' => 'send_type_enum',
       'sub_category' => 'sub_category_enum',
     );
     $enums = array(
       'category_enum' => WhatsAppBusinessAccountCategoryValues::getInstance()->getValues(),
       'display_format_enum' => WhatsAppBusinessAccountDisplayFormatValues::getInstance()->getValues(),
       'parameter_format_enum' => WhatsAppBusinessAccountParameterFormatValues::getInstance()->getValues(),
+      'send_type_enum' => WhatsAppBusinessAccountSendTypeValues::getInstance()->getValues(),
       'sub_category_enum' => WhatsAppBusinessAccountSubCategoryValues::getInstance()->getValues(),
     );
 
@@ -633,8 +764,10 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'count' => 'unsigned int',
       'page_number' => 'unsigned int',
       'source_waba_id' => 'string',
+      'template_ids' => 'list<string>',
     );
     $enums = array(
     );
@@ -843,10 +976,12 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
         'AUTHENTICATION',
         'AUTHENTICATION_INTERNATIONAL',
         'GROUP_MARKETING',
+        'GROUP_MARKETING_LITE',
         'GROUP_SERVICE',
         'GROUP_UTILITY',
         'MARKETING',
         'MARKETING_LITE',
+        'MARKETING_LITE_DYNAMIC',
         'SERVICE',
         'UTILITY',
       ),
@@ -1120,18 +1255,28 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       'product_type' => 'product_type_enum',
       'start' => 'datetime',
       'template_ids' => 'list<string>',
+      'use_waba_timezone' => 'bool',
     );
     $enums = array(
       'granularity_enum' => array(
         'DAILY',
       ),
       'metric_types_enum' => array(
+        'APP_ACTIVATIONS',
+        'APP_ADD_TO_CART',
+        'APP_CHECKOUTS_INITIATED',
+        'APP_PURCHASES',
+        'APP_PURCHASES_CONVERSION_VALUE',
         'CLICKED',
         'COST',
         'DELIVERED',
         'READ',
         'REPLIED',
         'SENT',
+        'WEBSITE_ADD_TO_CART',
+        'WEBSITE_CHECKOUTS_INITIATED',
+        'WEBSITE_PURCHASES',
+        'WEBSITE_PURCHASES_CONVERSION_VALUE',
       ),
       'product_type_enum' => array(
         'CLOUD_API',
@@ -1163,18 +1308,28 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       'metric_types' => 'list<metric_types_enum>',
       'start' => 'datetime',
       'template_group_ids' => 'list<string>',
+      'use_waba_timezone' => 'bool',
     );
     $enums = array(
       'granularity_enum' => array(
         'DAILY',
       ),
       'metric_types_enum' => array(
+        'APP_ACTIVATIONS',
+        'APP_ADD_TO_CART',
+        'APP_CHECKOUTS_INITIATED',
+        'APP_PURCHASES',
+        'APP_PURCHASES_CONVERSION_VALUE',
         'CLICKED',
         'COST',
         'DELIVERED',
         'READ',
         'REPLIED',
         'SENT',
+        'WEBSITE_ADD_TO_CART',
+        'WEBSITE_CHECKOUTS_INITIATED',
+        'WEBSITE_PURCHASES',
+        'WEBSITE_PURCHASES_CONVERSION_VALUE',
       ),
     );
 
@@ -1296,6 +1451,30 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function deleteWelcomeMessageSequences(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'sequence_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/welcome_message_sequences',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getWelcomeMessageSequences(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1314,6 +1493,32 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       new CTXPartnerAppWelcomeMessageFlow(),
       'EDGE',
       CTXPartnerAppWelcomeMessageFlow::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createWelcomeMessageSequence(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'name' => 'string',
+      'sequence_id' => 'string',
+      'welcome_message_sequence' => 'Object',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/welcome_message_sequences',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

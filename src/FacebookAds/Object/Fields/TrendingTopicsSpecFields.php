@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -18,10 +18,19 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static OmegaCustomerTrxProductTypesValues getInstance()
  */
-class OmegaCustomerTrxProductTypesValues extends AbstractEnum {
 
-  const FACEBOOK = 'FACEBOOK';
-  const WHATSAPP = 'WHATSAPP';
+class TrendingTopicsSpecFields extends AbstractEnum {
+
+  const IS_ALL_TRENDING = 'is_all_trending';
+  const IS_SPECIAL_BUDGET_ALLOC = 'is_special_budget_alloc';
+  const TRENDING_TOPICS = 'trending_topics';
+
+  public function getFieldTypes() {
+    return array(
+      'is_all_trending' => 'bool',
+      'is_special_budget_alloc' => 'bool',
+      'trending_topics' => 'list<string>',
+    );
+  }
 }

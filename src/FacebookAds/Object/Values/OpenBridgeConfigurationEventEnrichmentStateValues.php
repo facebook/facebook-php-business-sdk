@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -18,17 +18,11 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static OpenBridgeConfigurationEventEnrichmentStateValues getInstance()
  */
+class OpenBridgeConfigurationEventEnrichmentStateValues extends AbstractEnum {
 
-class AvatarProfilePictureFields extends AbstractEnum {
-
-  const ID = 'id';
-  const URL = 'url';
-
-  public function getFieldTypes() {
-    return array(
-      'id' => 'string',
-      'url' => 'string',
-    );
-  }
+  const NO = 'NO';
+  const NOT_INITIALIZED = 'NOT_INITIALIZED';
+  const YES = 'YES';
 }

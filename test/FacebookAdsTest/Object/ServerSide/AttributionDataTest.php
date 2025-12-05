@@ -26,9 +26,14 @@ namespace FacebookAdsTest\Object;
 
 use FacebookAdsTest\AbstractUnitTestCase;
 use FacebookAds\Object\ServerSide\AttributionData;
+use FacebookAds\Object\ServerSide\AttributionSetting;
 
 class AttributionDataTest extends AbstractUnitTestCase {
   public function testBuilderAndConstructor() {
+    $attribution_setting = (new AttributionSetting())
+      ->setInactivityWindowHours(24)
+      ->setReattributionWindowHours(48);
+
     $expected = array(
       'scope' => 'click',
       'visit_time' => 123456,
@@ -37,8 +42,19 @@ class AttributionDataTest extends AbstractUnitTestCase {
       'campaign_id' => '345',
       'attr_window' => 7,
       'attribution_share' => 0.5,
-      'attribution_model' => 'last_touch'
-      'attribution_value' => 3.45
+      'attribution_model' => 'last_touch',
+      'attribution_value' => 3.45,
+      'attribution_source' => 'AMM',
+      'touchpoint_type' => 'click',
+      'touchpoint_ts' => 1234567890,
+      'attribution_method' => 'ARD',
+      'decline_reason' => 'lookback',
+      'auditing_token' => 'token123',
+      'linkage_key' => 'key123',
+      'attribution_setting' => array(
+        'inactivity_window_hours' => 24,
+        'reattribution_window_hours' => 48
+      )
     );
     $builder = (new AttributionData())
       ->setScope($expected['scope'])
@@ -49,7 +65,15 @@ class AttributionDataTest extends AbstractUnitTestCase {
       ->setAttrWindow($expected['attr_window'])
       ->setAttributionShare($expected['attribution_share'])
       ->setAttributionModel($expected['attribution_model'])
-      ->setAttributionValue($expected['attribution_value']);
+      ->setAttributionValue($expected['attribution_value'])
+      ->setAttributionSource($expected['attribution_source'])
+      ->setTouchpointType($expected['touchpoint_type'])
+      ->setTouchpointTs($expected['touchpoint_ts'])
+      ->setAttributionMethod($expected['attribution_method'])
+      ->setDeclineReason($expected['decline_reason'])
+      ->setAuditingToken($expected['auditing_token'])
+      ->setLinkageKey($expected['linkage_key'])
+      ->setAttributionSetting($attribution_setting);
     $this->assertEquals($expected, $builder->normalize());
 
     $constructor = new AttributionData(array(
@@ -61,7 +85,15 @@ class AttributionDataTest extends AbstractUnitTestCase {
       'attr_window' => $expected['attr_window'],
       'attribution_share' => $expected['attribution_share'],
       'attribution_model' => $expected['attribution_model'],
-      'attribution_value' => $expected['attribution_value']
+      'attribution_value' => $expected['attribution_value'],
+      'attribution_source' => $expected['attribution_source'],
+      'touchpoint_type' => $expected['touchpoint_type'],
+      'touchpoint_ts' => $expected['touchpoint_ts'],
+      'attribution_method' => $expected['attribution_method'],
+      'decline_reason' => $expected['decline_reason'],
+      'auditing_token' => $expected['auditing_token'],
+      'linkage_key' => $expected['linkage_key'],
+      'attribution_setting' => $attribution_setting
     ));
     $this->assertEquals($expected, $constructor->normalize());
   }

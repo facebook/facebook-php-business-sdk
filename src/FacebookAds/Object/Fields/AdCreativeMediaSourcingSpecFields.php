@@ -22,9 +22,23 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdCreativeMediaSourcingSpecFields extends AbstractEnum {
 
+  const BODIES = 'bodies';
+  const DESCRIPTIONS = 'descriptions';
+  const IMAGES = 'images';
+  const PUSH_METADATA_IDS = 'push_metadata_ids';
+  const RELATED_MEDIA = 'related_media';
+  const TITLES = 'titles';
+  const VIDEOS = 'videos';
 
   public function getFieldTypes() {
     return array(
+      'bodies' => 'list<Object>',
+      'descriptions' => 'list<Object>',
+      'images' => 'list<Object>',
+      'push_metadata_ids' => 'list<unsigned int>',
+      'related_media' => 'Object',
+      'titles' => 'list<Object>',
+      'videos' => 'list<Object>',
     );
   }
 }

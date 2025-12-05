@@ -32,6 +32,7 @@ class AdsQuickViewsFields extends AbstractEnum {
   const PERMISSION = 'permission';
   const QUICK_VIEW_TYPE = 'quick_view_type';
   const SORT = 'sort';
+  const TIME_STAMP_LAST_USED_BY_OWNER = 'time_stamp_last_used_by_owner';
 
   public function getFieldTypes() {
     return array(
@@ -45,6 +46,7 @@ class AdsQuickViewsFields extends AbstractEnum {
       'permission' => 'string',
       'quick_view_type' => 'string',
       'sort' => 'list<Object>',
+      'time_stamp_last_used_by_owner' => 'datetime',
     );
   }
 }

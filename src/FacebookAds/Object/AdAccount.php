@@ -24,6 +24,7 @@ use FacebookAds\Object\Values\AdAccountContentTypeValues;
 use FacebookAds\Object\Values\AdAccountCurrencyValues;
 use FacebookAds\Object\Values\AdAccountDeliveryEstimateOptimizationGoalValues;
 use FacebookAds\Object\Values\AdAccountMatchedSearchApplicationsEdgeDataAppStoreValues;
+use FacebookAds\Object\Values\AdAccountMatchedSearchApplicationsEdgeDataStoresToFilterValues;
 use FacebookAds\Object\Values\AdAccountPermittedTasksValues;
 use FacebookAds\Object\Values\AdAccountSubtypeValues;
 use FacebookAds\Object\Values\AdAccountTargetingUnifiedAppStoreValues;
@@ -42,6 +43,7 @@ use FacebookAds\Object\Values\AdCreativeAuthorizationCategoryValues;
 use FacebookAds\Object\Values\AdCreativeCategorizationCriteriaValues;
 use FacebookAds\Object\Values\AdCreativeCategoryMediaSourceValues;
 use FacebookAds\Object\Values\AdCreativeDynamicAdVoiceValues;
+use FacebookAds\Object\Values\AdCreativeExecutionOptionsValues;
 use FacebookAds\Object\Values\AdCreativeOperatorValues;
 use FacebookAds\Object\Values\AdDatePresetValues;
 use FacebookAds\Object\Values\AdExecutionOptionsValues;
@@ -110,6 +112,8 @@ use FacebookAds\Object\Values\CustomAudienceSubtypeValues;
 use FacebookAds\Object\Values\CustomAudienceUseForProductsValues;
 use FacebookAds\Object\Values\CustomConversionActionSourceTypeValues;
 use FacebookAds\Object\Values\CustomConversionCustomEventTypeValues;
+use FacebookAds\Object\Values\MessageDeliveryEstimateOptimizationGoalValues;
+use FacebookAds\Object\Values\MessageDeliveryEstimatePacingTypeValues;
 use FacebookAds\Object\Values\ReachFrequencyPredictionActionValues;
 use FacebookAds\Object\Values\ReachFrequencyPredictionBuyingTypeValues;
 use FacebookAds\Object\Values\ReachFrequencyPredictionInstreamPackagesValues;
@@ -435,6 +439,7 @@ class AdAccount extends AbstractCrudObject {
       'destination_spec' => 'map',
       'dynamic_ad_voice' => 'dynamic_ad_voice_enum',
       'enable_launch_instant_app' => 'bool',
+      'execution_options' => 'list<execution_options_enum>',
       'facebook_branded_content' => 'map',
       'format_transformation_spec' => 'list<map>',
       'image_crops' => 'map',
@@ -448,6 +453,7 @@ class AdAccount extends AbstractCrudObject {
       'is_dco_internal' => 'bool',
       'link_og_id' => 'string',
       'link_url' => 'string',
+      'media_sourcing_spec' => 'map',
       'name' => 'string',
       'object_id' => 'unsigned int',
       'object_story_id' => 'string',
@@ -477,6 +483,7 @@ class AdAccount extends AbstractCrudObject {
       'categorization_criteria_enum' => AdCreativeCategorizationCriteriaValues::getInstance()->getValues(),
       'category_media_source_enum' => AdCreativeCategoryMediaSourceValues::getInstance()->getValues(),
       'dynamic_ad_voice_enum' => AdCreativeDynamicAdVoiceValues::getInstance()->getValues(),
+      'execution_options_enum' => AdCreativeExecutionOptionsValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1002,6 +1009,7 @@ class AdAccount extends AbstractCrudObject {
       'bid_constraints' => 'map<string, Object>',
       'bid_strategy' => 'bid_strategy_enum',
       'billing_event' => 'billing_event_enum',
+      'budget_schedule_specs' => 'list<Object>',
       'budget_source' => 'budget_source_enum',
       'budget_split_set_id' => 'string',
       'campaign_attribution' => 'Object',
@@ -1023,6 +1031,7 @@ class AdAccount extends AbstractCrudObject {
       'frequency_control_specs' => 'list<Object>',
       'full_funnel_exploration_mode' => 'full_funnel_exploration_mode_enum',
       'is_ba_skip_delayed_eligible' => 'bool',
+      'is_budget_schedule_enabled' => 'bool',
       'is_dynamic_creative' => 'bool',
       'is_incremental_attribution_enabled' => 'bool',
       'is_sac_cfca_terms_certified' => 'bool',
@@ -1038,6 +1047,7 @@ class AdAccount extends AbstractCrudObject {
       'optimization_goal' => 'optimization_goal_enum',
       'optimization_sub_event' => 'optimization_sub_event_enum',
       'pacing_type' => 'list<string>',
+      'placement_soft_opt_out' => 'Object',
       'promoted_object' => 'Object',
       'rb_prediction_id' => 'string',
       'regional_regulated_categories' => 'list<regional_regulated_categories_enum>',
@@ -1052,7 +1062,10 @@ class AdAccount extends AbstractCrudObject {
       'time_start' => 'datetime',
       'time_stop' => 'datetime',
       'topline_id' => 'string',
+      'trending_topics_spec' => 'map',
       'tune_for_category' => 'tune_for_category_enum',
+      'value_rule_set_id' => 'string',
+      'value_rules_applied' => 'bool',
     );
     $enums = array(
       'automatic_manual_state_enum' => AdSetAutomaticManualStateValues::getInstance()->getValues(),
@@ -1878,9 +1891,14 @@ class AdAccount extends AbstractCrudObject {
     $param_types = array(
       'adlabels' => 'list<Object>',
       'bid_strategy' => 'bid_strategy_enum',
+      'budget_schedule_specs' => 'list<Object>',
       'buying_type' => 'string',
       'daily_budget' => 'unsigned int',
       'execution_options' => 'list<execution_options_enum>',
+      'is_adset_budget_sharing_enabled' => 'bool',
+      'is_budget_schedule_enabled' => 'bool',
+      'is_direct_send_campaign' => 'bool',
+      'is_message_campaign' => 'bool',
       'is_skadnetwork_attribution' => 'bool',
       'iterative_split_test_configs' => 'list<Object>',
       'lifetime_budget' => 'unsigned int',
@@ -2065,6 +2083,7 @@ class AdAccount extends AbstractCrudObject {
       'event_sources' => 'list<map>',
       'exclusions' => 'list<Object>',
       'facebook_page_id' => 'string',
+      'inclusionOperator' => 'string',
       'inclusions' => 'list<Object>',
       'is_snapshot' => 'bool',
       'is_value_based' => 'bool',
@@ -2306,6 +2325,7 @@ class AdAccount extends AbstractCrudObject {
       'end_date' => 'datetime',
       'height' => 'unsigned int',
       'locale' => 'string',
+      'message' => 'Object',
       'place_page_id' => 'int',
       'post' => 'Object',
       'product_item_ids' => 'list<string>',
@@ -2372,6 +2392,7 @@ class AdAccount extends AbstractCrudObject {
       'export_name' => 'string',
       'fields' => 'list<string>',
       'filtering' => 'list<Object>',
+      'graph_cache' => 'bool',
       'level' => 'level_enum',
       'limit' => 'int',
       'product_id_limit' => 'int',
@@ -2424,6 +2445,7 @@ class AdAccount extends AbstractCrudObject {
       'export_name' => 'string',
       'fields' => 'list<string>',
       'filtering' => 'list<Object>',
+      'graph_cache' => 'bool',
       'level' => 'level_enum',
       'limit' => 'int',
       'product_id_limit' => 'int',
@@ -2519,9 +2541,11 @@ class AdAccount extends AbstractCrudObject {
       'is_skadnetwork_search' => 'bool',
       'only_apps_with_permission' => 'bool',
       'query_term' => 'string',
+      'stores_to_filter' => 'list<stores_to_filter_enum>',
     );
     $enums = array(
       'app_store_enum' => AdAccountMatchedSearchApplicationsEdgeDataAppStoreValues::getInstance()->getValues(),
+      'stores_to_filter_enum' => AdAccountMatchedSearchApplicationsEdgeDataStoresToFilterValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -2578,6 +2602,94 @@ class AdAccount extends AbstractCrudObject {
       new AdsMcmeConversion(),
       'EDGE',
       AdsMcmeConversion::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createMessageCampaign(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'bid_amount' => 'unsigned int',
+      'daily_budget' => 'unsigned int',
+      'lifetime_budget' => 'unsigned int',
+      'name' => 'string',
+      'page_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/message_campaign',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getMessageDeliveryEstimate(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'bid_amount' => 'unsigned int',
+      'daily_budget' => 'unsigned int',
+      'is_direct_send_campaign' => 'bool',
+      'lifetime_budget' => 'unsigned int',
+      'lifetime_in_days' => 'unsigned int',
+      'optimization_goal' => 'optimization_goal_enum',
+      'pacing_type' => 'pacing_type_enum',
+      'promoted_object' => 'Object',
+      'targeting_spec' => 'Targeting',
+    );
+    $enums = array(
+      'optimization_goal_enum' => MessageDeliveryEstimateOptimizationGoalValues::getInstance()->getValues(),
+      'pacing_type_enum' => MessageDeliveryEstimatePacingTypeValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/message_delivery_estimate',
+      new MessageDeliveryEstimate(),
+      'EDGE',
+      MessageDeliveryEstimate::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createMessage(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'message' => 'Object',
+      'message_id' => 'unsigned int',
+      'messenger_delivery_data' => 'map',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/messages',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2648,6 +2760,7 @@ class AdAccount extends AbstractCrudObject {
       'event_source_group' => 'string',
       'event_sources' => 'list<map>',
       'exclusions' => 'list<Object>',
+      'inclusionOperator' => 'string',
       'inclusions' => 'list<Object>',
       'is_snapshot' => 'bool',
       'is_value_based' => 'bool',

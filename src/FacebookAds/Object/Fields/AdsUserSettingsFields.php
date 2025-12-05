@@ -26,9 +26,16 @@ class AdsUserSettingsFields extends AbstractEnum {
   const ADD_OVERLAYS_OPT_IN_STATUS = 'add_overlays_opt_in_status';
   const ADGROUP_NAME_TEMPLATE = 'adgroup_name_template';
   const ADS_CS_CATALOG_OPT_OUT_TIMESTAMP = 'ads_cs_catalog_opt_out_timestamp';
+  const ADS_CS_DYNAMIC_SE_OPT_IN_STATUS = 'ads_cs_dynamic_se_opt_in_status';
+  const ADS_CS_DYNAMIC_SE_OPT_OUT_TIMESTAMP = 'ads_cs_dynamic_se_opt_out_timestamp';
+  const ADS_CS_SITELINKS_OPT_IN_STATUS = 'ads_cs_sitelinks_opt_in_status';
+  const ADS_CS_SITELINKS_OPT_OUT_TIMESTAMP = 'ads_cs_sitelinks_opt_out_timestamp';
+  const ADS_DESTINATION_OPTIMIZATION_OPT_OUT_TIMESTAMP = 'ads_destination_optimization_opt_out_timestamp';
   const ADS_TOOL_VISITS = 'ads_tool_visits';
+  const APLUSC_AI_AGENT_OPT_IN_STATUS = 'aplusc_ai_agent_opt_in_status';
   const APLUSC_CAROUSEL_CDA_OPT_IN_STATUS = 'aplusc_carousel_cda_opt_in_status';
   const APLUSC_CAROUSEL_INLINE_COMMENT_OPT_IN_STATUS = 'aplusc_carousel_inline_comment_opt_in_status';
+  const APLUSC_DA_OPT_IN_STATUS = 'aplusc_da_opt_in_status';
   const APLUSC_ENHANCE_CTA_OPT_IN_STATUS = 'aplusc_enhance_cta_opt_in_status';
   const APLUSC_EPA_OPT_IN_STATUS = 'aplusc_epa_opt_in_status';
   const APLUSC_LOCAL_STORE_EXTENSION_OPT_IN_STATUS = 'aplusc_local_store_extension_opt_in_status';
@@ -44,23 +51,30 @@ class AdsUserSettingsFields extends AbstractEnum {
   const CAMPAIGN_NAME_TEMPLATE = 'campaign_name_template';
   const CAROUSEL_TO_VIDEO_OPT_IN_STATUS = 'carousel_to_video_opt_in_status';
   const CONNECTED_SOURCES_CATALOG_OPT_IN_STATUS = 'connected_sources_catalog_opt_in_status';
+  const CREATE_CTA_STICKER_OPT_IN_STATUS = 'create_cta_sticker_opt_in_status';
+  const CREATIVE_FLEX_OPT_IN_STATUS = 'creative_flex_opt_in_status';
   const DA_ADD_OVERLAYS_OPT_IN_STATUS = 'da_add_overlays_opt_in_status';
+  const DA_CREATIVE_FLEX_OPT_IN_STATUS = 'da_creative_flex_opt_in_status';
   const DA_HIDE_PRICE_OPT_IN_STATUS = 'da_hide_price_opt_in_status';
+  const DA_MANUAL_MEDIA_NUX_IMPRESSIONS = 'da_manual_media_nux_impressions';
   const DEFAULT_CREATION_MODE = 'default_creation_mode';
   const DYNAMIC_PARTNERSHIP_ADS_OPT_IN_STATUS = 'dynamic_partnership_ads_opt_in_status';
   const ENHANCE_CTA_TEXT_EXTRACTION_OPT_IN_STATUS = 'enhance_cta_text_extraction_opt_in_status';
   const EXPORT_FORMAT_DEFAULT = 'export_format_default';
   const FOCUS_MODE_DEFAULT = 'focus_mode_default';
   const GEN_AI_ALPHA_TEST_STATUS = 'gen_ai_alpha_test_status';
+  const GEN_AI_AUTO_SELECT_OPT_IN_STATUS = 'gen_ai_auto_select_opt_in_status';
   const ID = 'id';
   const IMAGE_BACKGROUND_GENERATION_OPT_IN_STATUS = 'image_background_generation_opt_in_status';
   const IMAGE_BRIGHTNESS_AND_CONTRAST_OPT_IN_STATUS = 'image_brightness_and_contrast_opt_in_status';
   const IMAGE_EXPANSION_OPT_IN_STATUS = 'image_expansion_opt_in_status';
+  const IMAGE_TEMPLATES_TEXT_EXTRACTION_OPT_IN_STATUS = 'image_templates_text_extraction_opt_in_status';
   const IS_ADS_AI_CONSENTED = 'is_ads_ai_consented';
   const IS_CBO_DEFAULT_ON = 'is_cbo_default_on';
   const IS_SE_REMOVAL_GUIDANCE_DISMISSED = 'is_se_removal_guidance_dismissed';
   const LAST_USED_POST_FORMAT = 'last_used_post_format';
   const LAST_VISITED_TIME = 'last_visited_time';
+  const METADATA_BRAND_KIT_LAST_OPT_OUT_TIMESTAMP = 'metadata_brand_kit_last_opt_out_timestamp';
   const METADATA_BRAND_KIT_OPT_IN_STATUS = 'metadata_brand_kit_opt_in_status';
   const MUSIC_ON_REELS_OPT_IN = 'music_on_reels_opt_in';
   const MUTED_CBO_MIDFLIGHT_EDUCATION_MESSAGES = 'muted_cbo_midflight_education_messages';
@@ -71,6 +85,8 @@ class AdsUserSettingsFields extends AbstractEnum {
   const PLACEMENT_GROUP_VERTICAL_OPT_IN_STATUS = 'placement_group_vertical_opt_in_status';
   const PREVIOUSLY_SEEN_RECOMMENDATIONS = 'previously_seen_recommendations';
   const PRODUCT_EXTENSIONS_OPT_IN = 'product_extensions_opt_in';
+  const REACTIVE_CONTROL_SETTINGS = 'reactive_control_settings';
+  const REPLACE_MEDIA_TEXT_OPT_IN_STATUS = 'replace_media_text_opt_in_status';
   const SA_OFF_CONV_LOC_SEEN = 'sa_off_conv_loc_seen';
   const SAOFF_PUBLISHED_L2_CONV_LOC_SEEN = 'saoff_published_l2_conv_loc_seen';
   const SAON_MIGR_L1_SEEN_STATUS = 'saon_migr_l1_seen_status';
@@ -101,6 +117,9 @@ class AdsUserSettingsFields extends AbstractEnum {
   const USE_PE_CREATE_FLOW = 'use_pe_create_flow';
   const USE_STEPPER_PRIMARY_ENTRY = 'use_stepper_primary_entry';
   const USER = 'user';
+  const WEBSITE_MEDIA_OPT_IN_STATUS = 'website_media_opt_in_status';
+  const WEBSITE_REVIEWS_DATA_OPT_IN_STATUS = 'website_reviews_data_opt_in_status';
+  const WEBSITE_SELLING_POINTS_DATA_OPT_IN_STATUS = 'website_selling_points_data_opt_in_status';
 
   public function getFieldTypes() {
     return array(
@@ -108,9 +127,16 @@ class AdsUserSettingsFields extends AbstractEnum {
       'add_overlays_opt_in_status' => 'string',
       'adgroup_name_template' => 'Object',
       'ads_cs_catalog_opt_out_timestamp' => 'list<map<string, int>>',
+      'ads_cs_dynamic_se_opt_in_status' => 'string',
+      'ads_cs_dynamic_se_opt_out_timestamp' => 'list<map<string, int>>',
+      'ads_cs_sitelinks_opt_in_status' => 'string',
+      'ads_cs_sitelinks_opt_out_timestamp' => 'list<map<string, int>>',
+      'ads_destination_optimization_opt_out_timestamp' => 'list<map<string, int>>',
       'ads_tool_visits' => 'list<Object>',
+      'aplusc_ai_agent_opt_in_status' => 'string',
       'aplusc_carousel_cda_opt_in_status' => 'string',
       'aplusc_carousel_inline_comment_opt_in_status' => 'string',
+      'aplusc_da_opt_in_status' => 'string',
       'aplusc_enhance_cta_opt_in_status' => 'string',
       'aplusc_epa_opt_in_status' => 'string',
       'aplusc_local_store_extension_opt_in_status' => 'string',
@@ -126,23 +152,30 @@ class AdsUserSettingsFields extends AbstractEnum {
       'campaign_name_template' => 'Object',
       'carousel_to_video_opt_in_status' => 'string',
       'connected_sources_catalog_opt_in_status' => 'string',
+      'create_cta_sticker_opt_in_status' => 'string',
+      'creative_flex_opt_in_status' => 'string',
       'da_add_overlays_opt_in_status' => 'string',
+      'da_creative_flex_opt_in_status' => 'string',
       'da_hide_price_opt_in_status' => 'string',
+      'da_manual_media_nux_impressions' => 'int',
       'default_creation_mode' => 'string',
       'dynamic_partnership_ads_opt_in_status' => 'string',
       'enhance_cta_text_extraction_opt_in_status' => 'string',
       'export_format_default' => 'string',
       'focus_mode_default' => 'string',
       'gen_ai_alpha_test_status' => 'int',
+      'gen_ai_auto_select_opt_in_status' => 'string',
       'id' => 'string',
       'image_background_generation_opt_in_status' => 'string',
       'image_brightness_and_contrast_opt_in_status' => 'string',
       'image_expansion_opt_in_status' => 'string',
+      'image_templates_text_extraction_opt_in_status' => 'string',
       'is_ads_ai_consented' => 'bool',
       'is_cbo_default_on' => 'bool',
       'is_se_removal_guidance_dismissed' => 'bool',
       'last_used_post_format' => 'string',
       'last_visited_time' => 'datetime',
+      'metadata_brand_kit_last_opt_out_timestamp' => 'int',
       'metadata_brand_kit_opt_in_status' => 'string',
       'music_on_reels_opt_in' => 'list<map<string, string>>',
       'muted_cbo_midflight_education_messages' => 'list<string>',
@@ -153,6 +186,8 @@ class AdsUserSettingsFields extends AbstractEnum {
       'placement_group_vertical_opt_in_status' => 'string',
       'previously_seen_recommendations' => 'list<string>',
       'product_extensions_opt_in' => 'string',
+      'reactive_control_settings' => 'list<Object>',
+      'replace_media_text_opt_in_status' => 'string',
       'sa_off_conv_loc_seen' => 'string',
       'saoff_published_l2_conv_loc_seen' => 'string',
       'saon_migr_l1_seen_status' => 'string',
@@ -183,6 +218,9 @@ class AdsUserSettingsFields extends AbstractEnum {
       'use_pe_create_flow' => 'bool',
       'use_stepper_primary_entry' => 'bool',
       'user' => 'User',
+      'website_media_opt_in_status' => 'string',
+      'website_reviews_data_opt_in_status' => 'string',
+      'website_selling_points_data_opt_in_status' => 'string',
     );
   }
 }

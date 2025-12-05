@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\FBLiteToNTTransitionsFields;
+use FacebookAds\Object\Fields\CustomerElasticityStudyMetricsFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\FBLiteToNTTransitionsFields;
  *
  */
 
-class FBLiteToNTTransitions extends AbstractObject {
+class CustomerElasticityStudyMetrics extends AbstractObject {
 
   /**
-   * @return FBLiteToNTTransitionsFields
+   * @return CustomerElasticityStudyMetricsFields
    */
   public static function getFieldsEnum() {
-    return FBLiteToNTTransitionsFields::getInstance();
+    return CustomerElasticityStudyMetricsFields::getInstance();
   }
 
   protected static function getReferencedEnums() {

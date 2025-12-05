@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AvatarProfilePictureFields;
+use FacebookAds\Object\Fields\PartnerCenterExportFileFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\AvatarProfilePictureFields;
  *
  */
 
-class AvatarProfilePicture extends AbstractCrudObject {
+class PartnerCenterExportFile extends AbstractCrudObject {
 
   /**
-   * @return AvatarProfilePictureFields
+   * @return PartnerCenterExportFileFields
    */
   public static function getFieldsEnum() {
-    return AvatarProfilePictureFields::getInstance();
+    return PartnerCenterExportFileFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -52,9 +52,9 @@ class AvatarProfilePicture extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/',
-      new AvatarProfilePicture(),
+      new PartnerCenterExportFile(),
       'NODE',
-      AvatarProfilePicture::getFieldsEnum()->getValues(),
+      PartnerCenterExportFile::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
