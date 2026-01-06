@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class ImageReferenceMatchFields extends AbstractEnum {
 
+  const CONFLICT_STATUS = 'conflict_status';
   const CONFLICTING_COUNTRIES = 'conflicting_countries';
   const COUNTRY_RESOLUTION_HISTORY = 'country_resolution_history';
   const CREATION_TIME = 'creation_time';
@@ -42,6 +43,7 @@ class ImageReferenceMatchFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'conflict_status' => 'string',
       'conflicting_countries' => 'list<string>',
       'country_resolution_history' => 'list<map<string, list<Object>>>',
       'creation_time' => 'datetime',

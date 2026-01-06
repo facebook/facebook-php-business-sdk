@@ -14,6 +14,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdsDatasetFields;
+use FacebookAds\Object\Values\AdsDatasetSortByValues;
 
 /**
  * This class is auto-generated.
@@ -35,6 +36,7 @@ class AdsDataset extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['SortBy'] = AdsDatasetSortByValues::getInstance()->getValues();
     return $ref_enums;
   }
 

@@ -34,6 +34,7 @@ class BusinessUserFields extends AbstractEnum {
   const NAME = 'name';
   const PENDING_EMAIL = 'pending_email';
   const ROLE = 'role';
+  const TASKS = 'tasks';
   const TITLE = 'title';
   const TWO_FAC_STATUS = 'two_fac_status';
   const INVITED_USER_TYPE = 'invited_user_type';
@@ -52,6 +53,7 @@ class BusinessUserFields extends AbstractEnum {
       'name' => 'string',
       'pending_email' => 'string',
       'role' => 'string',
+      'tasks' => 'list<string>',
       'title' => 'string',
       'two_fac_status' => 'string',
       'invited_user_type' => 'list<InvitedUserType>',

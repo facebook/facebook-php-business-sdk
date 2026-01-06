@@ -61,6 +61,7 @@ use FacebookAds\Object\Values\PagePostExperimentOptimizationGoalValues;
 use FacebookAds\Object\Values\PagePostSurfacesBlacklistValues;
 use FacebookAds\Object\Values\PagePostWithValues;
 use FacebookAds\Object\Values\PagePostingToRedspaceValues;
+use FacebookAds\Object\Values\PageRecommendationActionValues;
 use FacebookAds\Object\Values\PageSenderActionValues;
 use FacebookAds\Object\Values\PageSubscribedFieldsValues;
 use FacebookAds\Object\Values\PageSuggestionActionValues;
@@ -122,6 +123,7 @@ class Page extends AbstractCrudObject {
     $ref_enums['PostingToRedspace'] = PagePostingToRedspaceValues::getInstance()->getValues();
     $ref_enums['TargetSurface'] = PageTargetSurfaceValues::getInstance()->getValues();
     $ref_enums['UnpublishedContentType'] = PageUnpublishedContentTypeValues::getInstance()->getValues();
+    $ref_enums['RecommendationAction'] = PageRecommendationActionValues::getInstance()->getValues();
     $ref_enums['Category'] = PageCategoryValues::getInstance()->getValues();
     $ref_enums['MessagingType'] = PageMessagingTypeValues::getInstance()->getValues();
     $ref_enums['NotificationType'] = PageNotificationTypeValues::getInstance()->getValues();
@@ -208,6 +210,30 @@ class Page extends AbstractCrudObject {
       new Page(),
       'EDGE',
       Page::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getAdsEligibility(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'ads_account_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/ads_eligibility',
+      new AdsEligibility(),
+      'EDGE',
+      AdsEligibility::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -540,6 +566,30 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createBusinessMessagingFeatureStatus(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'features' => 'list<map>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/business_messaging_feature_status',
+      new Page(),
+      'EDGE',
+      Page::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getBusinessProjects(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -593,14 +643,18 @@ class Page extends AbstractCrudObject {
     $param_types = array(
       'action' => 'action_enum',
       'call_id' => 'string',
+      'from_version' => 'unsigned int',
       'platform' => 'platform_enum',
       'session' => 'map',
       'to' => 'string',
+      'to_version' => 'unsigned int',
+      'tracks' => 'list<map>',
     );
     $enums = array(
       'action_enum' => array(
         'ACCEPT',
         'CONNECT',
+        'MEDIA_UPDATE',
         'REJECT',
         'TERMINATE',
       ),
@@ -654,6 +708,7 @@ class Page extends AbstractCrudObject {
     $param_types = array(
       'canvas_button' => 'Object',
       'canvas_carousel' => 'Object',
+      'canvas_existing_post' => 'Object',
       'canvas_footer' => 'Object',
       'canvas_header' => 'Object',
       'canvas_lead_form' => 'Object',
@@ -715,6 +770,8 @@ class Page extends AbstractCrudObject {
       'background_color' => 'string',
       'body_element_ids' => 'list<string>',
       'enable_swipe_to_open' => 'bool',
+      'hero_asset_facebook_post_id' => 'string',
+      'hero_asset_instagram_media_id' => 'string',
       'is_hidden' => 'bool',
       'is_published' => 'bool',
       'name' => 'string',
@@ -869,6 +926,7 @@ class Page extends AbstractCrudObject {
 
     $param_types = array(
       'folder' => 'string',
+      'is_owner' => 'bool',
       'platform' => 'platform_enum',
       'tags' => 'list<string>',
       'user_id' => 'string',
@@ -1533,9 +1591,9 @@ class Page extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/instagram_accounts',
-      new InstagramUser(),
+      new IGUser(),
       'EDGE',
-      InstagramUser::getFieldsEnum()->getValues(),
+      IGUser::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1578,11 +1636,13 @@ class Page extends AbstractCrudObject {
       'follow_up_action_url' => 'string',
       'is_for_canvas' => 'bool',
       'is_optimized_for_quality' => 'bool',
+      'is_phone_sms_verify_enabled' => 'bool',
       'locale' => 'locale_enum',
       'name' => 'string',
       'privacy_policy' => 'Object',
       'question_page_custom_headline' => 'string',
       'questions' => 'list<Object>',
+      'should_enforce_work_email' => 'bool',
       'thank_you_page' => 'Object',
       'tracking_parameters' => 'map',
       'upload_gated_file' => 'file',
@@ -1775,15 +1835,20 @@ class Page extends AbstractCrudObject {
       'pickup_options' => 'list<pickup_options_enum>',
       'place_topics' => 'list<string>',
       'price_range' => 'string',
+      'recommendation_action' => 'recommendation_action_enum',
+      'recommendation_ds' => 'string',
+      'recommendation_store_id' => 'unsigned int',
       'store_code' => 'string',
       'store_location_descriptor' => 'string',
       'store_name' => 'string',
       'store_number' => 'unsigned int',
       'temporary_status' => 'temporary_status_enum',
+      'type' => 'string',
       'website' => 'string',
     );
     $enums = array(
       'pickup_options_enum' => PagePickupOptionsValues::getInstance()->getValues(),
+      'recommendation_action_enum' => PageRecommendationActionValues::getInstance()->getValues(),
       'temporary_status_enum' => PageTemporaryStatusValues::getInstance()->getValues(),
     );
 
@@ -1980,6 +2045,7 @@ class Page extends AbstractCrudObject {
       'payload' => 'string',
       'persona_id' => 'string',
       'recipient' => 'Object',
+      'reply_to' => 'Object',
       'sender_action' => 'sender_action_enum',
       'suggestion_action' => 'suggestion_action_enum',
       'tag' => 'Object',
@@ -2058,7 +2124,10 @@ class Page extends AbstractCrudObject {
 
     $param_types = array(
       'audio_enabled' => 'bool',
+      'call_hours' => 'map',
+      'call_routing' => 'map',
       'icon_enabled' => 'bool',
+      'video' => 'map',
     );
     $enums = array(
     );
@@ -2151,11 +2220,9 @@ class Page extends AbstractCrudObject {
         'GREETING',
         'HOME_URL',
         'ICE_BREAKERS',
-        'PAYMENT_SETTINGS',
         'PERSISTENT_MENU',
         'PLATFORM',
         'SUBJECT_TO_NEW_EU_PRIVACY_RULES',
-        'TARGET_AUDIENCE',
         'TITLE',
         'WHITELISTED_DOMAINS',
       ),
@@ -2212,10 +2279,8 @@ class Page extends AbstractCrudObject {
       'get_started' => 'Object',
       'greeting' => 'list<Object>',
       'ice_breakers' => 'list<map>',
-      'payment_settings' => 'Object',
       'persistent_menu' => 'list<Object>',
       'platform' => 'platform_enum',
-      'target_audience' => 'Object',
       'title' => 'list<Object>',
       'whitelisted_domains' => 'list<string>',
     );
@@ -2299,6 +2364,7 @@ class Page extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'custom_audience_ids' => 'list<string>',
     );
     $enums = array(
     );
@@ -2357,9 +2423,9 @@ class Page extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/page_backed_instagram_accounts',
-      new InstagramUser(),
+      new IGUser(),
       'EDGE',
-      InstagramUser::getFieldsEnum()->getValues(),
+      IGUser::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2380,9 +2446,9 @@ class Page extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/page_backed_instagram_accounts',
-      new InstagramUser(),
+      new IGUser(),
       'EDGE',
-      InstagramUser::getFieldsEnum()->getValues(),
+      IGUser::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2771,6 +2837,29 @@ class Page extends AbstractCrudObject {
       new PagePost(),
       'EDGE',
       PagePost::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getRatings(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/ratings',
+      new Recommendation(),
+      'EDGE',
+      Recommendation::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -3215,6 +3304,7 @@ class Page extends AbstractCrudObject {
 
     $param_types = array(
       'folder' => 'string',
+      'is_owner' => 'bool',
       'platform' => 'platform_enum',
       'tags' => 'list<string>',
       'user_id' => 'string',
@@ -3545,6 +3635,7 @@ class Page extends AbstractCrudObject {
       'is_boost_intended' => 'bool',
       'is_explicit_share' => 'bool',
       'is_group_linking_post' => 'bool',
+      'is_partnership_ad' => 'bool',
       'is_voice_clip' => 'bool',
       'location_source_id' => 'string',
       'manual_privacy' => 'bool',
@@ -3557,6 +3648,7 @@ class Page extends AbstractCrudObject {
       'og_suggestion_mechanism' => 'string',
       'original_fov' => 'unsigned int',
       'original_projection_type' => 'original_projection_type_enum',
+      'partnership_ad_ad_code' => 'string',
       'publish_event_id' => 'unsigned int',
       'published' => 'bool',
       'reference_only' => 'bool',

@@ -75,6 +75,7 @@ class AdAccountFields extends AbstractEnum {
   const MIN_DAILY_BUDGET = 'min_daily_budget';
   const NAME = 'name';
   const OFFSITE_PIXELS_TOS_ACCEPTED = 'offsite_pixels_tos_accepted';
+  const OPPORTUNITY_SCORE = 'opportunity_score';
   const OWNER = 'owner';
   const OWNER_BUSINESS = 'owner_business';
   const PARTNER = 'partner';
@@ -150,6 +151,7 @@ class AdAccountFields extends AbstractEnum {
       'min_daily_budget' => 'unsigned int',
       'name' => 'string',
       'offsite_pixels_tos_accepted' => 'bool',
+      'opportunity_score' => 'float',
       'owner' => 'string',
       'owner_business' => 'Business',
       'partner' => 'string',

@@ -35,6 +35,7 @@ class BusinessRoleRequestFields extends AbstractEnum {
   const OWNER = 'owner';
   const ROLE = 'role';
   const STATUS = 'status';
+  const TASKS = 'tasks';
   const UPDATED_BY = 'updated_by';
   const UPDATED_TIME = 'updated_time';
 
@@ -53,6 +54,7 @@ class BusinessRoleRequestFields extends AbstractEnum {
       'owner' => 'Business',
       'role' => 'string',
       'status' => 'string',
+      'tasks' => 'list<string>',
       'updated_by' => 'Object',
       'updated_time' => 'datetime',
     );

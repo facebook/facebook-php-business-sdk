@@ -23,6 +23,7 @@ use FacebookAds\Enum\AbstractEnum;
 class OpenBridgeConfigurationFields extends AbstractEnum {
 
   const ACTIVE = 'active';
+  const BROWSER_AGENT = 'browser_agent';
   const CLOUD_PROVIDER = 'cloud_provider';
   const CLOUD_REGION = 'cloud_region';
   const DESTINATION_ID = 'destination_id';
@@ -34,12 +35,17 @@ class OpenBridgeConfigurationFields extends AbstractEnum {
   const INSTANCE_ID = 'instance_id';
   const INSTANCE_VERSION = 'instance_version';
   const IS_SGW_INSTANCE = 'is_sgw_instance';
+  const IS_SGW_PIXEL_FROM_META_PIXEL = 'is_sgw_pixel_from_meta_pixel';
   const PARTNER_NAME = 'partner_name';
   const PIXEL_ID = 'pixel_id';
+  const SGW_ACCOUNT_ID = 'sgw_account_id';
+  const SGW_INSTANCE_URL = 'sgw_instance_url';
+  const SGW_PIXEL_ID = 'sgw_pixel_id';
 
   public function getFieldTypes() {
     return array(
       'active' => 'bool',
+      'browser_agent' => 'list<string>',
       'cloud_provider' => 'string',
       'cloud_region' => 'string',
       'destination_id' => 'string',
@@ -51,8 +57,12 @@ class OpenBridgeConfigurationFields extends AbstractEnum {
       'instance_id' => 'string',
       'instance_version' => 'string',
       'is_sgw_instance' => 'bool',
+      'is_sgw_pixel_from_meta_pixel' => 'bool',
       'partner_name' => 'string',
       'pixel_id' => 'string',
+      'sgw_account_id' => 'string',
+      'sgw_instance_url' => 'string',
+      'sgw_pixel_id' => 'string',
     );
   }
 }

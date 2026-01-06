@@ -23,6 +23,7 @@ use FacebookAds\Enum\AbstractEnum;
 class AdSetOptimizationSubEventValues extends AbstractEnum {
 
   const NONE = 'NONE';
+  const POST_INTERACTION = 'POST_INTERACTION';
   const TRAVEL_INTENT = 'TRAVEL_INTENT';
   const TRAVEL_INTENT_BUCKET_01 = 'TRAVEL_INTENT_BUCKET_01';
   const TRAVEL_INTENT_BUCKET_02 = 'TRAVEL_INTENT_BUCKET_02';

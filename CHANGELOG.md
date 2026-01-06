@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## v24.0.0
+### Changed
+- Add AMM fields to attribution data
+
+## v22.0.3
+### Changed
+- Fix the OriginalEventData class to add the missing methods
+
+## v22.0.2
+### Changed
+- Update attribution_data, custom_data and original_event_data fields
+
 ## v17.0.0
 
 
@@ -153,4 +165,3 @@ All notable changes to this project will be documented in this file.
     $async_job = $async_job->getSelf();
   }
   ```
-

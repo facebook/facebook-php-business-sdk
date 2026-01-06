@@ -28,6 +28,7 @@ class AdsNamingTemplateLevelValues extends AbstractEnum {
   const CAMPAIGN_GROUP = 'CAMPAIGN_GROUP';
   const OPPORTUNITIES = 'OPPORTUNITIES';
   const PRIVACY_INFO_CENTER = 'PRIVACY_INFO_CENTER';
+  const PRODUCT = 'PRODUCT';
   const TOPLINE = 'TOPLINE';
   const UNIQUE_ADCREATIVE = 'UNIQUE_ADCREATIVE';
 }

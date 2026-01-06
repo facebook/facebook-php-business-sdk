@@ -15,6 +15,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdAccountMatchedSearchApplicationsEdgeDataFields;
 use FacebookAds\Object\Values\AdAccountMatchedSearchApplicationsEdgeDataAppStoreValues;
+use FacebookAds\Object\Values\AdAccountMatchedSearchApplicationsEdgeDataStoresToFilterValues;
 
 /**
  * This class is auto-generated.
@@ -37,6 +38,7 @@ class AdAccountMatchedSearchApplicationsEdgeData extends AbstractObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['AppStore'] = AdAccountMatchedSearchApplicationsEdgeDataAppStoreValues::getInstance()->getValues();
+    $ref_enums['StoresToFilter'] = AdAccountMatchedSearchApplicationsEdgeDataStoresToFilterValues::getInstance()->getValues();
     return $ref_enums;
   }
 

@@ -31,16 +31,22 @@ class OriginalEventDataTest extends AbstractUnitTestCase {
   public function testBuilderAndConstructor() {
     $expected = array(
       'event_name' => 'event-name-1',
-      'event_time' => 123456
+      'event_time' => 123456,
+      'order_id' => 'order-1',
+      'event_id' => 'event-1'
     );
     $builder = (new OriginalEventData())
       ->setEventName($expected['event_name'])
-      ->setCurrency($expected['event_time']);
+      ->setCurrency($expected['event_time'])
+      ->setOrderID($expected['order_id'])
+      ->setEventID($expected['event_id']);
     $this->assertEquals($expected, $builder->normalize());
 
     $constructor = new OriginalEventData(array(
       'event_name' => $expected['event_name'],
-      'event_time' => $expected['event_time']
+      'event_time' => $expected['event_time'],
+      'order_id' => $expected['order_id'],
+      'event_id' => $expected['event_id']
     ));
     $this->assertEquals($expected, $constructor->normalize());
   }

@@ -27,10 +27,8 @@ class MessengerProfileFields extends AbstractEnum {
   const GET_STARTED = 'get_started';
   const GREETING = 'greeting';
   const ICE_BREAKERS = 'ice_breakers';
-  const PAYMENT_SETTINGS = 'payment_settings';
   const PERSISTENT_MENU = 'persistent_menu';
   const SUBJECT_TO_NEW_EU_PRIVACY_RULES = 'subject_to_new_eu_privacy_rules';
-  const TARGET_AUDIENCE = 'target_audience';
   const WHITELISTED_DOMAINS = 'whitelisted_domains';
 
   public function getFieldTypes() {
@@ -40,10 +38,8 @@ class MessengerProfileFields extends AbstractEnum {
       'get_started' => 'Object',
       'greeting' => 'list<Object>',
       'ice_breakers' => 'list<Object>',
-      'payment_settings' => 'Object',
       'persistent_menu' => 'list<Object>',
       'subject_to_new_eu_privacy_rules' => 'bool',
-      'target_audience' => 'Object',
       'whitelisted_domains' => 'list<string>',
     );
   }

@@ -34,6 +34,7 @@ class CustomAudienceFields extends AbstractEnum {
   const DESCRIPTION = 'description';
   const EXCLUDED_CUSTOM_AUDIENCES = 'excluded_custom_audiences';
   const EXTERNAL_EVENT_SOURCE = 'external_event_source';
+  const FIELDS_VIOLATING_INTEGRITY_POLICY = 'fields_violating_integrity_policy';
   const HOUSEHOLD_AUDIENCE = 'household_audience';
   const ID = 'id';
   const INCLUDED_CUSTOM_AUDIENCES = 'included_custom_audiences';
@@ -102,6 +103,7 @@ class CustomAudienceFields extends AbstractEnum {
       'description' => 'string',
       'excluded_custom_audiences' => 'list<CustomAudience>',
       'external_event_source' => 'AdsPixel',
+      'fields_violating_integrity_policy' => 'list<string>',
       'household_audience' => 'int',
       'id' => 'string',
       'included_custom_audiences' => 'list<CustomAudience>',

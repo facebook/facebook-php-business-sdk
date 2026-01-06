@@ -51,6 +51,7 @@ class TargetingFields extends AbstractEnum {
   const EFFECTIVE_INSTAGRAM_POSITIONS = 'effective_instagram_positions';
   const EFFECTIVE_MESSENGER_POSITIONS = 'effective_messenger_positions';
   const EFFECTIVE_PUBLISHER_PLATFORMS = 'effective_publisher_platforms';
+  const EFFECTIVE_THREADS_POSITIONS = 'effective_threads_positions';
   const ENGAGEMENT_SPECS = 'engagement_specs';
   const ETHNIC_AFFINITY = 'ethnic_affinity';
   const EXCLUDE_REACHED_SINCE = 'exclude_reached_since';
@@ -105,6 +106,7 @@ class TargetingFields extends AbstractEnum {
   const TARGETING_AUTOMATION = 'targeting_automation';
   const TARGETING_OPTIMIZATION = 'targeting_optimization';
   const TARGETING_RELAXATION_TYPES = 'targeting_relaxation_types';
+  const THREADS_POSITIONS = 'threads_positions';
   const USER_ADCLUSTERS = 'user_adclusters';
   const USER_DEVICE = 'user_device';
   const USER_EVENT = 'user_event';
@@ -145,6 +147,7 @@ class TargetingFields extends AbstractEnum {
       'effective_instagram_positions' => 'list<string>',
       'effective_messenger_positions' => 'list<string>',
       'effective_publisher_platforms' => 'list<string>',
+      'effective_threads_positions' => 'list<string>',
       'engagement_specs' => 'list<TargetingDynamicRule>',
       'ethnic_affinity' => 'list<IDName>',
       'exclude_reached_since' => 'list<string>',
@@ -199,6 +202,7 @@ class TargetingFields extends AbstractEnum {
       'targeting_automation' => 'TargetingAutomation',
       'targeting_optimization' => 'string',
       'targeting_relaxation_types' => 'TargetingRelaxation',
+      'threads_positions' => 'list<string>',
       'user_adclusters' => 'list<IDName>',
       'user_device' => 'list<string>',
       'user_event' => 'list<unsigned int>',

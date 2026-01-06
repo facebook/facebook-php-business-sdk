@@ -38,6 +38,7 @@ class AdAsyncRequestSetFields extends AbstractEnum {
   const SUCCESS_COUNT = 'success_count';
   const TOTAL_COUNT = 'total_count';
   const UPDATED_TIME = 'updated_time';
+  const CREATIVE_SPEC = 'creative_spec';
   const AD_SPECS = 'ad_specs';
 
   public function getFieldTypes() {
@@ -58,6 +59,7 @@ class AdAsyncRequestSetFields extends AbstractEnum {
       'success_count' => 'int',
       'total_count' => 'unsigned int',
       'updated_time' => 'datetime',
+      'creative_spec' => 'AdCreative',
       'ad_specs' => 'list<map>',
     );
   }

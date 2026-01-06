@@ -14,6 +14,10 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ManagedPartnerBusinessFields;
+use FacebookAds\Object\Values\ManagedPartnerBusinessPartitionTypeValues;
+use FacebookAds\Object\Values\ManagedPartnerBusinessSurveyBusinessTypeValues;
+use FacebookAds\Object\Values\ManagedPartnerBusinessTimezoneIdValues;
+use FacebookAds\Object\Values\ManagedPartnerBusinessVerticalValues;
 
 /**
  * This class is auto-generated.
@@ -27,6 +31,13 @@ use FacebookAds\Object\Fields\ManagedPartnerBusinessFields;
 class ManagedPartnerBusiness extends AbstractObject {
 
   /**
+   * @deprecated getEndpoint function is deprecated
+   */
+  protected function getEndpoint() {
+    return 'managed_partner_businesses';
+  }
+
+  /**
    * @return ManagedPartnerBusinessFields
    */
   public static function getFieldsEnum() {
@@ -35,6 +46,10 @@ class ManagedPartnerBusiness extends AbstractObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['PartitionType'] = ManagedPartnerBusinessPartitionTypeValues::getInstance()->getValues();
+    $ref_enums['SurveyBusinessType'] = ManagedPartnerBusinessSurveyBusinessTypeValues::getInstance()->getValues();
+    $ref_enums['TimezoneId'] = ManagedPartnerBusinessTimezoneIdValues::getInstance()->getValues();
+    $ref_enums['Vertical'] = ManagedPartnerBusinessVerticalValues::getInstance()->getValues();
     return $ref_enums;
   }
 

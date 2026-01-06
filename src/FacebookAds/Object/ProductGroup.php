@@ -14,6 +14,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProductGroupFields;
+use FacebookAds\Object\Values\ProductItemAgeGroupValues;
 use FacebookAds\Object\Values\ProductItemAvailabilityValues;
 use FacebookAds\Object\Values\ProductItemCommerceTaxCategoryValues;
 use FacebookAds\Object\Values\ProductItemConditionValues;
@@ -81,6 +82,7 @@ class ProductGroup extends AbstractCrudObject {
     $param_types = array(
       'additional_image_urls' => 'list<string>',
       'additional_variant_attributes' => 'map',
+      'age_group' => 'age_group_enum',
       'android_app_name' => 'string',
       'android_class' => 'string',
       'android_package' => 'string',
@@ -121,6 +123,7 @@ class ProductGroup extends AbstractCrudObject {
       'iphone_app_store_id' => 'unsigned int',
       'iphone_url' => 'string',
       'launch_date' => 'string',
+      'live_special_price' => 'string',
       'manufacturer_part_number' => 'string',
       'marked_for_product_launch' => 'marked_for_product_launch_enum',
       'material' => 'string',
@@ -138,6 +141,7 @@ class ProductGroup extends AbstractCrudObject {
       'quantity_to_sell_on_facebook' => 'unsigned int',
       'retailer_id' => 'string',
       'return_policy_days' => 'unsigned int',
+      'rich_text_description' => 'string',
       'sale_price' => 'unsigned int',
       'sale_price_end_date' => 'datetime',
       'sale_price_start_date' => 'datetime',
@@ -151,6 +155,7 @@ class ProductGroup extends AbstractCrudObject {
       'windows_phone_url' => 'string',
     );
     $enums = array(
+      'age_group_enum' => ProductItemAgeGroupValues::getInstance()->getValues(),
       'availability_enum' => ProductItemAvailabilityValues::getInstance()->getValues(),
       'commerce_tax_category_enum' => ProductItemCommerceTaxCategoryValues::getInstance()->getValues(),
       'condition_enum' => ProductItemConditionValues::getInstance()->getValues(),

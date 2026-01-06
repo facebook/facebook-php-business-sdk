@@ -22,12 +22,15 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdCreativeLinkDataChildAttachmentFields extends AbstractEnum {
 
+  const ANDROID_URL = 'android_url';
   const CALL_TO_ACTION = 'call_to_action';
   const CAPTION = 'caption';
   const DESCRIPTION = 'description';
   const IMAGE_CROPS = 'image_crops';
   const IMAGE_HASH = 'image_hash';
+  const IOS_URL = 'ios_url';
   const LINK = 'link';
+  const MARKETING_MESSAGE_BUTTONS = 'marketing_message_buttons';
   const NAME = 'name';
   const PICTURE = 'picture';
   const PLACE_DATA = 'place_data';
@@ -36,12 +39,15 @@ class AdCreativeLinkDataChildAttachmentFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'android_url' => 'string',
       'call_to_action' => 'AdCreativeLinkDataCallToAction',
       'caption' => 'string',
       'description' => 'string',
       'image_crops' => 'AdsImageCrops',
       'image_hash' => 'string',
+      'ios_url' => 'string',
       'link' => 'string',
+      'marketing_message_buttons' => 'list<Object>',
       'name' => 'string',
       'picture' => 'string',
       'place_data' => 'AdCreativePlaceData',

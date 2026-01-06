@@ -38,7 +38,6 @@ class CatalogSubVerticalListFields extends AbstractEnum {
   const COMPUTERS_AND_TABLETS = 'computers_and_tablets';
   const COMPUTERS_LAPTOPS_AND_TABLETS = 'computers_laptops_and_tablets';
   const DIAPERING_AND_POTTY_TRAINING = 'diapering_and_potty_training';
-  const DIGITAL_PRODUCT_OFFER = 'digital_product_offer';
   const ELECTRONIC_ACCESSORIES_AND_CABLES = 'electronic_accessories_and_cables';
   const ELECTRONICS_ACCESSORIES = 'electronics_accessories';
   const FURNITURE = 'furniture';
@@ -94,7 +93,6 @@ class CatalogSubVerticalListFields extends AbstractEnum {
       'computers_and_tablets' => 'Object',
       'computers_laptops_and_tablets' => 'Object',
       'diapering_and_potty_training' => 'Object',
-      'digital_product_offer' => 'Object',
       'electronic_accessories_and_cables' => 'Object',
       'electronics_accessories' => 'Object',
       'furniture' => 'Object',

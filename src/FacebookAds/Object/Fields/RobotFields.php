@@ -29,6 +29,7 @@ class RobotFields extends AbstractEnum {
   const INIT_POS = 'init_pos';
   const LAST_POS = 'last_pos';
   const MEETUP_LINK_HASH = 'meetup_link_hash';
+  const ROBOT_NOTES = 'robot_notes';
   const SUITE = 'suite';
   const TARGET_MAP_IMAGE_URI = 'target_map_image_uri';
   const TARGET_OS_IMAGE_URI = 'target_os_image_uri';
@@ -44,6 +45,7 @@ class RobotFields extends AbstractEnum {
       'init_pos' => 'list<map<string, float>>',
       'last_pos' => 'list<map<string, float>>',
       'meetup_link_hash' => 'string',
+      'robot_notes' => 'string',
       'suite' => 'string',
       'target_map_image_uri' => 'string',
       'target_os_image_uri' => 'string',

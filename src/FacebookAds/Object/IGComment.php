@@ -90,6 +90,7 @@ class IGComment extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'ad_id' => 'string',
     );
     $enums = array(
     );
@@ -136,6 +137,7 @@ class IGComment extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'ad_id' => 'string',
       'hide' => 'bool',
     );
     $enums = array(

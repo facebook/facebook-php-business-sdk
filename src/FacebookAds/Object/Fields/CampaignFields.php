@@ -40,7 +40,10 @@ class CampaignFields extends AbstractEnum {
   const EFFECTIVE_STATUS = 'effective_status';
   const HAS_SECONDARY_SKADNETWORK_REPORTING = 'has_secondary_skadnetwork_reporting';
   const ID = 'id';
+  const IS_ADSET_BUDGET_SHARING_ENABLED = 'is_adset_budget_sharing_enabled';
   const IS_BUDGET_SCHEDULE_ENABLED = 'is_budget_schedule_enabled';
+  const IS_DIRECT_SEND_CAMPAIGN = 'is_direct_send_campaign';
+  const IS_MESSAGE_CAMPAIGN = 'is_message_campaign';
   const IS_SKADNETWORK_ATTRIBUTION = 'is_skadnetwork_attribution';
   const ISSUES_INFO = 'issues_info';
   const LAST_BUDGET_TOGGLING_TIME = 'last_budget_toggling_time';
@@ -65,6 +68,7 @@ class CampaignFields extends AbstractEnum {
   const TOPLINE_ID = 'topline_id';
   const UPDATED_TIME = 'updated_time';
   const ADBATCH = 'adbatch';
+  const BUDGET_SCHEDULE_SPECS = 'budget_schedule_specs';
   const EXECUTION_OPTIONS = 'execution_options';
   const ITERATIVE_SPLIT_TEST_CONFIGS = 'iterative_split_test_configs';
 
@@ -88,7 +92,10 @@ class CampaignFields extends AbstractEnum {
       'effective_status' => 'EffectiveStatus',
       'has_secondary_skadnetwork_reporting' => 'bool',
       'id' => 'string',
+      'is_adset_budget_sharing_enabled' => 'bool',
       'is_budget_schedule_enabled' => 'bool',
+      'is_direct_send_campaign' => 'bool',
+      'is_message_campaign' => 'bool',
       'is_skadnetwork_attribution' => 'bool',
       'issues_info' => 'list<AdCampaignIssuesInfo>',
       'last_budget_toggling_time' => 'datetime',
@@ -113,6 +120,7 @@ class CampaignFields extends AbstractEnum {
       'topline_id' => 'string',
       'updated_time' => 'datetime',
       'adbatch' => 'list<Object>',
+      'budget_schedule_specs' => 'list<Object>',
       'execution_options' => 'list<ExecutionOptions>',
       'iterative_split_test_configs' => 'list<Object>',
     );

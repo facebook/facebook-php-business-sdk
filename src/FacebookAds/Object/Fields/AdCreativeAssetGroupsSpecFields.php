@@ -24,11 +24,13 @@ class AdCreativeAssetGroupsSpecFields extends AbstractEnum {
 
   const GROUPS = 'groups';
   const ORIGIN = 'origin';
+  const ORIGINS = 'origins';
 
   public function getFieldTypes() {
     return array(
       'groups' => 'list<Object>',
       'origin' => 'string',
+      'origins' => 'list<string>',
     );
   }
 }

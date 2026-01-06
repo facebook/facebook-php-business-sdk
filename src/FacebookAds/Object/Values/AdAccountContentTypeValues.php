@@ -28,7 +28,6 @@ class AdAccountContentTypeValues extends AbstractEnum {
   const GENERIC = 'GENERIC';
   const HOME_LISTING = 'HOME_LISTING';
   const HOTEL = 'HOTEL';
-  const JOB = 'JOB';
   const LOCAL_SERVICE_BUSINESS = 'LOCAL_SERVICE_BUSINESS';
   const MEDIA_TITLE = 'MEDIA_TITLE';
   const OFFLINE_PRODUCT = 'OFFLINE_PRODUCT';

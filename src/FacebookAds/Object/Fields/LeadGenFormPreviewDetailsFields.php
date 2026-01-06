@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class LeadGenFormPreviewDetailsFields extends AbstractEnum {
 
+  const BOOK_ON_WEBSITE_TEXT = 'book_on_website_text';
   const CALL_BUSINESS_TEXT = 'call_business_text';
   const CALL_TO_ACTION_TITLE = 'call_to_action_title';
   const CHAT_ON_MESSENGER_TEXT = 'chat_on_messenger_text';
@@ -66,9 +67,12 @@ class LeadGenFormPreviewDetailsFields extends AbstractEnum {
   const SOCIAL_PROOF_SECTION_HEADERS = 'social_proof_section_headers';
   const SUBMIT_BUTTON_TEXT = 'submit_button_text';
   const VIEW_FILE_TEXT = 'view_file_text';
+  const WHATS_APP_OPT_IN_BODY = 'whats_app_opt_in_body';
+  const WHATS_APP_OPT_IN_TITLE = 'whats_app_opt_in_title';
 
   public function getFieldTypes() {
     return array(
+      'book_on_website_text' => 'string',
       'call_business_text' => 'string',
       'call_to_action_title' => 'string',
       'chat_on_messenger_text' => 'string',
@@ -113,6 +117,8 @@ class LeadGenFormPreviewDetailsFields extends AbstractEnum {
       'social_proof_section_headers' => 'list<map<string, string>>',
       'submit_button_text' => 'string',
       'view_file_text' => 'string',
+      'whats_app_opt_in_body' => 'string',
+      'whats_app_opt_in_title' => 'string',
     );
   }
 }

@@ -23,11 +23,13 @@ use FacebookAds\Enum\AbstractEnum;
 class LeadGenQuestionOptionFields extends AbstractEnum {
 
   const KEY = 'key';
+  const PHOTO = 'photo';
   const VALUE = 'value';
 
   public function getFieldTypes() {
     return array(
       'key' => 'string',
+      'photo' => 'Photo',
       'value' => 'string',
     );
   }

@@ -116,6 +116,8 @@ class Canvas extends AbstractCrudObject {
       'background_color' => 'string',
       'body_element_ids' => 'list<string>',
       'enable_swipe_to_open' => 'bool',
+      'hero_asset_facebook_post_id' => 'string',
+      'hero_asset_instagram_media_id' => 'string',
       'is_hidden' => 'bool',
       'is_published' => 'bool',
       'name' => 'string',

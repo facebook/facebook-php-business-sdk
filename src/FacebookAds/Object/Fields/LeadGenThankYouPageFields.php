@@ -28,6 +28,7 @@ class LeadGenThankYouPageFields extends AbstractEnum {
   const BUTTON_TYPE = 'button_type';
   const COUNTRY_CODE = 'country_code';
   const ENABLE_MESSENGER = 'enable_messenger';
+  const GATED_FILE = 'gated_file';
   const ID = 'id';
   const LEAD_GEN_USE_CASE = 'lead_gen_use_case';
   const STATUS = 'status';
@@ -42,6 +43,7 @@ class LeadGenThankYouPageFields extends AbstractEnum {
       'button_type' => 'string',
       'country_code' => 'string',
       'enable_messenger' => 'bool',
+      'gated_file' => 'LeadGenThankYouPageGatedFile',
       'id' => 'string',
       'lead_gen_use_case' => 'string',
       'status' => 'string',

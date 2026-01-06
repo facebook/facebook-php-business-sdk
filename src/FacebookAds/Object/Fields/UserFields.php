@@ -24,8 +24,8 @@ class UserFields extends AbstractEnum {
 
   const ABOUT = 'about';
   const AGE_RANGE = 'age_range';
-  const AVATAR_2D_PROFILE_PICTURE = 'avatar_2d_profile_picture';
   const BIRTHDAY = 'birthday';
+  const CLIENT_BUSINESS_ID = 'client_business_id';
   const COMMUNITY = 'community';
   const COVER = 'cover';
   const CURRENCY = 'currency';
@@ -37,9 +37,7 @@ class UserFields extends AbstractEnum {
   const GENDER = 'gender';
   const HOMETOWN = 'hometown';
   const ID = 'id';
-  const ID_FOR_AVATARS = 'id_for_avatars';
   const INSPIRATIONAL_PEOPLE = 'inspirational_people';
-  const INSTAGRAM_USER_SELF_ASSET = 'instagram_user_self_asset';
   const INSTALL_TYPE = 'install_type';
   const INSTALLED = 'installed';
   const IS_GUEST_USER = 'is_guest_user';
@@ -78,8 +76,8 @@ class UserFields extends AbstractEnum {
     return array(
       'about' => 'string',
       'age_range' => 'AgeRange',
-      'avatar_2d_profile_picture' => 'AvatarProfilePicture',
       'birthday' => 'string',
+      'client_business_id' => 'string',
       'community' => 'Group',
       'cover' => 'UserCoverPhoto',
       'currency' => 'Currency',
@@ -91,9 +89,7 @@ class UserFields extends AbstractEnum {
       'gender' => 'string',
       'hometown' => 'Page',
       'id' => 'string',
-      'id_for_avatars' => 'string',
       'inspirational_people' => 'list<Experience>',
-      'instagram_user_self_asset' => 'InstagramUser',
       'install_type' => 'string',
       'installed' => 'bool',
       'is_guest_user' => 'bool',

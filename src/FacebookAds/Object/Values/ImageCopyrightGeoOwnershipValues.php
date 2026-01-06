@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class ImageCopyrightGeoOwnershipValues extends AbstractEnum {
 
+  const AC = 'AC';
   const AD = 'AD';
   const AE = 'AE';
   const AF = 'AF';

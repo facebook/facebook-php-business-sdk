@@ -24,6 +24,8 @@ class FundingSourceDetailsCouponFields extends AbstractEnum {
 
   const AMOUNT = 'amount';
   const CAMPAIGN_IDS = 'campaign_ids';
+  const CHILD_AD_ACCOUNT_ID = 'child_ad_account_id';
+  const CHILD_BM_ID = 'child_bm_id';
   const COUPON_ID = 'coupon_id';
   const COUPON_TIERING = 'coupon_tiering';
   const CURRENCY = 'currency';
@@ -32,11 +34,14 @@ class FundingSourceDetailsCouponFields extends AbstractEnum {
   const ORIGINAL_AMOUNT = 'original_amount';
   const ORIGINAL_DISPLAY_AMOUNT = 'original_display_amount';
   const START_DATE = 'start_date';
+  const VENDOR_ID = 'vendor_id';
 
   public function getFieldTypes() {
     return array(
       'amount' => 'int',
       'campaign_ids' => 'list<int>',
+      'child_ad_account_id' => 'string',
+      'child_bm_id' => 'string',
       'coupon_id' => 'string',
       'coupon_tiering' => 'FundingSourceDetailsCouponTiering',
       'currency' => 'string',
@@ -45,6 +50,7 @@ class FundingSourceDetailsCouponFields extends AbstractEnum {
       'original_amount' => 'int',
       'original_display_amount' => 'string',
       'start_date' => 'datetime',
+      'vendor_id' => 'string',
     );
   }
 }

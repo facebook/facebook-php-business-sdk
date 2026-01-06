@@ -47,6 +47,7 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const CUSTOM_AUDIENCES = 'custom_audiences';
   const DEVICE_PLATFORMS = 'device_platforms';
   const DIRECT_INSTALL_DEVICES = 'direct_install_devices';
+  const DT_CONSOLIDATION_STATE = 'dt_consolidation_state';
   const DYNAMIC_AUDIENCE_IDS = 'dynamic_audience_ids';
   const EDUCATION_MAJORS = 'education_majors';
   const EDUCATION_SCHOOLS = 'education_schools';
@@ -100,6 +101,7 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const INDUSTRIES = 'industries';
   const INSTAGRAM_HASHTAGS = 'instagram_hashtags';
   const INSTAGRAM_POSITIONS = 'instagram_positions';
+  const INSTALL_STATE_APPLICATION = 'install_state_application';
   const INSTREAM_VIDEO_SKIPPABLE_EXCLUDED = 'instream_video_skippable_excluded';
   const INSTREAM_VIDEO_SPONSORSHIP_PLACEMENTS = 'instream_video_sponsorship_placements';
   const INTEREST_DEFAULTS_SOURCE = 'interest_defaults_source';

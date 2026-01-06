@@ -24,4 +24,5 @@ class WhatsAppBusinessAccountSubCategoryValues extends AbstractEnum {
 
   const ORDER_DETAILS = 'ORDER_DETAILS';
   const ORDER_STATUS = 'ORDER_STATUS';
+  const RICH_ORDER_STATUS = 'RICH_ORDER_STATUS';
 }

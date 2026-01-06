@@ -110,6 +110,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const TIMEZONE_ID = 'timezone_id';
   const TIMEZONE_NAME = 'timezone_name';
   const TOPLINE_ID = 'topline_id';
+  const TRENDING_TOPICS_SPEC = 'trending_topics_spec';
   const VIDEO_VIEW_LENGTH_CONSTRAINT = 'video_view_length_constraint';
   const VIEWTAG = 'viewtag';
   const ACTION = 'action';
@@ -219,6 +220,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'timezone_id' => 'unsigned int',
       'timezone_name' => 'string',
       'topline_id' => 'unsigned int',
+      'trending_topics_spec' => 'TrendingTopicsSpec',
       'video_view_length_constraint' => 'unsigned int',
       'viewtag' => 'string',
       'action' => 'Action',

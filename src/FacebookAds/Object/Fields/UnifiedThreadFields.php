@@ -26,6 +26,7 @@ class UnifiedThreadFields extends AbstractEnum {
   const FOLDER = 'folder';
   const FORMER_PARTICIPANTS = 'former_participants';
   const ID = 'id';
+  const IS_OWNER = 'is_owner';
   const IS_SUBSCRIBED = 'is_subscribed';
   const LINK = 'link';
   const LINKED_GROUP = 'linked_group';
@@ -35,7 +36,6 @@ class UnifiedThreadFields extends AbstractEnum {
   const SCOPED_THREAD_KEY = 'scoped_thread_key';
   const SENDERS = 'senders';
   const SNIPPET = 'snippet';
-  const SUBJECT = 'subject';
   const UNREAD_COUNT = 'unread_count';
   const UPDATED_TIME = 'updated_time';
   const WALLPAPER = 'wallpaper';
@@ -46,6 +46,7 @@ class UnifiedThreadFields extends AbstractEnum {
       'folder' => 'string',
       'former_participants' => 'Object',
       'id' => 'string',
+      'is_owner' => 'bool',
       'is_subscribed' => 'bool',
       'link' => 'string',
       'linked_group' => 'Group',
@@ -55,7 +56,6 @@ class UnifiedThreadFields extends AbstractEnum {
       'scoped_thread_key' => 'string',
       'senders' => 'Object',
       'snippet' => 'string',
-      'subject' => 'string',
       'unread_count' => 'int',
       'updated_time' => 'datetime',
       'wallpaper' => 'string',

@@ -23,12 +23,18 @@ use FacebookAds\Enum\AbstractEnum;
 class MessengerCallSettingsFields extends AbstractEnum {
 
   const AUDIO_ENABLED = 'audio_enabled';
+  const CALL_HOURS = 'call_hours';
+  const CALL_ROUTING = 'call_routing';
   const ICON_ENABLED = 'icon_enabled';
+  const VIDEO = 'video';
 
   public function getFieldTypes() {
     return array(
       'audio_enabled' => 'bool',
+      'call_hours' => 'Object',
+      'call_routing' => 'string',
       'icon_enabled' => 'bool',
+      'video' => 'string',
     );
   }
 }

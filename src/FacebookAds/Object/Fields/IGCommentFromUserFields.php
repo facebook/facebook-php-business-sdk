@@ -23,11 +23,13 @@ use FacebookAds\Enum\AbstractEnum;
 class IGCommentFromUserFields extends AbstractEnum {
 
   const ID = 'id';
+  const SELF_IG_SCOPED_ID = 'self_ig_scoped_id';
   const USERNAME = 'username';
 
   public function getFieldTypes() {
     return array(
       'id' => 'string',
+      'self_ig_scoped_id' => 'string',
       'username' => 'string',
     );
   }

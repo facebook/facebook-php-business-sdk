@@ -31,7 +31,7 @@ class WhatsAppBusinessPreVerifiedPhoneNumberFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'code_verification_status' => 'string',
+      'code_verification_status' => 'CodeVerificationStatus',
       'code_verification_time' => 'datetime',
       'id' => 'string',
       'owner_business' => 'Business',

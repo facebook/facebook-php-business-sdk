@@ -23,7 +23,9 @@ use FacebookAds\Enum\AbstractEnum;
 class LookalikeSpecFields extends AbstractEnum {
 
   const COUNTRY = 'country';
+  const IS_CREATED_BY_RECOMMENDED_DFCA = 'is_created_by_recommended_dfca';
   const IS_FINANCIAL_SERVICE = 'is_financial_service';
+  const IS_PARENT_LAL = 'is_parent_lal';
   const ORIGIN = 'origin';
   const ORIGIN_EVENT_NAME = 'origin_event_name';
   const ORIGIN_EVENT_SOURCE_NAME = 'origin_event_source_name';
@@ -38,7 +40,9 @@ class LookalikeSpecFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'country' => 'string',
+      'is_created_by_recommended_dfca' => 'bool',
       'is_financial_service' => 'bool',
+      'is_parent_lal' => 'bool',
       'origin' => 'list<Object>',
       'origin_event_name' => 'string',
       'origin_event_source_name' => 'string',

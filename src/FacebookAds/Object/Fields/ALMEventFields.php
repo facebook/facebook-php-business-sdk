@@ -29,6 +29,7 @@ class ALMEventFields extends AbstractEnum {
   const EVENT_TIME = 'event_time';
   const GUIDANCE = 'guidance';
   const GUIDANCE_DETAIL = 'guidance_detail';
+  const GUIDANCE_TYPE = 'guidance_type';
   const ID = 'id';
   const PARENT_ADVERTISER_IDS = 'parent_advertiser_ids';
   const RESELLER_BUSINESS_ID = 'reseller_business_id';
@@ -44,6 +45,7 @@ class ALMEventFields extends AbstractEnum {
       'event_time' => 'datetime',
       'guidance' => 'string',
       'guidance_detail' => 'string',
+      'guidance_type' => 'string',
       'id' => 'string',
       'parent_advertiser_ids' => 'list<string>',
       'reseller_business_id' => 'string',

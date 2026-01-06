@@ -26,6 +26,7 @@ class AudioAssetFields extends AbstractEnum {
   const ALL_DDEX_MAIN_ARTISTS = 'all_ddex_main_artists';
   const AUDIO_CLUSTER_ID = 'audio_cluster_id';
   const COVER_IMAGE_SOURCE = 'cover_image_source';
+  const DESCRIPTION = 'description';
   const DISPLAY_ARTIST = 'display_artist';
   const DOWNLOAD_HD_URL = 'download_hd_url';
   const DOWNLOAD_SD_URL = 'download_sd_url';
@@ -48,6 +49,7 @@ class AudioAssetFields extends AbstractEnum {
       'all_ddex_main_artists' => 'string',
       'audio_cluster_id' => 'string',
       'cover_image_source' => 'string',
+      'description' => 'string',
       'display_artist' => 'string',
       'download_hd_url' => 'string',
       'download_sd_url' => 'string',

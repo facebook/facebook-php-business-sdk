@@ -14,8 +14,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\InstagramUserFields;
-use FacebookAds\Object\Values\IGUpcomingEventNotificationSubtypesValues;
-use FacebookAds\Object\Values\IGUpcomingEventNotificationTargetTimeValues;
 
 /**
  * This class is auto-generated.
@@ -111,31 +109,6 @@ class InstagramUser extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createAuthorizedAdAccount(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'account_id' => 'string',
-      'business' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/authorized_adaccounts',
-      new InstagramUser(),
-      'EDGE',
-      InstagramUser::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getUpcomingEvents(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -148,36 +121,6 @@ class InstagramUser extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
-      '/upcoming_events',
-      new IGUpcomingEvent(),
-      'EDGE',
-      IGUpcomingEvent::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createUpcomingEvent(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'end_time' => 'datetime',
-      'notification_subtypes' => 'list<notification_subtypes_enum>',
-      'notification_target_time' => 'notification_target_time_enum',
-      'start_time' => 'datetime',
-      'title' => 'string',
-    );
-    $enums = array(
-      'notification_subtypes_enum' => IGUpcomingEventNotificationSubtypesValues::getInstance()->getValues(),
-      'notification_target_time_enum' => IGUpcomingEventNotificationTargetTimeValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
       '/upcoming_events',
       new IGUpcomingEvent(),
       'EDGE',
