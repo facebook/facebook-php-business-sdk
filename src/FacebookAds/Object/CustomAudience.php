@@ -20,6 +20,7 @@ use FacebookAds\Object\Values\CustomAudienceContentTypeValues;
 use FacebookAds\Object\Values\CustomAudienceCustomerFileSourceValues;
 use FacebookAds\Object\Values\CustomAudienceSubscriptionInfoValues;
 use FacebookAds\Object\Values\CustomAudienceSubtypeValues;
+use FacebookAds\Object\Values\CustomAudienceUsageRestrictionValues;
 use FacebookAds\Object\Values\CustomAudienceUseForProductsValues;
 use FacebookAds\Object\Values\CustomAudienceTypes;
 use FacebookAds\Object\Fields\CustomAudienceMultikeySchemaFields;
@@ -70,6 +71,7 @@ class CustomAudience extends AbstractCrudObject {
     $ref_enums['CustomerFileSource'] = CustomAudienceCustomerFileSourceValues::getInstance()->getValues();
     $ref_enums['SubscriptionInfo'] = CustomAudienceSubscriptionInfoValues::getInstance()->getValues();
     $ref_enums['Subtype'] = CustomAudienceSubtypeValues::getInstance()->getValues();
+    $ref_enums['UsageRestriction'] = CustomAudienceUsageRestrictionValues::getInstance()->getValues();
     $ref_enums['UseForProducts'] = CustomAudienceUseForProductsValues::getInstance()->getValues();
     $ref_enums['ActionSource'] = CustomAudienceActionSourceValues::getInstance()->getValues();
     return $ref_enums;
@@ -456,12 +458,14 @@ class CustomAudience extends AbstractCrudObject {
       'rule' => 'string',
       'rule_aggregation' => 'string',
       'tags' => 'list<string>',
+      'use_for_products' => 'list<use_for_products_enum>',
       'use_in_campaigns' => 'bool',
     );
     $enums = array(
       'claim_objective_enum' => CustomAudienceClaimObjectiveValues::getInstance()->getValues(),
       'content_type_enum' => CustomAudienceContentTypeValues::getInstance()->getValues(),
       'customer_file_source_enum' => CustomAudienceCustomerFileSourceValues::getInstance()->getValues(),
+      'use_for_products_enum' => CustomAudienceUseForProductsValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

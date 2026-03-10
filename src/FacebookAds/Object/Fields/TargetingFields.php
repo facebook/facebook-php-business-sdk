@@ -52,6 +52,7 @@ class TargetingFields extends AbstractEnum {
   const EFFECTIVE_MESSENGER_POSITIONS = 'effective_messenger_positions';
   const EFFECTIVE_PUBLISHER_PLATFORMS = 'effective_publisher_platforms';
   const EFFECTIVE_THREADS_POSITIONS = 'effective_threads_positions';
+  const EFFECTIVE_WHATSAPP_POSITIONS = 'effective_whatsapp_positions';
   const ENGAGEMENT_SPECS = 'engagement_specs';
   const ETHNIC_AFFINITY = 'ethnic_affinity';
   const EXCLUDE_REACHED_SINCE = 'exclude_reached_since';
@@ -82,6 +83,7 @@ class TargetingFields extends AbstractEnum {
   const INCOME = 'income';
   const INDUSTRIES = 'industries';
   const INSTAGRAM_POSITIONS = 'instagram_positions';
+  const INSTALL_STATE_APPLICATION = 'install_state_application';
   const INSTREAM_VIDEO_SKIPPABLE_EXCLUDED = 'instream_video_skippable_excluded';
   const INTERESTED_IN = 'interested_in';
   const INTERESTS = 'interests';
@@ -108,9 +110,11 @@ class TargetingFields extends AbstractEnum {
   const TARGETING_RELAXATION_TYPES = 'targeting_relaxation_types';
   const THREADS_POSITIONS = 'threads_positions';
   const USER_ADCLUSTERS = 'user_adclusters';
+  const USER_AGE_UNKNOWN = 'user_age_unknown';
   const USER_DEVICE = 'user_device';
   const USER_EVENT = 'user_event';
   const USER_OS = 'user_os';
+  const WHATSAPP_POSITIONS = 'whatsapp_positions';
   const WIRELESS_CARRIER = 'wireless_carrier';
   const WORK_EMPLOYERS = 'work_employers';
   const WORK_POSITIONS = 'work_positions';
@@ -148,6 +152,7 @@ class TargetingFields extends AbstractEnum {
       'effective_messenger_positions' => 'list<string>',
       'effective_publisher_platforms' => 'list<string>',
       'effective_threads_positions' => 'list<string>',
+      'effective_whatsapp_positions' => 'list<string>',
       'engagement_specs' => 'list<TargetingDynamicRule>',
       'ethnic_affinity' => 'list<IDName>',
       'exclude_reached_since' => 'list<string>',
@@ -178,6 +183,7 @@ class TargetingFields extends AbstractEnum {
       'income' => 'list<IDName>',
       'industries' => 'list<IDName>',
       'instagram_positions' => 'list<string>',
+      'install_state_application' => 'string',
       'instream_video_skippable_excluded' => 'bool',
       'interested_in' => 'list<unsigned int>',
       'interests' => 'list<IDName>',
@@ -204,9 +210,11 @@ class TargetingFields extends AbstractEnum {
       'targeting_relaxation_types' => 'TargetingRelaxation',
       'threads_positions' => 'list<string>',
       'user_adclusters' => 'list<IDName>',
+      'user_age_unknown' => 'bool',
       'user_device' => 'list<string>',
       'user_event' => 'list<unsigned int>',
       'user_os' => 'list<string>',
+      'whatsapp_positions' => 'list<string>',
       'wireless_carrier' => 'list<string>',
       'work_employers' => 'list<IDName>',
       'work_positions' => 'list<IDName>',

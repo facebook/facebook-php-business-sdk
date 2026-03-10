@@ -27,7 +27,6 @@ class LocalServiceBusinessFields extends AbstractEnum {
   const AVAILABILITY = 'availability';
   const BRAND = 'brand';
   const CATEGORY = 'category';
-  const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
   const CONDITION = 'condition';
   const CUISINE_TYPE = 'cuisine_type';
   const CURRENCY = 'currency';
@@ -70,7 +69,6 @@ class LocalServiceBusinessFields extends AbstractEnum {
       'availability' => 'Availability',
       'brand' => 'string',
       'category' => 'string',
-      'category_specific_fields' => 'CatalogSubVerticalList',
       'condition' => 'Condition',
       'cuisine_type' => 'string',
       'currency' => 'string',

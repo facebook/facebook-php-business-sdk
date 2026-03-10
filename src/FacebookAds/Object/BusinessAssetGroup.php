@@ -377,9 +377,9 @@ class BusinessAssetGroup extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/contained_instagram_accounts',
-      new InstagramUser(),
+      new IGUser(),
       'EDGE',
-      InstagramUser::getFieldsEnum()->getValues(),
+      IGUser::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

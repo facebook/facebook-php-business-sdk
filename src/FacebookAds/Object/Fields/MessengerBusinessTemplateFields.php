@@ -31,6 +31,7 @@ class MessengerBusinessTemplateFields extends AbstractEnum {
   const LAST_UPDATED_TIME = 'last_updated_time';
   const LIBRARY_TEMPLATE_NAME = 'library_template_name';
   const NAME = 'name';
+  const PARAMETER_FORMAT = 'parameter_format';
   const REJECTED_REASON = 'rejected_reason';
   const REJECTION_REASONS = 'rejection_reasons';
   const SPECIFIC_REJECTION_REASONS = 'specific_rejection_reasons';
@@ -47,6 +48,7 @@ class MessengerBusinessTemplateFields extends AbstractEnum {
       'last_updated_time' => 'datetime',
       'library_template_name' => 'string',
       'name' => 'string',
+      'parameter_format' => 'string',
       'rejected_reason' => 'string',
       'rejection_reasons' => 'Object',
       'specific_rejection_reasons' => 'Object',

@@ -26,15 +26,15 @@ class MessengerCallSettingsFields extends AbstractEnum {
   const CALL_HOURS = 'call_hours';
   const CALL_ROUTING = 'call_routing';
   const ICON_ENABLED = 'icon_enabled';
-  const VIDEO = 'video';
+  const VIDEO_ENABLED = 'video_enabled';
 
   public function getFieldTypes() {
     return array(
       'audio_enabled' => 'bool',
       'call_hours' => 'Object',
-      'call_routing' => 'string',
+      'call_routing' => 'Object',
       'icon_enabled' => 'bool',
-      'video' => 'string',
+      'video_enabled' => 'bool',
     );
   }
 }

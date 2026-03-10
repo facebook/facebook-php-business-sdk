@@ -25,6 +25,7 @@ class IGMediaForIGOnlyAPIFields extends AbstractEnum {
   const ALT_TEXT = 'alt_text';
   const CAPTION = 'caption';
   const COMMENTS_COUNT = 'comments_count';
+  const CURRENT_LIVE_VIEWER_COUNT = 'current_live_viewer_count';
   const ID = 'id';
   const IS_COMMENT_ENABLED = 'is_comment_enabled';
   const IS_SHARED_TO_FEED = 'is_shared_to_feed';
@@ -44,6 +45,7 @@ class IGMediaForIGOnlyAPIFields extends AbstractEnum {
       'alt_text' => 'string',
       'caption' => 'string',
       'comments_count' => 'int',
+      'current_live_viewer_count' => 'int',
       'id' => 'string',
       'is_comment_enabled' => 'bool',
       'is_shared_to_feed' => 'bool',

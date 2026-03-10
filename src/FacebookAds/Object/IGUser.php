@@ -148,6 +148,7 @@ class IGUser extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'creator_username' => 'string',
     );
     $enums = array(
     );
@@ -295,6 +296,30 @@ class IGUser extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createBusinessMessagingFeatureStatus(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'features' => 'list<map>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/business_messaging_feature_status',
+      new IGUser(),
+      'EDGE',
+      IGUser::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getCatalogProductSearch(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -361,6 +386,29 @@ class IGUser extends AbstractCrudObject {
       new ShadowIGUserCollaborationInvites(),
       'EDGE',
       ShadowIGUserCollaborationInvites::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getCollaborativeMedia(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/collaborative_media',
+      new ShadowIGUserCollaborativeMedia(),
+      'EDGE',
+      ShadowIGUserCollaborativeMedia::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -436,6 +484,7 @@ class IGUser extends AbstractCrudObject {
       'show_onboarded_creators_only' => 'bool',
       'similar_to_creators' => 'list<string>',
       'username' => 'string',
+      'usernames' => 'list<string>',
     );
     $enums = array(
       'creator_countries_enum' => IGUserExportForCAMCreatorCountriesValues::getInstance()->getValues(),
@@ -717,6 +766,36 @@ class IGUser extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/mentions',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createModerateConversation(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'actions' => 'list<actions_enum>',
+      'user_ids' => 'list<map>',
+    );
+    $enums = array(
+      'actions_enum' => array(
+        'BLOCK_USER',
+        'MOVE_TO_SPAM',
+        'UNBLOCK_USER',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/moderate_conversations',
       new AbstractCrudObject(),
       'EDGE',
       array(),

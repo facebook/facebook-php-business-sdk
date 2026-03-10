@@ -117,5 +117,6 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const UPDATE_CAMPAIGN_RUN_STATUS = 'update_campaign_run_status';
   const UPDATE_CAMPAIGN_SCHEDULE = 'update_campaign_schedule';
   const UPDATE_CAMPAIGN_VALUE_ADJUSTMENT_RULE = 'update_campaign_value_adjustment_rule';
+  const UPDATE_CAMPAIGN_VALUE_ADJUSTMENT_RULE_ATTACHMENT = 'update_campaign_value_adjustment_rule_attachment';
   const UPDATE_DELIVERY_TYPE_CROSS_LEVEL_SHIFT = 'update_delivery_type_cross_level_shift';
 }

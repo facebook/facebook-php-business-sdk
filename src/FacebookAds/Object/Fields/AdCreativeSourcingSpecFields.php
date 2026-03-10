@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdCreativeSourcingSpecFields extends AbstractEnum {
 
+  const AD_EXTENSIONS_RELEVANCY_SPEC = 'ad_extensions_relevancy_spec';
   const ASSOCIATED_PRODUCT_SET_ID = 'associated_product_set_id';
   const BRAND = 'brand';
   const DESTINATION_SCREENSHOT_SPEC = 'destination_screenshot_spec';
@@ -29,6 +30,7 @@ class AdCreativeSourcingSpecFields extends AbstractEnum {
   const ENABLE_SOCIAL_FEEDBACK_PRESERVATION = 'enable_social_feedback_preservation';
   const INTENT = 'intent';
   const PCA_SPEC = 'pca_spec';
+  const PRODUCT_MEDIA_METADATA_SPEC = 'product_media_metadata_spec';
   const PROMOTION_METADATA_SPEC = 'promotion_metadata_spec';
   const SITE_LINKS_DATA_CONSENTED = 'site_links_data_consented';
   const SITE_LINKS_SPEC = 'site_links_spec';
@@ -38,6 +40,7 @@ class AdCreativeSourcingSpecFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'ad_extensions_relevancy_spec' => 'Object',
       'associated_product_set_id' => 'string',
       'brand' => 'Object',
       'destination_screenshot_spec' => 'Object',
@@ -45,6 +48,7 @@ class AdCreativeSourcingSpecFields extends AbstractEnum {
       'enable_social_feedback_preservation' => 'bool',
       'intent' => 'Object',
       'pca_spec' => 'Object',
+      'product_media_metadata_spec' => 'Object',
       'promotion_metadata_spec' => 'list<AdCreativePromotionMetadataSpec>',
       'site_links_data_consented' => 'Object',
       'site_links_spec' => 'list<AdCreativeSiteLinksSpec>',

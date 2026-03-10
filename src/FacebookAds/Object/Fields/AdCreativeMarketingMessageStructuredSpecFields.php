@@ -22,21 +22,29 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdCreativeMarketingMessageStructuredSpecFields extends AbstractEnum {
 
+  const ASSET_CUSTOMIZATION = 'asset_customization';
+  const AUTOREPLY = 'autoreply';
   const BUTTONS = 'buttons';
+  const CONVERSATION_TEMPLATE_ID = 'conversation_template_id';
   const FOOTER = 'footer';
   const GREETING = 'greeting';
   const IS_OPTIMIZED_TEXT = 'is_optimized_text';
   const LANGUAGE = 'language';
+  const OFFER = 'offer';
   const REFERENCED_ADGROUP_ID = 'referenced_adgroup_id';
   const WHATS_APP_BUSINESS_PHONE_NUMBER_ID = 'whats_app_business_phone_number_id';
 
   public function getFieldTypes() {
     return array(
+      'asset_customization' => 'Object',
+      'autoreply' => 'Object',
       'buttons' => 'list<Object>',
+      'conversation_template_id' => 'string',
       'footer' => 'string',
       'greeting' => 'string',
       'is_optimized_text' => 'bool',
       'language' => 'string',
+      'offer' => 'Object',
       'referenced_adgroup_id' => 'string',
       'whats_app_business_phone_number_id' => 'string',
     );

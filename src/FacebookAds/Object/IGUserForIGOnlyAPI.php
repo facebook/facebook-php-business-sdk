@@ -322,15 +322,20 @@ class IGUserForIGOnlyAPI extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'folder' => 'folder_enum',
       'message' => 'Object',
       'messaging_type' => 'messaging_type_enum',
       'payload' => 'string',
       'recipient' => 'Object',
+      'reply_to' => 'Object',
       'sender_action' => 'sender_action_enum',
       'tag' => 'Object',
       'thread_control' => 'Object',
     );
     $enums = array(
+      'folder_enum' => array(
+        'PARTNERSHIP',
+      ),
       'messaging_type_enum' => array(
         'MESSAGE_TAG',
         'RESPONSE',
@@ -373,7 +378,6 @@ class IGUserForIGOnlyAPI extends AbstractCrudObject {
         'COMMANDS',
         'DESCRIPTION',
         'GET_STARTED',
-        'GREETING',
         'HOME_URL',
         'ICE_BREAKERS',
         'PERSISTENT_MENU',

@@ -25,7 +25,6 @@ class OfflineProductItemFields extends AbstractEnum {
   const APPLINKS = 'applinks';
   const BRAND = 'brand';
   const CATEGORY = 'category';
-  const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
   const CURRENCY = 'currency';
   const DESCRIPTION = 'description';
   const ID = 'id';
@@ -44,7 +43,6 @@ class OfflineProductItemFields extends AbstractEnum {
       'applinks' => 'CatalogItemAppLinks',
       'brand' => 'string',
       'category' => 'string',
-      'category_specific_fields' => 'CatalogSubVerticalList',
       'currency' => 'string',
       'description' => 'string',
       'id' => 'string',

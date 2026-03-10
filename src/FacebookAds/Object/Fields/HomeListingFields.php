@@ -34,7 +34,6 @@ class HomeListingFields extends AbstractEnum {
   const AREA_SIZE = 'area_size';
   const AREA_UNIT = 'area_unit';
   const AVAILABILITY = 'availability';
-  const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
   const CO_2_EMISSION_RATING_EU = 'co_2_emission_rating_eu';
   const CURRENCY = 'currency';
   const CUSTOM_LABEL_0 = 'custom_label_0';
@@ -96,7 +95,6 @@ class HomeListingFields extends AbstractEnum {
       'area_size' => 'unsigned int',
       'area_unit' => 'string',
       'availability' => 'string',
-      'category_specific_fields' => 'CatalogSubVerticalList',
       'co_2_emission_rating_eu' => 'Object',
       'currency' => 'string',
       'custom_label_0' => 'string',

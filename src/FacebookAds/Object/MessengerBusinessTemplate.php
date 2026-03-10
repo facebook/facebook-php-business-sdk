@@ -14,6 +14,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\MessengerBusinessTemplateFields;
+use FacebookAds\Object\Values\MessengerBusinessTemplateParameterFormatValues;
 use FacebookAds\Object\Values\MessengerBusinessTemplateStatusValues;
 
 /**
@@ -36,6 +37,7 @@ class MessengerBusinessTemplate extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['ParameterFormat'] = MessengerBusinessTemplateParameterFormatValues::getInstance()->getValues();
     $ref_enums['Status'] = MessengerBusinessTemplateStatusValues::getInstance()->getValues();
     return $ref_enums;
   }
@@ -69,8 +71,10 @@ class MessengerBusinessTemplate extends AbstractCrudObject {
 
     $param_types = array(
       'components' => 'list<map>',
+      'parameter_format' => 'parameter_format_enum',
     );
     $enums = array(
+      'parameter_format_enum' => MessengerBusinessTemplateParameterFormatValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

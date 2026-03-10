@@ -43,6 +43,8 @@ class AdSetFields extends AbstractEnum {
   const CAMPAIGN_ID = 'campaign_id';
   const CONFIGURED_STATUS = 'configured_status';
   const CREATED_TIME = 'created_time';
+  const CREATIVE_DIVERSITY_LABEL = 'creative_diversity_label';
+  const CREATIVE_DIVERSITY_SCORE = 'creative_diversity_score';
   const CREATIVE_SEQUENCE = 'creative_sequence';
   const CREATIVE_SEQUENCE_REPETITION_PATTERN = 'creative_sequence_repetition_pattern';
   const DAILY_BUDGET = 'daily_budget';
@@ -134,6 +136,8 @@ class AdSetFields extends AbstractEnum {
       'campaign_id' => 'string',
       'configured_status' => 'ConfiguredStatus',
       'created_time' => 'datetime',
+      'creative_diversity_label' => 'list<string>',
+      'creative_diversity_score' => 'list<string>',
       'creative_sequence' => 'list<string>',
       'creative_sequence_repetition_pattern' => 'string',
       'daily_budget' => 'string',

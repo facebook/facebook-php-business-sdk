@@ -24,7 +24,6 @@ class TransactableItemFields extends AbstractEnum {
 
   const ACTION_TITLE = 'action_title';
   const APPLINKS = 'applinks';
-  const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
   const CURRENCY = 'currency';
   const DESCRIPTION = 'description';
   const DURATION_TIME = 'duration_time';
@@ -47,7 +46,6 @@ class TransactableItemFields extends AbstractEnum {
     return array(
       'action_title' => 'string',
       'applinks' => 'CatalogItemAppLinks',
-      'category_specific_fields' => 'CatalogSubVerticalList',
       'currency' => 'string',
       'description' => 'string',
       'duration_time' => 'unsigned int',

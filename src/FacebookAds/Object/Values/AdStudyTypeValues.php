@@ -27,5 +27,7 @@ class AdStudyTypeValues extends AbstractEnum {
   const CREATIVE_SPEND_ENFORCEMENT = 'CREATIVE_SPEND_ENFORCEMENT';
   const GEO_LIFT = 'GEO_LIFT';
   const LIFT = 'LIFT';
+  const PORTFOLIO_OPTIMIZER = 'PORTFOLIO_OPTIMIZER';
   const SPLIT_TEST = 'SPLIT_TEST';
+  const VERSION_CONTROL = 'VERSION_CONTROL';
 }

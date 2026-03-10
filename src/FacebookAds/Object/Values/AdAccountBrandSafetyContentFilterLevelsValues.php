@@ -29,6 +29,7 @@ class AdAccountBrandSafetyContentFilterLevelsValues extends AbstractEnum {
   const FACEBOOK_STANDARD = 'FACEBOOK_STANDARD';
   const FACEBOOK_STRICT = 'FACEBOOK_STRICT';
   const FEED_DNM = 'FEED_DNM';
+  const FEED_NESTED_DNM = 'FEED_NESTED_DNM';
   const FEED_RELAXED = 'FEED_RELAXED';
   const FEED_STANDARD = 'FEED_STANDARD';
   const FEED_STRICT = 'FEED_STRICT';

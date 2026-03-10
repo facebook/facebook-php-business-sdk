@@ -26,6 +26,7 @@ class CatalogItemOverrideFields extends AbstractEnum {
   const LOCAL_INFO = 'local_info';
   const OVERRIDE_TYPE = 'override_type';
   const OVERRIDE_VALUE = 'override_value';
+  const UPLOAD_EXPECTED_METHOD = 'upload_expected_method';
 
   public function getFieldTypes() {
     return array(
@@ -33,6 +34,7 @@ class CatalogItemOverrideFields extends AbstractEnum {
       'local_info' => 'ProductItemLocalInfo',
       'override_type' => 'string',
       'override_value' => 'string',
+      'upload_expected_method' => 'string',
     );
   }
 }

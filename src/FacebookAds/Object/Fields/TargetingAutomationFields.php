@@ -23,6 +23,7 @@ use FacebookAds\Enum\AbstractEnum;
 class TargetingAutomationFields extends AbstractEnum {
 
   const ADVANTAGE_AUDIENCE = 'advantage_audience';
+  const CREATIVE_AUDIENCE_PAIRING = 'creative_audience_pairing';
   const INDIVIDUAL_SETTING = 'individual_setting';
   const SHARED_AUDIENCES = 'shared_audiences';
   const VALUE_EXPRESSION = 'value_expression';
@@ -30,6 +31,7 @@ class TargetingAutomationFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'advantage_audience' => 'unsigned int',
+      'creative_audience_pairing' => 'unsigned int',
       'individual_setting' => 'Object',
       'shared_audiences' => 'unsigned int',
       'value_expression' => 'unsigned int',

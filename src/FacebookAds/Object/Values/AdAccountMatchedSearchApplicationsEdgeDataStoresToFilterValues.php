@@ -36,6 +36,7 @@ class AdAccountMatchedSearchApplicationsEdgeDataStoresToFilterValues extends Abs
   const FB_GAMEROOM = 'FB_GAMEROOM';
   const GALAXY_STORE = 'GALAXY_STORE';
   const GOOGLE_PLAY = 'GOOGLE_PLAY';
+  const HORIZON_WORLD = 'HORIZON_WORLD';
   const INSTANT_GAME = 'INSTANT_GAME';
   const ITUNES = 'ITUNES';
   const ITUNES_IPAD = 'ITUNES_IPAD';

@@ -42,6 +42,7 @@ class AdsUserSettingsFields extends AbstractEnum {
   const APLUSC_OPT_OUT_FRICTION = 'aplusc_opt_out_friction';
   const APLUSC_VIDEOFILTER_OPT_IN_STATUS = 'aplusc_videofilter_opt_in_status';
   const APLUSC_VIDEOUNCROP_OPT_IN_STATUS = 'aplusc_videouncrop_opt_in_status';
+  const APP_DETAILS_DATA_OPT_IN_STATUS = 'app_details_data_opt_in_status';
   const AUTOFLOW_LITE_OPT_IN_STATUS = 'autoflow_lite_opt_in_status';
   const AUTOFLOW_LITE_SHOULD_OPT_IN = 'autoflow_lite_should_opt_in';
   const BLENDED_ADS_CREATION_DEFAULTING_OPT_IN_STATUS = 'blended_ads_creation_defaulting_opt_in_status';
@@ -53,6 +54,7 @@ class AdsUserSettingsFields extends AbstractEnum {
   const CONNECTED_SOURCES_CATALOG_OPT_IN_STATUS = 'connected_sources_catalog_opt_in_status';
   const CREATE_CTA_STICKER_OPT_IN_STATUS = 'create_cta_sticker_opt_in_status';
   const CREATIVE_FLEX_OPT_IN_STATUS = 'creative_flex_opt_in_status';
+  const DA_ADAPT_IMAGES_OPT_IN_STATUS = 'da_adapt_images_opt_in_status';
   const DA_ADD_OVERLAYS_OPT_IN_STATUS = 'da_add_overlays_opt_in_status';
   const DA_CREATIVE_FLEX_OPT_IN_STATUS = 'da_creative_flex_opt_in_status';
   const DA_HIDE_PRICE_OPT_IN_STATUS = 'da_hide_price_opt_in_status';
@@ -61,6 +63,7 @@ class AdsUserSettingsFields extends AbstractEnum {
   const DYNAMIC_PARTNERSHIP_ADS_OPT_IN_STATUS = 'dynamic_partnership_ads_opt_in_status';
   const ENHANCE_CTA_TEXT_EXTRACTION_OPT_IN_STATUS = 'enhance_cta_text_extraction_opt_in_status';
   const EXPORT_FORMAT_DEFAULT = 'export_format_default';
+  const FEEDBACK_SURVEYS = 'feedback_surveys';
   const FOCUS_MODE_DEFAULT = 'focus_mode_default';
   const GEN_AI_ALPHA_TEST_STATUS = 'gen_ai_alpha_test_status';
   const GEN_AI_AUTO_SELECT_OPT_IN_STATUS = 'gen_ai_auto_select_opt_in_status';
@@ -76,6 +79,7 @@ class AdsUserSettingsFields extends AbstractEnum {
   const LAST_VISITED_TIME = 'last_visited_time';
   const METADATA_BRAND_KIT_LAST_OPT_OUT_TIMESTAMP = 'metadata_brand_kit_last_opt_out_timestamp';
   const METADATA_BRAND_KIT_OPT_IN_STATUS = 'metadata_brand_kit_opt_in_status';
+  const MULTI_MEDIA_OPT_OUT_STATUS = 'multi_media_opt_out_status';
   const MUSIC_ON_REELS_OPT_IN = 'music_on_reels_opt_in';
   const MUTED_CBO_MIDFLIGHT_EDUCATION_MESSAGES = 'muted_cbo_midflight_education_messages';
   const ONSITE_DESTINATION_OPTIMIZATION_OPT_IN = 'onsite_destination_optimization_opt_in';
@@ -117,6 +121,7 @@ class AdsUserSettingsFields extends AbstractEnum {
   const USE_PE_CREATE_FLOW = 'use_pe_create_flow';
   const USE_STEPPER_PRIMARY_ENTRY = 'use_stepper_primary_entry';
   const USER = 'user';
+  const VIDEO_TO_IMAGE_OPT_IN_STATUS = 'video_to_image_opt_in_status';
   const WEBSITE_MEDIA_OPT_IN_STATUS = 'website_media_opt_in_status';
   const WEBSITE_REVIEWS_DATA_OPT_IN_STATUS = 'website_reviews_data_opt_in_status';
   const WEBSITE_SELLING_POINTS_DATA_OPT_IN_STATUS = 'website_selling_points_data_opt_in_status';
@@ -143,6 +148,7 @@ class AdsUserSettingsFields extends AbstractEnum {
       'aplusc_opt_out_friction' => 'list<string>',
       'aplusc_videofilter_opt_in_status' => 'string',
       'aplusc_videouncrop_opt_in_status' => 'string',
+      'app_details_data_opt_in_status' => 'string',
       'autoflow_lite_opt_in_status' => 'string',
       'autoflow_lite_should_opt_in' => 'bool',
       'blended_ads_creation_defaulting_opt_in_status' => 'string',
@@ -154,6 +160,7 @@ class AdsUserSettingsFields extends AbstractEnum {
       'connected_sources_catalog_opt_in_status' => 'string',
       'create_cta_sticker_opt_in_status' => 'string',
       'creative_flex_opt_in_status' => 'string',
+      'da_adapt_images_opt_in_status' => 'string',
       'da_add_overlays_opt_in_status' => 'string',
       'da_creative_flex_opt_in_status' => 'string',
       'da_hide_price_opt_in_status' => 'string',
@@ -162,6 +169,7 @@ class AdsUserSettingsFields extends AbstractEnum {
       'dynamic_partnership_ads_opt_in_status' => 'string',
       'enhance_cta_text_extraction_opt_in_status' => 'string',
       'export_format_default' => 'string',
+      'feedback_surveys' => 'list<string>',
       'focus_mode_default' => 'string',
       'gen_ai_alpha_test_status' => 'int',
       'gen_ai_auto_select_opt_in_status' => 'string',
@@ -177,6 +185,7 @@ class AdsUserSettingsFields extends AbstractEnum {
       'last_visited_time' => 'datetime',
       'metadata_brand_kit_last_opt_out_timestamp' => 'int',
       'metadata_brand_kit_opt_in_status' => 'string',
+      'multi_media_opt_out_status' => 'string',
       'music_on_reels_opt_in' => 'list<map<string, string>>',
       'muted_cbo_midflight_education_messages' => 'list<string>',
       'onsite_destination_optimization_opt_in' => 'string',
@@ -218,6 +227,7 @@ class AdsUserSettingsFields extends AbstractEnum {
       'use_pe_create_flow' => 'bool',
       'use_stepper_primary_entry' => 'bool',
       'user' => 'User',
+      'video_to_image_opt_in_status' => 'string',
       'website_media_opt_in_status' => 'string',
       'website_reviews_data_opt_in_status' => 'string',
       'website_selling_points_data_opt_in_status' => 'string',

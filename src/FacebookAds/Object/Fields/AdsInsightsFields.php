@@ -35,7 +35,12 @@ class AdsInsightsFields extends AbstractEnum {
   const ADSET_ID = 'adset_id';
   const ADSET_NAME = 'adset_name';
   const ADSET_START = 'adset_start';
+  const ADVANCED_ACTIONS_28D_VIEW = 'advanced_actions_28d_view';
+  const ADVANCED_REACH_1D_LOOKBACK = 'advanced_reach_1d_lookback';
+  const ADVANCED_REACH_28D_LOOKBACK = 'advanced_reach_28d_lookback';
+  const ADVANCED_REACH_7D_LOOKBACK = 'advanced_reach_7d_lookback';
   const AGE_TARGETING = 'age_targeting';
+  const ANCHOR_EVENT_ATTRIBUTION_SETTING = 'anchor_event_attribution_setting';
   const ANCHOR_EVENTS_PERFORMANCE_INDICATOR = 'anchor_events_performance_indicator';
   const ATTRIBUTION_SETTING = 'attribution_setting';
   const AUCTION_BID = 'auction_bid';
@@ -123,6 +128,7 @@ class AdsInsightsFields extends AbstractEnum {
   const INLINE_LINK_CLICK_CTR = 'inline_link_click_ctr';
   const INLINE_LINK_CLICKS = 'inline_link_clicks';
   const INLINE_POST_ENGAGEMENT = 'inline_post_engagement';
+  const INSTAGRAM_PROFILE_VISITS = 'instagram_profile_visits';
   const INSTAGRAM_UPCOMING_EVENT_REMINDERS_SET = 'instagram_upcoming_event_reminders_set';
   const INSTANT_EXPERIENCE_CLICKS_TO_OPEN = 'instant_experience_clicks_to_open';
   const INSTANT_EXPERIENCE_CLICKS_TO_START = 'instant_experience_clicks_to_start';
@@ -156,6 +162,7 @@ class AdsInsightsFields extends AbstractEnum {
   const MARKETING_MESSAGES_WEBSITE_PURCHASE = 'marketing_messages_website_purchase';
   const MARKETING_MESSAGES_WEBSITE_PURCHASE_VALUES = 'marketing_messages_website_purchase_values';
   const MOBILE_APP_PURCHASE_ROAS = 'mobile_app_purchase_roas';
+  const MULTI_EVENT_CONVERSION_ATTRIBUTION_SETTING = 'multi_event_conversion_attribution_setting';
   const OBJECTIVE = 'objective';
   const OBJECTIVE_RESULT_RATE = 'objective_result_rate';
   const OBJECTIVE_RESULTS = 'objective_results';
@@ -231,7 +238,12 @@ class AdsInsightsFields extends AbstractEnum {
       'adset_id' => 'string',
       'adset_name' => 'string',
       'adset_start' => 'string',
+      'advanced_actions_28d_view' => 'list<AdsActionStats>',
+      'advanced_reach_1d_lookback' => 'string',
+      'advanced_reach_28d_lookback' => 'string',
+      'advanced_reach_7d_lookback' => 'string',
       'age_targeting' => 'string',
+      'anchor_event_attribution_setting' => 'string',
       'anchor_events_performance_indicator' => 'string',
       'attribution_setting' => 'string',
       'auction_bid' => 'string',
@@ -319,6 +331,7 @@ class AdsInsightsFields extends AbstractEnum {
       'inline_link_click_ctr' => 'string',
       'inline_link_clicks' => 'string',
       'inline_post_engagement' => 'string',
+      'instagram_profile_visits' => 'string',
       'instagram_upcoming_event_reminders_set' => 'string',
       'instant_experience_clicks_to_open' => 'string',
       'instant_experience_clicks_to_start' => 'string',
@@ -352,6 +365,7 @@ class AdsInsightsFields extends AbstractEnum {
       'marketing_messages_website_purchase' => 'string',
       'marketing_messages_website_purchase_values' => 'string',
       'mobile_app_purchase_roas' => 'list<AdsActionStats>',
+      'multi_event_conversion_attribution_setting' => 'string',
       'objective' => 'string',
       'objective_result_rate' => 'list<Object>',
       'objective_results' => 'list<Object>',

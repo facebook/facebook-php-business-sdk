@@ -46,6 +46,7 @@ class WhatsAppBusinessAccountFields extends AbstractEnum {
   const PRIMARY_FUNDING_ID = 'primary_funding_id';
   const PURCHASE_ORDER_NUMBER = 'purchase_order_number';
   const STATUS = 'status';
+  const TEMPLATE_AUTO_ARCHIVAL_ENABLED = 'template_auto_archival_enabled';
   const TIMEZONE_ID = 'timezone_id';
   const WHATSAPP_BUSINESS_MANAGER_MESSAGING_LIMIT = 'whatsapp_business_manager_messaging_limit';
 
@@ -75,6 +76,7 @@ class WhatsAppBusinessAccountFields extends AbstractEnum {
       'primary_funding_id' => 'string',
       'purchase_order_number' => 'string',
       'status' => 'string',
+      'template_auto_archival_enabled' => 'bool',
       'timezone_id' => 'string',
       'whatsapp_business_manager_messaging_limit' => 'WhatsappBusinessManagerMessagingLimit',
     );

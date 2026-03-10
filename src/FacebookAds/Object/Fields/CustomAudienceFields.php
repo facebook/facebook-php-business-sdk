@@ -44,6 +44,7 @@ class CustomAudienceFields extends AbstractEnum {
   const IS_VALUE_BASED = 'is_value_based';
   const LOOKALIKE_AUDIENCE_IDS = 'lookalike_audience_ids';
   const LOOKALIKE_SPEC = 'lookalike_spec';
+  const MESSENGER_MARKETING_MESSAGES_PAGE = 'messenger_marketing_messages_page';
   const NAME = 'name';
   const OPERATION_STATUS = 'operation_status';
   const OPT_OUT_LINK = 'opt_out_link';
@@ -85,6 +86,7 @@ class CustomAudienceFields extends AbstractEnum {
   const PREFILL = 'prefill';
   const PRODUCT_SET_ID = 'product_set_id';
   const SUBSCRIPTION_INFO = 'subscription_info';
+  const USAGE_RESTRICTION = 'usage_restriction';
   const USE_FOR_PRODUCTS = 'use_for_products';
   const USE_IN_CAMPAIGNS = 'use_in_campaigns';
   const VIDEO_GROUP_IDS = 'video_group_ids';
@@ -114,6 +116,7 @@ class CustomAudienceFields extends AbstractEnum {
       'is_value_based' => 'bool',
       'lookalike_audience_ids' => 'list<string>',
       'lookalike_spec' => 'LookalikeSpec',
+      'messenger_marketing_messages_page' => 'Page',
       'name' => 'string',
       'operation_status' => 'CustomAudienceStatus',
       'opt_out_link' => 'string',
@@ -155,6 +158,7 @@ class CustomAudienceFields extends AbstractEnum {
       'prefill' => 'bool',
       'product_set_id' => 'string',
       'subscription_info' => 'list<SubscriptionInfo>',
+      'usage_restriction' => 'UsageRestriction',
       'use_for_products' => 'list<UseForProducts>',
       'use_in_campaigns' => 'bool',
       'video_group_ids' => 'list<string>',

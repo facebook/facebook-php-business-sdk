@@ -109,6 +109,7 @@ use FacebookAds\Object\Values\CustomAudienceContentTypeValues;
 use FacebookAds\Object\Values\CustomAudienceCustomerFileSourceValues;
 use FacebookAds\Object\Values\CustomAudienceSubscriptionInfoValues;
 use FacebookAds\Object\Values\CustomAudienceSubtypeValues;
+use FacebookAds\Object\Values\CustomAudienceUsageRestrictionValues;
 use FacebookAds\Object\Values\CustomAudienceUseForProductsValues;
 use FacebookAds\Object\Values\CustomConversionActionSourceTypeValues;
 use FacebookAds\Object\Values\CustomConversionCustomEventTypeValues;
@@ -453,6 +454,7 @@ class AdAccount extends AbstractCrudObject {
       'is_dco_internal' => 'bool',
       'link_og_id' => 'string',
       'link_url' => 'string',
+      'marketing_message_structured_spec' => 'map',
       'media_sourcing_spec' => 'map',
       'name' => 'string',
       'object_id' => 'unsigned int',
@@ -467,8 +469,10 @@ class AdAccount extends AbstractCrudObject {
       'playable_asset_id' => 'string',
       'portrait_customizations' => 'map',
       'product_set_id' => 'string',
+      'product_suggestion_settings' => 'map',
       'recommender_settings' => 'map',
       'regional_regulation_disclaimer_spec' => 'map',
+      'source_facebook_post_id' => 'string',
       'source_instagram_media_id' => 'string',
       'template_url' => 'string',
       'template_url_spec' => 'string',
@@ -532,6 +536,7 @@ class AdAccount extends AbstractCrudObject {
 
     $param_types = array(
       'hash' => 'string',
+      'image_id' => 'string',
     );
     $enums = array(
     );
@@ -1274,6 +1279,7 @@ class AdAccount extends AbstractCrudObject {
       'content_category' => 'content_category_enum',
       'creative_tools' => 'string',
       'description' => 'string',
+      'edit_description_spec' => 'map',
       'embeddable' => 'bool',
       'end_offset' => 'unsigned int',
       'fbuploader_video_file_chunk' => 'string',
@@ -2105,6 +2111,7 @@ class AdAccount extends AbstractCrudObject {
       'rule_aggregation' => 'string',
       'subscription_info' => 'list<subscription_info_enum>',
       'subtype' => 'subtype_enum',
+      'usage_restriction' => 'usage_restriction_enum',
       'use_for_products' => 'list<use_for_products_enum>',
       'use_in_campaigns' => 'bool',
       'video_group_ids' => 'list<string>',
@@ -2116,6 +2123,7 @@ class AdAccount extends AbstractCrudObject {
       'customer_file_source_enum' => CustomAudienceCustomerFileSourceValues::getInstance()->getValues(),
       'subscription_info_enum' => CustomAudienceSubscriptionInfoValues::getInstance()->getValues(),
       'subtype_enum' => CustomAudienceSubtypeValues::getInstance()->getValues(),
+      'usage_restriction_enum' => CustomAudienceUsageRestrictionValues::getInstance()->getValues(),
       'use_for_products_enum' => CustomAudienceUseForProductsValues::getInstance()->getValues(),
     );
 
@@ -3013,6 +3021,7 @@ class AdAccount extends AbstractCrudObject {
     $param_types = array(
       'asc_fragmentation_parameters' => 'map',
       'autoflow_parameters' => 'map',
+      'extra_data' => 'map',
       'fragmentation_parameters' => 'map',
       'music_parameters' => 'map',
       'recommendation_signature' => 'string',
@@ -3449,6 +3458,30 @@ class AdAccount extends AbstractCrudObject {
       new AdsValueAdjustmentRuleCollection(),
       'EDGE',
       AdsValueAdjustmentRuleCollection::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createValueRuleSetTranslation(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'source' => 'Object',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/value_rule_set_translation',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

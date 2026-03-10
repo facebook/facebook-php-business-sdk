@@ -48,7 +48,6 @@ use FacebookAds\Object\Values\BusinessVerificationStatusValues;
 use FacebookAds\Object\Values\BusinessVerticalV2Values;
 use FacebookAds\Object\Values\BusinessVerticalValues;
 use FacebookAds\Object\Values\BusinessWhatsappBusinessManagerMessagingLimitValues;
-use FacebookAds\Object\Values\CPASCollaborationRequestRequesterAgencyOrBrandValues;
 use FacebookAds\Object\Values\CustomConversionActionSourceTypeValues;
 use FacebookAds\Object\Values\CustomConversionCustomEventTypeValues;
 use FacebookAds\Object\Values\ManagedPartnerBusinessPartitionTypeValues;
@@ -56,6 +55,9 @@ use FacebookAds\Object\Values\ManagedPartnerBusinessSurveyBusinessTypeValues;
 use FacebookAds\Object\Values\ManagedPartnerBusinessTimezoneIdValues;
 use FacebookAds\Object\Values\ManagedPartnerBusinessVerticalValues;
 use FacebookAds\Object\Values\OmegaCustomerTrxTypeValues;
+use FacebookAds\Object\Values\OpenBridgeConfigurationCapiPublishingStateValues;
+use FacebookAds\Object\Values\OpenBridgeConfigurationEventEnrichmentAdvertiserStateValues;
+use FacebookAds\Object\Values\OpenBridgeConfigurationEventEnrichmentMetaStateValues;
 use FacebookAds\Object\Values\OpenBridgeConfigurationEventEnrichmentStateValues;
 use FacebookAds\Object\Values\ProductCatalogAdditionalVerticalOptionValues;
 use FacebookAds\Object\Values\ProductCatalogVerticalValues;
@@ -257,6 +259,7 @@ class Business extends AbstractCrudObject {
       'client_business' => 'string',
       'confidence_level' => 'float',
       'cooldown_start_time' => 'int',
+      'creative_test_config' => 'map',
       'description' => 'string',
       'end_time' => 'int',
       'name' => 'string',
@@ -1199,38 +1202,6 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createCollaborativeAdsCollaborationRequest(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'brands' => 'list<string>',
-      'contact_email' => 'string',
-      'contact_first_name' => 'string',
-      'contact_last_name' => 'string',
-      'phone_number' => 'string',
-      'receiver_business' => 'string',
-      'requester_agency_or_brand' => 'requester_agency_or_brand_enum',
-      'sender_client_business' => 'string',
-    );
-    $enums = array(
-      'requester_agency_or_brand_enum' => CPASCollaborationRequestRequesterAgencyOrBrandValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/collaborative_ads_collaboration_requests',
-      new CPASCollaborationRequest(),
-      'EDGE',
-      CPASCollaborationRequest::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getCollaborativeAdsSuggestedPartners(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1893,13 +1864,15 @@ class Business extends AbstractCrudObject {
       'active' => 'bool',
       'blocked_event_types' => 'list<string>',
       'blocked_websites' => 'list<string>',
+      'capi_publishing_state' => 'capi_publishing_state_enum',
       'cloud_provider' => 'string',
       'cloud_region' => 'string',
       'destination_id' => 'string',
       'endpoint' => 'string',
+      'event_enrichment_advertiser_state' => 'event_enrichment_advertiser_state_enum',
+      'event_enrichment_meta_state' => 'event_enrichment_meta_state_enum',
       'event_enrichment_state' => 'event_enrichment_state_enum',
       'fallback_domain' => 'string',
-      'first_party_domain' => 'string',
       'host_business_id' => 'unsigned int',
       'instance_id' => 'string',
       'instance_version' => 'string',
@@ -1912,6 +1885,9 @@ class Business extends AbstractCrudObject {
       'sgw_pixel_id' => 'unsigned int',
     );
     $enums = array(
+      'capi_publishing_state_enum' => OpenBridgeConfigurationCapiPublishingStateValues::getInstance()->getValues(),
+      'event_enrichment_advertiser_state_enum' => OpenBridgeConfigurationEventEnrichmentAdvertiserStateValues::getInstance()->getValues(),
+      'event_enrichment_meta_state_enum' => OpenBridgeConfigurationEventEnrichmentMetaStateValues::getInstance()->getValues(),
       'event_enrichment_state_enum' => OpenBridgeConfigurationEventEnrichmentStateValues::getInstance()->getValues(),
     );
 
@@ -1934,6 +1910,7 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'include_shared_ad_accounts' => 'bool',
       'search_query' => 'string',
     );
     $enums = array(
@@ -2982,6 +2959,7 @@ class Business extends AbstractCrudObject {
       'creative_folder_id' => 'string',
       'creative_tools' => 'string',
       'description' => 'string',
+      'edit_description_spec' => 'map',
       'embeddable' => 'bool',
       'end_offset' => 'unsigned int',
       'fbuploader_video_file_chunk' => 'string',

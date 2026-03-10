@@ -28,6 +28,8 @@ class AdCampaignLearningStageInfoFields extends AbstractEnum {
   const DYNAMIC_LP_DAYS_THRESHOLD = 'dynamic_lp_days_threshold';
   const DYNAMIC_LP_STATUS = 'dynamic_lp_status';
   const LAST_SIG_EDIT_TS = 'last_sig_edit_ts';
+  const RECOMMENDED_BUDGET_PREDICTION = 'recommended_budget_prediction';
+  const SIGEDIT_REMOVAL = 'sigedit_removal';
   const STATUS = 'status';
 
   public function getFieldTypes() {
@@ -38,6 +40,8 @@ class AdCampaignLearningStageInfoFields extends AbstractEnum {
       'dynamic_lp_days_threshold' => 'unsigned int',
       'dynamic_lp_status' => 'string',
       'last_sig_edit_ts' => 'int',
+      'recommended_budget_prediction' => 'Object',
+      'sigedit_removal' => 'bool',
       'status' => 'string',
     );
   }

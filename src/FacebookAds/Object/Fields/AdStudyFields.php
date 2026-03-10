@@ -42,6 +42,7 @@ class AdStudyFields extends AbstractEnum {
   const UPDATED_TIME = 'updated_time';
   const CELLS = 'cells';
   const CONFIDENCE_LEVEL = 'confidence_level';
+  const CREATIVE_TEST_CONFIG = 'creative_test_config';
   const OBJECTIVES = 'objectives';
   const VIEWERS = 'viewers';
 
@@ -67,6 +68,7 @@ class AdStudyFields extends AbstractEnum {
       'updated_time' => 'datetime',
       'cells' => 'list<Object>',
       'confidence_level' => 'float',
+      'creative_test_config' => 'map',
       'objectives' => 'list<Object>',
       'viewers' => 'list<int>',
     );

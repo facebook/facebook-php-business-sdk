@@ -22,7 +22,6 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdPromotedObjectFields extends AbstractEnum {
 
-  const ANCHOR_EVENT_CONFIG = 'anchor_event_config';
   const APPLICATION_ID = 'application_id';
   const BOOSTED_PRODUCT_SET_ID = 'boosted_product_set_id';
   const CONVERSION_GOAL_ID = 'conversion_goal_id';
@@ -39,6 +38,7 @@ class AdPromotedObjectFields extends AbstractEnum {
   const LEAD_ADS_FORM_EVENT_SOURCE_TYPE = 'lead_ads_form_event_source_type';
   const LEAD_ADS_OFFSITE_CONVERSION_TYPE = 'lead_ads_offsite_conversion_type';
   const LEAD_ADS_SELECTED_PIXEL_ID = 'lead_ads_selected_pixel_id';
+  const LIVE_VIDEO_DESTINATION = 'live_video_destination';
   const MCME_CONVERSION_ID = 'mcme_conversion_id';
   const MULTI_EVENT_PRODUCT = 'multi_event_product';
   const OBJECT_STORE_URL = 'object_store_url';
@@ -61,6 +61,8 @@ class AdPromotedObjectFields extends AbstractEnum {
   const PRODUCT_SET_ID = 'product_set_id';
   const PRODUCT_SET_OPTIMIZATION = 'product_set_optimization';
   const RETENTION_DAYS = 'retention_days';
+  const SMART_PSE_ENABLED = 'smart_pse_enabled';
+  const SMART_PSE_SETTING = 'smart_pse_setting';
   const VALUE_SEMANTIC_TYPE = 'value_semantic_type';
   const VARIATION = 'variation';
   const WHATS_APP_BUSINESS_PHONE_NUMBER_ID = 'whats_app_business_phone_number_id';
@@ -68,7 +70,6 @@ class AdPromotedObjectFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'anchor_event_config' => 'string',
       'application_id' => 'string',
       'boosted_product_set_id' => 'string',
       'conversion_goal_id' => 'string',
@@ -85,6 +86,7 @@ class AdPromotedObjectFields extends AbstractEnum {
       'lead_ads_form_event_source_type' => 'string',
       'lead_ads_offsite_conversion_type' => 'string',
       'lead_ads_selected_pixel_id' => 'string',
+      'live_video_destination' => 'string',
       'mcme_conversion_id' => 'string',
       'multi_event_product' => 'string',
       'object_store_url' => 'string',
@@ -107,6 +109,8 @@ class AdPromotedObjectFields extends AbstractEnum {
       'product_set_id' => 'string',
       'product_set_optimization' => 'string',
       'retention_days' => 'string',
+      'smart_pse_enabled' => 'bool',
+      'smart_pse_setting' => 'string',
       'value_semantic_type' => 'string',
       'variation' => 'string',
       'whats_app_business_phone_number_id' => 'string',
