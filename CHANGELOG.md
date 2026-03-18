@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## v24.0.2
+### Added
+- Add touchpoint_id field to AttributionData
+
 ## v24.0.1
 ### Added
 - Add additional AMM fields: attribution_method, decline_reason, auditing_token, linkage_key
