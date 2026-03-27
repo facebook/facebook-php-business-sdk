@@ -23,10 +23,14 @@ use FacebookAds\Enum\AbstractEnum;
 class AdCreativeDestinationSpecFields extends AbstractEnum {
 
   const DESTINATION_TYPE = 'destination_type';
+  const NATIVE_COMMERCE_EXPERIENCE = 'native_commerce_experience';
+  const WEBSITE = 'website';
 
   public function getFieldTypes() {
     return array(
       'destination_type' => 'string',
+      'native_commerce_experience' => 'Object',
+      'website' => 'Object',
     );
   }
 }

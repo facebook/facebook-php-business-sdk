@@ -73,6 +73,7 @@ class WhatsAppBusinessPreVerifiedPhoneNumber extends AbstractCrudObject {
     );
     $enums = array(
       'code_method_enum' => array(
+        'IVR',
         'SMS',
         'VOICE',
       ),

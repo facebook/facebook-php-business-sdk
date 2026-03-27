@@ -49,6 +49,7 @@ class PageFields extends AbstractEnum {
   const CONNECTED_INSTAGRAM_ACCOUNT = 'connected_instagram_account';
   const CONNECTED_PAGE_BACKED_INSTAGRAM_ACCOUNT = 'connected_page_backed_instagram_account';
   const CONTACT_ADDRESS = 'contact_address';
+  const COPYRIGHT_ATTRIBUTION_INSIGHTS = 'copyright_attribution_insights';
   const COPYRIGHT_WHITELISTED_IG_PARTNERS = 'copyright_whitelisted_ig_partners';
   const COUNTRY_PAGE_LIKES = 'country_page_likes';
   const COVER = 'cover';
@@ -137,6 +138,7 @@ class PageFields extends AbstractEnum {
   const PREFERRED_AUDIENCE = 'preferred_audience';
   const PRESS_CONTACT = 'press_contact';
   const PRICE_RANGE = 'price_range';
+  const PRIORITY_HOURS = 'priority_hours';
   const PRIVACY_INFO_URL = 'privacy_info_url';
   const PRODUCED_BY = 'produced_by';
   const PRODUCTS = 'products';
@@ -203,6 +205,7 @@ class PageFields extends AbstractEnum {
       'connected_instagram_account' => 'IGUser',
       'connected_page_backed_instagram_account' => 'IGUser',
       'contact_address' => 'MailingAddress',
+      'copyright_attribution_insights' => 'CopyrightAttributionInsights',
       'copyright_whitelisted_ig_partners' => 'list<string>',
       'country_page_likes' => 'unsigned int',
       'cover' => 'CoverPhoto',
@@ -291,6 +294,7 @@ class PageFields extends AbstractEnum {
       'preferred_audience' => 'Targeting',
       'press_contact' => 'string',
       'price_range' => 'string',
+      'priority_hours' => 'list<map<string, string>>',
       'privacy_info_url' => 'string',
       'produced_by' => 'string',
       'products' => 'string',

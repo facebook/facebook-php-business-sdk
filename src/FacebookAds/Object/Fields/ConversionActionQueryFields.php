@@ -27,6 +27,7 @@ class ConversionActionQueryFields extends AbstractEnum {
   const CONVERSION_ID = 'conversion_id';
   const CREATIVE = 'creative';
   const DATASET = 'dataset';
+  const DATASET_SPLIT = 'dataset_split';
   const EVENT = 'event';
   const FIELD_EVENT_CREATOR = 'event.creator';
   const EVENT_TYPE = 'event_type';
@@ -56,6 +57,7 @@ class ConversionActionQueryFields extends AbstractEnum {
       'conversion_id' => 'list<string>',
       'creative' => 'list<Object>',
       'dataset' => 'list<string>',
+      'dataset_split' => 'list<string>',
       'event' => 'list<string>',
       'event.creator' => 'list<string>',
       'event_type' => 'list<string>',

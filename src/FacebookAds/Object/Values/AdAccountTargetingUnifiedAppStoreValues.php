@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdAccountTargetingUnifiedAppStoreValues extends AbstractEnum {
 
+  const ALL_APP_STORES_FOR_ANDROID_AND_IOS = 'all_app_stores_for_android_and_ios';
   const AMAZON_APP_STORE = 'amazon_app_store';
   const APK_MIRROR = 'apk_mirror';
   const APK_MONK = 'apk_monk';
@@ -35,6 +36,7 @@ class AdAccountTargetingUnifiedAppStoreValues extends AbstractEnum {
   const FB_GAMEROOM = 'fb_gameroom';
   const GALAXY_STORE = 'galaxy_store';
   const GOOGLE_PLAY = 'google_play';
+  const HORIZON_WORLD = 'horizon_world';
   const INSTANT_GAME = 'instant_game';
   const ITUNES = 'itunes';
   const ITUNES_IPAD = 'itunes_ipad';

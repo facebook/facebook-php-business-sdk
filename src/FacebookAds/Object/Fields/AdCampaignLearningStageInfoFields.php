@@ -24,14 +24,24 @@ class AdCampaignLearningStageInfoFields extends AbstractEnum {
 
   const ATTRIBUTION_WINDOWS = 'attribution_windows';
   const CONVERSIONS = 'conversions';
+  const DYNAMIC_LP_CONVERSIONS_THRESHOLD = 'dynamic_lp_conversions_threshold';
+  const DYNAMIC_LP_DAYS_THRESHOLD = 'dynamic_lp_days_threshold';
+  const DYNAMIC_LP_STATUS = 'dynamic_lp_status';
   const LAST_SIG_EDIT_TS = 'last_sig_edit_ts';
+  const RECOMMENDED_BUDGET_PREDICTION = 'recommended_budget_prediction';
+  const SIGEDIT_REMOVAL = 'sigedit_removal';
   const STATUS = 'status';
 
   public function getFieldTypes() {
     return array(
       'attribution_windows' => 'list<string>',
       'conversions' => 'unsigned int',
+      'dynamic_lp_conversions_threshold' => 'unsigned int',
+      'dynamic_lp_days_threshold' => 'unsigned int',
+      'dynamic_lp_status' => 'string',
       'last_sig_edit_ts' => 'int',
+      'recommended_budget_prediction' => 'Object',
+      'sigedit_removal' => 'bool',
       'status' => 'string',
     );
   }

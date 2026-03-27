@@ -25,8 +25,10 @@ class BrandedContentShadowIGMediaIDFields extends AbstractEnum {
   const ELIGIBILITY_ERRORS = 'eligibility_errors';
   const HAS_PERMISSION_FOR_PARTNERSHIP_AD = 'has_permission_for_partnership_ad';
   const ID = 'id';
+  const LINKED_PRODUCTS = 'linked_products';
   const OWNER_ID = 'owner_id';
   const PERMALINK = 'permalink';
+  const PRODUCT_SUGGESTIONS = 'product_suggestions';
   const RECOMMENDED_CAMPAIGN_OBJECTIVES = 'recommended_campaign_objectives';
 
   public function getFieldTypes() {
@@ -34,8 +36,10 @@ class BrandedContentShadowIGMediaIDFields extends AbstractEnum {
       'eligibility_errors' => 'list<string>',
       'has_permission_for_partnership_ad' => 'bool',
       'id' => 'string',
+      'linked_products' => 'list<ProductItem>',
       'owner_id' => 'string',
       'permalink' => 'string',
+      'product_suggestions' => 'list<ProductItem>',
       'recommended_campaign_objectives' => 'list<string>',
     );
   }

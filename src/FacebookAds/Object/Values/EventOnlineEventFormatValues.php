@@ -24,7 +24,6 @@ class EventOnlineEventFormatValues extends AbstractEnum {
 
   const FB_LIVE = 'fb_live';
   const HORIZON_EVENT = 'horizon_event';
-  const HORIZON_WORLD = 'horizon_world';
   const MESSENGER_ROOM = 'messenger_room';
   const NONE = 'none';
   const OTHER = 'other';

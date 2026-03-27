@@ -23,8 +23,10 @@ use FacebookAds\Enum\AbstractEnum;
 class VideoCopyrightFields extends AbstractEnum {
 
   const CONTENT_CATEGORY = 'content_category';
+  const CONTENT_PROTECT_PROTECTION_DISABLED_REASON = 'content_protect_protection_disabled_reason';
   const COPYRIGHT_CONTENT_ID = 'copyright_content_id';
   const CREATOR = 'creator';
+  const DISABLE_PROTECTION_BY_CONTENT_PROTECT_STATUS = 'disable_protection_by_content_protect_status';
   const EXCLUDED_OWNERSHIP_SEGMENTS = 'excluded_ownership_segments';
   const ID = 'id';
   const IN_CONFLICT = 'in_conflict';
@@ -42,8 +44,10 @@ class VideoCopyrightFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'content_category' => 'string',
+      'content_protect_protection_disabled_reason' => 'string',
       'copyright_content_id' => 'string',
       'creator' => 'User',
+      'disable_protection_by_content_protect_status' => 'bool',
       'excluded_ownership_segments' => 'list<VideoCopyrightSegment>',
       'id' => 'string',
       'in_conflict' => 'bool',

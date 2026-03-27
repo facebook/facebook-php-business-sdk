@@ -31,6 +31,7 @@ class AdAssetTargetRuleTargetingFields extends AbstractEnum {
   const INSTAGRAM_POSITIONS = 'instagram_positions';
   const PUBLISHER_PLATFORMS = 'publisher_platforms';
   const THREADS_POSITIONS = 'threads_positions';
+  const WHATSAPP_POSITIONS = 'whatsapp_positions';
 
   public function getFieldTypes() {
     return array(
@@ -43,6 +44,7 @@ class AdAssetTargetRuleTargetingFields extends AbstractEnum {
       'instagram_positions' => 'list<string>',
       'publisher_platforms' => 'list<string>',
       'threads_positions' => 'list<string>',
+      'whatsapp_positions' => 'list<string>',
     );
   }
 }

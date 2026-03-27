@@ -27,7 +27,6 @@ class PlaceTopicFields extends AbstractEnum {
   const ICON_URL = 'icon_url';
   const ID = 'id';
   const NAME = 'name';
-  const PARENT_IDS = 'parent_ids';
   const PLURAL_NAME = 'plural_name';
   const TOP_SUBTOPIC_NAMES = 'top_subtopic_names';
 
@@ -38,7 +37,6 @@ class PlaceTopicFields extends AbstractEnum {
       'icon_url' => 'string',
       'id' => 'string',
       'name' => 'string',
-      'parent_ids' => 'list<string>',
       'plural_name' => 'string',
       'top_subtopic_names' => 'list<string>',
     );

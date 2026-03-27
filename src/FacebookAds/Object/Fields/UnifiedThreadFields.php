@@ -26,6 +26,7 @@ class UnifiedThreadFields extends AbstractEnum {
   const FOLDER = 'folder';
   const FORMER_PARTICIPANTS = 'former_participants';
   const ID = 'id';
+  const IS_OWNER = 'is_owner';
   const IS_SUBSCRIBED = 'is_subscribed';
   const LINK = 'link';
   const LINKED_GROUP = 'linked_group';
@@ -45,6 +46,7 @@ class UnifiedThreadFields extends AbstractEnum {
       'folder' => 'string',
       'former_participants' => 'Object',
       'id' => 'string',
+      'is_owner' => 'bool',
       'is_subscribed' => 'bool',
       'link' => 'string',
       'linked_group' => 'Group',

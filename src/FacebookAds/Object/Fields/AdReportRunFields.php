@@ -30,6 +30,10 @@ class AdReportRunFields extends AbstractEnum {
   const DATE_STOP = 'date_stop';
   const EMAILS = 'emails';
   const ERROR_CODE = 'error_code';
+  const ERROR_MESSAGE = 'error_message';
+  const ERROR_SUBCODE = 'error_subcode';
+  const ERROR_USER_MSG = 'error_user_msg';
+  const ERROR_USER_TITLE = 'error_user_title';
   const FRIENDLY_NAME = 'friendly_name';
   const ID = 'id';
   const IS_ASYNC_EXPORT = 'is_async_export';
@@ -49,6 +53,7 @@ class AdReportRunFields extends AbstractEnum {
   const EXPORT_NAME = 'export_name';
   const FIELDS = 'fields';
   const FILTERING = 'filtering';
+  const GRAPH_CACHE = 'graph_cache';
   const LEVEL = 'level';
   const LIMIT = 'limit';
   const PRODUCT_ID_LIMIT = 'product_id_limit';
@@ -70,7 +75,11 @@ class AdReportRunFields extends AbstractEnum {
       'date_start' => 'string',
       'date_stop' => 'string',
       'emails' => 'list<string>',
-      'error_code' => 'unsigned int',
+      'error_code' => 'int',
+      'error_message' => 'string',
+      'error_subcode' => 'unsigned int',
+      'error_user_msg' => 'string',
+      'error_user_title' => 'string',
       'friendly_name' => 'string',
       'id' => 'string',
       'is_async_export' => 'int',
@@ -90,6 +99,7 @@ class AdReportRunFields extends AbstractEnum {
       'export_name' => 'string',
       'fields' => 'list<string>',
       'filtering' => 'list<Object>',
+      'graph_cache' => 'bool',
       'level' => 'Level',
       'limit' => 'int',
       'product_id_limit' => 'int',

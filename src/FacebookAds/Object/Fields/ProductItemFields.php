@@ -68,6 +68,7 @@ class ProductItemFields extends AbstractEnum {
   const INVALIDATION_ERRORS = 'invalidation_errors';
   const INVENTORY = 'inventory';
   const IS_BUNDLE_HERO = 'is_bundle_hero';
+  const LIVE_SPECIAL_PRICE = 'live_special_price';
   const MANUFACTURER_INFO = 'manufacturer_info';
   const MANUFACTURER_PART_NUMBER = 'manufacturer_part_number';
   const MARKED_FOR_PRODUCT_LAUNCH = 'marked_for_product_launch';
@@ -91,6 +92,7 @@ class ProductItemFields extends AbstractEnum {
   const RETAILER_PRODUCT_GROUP_ID = 'retailer_product_group_id';
   const REVIEW_REJECTION_REASONS = 'review_rejection_reasons';
   const REVIEW_STATUS = 'review_status';
+  const RICH_TEXT_DESCRIPTION = 'rich_text_description';
   const SALE_PRICE = 'sale_price';
   const SALE_PRICE_END_DATE = 'sale_price_end_date';
   const SALE_PRICE_START_DATE = 'sale_price_start_date';
@@ -99,6 +101,7 @@ class ProductItemFields extends AbstractEnum {
   const SHORT_DESCRIPTION = 'short_description';
   const SIZE = 'size';
   const START_DATE = 'start_date';
+  const STATUS = 'status';
   const TAGS = 'tags';
   const URL = 'url';
   const VENDOR_ID = 'vendor_id';
@@ -106,6 +109,7 @@ class ProductItemFields extends AbstractEnum {
   const VIDEOS = 'videos';
   const VISIBILITY = 'visibility';
   const WA_COMPLIANCE_CATEGORY = 'wa_compliance_category';
+  const ALLOW_UPSERT = 'allow_upsert';
   const ANDROID_APP_NAME = 'android_app_name';
   const ANDROID_CLASS = 'android_class';
   const ANDROID_PACKAGE = 'android_package';
@@ -180,6 +184,7 @@ class ProductItemFields extends AbstractEnum {
       'invalidation_errors' => 'list<ProductItemInvalidationError>',
       'inventory' => 'int',
       'is_bundle_hero' => 'bool',
+      'live_special_price' => 'string',
       'manufacturer_info' => 'string',
       'manufacturer_part_number' => 'string',
       'marked_for_product_launch' => 'string',
@@ -203,6 +208,7 @@ class ProductItemFields extends AbstractEnum {
       'retailer_product_group_id' => 'string',
       'review_rejection_reasons' => 'list<string>',
       'review_status' => 'ReviewStatus',
+      'rich_text_description' => 'string',
       'sale_price' => 'string',
       'sale_price_end_date' => 'string',
       'sale_price_start_date' => 'string',
@@ -211,6 +217,7 @@ class ProductItemFields extends AbstractEnum {
       'short_description' => 'string',
       'size' => 'string',
       'start_date' => 'string',
+      'status' => 'Status',
       'tags' => 'list<string>',
       'url' => 'string',
       'vendor_id' => 'string',
@@ -218,6 +225,7 @@ class ProductItemFields extends AbstractEnum {
       'videos' => 'list<ProductItemVideoData>',
       'visibility' => 'Visibility',
       'wa_compliance_category' => 'string',
+      'allow_upsert' => 'bool',
       'android_app_name' => 'string',
       'android_class' => 'string',
       'android_package' => 'string',

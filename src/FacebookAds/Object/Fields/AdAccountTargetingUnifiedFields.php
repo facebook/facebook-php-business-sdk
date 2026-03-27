@@ -31,6 +31,7 @@ class AdAccountTargetingUnifiedFields extends AbstractEnum {
   const INFO = 'info';
   const INFO_TITLE = 'info_title';
   const IS_RECOMMENDATION = 'is_recommendation';
+  const IS_YOUTH_ADS_AGE_GATED = 'is_youth_ads_age_gated';
   const KEY = 'key';
   const LINK = 'link';
   const NAME = 'name';
@@ -57,6 +58,7 @@ class AdAccountTargetingUnifiedFields extends AbstractEnum {
       'info' => 'string',
       'info_title' => 'string',
       'is_recommendation' => 'bool',
+      'is_youth_ads_age_gated' => 'bool',
       'key' => 'string',
       'link' => 'string',
       'name' => 'string',

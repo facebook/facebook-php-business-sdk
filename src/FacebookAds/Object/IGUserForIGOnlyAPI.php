@@ -221,6 +221,7 @@ class IGUserForIGOnlyAPI extends AbstractCrudObject {
       'product_tags' => 'list<map>',
       'share_to_feed' => 'bool',
       'thumb_offset' => 'string',
+      'trial_params' => 'map',
       'upload_type' => 'string',
       'user_tags' => 'list<map>',
       'video_url' => 'string',
@@ -321,15 +322,20 @@ class IGUserForIGOnlyAPI extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'folder' => 'folder_enum',
       'message' => 'Object',
       'messaging_type' => 'messaging_type_enum',
       'payload' => 'string',
       'recipient' => 'Object',
+      'reply_to' => 'Object',
       'sender_action' => 'sender_action_enum',
       'tag' => 'Object',
       'thread_control' => 'Object',
     );
     $enums = array(
+      'folder_enum' => array(
+        'PARTNERSHIP',
+      ),
       'messaging_type_enum' => array(
         'MESSAGE_TAG',
         'RESPONSE',
@@ -372,7 +378,6 @@ class IGUserForIGOnlyAPI extends AbstractCrudObject {
         'COMMANDS',
         'DESCRIPTION',
         'GET_STARTED',
-        'GREETING',
         'HOME_URL',
         'ICE_BREAKERS',
         'PERSISTENT_MENU',
@@ -531,6 +536,7 @@ class IGUserForIGOnlyAPI extends AbstractCrudObject {
         'follow',
         'live_comments',
         'mentions',
+        'message_edit',
         'message_reactions',
         'messages',
         'messaging_handover',

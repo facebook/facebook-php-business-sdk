@@ -47,6 +47,7 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const CUSTOM_AUDIENCES = 'custom_audiences';
   const DEVICE_PLATFORMS = 'device_platforms';
   const DIRECT_INSTALL_DEVICES = 'direct_install_devices';
+  const DT_CONSOLIDATION_STATE = 'dt_consolidation_state';
   const DYNAMIC_AUDIENCE_IDS = 'dynamic_audience_ids';
   const EDUCATION_MAJORS = 'education_majors';
   const EDUCATION_SCHOOLS = 'education_schools';

@@ -14,7 +14,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\OmegaCustomerTrxFields;
-use FacebookAds\Object\Values\OmegaCustomerTrxProductTypesValues;
 use FacebookAds\Object\Values\OmegaCustomerTrxTypeValues;
 
 /**
@@ -37,7 +36,6 @@ class OmegaCustomerTrx extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['ProductTypes'] = OmegaCustomerTrxProductTypesValues::getInstance()->getValues();
     $ref_enums['Type'] = OmegaCustomerTrxTypeValues::getInstance()->getValues();
     return $ref_enums;
   }

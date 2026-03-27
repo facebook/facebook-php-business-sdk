@@ -23,10 +23,12 @@ use FacebookAds\Enum\AbstractEnum;
 class ABTestPostTestActionsFields extends AbstractEnum {
 
   const AUTO_CHANGE_BUDGET_TO_WINNER = 'auto_change_budget_to_winner';
+  const WINNER_BUDGET = 'winner_budget';
 
   public function getFieldTypes() {
     return array(
       'auto_change_budget_to_winner' => 'int',
+      'winner_budget' => 'string',
     );
   }
 }

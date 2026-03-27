@@ -34,6 +34,7 @@ class CustomAudienceFields extends AbstractEnum {
   const DESCRIPTION = 'description';
   const EXCLUDED_CUSTOM_AUDIENCES = 'excluded_custom_audiences';
   const EXTERNAL_EVENT_SOURCE = 'external_event_source';
+  const FIELDS_VIOLATING_INTEGRITY_POLICY = 'fields_violating_integrity_policy';
   const HOUSEHOLD_AUDIENCE = 'household_audience';
   const ID = 'id';
   const INCLUDED_CUSTOM_AUDIENCES = 'included_custom_audiences';
@@ -43,6 +44,7 @@ class CustomAudienceFields extends AbstractEnum {
   const IS_VALUE_BASED = 'is_value_based';
   const LOOKALIKE_AUDIENCE_IDS = 'lookalike_audience_ids';
   const LOOKALIKE_SPEC = 'lookalike_spec';
+  const MESSENGER_MARKETING_MESSAGES_PAGE = 'messenger_marketing_messages_page';
   const NAME = 'name';
   const OPERATION_STATUS = 'operation_status';
   const OPT_OUT_LINK = 'opt_out_link';
@@ -74,6 +76,7 @@ class CustomAudienceFields extends AbstractEnum {
   const EVENT_SOURCES = 'event_sources';
   const EXCLUSIONS = 'exclusions';
   const FACEBOOK_PAGE_ID = 'facebook_page_id';
+  const INCLUSIONOPERATOR = 'inclusionOperator';
   const INCLUSIONS = 'inclusions';
   const LIST_OF_ACCOUNTS = 'list_of_accounts';
   const MARKETING_MESSAGE_CHANNELS = 'marketing_message_channels';
@@ -83,6 +86,7 @@ class CustomAudienceFields extends AbstractEnum {
   const PREFILL = 'prefill';
   const PRODUCT_SET_ID = 'product_set_id';
   const SUBSCRIPTION_INFO = 'subscription_info';
+  const USAGE_RESTRICTION = 'usage_restriction';
   const USE_FOR_PRODUCTS = 'use_for_products';
   const USE_IN_CAMPAIGNS = 'use_in_campaigns';
   const VIDEO_GROUP_IDS = 'video_group_ids';
@@ -102,6 +106,7 @@ class CustomAudienceFields extends AbstractEnum {
       'description' => 'string',
       'excluded_custom_audiences' => 'list<CustomAudience>',
       'external_event_source' => 'AdsPixel',
+      'fields_violating_integrity_policy' => 'list<string>',
       'household_audience' => 'int',
       'id' => 'string',
       'included_custom_audiences' => 'list<CustomAudience>',
@@ -111,6 +116,7 @@ class CustomAudienceFields extends AbstractEnum {
       'is_value_based' => 'bool',
       'lookalike_audience_ids' => 'list<string>',
       'lookalike_spec' => 'LookalikeSpec',
+      'messenger_marketing_messages_page' => 'Page',
       'name' => 'string',
       'operation_status' => 'CustomAudienceStatus',
       'opt_out_link' => 'string',
@@ -142,6 +148,7 @@ class CustomAudienceFields extends AbstractEnum {
       'event_sources' => 'list<map>',
       'exclusions' => 'list<Object>',
       'facebook_page_id' => 'string',
+      'inclusionOperator' => 'string',
       'inclusions' => 'list<Object>',
       'list_of_accounts' => 'list<unsigned int>',
       'marketing_message_channels' => 'Object',
@@ -151,6 +158,7 @@ class CustomAudienceFields extends AbstractEnum {
       'prefill' => 'bool',
       'product_set_id' => 'string',
       'subscription_info' => 'list<SubscriptionInfo>',
+      'usage_restriction' => 'UsageRestriction',
       'use_for_products' => 'list<UseForProducts>',
       'use_in_campaigns' => 'bool',
       'video_group_ids' => 'list<string>',

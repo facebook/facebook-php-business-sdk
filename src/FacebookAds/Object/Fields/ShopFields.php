@@ -26,7 +26,6 @@ class ShopFields extends AbstractEnum {
   const FB_SALES_CHANNEL = 'fb_sales_channel';
   const ID = 'id';
   const IG_SALES_CHANNEL = 'ig_sales_channel';
-  const IS_ONSITE_ENABLED = 'is_onsite_enabled';
   const SHOP_STATUS = 'shop_status';
   const WORKSPACE = 'workspace';
 
@@ -36,7 +35,6 @@ class ShopFields extends AbstractEnum {
       'fb_sales_channel' => 'Object',
       'id' => 'string',
       'ig_sales_channel' => 'Object',
-      'is_onsite_enabled' => 'bool',
       'shop_status' => 'string',
       'workspace' => 'Object',
     );

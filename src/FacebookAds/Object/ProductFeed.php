@@ -22,6 +22,7 @@ use FacebookAds\Object\Values\ProductFeedItemSubTypeValues;
 use FacebookAds\Object\Values\ProductFeedOverrideTypeValues;
 use FacebookAds\Object\Values\ProductFeedQuotedFieldsModeValues;
 use FacebookAds\Object\Values\ProductFeedRuleRuleTypeValues;
+use FacebookAds\Object\Values\ProductFeedUseCaseValues;
 use FacebookAds\Object\Values\ProductItemErrorPriorityValues;
 use FacebookAds\Object\Values\ProductItemErrorTypeValues;
 
@@ -59,6 +60,7 @@ class ProductFeed extends AbstractCrudObject {
     $ref_enums['FeedType'] = ProductFeedFeedTypeValues::getInstance()->getValues();
     $ref_enums['ItemSubType'] = ProductFeedItemSubTypeValues::getInstance()->getValues();
     $ref_enums['OverrideType'] = ProductFeedOverrideTypeValues::getInstance()->getValues();
+    $ref_enums['UseCase'] = ProductFeedUseCaseValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -181,31 +183,6 @@ class ProductFeed extends AbstractCrudObject {
       new Hotel(),
       'EDGE',
       Hotel::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getMediaTitles(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'bulk_pagination' => 'bool',
-      'filter' => 'Object',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/media_titles',
-      new MediaTitle(),
-      'EDGE',
-      MediaTitle::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

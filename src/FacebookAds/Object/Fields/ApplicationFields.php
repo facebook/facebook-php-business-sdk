@@ -56,6 +56,7 @@ class ApplicationFields extends AbstractEnum {
   const CATEGORY = 'category';
   const CLIENT_CONFIG = 'client_config';
   const COMPANY = 'company';
+  const CONFIG_IDS = 'config_ids';
   const CONFIGURED_IOS_SSO = 'configured_ios_sso';
   const CONTACT_EMAIL = 'contact_email';
   const CREATED_TIME = 'created_time';
@@ -165,6 +166,7 @@ class ApplicationFields extends AbstractEnum {
       'category' => 'string',
       'client_config' => 'map',
       'company' => 'string',
+      'config_ids' => 'list<Object>',
       'configured_ios_sso' => 'bool',
       'contact_email' => 'string',
       'created_time' => 'datetime',

@@ -24,12 +24,14 @@ class MCExperienceConfigForApiFields extends AbstractEnum {
 
   const IS_CAMPAIGN_ENABLED = 'is_campaign_enabled';
   const IS_TERMS_SIGNED = 'is_terms_signed';
+  const IS_USER_MANUALLY_TOGGLE_MC_OFF = 'is_user_manually_toggle_mc_off';
   const MERCHANT_TYPE = 'merchant_type';
 
   public function getFieldTypes() {
     return array(
       'is_campaign_enabled' => 'bool',
       'is_terms_signed' => 'bool',
+      'is_user_manually_toggle_mc_off' => 'bool',
       'merchant_type' => 'string',
     );
   }

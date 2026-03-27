@@ -95,8 +95,10 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const UPDATE_AD_SET_TARGET_SPEC = 'update_ad_set_target_spec';
   const UPDATE_AD_TARGETS_SPEC = 'update_ad_targets_spec';
   const UPDATE_ADACCOUNT_AGENCY_FEE = 'update_adaccount_agency_fee';
+  const UPDATE_ADACCOUNT_AGENCY_FEE_STATUS = 'update_adaccount_agency_fee_status';
   const UPDATE_ADGROUP_STOP_DELIVERY = 'update_adgroup_stop_delivery';
   const UPDATE_AUDIENCE = 'update_audience';
+  const UPDATE_BUDGET_FLEX_TOGGLE_STATUS = 'update_budget_flex_toggle_status';
   const UPDATE_CAMPAIGN_AD_SCHEDULING = 'update_campaign_ad_scheduling';
   const UPDATE_CAMPAIGN_BUDGET = 'update_campaign_budget';
   const UPDATE_CAMPAIGN_BUDGET_OPTIMIZATION_TOGGLING_STATUS = 'update_campaign_budget_optimization_toggling_status';
@@ -115,5 +117,6 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const UPDATE_CAMPAIGN_RUN_STATUS = 'update_campaign_run_status';
   const UPDATE_CAMPAIGN_SCHEDULE = 'update_campaign_schedule';
   const UPDATE_CAMPAIGN_VALUE_ADJUSTMENT_RULE = 'update_campaign_value_adjustment_rule';
+  const UPDATE_CAMPAIGN_VALUE_ADJUSTMENT_RULE_ATTACHMENT = 'update_campaign_value_adjustment_rule_attachment';
   const UPDATE_DELIVERY_TYPE_CROSS_LEVEL_SHIFT = 'update_delivery_type_cross_level_shift';
 }

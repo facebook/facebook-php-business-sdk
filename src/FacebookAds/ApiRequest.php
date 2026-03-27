@@ -17,11 +17,13 @@ class ApiRequest {
   protected $id;
   protected $method;
   protected $endpoint;
+  protected $base_path;
   protected $return_prototype;
   protected $accepted_fields;
   protected $param_checker;
   protected $api_type;
   protected $use_graph_video_endpoint;
+  protected $raw_response;
   private $fields;
   private $params;
   private $file_params;
@@ -47,12 +49,29 @@ class ApiRequest {
     $this->id = $id;
     $this->method = $method;
     $this->endpoint = $endpoint;
+    $this->base_path = null;
     $this->return_prototype = $return_prototype;
     $this->api_type = $api_type;
     $this->accepted_fields = $accepted_fields;
     $this->param_checker = $param_checker;
     $this->allow_file_upload = $allow_file_upload;
     $this->use_graph_video_endpoint = $use_graph_video_endpoint;
+    $this->raw_response = false;
+  }
+
+  public function setBasePath($base_path) {
+    $this->base_path = $base_path;
+    return $this;
+  }
+
+  public function setRawResponse($raw_response) {
+    $this->raw_response = $raw_response;
+    return $this;
+  }
+
+  public function setApiType($api_type) {
+    $this->api_type = $api_type;
+    return $this;
   }
 
   public function addParam($param, $value) {
@@ -162,7 +181,13 @@ class ApiRequest {
    * Execute the request
    */
   public function execute() {
-    $url_path = '/'.$this->id.$this->endpoint;
+    if ($this->base_path !== null) {
+      // For stefi endpoints: base_path/node_id (no endpoint)
+      $clean_base_path = trim($this->base_path, '/');
+      $url_path = '/'.$clean_base_path.'/'.$this->id;
+    } else {
+      $url_path = '/'.$this->id.$this->endpoint;
+    }
     $updated_params = $this->params;
     if (!empty($this->fields)) {
       $fields = implode(',', $this->fields);
@@ -170,6 +195,9 @@ class ApiRequest {
     }
     $response = $this->api->call(
       $url_path, $this->method, $updated_params, $this->file_params);
+    if ($this->raw_response) {
+      return $response;
+    }
     if ($this->api_type === "EDGE" && $this->method === "GET") {
       return new Cursor($response, $this->return_prototype, $this->api);
     } else if ($this->method === "DELETE") {

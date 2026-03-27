@@ -33,6 +33,8 @@ class CanvasFields extends AbstractEnum {
   const ELEMENT_PAYLOAD = 'element_payload';
   const ELEMENTS = 'elements';
   const FB_BODY_ELEMENTS = 'fb_body_elements';
+  const HERO_ASSET_FACEBOOK_POST_ID = 'hero_asset_facebook_post_id';
+  const HERO_ASSET_INSTAGRAM_MEDIA_ID = 'hero_asset_instagram_media_id';
   const ID = 'id';
   const IS_HIDDEN = 'is_hidden';
   const IS_PUBLISHED = 'is_published';
@@ -63,6 +65,8 @@ class CanvasFields extends AbstractEnum {
       'element_payload' => 'string',
       'elements' => 'list<RichMediaElement>',
       'fb_body_elements' => 'list<Object>',
+      'hero_asset_facebook_post_id' => 'string',
+      'hero_asset_instagram_media_id' => 'string',
       'id' => 'string',
       'is_hidden' => 'bool',
       'is_published' => 'bool',

@@ -18,6 +18,7 @@ use FacebookAds\Object\Values\CheckBatchRequestStatusErrorPriorityValues;
 use FacebookAds\Object\Values\CreatorAssetCreativeModerationStatusValues;
 use FacebookAds\Object\Values\ProductCatalogAdditionalVerticalOptionValues;
 use FacebookAds\Object\Values\ProductCatalogCategoryCategorizationCriteriaValues;
+use FacebookAds\Object\Values\ProductCatalogConversionTypeValues;
 use FacebookAds\Object\Values\ProductCatalogDataSourceIngestionSourceTypeValues;
 use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupAffectedChannelsValues;
 use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupAffectedEntitiesValues;
@@ -40,6 +41,7 @@ use FacebookAds\Object\Values\ProductFeedIngestionSourceTypeValues;
 use FacebookAds\Object\Values\ProductFeedItemSubTypeValues;
 use FacebookAds\Object\Values\ProductFeedOverrideTypeValues;
 use FacebookAds\Object\Values\ProductFeedQuotedFieldsModeValues;
+use FacebookAds\Object\Values\ProductFeedUseCaseValues;
 use FacebookAds\Object\Values\ProductItemAgeGroupValues;
 use FacebookAds\Object\Values\ProductItemAvailabilityValues;
 use FacebookAds\Object\Values\ProductItemCommerceTaxCategoryValues;
@@ -95,6 +97,7 @@ class ProductCatalog extends AbstractCrudObject {
     $ref_enums['Tasks'] = ProductCatalogTasksValues::getInstance()->getValues();
     $ref_enums['Standard'] = ProductCatalogStandardValues::getInstance()->getValues();
     $ref_enums['ItemSubType'] = ProductCatalogItemSubTypeValues::getInstance()->getValues();
+    $ref_enums['ConversionType'] = ProductCatalogConversionTypeValues::getInstance()->getValues();
     $ref_enums['EventName'] = ProductCatalogEventNameValues::getInstance()->getValues();
     return $ref_enums;
   }
@@ -399,6 +402,30 @@ class ProductCatalog extends AbstractCrudObject {
       new CheckBatchRequestStatus(),
       'EDGE',
       CheckBatchRequestStatus::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getCheckMarketplacePartnerDealsStatus(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'session_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/check_marketplace_partner_deals_status',
+      new ProductCatalogCheckMarketplacePartnerDealsStatus(),
+      'EDGE',
+      ProductCatalogCheckMarketplacePartnerDealsStatus::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -991,6 +1018,30 @@ class ProductCatalog extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createMarketPlacePartnerDealsDetail(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'requests' => 'map',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/marketplace_partner_deals_details',
+      new ProductCatalog(),
+      'EDGE',
+      ProductCatalog::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createMarketPlacePartnerSellersDetail(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1019,13 +1070,17 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'conversion_type' => 'conversion_type_enum',
+      'event_id' => 'string',
       'event_name' => 'event_name_enum',
       'event_source_url' => 'string',
       'event_time' => 'datetime',
+      'offer_data' => 'map',
       'order_data' => 'map',
       'user_data' => 'map',
     );
     $enums = array(
+      'conversion_type_enum' => ProductCatalogConversionTypeValues::getInstance()->getValues(),
       'event_name_enum' => ProductCatalogEventNameValues::getInstance()->getValues(),
     );
 
@@ -1037,6 +1092,62 @@ class ProductCatalog extends AbstractCrudObject {
       new ProductCatalog(),
       'EDGE',
       ProductCatalog::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createMediaTitle(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'additional_image_urls' => 'list<string>',
+      'android_app_name' => 'string',
+      'android_class' => 'string',
+      'android_package' => 'string',
+      'android_url' => 'string',
+      'awards' => 'list<string>',
+      'cast' => 'list<string>',
+      'category' => 'string',
+      'currency' => 'string',
+      'description' => 'string',
+      'director' => 'list<string>',
+      'fb_product_category' => 'string',
+      'genre' => 'list<string>',
+      'image_url' => 'string',
+      'ios_app_name' => 'string',
+      'ios_app_store_id' => 'unsigned int',
+      'ios_url' => 'string',
+      'ipad_app_name' => 'string',
+      'ipad_app_store_id' => 'unsigned int',
+      'ipad_url' => 'string',
+      'iphone_app_name' => 'string',
+      'iphone_app_store_id' => 'unsigned int',
+      'iphone_url' => 'string',
+      'media_category' => 'string',
+      'name' => 'string',
+      'price' => 'unsigned int',
+      'rating' => 'string',
+      'release_date' => 'string',
+      'retailer_id' => 'string',
+      'url' => 'string',
+      'windows_phone_app_id' => 'string',
+      'windows_phone_app_name' => 'string',
+      'windows_phone_url' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/media_titles',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1144,6 +1255,7 @@ class ProductCatalog extends AbstractCrudObject {
       'schedule' => 'string',
       'selected_override_fields' => 'list<string>',
       'update_schedule' => 'string',
+      'use_case' => 'use_case_enum',
     );
     $enums = array(
       'delimiter_enum' => ProductFeedDelimiterValues::getInstance()->getValues(),
@@ -1153,6 +1265,7 @@ class ProductCatalog extends AbstractCrudObject {
       'item_sub_type_enum' => ProductFeedItemSubTypeValues::getInstance()->getValues(),
       'override_type_enum' => ProductFeedOverrideTypeValues::getInstance()->getValues(),
       'quoted_fields_mode_enum' => ProductFeedQuotedFieldsModeValues::getInstance()->getValues(),
+      'use_case_enum' => ProductFeedUseCaseValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -1335,6 +1448,7 @@ class ProductCatalog extends AbstractCrudObject {
       'additional_image_urls' => 'list<string>',
       'additional_variant_attributes' => 'map',
       'age_group' => 'age_group_enum',
+      'allow_upsert' => 'bool',
       'android_app_name' => 'string',
       'android_class' => 'string',
       'android_package' => 'string',
@@ -1378,6 +1492,7 @@ class ProductCatalog extends AbstractCrudObject {
       'iphone_app_store_id' => 'unsigned int',
       'iphone_url' => 'string',
       'launch_date' => 'string',
+      'live_special_price' => 'string',
       'manufacturer_info' => 'string',
       'manufacturer_part_number' => 'string',
       'marked_for_product_launch' => 'marked_for_product_launch_enum',
@@ -1398,6 +1513,7 @@ class ProductCatalog extends AbstractCrudObject {
       'retailer_id' => 'string',
       'retailer_product_group_id' => 'string',
       'return_policy_days' => 'unsigned int',
+      'rich_text_description' => 'string',
       'sale_price' => 'unsigned int',
       'sale_price_end_date' => 'datetime',
       'sale_price_start_date' => 'datetime',

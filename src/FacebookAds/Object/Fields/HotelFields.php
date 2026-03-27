@@ -26,7 +26,6 @@ class HotelFields extends AbstractEnum {
   const APPLINKS = 'applinks';
   const BRAND = 'brand';
   const CATEGORY = 'category';
-  const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
   const CURRENCY = 'currency';
   const CUSTOM_LABEL_0 = 'custom_label_0';
   const CUSTOM_LABEL_1 = 'custom_label_1';
@@ -69,7 +68,6 @@ class HotelFields extends AbstractEnum {
       'applinks' => 'CatalogItemAppLinks',
       'brand' => 'string',
       'category' => 'string',
-      'category_specific_fields' => 'CatalogSubVerticalList',
       'currency' => 'string',
       'custom_label_0' => 'string',
       'custom_label_1' => 'string',

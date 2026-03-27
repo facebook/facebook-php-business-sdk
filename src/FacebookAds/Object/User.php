@@ -227,6 +227,7 @@ class User extends AbstractCrudObject {
       'client_business' => 'string',
       'confidence_level' => 'float',
       'cooldown_start_time' => 'int',
+      'creative_test_config' => 'map',
       'description' => 'string',
       'end_time' => 'int',
       'name' => 'string',
@@ -504,29 +505,6 @@ class User extends AbstractCrudObject {
       new WhatsAppBusinessAccount(),
       'EDGE',
       WhatsAppBusinessAccount::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getAvatars(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/avatars',
-      new Avatar(),
-      'EDGE',
-      Avatar::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1243,6 +1221,7 @@ class User extends AbstractCrudObject {
       'label' => 'string',
       'message' => 'map',
       'notif_ids' => 'list<string>',
+      'notification_content_id' => 'unsigned int',
       'payload' => 'string',
       'read' => 'bool',
       'ref' => 'string',
@@ -1618,6 +1597,7 @@ class User extends AbstractCrudObject {
       'creative_tools' => 'string',
       'description' => 'string',
       'direct_share_status' => 'unsigned int',
+      'edit_description_spec' => 'map',
       'embeddable' => 'bool',
       'end_offset' => 'unsigned int',
       'fbuploader_video_file_chunk' => 'string',

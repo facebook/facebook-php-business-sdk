@@ -469,6 +469,7 @@ class AdsPixel extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'agent' => 'string',
       'aggregation' => 'aggregation_enum',
       'end_time' => 'datetime',
       'event' => 'string',

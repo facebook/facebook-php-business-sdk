@@ -47,6 +47,7 @@ class ProductFeedFields extends AbstractEnum {
   const PRIMARY_FEED_IDS = 'primary_feed_ids';
   const RULES = 'rules';
   const SELECTED_OVERRIDE_FIELDS = 'selected_override_fields';
+  const USE_CASE = 'use_case';
 
   public function getFieldTypes() {
     return array(
@@ -75,6 +76,7 @@ class ProductFeedFields extends AbstractEnum {
       'primary_feed_ids' => 'list<string>',
       'rules' => 'list<string>',
       'selected_override_fields' => 'list<string>',
+      'use_case' => 'UseCase',
     );
   }
 }

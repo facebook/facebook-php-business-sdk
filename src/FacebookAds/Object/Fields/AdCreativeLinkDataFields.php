@@ -43,6 +43,7 @@ class AdCreativeLinkDataFields extends AbstractEnum {
   const IMAGE_HASH = 'image_hash';
   const IMAGE_LAYER_SPECS = 'image_layer_specs';
   const IMAGE_OVERLAY_SPEC = 'image_overlay_spec';
+  const IS_LOCAL_EXPANSION = 'is_local_expansion';
   const LINK = 'link';
   const MESSAGE = 'message';
   const MULTI_SHARE_END_CARD = 'multi_share_end_card';
@@ -56,6 +57,7 @@ class AdCreativeLinkDataFields extends AbstractEnum {
   const PREFERRED_VIDEO_TAGS = 'preferred_video_tags';
   const RETAILER_ITEM_IDS = 'retailer_item_ids';
   const SHOW_MULTIPLE_IMAGES = 'show_multiple_images';
+  const SMART_PSE_ENABLED = 'smart_pse_enabled';
   const STATIC_FALLBACK_SPEC = 'static_fallback_spec';
   const USE_FLEXIBLE_IMAGE_ASPECT_RATIO = 'use_flexible_image_aspect_ratio';
 
@@ -82,6 +84,7 @@ class AdCreativeLinkDataFields extends AbstractEnum {
       'image_hash' => 'string',
       'image_layer_specs' => 'list<AdCreativeLinkDataImageLayerSpec>',
       'image_overlay_spec' => 'AdCreativeLinkDataImageOverlaySpec',
+      'is_local_expansion' => 'bool',
       'link' => 'string',
       'message' => 'string',
       'multi_share_end_card' => 'bool',
@@ -95,6 +98,7 @@ class AdCreativeLinkDataFields extends AbstractEnum {
       'preferred_video_tags' => 'list<string>',
       'retailer_item_ids' => 'list<string>',
       'show_multiple_images' => 'bool',
+      'smart_pse_enabled' => 'bool',
       'static_fallback_spec' => 'AdCreativeStaticFallbackSpec',
       'use_flexible_image_aspect_ratio' => 'bool',
     );

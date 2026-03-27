@@ -23,7 +23,9 @@ use FacebookAds\Enum\AbstractEnum;
 class CustomAudienceIntegrityFlagsAndAppealStatusFields extends AbstractEnum {
 
   const CLOSEOUT_TIME = 'closeout_time';
+  const DAYS_UNTIL_ENFORCEMENT = 'days_until_enforcement';
   const FLAGGED_FIELDS = 'flagged_fields';
+  const IS_ENFORCEMENT_ROLLED_OUT = 'is_enforcement_rolled_out';
   const LATEST_APPEAL_REQUESTOR = 'latest_appeal_requestor';
   const LATEST_APPEAL_TIME = 'latest_appeal_time';
   const RESTRICTION_STATUS = 'restriction_status';
@@ -31,7 +33,9 @@ class CustomAudienceIntegrityFlagsAndAppealStatusFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'closeout_time' => 'unsigned int',
+      'days_until_enforcement' => 'unsigned int',
       'flagged_fields' => 'list<string>',
+      'is_enforcement_rolled_out' => 'bool',
       'latest_appeal_requestor' => 'string',
       'latest_appeal_time' => 'unsigned int',
       'restriction_status' => 'string',

@@ -33,4 +33,6 @@ class PagePostExperimentOptimizationGoalValues extends AbstractEnum {
   const REELS_PLAYS = 'REELS_PLAYS';
   const SHARES = 'SHARES';
   const VIDEO_VIEWS_60S = 'VIDEO_VIEWS_60S';
+  const VIEWERS = 'VIEWERS';
+  const VIEWS = 'VIEWS';
 }
