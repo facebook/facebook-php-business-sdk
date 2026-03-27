@@ -29,21 +29,11 @@ use FacebookAds\Http\FileParameter;
 class Curl extends AbstractCurl {
 
   /**
-   * @throws \RuntimeException
-   */
-  public function __construct() {
-    parent::__construct();
-    if (version_compare(PHP_VERSION, '5.5.0') >= 0) {
-      throw new \RuntimeException("Unsupported Curl version");
-    }
-  }
-
-  /**
    * @param string $string
-   * @return string
+   * @return bool|string
    */
   public function escape($string) {
-    return rawurlencode($string);
+    return curl_escape($this->handle, $string);
   }
 
   /**
@@ -51,36 +41,28 @@ class Curl extends AbstractCurl {
    * @return int
    */
   public function pause($bitmask) {
-    return 0;
+    return curl_pause($this->handle, $bitmask);
   }
 
   /**
-   * FIXME should introduce v2.10 breaking change:
-   * implement abstract support for FileParameter in AdapterInterface
-   *
    * @param string|FileParameter $filepath
-   * @return string
+   * @return \CURLFile
    */
   public function preparePostFileField($filepath) {
     $mime_type = $name = '';
     if ($filepath instanceof FileParameter) {
-      $mime_type = $filepath->getMimeType() !== null
-        ? sprintf(';type=%s', $filepath->getMimeType())
-        : '';
-      $name = $filepath->getName() !== null
-        ? sprintf(';filename=%s', $filepath->getName())
-        : '';
+      $mime_type = $filepath->getMimeType() ?: '';
+      $name = $filepath->getName() ?: '';
       $filepath = $filepath->getPath();
     }
-    return sprintf('@%s%s%s', $filepath, $mime_type, $name);
+    return new \CURLFile($filepath, $mime_type, $name);
   }
 
   /**
    * @return void
    */
   public function reset() {
-    $this->handle && curl_close($this->handle);
-    $this->handle = curl_init();
+    $this->handle && curl_reset($this->handle);
   }
 
   /**
