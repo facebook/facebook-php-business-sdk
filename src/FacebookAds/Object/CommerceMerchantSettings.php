@@ -43,31 +43,6 @@ class CommerceMerchantSettings extends AbstractCrudObject {
   }
 
 
-  public function createAcknowledgeOrder(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'idempotency_key' => 'string',
-      'orders' => 'list<map>',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/acknowledge_orders',
-      new CommerceMerchantSettings(),
-      'EDGE',
-      CommerceMerchantSettings::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getCommerceOrders(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 

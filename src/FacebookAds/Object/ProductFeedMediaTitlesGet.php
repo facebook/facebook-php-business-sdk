@@ -14,6 +14,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProductFeedMediaTitlesGetFields;
+use FacebookAds\Object\Values\ProductFeedMediaTitlesGetDisplayFormatValues;
 
 /**
  * This class is auto-generated.
@@ -35,6 +36,7 @@ class ProductFeedMediaTitlesGet extends AbstractObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['DisplayFormat'] = ProductFeedMediaTitlesGetDisplayFormatValues::getInstance()->getValues();
     return $ref_enums;
   }
 

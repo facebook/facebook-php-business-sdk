@@ -28,6 +28,7 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const AGE_RANGE = 'age_range';
   const ALTERNATE_AUTO_TARGETING_OPTION = 'alternate_auto_targeting_option';
   const APP_INSTALL_STATE = 'app_install_state';
+  const AUDIENCE_CONCEPTS = 'audience_concepts';
   const AUDIENCE_NETWORK_POSITIONS = 'audience_network_positions';
   const BEHAVIORS = 'behaviors';
   const BRAND_SAFETY_CONTENT_FILTER_LEVELS = 'brand_safety_content_filter_levels';

@@ -46,7 +46,7 @@ class ProductFeedUploadGetFields extends AbstractEnum {
       'error_report' => 'object',
       'errors' => 'object',
       'filename' => 'string',
-      'id' => 'string',
+      'id' => 'int',
       'input_method' => 'InputMethod',
       'num_deleted_items' => 'int',
       'num_detected_items' => 'int',

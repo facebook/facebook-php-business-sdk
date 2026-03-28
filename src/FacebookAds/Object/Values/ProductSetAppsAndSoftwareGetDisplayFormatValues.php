@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-namespace FacebookAds\Object\Fields;
+namespace FacebookAds\Object\Values;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -18,19 +18,11 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
+ * @method static ProductSetAppsAndSoftwareGetDisplayFormatValues getInstance()
  */
+class ProductSetAppsAndSoftwareGetDisplayFormatValues extends AbstractEnum {
 
-class AdjacentContentDeliveryReportFields extends AbstractEnum {
-
-  const AD_ID = 'ad_id';
-  const CONTENT = 'content';
-  const IMPRESSION_ID = 'impression_id';
-
-  public function getFieldTypes() {
-    return array(
-      'ad_id' => 'string',
-      'content' => 'list<Object>',
-      'impression_id' => 'string',
-    );
-  }
+  const CAROUSEL_AD = 'CAROUSEL_AD';
+  const SHOPS_PDP = 'SHOPS_PDP';
+  const SINGLE_AD = 'SINGLE_AD';
 }

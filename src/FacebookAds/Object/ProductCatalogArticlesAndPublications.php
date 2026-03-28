@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\MIXInsightsResultFields;
+use FacebookAds\Object\Fields\ProductCatalogArticlesAndPublicationsFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\MIXInsightsResultFields;
  *
  */
 
-class MIXInsightsResult extends AbstractObject {
+class ProductCatalogArticlesAndPublications extends AbstractObject {
 
   /**
-   * @return MIXInsightsResultFields
+   * @return ProductCatalogArticlesAndPublicationsFields
    */
   public static function getFieldsEnum() {
-    return MIXInsightsResultFields::getInstance();
+    return ProductCatalogArticlesAndPublicationsFields::getInstance();
   }
 
   protected static function getReferencedEnums() {

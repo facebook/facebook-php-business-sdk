@@ -23,12 +23,20 @@ use FacebookAds\Enum\AbstractEnum;
 class PageCTXBudgetSimilarAdvertiserBudgetRecommendationFields extends AbstractEnum {
 
   const BUDGET = 'budget';
+  const BUDGET_NEW_MODEL = 'budget_new_model';
+  const BUDGET_WITHOUT_THRESHOLD = 'budget_without_threshold';
   const REPORTED_CONVERSION = 'reported_conversion';
+  const REPORTED_CONVERSIONS_NEW_MODEL = 'reported_conversions_new_model';
+  const REPORTED_CONVERSIONS_WITHOUT_THRESHOLD = 'reported_conversions_without_threshold';
 
   public function getFieldTypes() {
     return array(
       'budget' => 'string',
+      'budget_new_model' => 'string',
+      'budget_without_threshold' => 'string',
       'reported_conversion' => 'string',
+      'reported_conversions_new_model' => 'string',
+      'reported_conversions_without_threshold' => 'string',
     );
   }
 }

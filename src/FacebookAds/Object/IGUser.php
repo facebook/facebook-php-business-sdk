@@ -469,8 +469,10 @@ class IGUser extends AbstractCrudObject {
     $param_types = array(
       'creator_age_bucket' => 'list<Object>',
       'creator_countries' => 'list<creator_countries_enum>',
+      'creator_follower_growth' => 'Object',
       'creator_gender' => 'list<creator_gender_enum>',
       'creator_interests' => 'list<Object>',
+      'creator_latest_post_activity' => 'Object',
       'creator_max_engaged_accounts' => 'unsigned int',
       'creator_max_followers' => 'unsigned int',
       'creator_min_engaged_accounts' => 'unsigned int',
@@ -478,6 +480,7 @@ class IGUser extends AbstractCrudObject {
       'has_public_contact_email' => 'bool',
       'major_audience_age_bucket' => 'list<Object>',
       'major_audience_countries' => 'list<major_audience_countries_enum>',
+      'major_audience_device_type' => 'list<Object>',
       'major_audience_gender' => 'list<major_audience_gender_enum>',
       'query' => 'string',
       'reels_interaction_rate' => 'Object',

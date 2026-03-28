@@ -14,7 +14,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdCampaignGroupGetFields;
-use FacebookAds\Object\Values\AdCampaignGroupGetSpecialAdCategoriesValues;
 
 /**
  * This class is auto-generated.
@@ -36,7 +35,6 @@ class AdCampaignGroupGet extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['SpecialAdCategories'] = AdCampaignGroupGetSpecialAdCategoriesValues::getInstance()->getValues();
     return $ref_enums;
   }
 

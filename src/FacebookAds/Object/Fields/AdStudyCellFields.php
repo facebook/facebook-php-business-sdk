@@ -23,6 +23,7 @@ use FacebookAds\Enum\AbstractEnum;
 class AdStudyCellFields extends AbstractEnum {
 
   const AD_ENTITIES_COUNT = 'ad_entities_count';
+  const AD_IDS = 'ad_ids';
   const CONTROL_PERCENTAGE = 'control_percentage';
   const ID = 'id';
   const NAME = 'name';
@@ -31,6 +32,7 @@ class AdStudyCellFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'ad_entities_count' => 'unsigned int',
+      'ad_ids' => 'list<string>',
       'control_percentage' => 'float',
       'id' => 'string',
       'name' => 'string',

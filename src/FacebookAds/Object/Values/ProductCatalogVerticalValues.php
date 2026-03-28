@@ -23,6 +23,8 @@ use FacebookAds\Enum\AbstractEnum;
 class ProductCatalogVerticalValues extends AbstractEnum {
 
   const ADOPTABLE_PETS = 'adoptable_pets';
+  const APPS_AND_SOFTWARE = 'apps_and_software';
+  const ARTICLES_AND_PUBLICATIONS = 'articles_and_publications';
   const COMMERCE = 'commerce';
   const DESTINATIONS = 'destinations';
   const FLIGHTS = 'flights';
@@ -30,8 +32,10 @@ class ProductCatalogVerticalValues extends AbstractEnum {
   const HOME_LISTINGS = 'home_listings';
   const HOTELS = 'hotels';
   const LOCAL_SERVICE_BUSINESSES = 'local_service_businesses';
+  const MEDIA_TITLES = 'media_titles';
   const OFFER_ITEMS = 'offer_items';
   const OFFLINE_COMMERCE = 'offline_commerce';
+  const PROFESSIONAL_SERVICES = 'professional_services';
   const TRANSACTABLE_ITEMS = 'transactable_items';
   const VEHICLES = 'vehicles';
 }

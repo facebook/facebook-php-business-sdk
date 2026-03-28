@@ -24,11 +24,13 @@ class ProductFeedMediaTitlesGetFields extends AbstractEnum {
 
   const DATA = 'data';
   const PAGING = 'paging';
+  const SUMMARY = 'summary';
 
   public function getFieldTypes() {
     return array(
       'data' => 'list<object>',
       'paging' => 'object',
+      'summary' => 'object',
     );
   }
 }

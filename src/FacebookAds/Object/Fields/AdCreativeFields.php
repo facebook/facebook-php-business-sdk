@@ -50,6 +50,7 @@ class AdCreativeFields extends AbstractEnum {
   const EFFECTIVE_OBJECT_STORY_ID = 'effective_object_story_id';
   const ENABLE_DIRECT_INSTALL = 'enable_direct_install';
   const ENABLE_LAUNCH_INSTANT_APP = 'enable_launch_instant_app';
+  const EXISTING_POST_TITLE = 'existing_post_title';
   const FACEBOOK_BRANDED_CONTENT = 'facebook_branded_content';
   const FORMAT_TRANSFORMATION_SPEC = 'format_transformation_spec';
   const ID = 'id';
@@ -131,6 +132,7 @@ class AdCreativeFields extends AbstractEnum {
       'effective_object_story_id' => 'string',
       'enable_direct_install' => 'bool',
       'enable_launch_instant_app' => 'bool',
+      'existing_post_title' => 'string',
       'facebook_branded_content' => 'AdCreativeFacebookBrandedContent',
       'format_transformation_spec' => 'list<AdCreativeFormatTransformationSpec>',
       'id' => 'string',

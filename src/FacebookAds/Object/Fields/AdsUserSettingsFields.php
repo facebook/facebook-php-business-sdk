@@ -85,6 +85,8 @@ class AdsUserSettingsFields extends AbstractEnum {
   const ONSITE_DESTINATION_OPTIMIZATION_OPT_IN = 'onsite_destination_optimization_opt_in';
   const OPEN_TABS = 'open_tabs';
   const PAC_RELAXATION_OPT_IN_STATUS = 'pac_relaxation_opt_in_status';
+  const PCAU_CAT_OPTOUT_SURVEY_IMPR = 'pcau_cat_optout_survey_impr';
+  const PCAU_CAT_OPTOUT_SURVEY_RESP_TS = 'pcau_cat_optout_survey_resp_ts';
   const PLACEMENT_GROUP_SQUARE_OPT_IN_STATUS = 'placement_group_square_opt_in_status';
   const PLACEMENT_GROUP_VERTICAL_OPT_IN_STATUS = 'placement_group_vertical_opt_in_status';
   const PREVIOUSLY_SEEN_RECOMMENDATIONS = 'previously_seen_recommendations';
@@ -191,6 +193,8 @@ class AdsUserSettingsFields extends AbstractEnum {
       'onsite_destination_optimization_opt_in' => 'string',
       'open_tabs' => 'list<string>',
       'pac_relaxation_opt_in_status' => 'string',
+      'pcau_cat_optout_survey_impr' => 'int',
+      'pcau_cat_optout_survey_resp_ts' => 'datetime',
       'placement_group_square_opt_in_status' => 'string',
       'placement_group_vertical_opt_in_status' => 'string',
       'previously_seen_recommendations' => 'list<string>',

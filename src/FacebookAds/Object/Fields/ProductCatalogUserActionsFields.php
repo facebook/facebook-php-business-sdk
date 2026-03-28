@@ -22,11 +22,9 @@ use FacebookAds\Enum\AbstractEnum;
 
 class ProductCatalogUserActionsFields extends AbstractEnum {
 
-  const ACTIONS = 'actions';
 
   public function getFieldTypes() {
     return array(
-      'actions' => 'list<string>',
     );
   }
 }

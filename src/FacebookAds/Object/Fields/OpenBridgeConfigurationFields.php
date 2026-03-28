@@ -26,6 +26,7 @@ class OpenBridgeConfigurationFields extends AbstractEnum {
   const BLOCKED_EVENT_TYPES = 'blocked_event_types';
   const BLOCKED_WEBSITES = 'blocked_websites';
   const BROWSER_AGENT = 'browser_agent';
+  const CAPI_PUBLISHING_STATE = 'capi_publishing_state';
   const CLOUD_PROVIDER = 'cloud_provider';
   const CLOUD_REGION = 'cloud_region';
   const DESTINATION_ID = 'destination_id';
@@ -45,7 +46,6 @@ class OpenBridgeConfigurationFields extends AbstractEnum {
   const SGW_ACCOUNT_ID = 'sgw_account_id';
   const SGW_INSTANCE_URL = 'sgw_instance_url';
   const SGW_PIXEL_ID = 'sgw_pixel_id';
-  const CAPI_PUBLISHING_STATE = 'capi_publishing_state';
 
   public function getFieldTypes() {
     return array(
@@ -53,6 +53,7 @@ class OpenBridgeConfigurationFields extends AbstractEnum {
       'blocked_event_types' => 'list<string>',
       'blocked_websites' => 'list<string>',
       'browser_agent' => 'list<string>',
+      'capi_publishing_state' => 'string',
       'cloud_provider' => 'string',
       'cloud_region' => 'string',
       'destination_id' => 'string',
@@ -72,7 +73,6 @@ class OpenBridgeConfigurationFields extends AbstractEnum {
       'sgw_account_id' => 'string',
       'sgw_instance_url' => 'string',
       'sgw_pixel_id' => 'string',
-      'capi_publishing_state' => 'CapiPublishingState',
     );
   }
 }

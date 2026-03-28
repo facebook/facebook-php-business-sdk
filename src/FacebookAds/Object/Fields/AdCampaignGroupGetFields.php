@@ -59,7 +59,7 @@ class AdCampaignGroupGetFields extends AbstractEnum {
       'name' => 'string',
       'objective' => 'string',
       'promoted_object' => 'object',
-      'special_ad_categories' => 'list<SpecialAdCategories>',
+      'special_ad_categories' => 'list<string>',
       'spend_cap' => 'string',
       'start_time' => 'string',
       'status' => 'string',

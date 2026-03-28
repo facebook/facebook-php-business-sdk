@@ -26,6 +26,7 @@ class CreativeMulticellTestConfigFields extends AbstractEnum {
   const CONFIGURED_CELL_COUNT = 'configured_cell_count';
   const DAILY_BUDGET = 'daily_budget';
   const ENTRY_SOURCE = 'entry_source';
+  const LEAD_GEN_FORMS = 'lead_gen_forms';
   const LIFETIME_BUDGET = 'lifetime_budget';
   const USE_EXISTING_DAILY_BUDGET = 'use_existing_daily_budget';
 
@@ -35,6 +36,7 @@ class CreativeMulticellTestConfigFields extends AbstractEnum {
       'configured_cell_count' => 'int',
       'daily_budget' => 'int',
       'entry_source' => 'string',
+      'lead_gen_forms' => 'string',
       'lifetime_budget' => 'int',
       'use_existing_daily_budget' => 'bool',
     );

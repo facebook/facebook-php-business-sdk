@@ -1559,6 +1559,7 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
 
     $param_types = array(
       'degrees_of_freedom_spec' => 'map',
+      'disable_marketing_messages_on_cloud_api' => 'bool',
       'is_enabled_for_insights' => 'bool',
       'template_auto_archival_enabled' => 'bool',
     );

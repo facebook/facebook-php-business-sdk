@@ -14,6 +14,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProductFeedAppsAndSoftwareFields;
+use FacebookAds\Object\Values\ProductFeedAppsAndSoftwareGetDisplayFormatValues;
 
 /**
  * This class is auto-generated.
@@ -45,9 +46,12 @@ class ProductFeedAppsAndSoftware extends AbstractCrudObject {
     $param_types = array(
       'after' => 'string',
       'before' => 'string',
+      'display_format' => 'display_format_enum',
       'limit' => 'int',
+      'summary' => 'bool',
     );
     $enums = array(
+      'display_format_enum' => ProductFeedAppsAndSoftwareGetDisplayFormatValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

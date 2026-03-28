@@ -26,6 +26,7 @@ class AdCreativeSourcingSpecFields extends AbstractEnum {
   const ASSOCIATED_PRODUCT_SET_ID = 'associated_product_set_id';
   const BRAND = 'brand';
   const DESTINATION_SCREENSHOT_SPEC = 'destination_screenshot_spec';
+  const DUPLICATION_SOURCE = 'duplication_source';
   const DYNAMIC_SITE_LINKS_SPEC = 'dynamic_site_links_spec';
   const ENABLE_SOCIAL_FEEDBACK_PRESERVATION = 'enable_social_feedback_preservation';
   const INTENT = 'intent';
@@ -44,6 +45,7 @@ class AdCreativeSourcingSpecFields extends AbstractEnum {
       'associated_product_set_id' => 'string',
       'brand' => 'Object',
       'destination_screenshot_spec' => 'Object',
+      'duplication_source' => 'string',
       'dynamic_site_links_spec' => 'Object',
       'enable_social_feedback_preservation' => 'bool',
       'intent' => 'Object',

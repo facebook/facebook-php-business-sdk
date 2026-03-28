@@ -15,7 +15,6 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\CommerceOrderFields;
 use FacebookAds\Object\Values\CommerceOrderFiltersValues;
-use FacebookAds\Object\Values\CommerceOrderReasonCodeValues;
 use FacebookAds\Object\Values\CommerceOrderStateValues;
 
 /**
@@ -40,35 +39,9 @@ class CommerceOrder extends AbstractCrudObject {
     $ref_enums = array();
     $ref_enums['Filters'] = CommerceOrderFiltersValues::getInstance()->getValues();
     $ref_enums['State'] = CommerceOrderStateValues::getInstance()->getValues();
-    $ref_enums['ReasonCode'] = CommerceOrderReasonCodeValues::getInstance()->getValues();
     return $ref_enums;
   }
 
-
-  public function createAcknowledgeOrder(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'idempotency_key' => 'string',
-      'merchant_order_reference' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/acknowledge_order',
-      new CommerceOrder(),
-      'EDGE',
-      CommerceOrder::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
 
   public function getCancellations(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
@@ -86,58 +59,6 @@ class CommerceOrder extends AbstractCrudObject {
       new AbstractCrudObject(),
       'EDGE',
       array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createCancellation(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'cancel_reason' => 'map',
-      'idempotency_key' => 'string',
-      'items' => 'list<map>',
-      'restock_items' => 'bool',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/cancellations',
-      new CommerceOrder(),
-      'EDGE',
-      CommerceOrder::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createItemUpdate(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'items' => 'list<map>',
-      'merchant_order_reference' => 'string',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/item_updates',
-      new CommerceOrder(),
-      'EDGE',
-      CommerceOrder::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -260,38 +181,6 @@ class CommerceOrder extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createRefund(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'adjustment_amount' => 'map',
-      'deductions' => 'list<map>',
-      'idempotency_key' => 'string',
-      'items' => 'list<map>',
-      'reason_code' => 'reason_code_enum',
-      'reason_text' => 'string',
-      'return_id' => 'string',
-      'shipping' => 'map',
-    );
-    $enums = array(
-      'reason_code_enum' => CommerceOrderReasonCodeValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/refunds',
-      new CommerceOrder(),
-      'EDGE',
-      CommerceOrder::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getReturns(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -317,33 +206,6 @@ class CommerceOrder extends AbstractCrudObject {
       new AbstractCrudObject(),
       'EDGE',
       array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createReturn(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'items' => 'list<map>',
-      'merchant_return_id' => 'string',
-      'return_message' => 'string',
-      'update' => 'map',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/returns',
-      new CommerceOrder(),
-      'EDGE',
-      CommerceOrder::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -397,34 +259,6 @@ class CommerceOrder extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/shipments',
-      new CommerceOrder(),
-      'EDGE',
-      CommerceOrder::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function createUpdateShipment(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'external_shipment_id' => 'string',
-      'fulfillment_id' => 'string',
-      'idempotency_key' => 'string',
-      'shipment_id' => 'string',
-      'tracking_info' => 'map',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/update_shipment',
       new CommerceOrder(),
       'EDGE',
       CommerceOrder::getFieldsEnum()->getValues(),
