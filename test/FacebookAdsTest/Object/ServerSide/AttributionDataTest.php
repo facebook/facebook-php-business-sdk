@@ -53,6 +53,7 @@ class AttributionDataTest extends AbstractUnitTestCase {
       'linkage_key' => 'key123',
       'touchpoint_id' => 'tp_test_touchpoint_id_123',
       'total_credit' => 0.85,
+      'partner_client_id' => 'partner_workspace_123',
       'attribution_setting' => array(
         'inactivity_window_hours' => 24,
         'reattribution_window_hours' => 48
@@ -77,6 +78,7 @@ class AttributionDataTest extends AbstractUnitTestCase {
       ->setLinkageKey($expected['linkage_key'])
       ->setTouchpointId($expected['touchpoint_id'])
       ->setTotalCredit($expected['total_credit'])
+      ->setPartnerClientId($expected['partner_client_id'])
       ->setAttributionSetting($attribution_setting);
     $this->assertEquals($expected, $builder->normalize());
 
@@ -99,6 +101,7 @@ class AttributionDataTest extends AbstractUnitTestCase {
       'linkage_key' => $expected['linkage_key'],
       'touchpoint_id' => $expected['touchpoint_id'],
       'total_credit' => $expected['total_credit'],
+      'partner_client_id' => $expected['partner_client_id'],
       'attribution_setting' => $attribution_setting
     ));
     $this->assertEquals($expected, $constructor->normalize());

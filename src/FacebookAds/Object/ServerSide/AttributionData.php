@@ -53,6 +53,7 @@ class AttributionData implements ArrayAccess {
   private $touchpoint_id;
   private $attribution_setting;
   private $total_credit;
+  private $partner_client_id;
 
   protected static $param_types = array(
     'scope' => 'string',
@@ -74,6 +75,7 @@ class AttributionData implements ArrayAccess {
     'touchpoint_id' => 'string',
     'attribution_setting' => 'FacebookAds\Object\ServerSide\AttributionSetting',
     'total_credit' => 'float',
+    'partner_client_id' => 'string',
   );
 
   protected static $attributeMap = array(
@@ -96,6 +98,7 @@ class AttributionData implements ArrayAccess {
     'touchpoint_id' => 'touchpoint_id',
     'attribution_setting' => 'attribution_setting',
     'total_credit' => 'total_credit',
+    'partner_client_id' => 'partner_client_id',
   );
 
   protected static $setters = array(
@@ -118,6 +121,7 @@ class AttributionData implements ArrayAccess {
     'touchpoint_id' => 'setTouchpointId',
     'attribution_setting' => 'setAttributionSetting',
     'total_credit' => 'setTotalCredit',
+    'partner_client_id' => 'setPartnerClientId',
   );
 
   protected static $getters = array(
@@ -140,6 +144,7 @@ class AttributionData implements ArrayAccess {
     'touchpoint_id' => 'getTouchpointId',
     'attribution_setting' => 'getAttributionSetting',
     'total_credit' => 'getTotalCredit',
+    'partner_client_id' => 'getPartnerClientId',
   );
 
   protected $container = array();
@@ -164,6 +169,7 @@ class AttributionData implements ArrayAccess {
     $this->container['touchpoint_id'] = isset($data['touchpoint_id']) ? $data['touchpoint_id'] : null;
     $this->container['attribution_setting'] = isset($data['attribution_setting']) ? $data['attribution_setting'] : null;
     $this->container['total_credit'] = isset($data['total_credit']) ? $data['total_credit'] : null;
+    $this->container['partner_client_id'] = isset($data['partner_client_id']) ? $data['partner_client_id'] : null;
   }
 
   public static function paramTypes() {
@@ -553,6 +559,25 @@ class AttributionData implements ArrayAccess {
   }
 
   /**
+   * Sets partner_client_id
+   * @param string $partner_client_id Partner workspace/dashboard identifier for dedup across shared pixels.
+   * @return $this
+   */
+  public function setPartnerClientId($partner_client_id) {
+    $this->container['partner_client_id'] = $partner_client_id;
+
+    return $this;
+  }
+
+  /**
+   * Gets partner client id.
+   * @return string
+   */
+  public function getPartnerClientId() {
+    return $this->container['partner_client_id'];
+  }
+
+  /**
    * Returns true if offset exists. False otherwise.
    * @param integer $offset Offset
    * @return boolean
@@ -614,6 +639,7 @@ class AttributionData implements ArrayAccess {
     $normalized_payload['linkage_key'] = $this->getLinkageKey();
     $normalized_payload['touchpoint_id'] = $this->getTouchpointId();
     $normalized_payload['total_credit'] = $this->getTotalCredit();
+    $normalized_payload['partner_client_id'] = $this->getPartnerClientId();
     $attribution_setting = $this->getAttributionSetting();
     $normalized_payload['attribution_setting'] = $attribution_setting != null ? $attribution_setting->normalize() : null;
     return $normalized_payload;
