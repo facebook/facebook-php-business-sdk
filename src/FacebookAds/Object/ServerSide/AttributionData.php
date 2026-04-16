@@ -52,6 +52,7 @@ class AttributionData implements ArrayAccess {
   private $linkage_key;
   private $touchpoint_id;
   private $attribution_setting;
+  private $total_credit;
 
   protected static $param_types = array(
     'scope' => 'string',
@@ -72,6 +73,7 @@ class AttributionData implements ArrayAccess {
     'linkage_key' => 'string',
     'touchpoint_id' => 'string',
     'attribution_setting' => 'FacebookAds\Object\ServerSide\AttributionSetting',
+    'total_credit' => 'float',
   );
 
   protected static $attributeMap = array(
@@ -93,6 +95,7 @@ class AttributionData implements ArrayAccess {
     'linkage_key' => 'linkage_key',
     'touchpoint_id' => 'touchpoint_id',
     'attribution_setting' => 'attribution_setting',
+    'total_credit' => 'total_credit',
   );
 
   protected static $setters = array(
@@ -114,6 +117,7 @@ class AttributionData implements ArrayAccess {
     'linkage_key' => 'setLinkageKey',
     'touchpoint_id' => 'setTouchpointId',
     'attribution_setting' => 'setAttributionSetting',
+    'total_credit' => 'setTotalCredit',
   );
 
   protected static $getters = array(
@@ -135,6 +139,7 @@ class AttributionData implements ArrayAccess {
     'linkage_key' => 'getLinkageKey',
     'touchpoint_id' => 'getTouchpointId',
     'attribution_setting' => 'getAttributionSetting',
+    'total_credit' => 'getTotalCredit',
   );
 
   protected $container = array();
@@ -158,6 +163,7 @@ class AttributionData implements ArrayAccess {
     $this->container['linkage_key'] = isset($data['linkage_key']) ? $data['linkage_key'] : null;
     $this->container['touchpoint_id'] = isset($data['touchpoint_id']) ? $data['touchpoint_id'] : null;
     $this->container['attribution_setting'] = isset($data['attribution_setting']) ? $data['attribution_setting'] : null;
+    $this->container['total_credit'] = isset($data['total_credit']) ? $data['total_credit'] : null;
   }
 
   public static function paramTypes() {
@@ -528,6 +534,25 @@ class AttributionData implements ArrayAccess {
   }
 
   /**
+   * Sets total_credit
+   * @param float $total_credit Total credit attributed to all publishers for this conversion.
+   * @return $this
+   */
+  public function setTotalCredit($total_credit) {
+    $this->container['total_credit'] = $total_credit;
+
+    return $this;
+  }
+
+  /**
+   * Gets total credit.
+   * @return float
+   */
+  public function getTotalCredit() {
+    return $this->container['total_credit'];
+  }
+
+  /**
    * Returns true if offset exists. False otherwise.
    * @param integer $offset Offset
    * @return boolean
@@ -588,6 +613,7 @@ class AttributionData implements ArrayAccess {
     $normalized_payload['auditing_token'] = $this->getAuditingToken();
     $normalized_payload['linkage_key'] = $this->getLinkageKey();
     $normalized_payload['touchpoint_id'] = $this->getTouchpointId();
+    $normalized_payload['total_credit'] = $this->getTotalCredit();
     $attribution_setting = $this->getAttributionSetting();
     $normalized_payload['attribution_setting'] = $attribution_setting != null ? $attribution_setting->normalize() : null;
     return $normalized_payload;
