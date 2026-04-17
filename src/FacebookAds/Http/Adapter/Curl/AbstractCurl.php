@@ -45,7 +45,7 @@ abstract class AbstractCurl implements CurlInterface {
   }
 
   public function __destruct() {
-    if (is_resource($this->handle)) {
+    if ($this->handle instanceof \CurlHandle) {
       curl_close($this->handle);
     }
   }
@@ -54,11 +54,7 @@ abstract class AbstractCurl implements CurlInterface {
    * @return CurlInterface
    */
   public static function createOptimalVersion() {
-    if (version_compare(PHP_VERSION, '5.5.0') >= 0) {
-      return new Curl55();
-    } else {
-      return new Curl();
-    }
+    return new Curl();
   }
 
   /**

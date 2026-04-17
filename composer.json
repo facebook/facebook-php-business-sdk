@@ -13,6 +13,7 @@
   "homepage": "https://developers.facebook.com/",
   "require": {
     "php": ">=8.0",
+    "ext-curl": "*",
     "guzzlehttp/guzzle": "^6.5 || ^7.0"
   },
   "require-dev": {
