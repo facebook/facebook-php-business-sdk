@@ -88,7 +88,9 @@ class UserData implements ArrayAccess {
     'madid' => 'string',
     'anon_id' => 'string',
     'ctwa_clid' => 'string',
+    'whatsapp_business_account_id' => 'string',
     'page_id' => 'string',
+    'page_scoped_user_id' => 'string',
     'ig_account_id' => 'string',
     'ig_sid' => 'string'
   );
@@ -135,7 +137,9 @@ class UserData implements ArrayAccess {
     'madid' => 'madid',
     'anon_id' => 'anon_id',
     'ctwa_clid' => 'ctwa_clid',
+    'whatsapp_business_account_id' => 'whatsapp_business_account_id',
     'page_id' => 'page_id',
+    'page_scoped_user_id' => 'page_scoped_user_id',
     'ig_account_id' => 'ig_account_id',
     'ig_sid' => 'ig_sid'
   );
@@ -182,7 +186,9 @@ class UserData implements ArrayAccess {
     'madid' => 'setMadid',
     'anon_id' => 'setAnonId',
     'ctwa_clid' => 'setCtwaClid',
+    'whatsapp_business_account_id' => 'setWhatsappBusinessAccountId',
     'page_id' => 'setPageId',
+    'page_scoped_user_id' => 'setPageScopedUserId',
     'ig_account_id' => 'setIgAccountId',
     'ig_sid' => 'setIgSid'
   );
@@ -229,7 +235,9 @@ class UserData implements ArrayAccess {
     'madid' => 'getMadid',
     'anon_id' => 'getAnonId',
     'ctwa_clid' => 'getCtwaClid',
+    'whatsapp_business_account_id' => 'getWhatsappBusinessAccountId',
     'page_id' => 'getPageId',
+    'page_scoped_user_id' => 'getPageScopedUserId',
     'ig_account_id' => 'getIgAccountId',
     'ig_sid' => 'getIgSid'
   );
@@ -353,7 +361,9 @@ class UserData implements ArrayAccess {
     $this->container['madid'] = isset($data['madid']) ? $data['madid'] : null;
     $this->container['anon_id'] = isset($data['anon_id']) ? $data['anon_id'] : null;
     $this->container['ctwa_clid'] = isset($data['ctwa_clid']) ? $data['ctwa_clid'] : null;
+    $this->container['whatsapp_business_account_id'] = isset($data['whatsapp_business_account_id']) ? $data['whatsapp_business_account_id'] : null;
     $this->container['page_id'] = isset($data['page_id']) ? $data['page_id'] : null;
+    $this->container['page_scoped_user_id'] = isset($data['page_scoped_user_id']) ? $data['page_scoped_user_id'] : null;
     $this->container['ig_account_id'] = isset($data['ig_account_id']) ? $data['ig_account_id'] : null;
     $this->container['ig_sid'] = isset($data['ig_sid']) ? $data['ig_sid'] : null;
 
@@ -886,6 +896,18 @@ class UserData implements ArrayAccess {
   }
 
   /**
+   * Set the ID of the WhatsApp Business Account that is associated with the business
+   *
+   * @param whatsapp_business_account_id
+   * @return $this
+   */
+  public function setWhatsappBusinessAccountId($whatsapp_business_account_id) {
+    $this->container['whatsapp_business_account_id'] = $whatsapp_business_account_id;
+
+    return $this;
+  }
+
+  /**
    * Set the ID of the page that the ad is associated with
    *
    * @param page_id
@@ -893,6 +915,18 @@ class UserData implements ArrayAccess {
    */
   public function setPageId($page_id) {
     $this->container['page_id'] = $page_id;
+
+    return $this;
+  }
+
+  /**
+   * Set the Page-Scoped User ID (PSID) of the user who interacted with the business
+   *
+   * @param page_scoped_user_id
+   * @return $this
+   */
+  public function setPageScopedUserId($page_scoped_user_id) {
+    $this->container['page_scoped_user_id'] = $page_scoped_user_id;
 
     return $this;
   }
@@ -992,7 +1026,9 @@ class UserData implements ArrayAccess {
     $normalized_payload['madid'] = Util::hash(Normalizer::normalize('madid', $this->getMadid()));
     $normalized_payload['anon_id'] = Util::hash(Normalizer::normalize('anon_id', $this->getAnonId()));
     $normalized_payload['ctwa_clid'] = $this->getCtwaClid();
+    $normalized_payload['whatsapp_business_account_id'] = $this->getWhatsappBusinessAccountId();
     $normalized_payload['page_id'] = $this->getPageId();
+    $normalized_payload['page_scoped_user_id'] = $this->getPageScopedUserId();
     $normalized_payload['ig_account_id'] = $this->getIgAccountId();
     $normalized_payload['ig_sid'] = $this->getIgSid();
     $normalized_payload = array_filter($normalized_payload);
@@ -1333,11 +1369,27 @@ class UserData implements ArrayAccess {
   }
 
   /**
+   * WhatsApp Business Account ID associated with the business
+   * @return string
+   */
+  public function getWhatsappBusinessAccountId() {
+    return $this->container['whatsapp_business_account_id'];
+  }
+
+  /**
    * ID of the page that the ad is associated with
    * @return string
    */
   public function getPageId() {
     return $this->container['page_id'];
+  }
+
+  /**
+   * Page-Scoped User ID (PSID) of the user who interacted with the business
+   * @return string
+   */
+  public function getPageScopedUserId() {
+    return $this->container['page_scoped_user_id'];
   }
 
   /**

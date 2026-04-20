@@ -57,6 +57,10 @@ class UserDataTest extends AbstractUnitTestCase {
       'dobd' => '01',
       'dobm' => '01',
       'doby' => '2001',
+      'ctwa_clid' => 'ctwa_clid-001',
+      'whatsapp_business_account_id' => 'whatsapp_business_account_id-01',
+      'page_id' => 'page_id-001',
+      'page_scoped_user_id' => 'page_scoped_user_id-01',
       'ig_account_id' => 'ig_account_id-18',
       'ig_sid' => 'ig_sid-19'
     );
@@ -85,6 +89,10 @@ class UserDataTest extends AbstractUnitTestCase {
       'dobd' => Util::hash($initial_state['dobd']),
       'dobm' => Util::hash($initial_state['dobm']),
       'doby' => Util::hash($initial_state['doby']),
+      'ctwa_clid' => 'ctwa_clid-001',
+      'whatsapp_business_account_id' => 'whatsapp_business_account_id-01',
+      'page_id' => 'page_id-001',
+      'page_scoped_user_id' => 'page_scoped_user_id-01',
       'ig_account_id' => 'ig_account_id-18',
       'ig_sid' => 'ig_sid-19'
     );
@@ -113,6 +121,10 @@ class UserDataTest extends AbstractUnitTestCase {
       ->setDobd($initial_state['dobd'])
       ->setDobm($initial_state['dobm'])
       ->setDoby($initial_state['doby'])
+      ->setCtwaClid($initial_state['ctwa_clid'])
+      ->setWhatsappBusinessAccountId($initial_state['whatsapp_business_account_id'])
+      ->setPageId($initial_state['page_id'])
+      ->setPageScopedUserId($initial_state['page_scoped_user_id'])
       ->setIgAccountId($initial_state['ig_account_id'])
       ->setIgSid($initial_state['ig_sid']);
 
@@ -133,6 +145,10 @@ class UserDataTest extends AbstractUnitTestCase {
     $this->assertEquals($initial_state['country_code'], $constructor->getCountryCode());
     $this->assertEquals($initial_state['zip_code'], $constructor->getZipCode());
     $this->assertEquals($initial_state['external_id'], $constructor->getExternalId());
+    $this->assertEquals($initial_state['ctwa_clid'], $constructor->getCtwaClid());
+    $this->assertEquals($initial_state['whatsapp_business_account_id'], $constructor->getWhatsappBusinessAccountId());
+    $this->assertEquals($initial_state['page_id'], $constructor->getPageId());
+    $this->assertEquals($initial_state['page_scoped_user_id'], $constructor->getPageScopedUserId());
   }
 
   public function testMultiValueFieldsGettersAndSetters() {
