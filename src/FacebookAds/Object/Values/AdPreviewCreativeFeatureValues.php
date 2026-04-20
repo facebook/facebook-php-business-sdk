@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdPreviewCreativeFeatureValues extends AbstractEnum {
 
+  const IG_VIDEO_NATIVE_SUBTITLE = 'ig_video_native_subtitle';
   const PRODUCT_METADATA_AUTOMATION = 'product_metadata_automation';
   const PROFILE_CARD = 'profile_card';
   const STANDARD_ENHANCEMENTS_CATALOG = 'standard_enhancements_catalog';

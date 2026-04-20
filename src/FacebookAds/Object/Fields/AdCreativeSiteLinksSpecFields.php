@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdCreativeSiteLinksSpecFields extends AbstractEnum {
 
+  const IS_DEFAULTING_ELIGIBLE = 'is_defaulting_eligible';
   const IS_SITE_LINK_STICKY = 'is_site_link_sticky';
   const SITE_LINK_CLASSIFICATION = 'site_link_classification';
   const SITE_LINK_EXTRA_METADATA = 'site_link_extra_metadata';
@@ -34,9 +35,12 @@ class AdCreativeSiteLinksSpecFields extends AbstractEnum {
   const SITE_LINK_TITLE = 'site_link_title';
   const SITE_LINK_URL = 'site_link_url';
   const SITE_LINK_URL_ANCHOR = 'site_link_url_anchor';
+  const SITE_LINK_URL_RECOMMENDER_TYPE = 'site_link_url_recommender_type';
+  const SITE_LINK_WEBSITE_DATA_SOURCE = 'site_link_website_data_source';
 
   public function getFieldTypes() {
     return array(
+      'is_defaulting_eligible' => 'bool',
       'is_site_link_sticky' => 'bool',
       'site_link_classification' => 'string',
       'site_link_extra_metadata' => 'string',
@@ -49,6 +53,8 @@ class AdCreativeSiteLinksSpecFields extends AbstractEnum {
       'site_link_title' => 'string',
       'site_link_url' => 'string',
       'site_link_url_anchor' => 'string',
+      'site_link_url_recommender_type' => 'string',
+      'site_link_website_data_source' => 'string',
     );
   }
 }

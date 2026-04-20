@@ -29,6 +29,7 @@ class WhatsAppBusinessAccountFields extends AbstractEnum {
   const COUNTRY = 'country';
   const CREATION_TIME = 'creation_time';
   const CURRENCY = 'currency';
+  const DISABLE_MARKETING_MESSAGES_ON_CLOUD_API = 'disable_marketing_messages_on_cloud_api';
   const HEALTH_STATUS = 'health_status';
   const ID = 'id';
   const IS_ENABLED_FOR_INSIGHTS = 'is_enabled_for_insights';
@@ -46,6 +47,7 @@ class WhatsAppBusinessAccountFields extends AbstractEnum {
   const PRIMARY_FUNDING_ID = 'primary_funding_id';
   const PURCHASE_ORDER_NUMBER = 'purchase_order_number';
   const STATUS = 'status';
+  const TEMPLATE_AUTO_ARCHIVAL_ENABLED = 'template_auto_archival_enabled';
   const TIMEZONE_ID = 'timezone_id';
   const WHATSAPP_BUSINESS_MANAGER_MESSAGING_LIMIT = 'whatsapp_business_manager_messaging_limit';
 
@@ -58,6 +60,7 @@ class WhatsAppBusinessAccountFields extends AbstractEnum {
       'country' => 'string',
       'creation_time' => 'int',
       'currency' => 'string',
+      'disable_marketing_messages_on_cloud_api' => 'bool',
       'health_status' => 'WhatsAppBusinessHealthStatusForMessageSend',
       'id' => 'string',
       'is_enabled_for_insights' => 'bool',
@@ -75,6 +78,7 @@ class WhatsAppBusinessAccountFields extends AbstractEnum {
       'primary_funding_id' => 'string',
       'purchase_order_number' => 'string',
       'status' => 'string',
+      'template_auto_archival_enabled' => 'bool',
       'timezone_id' => 'string',
       'whatsapp_business_manager_messaging_limit' => 'WhatsappBusinessManagerMessagingLimit',
     );

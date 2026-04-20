@@ -25,7 +25,9 @@ class AdCreativeLinkDataCallToActionTypeValues extends AbstractEnum {
   const ADD_TO_CART = 'ADD_TO_CART';
   const APPLY_NOW = 'APPLY_NOW';
   const ASK_ABOUT_SERVICES = 'ASK_ABOUT_SERVICES';
+  const ASK_A_QUESTION = 'ASK_A_QUESTION';
   const ASK_FOR_MORE_INFO = 'ASK_FOR_MORE_INFO';
+  const ASK_US = 'ASK_US';
   const AUDIO_CALL = 'AUDIO_CALL';
   const BOOK_A_CONSULTATION = 'BOOK_A_CONSULTATION';
   const BOOK_NOW = 'BOOK_NOW';
@@ -38,6 +40,7 @@ class AdCreativeLinkDataCallToActionTypeValues extends AbstractEnum {
   const CALL = 'CALL';
   const CALL_ME = 'CALL_ME';
   const CALL_NOW = 'CALL_NOW';
+  const CHAT_NOW = 'CHAT_NOW';
   const CHAT_WITH_US = 'CHAT_WITH_US';
   const CONFIRM = 'CONFIRM';
   const CONTACT = 'CONTACT';
@@ -97,6 +100,7 @@ class AdCreativeLinkDataCallToActionTypeValues extends AbstractEnum {
   const SHOP_WITH_AI = 'SHOP_WITH_AI';
   const SIGN_UP = 'SIGN_UP';
   const SOTTO_SUBSCRIBE = 'SOTTO_SUBSCRIBE';
+  const START_A_CHAT = 'START_A_CHAT';
   const START_ORDER = 'START_ORDER';
   const SUBSCRIBE = 'SUBSCRIBE';
   const SWIPE_UP_PRODUCT = 'SWIPE_UP_PRODUCT';

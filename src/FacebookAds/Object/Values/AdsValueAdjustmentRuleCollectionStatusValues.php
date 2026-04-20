@@ -24,4 +24,5 @@ class AdsValueAdjustmentRuleCollectionStatusValues extends AbstractEnum {
 
   const ACTIVE = 'ACTIVE';
   const DELETED = 'DELETED';
+  const DRAFT = 'DRAFT';
 }

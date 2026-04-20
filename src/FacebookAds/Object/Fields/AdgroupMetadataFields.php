@@ -28,6 +28,7 @@ class AdgroupMetadataFields extends AbstractEnum {
   const ADGROUP_MEDIA_SOURCE = 'adgroup_media_source';
   const CAROUSEL_STYLE = 'carousel_style';
   const CAROUSEL_WITH_STATIC_CARD_STYLE = 'carousel_with_static_card_style';
+  const IS_PCA_UNIFIED_FORMAT_AD = 'is_pca_unified_format_ad';
 
   public function getFieldTypes() {
     return array(
@@ -37,6 +38,7 @@ class AdgroupMetadataFields extends AbstractEnum {
       'adgroup_media_source' => 'string',
       'carousel_style' => 'string',
       'carousel_with_static_card_style' => 'string',
+      'is_pca_unified_format_ad' => 'bool',
     );
   }
 }

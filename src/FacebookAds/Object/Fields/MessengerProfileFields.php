@@ -25,7 +25,6 @@ class MessengerProfileFields extends AbstractEnum {
   const ACCOUNT_LINKING_URL = 'account_linking_url';
   const COMMANDS = 'commands';
   const GET_STARTED = 'get_started';
-  const GREETING = 'greeting';
   const ICE_BREAKERS = 'ice_breakers';
   const PERSISTENT_MENU = 'persistent_menu';
   const SUBJECT_TO_NEW_EU_PRIVACY_RULES = 'subject_to_new_eu_privacy_rules';
@@ -36,7 +35,6 @@ class MessengerProfileFields extends AbstractEnum {
       'account_linking_url' => 'string',
       'commands' => 'list<Object>',
       'get_started' => 'Object',
-      'greeting' => 'list<Object>',
       'ice_breakers' => 'list<Object>',
       'persistent_menu' => 'list<Object>',
       'subject_to_new_eu_privacy_rules' => 'bool',

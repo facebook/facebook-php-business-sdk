@@ -18,6 +18,7 @@ use FacebookAds\Object\Values\CheckBatchRequestStatusErrorPriorityValues;
 use FacebookAds\Object\Values\CreatorAssetCreativeModerationStatusValues;
 use FacebookAds\Object\Values\ProductCatalogAdditionalVerticalOptionValues;
 use FacebookAds\Object\Values\ProductCatalogCategoryCategorizationCriteriaValues;
+use FacebookAds\Object\Values\ProductCatalogConversionTypeValues;
 use FacebookAds\Object\Values\ProductCatalogDataSourceIngestionSourceTypeValues;
 use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupAffectedChannelsValues;
 use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupAffectedEntitiesValues;
@@ -96,6 +97,7 @@ class ProductCatalog extends AbstractCrudObject {
     $ref_enums['Tasks'] = ProductCatalogTasksValues::getInstance()->getValues();
     $ref_enums['Standard'] = ProductCatalogStandardValues::getInstance()->getValues();
     $ref_enums['ItemSubType'] = ProductCatalogItemSubTypeValues::getInstance()->getValues();
+    $ref_enums['ConversionType'] = ProductCatalogConversionTypeValues::getInstance()->getValues();
     $ref_enums['EventName'] = ProductCatalogEventNameValues::getInstance()->getValues();
     return $ref_enums;
   }
@@ -1068,13 +1070,17 @@ class ProductCatalog extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'conversion_type' => 'conversion_type_enum',
+      'event_id' => 'string',
       'event_name' => 'event_name_enum',
       'event_source_url' => 'string',
       'event_time' => 'datetime',
+      'offer_data' => 'map',
       'order_data' => 'map',
       'user_data' => 'map',
     );
     $enums = array(
+      'conversion_type_enum' => ProductCatalogConversionTypeValues::getInstance()->getValues(),
       'event_name_enum' => ProductCatalogEventNameValues::getInstance()->getValues(),
     );
 
@@ -1086,6 +1092,62 @@ class ProductCatalog extends AbstractCrudObject {
       new ProductCatalog(),
       'EDGE',
       ProductCatalog::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createMediaTitle(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'additional_image_urls' => 'list<string>',
+      'android_app_name' => 'string',
+      'android_class' => 'string',
+      'android_package' => 'string',
+      'android_url' => 'string',
+      'awards' => 'list<string>',
+      'cast' => 'list<string>',
+      'category' => 'string',
+      'currency' => 'string',
+      'description' => 'string',
+      'director' => 'list<string>',
+      'fb_product_category' => 'string',
+      'genre' => 'list<string>',
+      'image_url' => 'string',
+      'ios_app_name' => 'string',
+      'ios_app_store_id' => 'unsigned int',
+      'ios_url' => 'string',
+      'ipad_app_name' => 'string',
+      'ipad_app_store_id' => 'unsigned int',
+      'ipad_url' => 'string',
+      'iphone_app_name' => 'string',
+      'iphone_app_store_id' => 'unsigned int',
+      'iphone_url' => 'string',
+      'media_category' => 'string',
+      'name' => 'string',
+      'price' => 'unsigned int',
+      'rating' => 'string',
+      'release_date' => 'string',
+      'retailer_id' => 'string',
+      'url' => 'string',
+      'windows_phone_app_id' => 'string',
+      'windows_phone_app_name' => 'string',
+      'windows_phone_url' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/media_titles',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

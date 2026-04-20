@@ -31,7 +31,7 @@ class VehicleOfferFields extends AbstractEnum {
   const BODY_STYLE = 'body_style';
   const CASHBACK_CURRENCY = 'cashback_currency';
   const CASHBACK_PRICE = 'cashback_price';
-  const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
+  const COMSCORE_MARKET_CODES = 'comscore_market_codes';
   const CURRENCY = 'currency';
   const CUSTOM_LABEL_0 = 'custom_label_0';
   const CUSTOM_LABEL_1 = 'custom_label_1';
@@ -95,7 +95,7 @@ class VehicleOfferFields extends AbstractEnum {
       'body_style' => 'string',
       'cashback_currency' => 'string',
       'cashback_price' => 'string',
-      'category_specific_fields' => 'CatalogSubVerticalList',
+      'comscore_market_codes' => 'list<string>',
       'currency' => 'string',
       'custom_label_0' => 'string',
       'custom_label_1' => 'string',

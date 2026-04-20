@@ -23,7 +23,9 @@ use FacebookAds\Enum\AbstractEnum;
 class ProductCatalogEventNameValues extends AbstractEnum {
 
   const ADD_TO_CART = 'ADD_TO_CART';
+  const OFFER_SUBMITTED = 'OFFER_SUBMITTED';
   const PURCHASE = 'PURCHASE';
+  const PURCHASE_VIA_OFFER = 'PURCHASE_VIA_OFFER';
   const TEST = 'TEST';
   const VIEW_ITEM = 'VIEW_ITEM';
 }

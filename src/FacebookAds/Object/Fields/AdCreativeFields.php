@@ -50,6 +50,7 @@ class AdCreativeFields extends AbstractEnum {
   const EFFECTIVE_OBJECT_STORY_ID = 'effective_object_story_id';
   const ENABLE_DIRECT_INSTALL = 'enable_direct_install';
   const ENABLE_LAUNCH_INSTANT_APP = 'enable_launch_instant_app';
+  const EXISTING_POST_TITLE = 'existing_post_title';
   const FACEBOOK_BRANDED_CONTENT = 'facebook_branded_content';
   const FORMAT_TRANSFORMATION_SPEC = 'format_transformation_spec';
   const ID = 'id';
@@ -64,6 +65,7 @@ class AdCreativeFields extends AbstractEnum {
   const LINK_DESTINATION_DISPLAY_URL = 'link_destination_display_url';
   const LINK_OG_ID = 'link_og_id';
   const LINK_URL = 'link_url';
+  const MARKETING_MESSAGE_STRUCTURED_SPEC = 'marketing_message_structured_spec';
   const MEDIA_SOURCING_SPEC = 'media_sourcing_spec';
   const MESSENGER_SPONSORED_MESSAGE = 'messenger_sponsored_message';
   const NAME = 'name';
@@ -82,6 +84,7 @@ class AdCreativeFields extends AbstractEnum {
   const PORTRAIT_CUSTOMIZATIONS = 'portrait_customizations';
   const PRODUCT_DATA = 'product_data';
   const PRODUCT_SET_ID = 'product_set_id';
+  const PRODUCT_SUGGESTION_SETTINGS = 'product_suggestion_settings';
   const RECOMMENDER_SETTINGS = 'recommender_settings';
   const REGIONAL_REGULATION_DISCLAIMER_SPEC = 'regional_regulation_disclaimer_spec';
   const SOURCE_FACEBOOK_POST_ID = 'source_facebook_post_id';
@@ -129,6 +132,7 @@ class AdCreativeFields extends AbstractEnum {
       'effective_object_story_id' => 'string',
       'enable_direct_install' => 'bool',
       'enable_launch_instant_app' => 'bool',
+      'existing_post_title' => 'string',
       'facebook_branded_content' => 'AdCreativeFacebookBrandedContent',
       'format_transformation_spec' => 'list<AdCreativeFormatTransformationSpec>',
       'id' => 'string',
@@ -143,6 +147,7 @@ class AdCreativeFields extends AbstractEnum {
       'link_destination_display_url' => 'string',
       'link_og_id' => 'string',
       'link_url' => 'string',
+      'marketing_message_structured_spec' => 'AdCreativeMarketingMessageStructuredSpec',
       'media_sourcing_spec' => 'AdCreativeMediaSourcingSpec',
       'messenger_sponsored_message' => 'string',
       'name' => 'string',
@@ -161,6 +166,7 @@ class AdCreativeFields extends AbstractEnum {
       'portrait_customizations' => 'AdCreativePortraitCustomizations',
       'product_data' => 'list<AdCreativeProductData>',
       'product_set_id' => 'string',
+      'product_suggestion_settings' => 'AdCreativeProductSuggestionSettings',
       'recommender_settings' => 'AdCreativeRecommenderSettings',
       'regional_regulation_disclaimer_spec' => 'AdCreativeRegionalRegulationDisclaimer',
       'source_facebook_post_id' => 'string',

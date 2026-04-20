@@ -24,6 +24,7 @@ class AdCreativeBrandedContentAdsFields extends AbstractEnum {
 
   const ACTING_BUSINESS_ID = 'acting_business_id';
   const AD_FORMAT = 'ad_format';
+  const AUTOMATED_ADGROUP_CREATION = 'automated_adgroup_creation';
   const CONTENT_SEARCH_INPUT = 'content_search_input';
   const CREATOR_AD_PERMISSION_TYPE = 'creator_ad_permission_type';
   const DELIVER_DYNAMIC_PARTNER_CONTENT = 'deliver_dynamic_partner_content';
@@ -43,6 +44,7 @@ class AdCreativeBrandedContentAdsFields extends AbstractEnum {
     return array(
       'acting_business_id' => 'string',
       'ad_format' => 'int',
+      'automated_adgroup_creation' => 'bool',
       'content_search_input' => 'string',
       'creator_ad_permission_type' => 'string',
       'deliver_dynamic_partner_content' => 'bool',

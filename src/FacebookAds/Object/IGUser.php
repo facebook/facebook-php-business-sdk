@@ -148,6 +148,7 @@ class IGUser extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'creator_username' => 'string',
     );
     $enums = array(
     );
@@ -295,6 +296,30 @@ class IGUser extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createBusinessMessagingFeatureStatus(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'features' => 'list<map>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/business_messaging_feature_status',
+      new IGUser(),
+      'EDGE',
+      IGUser::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getCatalogProductSearch(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -368,6 +393,29 @@ class IGUser extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getCollaborativeMedia(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/collaborative_media',
+      new ShadowIGUserCollaborativeMedia(),
+      'EDGE',
+      ShadowIGUserCollaborativeMedia::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getConnectedThreadsUser(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -421,8 +469,10 @@ class IGUser extends AbstractCrudObject {
     $param_types = array(
       'creator_age_bucket' => 'list<Object>',
       'creator_countries' => 'list<creator_countries_enum>',
+      'creator_follower_growth' => 'Object',
       'creator_gender' => 'list<creator_gender_enum>',
       'creator_interests' => 'list<Object>',
+      'creator_latest_post_activity' => 'Object',
       'creator_max_engaged_accounts' => 'unsigned int',
       'creator_max_followers' => 'unsigned int',
       'creator_min_engaged_accounts' => 'unsigned int',
@@ -430,12 +480,14 @@ class IGUser extends AbstractCrudObject {
       'has_public_contact_email' => 'bool',
       'major_audience_age_bucket' => 'list<Object>',
       'major_audience_countries' => 'list<major_audience_countries_enum>',
+      'major_audience_device_type' => 'list<Object>',
       'major_audience_gender' => 'list<major_audience_gender_enum>',
       'query' => 'string',
       'reels_interaction_rate' => 'Object',
       'show_onboarded_creators_only' => 'bool',
       'similar_to_creators' => 'list<string>',
       'username' => 'string',
+      'usernames' => 'list<string>',
     );
     $enums = array(
       'creator_countries_enum' => IGUserExportForCAMCreatorCountriesValues::getInstance()->getValues(),
@@ -717,6 +769,36 @@ class IGUser extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/mentions',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createModerateConversation(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'actions' => 'list<actions_enum>',
+      'user_ids' => 'list<map>',
+    );
+    $enums = array(
+      'actions_enum' => array(
+        'BLOCK_USER',
+        'MOVE_TO_SPAM',
+        'UNBLOCK_USER',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/moderate_conversations',
       new AbstractCrudObject(),
       'EDGE',
       array(),

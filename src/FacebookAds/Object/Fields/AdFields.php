@@ -56,6 +56,7 @@ class AdFields extends AbstractEnum {
   const RECOMMENDATIONS = 'recommendations';
   const SOURCE_AD = 'source_ad';
   const SOURCE_AD_ID = 'source_ad_id';
+  const SPECIAL_AD_CATEGORIES = 'special_ad_categories';
   const STATUS = 'status';
   const TARGETING = 'targeting';
   const TRACKING_AND_CONVERSION_WITH_DEFAULTS = 'tracking_and_conversion_with_defaults';
@@ -105,6 +106,7 @@ class AdFields extends AbstractEnum {
       'recommendations' => 'list<AdRecommendation>',
       'source_ad' => 'Ad',
       'source_ad_id' => 'string',
+      'special_ad_categories' => 'list<string>',
       'status' => 'Status',
       'targeting' => 'Targeting',
       'tracking_and_conversion_with_defaults' => 'TrackingAndConversionWithDefaults',

@@ -28,6 +28,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
   const ADVANTAGE_PLUS_CREATIVE = 'advantage_plus_creative';
   const APP_HIGHLIGHTS = 'app_highlights';
   const AUDIO = 'audio';
+  const AUTO_PROMOTION_TAG = 'auto_promotion_tag';
   const BIZ_AI = 'biz_ai';
   const CAROUSEL_TO_VIDEO = 'carousel_to_video';
   const CATALOG_FEED_TAG = 'catalog_feed_tag';
@@ -37,6 +38,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
   const DESCRIPTION_AUTOMATION = 'description_automation';
   const DHA_OPTIMIZATION = 'dha_optimization';
   const DYNAMIC_PARTNER_CONTENT = 'dynamic_partner_content';
+  const ENABLE_NCS_TESTIMONIALS = 'enable_ncs_testimonials';
   const ENHANCE_CTA = 'enhance_cta';
   const FB_FEED_TAG = 'fb_feed_tag';
   const FB_REELS_TAG = 'fb_reels_tag';
@@ -48,12 +50,14 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
   const IG_GLADOS_FEED = 'ig_glados_feed';
   const IG_REELS_TAG = 'ig_reels_tag';
   const IG_STREAM_TAG = 'ig_stream_tag';
+  const IG_VIDEO_NATIVE_SUBTITLE = 'ig_video_native_subtitle';
   const IMAGE_ANIMATION = 'image_animation';
   const IMAGE_AUTO_CROP = 'image_auto_crop';
   const IMAGE_BACKGROUND_GEN = 'image_background_gen';
   const IMAGE_BRIGHTNESS_AND_CONTRAST = 'image_brightness_and_contrast';
   const IMAGE_ENHANCEMENT = 'image_enhancement';
   const IMAGE_TEMPLATES = 'image_templates';
+  const IMAGE_TEXT_TRANSLATION = 'image_text_translation';
   const IMAGE_TOUCHUPS = 'image_touchups';
   const IMAGE_UNCROP = 'image_uncrop';
   const INLINE_COMMENT = 'inline_comment';
@@ -78,6 +82,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
   const STANDARD_ENHANCEMENTS_CATALOG = 'standard_enhancements_catalog';
   const TEXT_EXTRACTION_FOR_HEADLINE = 'text_extraction_for_headline';
   const TEXT_EXTRACTION_FOR_TAP_TARGET = 'text_extraction_for_tap_target';
+  const TEXT_FORMATTING_OPTIMIZATION = 'text_formatting_optimization';
   const TEXT_GENERATION = 'text_generation';
   const TEXT_OPTIMIZATIONS = 'text_optimizations';
   const TEXT_OVERLAY_TRANSLATION = 'text_overlay_translation';
@@ -100,6 +105,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
       'advantage_plus_creative' => 'AdCreativeFeatureDetails',
       'app_highlights' => 'AdCreativeFeatureDetails',
       'audio' => 'AdCreativeFeatureDetails',
+      'auto_promotion_tag' => 'AdCreativeFeatureDetails',
       'biz_ai' => 'AdCreativeFeatureDetails',
       'carousel_to_video' => 'AdCreativeFeatureDetails',
       'catalog_feed_tag' => 'AdCreativeFeatureDetails',
@@ -109,6 +115,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
       'description_automation' => 'AdCreativeFeatureDetails',
       'dha_optimization' => 'AdCreativeFeatureDetails',
       'dynamic_partner_content' => 'AdCreativeFeatureDetails',
+      'enable_ncs_testimonials' => 'AdCreativeFeatureDetails',
       'enhance_cta' => 'AdCreativeFeatureDetails',
       'fb_feed_tag' => 'AdCreativeFeatureDetails',
       'fb_reels_tag' => 'AdCreativeFeatureDetails',
@@ -120,12 +127,14 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
       'ig_glados_feed' => 'AdCreativeFeatureDetails',
       'ig_reels_tag' => 'AdCreativeFeatureDetails',
       'ig_stream_tag' => 'AdCreativeFeatureDetails',
+      'ig_video_native_subtitle' => 'AdCreativeFeatureDetails',
       'image_animation' => 'AdCreativeFeatureDetails',
       'image_auto_crop' => 'AdCreativeFeatureDetails',
       'image_background_gen' => 'AdCreativeFeatureDetails',
       'image_brightness_and_contrast' => 'AdCreativeFeatureDetails',
       'image_enhancement' => 'AdCreativeFeatureDetails',
       'image_templates' => 'AdCreativeFeatureDetails',
+      'image_text_translation' => 'AdCreativeFeatureDetails',
       'image_touchups' => 'AdCreativeFeatureDetails',
       'image_uncrop' => 'AdCreativeFeatureDetails',
       'inline_comment' => 'AdCreativeFeatureDetails',
@@ -150,6 +159,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
       'standard_enhancements_catalog' => 'AdCreativeFeatureDetails',
       'text_extraction_for_headline' => 'AdCreativeFeatureDetails',
       'text_extraction_for_tap_target' => 'AdCreativeFeatureDetails',
+      'text_formatting_optimization' => 'AdCreativeFeatureDetails',
       'text_generation' => 'AdCreativeFeatureDetails',
       'text_optimizations' => 'AdCreativeFeatureDetails',
       'text_overlay_translation' => 'AdCreativeFeatureDetails',

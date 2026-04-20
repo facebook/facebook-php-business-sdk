@@ -25,6 +25,8 @@ class InsightsResultMetricValues extends AbstractEnum {
   const CLIPS_REPLAYS_COUNT = 'clips_replays_count';
   const COMMENTS = 'comments';
   const CONTENT_VIEWS = 'content_views';
+  const CROSSPOSTED_VIEWS = 'crossposted_views';
+  const FACEBOOK_VIEWS = 'facebook_views';
   const FOLLOWS = 'follows';
   const IG_REELS_AGGREGATED_ALL_PLAYS_COUNT = 'ig_reels_aggregated_all_plays_count';
   const IG_REELS_AVG_WATCH_TIME = 'ig_reels_avg_watch_time';
@@ -37,6 +39,7 @@ class InsightsResultMetricValues extends AbstractEnum {
   const PROFILE_VISITS = 'profile_visits';
   const QUOTES = 'quotes';
   const REACH = 'reach';
+  const REELS_SKIP_RATE = 'reels_skip_rate';
   const REPLIES = 'replies';
   const REPOSTS = 'reposts';
   const SAVED = 'saved';
@@ -44,7 +47,11 @@ class InsightsResultMetricValues extends AbstractEnum {
   const THREAD_REPLIES = 'thread_replies';
   const THREAD_SHARES = 'thread_shares';
   const THREADS_MEDIA_CLICKS = 'threads_media_clicks';
+  const THREADS_REPOSTS = 'threads_reposts';
   const THREADS_VIEWS = 'threads_views';
+  const TOTAL_COMMENTS = 'total_comments';
   const TOTAL_INTERACTIONS = 'total_interactions';
+  const TOTAL_LIKES = 'total_likes';
+  const TOTAL_VIEWS = 'total_views';
   const VIEWS = 'views';
 }

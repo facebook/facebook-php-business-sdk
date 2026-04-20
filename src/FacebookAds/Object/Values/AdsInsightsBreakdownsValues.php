@@ -81,11 +81,10 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
   const PRODUCT_CUSTOM_LABEL_3_BREAKDOWN = 'product_custom_label_3_breakdown';
   const PRODUCT_CUSTOM_LABEL_4_BREAKDOWN = 'product_custom_label_4_breakdown';
   const PRODUCT_GROUP_CONTENT_ID_BREAKDOWN = 'product_group_content_id_breakdown';
-  const PRODUCT_GROUP_ID = 'product_group_id';
   const PRODUCT_ID = 'product_id';
-  const PRODUCT_SET_ID_BREAKDOWN = 'product_set_id_breakdown';
   const PUBLISHER_PLATFORM = 'publisher_platform';
   const REDOWNLOAD = 'redownload';
+  const REELS_TRENDING_TOPIC = 'reels_trending_topic';
   const REGION = 'region';
   const RTA_UGC_TOPIC = 'rta_ugc_topic';
   const RULE_SET_ID = 'rule_set_id';

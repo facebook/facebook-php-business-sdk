@@ -23,10 +23,12 @@ use FacebookAds\Enum\AbstractEnum;
 class MessengerCallPermissionsFields extends AbstractEnum {
 
   const ACTIONS = 'actions';
+  const PERMISSION = 'permission';
 
   public function getFieldTypes() {
     return array(
       'actions' => 'list<Object>',
+      'permission' => 'Object',
     );
   }
 }

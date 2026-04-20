@@ -22,11 +22,13 @@ use FacebookAds\Enum\AbstractEnum;
 
 class TargetingProductAudienceSubSpecFields extends AbstractEnum {
 
+  const MIN_RETENTION_SECONDS = 'min_retention_seconds';
   const RETENTION_SECONDS = 'retention_seconds';
   const RULE = 'rule';
 
   public function getFieldTypes() {
     return array(
+      'min_retention_seconds' => 'string',
       'retention_seconds' => 'string',
       'rule' => 'string',
     );

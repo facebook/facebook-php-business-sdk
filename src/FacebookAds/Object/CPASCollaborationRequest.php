@@ -14,7 +14,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\CPASCollaborationRequestFields;
-use FacebookAds\Object\Values\CPASCollaborationRequestRequesterAgencyOrBrandValues;
 
 /**
  * This class is auto-generated.
@@ -28,13 +27,6 @@ use FacebookAds\Object\Values\CPASCollaborationRequestRequesterAgencyOrBrandValu
 class CPASCollaborationRequest extends AbstractCrudObject {
 
   /**
-   * @deprecated getEndpoint function is deprecated
-   */
-  protected function getEndpoint() {
-    return 'collaborative_ads_collaboration_requests';
-  }
-
-  /**
    * @return CPASCollaborationRequestFields
    */
   public static function getFieldsEnum() {
@@ -43,7 +35,6 @@ class CPASCollaborationRequest extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['RequesterAgencyOrBrand'] = CPASCollaborationRequestRequesterAgencyOrBrandValues::getInstance()->getValues();
     return $ref_enums;
   }
 

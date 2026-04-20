@@ -14,6 +14,9 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\OpenBridgeConfigurationFields;
+use FacebookAds\Object\Values\OpenBridgeConfigurationCapiPublishingStateValues;
+use FacebookAds\Object\Values\OpenBridgeConfigurationEventEnrichmentAdvertiserStateValues;
+use FacebookAds\Object\Values\OpenBridgeConfigurationEventEnrichmentMetaStateValues;
 use FacebookAds\Object\Values\OpenBridgeConfigurationEventEnrichmentStateValues;
 
 /**
@@ -43,6 +46,9 @@ class OpenBridgeConfiguration extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['CapiPublishingState'] = OpenBridgeConfigurationCapiPublishingStateValues::getInstance()->getValues();
+    $ref_enums['EventEnrichmentAdvertiserState'] = OpenBridgeConfigurationEventEnrichmentAdvertiserStateValues::getInstance()->getValues();
+    $ref_enums['EventEnrichmentMetaState'] = OpenBridgeConfigurationEventEnrichmentMetaStateValues::getInstance()->getValues();
     $ref_enums['EventEnrichmentState'] = OpenBridgeConfigurationEventEnrichmentStateValues::getInstance()->getValues();
     return $ref_enums;
   }
@@ -101,13 +107,15 @@ class OpenBridgeConfiguration extends AbstractCrudObject {
       'active' => 'bool',
       'blocked_event_types' => 'list<string>',
       'blocked_websites' => 'list<string>',
+      'capi_publishing_state' => 'capi_publishing_state_enum',
       'cloud_provider' => 'string',
       'cloud_region' => 'string',
       'destination_id' => 'string',
       'endpoint' => 'string',
+      'event_enrichment_advertiser_state' => 'event_enrichment_advertiser_state_enum',
+      'event_enrichment_meta_state' => 'event_enrichment_meta_state_enum',
       'event_enrichment_state' => 'event_enrichment_state_enum',
       'fallback_domain' => 'string',
-      'first_party_domain' => 'string',
       'host_business_id' => 'unsigned int',
       'instance_id' => 'string',
       'instance_version' => 'string',
@@ -119,6 +127,9 @@ class OpenBridgeConfiguration extends AbstractCrudObject {
       'sgw_pixel_id' => 'unsigned int',
     );
     $enums = array(
+      'capi_publishing_state_enum' => OpenBridgeConfigurationCapiPublishingStateValues::getInstance()->getValues(),
+      'event_enrichment_advertiser_state_enum' => OpenBridgeConfigurationEventEnrichmentAdvertiserStateValues::getInstance()->getValues(),
+      'event_enrichment_meta_state_enum' => OpenBridgeConfigurationEventEnrichmentMetaStateValues::getInstance()->getValues(),
       'event_enrichment_state_enum' => OpenBridgeConfigurationEventEnrichmentStateValues::getInstance()->getValues(),
     );
 

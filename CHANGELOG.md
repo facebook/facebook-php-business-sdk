@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## v25.0.2
+### Added
+- Add partner_client_id field to AttributionData
+
+## v24.0.3
+### Added
+- Add total_credit field to AttributionData
+
+## v24.0.2
+### Added
+- Add touchpoint_id field to AttributionData
+
 ## v24.0.1
 ### Added
 - Add additional AMM fields: attribution_method, decline_reason, auditing_token, linkage_key

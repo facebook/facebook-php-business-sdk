@@ -57,11 +57,15 @@ class PageSubscribedFieldsValues extends AbstractEnum {
   const INVOICE_ACCESS_ONBOARDING_STATUS_ACTIVE = 'invoice_access_onboarding_status_active';
   const LEADGEN = 'leadgen';
   const LEADGEN_FAT = 'leadgen_fat';
+  const LEADGEN_UPDATE = 'leadgen_update';
   const LIVE_VIDEOS = 'live_videos';
   const LOCAL_DELIVERY = 'local_delivery';
   const LOCATION = 'location';
+  const MARKETING_MESSAGE_CLICKS = 'marketing_message_clicks';
+  const MARKETING_MESSAGE_DELIVERIES = 'marketing_message_deliveries';
   const MARKETING_MESSAGE_DELIVERY_FAILED = 'marketing_message_delivery_failed';
   const MARKETING_MESSAGE_ECHOES = 'marketing_message_echoes';
+  const MARKETING_MESSAGE_READS = 'marketing_message_reads';
   const MARKETING_MESSAGES_SUBSCRIBER_UPLOAD_STATUS = 'marketing_messages_subscriber_upload_status';
   const MCOM_INVOICE_CHANGE = 'mcom_invoice_change';
   const MEMBERS = 'members';

@@ -62,6 +62,8 @@ class LeadGenFormPreviewDetailsFields extends AbstractEnum {
   const RETURN_TO_FACEBOOK_TEXT = 'return_to_facebook_text';
   const REVIEW_YOUR_INFO_TEXT = 'review_your_info_text';
   const SECURE_SHARING_TEXT = 'secure_sharing_text';
+  const SECURE_SHARING_TEXT_FOR_EMBEDDED_BOOKING_CALENDLY = 'secure_sharing_text_for_embedded_booking_calendly';
+  const SECURE_SHARING_TEXT_FOR_EMBEDDED_BOOKING_GHL = 'secure_sharing_text_for_embedded_booking_ghl';
   const SECURE_SHARING_TEXT_FOR_OPTIONAL_PRIVACY_POLICY = 'secure_sharing_text_for_optional_privacy_policy';
   const SLIDE_TO_SUBMIT_TEXT = 'slide_to_submit_text';
   const SOCIAL_PROOF_SECTION_HEADERS = 'social_proof_section_headers';
@@ -112,6 +114,8 @@ class LeadGenFormPreviewDetailsFields extends AbstractEnum {
       'return_to_facebook_text' => 'string',
       'review_your_info_text' => 'string',
       'secure_sharing_text' => 'string',
+      'secure_sharing_text_for_embedded_booking_calendly' => 'string',
+      'secure_sharing_text_for_embedded_booking_ghl' => 'string',
       'secure_sharing_text_for_optional_privacy_policy' => 'string',
       'slide_to_submit_text' => 'string',
       'social_proof_section_headers' => 'list<map<string, string>>',

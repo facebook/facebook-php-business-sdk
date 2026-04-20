@@ -138,6 +138,7 @@ class AdStudyCell extends AbstractCrudObject {
 
     $param_types = array(
       'adaccounts' => 'list<unsigned int>',
+      'ads' => 'list<string>',
       'adsets' => 'list<string>',
       'campaigns' => 'list<string>',
       'creation_template' => 'creation_template_enum',

@@ -71,6 +71,7 @@ class AdsHistogramStatsFields extends AbstractEnum {
   const INLINE = 'inline';
   const INTERACTIVE_COMPONENT_STICKER_ID = 'interactive_component_sticker_id';
   const INTERACTIVE_COMPONENT_STICKER_RESPONSE = 'interactive_component_sticker_response';
+  const PROMOTED_PRODUCT_SET_RESULT = 'promoted_product_set_result';
   const SKAN_CLICK = 'skan_click';
   const SKAN_CLICK_SECOND_POSTBACK = 'skan_click_second_postback';
   const SKAN_CLICK_THIRD_POSTBACK = 'skan_click_third_postback';
@@ -130,6 +131,7 @@ class AdsHistogramStatsFields extends AbstractEnum {
       'inline' => 'list<int>',
       'interactive_component_sticker_id' => 'string',
       'interactive_component_sticker_response' => 'string',
+      'promoted_product_set_result' => 'string',
       'skan_click' => 'list<int>',
       'skan_click_second_postback' => 'list<int>',
       'skan_click_third_postback' => 'list<int>',

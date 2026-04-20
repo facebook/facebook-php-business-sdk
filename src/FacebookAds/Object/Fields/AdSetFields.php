@@ -27,6 +27,7 @@ class AdSetFields extends AbstractEnum {
   const ADSET_SCHEDULE = 'adset_schedule';
   const ANCHOR_EVENT_ATTRIBUTION_WINDOW_DAYS = 'anchor_event_attribution_window_days';
   const ASSET_FEED_ID = 'asset_feed_id';
+  const ATTRIBUTION_COUNT_TYPE = 'attribution_count_type';
   const ATTRIBUTION_SPEC = 'attribution_spec';
   const AUTOMATIC_MANUAL_STATE = 'automatic_manual_state';
   const BID_ADJUSTMENTS = 'bid_adjustments';
@@ -43,6 +44,8 @@ class AdSetFields extends AbstractEnum {
   const CAMPAIGN_ID = 'campaign_id';
   const CONFIGURED_STATUS = 'configured_status';
   const CREATED_TIME = 'created_time';
+  const CREATIVE_DIVERSITY_LABEL = 'creative_diversity_label';
+  const CREATIVE_DIVERSITY_SCORE = 'creative_diversity_score';
   const CREATIVE_SEQUENCE = 'creative_sequence';
   const CREATIVE_SEQUENCE_REPETITION_PATTERN = 'creative_sequence_repetition_pattern';
   const DAILY_BUDGET = 'daily_budget';
@@ -68,8 +71,10 @@ class AdSetFields extends AbstractEnum {
   const LIFETIME_IMPS = 'lifetime_imps';
   const LIFETIME_MIN_SPEND_TARGET = 'lifetime_min_spend_target';
   const LIFETIME_SPEND_CAP = 'lifetime_spend_cap';
+  const LOW_CREATIVE_REACH = 'low_creative_reach';
   const MAX_BUDGET_SPEND_PERCENTAGE = 'max_budget_spend_percentage';
   const MIN_BUDGET_SPEND_PERCENTAGE = 'min_budget_spend_percentage';
+  const MULTI_EVENT_CONVERSION_ATTRIBUTION_WINDOW_SECONDS = 'multi_event_conversion_attribution_window_seconds';
   const MULTI_OPTIMIZATION_GOAL_WEIGHT = 'multi_optimization_goal_weight';
   const NAME = 'name';
   const OPTIMIZATION_GOAL = 'optimization_goal';
@@ -85,6 +90,7 @@ class AdSetFields extends AbstractEnum {
   const RF_PREDICTION_ID = 'rf_prediction_id';
   const SOURCE_ADSET = 'source_adset';
   const SOURCE_ADSET_ID = 'source_adset_id';
+  const SPECIAL_AD_CATEGORIES = 'special_ad_categories';
   const START_TIME = 'start_time';
   const STATUS = 'status';
   const TARGETING = 'targeting';
@@ -118,6 +124,7 @@ class AdSetFields extends AbstractEnum {
       'adset_schedule' => 'list<DayPart>',
       'anchor_event_attribution_window_days' => 'int',
       'asset_feed_id' => 'string',
+      'attribution_count_type' => 'string',
       'attribution_spec' => 'list<AttributionSpec>',
       'automatic_manual_state' => 'string',
       'bid_adjustments' => 'AdBidAdjustments',
@@ -134,6 +141,8 @@ class AdSetFields extends AbstractEnum {
       'campaign_id' => 'string',
       'configured_status' => 'ConfiguredStatus',
       'created_time' => 'datetime',
+      'creative_diversity_label' => 'list<string>',
+      'creative_diversity_score' => 'list<string>',
       'creative_sequence' => 'list<string>',
       'creative_sequence_repetition_pattern' => 'string',
       'daily_budget' => 'string',
@@ -159,8 +168,10 @@ class AdSetFields extends AbstractEnum {
       'lifetime_imps' => 'int',
       'lifetime_min_spend_target' => 'string',
       'lifetime_spend_cap' => 'string',
+      'low_creative_reach' => 'list<string>',
       'max_budget_spend_percentage' => 'string',
       'min_budget_spend_percentage' => 'string',
+      'multi_event_conversion_attribution_window_seconds' => 'int',
       'multi_optimization_goal_weight' => 'string',
       'name' => 'string',
       'optimization_goal' => 'OptimizationGoal',
@@ -176,6 +187,7 @@ class AdSetFields extends AbstractEnum {
       'rf_prediction_id' => 'string',
       'source_adset' => 'AdSet',
       'source_adset_id' => 'string',
+      'special_ad_categories' => 'list<string>',
       'start_time' => 'datetime',
       'status' => 'Status',
       'targeting' => 'Targeting',

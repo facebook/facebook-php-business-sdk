@@ -25,6 +25,7 @@ class LeadGenDirectCRMIntegrationConfigFields extends AbstractEnum {
   const AUTH_ID = 'auth_id';
   const CREATION_TIME = 'creation_time';
   const ID = 'id';
+  const LEAD_FILTER_SETTINGS = 'lead_filter_settings';
   const LEAD_GEN_DATA = 'lead_gen_data';
   const MATCHED_FIELDS = 'matched_fields';
   const MATCHED_FIELDS_LABELS = 'matched_fields_labels';
@@ -36,6 +37,7 @@ class LeadGenDirectCRMIntegrationConfigFields extends AbstractEnum {
       'auth_id' => 'string',
       'creation_time' => 'datetime',
       'id' => 'string',
+      'lead_filter_settings' => 'list<map<string, string>>',
       'lead_gen_data' => 'LeadgenForm',
       'matched_fields' => 'list<map<string, string>>',
       'matched_fields_labels' => 'list<map<string, string>>',

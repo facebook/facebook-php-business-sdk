@@ -23,7 +23,6 @@ use FacebookAds\Enum\AbstractEnum;
 class FlightFields extends AbstractEnum {
 
   const APPLINKS = 'applinks';
-  const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
   const CURRENCY = 'currency';
   const CUSTOM_LABEL_0 = 'custom_label_0';
   const CUSTOM_LABEL_1 = 'custom_label_1';
@@ -61,7 +60,6 @@ class FlightFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'applinks' => 'CatalogItemAppLinks',
-      'category_specific_fields' => 'CatalogSubVerticalList',
       'currency' => 'string',
       'custom_label_0' => 'string',
       'custom_label_1' => 'string',

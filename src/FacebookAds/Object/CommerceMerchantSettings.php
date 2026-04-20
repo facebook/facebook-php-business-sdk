@@ -14,6 +14,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\CommerceMerchantSettingsFields;
+use FacebookAds\Object\Values\CommerceMerchantSettingsMerchantStatusValues;
 use FacebookAds\Object\Values\CommerceOrderFiltersValues;
 use FacebookAds\Object\Values\CommerceOrderStateValues;
 
@@ -37,34 +38,10 @@ class CommerceMerchantSettings extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['MerchantStatus'] = CommerceMerchantSettingsMerchantStatusValues::getInstance()->getValues();
     return $ref_enums;
   }
 
-
-  public function createAcknowledgeOrder(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'idempotency_key' => 'string',
-      'orders' => 'list<map>',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/acknowledge_orders',
-      new CommerceMerchantSettings(),
-      'EDGE',
-      CommerceMerchantSettings::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
 
   public function getCommerceOrders(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
@@ -336,6 +313,34 @@ class CommerceMerchantSettings extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
+      '/',
+      new CommerceMerchantSettings(),
+      'NODE',
+      CommerceMerchantSettings::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'checkout_config' => 'map',
+      'korea_ftc_listing' => 'string',
+      'merchant_status' => 'merchant_status_enum',
+      'privacy_policy_localized' => 'map',
+    );
+    $enums = array(
+      'merchant_status_enum' => CommerceMerchantSettingsMerchantStatusValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
       '/',
       new CommerceMerchantSettings(),
       'NODE',

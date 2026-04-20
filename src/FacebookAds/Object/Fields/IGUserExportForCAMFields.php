@@ -35,6 +35,7 @@ class IGUserExportForCAMFields extends AbstractEnum {
   const ONBOARDED_STATUS = 'onboarded_status';
   const PAST_BRAND_PARTNERSHIP_PARTNERS = 'past_brand_partnership_partners';
   const PORTFOLIO_URL = 'portfolio_url';
+  const PROFILE_PICTURE_URL = 'profile_picture_url';
   const USERNAME = 'username';
 
   public function getFieldTypes() {
@@ -52,6 +53,7 @@ class IGUserExportForCAMFields extends AbstractEnum {
       'onboarded_status' => 'bool',
       'past_brand_partnership_partners' => 'list<string>',
       'portfolio_url' => 'string',
+      'profile_picture_url' => 'string',
       'username' => 'string',
     );
   }
