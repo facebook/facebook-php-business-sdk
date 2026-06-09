@@ -1,0 +1,9 @@
+Video player – keyboard accessibility: We are aware of some issues with the keyboard accessibility of our video player (when selecting the caption language from the menu, it is not possible to use the arrow keys to move between languages, this can only be done with the TAB key).
+Video captions: Some of our videos do not have captions. We are continuously working on adding them to more videos.
+Audio description: Videos on this website do not have audio description.
+Heading Hierarchy: Some headings do not follow the correct heading hierarchy, which can cause problems for screen reader users.
+Footer: Links in the footer are not always visually distinguishable from ordinary text.
+Animations: Some pages contain animations, such as animated graphs, that cannot be paused, stopped or hidden.
+Images: Some decorative images are marked up as informative images without a text alternative. We plan to fix this by June 2026.
+Links: Image links in a list of links for a video gallery don't always have a proper text alternative. We plan to fix this by June 2026.
+Links: Download links do not provide a correctly accessible name. We plan to fix this by June 2026.
