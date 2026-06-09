@@ -1,0 +1,13 @@
+// Octokit.js
+// https://github.com/octokit/core.js#readme
+const octokit = new Octokit({
+  auth: 'YOUR-TOKEN'
+})
+
+await octokit.request('GET /repos/{owner}/{repo}/pulls', {
+  owner: 'OWNER',
+  repo: 'REPO',
+  headers: {
+    'X-GitHub-Api-Version': '2026-03-10'
+  }
+})
