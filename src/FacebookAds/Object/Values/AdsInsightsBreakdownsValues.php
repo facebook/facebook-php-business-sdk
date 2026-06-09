@@ -44,6 +44,7 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
   const DESCRIPTION_ASSET = 'description_asset';
   const DEVICE_PLATFORM = 'device_platform';
   const DMA = 'dma';
+  const EXISTING_POST_ID = 'existing_post_id';
   const FIDELITY_TYPE = 'fidelity_type';
   const FLEXIBLE_FORMAT_ASSET_TYPE = 'flexible_format_asset_type';
   const FREQUENCY_VALUE = 'frequency_value';
@@ -55,6 +56,10 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
   const IMAGE_ASSET = 'image_asset';
   const IMPRESSION_DEVICE = 'impression_device';
   const IMPRESSION_VIEW_TIME_ADVERTISER_HOUR_V2 = 'impression_view_time_advertiser_hour_v2';
+  const INSTAGRAM_ADS_FOLLOW_TYPE = 'instagram_ads_follow_type';
+  const INSTAGRAM_ADS_INSTAGRAM_MEDIA_PRODUCT_TYPE = 'instagram_ads_instagram_media_product_type';
+  const INSTAGRAM_ADS_TIME_SINCE_CREATION_BUCKET = 'instagram_ads_time_since_creation_bucket';
+  const INTERNAL_CAMPAIGN_ID = 'internal_campaign_id';
   const IS_AUTO_ADVANCE = 'is_auto_advance';
   const IS_CONVERSION_ID_MODELED = 'is_conversion_id_modeled';
   const IS_RENDERED_AS_DELAYED_SKIP_AD = 'is_rendered_as_delayed_skip_ad';
@@ -70,6 +75,8 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
   const MEDIA_TEXT_CONTENT = 'media_text_content';
   const MEDIA_TYPE = 'media_type';
   const MMM = 'mmm';
+  const OVERLAP_SEGMENT = 'overlap_segment';
+  const PA_CREATOR_IG_HANDLE = 'pa_creator_ig_handle';
   const PLACE_PAGE_ID = 'place_page_id';
   const PLATFORM_POSITION = 'platform_position';
   const POSTBACK_SEQUENCE_INDEX = 'postback_sequence_index';
@@ -103,4 +110,5 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
   const USER_PERSONA_ID = 'user_persona_id';
   const USER_PERSONA_NAME = 'user_persona_name';
   const VIDEO_ASSET = 'video_asset';
+  const ZIP = 'zip';
 }

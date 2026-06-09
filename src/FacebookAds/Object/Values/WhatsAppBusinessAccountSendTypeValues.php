@@ -24,4 +24,5 @@ class WhatsAppBusinessAccountSendTypeValues extends AbstractEnum {
 
   const CAMPAIGN = 'CAMPAIGN';
   const DIRECT = 'DIRECT';
+  const TRIGGER = 'TRIGGER';
 }

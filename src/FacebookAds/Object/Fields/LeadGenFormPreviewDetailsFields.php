@@ -24,7 +24,6 @@ class LeadGenFormPreviewDetailsFields extends AbstractEnum {
 
   const BOOK_ON_WEBSITE_TEXT = 'book_on_website_text';
   const CALL_BUSINESS_TEXT = 'call_business_text';
-  const CALL_TO_ACTION_TITLE = 'call_to_action_title';
   const CHAT_ON_MESSENGER_TEXT = 'chat_on_messenger_text';
   const CHAT_ON_WHATSAPP_TEXT = 'chat_on_whatsapp_text';
   const CONTACT_INFORMATION_TEXT = 'contact_information_text';
@@ -76,7 +75,6 @@ class LeadGenFormPreviewDetailsFields extends AbstractEnum {
     return array(
       'book_on_website_text' => 'string',
       'call_business_text' => 'string',
-      'call_to_action_title' => 'string',
       'chat_on_messenger_text' => 'string',
       'chat_on_whatsapp_text' => 'string',
       'contact_information_text' => 'string',

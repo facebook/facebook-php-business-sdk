@@ -55,10 +55,12 @@ use FacebookAds\Object\Values\AdPreviewCreativeFeatureValues;
 use FacebookAds\Object\Values\AdPreviewRenderTypeValues;
 use FacebookAds\Object\Values\AdRuleStatusValues;
 use FacebookAds\Object\Values\AdRuleUiCreationSourceValues;
+use FacebookAds\Object\Values\AdSetAttributionCountTypeValues;
 use FacebookAds\Object\Values\AdSetAutomaticManualStateValues;
 use FacebookAds\Object\Values\AdSetBidStrategyValues;
 use FacebookAds\Object\Values\AdSetBillingEventValues;
 use FacebookAds\Object\Values\AdSetBudgetSourceValues;
+use FacebookAds\Object\Values\AdSetCostBiddingModeValues;
 use FacebookAds\Object\Values\AdSetCreativeSequenceRepetitionPatternValues;
 use FacebookAds\Object\Values\AdSetDatePresetValues;
 use FacebookAds\Object\Values\AdSetDestinationTypeValues;
@@ -89,6 +91,7 @@ use FacebookAds\Object\Values\AdsInsightsDatePresetValues;
 use FacebookAds\Object\Values\AdsInsightsLevelValues;
 use FacebookAds\Object\Values\AdsInsightsSummaryActionBreakdownsValues;
 use FacebookAds\Object\Values\AdsPixelSortByValues;
+use FacebookAds\Object\Values\AdsValueAdjustmentRuleCollectionEntryPointValues;
 use FacebookAds\Object\Values\AdsValueAdjustmentRuleCollectionProductTypeValues;
 use FacebookAds\Object\Values\AdsValueAdjustmentRuleCollectionStatusValues;
 use FacebookAds\Object\Values\AsyncRequestStatusValues;
@@ -104,6 +107,7 @@ use FacebookAds\Object\Values\CampaignSmartPromotionTypeValues;
 use FacebookAds\Object\Values\CampaignSpecialAdCategoriesValues;
 use FacebookAds\Object\Values\CampaignSpecialAdCategoryCountryValues;
 use FacebookAds\Object\Values\CampaignStatusValues;
+use FacebookAds\Object\Values\CustomAudienceAudienceLabelsValues;
 use FacebookAds\Object\Values\CustomAudienceClaimObjectiveValues;
 use FacebookAds\Object\Values\CustomAudienceContentTypeValues;
 use FacebookAds\Object\Values\CustomAudienceCustomerFileSourceValues;
@@ -444,6 +448,7 @@ class AdAccount extends AbstractCrudObject {
       'existing_post_title' => 'string',
       'facebook_branded_content' => 'map',
       'format_transformation_spec' => 'list<map>',
+      'generative_asset_spec' => 'map',
       'image_crops' => 'map',
       'image_file' => 'string',
       'image_hash' => 'string',
@@ -481,6 +486,7 @@ class AdAccount extends AbstractCrudObject {
       'title' => 'string',
       'url_tags' => 'string',
       'use_page_actor_override' => 'bool',
+      'wamo_whatsapp_identity_spec' => 'map',
     );
     $enums = array(
       'applink_treatment_enum' => AdCreativeApplinkTreatmentValues::getInstance()->getValues(),
@@ -839,6 +845,7 @@ class AdAccount extends AbstractCrudObject {
       'conversion_domain' => 'string',
       'creative' => 'AdCreative',
       'creative_asset_groups_spec' => 'Object',
+      'creative_automation_spec' => 'Object',
       'date_format' => 'string',
       'display_sequence' => 'unsigned int',
       'draft_adgroup_id' => 'string',
@@ -1008,6 +1015,7 @@ class AdAccount extends AbstractCrudObject {
     $param_types = array(
       'adlabels' => 'list<Object>',
       'adset_schedule' => 'list<Object>',
+      'attribution_count_type' => 'attribution_count_type_enum',
       'attribution_spec' => 'list<map>',
       'automatic_manual_state' => 'automatic_manual_state_enum',
       'bid_adjustments' => 'Object',
@@ -1021,6 +1029,7 @@ class AdAccount extends AbstractCrudObject {
       'campaign_attribution' => 'Object',
       'campaign_id' => 'string',
       'campaign_spec' => 'Object',
+      'cost_bidding_mode' => 'cost_bidding_mode_enum',
       'creative_sequence' => 'list<string>',
       'creative_sequence_repetition_pattern' => 'creative_sequence_repetition_pattern_enum',
       'daily_budget' => 'unsigned int',
@@ -1038,6 +1047,7 @@ class AdAccount extends AbstractCrudObject {
       'full_funnel_exploration_mode' => 'full_funnel_exploration_mode_enum',
       'is_ba_skip_delayed_eligible' => 'bool',
       'is_budget_schedule_enabled' => 'bool',
+      'is_dc_follow_optimized' => 'bool',
       'is_dynamic_creative' => 'bool',
       'is_incremental_attribution_enabled' => 'bool',
       'is_sac_cfca_terms_certified' => 'bool',
@@ -1046,7 +1056,9 @@ class AdAccount extends AbstractCrudObject {
       'lifetime_min_spend_target' => 'unsigned int',
       'lifetime_spend_cap' => 'unsigned int',
       'line_number' => 'unsigned int',
+      'live_video_ad_campaign_config' => 'Object',
       'max_budget_spend_percentage' => 'unsigned int',
+      'meta_moment_maker_spec' => 'map',
       'min_budget_spend_percentage' => 'unsigned int',
       'multi_event_conversion_attribution_window_seconds' => 'unsigned int',
       'multi_optimization_goal_weight' => 'multi_optimization_goal_weight_enum',
@@ -1059,6 +1071,7 @@ class AdAccount extends AbstractCrudObject {
       'rb_prediction_id' => 'string',
       'regional_regulated_categories' => 'list<regional_regulated_categories_enum>',
       'regional_regulation_identities' => 'map',
+      'relative_value' => 'float',
       'rf_prediction_id' => 'string',
       'source_adset_id' => 'string',
       'start_time' => 'datetime',
@@ -1075,10 +1088,12 @@ class AdAccount extends AbstractCrudObject {
       'value_rules_applied' => 'bool',
     );
     $enums = array(
+      'attribution_count_type_enum' => AdSetAttributionCountTypeValues::getInstance()->getValues(),
       'automatic_manual_state_enum' => AdSetAutomaticManualStateValues::getInstance()->getValues(),
       'bid_strategy_enum' => AdSetBidStrategyValues::getInstance()->getValues(),
       'billing_event_enum' => AdSetBillingEventValues::getInstance()->getValues(),
       'budget_source_enum' => AdSetBudgetSourceValues::getInstance()->getValues(),
+      'cost_bidding_mode_enum' => AdSetCostBiddingModeValues::getInstance()->getValues(),
       'creative_sequence_repetition_pattern_enum' => AdSetCreativeSequenceRepetitionPatternValues::getInstance()->getValues(),
       'destination_type_enum' => AdSetDestinationTypeValues::getInstance()->getValues(),
       'execution_options_enum' => AdSetExecutionOptionsValues::getInstance()->getValues(),
@@ -1315,6 +1330,7 @@ class AdAccount extends AbstractCrudObject {
       'publish_event_id' => 'unsigned int',
       'referenced_sticker_id' => 'string',
       'replace_video_id' => 'string',
+      'selected_audio_spec' => 'map',
       'slideshow_spec' => 'map',
       'source' => 'file',
       'source_instagram_media_id' => 'string',
@@ -1903,10 +1919,13 @@ class AdAccount extends AbstractCrudObject {
       'buying_type' => 'string',
       'daily_budget' => 'unsigned int',
       'execution_options' => 'list<execution_options_enum>',
+      'frequency_control_specs' => 'list<Object>',
       'is_adset_budget_sharing_enabled' => 'bool',
       'is_budget_schedule_enabled' => 'bool',
       'is_direct_send_campaign' => 'bool',
       'is_message_campaign' => 'bool',
+      'is_meta_moment_maker_enabled' => 'bool',
+      'is_reels_trending_ads_enabled' => 'bool',
       'is_skadnetwork_attribution' => 'bool',
       'iterative_split_test_configs' => 'list<Object>',
       'lifetime_budget' => 'unsigned int',
@@ -2079,6 +2098,7 @@ class AdAccount extends AbstractCrudObject {
     $param_types = array(
       'allowed_domains' => 'list<string>',
       'associated_audience_id' => 'unsigned int',
+      'audience_labels' => 'list<audience_labels_enum>',
       'claim_objective' => 'claim_objective_enum',
       'content_type' => 'content_type_enum',
       'countries' => 'string',
@@ -2120,6 +2140,7 @@ class AdAccount extends AbstractCrudObject {
       'whats_app_business_phone_number_id' => 'string',
     );
     $enums = array(
+      'audience_labels_enum' => CustomAudienceAudienceLabelsValues::getInstance()->getValues(),
       'claim_objective_enum' => CustomAudienceClaimObjectiveValues::getInstance()->getValues(),
       'content_type_enum' => CustomAudienceContentTypeValues::getInstance()->getValues(),
       'customer_file_source_enum' => CustomAudienceCustomerFileSourceValues::getInstance()->getValues(),
@@ -2625,9 +2646,12 @@ class AdAccount extends AbstractCrudObject {
     $param_types = array(
       'bid_amount' => 'unsigned int',
       'daily_budget' => 'unsigned int',
+      'end_time' => 'unsigned int',
       'lifetime_budget' => 'unsigned int',
       'name' => 'string',
       'page_id' => 'string',
+      'pixel_id' => 'unsigned int',
+      'start_time' => 'unsigned int',
     );
     $enums = array(
     );
@@ -2685,9 +2709,11 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'custom_audience_id' => 'string',
       'message' => 'Object',
       'message_id' => 'unsigned int',
       'messenger_delivery_data' => 'map',
+      'min_conversation_gap_seconds' => 'unsigned int',
     );
     $enums = array(
     );
@@ -2955,6 +2981,7 @@ class AdAccount extends AbstractCrudObject {
       'is_higher_average_frequency' => 'bool',
       'is_reach_and_frequency_io_buying' => 'bool',
       'is_reserved_buying' => 'bool',
+      'meta_moment_maker_spec' => 'map',
       'num_curve_points' => 'unsigned int',
       'objective' => 'string',
       'optimization_goal' => 'string',
@@ -3444,11 +3471,13 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'entry_point' => 'entry_point_enum',
       'name' => 'string',
       'product_type' => 'product_type_enum',
       'rules' => 'list<map>',
     );
     $enums = array(
+      'entry_point_enum' => AdsValueAdjustmentRuleCollectionEntryPointValues::getInstance()->getValues(),
       'product_type_enum' => AdsValueAdjustmentRuleCollectionProductTypeValues::getInstance()->getValues(),
     );
 

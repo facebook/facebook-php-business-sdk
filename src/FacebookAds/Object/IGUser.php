@@ -19,6 +19,7 @@ use FacebookAds\Object\Values\IGUserExportForCAMCreatorCountriesValues;
 use FacebookAds\Object\Values\IGUserExportForCAMCreatorGenderValues;
 use FacebookAds\Object\Values\IGUserExportForCAMMajorAudienceCountriesValues;
 use FacebookAds\Object\Values\IGUserExportForCAMMajorAudienceGenderValues;
+use FacebookAds\Object\Values\IGUserExportForCAMRecommendationTypeValues;
 use FacebookAds\Object\Values\InstagramInsightsResultBreakdownValues;
 use FacebookAds\Object\Values\InstagramInsightsResultMetricTypeValues;
 use FacebookAds\Object\Values\InstagramInsightsResultMetricValues;
@@ -477,12 +478,17 @@ class IGUser extends AbstractCrudObject {
       'creator_max_followers' => 'unsigned int',
       'creator_min_engaged_accounts' => 'unsigned int',
       'creator_min_followers' => 'unsigned int',
+      'creator_states' => 'list<string>',
+      'custom_audience_id' => 'string',
       'has_public_contact_email' => 'bool',
+      'is_paid_partnership_messages_enabled' => 'bool',
       'major_audience_age_bucket' => 'list<Object>',
       'major_audience_countries' => 'list<major_audience_countries_enum>',
       'major_audience_device_type' => 'list<Object>',
       'major_audience_gender' => 'list<major_audience_gender_enum>',
+      'major_audience_states' => 'list<string>',
       'query' => 'string',
+      'recommendation_type' => 'recommendation_type_enum',
       'reels_interaction_rate' => 'Object',
       'show_onboarded_creators_only' => 'bool',
       'similar_to_creators' => 'list<string>',
@@ -494,6 +500,7 @@ class IGUser extends AbstractCrudObject {
       'creator_gender_enum' => IGUserExportForCAMCreatorGenderValues::getInstance()->getValues(),
       'major_audience_countries_enum' => IGUserExportForCAMMajorAudienceCountriesValues::getInstance()->getValues(),
       'major_audience_gender_enum' => IGUserExportForCAMMajorAudienceGenderValues::getInstance()->getValues(),
+      'recommendation_type_enum' => IGUserExportForCAMRecommendationTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -694,13 +701,16 @@ class IGUser extends AbstractCrudObject {
 
     $param_types = array(
       'alt_text' => 'string',
+      'audio_configuration' => 'string',
       'audio_name' => 'string',
+      'branded_content_sponsor_ids' => 'list<unsigned int>',
       'caption' => 'string',
       'children' => 'list<string>',
       'collaborators' => 'list<string>',
       'cover_url' => 'string',
       'image_url' => 'string',
       'is_carousel_item' => 'bool',
+      'is_paid_partnership' => 'bool',
       'location_id' => 'string',
       'media_type' => 'string',
       'product_tags' => 'list<map>',

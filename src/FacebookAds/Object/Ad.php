@@ -483,6 +483,7 @@ class Ad extends AbstractArchivableCrudObject
       'conversion_domain' => 'string',
       'creative' => 'AdCreative',
       'creative_asset_groups_spec' => 'Object',
+      'creative_automation_spec' => 'Object',
       'display_sequence' => 'unsigned int',
       'draft_adgroup_id' => 'string',
       'engagement_audience' => 'bool',

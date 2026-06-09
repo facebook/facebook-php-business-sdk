@@ -39,11 +39,10 @@ class AdCampaignGroup extends AbstractCrudObject {
   }
 
 
-  public function genget(array $fields = array(), array $params = array(), $pending = false) {
+  public function gendelete(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
-      'fields' => 'string',
     );
     $enums = array(
     );
@@ -51,11 +50,11 @@ class AdCampaignGroup extends AbstractCrudObject {
     $request = new ApiRequest(
       $this->api,
       $this->data['id'],
-      RequestInterface::METHOD_GET,
+      RequestInterface::METHOD_DELETE,
       '/',
-      new AdCampaignGroupGet(),
+      new AdCampaignGroupDelete(),
       'EDGE',
-      AdCampaignGroupGet::getFieldsEnum()->getValues(),
+      AdCampaignGroupDelete::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

@@ -37,6 +37,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
   const CV_TRANSFORMATION = 'cv_transformation';
   const DESCRIPTION_AUTOMATION = 'description_automation';
   const DHA_OPTIMIZATION = 'dha_optimization';
+  const DYNAMIC_CTA_TEXT = 'dynamic_cta_text';
   const DYNAMIC_PARTNER_CONTENT = 'dynamic_partner_content';
   const ENABLE_NCS_TESTIMONIALS = 'enable_ncs_testimonials';
   const ENHANCE_CTA = 'enhance_cta';
@@ -46,6 +47,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
   const FEED_CAPTION_OPTIMIZATION = 'feed_caption_optimization';
   const GENERATE_CTA = 'generate_cta';
   const HIDE_PRICE = 'hide_price';
+  const HYPERLINK_FORMATTING = 'hyperlink_formatting';
   const IG_FEED_TAG = 'ig_feed_tag';
   const IG_GLADOS_FEED = 'ig_glados_feed';
   const IG_REELS_TAG = 'ig_reels_tag';
@@ -54,7 +56,9 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
   const IMAGE_ANIMATION = 'image_animation';
   const IMAGE_AUTO_CROP = 'image_auto_crop';
   const IMAGE_BACKGROUND_GEN = 'image_background_gen';
+  const IMAGE_BANNER = 'image_banner';
   const IMAGE_BRIGHTNESS_AND_CONTRAST = 'image_brightness_and_contrast';
+  const IMAGE_END_CARD = 'image_end_card';
   const IMAGE_ENHANCEMENT = 'image_enhancement';
   const IMAGE_TEMPLATES = 'image_templates';
   const IMAGE_TEXT_TRANSLATION = 'image_text_translation';
@@ -65,9 +69,13 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
   const MEDIA_LIQUIDITY_ANIMATED_IMAGE = 'media_liquidity_animated_image';
   const MEDIA_ORDER = 'media_order';
   const MEDIA_TYPE_AUTOMATION = 'media_type_automation';
+  const MULTI_CREATIVE_POST_CAROUSEL = 'multi_creative_post_carousel';
   const MULTI_PHOTO_TO_VIDEO = 'multi_photo_to_video';
   const MUSIC_GENERATION = 'music_generation';
+  const PAC_GENAI_RECOMPOSITION = 'pac_genai_recomposition';
+  const PAC_RECOMPOSITION = 'pac_recomposition';
   const PAC_RELAXATION = 'pac_relaxation';
+  const PRODUCT_BROWSING = 'product_browsing';
   const PRODUCT_EXTENSIONS = 'product_extensions';
   const PRODUCT_METADATA_AUTOMATION = 'product_metadata_automation';
   const PRODUCT_TAGS = 'product_tags';
@@ -94,6 +102,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
   const VIDEO_HIGHLIGHTS = 'video_highlights';
   const VIDEO_TO_IMAGE = 'video_to_image';
   const VIDEO_UNCROP = 'video_uncrop';
+  const VIDEO_UNCROP_9X16_TO_9X18 = 'video_uncrop_9x16_to_9x18';
   const WA_MM_IMAGE_FILTERING = 'wa_mm_image_filtering';
   const WA_MM_TEXT_TRUNCATION_LENGTH = 'wa_mm_text_truncation_length';
 
@@ -114,6 +123,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
       'cv_transformation' => 'AdCreativeFeatureDetails',
       'description_automation' => 'AdCreativeFeatureDetails',
       'dha_optimization' => 'AdCreativeFeatureDetails',
+      'dynamic_cta_text' => 'AdCreativeFeatureDetails',
       'dynamic_partner_content' => 'AdCreativeFeatureDetails',
       'enable_ncs_testimonials' => 'AdCreativeFeatureDetails',
       'enhance_cta' => 'AdCreativeFeatureDetails',
@@ -123,6 +133,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
       'feed_caption_optimization' => 'AdCreativeFeatureDetails',
       'generate_cta' => 'AdCreativeFeatureDetails',
       'hide_price' => 'AdCreativeFeatureDetails',
+      'hyperlink_formatting' => 'AdCreativeFeatureDetails',
       'ig_feed_tag' => 'AdCreativeFeatureDetails',
       'ig_glados_feed' => 'AdCreativeFeatureDetails',
       'ig_reels_tag' => 'AdCreativeFeatureDetails',
@@ -131,7 +142,9 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
       'image_animation' => 'AdCreativeFeatureDetails',
       'image_auto_crop' => 'AdCreativeFeatureDetails',
       'image_background_gen' => 'AdCreativeFeatureDetails',
+      'image_banner' => 'AdCreativeFeatureDetails',
       'image_brightness_and_contrast' => 'AdCreativeFeatureDetails',
+      'image_end_card' => 'AdCreativeFeatureDetails',
       'image_enhancement' => 'AdCreativeFeatureDetails',
       'image_templates' => 'AdCreativeFeatureDetails',
       'image_text_translation' => 'AdCreativeFeatureDetails',
@@ -142,9 +155,13 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
       'media_liquidity_animated_image' => 'AdCreativeFeatureDetails',
       'media_order' => 'AdCreativeFeatureDetails',
       'media_type_automation' => 'AdCreativeFeatureDetails',
+      'multi_creative_post_carousel' => 'AdCreativeFeatureDetails',
       'multi_photo_to_video' => 'AdCreativeFeatureDetails',
       'music_generation' => 'AdCreativeFeatureDetails',
+      'pac_genai_recomposition' => 'AdCreativeFeatureDetails',
+      'pac_recomposition' => 'AdCreativeFeatureDetails',
       'pac_relaxation' => 'AdCreativeFeatureDetails',
+      'product_browsing' => 'AdCreativeFeatureDetails',
       'product_extensions' => 'AdCreativeFeatureDetails',
       'product_metadata_automation' => 'AdCreativeFeatureDetails',
       'product_tags' => 'AdCreativeFeatureDetails',
@@ -171,6 +188,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
       'video_highlights' => 'AdCreativeFeatureDetails',
       'video_to_image' => 'AdCreativeFeatureDetails',
       'video_uncrop' => 'AdCreativeFeatureDetails',
+      'video_uncrop_9x16_to_9x18' => 'AdCreativeFeatureDetails',
       'wa_mm_image_filtering' => 'AdCreativeFeatureDetails',
       'wa_mm_text_truncation_length' => 'AdCreativeFeatureDetails',
     );

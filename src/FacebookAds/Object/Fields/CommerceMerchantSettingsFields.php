@@ -24,7 +24,6 @@ class CommerceMerchantSettingsFields extends AbstractEnum {
 
   const CHECKOUT_CONFIG = 'checkout_config';
   const CONTACT_EMAIL = 'contact_email';
-  const CTA = 'cta';
   const DISPLAY_NAME = 'display_name';
   const FACEBOOK_CHANNEL = 'facebook_channel';
   const ID = 'id';
@@ -42,7 +41,6 @@ class CommerceMerchantSettingsFields extends AbstractEnum {
     return array(
       'checkout_config' => 'string',
       'contact_email' => 'string',
-      'cta' => 'string',
       'display_name' => 'string',
       'facebook_channel' => 'Object',
       'id' => 'string',

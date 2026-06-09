@@ -22,19 +22,17 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class InsightsResultMetricValues extends AbstractEnum {
 
-  const CLIPS_REPLAYS_COUNT = 'clips_replays_count';
   const COMMENTS = 'comments';
   const CONTENT_VIEWS = 'content_views';
   const CROSSPOSTED_VIEWS = 'crossposted_views';
   const FACEBOOK_VIEWS = 'facebook_views';
   const FOLLOWS = 'follows';
-  const IG_REELS_AGGREGATED_ALL_PLAYS_COUNT = 'ig_reels_aggregated_all_plays_count';
   const IG_REELS_AVG_WATCH_TIME = 'ig_reels_avg_watch_time';
   const IG_REELS_VIDEO_VIEW_TOTAL_TIME = 'ig_reels_video_view_total_time';
   const IMPRESSIONS = 'impressions';
   const LIKES = 'likes';
+  const LINK_CLICKS = 'link_clicks';
   const NAVIGATION = 'navigation';
-  const PLAYS = 'plays';
   const PROFILE_ACTIVITY = 'profile_activity';
   const PROFILE_VISITS = 'profile_visits';
   const QUOTES = 'quotes';

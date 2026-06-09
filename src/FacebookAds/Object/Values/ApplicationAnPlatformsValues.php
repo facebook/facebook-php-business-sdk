@@ -23,6 +23,7 @@ use FacebookAds\Enum\AbstractEnum;
 class ApplicationAnPlatformsValues extends AbstractEnum {
 
   const ANDROID = 'ANDROID';
+  const CTV = 'CTV';
   const DESKTOP = 'DESKTOP';
   const GALAXY = 'GALAXY';
   const INSTANT_ARTICLES = 'INSTANT_ARTICLES';

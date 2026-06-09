@@ -14,6 +14,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProductCatalogDataSourcesFields;
+use FacebookAds\Object\Values\ProductCatalogDataSourcesGetIngestionSourceTypeValues;
 
 /**
  * This class is auto-generated.
@@ -46,10 +47,11 @@ class ProductCatalogDataSources extends AbstractCrudObject {
       'after' => 'string',
       'before' => 'string',
       'fields' => 'string',
-      'ingestion_source_type' => 'string',
+      'ingestion_source_type' => 'ingestion_source_type_enum',
       'limit' => 'int',
     );
     $enums = array(
+      'ingestion_source_type_enum' => ProductCatalogDataSourcesGetIngestionSourceTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

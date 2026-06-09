@@ -22,11 +22,13 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdCreativeFormatTransformationSpecFields extends AbstractEnum {
 
+  const CUSTOMIZATIONS = 'customizations';
   const DATA_SOURCE = 'data_source';
   const FORMAT = 'format';
 
   public function getFieldTypes() {
     return array(
+      'customizations' => 'list<Object>',
       'data_source' => 'list<string>',
       'format' => 'string',
     );

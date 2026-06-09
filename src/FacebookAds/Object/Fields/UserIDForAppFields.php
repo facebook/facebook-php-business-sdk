@@ -24,11 +24,13 @@ class UserIDForAppFields extends AbstractEnum {
 
   const APP = 'app';
   const ID = 'id';
+  const INSTANT_GAME_PLAYER_ID = 'instant_game_player_id';
 
   public function getFieldTypes() {
     return array(
       'app' => 'Application',
       'id' => 'string',
+      'instant_game_player_id' => 'string',
     );
   }
 }

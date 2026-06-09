@@ -23,6 +23,7 @@ use FacebookAds\Enum\AbstractEnum;
 class CreativeMulticellTestConfigFields extends AbstractEnum {
 
   const BUDGET_PERCENTAGE = 'budget_percentage';
+  const BUDGET_SOURCE = 'budget_source';
   const CONFIGURED_CELL_COUNT = 'configured_cell_count';
   const DAILY_BUDGET = 'daily_budget';
   const ENTRY_SOURCE = 'entry_source';
@@ -33,6 +34,7 @@ class CreativeMulticellTestConfigFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'budget_percentage' => 'int',
+      'budget_source' => 'string',
       'configured_cell_count' => 'int',
       'daily_budget' => 'int',
       'entry_source' => 'string',

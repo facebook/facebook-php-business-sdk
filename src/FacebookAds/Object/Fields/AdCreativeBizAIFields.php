@@ -24,11 +24,13 @@ class AdCreativeBizAIFields extends AbstractEnum {
 
   const CAPABILITIES = 'capabilities';
   const PILLS = 'pills';
+  const PILLS_MBS_VERSION = 'pills_mbs_version';
 
   public function getFieldTypes() {
     return array(
       'capabilities' => 'Object',
       'pills' => 'list<Object>',
+      'pills_mbs_version' => 'int',
     );
   }
 }

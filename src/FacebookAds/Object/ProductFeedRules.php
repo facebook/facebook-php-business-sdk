@@ -43,9 +43,6 @@ class ProductFeedRules extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'after' => 'string',
-      'before' => 'string',
-      'limit' => 'int',
     );
     $enums = array(
     );

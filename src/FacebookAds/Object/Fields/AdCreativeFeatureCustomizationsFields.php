@@ -34,6 +34,7 @@ class AdCreativeFeatureCustomizationsFields extends AbstractEnum {
   const IG_STREAM_TAG_NAME = 'ig_stream_tag_name';
   const IMAGE_CROP_STYLE = 'image_crop_style';
   const PE_CAROUSEL = 'pe_carousel';
+  const RECOMPOSITION_TYPE = 'recomposition_type';
   const SHOWCASE_CARD_DISPLAY = 'showcase_card_display';
   const TEXT_EXTRACTION = 'text_extraction';
   const TEXT_STYLE = 'text_style';
@@ -52,6 +53,7 @@ class AdCreativeFeatureCustomizationsFields extends AbstractEnum {
       'ig_stream_tag_name' => 'string',
       'image_crop_style' => 'string',
       'pe_carousel' => 'Object',
+      'recomposition_type' => 'Object',
       'showcase_card_display' => 'string',
       'text_extraction' => 'Object',
       'text_style' => 'string',

@@ -54,6 +54,7 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const EDUCATION_SCHOOLS = 'education_schools';
   const EDUCATION_STATUSES = 'education_statuses';
   const EFFECTIVE_AUDIENCE_NETWORK_POSITIONS = 'effective_audience_network_positions';
+  const EFFECTIVE_BRAND_SAFETY_CONTENT_FILTER_LEVELS = 'effective_brand_safety_content_filter_levels';
   const EFFECTIVE_DEVICE_PLATFORMS = 'effective_device_platforms';
   const EFFECTIVE_FACEBOOK_POSITIONS = 'effective_facebook_positions';
   const EFFECTIVE_INSTAGRAM_POSITIONS = 'effective_instagram_positions';
@@ -92,6 +93,7 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const GENDERS = 'genders';
   const GENERATION = 'generation';
   const GEO_LOCATIONS = 'geo_locations';
+  const HASHTAG_INTERACTIONS = 'hashtag_interactions';
   const HOME_OWNERSHIP = 'home_ownership';
   const HOME_TYPE = 'home_type';
   const HOME_VALUE = 'home_value';

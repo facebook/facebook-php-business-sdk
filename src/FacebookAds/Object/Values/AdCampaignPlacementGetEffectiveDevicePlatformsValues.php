@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdCampaignPlacementGetEffectiveDevicePlatformsValues extends AbstractEnum {
 
+  const CONNECTED_TV = 'CONNECTED_TV';
   const DESKTOP = 'DESKTOP';
   const MOBILE = 'MOBILE';
 }

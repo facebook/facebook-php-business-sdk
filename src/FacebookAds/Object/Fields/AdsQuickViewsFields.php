@@ -26,11 +26,13 @@ class AdsQuickViewsFields extends AbstractEnum {
   const BREAKDOWNS = 'breakdowns';
   const COLUMN_FIELDS = 'column_fields';
   const DESCRIPTION = 'description';
+  const GROUPING = 'grouping';
   const ID = 'id';
   const IS_ATTRIBUTION_WINDOWS_DISABLED = 'is_attribution_windows_disabled';
   const IS_BREAKDOWNS_DISABLED = 'is_breakdowns_disabled';
   const IS_COLUMNS_AND_SORT_DISABLED = 'is_columns_and_sort_disabled';
   const IS_FILTERS_DISABLED = 'is_filters_disabled';
+  const IS_GROUPING_DISABLED = 'is_grouping_disabled';
   const NAME = 'name';
   const OWNER = 'owner';
   const PERMISSION = 'permission';
@@ -44,11 +46,13 @@ class AdsQuickViewsFields extends AbstractEnum {
       'breakdowns' => 'list<string>',
       'column_fields' => 'list<string>',
       'description' => 'string',
+      'grouping' => 'string',
       'id' => 'string',
       'is_attribution_windows_disabled' => 'bool',
       'is_breakdowns_disabled' => 'bool',
       'is_columns_and_sort_disabled' => 'bool',
       'is_filters_disabled' => 'bool',
+      'is_grouping_disabled' => 'bool',
       'name' => 'string',
       'owner' => 'Profile',
       'permission' => 'string',

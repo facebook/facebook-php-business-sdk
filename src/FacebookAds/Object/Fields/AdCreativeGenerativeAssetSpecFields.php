@@ -22,9 +22,11 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdCreativeGenerativeAssetSpecFields extends AbstractEnum {
 
+  const TRANSPARENCY_METADATA = 'transparency_metadata';
 
   public function getFieldTypes() {
     return array(
+      'transparency_metadata' => 'Object',
     );
   }
 }

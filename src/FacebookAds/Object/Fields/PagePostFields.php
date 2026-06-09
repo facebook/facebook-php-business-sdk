@@ -47,9 +47,11 @@ class PagePostFields extends AbstractEnum {
   const IS_ELIGIBLE_FOR_DARK_POST = 'is_eligible_for_dark_post';
   const IS_ELIGIBLE_FOR_PROMOTION = 'is_eligible_for_promotion';
   const IS_EXPIRED = 'is_expired';
+  const IS_FB_LIVE_VIDEOS = 'is_fb_live_videos';
   const IS_HIDDEN = 'is_hidden';
   const IS_INLINE_CREATED = 'is_inline_created';
   const IS_INSTAGRAM_ELIGIBLE = 'is_instagram_eligible';
+  const IS_LIVE_CLIP = 'is_live_clip';
   const IS_POPULAR = 'is_popular';
   const IS_PUBLISHED = 'is_published';
   const IS_SPHERICAL = 'is_spherical';
@@ -77,6 +79,7 @@ class PagePostFields extends AbstractEnum {
   const UPDATED_TIME = 'updated_time';
   const VIA = 'via';
   const VIDEO_BUYING_ELIGIBILITY = 'video_buying_eligibility';
+  const WAS_FB_LIVE_VIDEOS = 'was_fb_live_videos';
   const WIDTH = 'width';
 
   public function getFieldTypes() {
@@ -106,9 +109,11 @@ class PagePostFields extends AbstractEnum {
       'is_eligible_for_dark_post' => 'bool',
       'is_eligible_for_promotion' => 'bool',
       'is_expired' => 'bool',
+      'is_fb_live_videos' => 'bool',
       'is_hidden' => 'bool',
       'is_inline_created' => 'bool',
       'is_instagram_eligible' => 'bool',
+      'is_live_clip' => 'bool',
       'is_popular' => 'bool',
       'is_published' => 'bool',
       'is_spherical' => 'bool',
@@ -136,6 +141,7 @@ class PagePostFields extends AbstractEnum {
       'updated_time' => 'datetime',
       'via' => 'Object',
       'video_buying_eligibility' => 'list<string>',
+      'was_fb_live_videos' => 'bool',
       'width' => 'unsigned int',
     );
   }

@@ -24,6 +24,7 @@ class SignalsIWLExtractorFields extends AbstractEnum {
 
   const DOMAIN_URI = 'domain_uri';
   const EVENT_TYPE = 'event_type';
+  const EXTRACTOR_CONFIG = 'extractor_config';
   const EXTRACTOR_TYPE = 'extractor_type';
   const ID = 'id';
 
@@ -31,6 +32,7 @@ class SignalsIWLExtractorFields extends AbstractEnum {
     return array(
       'domain_uri' => 'string',
       'event_type' => 'string',
+      'extractor_config' => 'Object',
       'extractor_type' => 'string',
       'id' => 'string',
     );

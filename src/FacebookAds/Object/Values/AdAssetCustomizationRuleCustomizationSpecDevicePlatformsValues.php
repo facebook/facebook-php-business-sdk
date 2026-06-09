@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class AdAssetCustomizationRuleCustomizationSpecDevicePlatformsValues extends AbstractEnum {
 
+  const CONNECTED_TV = 'connected_tv';
   const DESKTOP = 'desktop';
   const MOBILE = 'mobile';
 }

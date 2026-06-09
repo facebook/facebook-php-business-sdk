@@ -81,6 +81,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const IS_IO = 'is_io';
   const IS_RESERVED_BUYING = 'is_reserved_buying';
   const IS_TRP = 'is_trp';
+  const META_MOMENT_MAKER_SPEC = 'meta_moment_maker_spec';
   const NAME = 'name';
   const OBJECTIVE = 'objective';
   const OBJECTIVE_NAME = 'objective_name';
@@ -191,6 +192,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'is_io' => 'bool',
       'is_reserved_buying' => 'unsigned int',
       'is_trp' => 'bool',
+      'meta_moment_maker_spec' => 'MetaMomentMakerConfig',
       'name' => 'string',
       'objective' => 'unsigned int',
       'objective_name' => 'string',

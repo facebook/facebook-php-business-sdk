@@ -25,6 +25,7 @@ class BrandedContentShadowIGMediaIDFields extends AbstractEnum {
   const ELIGIBILITY_ERRORS = 'eligibility_errors';
   const HAS_PERMISSION_FOR_PARTNERSHIP_AD = 'has_permission_for_partnership_ad';
   const ID = 'id';
+  const IS_CREATOR_ALLOWLISTED = 'is_creator_allowlisted';
   const LINKED_PRODUCTS = 'linked_products';
   const OWNER_ID = 'owner_id';
   const PERMALINK = 'permalink';
@@ -36,6 +37,7 @@ class BrandedContentShadowIGMediaIDFields extends AbstractEnum {
       'eligibility_errors' => 'list<string>',
       'has_permission_for_partnership_ad' => 'bool',
       'id' => 'string',
+      'is_creator_allowlisted' => 'bool',
       'linked_products' => 'list<ProductItem>',
       'owner_id' => 'string',
       'permalink' => 'string',

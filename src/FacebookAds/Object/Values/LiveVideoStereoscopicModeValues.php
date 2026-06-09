@@ -24,5 +24,6 @@ class LiveVideoStereoscopicModeValues extends AbstractEnum {
 
   const LEFT_RIGHT = 'LEFT_RIGHT';
   const MONO = 'MONO';
+  const MULTI_VIEW = 'MULTI_VIEW';
   const TOP_BOTTOM = 'TOP_BOTTOM';
 }

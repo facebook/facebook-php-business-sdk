@@ -23,6 +23,8 @@ use FacebookAds\Enum\AbstractEnum;
 class PageSubscribedFieldsValues extends AbstractEnum {
 
   const AFFILIATION = 'affiliation';
+  const AGENT_MESSAGES = 'agent_messages';
+  const AGENT_QUESTIONS = 'agent_questions';
   const ATTIRE = 'attire';
   const AWARDS = 'awards';
   const BIO = 'bio';

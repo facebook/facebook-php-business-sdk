@@ -14,6 +14,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdsValueAdjustmentRuleCollectionFields;
+use FacebookAds\Object\Values\AdsValueAdjustmentRuleCollectionEntryPointValues;
 use FacebookAds\Object\Values\AdsValueAdjustmentRuleCollectionProductTypeValues;
 use FacebookAds\Object\Values\AdsValueAdjustmentRuleCollectionStatusValues;
 
@@ -44,6 +45,7 @@ class AdsValueAdjustmentRuleCollection extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['EntryPoint'] = AdsValueAdjustmentRuleCollectionEntryPointValues::getInstance()->getValues();
     $ref_enums['ProductType'] = AdsValueAdjustmentRuleCollectionProductTypeValues::getInstance()->getValues();
     $ref_enums['Status'] = AdsValueAdjustmentRuleCollectionStatusValues::getInstance()->getValues();
     return $ref_enums;
@@ -54,8 +56,10 @@ class AdsValueAdjustmentRuleCollection extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'status' => 'status_enum',
     );
     $enums = array(
+      'status_enum' => AdsValueAdjustmentRuleCollectionStatusValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -123,11 +127,13 @@ class AdsValueAdjustmentRuleCollection extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'entry_point' => 'entry_point_enum',
       'is_default_setting' => 'bool',
       'name' => 'string',
       'rules' => 'list<map>',
     );
     $enums = array(
+      'entry_point_enum' => AdsValueAdjustmentRuleCollectionEntryPointValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

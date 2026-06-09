@@ -24,6 +24,7 @@ class IGUserFields extends AbstractEnum {
 
   const BIOGRAPHY = 'biography';
   const BUSINESS_DISCOVERY = 'business_discovery';
+  const COLLABORATIVE_MEDIA_SEARCH = 'collaborative_media_search';
   const FOLLOWERS_COUNT = 'followers_count';
   const FOLLOWS_COUNT = 'follows_count';
   const HAS_PROFILE_PIC = 'has_profile_pic';
@@ -46,6 +47,7 @@ class IGUserFields extends AbstractEnum {
     return array(
       'biography' => 'string',
       'business_discovery' => 'IGUser',
+      'collaborative_media_search' => 'ShadowIGUserCollaborativeMedia',
       'followers_count' => 'int',
       'follows_count' => 'int',
       'has_profile_pic' => 'bool',

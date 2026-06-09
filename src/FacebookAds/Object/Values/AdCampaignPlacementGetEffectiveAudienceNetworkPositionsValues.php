@@ -23,6 +23,7 @@ use FacebookAds\Enum\AbstractEnum;
 class AdCampaignPlacementGetEffectiveAudienceNetworkPositionsValues extends AbstractEnum {
 
   const CLASSIC = 'CLASSIC';
+  const CTV_INSTREAM_VIDEO = 'CTV_INSTREAM_VIDEO';
   const INSTREAM_VIDEO = 'INSTREAM_VIDEO';
   const REWARDED_VIDEO = 'REWARDED_VIDEO';
 }

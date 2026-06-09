@@ -771,6 +771,7 @@ class Group extends AbstractCrudObject {
       'referenced_sticker_id' => 'string',
       'replace_video_id' => 'string',
       'scheduled_publish_time' => 'unsigned int',
+      'selected_audio_spec' => 'map',
       'slideshow_spec' => 'map',
       'source' => 'string',
       'source_instagram_media_id' => 'string',

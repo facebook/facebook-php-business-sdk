@@ -26,6 +26,7 @@ class CopyrightAudioAssetFields extends AbstractEnum {
   const AUDIO_LIBRARY_POLICY = 'audio_library_policy';
   const CREATION_TIME = 'creation_time';
   const ID = 'id';
+  const REFERENCE_FILE_ISRCS = 'reference_file_isrcs';
   const REFERENCE_FILES = 'reference_files';
   const TITLE = 'title';
   const UPDATE_TIME = 'update_time';
@@ -36,6 +37,7 @@ class CopyrightAudioAssetFields extends AbstractEnum {
       'audio_library_policy' => 'list<map<string, list<map<string, Object>>>>',
       'creation_time' => 'datetime',
       'id' => 'string',
+      'reference_file_isrcs' => 'list<string>',
       'reference_files' => 'list<Object>',
       'title' => 'string',
       'update_time' => 'datetime',

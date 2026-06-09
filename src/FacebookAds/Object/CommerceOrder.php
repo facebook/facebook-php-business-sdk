@@ -112,52 +112,6 @@ class CommerceOrder extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getPromotionDetails(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/promotion_details',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getPromoTIOns(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/promotions',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getRefunds(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -171,38 +125,6 @@ class CommerceOrder extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/refunds',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getReturns(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'merchant_return_id' => 'string',
-      'statuses' => 'list<statuses_enum>',
-    );
-    $enums = array(
-      'statuses_enum' => array(
-        'APPROVED',
-        'DISAPPROVED',
-        'MERCHANT_MARKED_COMPLETED',
-        'REFUNDED',
-        'REQUESTED',
-      ),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/returns',
       new AbstractCrudObject(),
       'EDGE',
       array(),

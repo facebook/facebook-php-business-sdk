@@ -31,7 +31,6 @@ class CanvasFields extends AbstractEnum {
   const COLLECTION_THUMBNAILS = 'collection_thumbnails';
   const DYNAMIC_SETTING = 'dynamic_setting';
   const ELEMENT_PAYLOAD = 'element_payload';
-  const ELEMENTS = 'elements';
   const FB_BODY_ELEMENTS = 'fb_body_elements';
   const HERO_ASSET_FACEBOOK_POST_ID = 'hero_asset_facebook_post_id';
   const HERO_ASSET_INSTAGRAM_MEDIA_ID = 'hero_asset_instagram_media_id';
@@ -63,7 +62,6 @@ class CanvasFields extends AbstractEnum {
       'collection_thumbnails' => 'list<CanvasCollectionThumbnail>',
       'dynamic_setting' => 'CanvasDynamicSetting',
       'element_payload' => 'string',
-      'elements' => 'list<RichMediaElement>',
       'fb_body_elements' => 'list<Object>',
       'hero_asset_facebook_post_id' => 'string',
       'hero_asset_instagram_media_id' => 'string',

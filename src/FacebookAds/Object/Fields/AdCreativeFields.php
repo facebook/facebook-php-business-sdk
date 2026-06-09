@@ -53,6 +53,7 @@ class AdCreativeFields extends AbstractEnum {
   const EXISTING_POST_TITLE = 'existing_post_title';
   const FACEBOOK_BRANDED_CONTENT = 'facebook_branded_content';
   const FORMAT_TRANSFORMATION_SPEC = 'format_transformation_spec';
+  const GENERATIVE_ASSET_SPEC = 'generative_asset_spec';
   const ID = 'id';
   const IMAGE_CROPS = 'image_crops';
   const IMAGE_HASH = 'image_hash';
@@ -98,6 +99,7 @@ class AdCreativeFields extends AbstractEnum {
   const URL_TAGS = 'url_tags';
   const USE_PAGE_ACTOR_OVERRIDE = 'use_page_actor_override';
   const VIDEO_ID = 'video_id';
+  const WAMO_WHATSAPP_IDENTITY_SPEC = 'wamo_whatsapp_identity_spec';
   const EXECUTION_OPTIONS = 'execution_options';
   const IMAGE_FILE = 'image_file';
   const IS_DCO_INTERNAL = 'is_dco_internal';
@@ -135,6 +137,7 @@ class AdCreativeFields extends AbstractEnum {
       'existing_post_title' => 'string',
       'facebook_branded_content' => 'AdCreativeFacebookBrandedContent',
       'format_transformation_spec' => 'list<AdCreativeFormatTransformationSpec>',
+      'generative_asset_spec' => 'AdCreativeGenerativeAssetSpec',
       'id' => 'string',
       'image_crops' => 'AdsImageCrops',
       'image_hash' => 'string',
@@ -180,6 +183,7 @@ class AdCreativeFields extends AbstractEnum {
       'url_tags' => 'string',
       'use_page_actor_override' => 'bool',
       'video_id' => 'string',
+      'wamo_whatsapp_identity_spec' => 'AdCreativeWAMOWhatsAppIdentitySpec',
       'execution_options' => 'list<ExecutionOptions>',
       'image_file' => 'string',
       'is_dco_internal' => 'bool',

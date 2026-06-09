@@ -22,16 +22,16 @@ use FacebookAds\Enum\AbstractEnum;
 
 class TargetingSubscriberUniverseFields extends AbstractEnum {
 
+  const MESSAGING_CUSTOMER_BASE_FOR_WHATSAPP = 'messaging_customer_base_for_whatsapp';
   const MESSENGER_SUBSCRIBER_POOL = 'messenger_subscriber_pool';
   const MESSENGER_SUBSCRIBER_SOURCE = 'messenger_subscriber_source';
-  const WHATSAPP_SUBSCRIBER_POOL = 'whatsapp_subscriber_pool';
   const WHATSAPP_SUBSCRIBER_SOURCE = 'whatsapp_subscriber_source';
 
   public function getFieldTypes() {
     return array(
+      'messaging_customer_base_for_whatsapp' => 'IDName',
       'messenger_subscriber_pool' => 'IDName',
       'messenger_subscriber_source' => 'IDName',
-      'whatsapp_subscriber_pool' => 'IDName',
       'whatsapp_subscriber_source' => 'IDName',
     );
   }

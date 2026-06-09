@@ -49,7 +49,6 @@ class CatalogSubVerticalListFields extends AbstractEnum {
   const LARGE_APPLIANCES = 'large_appliances';
   const LOCAL_SERVICE_BUSINESS_ITEM = 'local_service_business_item';
   const LOCAL_SERVICE_BUSINESS_RESTAURANT = 'local_service_business_restaurant';
-  const LOYALTY_OFFER = 'loyalty_offer';
   const NURSERY = 'nursery';
   const PRINTERS_AND_SCANNERS = 'printers_and_scanners';
   const PRINTERS_SCANNERS_AND_FAX_MACHINES = 'printers_scanners_and_fax_machines';
@@ -104,7 +103,6 @@ class CatalogSubVerticalListFields extends AbstractEnum {
       'large_appliances' => 'Object',
       'local_service_business_item' => 'Object',
       'local_service_business_restaurant' => 'Object',
-      'loyalty_offer' => 'Object',
       'nursery' => 'Object',
       'printers_and_scanners' => 'Object',
       'printers_scanners_and_fax_machines' => 'Object',

@@ -33,6 +33,7 @@ class ALMEventFields extends AbstractEnum {
   const ID = 'id';
   const PARENT_ADVERTISER_IDS = 'parent_advertiser_ids';
   const RESELLER_BUSINESS_ID = 'reseller_business_id';
+  const SOLUTION_ID = 'solution_id';
   const SUB_CHANNEL = 'sub_channel';
   const USER_ID = 'user_id';
 
@@ -49,6 +50,7 @@ class ALMEventFields extends AbstractEnum {
       'id' => 'string',
       'parent_advertiser_ids' => 'list<string>',
       'reseller_business_id' => 'string',
+      'solution_id' => 'string',
       'sub_channel' => 'string',
       'user_id' => 'string',
     );

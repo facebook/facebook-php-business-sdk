@@ -29,6 +29,7 @@ class VideoCopyrightRuleFields extends AbstractEnum {
   const ID = 'id';
   const IS_IN_MIGRATION = 'is_in_migration';
   const NAME = 'name';
+  const VALIDITY_STATUS = 'validity_status';
 
   public function getFieldTypes() {
     return array(
@@ -39,6 +40,7 @@ class VideoCopyrightRuleFields extends AbstractEnum {
       'id' => 'string',
       'is_in_migration' => 'bool',
       'name' => 'string',
+      'validity_status' => 'string',
     );
   }
 }

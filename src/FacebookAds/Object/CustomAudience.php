@@ -15,6 +15,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\CustomAudienceFields;
 use FacebookAds\Object\Values\CustomAudienceActionSourceValues;
+use FacebookAds\Object\Values\CustomAudienceAudienceLabelsValues;
 use FacebookAds\Object\Values\CustomAudienceClaimObjectiveValues;
 use FacebookAds\Object\Values\CustomAudienceContentTypeValues;
 use FacebookAds\Object\Values\CustomAudienceCustomerFileSourceValues;
@@ -66,6 +67,7 @@ class CustomAudience extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['AudienceLabels'] = CustomAudienceAudienceLabelsValues::getInstance()->getValues();
     $ref_enums['ClaimObjective'] = CustomAudienceClaimObjectiveValues::getInstance()->getValues();
     $ref_enums['ContentType'] = CustomAudienceContentTypeValues::getInstance()->getValues();
     $ref_enums['CustomerFileSource'] = CustomAudienceCustomerFileSourceValues::getInstance()->getValues();
@@ -437,6 +439,7 @@ class CustomAudience extends AbstractCrudObject {
 
     $param_types = array(
       'allowed_domains' => 'list<string>',
+      'audience_labels' => 'list<audience_labels_enum>',
       'claim_objective' => 'claim_objective_enum',
       'content_type' => 'content_type_enum',
       'countries' => 'string',
@@ -462,6 +465,7 @@ class CustomAudience extends AbstractCrudObject {
       'use_in_campaigns' => 'bool',
     );
     $enums = array(
+      'audience_labels_enum' => CustomAudienceAudienceLabelsValues::getInstance()->getValues(),
       'claim_objective_enum' => CustomAudienceClaimObjectiveValues::getInstance()->getValues(),
       'content_type_enum' => CustomAudienceContentTypeValues::getInstance()->getValues(),
       'customer_file_source_enum' => CustomAudienceCustomerFileSourceValues::getInstance()->getValues(),

@@ -209,6 +209,7 @@ class Post extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'attribution_id_v2' => 'string',
       'nectar_module' => 'string',
       'tracking' => 'string',
     );
@@ -234,6 +235,7 @@ class Post extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'attribution_id_v2' => 'string',
       'feedback_source' => 'string',
       'nectar_module' => 'string',
       'tracking' => 'string',

@@ -35,7 +35,6 @@ class CommerceOrderTransactionDetailFields extends AbstractEnum {
   const TRANSACTION_DATE = 'transaction_date';
   const TRANSACTION_TYPE = 'transaction_type';
   const TRANSFER_ID = 'transfer_id';
-  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
@@ -52,7 +51,6 @@ class CommerceOrderTransactionDetailFields extends AbstractEnum {
       'transaction_date' => 'string',
       'transaction_type' => 'string',
       'transfer_id' => 'string',
-      'id' => 'string',
     );
   }
 }

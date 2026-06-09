@@ -50,6 +50,7 @@ class AdAssetFeedSpecFields extends AbstractEnum {
   const TRANSLATIONS = 'translations';
   const UPCOMING_EVENTS = 'upcoming_events';
   const VIDEOS = 'videos';
+  const WEB_DESTINATION_SPEC = 'web_destination_spec';
 
   public function getFieldTypes() {
     return array(
@@ -81,6 +82,7 @@ class AdAssetFeedSpecFields extends AbstractEnum {
       'translations' => 'list<Object>',
       'upcoming_events' => 'list<Object>',
       'videos' => 'list<AdAssetFeedSpecVideo>',
+      'web_destination_spec' => 'Object',
     );
   }
 }

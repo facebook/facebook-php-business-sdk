@@ -41,7 +41,7 @@ class ProductFeedUploadGetFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
-      'end_time' => 'string',
+      'end_time' => 'mixed',
       'error_count' => 'int',
       'error_report' => 'object',
       'errors' => 'object',
@@ -53,7 +53,7 @@ class ProductFeedUploadGetFields extends AbstractEnum {
       'num_invalid_items' => 'int',
       'num_persisted_items' => 'int',
       'progresses' => 'object',
-      'start_time' => 'string',
+      'start_time' => 'mixed',
       'upload_complete' => 'bool',
       'url' => 'string',
       'warning_count' => 'int',

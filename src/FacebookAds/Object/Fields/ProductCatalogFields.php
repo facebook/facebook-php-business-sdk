@@ -38,6 +38,7 @@ class ProductCatalogFields extends AbstractEnum {
   const NAME = 'name';
   const OWNER_BUSINESS = 'owner_business';
   const PRODUCT_COUNT = 'product_count';
+  const SHOW_ASSIGN_PERMISSIONS = 'show_assign_permissions';
   const STORE_CATALOG_SETTINGS = 'store_catalog_settings';
   const USER_ACCESS_EXPIRE_TIME = 'user_access_expire_time';
   const VERTICAL = 'vertical';
@@ -68,6 +69,7 @@ class ProductCatalogFields extends AbstractEnum {
       'name' => 'string',
       'owner_business' => 'Business',
       'product_count' => 'int',
+      'show_assign_permissions' => 'bool',
       'store_catalog_settings' => 'StoreCatalogSettings',
       'user_access_expire_time' => 'datetime',
       'vertical' => 'string',

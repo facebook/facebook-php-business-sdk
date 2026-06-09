@@ -30,8 +30,8 @@ class ProductFeedRuleGetFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'attribute' => 'string',
-      'id' => 'string',
-      'params' => 'map<string, string>',
+      'id' => 'int',
+      'params' => 'list<object>',
       'rule_type' => 'RuleType',
     );
   }

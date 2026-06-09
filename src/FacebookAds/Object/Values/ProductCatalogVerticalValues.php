@@ -35,7 +35,7 @@ class ProductCatalogVerticalValues extends AbstractEnum {
   const MEDIA_TITLES = 'media_titles';
   const OFFER_ITEMS = 'offer_items';
   const OFFLINE_COMMERCE = 'offline_commerce';
-  const PROFESSIONAL_SERVICES = 'professional_services';
+  const SERVICES = 'services';
   const TRANSACTABLE_ITEMS = 'transactable_items';
   const VEHICLES = 'vehicles';
 }

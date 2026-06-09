@@ -73,6 +73,7 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const SHARE_AUDIENCE = 'share_audience';
   const UNKNOWN = 'unknown';
   const UNSHARE_AUDIENCE = 'unshare_audience';
+  const UPDATE_AD_AUDIENCE_PERSONA = 'update_ad_audience_persona';
   const UPDATE_AD_BID_INFO = 'update_ad_bid_info';
   const UPDATE_AD_BID_TYPE = 'update_ad_bid_type';
   const UPDATE_AD_CREATIVE = 'update_ad_creative';
@@ -85,6 +86,7 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const UPDATE_AD_SET_BID_STRATEGY = 'update_ad_set_bid_strategy';
   const UPDATE_AD_SET_BIDDING = 'update_ad_set_bidding';
   const UPDATE_AD_SET_BUDGET = 'update_ad_set_budget';
+  const UPDATE_AD_SET_COST_BIDDING_MODE = 'update_ad_set_cost_bidding_mode';
   const UPDATE_AD_SET_DURATION = 'update_ad_set_duration';
   const UPDATE_AD_SET_LEARNING_STAGE_STATUS = 'update_ad_set_learning_stage_status';
   const UPDATE_AD_SET_MIN_SPEND_TARGET = 'update_ad_set_min_spend_target';
@@ -93,6 +95,7 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const UPDATE_AD_SET_RUN_STATUS = 'update_ad_set_run_status';
   const UPDATE_AD_SET_SPEND_CAP = 'update_ad_set_spend_cap';
   const UPDATE_AD_SET_TARGET_SPEC = 'update_ad_set_target_spec';
+  const UPDATE_AD_SET_VALUE_RULES = 'update_ad_set_value_rules';
   const UPDATE_AD_TARGETS_SPEC = 'update_ad_targets_spec';
   const UPDATE_ADACCOUNT_AGENCY_FEE = 'update_adaccount_agency_fee';
   const UPDATE_ADACCOUNT_AGENCY_FEE_STATUS = 'update_adaccount_agency_fee_status';
@@ -103,6 +106,7 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const UPDATE_CAMPAIGN_BUDGET = 'update_campaign_budget';
   const UPDATE_CAMPAIGN_BUDGET_OPTIMIZATION_TOGGLING_STATUS = 'update_campaign_budget_optimization_toggling_status';
   const UPDATE_CAMPAIGN_BUDGET_SCHEDULING_STATE = 'update_campaign_budget_scheduling_state';
+  const UPDATE_CAMPAIGN_BUDGET_SPLIT = 'update_campaign_budget_split';
   const UPDATE_CAMPAIGN_CONVERSION_GOAL = 'update_campaign_conversion_goal';
   const UPDATE_CAMPAIGN_DELIVERY_DESTINATION = 'update_campaign_delivery_destination';
   const UPDATE_CAMPAIGN_DELIVERY_TYPE = 'update_campaign_delivery_type';
@@ -117,6 +121,5 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const UPDATE_CAMPAIGN_RUN_STATUS = 'update_campaign_run_status';
   const UPDATE_CAMPAIGN_SCHEDULE = 'update_campaign_schedule';
   const UPDATE_CAMPAIGN_VALUE_ADJUSTMENT_RULE = 'update_campaign_value_adjustment_rule';
-  const UPDATE_CAMPAIGN_VALUE_ADJUSTMENT_RULE_ATTACHMENT = 'update_campaign_value_adjustment_rule_attachment';
   const UPDATE_DELIVERY_TYPE_CROSS_LEVEL_SHIFT = 'update_delivery_type_cross_level_shift';
 }

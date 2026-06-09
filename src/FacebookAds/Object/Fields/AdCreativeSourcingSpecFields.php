@@ -29,6 +29,7 @@ class AdCreativeSourcingSpecFields extends AbstractEnum {
   const DUPLICATION_SOURCE = 'duplication_source';
   const DYNAMIC_SITE_LINKS_SPEC = 'dynamic_site_links_spec';
   const ENABLE_SOCIAL_FEEDBACK_PRESERVATION = 'enable_social_feedback_preservation';
+  const FEATURED_OFFERING_SPEC = 'featured_offering_spec';
   const INTENT = 'intent';
   const PCA_SPEC = 'pca_spec';
   const PRODUCT_MEDIA_METADATA_SPEC = 'product_media_metadata_spec';
@@ -48,6 +49,7 @@ class AdCreativeSourcingSpecFields extends AbstractEnum {
       'duplication_source' => 'string',
       'dynamic_site_links_spec' => 'Object',
       'enable_social_feedback_preservation' => 'bool',
+      'featured_offering_spec' => 'Object',
       'intent' => 'Object',
       'pca_spec' => 'Object',
       'product_media_metadata_spec' => 'Object',

@@ -14,6 +14,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProductCatalogDataSourcesGetFields;
+use FacebookAds\Object\Values\ProductCatalogDataSourcesGetIngestionSourceTypeValues;
 
 /**
  * This class is auto-generated.
@@ -35,6 +36,7 @@ class ProductCatalogDataSourcesGet extends AbstractObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['IngestionSourceType'] = ProductCatalogDataSourcesGetIngestionSourceTypeValues::getInstance()->getValues();
     return $ref_enums;
   }
 

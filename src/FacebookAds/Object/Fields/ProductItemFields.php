@@ -79,6 +79,8 @@ class ProductItemFields extends AbstractEnum {
   const MATERIAL = 'material';
   const MOBILE_LINK = 'mobile_link';
   const NAME = 'name';
+  const OFFER_DISCLAIMER = 'offer_disclaimer';
+  const OFFER_DISCLAIMER_URL = 'offer_disclaimer_url';
   const ORDERING_INDEX = 'ordering_index';
   const ORIGIN_COUNTRY = 'origin_country';
   const OVERALL_RANKING = 'overall_ranking';
@@ -200,6 +202,8 @@ class ProductItemFields extends AbstractEnum {
       'material' => 'string',
       'mobile_link' => 'string',
       'name' => 'string',
+      'offer_disclaimer' => 'string',
+      'offer_disclaimer_url' => 'string',
       'ordering_index' => 'int',
       'origin_country' => 'string',
       'overall_ranking' => 'int',

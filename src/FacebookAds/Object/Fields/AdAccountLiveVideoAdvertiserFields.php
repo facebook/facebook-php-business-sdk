@@ -22,6 +22,7 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdAccountLiveVideoAdvertiserFields extends AbstractEnum {
 
+  const IG_LVA_DEFAULT_DURATION_S = 'ig_lva_default_duration_s';
   const IS_LVA_TOGGLE_ON = 'is_lva_toggle_on';
   const LVA_DEFAULT_BUDGET = 'lva_default_budget';
   const LVA_DEFAULT_DURATION_S = 'lva_default_duration_s';
@@ -32,6 +33,7 @@ class AdAccountLiveVideoAdvertiserFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'ig_lva_default_duration_s' => 'int',
       'is_lva_toggle_on' => 'bool',
       'lva_default_budget' => 'int',
       'lva_default_duration_s' => 'int',

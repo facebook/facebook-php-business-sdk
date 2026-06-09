@@ -78,6 +78,7 @@ class AdAccountFields extends AbstractEnum {
   const OFFSITE_CLO_SIGNAL_STATUS = 'offsite_clo_signal_status';
   const OFFSITE_PIXELS_TOS_ACCEPTED = 'offsite_pixels_tos_accepted';
   const OPPORTUNITY_SCORE = 'opportunity_score';
+  const OPPORTUNITY_SCORE_WEIGHT = 'opportunity_score_weight';
   const OWNER = 'owner';
   const OWNER_BUSINESS = 'owner_business';
   const PARTNER = 'partner';
@@ -156,6 +157,7 @@ class AdAccountFields extends AbstractEnum {
       'offsite_clo_signal_status' => 'int',
       'offsite_pixels_tos_accepted' => 'bool',
       'opportunity_score' => 'float',
+      'opportunity_score_weight' => 'int',
       'owner' => 'string',
       'owner_business' => 'Business',
       'partner' => 'string',

@@ -18,11 +18,13 @@ use FacebookAds\Object\Values\AdActivityCategoryValues;
 use FacebookAds\Object\Values\AdAsyncRequestStatusesValues;
 use FacebookAds\Object\Values\AdCampaignDeliveryEstimateOptimizationGoalValues;
 use FacebookAds\Object\Values\AdDatePresetValues;
+use FacebookAds\Object\Values\AdSetAttributionCountTypeValues;
 use FacebookAds\Object\Values\AdSetAutomaticManualStateValues;
 use FacebookAds\Object\Values\AdSetBidStrategyValues;
 use FacebookAds\Object\Values\AdSetBillingEventValues;
 use FacebookAds\Object\Values\AdSetBudgetSourceValues;
 use FacebookAds\Object\Values\AdSetConfiguredStatusValues;
+use FacebookAds\Object\Values\AdSetCostBiddingModeValues;
 use FacebookAds\Object\Values\AdSetCreativeSequenceRepetitionPatternValues;
 use FacebookAds\Object\Values\AdSetDatePresetValues;
 use FacebookAds\Object\Values\AdSetDestinationTypeValues;
@@ -87,8 +89,10 @@ class AdSet extends AbstractArchivableCrudObject
     $ref_enums['EffectiveStatus'] = AdSetEffectiveStatusValues::getInstance()->getValues();
     $ref_enums['OptimizationGoal'] = AdSetOptimizationGoalValues::getInstance()->getValues();
     $ref_enums['Status'] = AdSetStatusValues::getInstance()->getValues();
+    $ref_enums['AttributionCountType'] = AdSetAttributionCountTypeValues::getInstance()->getValues();
     $ref_enums['AutomaticManualState'] = AdSetAutomaticManualStateValues::getInstance()->getValues();
     $ref_enums['BudgetSource'] = AdSetBudgetSourceValues::getInstance()->getValues();
+    $ref_enums['CostBiddingMode'] = AdSetCostBiddingModeValues::getInstance()->getValues();
     $ref_enums['CreativeSequenceRepetitionPattern'] = AdSetCreativeSequenceRepetitionPatternValues::getInstance()->getValues();
     $ref_enums['DatePreset'] = AdSetDatePresetValues::getInstance()->getValues();
     $ref_enums['DestinationType'] = AdSetDestinationTypeValues::getInstance()->getValues();
@@ -702,6 +706,7 @@ class AdSet extends AbstractArchivableCrudObject
       'budget_schedule_specs' => 'list<Object>',
       'campaign_attribution' => 'Object',
       'campaign_spec' => 'Object',
+      'cost_bidding_mode' => 'cost_bidding_mode_enum',
       'creative_sequence' => 'list<string>',
       'creative_sequence_repetition_pattern' => 'creative_sequence_repetition_pattern_enum',
       'daily_budget' => 'unsigned int',
@@ -719,13 +724,16 @@ class AdSet extends AbstractArchivableCrudObject
       'full_funnel_exploration_mode' => 'full_funnel_exploration_mode_enum',
       'is_ba_skip_delayed_eligible' => 'bool',
       'is_budget_schedule_enabled' => 'bool',
+      'is_dc_follow_optimized' => 'bool',
       'is_incremental_attribution_enabled' => 'bool',
       'is_sac_cfca_terms_certified' => 'bool',
       'lifetime_budget' => 'unsigned int',
       'lifetime_imps' => 'unsigned int',
       'lifetime_min_spend_target' => 'unsigned int',
       'lifetime_spend_cap' => 'unsigned int',
+      'live_video_ad_campaign_config' => 'Object',
       'max_budget_spend_percentage' => 'unsigned int',
+      'meta_moment_maker_spec' => 'map',
       'min_budget_spend_percentage' => 'unsigned int',
       'multi_event_conversion_attribution_window_seconds' => 'unsigned int',
       'multi_optimization_goal_weight' => 'multi_optimization_goal_weight_enum',
@@ -738,6 +746,7 @@ class AdSet extends AbstractArchivableCrudObject
       'rb_prediction_id' => 'string',
       'regional_regulated_categories' => 'list<regional_regulated_categories_enum>',
       'regional_regulation_identities' => 'map',
+      'relative_value' => 'float',
       'rf_prediction_id' => 'string',
       'start_time' => 'datetime',
       'status' => 'status_enum',
@@ -755,6 +764,7 @@ class AdSet extends AbstractArchivableCrudObject
       'automatic_manual_state_enum' => AdSetAutomaticManualStateValues::getInstance()->getValues(),
       'bid_strategy_enum' => AdSetBidStrategyValues::getInstance()->getValues(),
       'billing_event_enum' => AdSetBillingEventValues::getInstance()->getValues(),
+      'cost_bidding_mode_enum' => AdSetCostBiddingModeValues::getInstance()->getValues(),
       'creative_sequence_repetition_pattern_enum' => AdSetCreativeSequenceRepetitionPatternValues::getInstance()->getValues(),
       'destination_type_enum' => AdSetDestinationTypeValues::getInstance()->getValues(),
       'execution_options_enum' => AdSetExecutionOptionsValues::getInstance()->getValues(),

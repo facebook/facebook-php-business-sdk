@@ -23,10 +23,12 @@ use FacebookAds\Enum\AbstractEnum;
 class AdCreativeWAMOWhatsAppIdentitySpecFields extends AbstractEnum {
 
   const WAMO_WHATSAPP_IDENTITY_ID = 'wamo_whatsapp_identity_id';
+  const WHATSAPP_PHONE_NUMBER = 'whatsapp_phone_number';
 
   public function getFieldTypes() {
     return array(
       'wamo_whatsapp_identity_id' => 'string',
+      'whatsapp_phone_number' => 'string',
     );
   }
 }

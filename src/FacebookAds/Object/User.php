@@ -227,6 +227,7 @@ class User extends AbstractCrudObject {
       'client_business' => 'string',
       'confidence_level' => 'float',
       'cooldown_start_time' => 'int',
+      'creative_test_config' => 'map',
       'description' => 'string',
       'end_time' => 'int',
       'name' => 'string',
@@ -1216,6 +1217,7 @@ class User extends AbstractCrudObject {
     $param_types = array(
       'bot_message_payload_elements' => 'string',
       'filtering' => 'list<filtering_enum>',
+      'game_metadata' => 'string',
       'href' => 'Object',
       'label' => 'string',
       'message' => 'map',
@@ -1633,6 +1635,7 @@ class User extends AbstractCrudObject {
       'publish_event_id' => 'unsigned int',
       'referenced_sticker_id' => 'string',
       'replace_video_id' => 'string',
+      'selected_audio_spec' => 'map',
       'slideshow_spec' => 'map',
       'source' => 'string',
       'source_instagram_media_id' => 'string',

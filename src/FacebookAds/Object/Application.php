@@ -160,6 +160,7 @@ class Application extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'add_to_messaging_customer_base_for_whatsapp' => 'string',
       'advertiser_id' => 'string',
       'advertiser_tracking_enabled' => 'bool',
       'anon_id' => 'string',
@@ -173,6 +174,7 @@ class Application extends AbstractCrudObject {
       'bundle_short_version' => 'string',
       'bundle_version' => 'string',
       'campaign_ids' => 'string',
+      'circuit_breaker_timeout_ms' => 'unsigned int',
       'click_id' => 'string',
       'consider_views' => 'bool',
       'custom_events' => 'list<Object>',
@@ -191,6 +193,7 @@ class Application extends AbstractCrudObject {
       'install_referrer' => 'string',
       'install_timestamp' => 'float',
       'installer_package' => 'string',
+      'is_circuit_breaker_active' => 'bool',
       'is_fb' => 'bool',
       'limited_data_use' => 'bool',
       'meta_install_referrer' => 'string',
@@ -1452,6 +1455,7 @@ class Application extends AbstractCrudObject {
     $param_types = array(
       'callback_url' => 'string',
       'fields' => 'list<string>',
+      'include_client_certificate' => 'bool',
       'include_values' => 'bool',
       'object' => 'string',
       'verify_token' => 'string',

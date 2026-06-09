@@ -124,6 +124,7 @@ class PageFields extends AbstractEnum {
   const OFFER_ELIGIBLE = 'offer_eligible';
   const OVERALL_STAR_RATING = 'overall_star_rating';
   const OWNER_BUSINESS = 'owner_business';
+  const PAGE_BACKED_THREADS_ACCOUNT_ID = 'page_backed_threads_account_id';
   const PAGE_TOKEN = 'page_token';
   const PARENT_PAGE = 'parent_page';
   const PARKING = 'parking';
@@ -280,6 +281,7 @@ class PageFields extends AbstractEnum {
       'offer_eligible' => 'bool',
       'overall_star_rating' => 'float',
       'owner_business' => 'Business',
+      'page_backed_threads_account_id' => 'string',
       'page_token' => 'string',
       'parent_page' => 'Page',
       'parking' => 'PageParking',

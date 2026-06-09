@@ -37,7 +37,6 @@ use FacebookAds\Object\Values\BusinessBusinessVerticalValues;
 use FacebookAds\Object\Values\BusinessImageValidationAdPlacementsValues;
 use FacebookAds\Object\Values\BusinessPagePermittedTasksValues;
 use FacebookAds\Object\Values\BusinessPermittedTasksValues;
-use FacebookAds\Object\Values\BusinessSubverticalV2Values;
 use FacebookAds\Object\Values\BusinessSurveyBusinessTypeValues;
 use FacebookAds\Object\Values\BusinessTimezoneIdValues;
 use FacebookAds\Object\Values\BusinessTwoFactorTypeValues;
@@ -45,9 +44,10 @@ use FacebookAds\Object\Values\BusinessUserInvitedUserTypeValues;
 use FacebookAds\Object\Values\BusinessUserRoleValues;
 use FacebookAds\Object\Values\BusinessUserTasksValues;
 use FacebookAds\Object\Values\BusinessVerificationStatusValues;
-use FacebookAds\Object\Values\BusinessVerticalV2Values;
 use FacebookAds\Object\Values\BusinessVerticalValues;
 use FacebookAds\Object\Values\BusinessWhatsappBusinessManagerMessagingLimitValues;
+use FacebookAds\Object\Values\CPASCollaborationRequestRequestRoleValues;
+use FacebookAds\Object\Values\CPASCollaborationRequestSourceValues;
 use FacebookAds\Object\Values\CustomConversionActionSourceTypeValues;
 use FacebookAds\Object\Values\CustomConversionCustomEventTypeValues;
 use FacebookAds\Object\Values\ManagedPartnerBusinessPartitionTypeValues;
@@ -94,8 +94,6 @@ class Business extends AbstractCrudObject {
     $ref_enums['TimezoneId'] = BusinessTimezoneIdValues::getInstance()->getValues();
     $ref_enums['PagePermittedTasks'] = BusinessPagePermittedTasksValues::getInstance()->getValues();
     $ref_enums['BusinessVertical'] = BusinessBusinessVerticalValues::getInstance()->getValues();
-    $ref_enums['SubverticalV2'] = BusinessSubverticalV2Values::getInstance()->getValues();
-    $ref_enums['VerticalV2'] = BusinessVerticalV2Values::getInstance()->getValues();
     $ref_enums['ActionSource'] = BusinessActionSourceValues::getInstance()->getValues();
     return $ref_enums;
   }
@@ -259,6 +257,7 @@ class Business extends AbstractCrudObject {
       'client_business' => 'string',
       'confidence_level' => 'float',
       'cooldown_start_time' => 'int',
+      'creative_test_config' => 'map',
       'description' => 'string',
       'end_time' => 'int',
       'name' => 'string',
@@ -1181,9 +1180,15 @@ class Business extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'request_role' => 'request_role_enum',
+      'since' => 'datetime',
+      'source' => 'source_enum',
       'status' => 'string',
+      'until' => 'datetime',
     );
     $enums = array(
+      'request_role_enum' => CPASCollaborationRequestRequestRoleValues::getInstance()->getValues(),
+      'source_enum' => CPASCollaborationRequestSourceValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -2756,36 +2761,6 @@ class Business extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createSetupManagedPartnerAdAccount(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'credit_line_id' => 'string',
-      'marketplace_business_id' => 'string',
-      'subvertical_v2' => 'subvertical_v2_enum',
-      'vendor_id' => 'string',
-      'vertical_v2' => 'vertical_v2_enum',
-    );
-    $enums = array(
-      'subvertical_v2_enum' => BusinessSubverticalV2Values::getInstance()->getValues(),
-      'vertical_v2_enum' => BusinessVerticalV2Values::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/setup_managed_partner_adaccounts',
-      new Business(),
-      'EDGE',
-      Business::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function deleteSharePreVerifiedNumbers(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -2991,6 +2966,7 @@ class Business extends AbstractCrudObject {
       'publish_event_id' => 'unsigned int',
       'referenced_sticker_id' => 'string',
       'replace_video_id' => 'string',
+      'selected_audio_spec' => 'map',
       'slideshow_spec' => 'map',
       'source' => 'string',
       'source_instagram_media_id' => 'string',

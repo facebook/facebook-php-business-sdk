@@ -26,6 +26,7 @@ class WhatsAppBusinessAccountWhatsappBusinessManagerMessagingLimitValues extends
   const TIER_10K = 'TIER_10K';
   const TIER_250 = 'TIER_250';
   const TIER_2K = 'TIER_2K';
+  const TIER_50 = 'TIER_50';
   const TIER_UNLIMITED = 'TIER_UNLIMITED';
   const UNTIERED = 'UNTIERED';
 }

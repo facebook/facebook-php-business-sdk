@@ -22,21 +22,25 @@ use FacebookAds\Enum\AbstractEnum;
 
 class EntWithSponsorFields extends AbstractEnum {
 
+  const HAS_AUDIO_SWAPPED_FB_COPY = 'has_audio_swapped_fb_copy';
   const ID = 'id';
   const IS_BRANDED_CONTENT = 'is_branded_content';
   const OWNER_LINKED_INSTAGRAM_USER_V1_ID = 'owner_linked_instagram_user_v1_id';
   const OWNER_PICTURE = 'owner_picture';
   const POST_ID = 'post_id';
   const POST_INFO = 'post_info';
+  const PROMOTABLE_ID = 'promotable_id';
 
   public function getFieldTypes() {
     return array(
+      'has_audio_swapped_fb_copy' => 'bool',
       'id' => 'string',
       'is_branded_content' => 'bool',
       'owner_linked_instagram_user_v1_id' => 'string',
       'owner_picture' => 'string',
       'post_id' => 'string',
       'post_info' => 'Post',
+      'promotable_id' => 'string',
     );
   }
 }

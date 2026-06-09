@@ -46,6 +46,7 @@ class TargetingFields extends AbstractEnum {
   const EDUCATION_SCHOOLS = 'education_schools';
   const EDUCATION_STATUSES = 'education_statuses';
   const EFFECTIVE_AUDIENCE_NETWORK_POSITIONS = 'effective_audience_network_positions';
+  const EFFECTIVE_BRAND_SAFETY_CONTENT_FILTER_LEVELS = 'effective_brand_safety_content_filter_levels';
   const EFFECTIVE_DEVICE_PLATFORMS = 'effective_device_platforms';
   const EFFECTIVE_FACEBOOK_POSITIONS = 'effective_facebook_positions';
   const EFFECTIVE_INSTAGRAM_POSITIONS = 'effective_instagram_positions';
@@ -105,6 +106,7 @@ class TargetingFields extends AbstractEnum {
   const REGIONS = 'regions';
   const RELATIONSHIP_STATUSES = 'relationship_statuses';
   const SITE_CATEGORY = 'site_category';
+  const SUBSCRIBER_UNIVERSE = 'subscriber_universe';
   const TARGETING_AUTOMATION = 'targeting_automation';
   const TARGETING_OPTIMIZATION = 'targeting_optimization';
   const TARGETING_RELAXATION_TYPES = 'targeting_relaxation_types';
@@ -146,6 +148,7 @@ class TargetingFields extends AbstractEnum {
       'education_schools' => 'list<IDName>',
       'education_statuses' => 'list<unsigned int>',
       'effective_audience_network_positions' => 'list<string>',
+      'effective_brand_safety_content_filter_levels' => 'list<string>',
       'effective_device_platforms' => 'list<EffectiveDevicePlatforms>',
       'effective_facebook_positions' => 'list<string>',
       'effective_instagram_positions' => 'list<string>',
@@ -205,6 +208,7 @@ class TargetingFields extends AbstractEnum {
       'regions' => 'list<IDName>',
       'relationship_statuses' => 'list<unsigned int>',
       'site_category' => 'list<string>',
+      'subscriber_universe' => 'TargetingSubscriberUniverse',
       'targeting_automation' => 'TargetingAutomation',
       'targeting_optimization' => 'string',
       'targeting_relaxation_types' => 'TargetingRelaxation',
