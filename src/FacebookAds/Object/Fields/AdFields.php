@@ -65,6 +65,7 @@ class AdFields extends AbstractEnum {
   const UPDATED_TIME = 'updated_time';
   const ADSET_SPEC = 'adset_spec';
   const AUDIENCE_ID = 'audience_id';
+  const DATASET_SPLIT_SPECS = 'dataset_split_specs';
   const DATE_FORMAT = 'date_format';
   const DRAFT_ADGROUP_ID = 'draft_adgroup_id';
   const EXECUTION_OPTIONS = 'execution_options';
@@ -116,6 +117,7 @@ class AdFields extends AbstractEnum {
       'updated_time' => 'datetime',
       'adset_spec' => 'AdSet',
       'audience_id' => 'string',
+      'dataset_split_specs' => 'list<map>',
       'date_format' => 'string',
       'draft_adgroup_id' => 'string',
       'execution_options' => 'list<ExecutionOptions>',

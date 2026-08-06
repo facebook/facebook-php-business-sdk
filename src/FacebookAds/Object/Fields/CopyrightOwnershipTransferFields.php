@@ -26,8 +26,8 @@ class CopyrightOwnershipTransferFields extends AbstractEnum {
   const HAS_OWNERSHIP_BEEN_UPDATED = 'has_ownership_been_updated';
   const ID = 'id';
   const NUM_ASSETS = 'num_assets';
-  const RECEIVING_RIGHTS_HOLDER = 'receiving_rights_holder';
-  const SENDING_RIGHTS_HOLDER = 'sending_rights_holder';
+  const RECEIVING_RIGHTS_HOLDER_OWNER = 'receiving_rights_holder_owner';
+  const SENDING_RIGHTS_HOLDER_OWNER = 'sending_rights_holder_owner';
   const STATUS = 'status';
   const TRANSFER_TERRITORIES = 'transfer_territories';
   const TRANSFER_TIME = 'transfer_time';
@@ -38,8 +38,8 @@ class CopyrightOwnershipTransferFields extends AbstractEnum {
       'has_ownership_been_updated' => 'bool',
       'id' => 'string',
       'num_assets' => 'int',
-      'receiving_rights_holder' => 'Profile',
-      'sending_rights_holder' => 'Profile',
+      'receiving_rights_holder_owner' => 'Object',
+      'sending_rights_holder_owner' => 'Object',
       'status' => 'string',
       'transfer_territories' => 'list<string>',
       'transfer_time' => 'datetime',

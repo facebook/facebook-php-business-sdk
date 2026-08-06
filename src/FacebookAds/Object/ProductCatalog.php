@@ -27,6 +27,7 @@ use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupSeveritiesValues;
 use FacebookAds\Object\Values\ProductCatalogDiagnosticGroupTypesValues;
 use FacebookAds\Object\Values\ProductCatalogEnabledCollabTermsValues;
 use FacebookAds\Object\Values\ProductCatalogEventNameValues;
+use FacebookAds\Object\Values\ProductCatalogHotelRoomsBatchStandardValues;
 use FacebookAds\Object\Values\ProductCatalogItemSubTypeValues;
 use FacebookAds\Object\Values\ProductCatalogPermittedRolesValues;
 use FacebookAds\Object\Values\ProductCatalogPermittedTasksValues;
@@ -95,10 +96,10 @@ class ProductCatalog extends AbstractCrudObject {
     $ref_enums['PermittedRoles'] = ProductCatalogPermittedRolesValues::getInstance()->getValues();
     $ref_enums['PermittedTasks'] = ProductCatalogPermittedTasksValues::getInstance()->getValues();
     $ref_enums['Tasks'] = ProductCatalogTasksValues::getInstance()->getValues();
-    $ref_enums['Standard'] = ProductCatalogStandardValues::getInstance()->getValues();
     $ref_enums['ItemSubType'] = ProductCatalogItemSubTypeValues::getInstance()->getValues();
     $ref_enums['ConversionType'] = ProductCatalogConversionTypeValues::getInstance()->getValues();
     $ref_enums['EventName'] = ProductCatalogEventNameValues::getInstance()->getValues();
+    $ref_enums['Standard'] = ProductCatalogStandardValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -883,7 +884,7 @@ class ProductCatalog extends AbstractCrudObject {
       'username' => 'string',
     );
     $enums = array(
-      'standard_enum' => ProductCatalogStandardValues::getInstance()->getValues(),
+      'standard_enum' => ProductCatalogHotelRoomsBatchStandardValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -891,9 +892,9 @@ class ProductCatalog extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/hotel_rooms_batch',
-      new ProductCatalog(),
+      new ProductCatalogHotelRoomsBatch(),
       'EDGE',
-      ProductCatalog::getFieldsEnum()->getValues(),
+      ProductCatalogHotelRoomsBatch::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

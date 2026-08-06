@@ -26,6 +26,7 @@ class AdSetFields extends AbstractEnum {
   const AD_SET_GOAL = 'ad_set_goal';
   const ADLABELS = 'adlabels';
   const ADSET_SCHEDULE = 'adset_schedule';
+  const ANCHOR_EVENT_ATTRIBUTION_WINDOW_DAYS = 'anchor_event_attribution_window_days';
   const ASSET_FEED_ID = 'asset_feed_id';
   const ATTRIBUTION_COUNT_TYPE = 'attribution_count_type';
   const ATTRIBUTION_SPEC = 'attribution_spec';
@@ -130,6 +131,7 @@ class AdSetFields extends AbstractEnum {
       'ad_set_goal' => 'AdCampaignGoal',
       'adlabels' => 'list<AdLabel>',
       'adset_schedule' => 'list<DayPart>',
+      'anchor_event_attribution_window_days' => 'int',
       'asset_feed_id' => 'string',
       'attribution_count_type' => 'string',
       'attribution_spec' => 'list<AttributionSpec>',

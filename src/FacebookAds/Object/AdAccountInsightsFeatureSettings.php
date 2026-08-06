@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AdAccountFeaturePreferencesFields;
+use FacebookAds\Object\Fields\AdAccountInsightsFeatureSettingsFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\AdAccountFeaturePreferencesFields;
  *
  */
 
-class AdAccountFeaturePreferences extends AbstractCrudObject {
+class AdAccountInsightsFeatureSettings extends AbstractCrudObject {
 
   /**
-   * @return AdAccountFeaturePreferencesFields
+   * @return AdAccountInsightsFeatureSettingsFields
    */
   public static function getFieldsEnum() {
-    return AdAccountFeaturePreferencesFields::getInstance();
+    return AdAccountInsightsFeatureSettingsFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
@@ -38,6 +38,32 @@ class AdAccountFeaturePreferences extends AbstractCrudObject {
     return $ref_enums;
   }
 
+
+  public function genlistfeatures(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'after' => 'string',
+      'before' => 'string',
+      'limit' => 'int',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/insights/feature-settings/list-features',
+      new AdAccountInsightsFeatureSettingsListFeatures(),
+      'EDGE',
+      AdAccountInsightsFeatureSettingsListFeatures::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
 
   public function genpost(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
@@ -51,10 +77,10 @@ class AdAccountFeaturePreferences extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_POST,
-      '/feature_preferences',
-      new AdAccountFeaturePreferencesPost(),
+      '/insights/feature-settings',
+      new AdAccountInsightsFeatureSettingsPost(),
       'EDGE',
-      AdAccountFeaturePreferencesPost::getFieldsEnum()->getValues(),
+      AdAccountInsightsFeatureSettingsPost::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

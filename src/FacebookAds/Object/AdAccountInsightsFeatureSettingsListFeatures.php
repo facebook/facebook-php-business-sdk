@@ -13,7 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\AdAccountFeaturePreferencesPostFields;
+use FacebookAds\Object\Fields\AdAccountInsightsFeatureSettingsListFeaturesFields;
 
 /**
  * This class is auto-generated.
@@ -24,13 +24,13 @@ use FacebookAds\Object\Fields\AdAccountFeaturePreferencesPostFields;
  *
  */
 
-class AdAccountFeaturePreferencesPost extends AbstractCrudObject {
+class AdAccountInsightsFeatureSettingsListFeatures extends AbstractObject {
 
   /**
-   * @return AdAccountFeaturePreferencesPostFields
+   * @return AdAccountInsightsFeatureSettingsListFeaturesFields
    */
   public static function getFieldsEnum() {
-    return AdAccountFeaturePreferencesPostFields::getInstance();
+    return AdAccountInsightsFeatureSettingsListFeaturesFields::getInstance();
   }
 
   protected static function getReferencedEnums() {

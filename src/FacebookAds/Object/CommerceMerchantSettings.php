@@ -143,40 +143,6 @@ class CommerceMerchantSettings extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getReturns(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'end_time_created' => 'datetime',
-      'merchant_return_id' => 'string',
-      'start_time_created' => 'datetime',
-      'statuses' => 'list<statuses_enum>',
-    );
-    $enums = array(
-      'statuses_enum' => array(
-        'APPROVED',
-        'DISAPPROVED',
-        'MERCHANT_MARKED_COMPLETED',
-        'REFUNDED',
-        'REQUESTED',
-      ),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/returns',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function getSetupStatus(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -245,29 +211,6 @@ class CommerceMerchantSettings extends AbstractCrudObject {
       new Shop(),
       'EDGE',
       Shop::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function getTaxSettings(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_GET,
-      '/tax_settings',
-      new AbstractCrudObject(),
-      'EDGE',
-      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

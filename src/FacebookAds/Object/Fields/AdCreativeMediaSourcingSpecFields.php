@@ -24,6 +24,7 @@ class AdCreativeMediaSourcingSpecFields extends AbstractEnum {
 
   const BODIES = 'bodies';
   const DESCRIPTIONS = 'descriptions';
+  const DESTINATIONS = 'destinations';
   const IMAGES = 'images';
   const PUSH_METADATA_IDS = 'push_metadata_ids';
   const RELATED_MEDIA = 'related_media';
@@ -34,6 +35,7 @@ class AdCreativeMediaSourcingSpecFields extends AbstractEnum {
     return array(
       'bodies' => 'list<Object>',
       'descriptions' => 'list<Object>',
+      'destinations' => 'list<Object>',
       'images' => 'list<Object>',
       'push_metadata_ids' => 'list<string>',
       'related_media' => 'Object',

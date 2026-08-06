@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-namespace FacebookAds\Object\Values;
+namespace FacebookAds\Object\Fields;
 
 use FacebookAds\Enum\AbstractEnum;
 
@@ -18,12 +18,15 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static CPASCollaborationRequestSourceValues getInstance()
  */
-class CPASCollaborationRequestSourceValues extends AbstractEnum {
 
-  const EXTERNAL = 'EXTERNAL';
-  const INTERNAL = 'INTERNAL';
-  const SELF_SERVE = 'SELF_SERVE';
-  const SELF_SERVE_CONTACT_FORM = 'SELF_SERVE_CONTACT_FORM';
+class AdAccountInsightsFeatureSettingsPostFields extends AbstractEnum {
+
+  const ID = 'id';
+
+  public function getFieldTypes() {
+    return array(
+      'id' => 'string',
+    );
+  }
 }

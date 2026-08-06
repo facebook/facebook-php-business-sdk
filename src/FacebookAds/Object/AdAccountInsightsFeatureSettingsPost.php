@@ -13,8 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\ProductCatalogHotelRoomsBatchFields;
-use FacebookAds\Object\Values\ProductCatalogHotelRoomsBatchStandardValues;
+use FacebookAds\Object\Fields\AdAccountInsightsFeatureSettingsPostFields;
 
 /**
  * This class is auto-generated.
@@ -25,25 +24,17 @@ use FacebookAds\Object\Values\ProductCatalogHotelRoomsBatchStandardValues;
  *
  */
 
-class ProductCatalogHotelRoomsBatch extends AbstractObject {
+class AdAccountInsightsFeatureSettingsPost extends AbstractCrudObject {
 
   /**
-   * @deprecated getEndpoint function is deprecated
-   */
-  protected function getEndpoint() {
-    return 'hotel_rooms_batch';
-  }
-
-  /**
-   * @return ProductCatalogHotelRoomsBatchFields
+   * @return AdAccountInsightsFeatureSettingsPostFields
    */
   public static function getFieldsEnum() {
-    return ProductCatalogHotelRoomsBatchFields::getInstance();
+    return AdAccountInsightsFeatureSettingsPostFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['Standard'] = ProductCatalogHotelRoomsBatchStandardValues::getInstance()->getValues();
     return $ref_enums;
   }
 

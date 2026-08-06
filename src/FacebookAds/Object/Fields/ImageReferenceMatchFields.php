@@ -33,10 +33,10 @@ class ImageReferenceMatchFields extends AbstractEnum {
   const ID = 'id';
   const MATCH_STATE = 'match_state';
   const MATCHED_REFERENCE_COPYRIGHT = 'matched_reference_copyright';
-  const MATCHED_REFERENCE_OWNER = 'matched_reference_owner';
+  const MATCHED_REFERENCE_OWNER_RH_OWNER = 'matched_reference_owner_rh_owner';
   const MODIFICATION_HISTORY = 'modification_history';
   const REFERENCE_COPYRIGHT = 'reference_copyright';
-  const REFERENCE_OWNER = 'reference_owner';
+  const REFERENCE_OWNER_RH_OWNER = 'reference_owner_rh_owner';
   const REJECTION_FORM_DATA_ENTRIES_WITH_TRANSLATIONS = 'rejection_form_data_entries_with_translations';
   const RESOLUTION_REASON = 'resolution_reason';
   const UPDATE_TIME = 'update_time';
@@ -54,10 +54,10 @@ class ImageReferenceMatchFields extends AbstractEnum {
       'id' => 'string',
       'match_state' => 'string',
       'matched_reference_copyright' => 'ImageCopyright',
-      'matched_reference_owner' => 'Profile',
+      'matched_reference_owner_rh_owner' => 'Object',
       'modification_history' => 'list<Object>',
       'reference_copyright' => 'ImageCopyright',
-      'reference_owner' => 'Profile',
+      'reference_owner_rh_owner' => 'Object',
       'rejection_form_data_entries_with_translations' => 'list<Object>',
       'resolution_reason' => 'string',
       'update_time' => 'datetime',

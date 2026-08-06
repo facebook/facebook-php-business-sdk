@@ -23,10 +23,16 @@ use FacebookAds\Enum\AbstractEnum;
 class BrandSafetyCampaignConfigFields extends AbstractEnum {
 
   const COMMENT_MODERATION_FILTER = 'comment_moderation_filter';
+  const FB_COMMENT_MODERATION_FILTER = 'fb_comment_moderation_filter';
+  const IG_COMMENT_MODERATION_FILTER = 'ig_comment_moderation_filter';
+  const THREADS_COMMENT_MODERATION_FILTER = 'threads_comment_moderation_filter';
 
   public function getFieldTypes() {
     return array(
       'comment_moderation_filter' => 'string',
+      'fb_comment_moderation_filter' => 'string',
+      'ig_comment_moderation_filter' => 'string',
+      'threads_comment_moderation_filter' => 'string',
     );
   }
 }

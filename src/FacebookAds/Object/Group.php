@@ -110,9 +110,9 @@ class Group extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/admins',
-      new Group(),
+      new User(),
       'EDGE',
-      Group::getFieldsEnum()->getValues(),
+      User::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -554,9 +554,9 @@ class Group extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/members',
-      new Group(),
+      new User(),
       'EDGE',
-      Group::getFieldsEnum()->getValues(),
+      User::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -752,6 +752,7 @@ class Group extends AbstractCrudObject {
       'initial_heading' => 'unsigned int',
       'initial_pitch' => 'unsigned int',
       'instant_game_entry_point_data' => 'string',
+      'is_ai_generated' => 'bool',
       'is_boost_intended' => 'bool',
       'is_explicit_share' => 'bool',
       'is_group_linking_post' => 'bool',

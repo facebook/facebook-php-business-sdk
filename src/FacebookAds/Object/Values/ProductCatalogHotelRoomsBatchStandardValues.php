@@ -18,12 +18,9 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static CPASCollaborationRequestSourceValues getInstance()
+ * @method static ProductCatalogHotelRoomsBatchStandardValues getInstance()
  */
-class CPASCollaborationRequestSourceValues extends AbstractEnum {
+class ProductCatalogHotelRoomsBatchStandardValues extends AbstractEnum {
 
-  const EXTERNAL = 'EXTERNAL';
-  const INTERNAL = 'INTERNAL';
-  const SELF_SERVE = 'SELF_SERVE';
-  const SELF_SERVE_CONTACT_FORM = 'SELF_SERVE_CONTACT_FORM';
+  const GOOGLE = 'google';
 }

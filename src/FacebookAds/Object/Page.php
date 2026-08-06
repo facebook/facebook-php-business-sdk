@@ -3616,6 +3616,7 @@ class Page extends AbstractCrudObject {
     $param_types = array(
       'description' => 'string',
       'feed_targeting' => 'Object',
+      'is_ai_generated' => 'bool',
       'place' => 'string',
       'scheduled_publish_time' => 'datetime',
       'targeting' => 'Object',
@@ -3650,6 +3651,7 @@ class Page extends AbstractCrudObject {
     $param_types = array(
       'description' => 'string',
       'feed_targeting' => 'Object',
+      'is_ai_generated' => 'bool',
       'place' => 'string',
       'scheduled_publish_time' => 'datetime',
       'targeting' => 'Object',
@@ -3754,6 +3756,7 @@ class Page extends AbstractCrudObject {
       'initial_heading' => 'unsigned int',
       'initial_pitch' => 'unsigned int',
       'instant_game_entry_point_data' => 'string',
+      'is_ai_generated' => 'bool',
       'is_boost_intended' => 'bool',
       'is_explicit_share' => 'bool',
       'is_group_linking_post' => 'bool',

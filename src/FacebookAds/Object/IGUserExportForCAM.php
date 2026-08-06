@@ -105,6 +105,8 @@ class IGUserExportForCAM extends AbstractCrudObject {
         'OVERALL',
       ),
       'platform_enum' => array(
+        'ANY',
+        'BOTH',
         'FACEBOOK',
         'INSTAGRAM',
       ),

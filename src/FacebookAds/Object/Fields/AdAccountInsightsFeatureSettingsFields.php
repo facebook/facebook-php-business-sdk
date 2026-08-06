@@ -20,7 +20,7 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class AdAccountFeaturePreferencesPostFields extends AbstractEnum {
+class AdAccountInsightsFeatureSettingsFields extends AbstractEnum {
 
   const ID = 'id';
 

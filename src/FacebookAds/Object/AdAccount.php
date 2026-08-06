@@ -191,6 +191,7 @@ class AdAccount extends AbstractCrudObject {
     $param_types = array(
       'audience_controls' => 'Object',
       'placement_controls' => 'Object',
+      'placement_controls_per_objective' => 'Object',
     );
     $enums = array(
     );
@@ -846,6 +847,7 @@ class AdAccount extends AbstractCrudObject {
       'creative' => 'AdCreative',
       'creative_asset_groups_spec' => 'Object',
       'creative_automation_spec' => 'Object',
+      'dataset_split_specs' => 'list<map>',
       'date_format' => 'string',
       'display_sequence' => 'unsigned int',
       'draft_adgroup_id' => 'string',
@@ -1316,6 +1318,7 @@ class AdAccount extends AbstractCrudObject {
       'initial_heading' => 'unsigned int',
       'initial_pitch' => 'unsigned int',
       'instant_game_entry_point_data' => 'string',
+      'is_ai_generated' => 'bool',
       'is_boost_intended' => 'bool',
       'is_group_linking_post' => 'bool',
       'is_partnership_ad' => 'bool',
@@ -3553,6 +3556,7 @@ class AdAccount extends AbstractCrudObject {
 
     $param_types = array(
       'description' => 'string',
+      'is_ai_generated' => 'bool',
       'privacy' => 'string',
       'title' => 'string',
       'upload_phase' => 'upload_phase_enum',

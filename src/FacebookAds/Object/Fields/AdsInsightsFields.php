@@ -143,6 +143,7 @@ class AdsInsightsFields extends AbstractEnum {
   const INLINE_LINK_CLICK_CTR = 'inline_link_click_ctr';
   const INLINE_LINK_CLICKS = 'inline_link_clicks';
   const INLINE_POST_ENGAGEMENT = 'inline_post_engagement';
+  const INSTAGRAM_PROFILE_FOLLOW = 'instagram_profile_follow';
   const INSTAGRAM_PROFILE_VISITS = 'instagram_profile_visits';
   const INSTAGRAM_UPCOMING_EVENT_REMINDERS_SET = 'instagram_upcoming_event_reminders_set';
   const INSTANT_EXPERIENCE_CLICKS_TO_OPEN = 'instant_experience_clicks_to_open';
@@ -172,10 +173,6 @@ class AdsInsightsFields extends AbstractEnum {
   const MARKETING_MESSAGES_SENT = 'marketing_messages_sent';
   const MARKETING_MESSAGES_SPEND = 'marketing_messages_spend';
   const MARKETING_MESSAGES_SPEND_CURRENCY = 'marketing_messages_spend_currency';
-  const MARKETING_MESSAGES_WEBSITE_ADD_TO_CART = 'marketing_messages_website_add_to_cart';
-  const MARKETING_MESSAGES_WEBSITE_INITIATE_CHECKOUT = 'marketing_messages_website_initiate_checkout';
-  const MARKETING_MESSAGES_WEBSITE_PURCHASE = 'marketing_messages_website_purchase';
-  const MARKETING_MESSAGES_WEBSITE_PURCHASE_VALUES = 'marketing_messages_website_purchase_values';
   const MESSAGES_DELIVERED = 'messages_delivered';
   const MESSAGES_DELIVERED_CTR = 'messages_delivered_ctr';
   const MOBILE_APP_PURCHASE_ROAS = 'mobile_app_purchase_roas';
@@ -189,6 +186,8 @@ class AdsInsightsFields extends AbstractEnum {
   const OUTBOUND_CLICKS = 'outbound_clicks';
   const OUTBOUND_CLICKS_CTR = 'outbound_clicks_ctr';
   const PLACE_PAGE_NAME = 'place_page_name';
+  const PLAYABLE_AVERAGE_GAME_LENGTH = 'playable_average_game_length';
+  const PLAYABLE_GAME_START_RATE = 'playable_game_start_rate';
   const PRODUCT_GROUP_RETAILER_ID = 'product_group_retailer_id';
   const PRODUCT_RETAILER_ID = 'product_retailer_id';
   const PRODUCT_VIEWS = 'product_views';
@@ -366,6 +365,7 @@ class AdsInsightsFields extends AbstractEnum {
       'inline_link_click_ctr' => 'string',
       'inline_link_clicks' => 'string',
       'inline_post_engagement' => 'string',
+      'instagram_profile_follow' => 'string',
       'instagram_profile_visits' => 'string',
       'instagram_upcoming_event_reminders_set' => 'string',
       'instant_experience_clicks_to_open' => 'string',
@@ -395,10 +395,6 @@ class AdsInsightsFields extends AbstractEnum {
       'marketing_messages_sent' => 'string',
       'marketing_messages_spend' => 'string',
       'marketing_messages_spend_currency' => 'string',
-      'marketing_messages_website_add_to_cart' => 'string',
-      'marketing_messages_website_initiate_checkout' => 'string',
-      'marketing_messages_website_purchase' => 'string',
-      'marketing_messages_website_purchase_values' => 'string',
       'messages_delivered' => 'string',
       'messages_delivered_ctr' => 'string',
       'mobile_app_purchase_roas' => 'list<AdsActionStats>',
@@ -412,6 +408,8 @@ class AdsInsightsFields extends AbstractEnum {
       'outbound_clicks' => 'list<AdsActionStats>',
       'outbound_clicks_ctr' => 'list<AdsActionStats>',
       'place_page_name' => 'string',
+      'playable_average_game_length' => 'string',
+      'playable_game_start_rate' => 'string',
       'product_group_retailer_id' => 'string',
       'product_retailer_id' => 'string',
       'product_views' => 'string',

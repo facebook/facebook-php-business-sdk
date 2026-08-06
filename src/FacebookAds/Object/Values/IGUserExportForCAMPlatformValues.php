@@ -22,6 +22,8 @@ use FacebookAds\Enum\AbstractEnum;
  */
 class IGUserExportForCAMPlatformValues extends AbstractEnum {
 
+  const ANY = 'any';
+  const BOTH = 'both';
   const FACEBOOK = 'facebook';
   const INSTAGRAM = 'instagram';
 }

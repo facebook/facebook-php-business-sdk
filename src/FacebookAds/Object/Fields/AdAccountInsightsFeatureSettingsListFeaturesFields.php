@@ -20,13 +20,15 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class AdAccountFeaturePreferencesFields extends AbstractEnum {
+class AdAccountInsightsFeatureSettingsListFeaturesFields extends AbstractEnum {
 
-  const ID = 'id';
+  const DATA = 'data';
+  const PAGING = 'paging';
 
   public function getFieldTypes() {
     return array(
-      'id' => 'string',
+      'data' => 'list<object>',
+      'paging' => 'object',
     );
   }
 }

@@ -31,6 +31,7 @@ class AdAccountBrandSafetyContentFilterLevelsValues extends AbstractEnum {
   const FEED_DNM = 'FEED_DNM';
   const FEED_NESTED_DNM = 'FEED_NESTED_DNM';
   const FEED_RELAXED = 'FEED_RELAXED';
+  const FEED_SELECT = 'FEED_SELECT';
   const FEED_STANDARD = 'FEED_STANDARD';
   const FEED_STRICT = 'FEED_STRICT';
   const UNINITIALIZED = 'UNINITIALIZED';
