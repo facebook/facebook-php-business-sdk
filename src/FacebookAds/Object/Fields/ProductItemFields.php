@@ -79,6 +79,7 @@ class ProductItemFields extends AbstractEnum {
   const MATERIAL = 'material';
   const MOBILE_LINK = 'mobile_link';
   const NAME = 'name';
+  const NATIVE_COMMERCE = 'native_commerce';
   const OFFER_DISCLAIMER = 'offer_disclaimer';
   const OFFER_DISCLAIMER_URL = 'offer_disclaimer_url';
   const ORDERING_INDEX = 'ordering_index';
@@ -89,6 +90,7 @@ class ProductItemFields extends AbstractEnum {
   const POST_CONVERSION_SIGNAL_BASED_ENFORCEMENT_APPEAL_ELIGIBILITY = 'post_conversion_signal_based_enforcement_appeal_eligibility';
   const PRICE = 'price';
   const PRODUCT_CATALOG = 'product_catalog';
+  const PRODUCT_DISCLOSURES = 'product_disclosures';
   const PRODUCT_FEED = 'product_feed';
   const PRODUCT_GROUP = 'product_group';
   const PRODUCT_LOCAL_INFO = 'product_local_info';
@@ -202,6 +204,7 @@ class ProductItemFields extends AbstractEnum {
       'material' => 'string',
       'mobile_link' => 'string',
       'name' => 'string',
+      'native_commerce' => 'bool',
       'offer_disclaimer' => 'string',
       'offer_disclaimer_url' => 'string',
       'ordering_index' => 'int',
@@ -212,6 +215,7 @@ class ProductItemFields extends AbstractEnum {
       'post_conversion_signal_based_enforcement_appeal_eligibility' => 'bool',
       'price' => 'string',
       'product_catalog' => 'ProductCatalog',
+      'product_disclosures' => 'list<ProductItemProductDisclosure>',
       'product_feed' => 'ProductFeed',
       'product_group' => 'ProductGroup',
       'product_local_info' => 'ProductItemLocalInfo',

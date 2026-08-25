@@ -26,11 +26,14 @@ use FacebookAds\Object\Values\AdAccountDeliveryEstimateOptimizationGoalValues;
 use FacebookAds\Object\Values\AdAccountMatchedSearchApplicationsEdgeDataAppStoreValues;
 use FacebookAds\Object\Values\AdAccountMatchedSearchApplicationsEdgeDataStoresToFilterValues;
 use FacebookAds\Object\Values\AdAccountPermittedTasksValues;
+use FacebookAds\Object\Values\AdAccountRecommendationsRecommendationNamesValues;
+use FacebookAds\Object\Values\AdAccountRecommendationsRecommendationStagesValues;
 use FacebookAds\Object\Values\AdAccountSubtypeValues;
 use FacebookAds\Object\Values\AdAccountTargetingUnifiedAppStoreValues;
 use FacebookAds\Object\Values\AdAccountTargetingUnifiedLimitTypeValues;
 use FacebookAds\Object\Values\AdAccountTargetingUnifiedModeValues;
 use FacebookAds\Object\Values\AdAccountTargetingUnifiedObjectiveValues;
+use FacebookAds\Object\Values\AdAccountTargetingUnifiedOptimizationGoalValues;
 use FacebookAds\Object\Values\AdAccountTargetingUnifiedRegulatedCategoriesValues;
 use FacebookAds\Object\Values\AdAccountTargetingUnifiedRegulatedCountriesValues;
 use FacebookAds\Object\Values\AdAccountTargetingUnifiedWhitelistedTypesValues;
@@ -55,25 +58,9 @@ use FacebookAds\Object\Values\AdPreviewCreativeFeatureValues;
 use FacebookAds\Object\Values\AdPreviewRenderTypeValues;
 use FacebookAds\Object\Values\AdRuleStatusValues;
 use FacebookAds\Object\Values\AdRuleUiCreationSourceValues;
-use FacebookAds\Object\Values\AdSetAttributionCountTypeValues;
-use FacebookAds\Object\Values\AdSetAutomaticManualStateValues;
-use FacebookAds\Object\Values\AdSetBidStrategyValues;
-use FacebookAds\Object\Values\AdSetBillingEventValues;
-use FacebookAds\Object\Values\AdSetBudgetSourceValues;
-use FacebookAds\Object\Values\AdSetCostBiddingModeValues;
-use FacebookAds\Object\Values\AdSetCreativeSequenceRepetitionPatternValues;
 use FacebookAds\Object\Values\AdSetDatePresetValues;
-use FacebookAds\Object\Values\AdSetDestinationTypeValues;
 use FacebookAds\Object\Values\AdSetEffectiveStatusValues;
-use FacebookAds\Object\Values\AdSetExecutionOptionsValues;
-use FacebookAds\Object\Values\AdSetFullFunnelExplorationModeValues;
-use FacebookAds\Object\Values\AdSetMultiOptimizationGoalWeightValues;
 use FacebookAds\Object\Values\AdSetOperatorValues;
-use FacebookAds\Object\Values\AdSetOptimizationGoalValues;
-use FacebookAds\Object\Values\AdSetOptimizationSubEventValues;
-use FacebookAds\Object\Values\AdSetRegionalRegulatedCategoriesValues;
-use FacebookAds\Object\Values\AdSetStatusValues;
-use FacebookAds\Object\Values\AdSetTuneForCategoryValues;
 use FacebookAds\Object\Values\AdStatusValues;
 use FacebookAds\Object\Values\AdVideoContainerTypeValues;
 use FacebookAds\Object\Values\AdVideoContentCategoryValues;
@@ -1093,22 +1080,176 @@ class AdAccount extends AbstractCrudObject {
       'value_rules_applied' => 'bool',
     );
     $enums = array(
-      'attribution_count_type_enum' => AdSetAttributionCountTypeValues::getInstance()->getValues(),
-      'automatic_manual_state_enum' => AdSetAutomaticManualStateValues::getInstance()->getValues(),
-      'bid_strategy_enum' => AdSetBidStrategyValues::getInstance()->getValues(),
-      'billing_event_enum' => AdSetBillingEventValues::getInstance()->getValues(),
-      'budget_source_enum' => AdSetBudgetSourceValues::getInstance()->getValues(),
-      'cost_bidding_mode_enum' => AdSetCostBiddingModeValues::getInstance()->getValues(),
-      'creative_sequence_repetition_pattern_enum' => AdSetCreativeSequenceRepetitionPatternValues::getInstance()->getValues(),
-      'destination_type_enum' => AdSetDestinationTypeValues::getInstance()->getValues(),
-      'execution_options_enum' => AdSetExecutionOptionsValues::getInstance()->getValues(),
-      'full_funnel_exploration_mode_enum' => AdSetFullFunnelExplorationModeValues::getInstance()->getValues(),
-      'multi_optimization_goal_weight_enum' => AdSetMultiOptimizationGoalWeightValues::getInstance()->getValues(),
-      'optimization_goal_enum' => AdSetOptimizationGoalValues::getInstance()->getValues(),
-      'optimization_sub_event_enum' => AdSetOptimizationSubEventValues::getInstance()->getValues(),
-      'regional_regulated_categories_enum' => AdSetRegionalRegulatedCategoriesValues::getInstance()->getValues(),
-      'status_enum' => AdSetStatusValues::getInstance()->getValues(),
-      'tune_for_category_enum' => AdSetTuneForCategoryValues::getInstance()->getValues(),
+      'attribution_count_type_enum' => array(
+        'ALL_CONVERSIONS',
+        'FIRST_CONVERSION',
+      ),
+      'automatic_manual_state_enum' => array(
+        'AUTOMATIC',
+        'MANUAL',
+        'UNSET',
+      ),
+      'bid_strategy_enum' => array(
+        'COST_CAP',
+        'LOWEST_COST_WITHOUT_CAP',
+        'LOWEST_COST_WITH_BID_CAP',
+        'LOWEST_COST_WITH_MIN_ROAS',
+      ),
+      'billing_event_enum' => array(
+        'APP_INSTALLS',
+        'CLICKS',
+        'IMPRESSIONS',
+        'LINK_CLICKS',
+        'LISTING_INTERACTION',
+        'NONE',
+        'OFFER_CLAIMS',
+        'PAGE_LIKES',
+        'POST_ENGAGEMENT',
+        'PURCHASE',
+        'THRUPLAY',
+      ),
+      'budget_source_enum' => array(
+        'NONE',
+        'RMN',
+      ),
+      'cost_bidding_mode_enum' => array(
+        'BALANCED',
+        'COST_FOCUSED',
+        'VOLUME_FOCUSED',
+      ),
+      'creative_sequence_repetition_pattern_enum' => array(
+        'FULL_SEQUENCE',
+        'LAST_AD',
+      ),
+      'destination_type_enum' => array(
+        'APP',
+        'APPLINKS_AUTOMATIC',
+        'FACEBOOK',
+        'FACEBOOK_LIVE',
+        'FACEBOOK_PAGE',
+        'IMAGINE',
+        'INSTAGRAM_DIRECT',
+        'INSTAGRAM_LIVE',
+        'INSTAGRAM_PROFILE',
+        'INSTAGRAM_PROFILE_AND_FACEBOOK_PAGE',
+        'MESSAGING_INSTAGRAM_DIRECT_MESSENGER',
+        'MESSAGING_INSTAGRAM_DIRECT_MESSENGER_WHATSAPP',
+        'MESSAGING_INSTAGRAM_DIRECT_WHATSAPP',
+        'MESSAGING_MESSENGER_WHATSAPP',
+        'MESSENGER',
+        'ON_AD',
+        'ON_EVENT',
+        'ON_PAGE',
+        'ON_POST',
+        'ON_VIDEO',
+        'SHOP_AUTOMATIC',
+        'WEBSITE',
+        'WHATSAPP',
+      ),
+      'execution_options_enum' => array(
+        'include_recommendations',
+        'validate_only',
+      ),
+      'full_funnel_exploration_mode_enum' => array(
+        'EXTENDED_EXPLORATION',
+        'LIMITED_EXPLORATION',
+        'NONE_EXPLORATION',
+      ),
+      'multi_optimization_goal_weight_enum' => array(
+        'BALANCED',
+        'PREFER_EVENT',
+        'PREFER_INSTALL',
+        'UNDEFINED',
+      ),
+      'optimization_goal_enum' => array(
+        'ADVERTISER_SILOED_VALUE',
+        'AD_RECALL_LIFT',
+        'APP_INSTALLS',
+        'APP_INSTALLS_AND_OFFSITE_CONVERSIONS',
+        'AUTOMATIC_OBJECTIVE',
+        'CONVERSATIONS',
+        'DERIVED_EVENTS',
+        'ENGAGED_PAGE_VIEWS',
+        'ENGAGED_USERS',
+        'EVENT_RESPONSES',
+        'IMPRESSIONS',
+        'IN_APP_VALUE',
+        'LANDING_PAGE_VIEWS',
+        'LEAD_GENERATION',
+        'LINK_CLICKS',
+        'MEANINGFUL_CALL_ATTEMPT',
+        'MESSAGING_APPOINTMENT_CONVERSION',
+        'MESSAGING_DEEP_CONVERSATION_AND_FOLLOW',
+        'MESSAGING_PURCHASE_CONVERSION',
+        'NONE',
+        'OFFSITE_CONVERSIONS',
+        'PAGE_LIKES',
+        'POST_ENGAGEMENT',
+        'PROFILE_AND_PAGE_ENGAGEMENT',
+        'PROFILE_VISIT',
+        'QUALITY_CALL',
+        'QUALITY_LEAD',
+        'REACH',
+        'REMINDERS_SET',
+        'SUBSCRIBERS',
+        'THRUPLAY',
+        'VALUE',
+        'VISIT_INSTAGRAM_PROFILE',
+      ),
+      'optimization_sub_event_enum' => array(
+        'NONE',
+        'POST_INTERACTION',
+        'TRAVEL_INTENT',
+        'TRAVEL_INTENT_BUCKET_01',
+        'TRAVEL_INTENT_BUCKET_02',
+        'TRAVEL_INTENT_BUCKET_03',
+        'TRAVEL_INTENT_BUCKET_04',
+        'TRAVEL_INTENT_BUCKET_05',
+        'TRAVEL_INTENT_NO_DESTINATION_INTENT',
+        'TRIP_CONSIDERATION',
+        'VIDEO_SOUND_ON',
+      ),
+      'regional_regulated_categories_enum' => array(
+        '0',
+        '1',
+        '2',
+        '3',
+        '4',
+        '5',
+        '6',
+        '7',
+        '8',
+        '9',
+        '10',
+        '11',
+        '12',
+        '13',
+        '14',
+        '15',
+        '16',
+        '17',
+        '18',
+        '19',
+        '20',
+        '21',
+        '22',
+        '24',
+      ),
+      'status_enum' => array(
+        'ACTIVE',
+        'ARCHIVED',
+        'DELETED',
+        'PAUSED',
+      ),
+      'tune_for_category_enum' => array(
+        'CREDIT',
+        'EMPLOYMENT',
+        'FINANCIAL_PRODUCTS_SERVICES',
+        'HOUSING',
+        'ISSUES_ELECTIONS_POLITICS',
+        'NONE',
+        'ONLINE_GAMBLING_AND_GAMING',
+      ),
     );
 
     $request = new ApiRequest(
@@ -1116,9 +1257,9 @@ class AdAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/adsets',
-      new AdSet(),
+      new AbstractCrudObject(),
       'EDGE',
-      AdSet::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -3031,8 +3172,12 @@ class AdAccount extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'recommendation_names' => 'list<recommendation_names_enum>',
+      'recommendation_stages' => 'list<recommendation_stages_enum>',
     );
     $enums = array(
+      'recommendation_names_enum' => AdAccountRecommendationsRecommendationNamesValues::getInstance()->getValues(),
+      'recommendation_stages_enum' => AdAccountRecommendationsRecommendationStagesValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -3184,13 +3329,16 @@ class AdAccount extends AbstractCrudObject {
       'excluded_category' => 'string',
       'include_nodes' => 'bool',
       'is_exclusion' => 'bool',
+      'is_reserved' => 'bool',
       'limit_type' => 'limit_type_enum',
+      'optimization_goal' => 'optimization_goal_enum',
       'regulated_categories' => 'list<regulated_categories_enum>',
       'regulated_countries' => 'list<regulated_countries_enum>',
       'whitelisted_types' => 'list<whitelisted_types_enum>',
     );
     $enums = array(
       'limit_type_enum' => AdAccountTargetingUnifiedLimitTypeValues::getInstance()->getValues(),
+      'optimization_goal_enum' => AdAccountTargetingUnifiedOptimizationGoalValues::getInstance()->getValues(),
       'regulated_categories_enum' => AdAccountTargetingUnifiedRegulatedCategoriesValues::getInstance()->getValues(),
       'regulated_countries_enum' => AdAccountTargetingUnifiedRegulatedCountriesValues::getInstance()->getValues(),
       'whitelisted_types_enum' => AdAccountTargetingUnifiedWhitelistedTypesValues::getInstance()->getValues(),
@@ -3221,8 +3369,10 @@ class AdAccount extends AbstractCrudObject {
       'is_account_level_brand_safety_exclusion' => 'bool',
       'is_account_level_employer_exclusion' => 'bool',
       'is_exclusion' => 'bool',
+      'is_reserved' => 'bool',
       'limit_type' => 'limit_type_enum',
       'objective' => 'objective_enum',
+      'optimization_goal' => 'optimization_goal_enum',
       'promoted_object' => 'Object',
       'q' => 'string',
       'regulated_categories' => 'list<regulated_categories_enum>',
@@ -3235,6 +3385,7 @@ class AdAccount extends AbstractCrudObject {
       'app_store_enum' => AdAccountTargetingUnifiedAppStoreValues::getInstance()->getValues(),
       'limit_type_enum' => AdAccountTargetingUnifiedLimitTypeValues::getInstance()->getValues(),
       'objective_enum' => AdAccountTargetingUnifiedObjectiveValues::getInstance()->getValues(),
+      'optimization_goal_enum' => AdAccountTargetingUnifiedOptimizationGoalValues::getInstance()->getValues(),
       'regulated_categories_enum' => AdAccountTargetingUnifiedRegulatedCategoriesValues::getInstance()->getValues(),
       'regulated_countries_enum' => AdAccountTargetingUnifiedRegulatedCountriesValues::getInstance()->getValues(),
       'whitelisted_types_enum' => AdAccountTargetingUnifiedWhitelistedTypesValues::getInstance()->getValues(),

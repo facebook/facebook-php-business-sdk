@@ -761,7 +761,7 @@ class Application extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createAsset(array $fields = array(), array $params = array(), $pending = false) {
+  public function createAsSet(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -1057,6 +1057,7 @@ class Application extends AbstractCrudObject {
       'inactivity_window_hours' => 'unsigned int',
       'install_id' => 'string',
       'is_fb' => 'bool',
+      'is_paid' => 'bool',
       'meta_install_referrer' => 'string',
       'used_install_referrer' => 'bool',
       'view_attr_window' => 'unsigned int',

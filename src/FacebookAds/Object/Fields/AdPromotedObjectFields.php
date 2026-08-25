@@ -35,6 +35,7 @@ class AdPromotedObjectFields extends AbstractEnum {
   const FULL_FUNNEL_OBJECTIVE = 'full_funnel_objective';
   const FUNDRAISER_CAMPAIGN_ID = 'fundraiser_campaign_id';
   const INSTAGRAM_ACTOR_ID = 'instagram_actor_id';
+  const IS_CATALOG_USER_ACKNOWLEDGED = 'is_catalog_user_acknowledged';
   const JOB_LISTING_ID = 'job_listing_id';
   const LEAD_ADS_CUSTOM_EVENT_STR = 'lead_ads_custom_event_str';
   const LEAD_ADS_CUSTOM_EVENT_TYPE = 'lead_ads_custom_event_type';
@@ -88,6 +89,7 @@ class AdPromotedObjectFields extends AbstractEnum {
       'full_funnel_objective' => 'FullFunnelObjective',
       'fundraiser_campaign_id' => 'string',
       'instagram_actor_id' => 'string',
+      'is_catalog_user_acknowledged' => 'bool',
       'job_listing_id' => 'string',
       'lead_ads_custom_event_str' => 'string',
       'lead_ads_custom_event_type' => 'LeadAdsCustomEventType',

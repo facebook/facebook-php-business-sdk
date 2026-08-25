@@ -103,6 +103,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
   const VIDEO_TO_IMAGE = 'video_to_image';
   const VIDEO_UNCROP = 'video_uncrop';
   const VIDEO_UNCROP_9X16_TO_9X18 = 'video_uncrop_9x16_to_9x18';
+  const VIDEO_VOICEOVER = 'video_voiceover';
   const WA_MM_IMAGE_FILTERING = 'wa_mm_image_filtering';
   const WA_MM_TEXT_TRUNCATION_LENGTH = 'wa_mm_text_truncation_length';
 
@@ -189,6 +190,7 @@ class AdCreativeFeaturesSpecFields extends AbstractEnum {
       'video_to_image' => 'AdCreativeFeatureDetails',
       'video_uncrop' => 'AdCreativeFeatureDetails',
       'video_uncrop_9x16_to_9x18' => 'AdCreativeFeatureDetails',
+      'video_voiceover' => 'AdCreativeFeatureDetails',
       'wa_mm_image_filtering' => 'AdCreativeFeatureDetails',
       'wa_mm_text_truncation_length' => 'AdCreativeFeatureDetails',
     );

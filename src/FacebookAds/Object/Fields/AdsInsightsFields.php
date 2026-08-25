@@ -176,6 +176,7 @@ class AdsInsightsFields extends AbstractEnum {
   const MESSAGES_DELIVERED = 'messages_delivered';
   const MESSAGES_DELIVERED_CTR = 'messages_delivered_ctr';
   const MOBILE_APP_PURCHASE_ROAS = 'mobile_app_purchase_roas';
+  const MSA_SELLER_BUDGET = 'msa_seller_budget';
   const MULTI_EVENT_CONVERSION_ATTRIBUTION_SETTING = 'multi_event_conversion_attribution_setting';
   const OBJECTIVE = 'objective';
   const OBJECTIVE_RESULT_RATE = 'objective_result_rate';
@@ -201,6 +202,7 @@ class AdsInsightsFields extends AbstractEnum {
   const RESULT_RATE = 'result_rate';
   const RESULT_VALUES_PERFORMANCE_INDICATOR = 'result_values_performance_indicator';
   const RESULTS = 'results';
+  const SHOP_CLICKS = 'shop_clicks';
   const SHOPS_ASSISTED_PURCHASES = 'shops_assisted_purchases';
   const SOCIAL_SPEND = 'social_spend';
   const SPEND = 'spend';
@@ -398,6 +400,7 @@ class AdsInsightsFields extends AbstractEnum {
       'messages_delivered' => 'string',
       'messages_delivered_ctr' => 'string',
       'mobile_app_purchase_roas' => 'list<AdsActionStats>',
+      'msa_seller_budget' => 'int',
       'multi_event_conversion_attribution_setting' => 'string',
       'objective' => 'string',
       'objective_result_rate' => 'list<Object>',
@@ -423,6 +426,7 @@ class AdsInsightsFields extends AbstractEnum {
       'result_rate' => 'list<Object>',
       'result_values_performance_indicator' => 'string',
       'results' => 'list<Object>',
+      'shop_clicks' => 'string',
       'shops_assisted_purchases' => 'string',
       'social_spend' => 'string',
       'spend' => 'string',

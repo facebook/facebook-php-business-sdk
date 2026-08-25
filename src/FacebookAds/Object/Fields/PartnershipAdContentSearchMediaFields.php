@@ -24,6 +24,7 @@ class PartnershipAdContentSearchMediaFields extends AbstractEnum {
 
   const FB_AD_CODE_SPONSOR_COUNT = 'fb_ad_code_sponsor_count';
   const FB_AD_CODE_SPONSORS = 'fb_ad_code_sponsors';
+  const FB_AFFILIATE_SHORTENED_URL = 'fb_affiliate_shortened_url';
   const IG_AD_CODE_SPONSOR_COUNT = 'ig_ad_code_sponsor_count';
   const IG_AD_CODE_SPONSORS = 'ig_ad_code_sponsors';
   const IG_MEDIA = 'ig_media';
@@ -35,6 +36,7 @@ class PartnershipAdContentSearchMediaFields extends AbstractEnum {
     return array(
       'fb_ad_code_sponsor_count' => 'int',
       'fb_ad_code_sponsors' => 'list<FBPageAndInstagramAccount>',
+      'fb_affiliate_shortened_url' => 'string',
       'ig_ad_code_sponsor_count' => 'int',
       'ig_ad_code_sponsors' => 'list<FBPageAndInstagramAccount>',
       'ig_media' => 'IGMedia',

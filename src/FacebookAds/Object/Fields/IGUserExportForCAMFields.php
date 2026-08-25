@@ -25,6 +25,7 @@ class IGUserExportForCAMFields extends AbstractEnum {
   const AGE_BUCKET = 'age_bucket';
   const BADGES = 'badges';
   const BIOGRAPHY = 'biography';
+  const CATEGORY = 'category';
   const COUNTRY = 'country';
   const EMAIL = 'email';
   const GENDER = 'gender';
@@ -48,6 +49,7 @@ class IGUserExportForCAMFields extends AbstractEnum {
       'age_bucket' => 'string',
       'badges' => 'list<string>',
       'biography' => 'string',
+      'category' => 'string',
       'country' => 'string',
       'email' => 'string',
       'gender' => 'string',

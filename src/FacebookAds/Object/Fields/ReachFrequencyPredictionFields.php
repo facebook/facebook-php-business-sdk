@@ -34,6 +34,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const CAMPAIGN_ID = 'campaign_id';
   const CAMPAIGN_TIME_START = 'campaign_time_start';
   const CAMPAIGN_TIME_STOP = 'campaign_time_stop';
+  const CPM = 'cpm';
   const CURRENCY = 'currency';
   const CURVE_BUDGET_REACH = 'curve_budget_reach';
   const CURVE_REACH = 'curve_reach';
@@ -145,6 +146,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'campaign_id' => 'string',
       'campaign_time_start' => 'datetime',
       'campaign_time_stop' => 'datetime',
+      'cpm' => 'int',
       'currency' => 'string',
       'curve_budget_reach' => 'ReachFrequencyEstimatesCurve',
       'curve_reach' => 'list<unsigned int>',

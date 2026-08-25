@@ -601,6 +601,7 @@ class Group extends AbstractCrudObject {
       'backdated_time' => 'datetime',
       'backdated_time_granularity' => 'backdated_time_granularity_enum',
       'caption' => 'string',
+      'composer_entry_point' => 'string',
       'composer_session_id' => 'string',
       'direct_share_status' => 'unsigned int',
       'feed_targeting' => 'Object',

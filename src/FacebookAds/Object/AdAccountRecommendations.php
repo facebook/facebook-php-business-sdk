@@ -14,6 +14,8 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdAccountRecommendationsFields;
+use FacebookAds\Object\Values\AdAccountRecommendationsRecommendationNamesValues;
+use FacebookAds\Object\Values\AdAccountRecommendationsRecommendationStagesValues;
 
 /**
  * This class is auto-generated.
@@ -42,6 +44,8 @@ class AdAccountRecommendations extends AbstractObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['RecommendationNames'] = AdAccountRecommendationsRecommendationNamesValues::getInstance()->getValues();
+    $ref_enums['RecommendationStages'] = AdAccountRecommendationsRecommendationStagesValues::getInstance()->getValues();
     return $ref_enums;
   }
 

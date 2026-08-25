@@ -45,4 +45,5 @@ class AdSetRegionalRegulatedCategoriesValues extends AbstractEnum {
   const VALUE_20 = '20';
   const VALUE_21 = '21';
   const VALUE_22 = '22';
+  const VALUE_24 = '24';
 }

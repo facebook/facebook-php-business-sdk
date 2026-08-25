@@ -52,6 +52,9 @@ class AdsUserSettingsFields extends AbstractEnum {
   const CAMPAIGN_GROUP_NAME_TEMPLATE = 'campaign_group_name_template';
   const CAMPAIGN_NAME_TEMPLATE = 'campaign_name_template';
   const CAROUSEL_TO_VIDEO_OPT_IN_STATUS = 'carousel_to_video_opt_in_status';
+  const CATALOG_TEMPLATES_SURVEY_IMPR = 'catalog_templates_survey_impr';
+  const CATALOG_TEMPLATES_SURVEY_LAST_IMPR_TS = 'catalog_templates_survey_last_impr_ts';
+  const CATALOG_TEMPLATES_SURVEY_RESP_TS = 'catalog_templates_survey_resp_ts';
   const CONNECTED_SOURCES_CATALOG_OPT_IN_STATUS = 'connected_sources_catalog_opt_in_status';
   const CREATE_CTA_STICKER_OPT_IN_STATUS = 'create_cta_sticker_opt_in_status';
   const CREATIVE_FLEX_OPT_IN_STATUS = 'creative_flex_opt_in_status';
@@ -170,6 +173,9 @@ class AdsUserSettingsFields extends AbstractEnum {
       'campaign_group_name_template' => 'Object',
       'campaign_name_template' => 'Object',
       'carousel_to_video_opt_in_status' => 'string',
+      'catalog_templates_survey_impr' => 'int',
+      'catalog_templates_survey_last_impr_ts' => 'datetime',
+      'catalog_templates_survey_resp_ts' => 'datetime',
       'connected_sources_catalog_opt_in_status' => 'string',
       'create_cta_sticker_opt_in_status' => 'string',
       'creative_flex_opt_in_status' => 'string',

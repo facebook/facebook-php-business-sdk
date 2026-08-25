@@ -1731,9 +1731,9 @@ class ProductCatalog extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/version_items_batch',
-      new ProductCatalog(),
+      new AbstractCrudObject(),
       'EDGE',
-      ProductCatalog::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

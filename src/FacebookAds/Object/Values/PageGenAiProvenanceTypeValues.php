@@ -48,4 +48,5 @@ class PageGenAiProvenanceTypeValues extends AbstractEnum {
   const IPTC = 'IPTC';
   const IPTC_METADATA_EDITED = 'IPTC_METADATA_EDITED';
   const NONE = 'NONE';
+  const PAIGM_CLASSIFIER = 'PAIGM_CLASSIFIER';
 }

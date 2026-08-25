@@ -23,4 +23,5 @@ use FacebookAds\Enum\AbstractEnum;
 class ProductFeedUseCaseValues extends AbstractEnum {
 
   const CREATOR_ASSET = 'CREATOR_ASSET';
+  const OPEN_CATALOG_UCP = 'OPEN_CATALOG_UCP';
 }

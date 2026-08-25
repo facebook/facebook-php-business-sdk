@@ -24,6 +24,7 @@ class ReachFrequencyEstimatesCurveFields extends AbstractEnum {
 
   const BUDGET = 'budget';
   const CONVERSION = 'conversion';
+  const CPM = 'cpm';
   const IMPRESSION = 'impression';
   const INTERPOLATED_REACH = 'interpolated_reach';
   const NUM_POINTS = 'num_points';
@@ -35,6 +36,7 @@ class ReachFrequencyEstimatesCurveFields extends AbstractEnum {
     return array(
       'budget' => 'list<int>',
       'conversion' => 'list<int>',
+      'cpm' => 'list<int>',
       'impression' => 'list<int>',
       'interpolated_reach' => 'float',
       'num_points' => 'unsigned int',

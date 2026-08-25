@@ -22,12 +22,14 @@ use FacebookAds\Enum\AbstractEnum;
 
 class AdCreativeAppExperienceSpecFields extends AbstractEnum {
 
+  const DETAILS_TO_AD_LAYOUT = 'details_to_ad_layout';
   const REVEAL_DETAILS = 'reveal_details';
   const SHOW_SPOTLIGHTS = 'show_spotlights';
   const WEBSITE_SUMMARY = 'website_summary';
 
   public function getFieldTypes() {
     return array(
+      'details_to_ad_layout' => 'Object',
       'reveal_details' => 'Object',
       'show_spotlights' => 'Object',
       'website_summary' => 'Object',

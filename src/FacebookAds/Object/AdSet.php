@@ -18,11 +18,9 @@ use FacebookAds\Object\Values\AdActivityCategoryValues;
 use FacebookAds\Object\Values\AdAsyncRequestStatusesValues;
 use FacebookAds\Object\Values\AdCampaignDeliveryEstimateOptimizationGoalValues;
 use FacebookAds\Object\Values\AdDatePresetValues;
-use FacebookAds\Object\Values\AdSetAttributionCountTypeValues;
 use FacebookAds\Object\Values\AdSetAutomaticManualStateValues;
 use FacebookAds\Object\Values\AdSetBidStrategyValues;
 use FacebookAds\Object\Values\AdSetBillingEventValues;
-use FacebookAds\Object\Values\AdSetBudgetSourceValues;
 use FacebookAds\Object\Values\AdSetConfiguredStatusValues;
 use FacebookAds\Object\Values\AdSetCostBiddingModeValues;
 use FacebookAds\Object\Values\AdSetCreativeSequenceRepetitionPatternValues;
@@ -89,12 +87,11 @@ class AdSet extends AbstractArchivableCrudObject
     $ref_enums['EffectiveStatus'] = AdSetEffectiveStatusValues::getInstance()->getValues();
     $ref_enums['OptimizationGoal'] = AdSetOptimizationGoalValues::getInstance()->getValues();
     $ref_enums['Status'] = AdSetStatusValues::getInstance()->getValues();
-    $ref_enums['AttributionCountType'] = AdSetAttributionCountTypeValues::getInstance()->getValues();
+    $ref_enums['DatePreset'] = AdSetDatePresetValues::getInstance()->getValues();
+    $ref_enums['Operator'] = AdSetOperatorValues::getInstance()->getValues();
     $ref_enums['AutomaticManualState'] = AdSetAutomaticManualStateValues::getInstance()->getValues();
-    $ref_enums['BudgetSource'] = AdSetBudgetSourceValues::getInstance()->getValues();
     $ref_enums['CostBiddingMode'] = AdSetCostBiddingModeValues::getInstance()->getValues();
     $ref_enums['CreativeSequenceRepetitionPattern'] = AdSetCreativeSequenceRepetitionPatternValues::getInstance()->getValues();
-    $ref_enums['DatePreset'] = AdSetDatePresetValues::getInstance()->getValues();
     $ref_enums['DestinationType'] = AdSetDestinationTypeValues::getInstance()->getValues();
     $ref_enums['ExecutionOptions'] = AdSetExecutionOptionsValues::getInstance()->getValues();
     $ref_enums['FullFunnelExplorationMode'] = AdSetFullFunnelExplorationModeValues::getInstance()->getValues();
@@ -102,7 +99,6 @@ class AdSet extends AbstractArchivableCrudObject
     $ref_enums['OptimizationSubEvent'] = AdSetOptimizationSubEventValues::getInstance()->getValues();
     $ref_enums['RegionalRegulatedCategories'] = AdSetRegionalRegulatedCategoriesValues::getInstance()->getValues();
     $ref_enums['TuneForCategory'] = AdSetTuneForCategoryValues::getInstance()->getValues();
-    $ref_enums['Operator'] = AdSetOperatorValues::getInstance()->getValues();
     $ref_enums['StatusOption'] = AdSetStatusOptionValues::getInstance()->getValues();
     return $ref_enums;
   }

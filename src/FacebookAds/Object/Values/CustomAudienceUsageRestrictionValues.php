@@ -24,4 +24,5 @@ class CustomAudienceUsageRestrictionValues extends AbstractEnum {
 
   const EXCLUSION_ONLY = 'EXCLUSION_ONLY';
   const NONE = 'NONE';
+  const NO_DERIVATIVES = 'NO_DERIVATIVES';
 }

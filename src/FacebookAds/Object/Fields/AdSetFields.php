@@ -110,20 +110,6 @@ class AdSetFields extends AbstractEnum {
   const USE_NEW_APP_CLICK = 'use_new_app_click';
   const VALUE_RULE_SET_ID = 'value_rule_set_id';
   const VALUE_RULES_APPLIED = 'value_rules_applied';
-  const BUDGET_SCHEDULE_SPECS = 'budget_schedule_specs';
-  const BUDGET_SOURCE = 'budget_source';
-  const BUDGET_SPLIT_SET_ID = 'budget_split_set_id';
-  const CAMPAIGN_SPEC = 'campaign_spec';
-  const DAILY_IMPS = 'daily_imps';
-  const DATE_FORMAT = 'date_format';
-  const EXECUTION_OPTIONS = 'execution_options';
-  const IS_SAC_CFCA_TERMS_CERTIFIED = 'is_sac_cfca_terms_certified';
-  const LINE_NUMBER = 'line_number';
-  const RB_PREDICTION_ID = 'rb_prediction_id';
-  const TIME_START = 'time_start';
-  const TIME_STOP = 'time_stop';
-  const TOPLINE_ID = 'topline_id';
-  const TUNE_FOR_CATEGORY = 'tune_for_category';
 
   public function getFieldTypes() {
     return array(
@@ -215,20 +201,6 @@ class AdSetFields extends AbstractEnum {
       'use_new_app_click' => 'bool',
       'value_rule_set_id' => 'string',
       'value_rules_applied' => 'bool',
-      'budget_schedule_specs' => 'list<Object>',
-      'budget_source' => 'BudgetSource',
-      'budget_split_set_id' => 'string',
-      'campaign_spec' => 'Object',
-      'daily_imps' => 'unsigned int',
-      'date_format' => 'string',
-      'execution_options' => 'list<ExecutionOptions>',
-      'is_sac_cfca_terms_certified' => 'bool',
-      'line_number' => 'unsigned int',
-      'rb_prediction_id' => 'string',
-      'time_start' => 'datetime',
-      'time_stop' => 'datetime',
-      'topline_id' => 'string',
-      'tune_for_category' => 'TuneForCategory',
     );
   }
 }

@@ -23,6 +23,7 @@ use FacebookAds\Enum\AbstractEnum;
 class IGUserExportForCAMRecommendationTypeValues extends AbstractEnum {
 
   const HIGH_AD_PERFORMANCE = 'high_ad_performance';
+  const INTERESTED_IN_COLLABORATION = 'interested_in_collaboration';
   const MOST_ADS_EXPERIENCE = 'most_ads_experience';
   const MOST_RELEVANT_FOR_ME = 'most_relevant_for_me';
   const SIMILAR_AUDIENCE = 'similar_audience';
