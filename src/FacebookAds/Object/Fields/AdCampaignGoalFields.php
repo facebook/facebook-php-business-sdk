@@ -28,6 +28,8 @@ class AdCampaignGoalFields extends AbstractEnum {
   const ENGAGED_AUDIENCES_INCLUSIONS = 'engaged_audiences_inclusions';
   const EXISTING_CUSTOMERS_AUDIENCE_LABEL_EXCLUSIONS = 'existing_customers_audience_label_exclusions';
   const EXISTING_CUSTOMERS_AUDIENCE_LABEL_INCLUSIONS = 'existing_customers_audience_label_inclusions';
+  const EXISTING_CUSTOMERS_AUTO_EXCLUSION_RETENTION_DAYS = 'existing_customers_auto_exclusion_retention_days';
+  const EXISTING_CUSTOMERS_EXCLUSION_AUTO_SELECTION_STATE = 'existing_customers_exclusion_auto_selection_state';
   const EXISTING_CUSTOMERS_EXCLUSIONS = 'existing_customers_exclusions';
   const EXISTING_CUSTOMERS_INCLUSIONS = 'existing_customers_inclusions';
   const IS_CA_EXPANSION_ENABLED = 'is_ca_expansion_enabled';
@@ -43,6 +45,8 @@ class AdCampaignGoalFields extends AbstractEnum {
       'engaged_audiences_inclusions' => 'list<string>',
       'existing_customers_audience_label_exclusions' => 'list<string>',
       'existing_customers_audience_label_inclusions' => 'list<string>',
+      'existing_customers_auto_exclusion_retention_days' => 'int',
+      'existing_customers_exclusion_auto_selection_state' => 'int',
       'existing_customers_exclusions' => 'list<string>',
       'existing_customers_inclusions' => 'list<string>',
       'is_ca_expansion_enabled' => 'bool',

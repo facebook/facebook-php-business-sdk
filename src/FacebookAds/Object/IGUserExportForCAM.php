@@ -55,8 +55,15 @@ class IGUserExportForCAM extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'platform' => 'list<platform_enum>',
     );
     $enums = array(
+      'platform_enum' => array(
+        'ANY',
+        'BOTH',
+        'FACEBOOK',
+        'INSTAGRAM',
+      ),
     );
 
     $request = new ApiRequest(
@@ -94,11 +101,13 @@ class IGUserExportForCAM extends AbstractCrudObject {
         'TOP_COUNTRIES',
       ),
       'metrics_enum' => array(
+        'ACCOUNT_INTERACTIONS',
         'CREATOR_ENGAGED_ACCOUNTS',
         'CREATOR_REACH',
         'REELS_HOOK_RATE',
         'REELS_INTERACTION_RATE',
         'TOTAL_FOLLOWERS',
+        'TOTAL_VIEWS',
       ),
       'period_enum' => array(
         'DAY',
@@ -138,8 +147,15 @@ class IGUserExportForCAM extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'platform' => 'list<platform_enum>',
     );
     $enums = array(
+      'platform_enum' => array(
+        'ANY',
+        'BOTH',
+        'FACEBOOK',
+        'INSTAGRAM',
+      ),
     );
 
     $request = new ApiRequest(
@@ -161,8 +177,15 @@ class IGUserExportForCAM extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'platform' => 'list<platform_enum>',
     );
     $enums = array(
+      'platform_enum' => array(
+        'ANY',
+        'BOTH',
+        'FACEBOOK',
+        'INSTAGRAM',
+      ),
     );
 
     $request = new ApiRequest(

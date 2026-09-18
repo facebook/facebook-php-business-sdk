@@ -28,9 +28,14 @@ class AdAccountGetFields extends AbstractEnum {
   const ACCOUNT_STATUS = 'account_status';
   const ACTIVE_BILLING_DATE_PREFERENCE = 'active_billing_date_preference';
   const ACTIVITIES = 'activities';
+  const AD_ACCOUNT_CREATION_REQUEST = 'ad_account_creation_request';
   const AD_ACCOUNT_PROMOTABLE_OBJECTS = 'ad_account_promotable_objects';
   const AD_COLUMN_SIZES = 'ad_column_sizes';
   const AD_LIMITS_INSIGHTS = 'ad_limits_insights';
+  const AD_PLACE_PAGE_SETS = 'ad_place_page_sets';
+  const AD_QUICK_VIEWS = 'ad_quick_views';
+  const AD_REPORT_BUILDER_REPORTS = 'ad_report_builder_reports';
+  const AD_STUDIES = 'ad_studies';
   const ADCREATIVES = 'adcreatives';
   const ADDRAFTS = 'addrafts';
   const ADIMAGES = 'adimages';
@@ -39,6 +44,7 @@ class AdAccountGetFields extends AbstractEnum {
   const ADRULES_HISTORY = 'adrules_history';
   const ADRULES_LIBRARY = 'adrules_library';
   const ADS = 'ads';
+  const ADS_CREATION_SAVED_STATE = 'ads_creation_saved_state';
   const ADS_PAUSED = 'ads_paused';
   const ADS_VOLUME = 'ads_volume';
   const ADSETS = 'adsets';
@@ -66,7 +72,9 @@ class AdAccountGetFields extends AbstractEnum {
   const ASSET_FEED_SPEC_FROM_INSTAGRAM_MEDIA = 'asset_feed_spec_from_instagram_media';
   const ASSET_SCORE = 'asset_score';
   const ASSIGNED_PARTNERS = 'assigned_partners';
+  const ASSIGNED_USERS = 'assigned_users';
   const ATTR_WINDOW_DEPRECATION_GROUP = 'attr_window_deprecation_group';
+  const AUDIENCESHARING_RECIPIENTACCOUNTS = 'audiencesharing_recipientaccounts';
   const AUTH_FLOW_FOR_TRUST_TIER_STATE = 'auth_flow_for_trust_tier_state';
   const AUTHORIZED_COUNTRY_FOR_POLITICAL_ADS = 'authorized_country_for_political_ads';
   const AUTOMATIC_CREATIVE_OPTIMIZATION_TEST_FRAMEWORK_ENROLLED = 'automatic_creative_optimization_test_framework_enrolled';
@@ -105,6 +113,7 @@ class AdAccountGetFields extends AbstractEnum {
   const CPAS_CAMPAIGN_GROUP_DEFAULT_BUDGET = 'cpas_campaign_group_default_budget';
   const CREATED_TIME = 'created_time';
   const CREATION_PACKAGES = 'creation_packages';
+  const CREATIVE_TEXT_SUGGESTIONS = 'creative_text_suggestions';
   const CTWA_SMB_ENFORCING_DAYS_LEFT = 'ctwa_smb_enforcing_days_left';
   const CTX_ADVERTISER_SABR_LIFETIME_DURATION_RECOMMENDATION = 'ctx_advertiser_sabr_lifetime_duration_recommendation';
   const CTX_DFO_OBJECTIVE_DEFAULTS = 'ctx_dfo_objective_defaults';
@@ -115,6 +124,7 @@ class AdAccountGetFields extends AbstractEnum {
   const CURRENT_UNPAID_UNREPAID_INVOICE = 'current_unpaid_unrepaid_invoice';
   const CUSTOM_AUDIENCE_INFO = 'custom_audience_info';
   const CUSTOMAUDIENCES = 'customaudiences';
+  const CUSTOMAUDIENCESTOS = 'customaudiencestos';
   const CUSTOMCONVERSIONS = 'customconversions';
   const CUSTOMER_PO_NUMBER = 'customer_po_number';
   const DAILY_SPEND_LIMIT = 'daily_spend_limit';
@@ -152,7 +162,9 @@ class AdAccountGetFields extends AbstractEnum {
   const HAS_VALUE_RULE_SET = 'has_value_rule_set';
   const ID = 'id';
   const IF_VIEWER_HAS_PERMISSION_TO_ADVERTISE = 'if_viewer_has_permission_to_advertise';
+  const IMPACTING_AD_STUDIES = 'impacting_ad_studies';
   const INCREMENTAL_CONVERSION_OPTIMIZATION_AD_STUDIES = 'incremental_conversion_optimization_ad_studies';
+  const INSIGHTS = 'insights';
   const INSTAGRAM_ACCOUNTS = 'instagram_accounts';
   const INVOICING_EMAILS = 'invoicing_emails';
   const IOS_FOURTEEN_CAMPAIGN_LIMITS = 'ios_fourteen_campaign_limits';
@@ -184,6 +196,8 @@ class AdAccountGetFields extends AbstractEnum {
   const IS_PREPAY_ACCOUNT = 'is_prepay_account';
   const IS_RETAIL_MEDIA_NETWORK = 'is_retail_media_network';
   const IS_SHOPLESS_AWPT_ELIGIBLE = 'is_shopless_awpt_eligible';
+  const IS_SIMPLIFIED_CREATION_ONLY_111_ELIGIBLE = 'is_simplified_creation_only_111_eligible';
+  const IS_SIMPLIFIED_CREATION_SEGMENT_ELIGIBLE = 'is_simplified_creation_segment_eligible';
   const IS_TAX_ID_REQUIRED = 'is_tax_id_required';
   const IS_TIER_0 = 'is_tier_0';
   const IS_TIER_0_FULL = 'is_tier_0_full';
@@ -200,6 +214,10 @@ class AdAccountGetFields extends AbstractEnum {
   const LAST_USED_TIME = 'last_used_time';
   const LIABLE_ADDRESS = 'liable_address';
   const LIABLE_ADDRESSES = 'liable_addresses';
+  const LIABLE_TO_ORG = 'liable_to_org';
+  const LIGHT_ADSETS = 'light_adsets';
+  const LIGHT_CAMPAIGNS = 'light_campaigns';
+  const LIGHTADS = 'lightads';
   const LIVE_VIDEO_ADVERTISER_DETAILS = 'live_video_advertiser_details';
   const MARKETING_MESSAGE_ENABLEMENT_STATUS = 'marketing_message_enablement_status';
   const MARKETING_MESSAGES_SETTINGS = 'marketing_messages_settings';
@@ -216,7 +234,9 @@ class AdAccountGetFields extends AbstractEnum {
   const MODELED_REPORTING_TYPE = 'modeled_reporting_type';
   const MOO_DEFAULT_CONVERSION_BID = 'moo_default_conversion_bid';
   const NAME = 'name';
+  const NAMING_TEMPLATES = 'naming_templates';
   const NEXT_BILL_DATE = 'next_bill_date';
+  const OFFLINE_CONVERSION_DATA_SETS = 'offline_conversion_data_sets';
   const OFFSITE_PIXELS_TOS_ACCEPTED = 'offsite_pixels_tos_accepted';
   const ONBEHALF_REQUESTS = 'onbehalf_requests';
   const OPPORTUNITY_SCORE = 'opportunity_score';
@@ -229,6 +249,7 @@ class AdAccountGetFields extends AbstractEnum {
   const PAYMENT_OPTIONS = 'payment_options';
   const PENDING_BILLING_DATE_PREFERENCE = 'pending_billing_date_preference';
   const PREPAY_ACCOUNT_BALANCE = 'prepay_account_balance';
+  const PROMOTE_PAGES = 'promote_pages';
   const PROMOTION_METADATA = 'promotion_metadata';
   const PROMOTION_METADATA_LIVE_CRAWL = 'promotion_metadata_live_crawl';
   const PUBLISHER_BLOCK_LISTS = 'publisher_block_lists';
@@ -246,6 +267,7 @@ class AdAccountGetFields extends AbstractEnum {
   const SITE_LINKS_LIVE_CRAWL = 'site_links_live_crawl';
   const SOLD_TO_ADDRESS = 'sold_to_address';
   const SOLD_TO_ADDRESSES = 'sold_to_addresses';
+  const SOLD_TO_ORG = 'sold_to_org';
   const SPEND_CAP = 'spend_cap';
   const SPEND_CAP_HISTORY = 'spend_cap_history';
   const SPENDLIMITS = 'spendlimits';
@@ -271,8 +293,10 @@ class AdAccountGetFields extends AbstractEnum {
   const USER_SETTINGS = 'user_settings';
   const USER_TASKS = 'user_tasks';
   const USER_TOS_ACCEPTED = 'user_tos_accepted';
+  const USERPERMISSIONS = 'userpermissions';
   const USERS = 'users';
   const VALUE_RULE_SET = 'value_rule_set';
+  const VIDEO_ADS = 'video_ads';
   const VIEWABLE_BUSINESS = 'viewable_business';
   const VIEWABLE_BUSINESSES = 'viewable_businesses';
 
@@ -280,13 +304,18 @@ class AdAccountGetFields extends AbstractEnum {
     return array(
       'account_controls' => 'object',
       'account_currency_ratio_to_usd' => 'float',
-      'account_id' => 'string',
+      'account_id' => 'int',
       'account_status' => 'int',
       'active_billing_date_preference' => 'object',
       'activities' => 'object',
+      'ad_account_creation_request' => 'object',
       'ad_account_promotable_objects' => 'object',
       'ad_column_sizes' => 'object',
       'ad_limits_insights' => 'object',
+      'ad_place_page_sets' => 'object',
+      'ad_quick_views' => 'object',
+      'ad_report_builder_reports' => 'object',
+      'ad_studies' => 'object',
       'adcreatives' => 'object',
       'addrafts' => 'object',
       'adimages' => 'object',
@@ -295,6 +324,7 @@ class AdAccountGetFields extends AbstractEnum {
       'adrules_history' => 'object',
       'adrules_library' => 'object',
       'ads' => 'object',
+      'ads_creation_saved_state' => 'object',
       'ads_paused' => 'bool',
       'ads_volume' => 'object',
       'adsets' => 'object',
@@ -322,7 +352,9 @@ class AdAccountGetFields extends AbstractEnum {
       'asset_feed_spec_from_instagram_media' => 'object',
       'asset_score' => 'float',
       'assigned_partners' => 'object',
+      'assigned_users' => 'object',
       'attr_window_deprecation_group' => 'string',
+      'audiencesharing_recipientaccounts' => 'object',
       'auth_flow_for_trust_tier_state' => 'AuthFlowForTrustTierState',
       'authorized_country_for_political_ads' => 'AuthorizedCountryForPoliticalAds',
       'automatic_creative_optimization_test_framework_enrolled' => 'bool',
@@ -361,6 +393,7 @@ class AdAccountGetFields extends AbstractEnum {
       'cpas_campaign_group_default_budget' => 'int',
       'created_time' => 'mixed',
       'creation_packages' => 'object',
+      'creative_text_suggestions' => 'object',
       'ctwa_smb_enforcing_days_left' => 'int',
       'ctx_advertiser_sabr_lifetime_duration_recommendation' => 'int',
       'ctx_dfo_objective_defaults' => 'object',
@@ -371,6 +404,7 @@ class AdAccountGetFields extends AbstractEnum {
       'current_unpaid_unrepaid_invoice' => 'object',
       'custom_audience_info' => 'object',
       'customaudiences' => 'object',
+      'customaudiencestos' => 'object',
       'customconversions' => 'object',
       'customer_po_number' => 'string',
       'daily_spend_limit' => 'object',
@@ -408,7 +442,9 @@ class AdAccountGetFields extends AbstractEnum {
       'has_value_rule_set' => 'bool',
       'id' => 'string',
       'if_viewer_has_permission_to_advertise' => 'bool',
+      'impacting_ad_studies' => 'object',
       'incremental_conversion_optimization_ad_studies' => 'list<object>',
+      'insights' => 'object',
       'instagram_accounts' => 'object',
       'invoicing_emails' => 'object',
       'ios_fourteen_campaign_limits' => 'object',
@@ -440,6 +476,8 @@ class AdAccountGetFields extends AbstractEnum {
       'is_prepay_account' => 'bool',
       'is_retail_media_network' => 'bool',
       'is_shopless_awpt_eligible' => 'bool',
+      'is_simplified_creation_only_111_eligible' => 'bool',
+      'is_simplified_creation_segment_eligible' => 'bool',
       'is_tax_id_required' => 'bool',
       'is_tier_0' => 'bool',
       'is_tier_0_full' => 'bool',
@@ -456,6 +494,10 @@ class AdAccountGetFields extends AbstractEnum {
       'last_used_time' => 'int',
       'liable_address' => 'object',
       'liable_addresses' => 'object',
+      'liable_to_org' => 'object',
+      'light_adsets' => 'object',
+      'light_campaigns' => 'object',
+      'lightads' => 'object',
       'live_video_advertiser_details' => 'object',
       'marketing_message_enablement_status' => 'MarketingMessageEnablementStatus',
       'marketing_messages_settings' => 'object',
@@ -472,12 +514,14 @@ class AdAccountGetFields extends AbstractEnum {
       'modeled_reporting_type' => 'ModeledReportingType',
       'moo_default_conversion_bid' => 'int',
       'name' => 'string',
-      'next_bill_date' => 'int',
+      'naming_templates' => 'object',
+      'next_bill_date' => 'mixed',
+      'offline_conversion_data_sets' => 'object',
       'offsite_pixels_tos_accepted' => 'bool',
       'onbehalf_requests' => 'object',
       'opportunity_score' => 'float',
       'opportunity_score_weight' => 'int',
-      'owner' => 'string',
+      'owner' => 'int',
       'owner_business' => 'object',
       'page_authorized_country_for_political_ads' => 'list<object>',
       'pages_in_authorizations' => 'list<object>',
@@ -485,6 +529,7 @@ class AdAccountGetFields extends AbstractEnum {
       'payment_options' => 'object',
       'pending_billing_date_preference' => 'object',
       'prepay_account_balance' => 'object',
+      'promote_pages' => 'object',
       'promotion_metadata' => 'list<object>',
       'promotion_metadata_live_crawl' => 'list<object>',
       'publisher_block_lists' => 'object',
@@ -502,6 +547,7 @@ class AdAccountGetFields extends AbstractEnum {
       'site_links_live_crawl' => 'list<object>',
       'sold_to_address' => 'object',
       'sold_to_addresses' => 'object',
+      'sold_to_org' => 'object',
       'spend_cap' => 'string',
       'spend_cap_history' => 'list<object>',
       'spendlimits' => 'object',
@@ -527,8 +573,10 @@ class AdAccountGetFields extends AbstractEnum {
       'user_settings' => 'object',
       'user_tasks' => 'list<string>',
       'user_tos_accepted' => 'map<int, int>',
+      'userpermissions' => 'object',
       'users' => 'object',
       'value_rule_set' => 'object',
+      'video_ads' => 'object',
       'viewable_business' => 'object',
       'viewable_businesses' => 'list<object>',
     );

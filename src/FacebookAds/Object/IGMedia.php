@@ -14,6 +14,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\IGMediaFields;
+use FacebookAds\Object\Values\IGMediaStatusValues;
 use FacebookAds\Object\Values\InstagramInsightsResultBreakdownValues;
 use FacebookAds\Object\Values\InstagramInsightsResultMetricValues;
 use FacebookAds\Object\Values\InstagramInsightsResultPeriodValues;
@@ -38,6 +39,7 @@ class IGMedia extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['Status'] = IGMediaStatusValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -392,8 +394,10 @@ class IGMedia extends AbstractCrudObject {
 
     $param_types = array(
       'comment_enabled' => 'bool',
+      'status' => 'status_enum',
     );
     $enums = array(
+      'status_enum' => IGMediaStatusValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

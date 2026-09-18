@@ -14,8 +14,6 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProductCatalogProductSetsFields;
-use FacebookAds\Object\Values\ProductCatalogProductSetsGetIntegratedCheckoutEligibilityValues;
-use FacebookAds\Object\Values\ProductCatalogProductSetsGetIntegratedCheckoutPartnerValues;
 
 /**
  * This class is auto-generated.
@@ -41,39 +39,23 @@ class ProductCatalogProductSets extends AbstractCrudObject {
   }
 
 
-  public function genget(array $fields = array(), array $params = array(), $pending = false) {
+  public function genpost(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
-      'ad_url' => 'string',
-      'after' => 'string',
-      'ancestor_id' => 'int',
-      'before' => 'string',
       'fields' => 'string',
-      'filtering' => 'string',
-      'has_children' => 'bool',
-      'integrated_checkout_eligibility' => 'integrated_checkout_eligibility_enum',
-      'integrated_checkout_partner' => 'integrated_checkout_partner_enum',
-      'limit' => 'int',
-      'parent_id' => 'string',
-      'product_set_usages' => 'string',
-      'retailer_id' => 'string',
-      'sort' => 'string',
-      'summary' => 'string',
     );
     $enums = array(
-      'integrated_checkout_eligibility_enum' => ProductCatalogProductSetsGetIntegratedCheckoutEligibilityValues::getInstance()->getValues(),
-      'integrated_checkout_partner_enum' => ProductCatalogProductSetsGetIntegratedCheckoutPartnerValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
       $this->api,
       $this->data['id'],
-      RequestInterface::METHOD_GET,
+      RequestInterface::METHOD_POST,
       '/product_sets',
-      new ProductCatalogProductSetsGet(),
+      new ProductCatalogProductSetsPost(),
       'EDGE',
-      ProductCatalogProductSetsGet::getFieldsEnum()->getValues(),
+      ProductCatalogProductSetsPost::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

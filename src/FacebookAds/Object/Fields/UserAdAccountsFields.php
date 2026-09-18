@@ -20,23 +20,13 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class ProductSetPostFields extends AbstractEnum {
+class UserAdAccountsFields extends AbstractEnum {
 
-  const FILTER = 'filter';
   const ID = 'id';
-  const NAME = 'name';
-  const PARENT_ID = 'parent_id';
-  const PRODUCT_COUNT = 'product_count';
-  const RETAILER_ID = 'retailer_id';
 
   public function getFieldTypes() {
     return array(
-      'filter' => 'string',
-      'id' => 'int',
-      'name' => 'string',
-      'parent_id' => 'int',
-      'product_count' => 'int',
-      'retailer_id' => 'string',
+      'id' => 'string',
     );
   }
 }

@@ -14,6 +14,10 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProductCatalogProductsPostFields;
+use FacebookAds\Object\Values\ProductCatalogProductsPostAgeGroupValues;
+use FacebookAds\Object\Values\ProductCatalogProductsPostAvailabilityValues;
+use FacebookAds\Object\Values\ProductCatalogProductsPostConditionValues;
+use FacebookAds\Object\Values\ProductCatalogProductsPostGenderValues;
 
 /**
  * This class is auto-generated.
@@ -35,6 +39,10 @@ class ProductCatalogProductsPost extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['AgeGroup'] = ProductCatalogProductsPostAgeGroupValues::getInstance()->getValues();
+    $ref_enums['Availability'] = ProductCatalogProductsPostAvailabilityValues::getInstance()->getValues();
+    $ref_enums['Condition'] = ProductCatalogProductsPostConditionValues::getInstance()->getValues();
+    $ref_enums['Gender'] = ProductCatalogProductsPostGenderValues::getInstance()->getValues();
     return $ref_enums;
   }
 

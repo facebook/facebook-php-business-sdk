@@ -38,6 +38,8 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
   const CONVERSION_DESTINATION = 'conversion_destination';
   const COUNTRY = 'country';
   const CREATIVE_AUTOMATION_ASSET_ID = 'creative_automation_asset_id';
+  const CREATIVE_FINGERPRINT_DETAILS = 'creative_fingerprint_details';
+  const CREATIVE_MEDIA_TYPE_BREAKDOWN = 'creative_media_type_breakdown';
   const CREATIVE_RELAXATION_ASSET_TYPE = 'creative_relaxation_asset_type';
   const CRM_ADVERTISER_L12_TERRITORY_IDS = 'crm_advertiser_l12_territory_ids';
   const CRM_ADVERTISER_SUBVERTICAL_ID = 'crm_advertiser_subvertical_id';

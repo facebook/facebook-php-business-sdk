@@ -98,6 +98,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const PLAN_TYPE = 'plan_type';
   const PREDICTION_MODE = 'prediction_mode';
   const PREDICTION_PROGRESS = 'prediction_progress';
+  const PRODUCT_TYPE = 'product_type';
   const REFERENCE_ID = 'reference_id';
   const RESERVATION_STATUS = 'reservation_status';
   const START_TIME = 'start_time';
@@ -210,6 +211,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'plan_type' => 'string',
       'prediction_mode' => 'unsigned int',
       'prediction_progress' => 'unsigned int',
+      'product_type' => 'string',
       'reference_id' => 'string',
       'reservation_status' => 'unsigned int',
       'start_time' => 'datetime',

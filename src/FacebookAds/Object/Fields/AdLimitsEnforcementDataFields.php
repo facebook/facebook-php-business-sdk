@@ -28,6 +28,7 @@ class AdLimitsEnforcementDataFields extends AbstractEnum {
   const AD_VOLUME_ON_SCOPE = 'ad_volume_on_scope';
   const IS_ADMIN = 'is_admin';
   const PAGE_NAME = 'page_name';
+  const SHOW_PAGE_LIMIT_REMOVED_NOTICE = 'show_page_limit_removed_notice';
 
   public function getFieldTypes() {
     return array(
@@ -37,6 +38,7 @@ class AdLimitsEnforcementDataFields extends AbstractEnum {
       'ad_volume_on_scope' => 'int',
       'is_admin' => 'bool',
       'page_name' => 'string',
+      'show_page_limit_removed_notice' => 'bool',
     );
   }
 }

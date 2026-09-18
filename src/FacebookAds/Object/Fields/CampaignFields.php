@@ -25,6 +25,7 @@ class CampaignFields extends AbstractEnum {
   const ACCOUNT_ID = 'account_id';
   const ADLABELS = 'adlabels';
   const ADVANTAGE_STATE_INFO = 'advantage_state_info';
+  const BID_CONSTRAINTS = 'bid_constraints';
   const BID_STRATEGY = 'bid_strategy';
   const BOOSTED_OBJECT_ID = 'boosted_object_id';
   const BRAND_LIFT_STUDIES = 'brand_lift_studies';
@@ -80,6 +81,7 @@ class CampaignFields extends AbstractEnum {
       'account_id' => 'string',
       'adlabels' => 'list<AdLabel>',
       'advantage_state_info' => 'AdCampaignGroupAdvantageState',
+      'bid_constraints' => 'AdCampaignGroupBidConstraints',
       'bid_strategy' => 'BidStrategy',
       'boosted_object_id' => 'string',
       'brand_lift_studies' => 'list<AdStudy>',

@@ -14,6 +14,8 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProductCatalogItemsBatchPostFields;
+use FacebookAds\Object\Values\ProductCatalogItemsBatchPostItemSubTypeValues;
+use FacebookAds\Object\Values\ProductCatalogItemsBatchPostRequestOriginValues;
 
 /**
  * This class is auto-generated.
@@ -35,6 +37,8 @@ class ProductCatalogItemsBatchPost extends AbstractObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['ItemSubType'] = ProductCatalogItemsBatchPostItemSubTypeValues::getInstance()->getValues();
+    $ref_enums['RequestOrigin'] = ProductCatalogItemsBatchPostRequestOriginValues::getInstance()->getValues();
     return $ref_enums;
   }
 

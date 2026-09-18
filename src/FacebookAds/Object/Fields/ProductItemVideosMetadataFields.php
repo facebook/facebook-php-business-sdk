@@ -20,17 +20,13 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class ProductCatalogProductSetsGetFields extends AbstractEnum {
+class ProductItemVideosMetadataFields extends AbstractEnum {
 
-  const DATA = 'data';
-  const PAGING = 'paging';
-  const SUMMARY = 'summary';
+  const ID = 'id';
 
   public function getFieldTypes() {
     return array(
-      'data' => 'list<object>',
-      'paging' => 'object',
-      'summary' => 'object',
+      'id' => 'string',
     );
   }
 }

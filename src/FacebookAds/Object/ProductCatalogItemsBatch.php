@@ -14,6 +14,8 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\ProductCatalogItemsBatchFields;
+use FacebookAds\Object\Values\ProductCatalogItemsBatchPostItemSubTypeValues;
+use FacebookAds\Object\Values\ProductCatalogItemsBatchPostRequestOriginValues;
 
 /**
  * This class is auto-generated.
@@ -43,8 +45,16 @@ class ProductCatalogItemsBatch extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'allow_upsert' => 'bool',
+      'item_sub_type' => 'item_sub_type_enum',
+      'item_type' => 'string',
+      'request_origin' => 'request_origin_enum',
+      'requests' => 'string',
+      'version' => 'int',
     );
     $enums = array(
+      'item_sub_type_enum' => ProductCatalogItemsBatchPostItemSubTypeValues::getInstance()->getValues(),
+      'request_origin_enum' => ProductCatalogItemsBatchPostRequestOriginValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

@@ -103,6 +103,7 @@ class AdCreativeFields extends AbstractEnum {
   const EXECUTION_OPTIONS = 'execution_options';
   const IMAGE_FILE = 'image_file';
   const IS_DCO_INTERNAL = 'is_dco_internal';
+  const MEDIA_OPTIMIZATION_SPEC = 'media_optimization_spec';
 
   public function getFieldTypes() {
     return array(
@@ -187,6 +188,7 @@ class AdCreativeFields extends AbstractEnum {
       'execution_options' => 'list<ExecutionOptions>',
       'image_file' => 'string',
       'is_dco_internal' => 'bool',
+      'media_optimization_spec' => 'map',
     );
   }
 }

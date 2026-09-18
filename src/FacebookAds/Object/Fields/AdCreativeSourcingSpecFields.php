@@ -35,6 +35,7 @@ class AdCreativeSourcingSpecFields extends AbstractEnum {
   const PCA_SPEC = 'pca_spec';
   const PRODUCT_MEDIA_METADATA_SPEC = 'product_media_metadata_spec';
   const PROMOTION_METADATA_SPEC = 'promotion_metadata_spec';
+  const SELECTED_VIDEO_ID = 'selected_video_id';
   const SITE_LINKS_DATA_CONSENTED = 'site_links_data_consented';
   const SITE_LINKS_SPEC = 'site_links_spec';
   const SOURCE_URL = 'source_url';
@@ -56,6 +57,7 @@ class AdCreativeSourcingSpecFields extends AbstractEnum {
       'pca_spec' => 'Object',
       'product_media_metadata_spec' => 'Object',
       'promotion_metadata_spec' => 'list<AdCreativePromotionMetadataSpec>',
+      'selected_video_id' => 'string',
       'site_links_data_consented' => 'Object',
       'site_links_spec' => 'list<AdCreativeSiteLinksSpec>',
       'source_url' => 'string',

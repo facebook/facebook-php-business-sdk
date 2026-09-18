@@ -109,6 +109,7 @@ use FacebookAds\Object\Values\MessageDeliveryEstimatePacingTypeValues;
 use FacebookAds\Object\Values\ReachFrequencyPredictionActionValues;
 use FacebookAds\Object\Values\ReachFrequencyPredictionBuyingTypeValues;
 use FacebookAds\Object\Values\ReachFrequencyPredictionInstreamPackagesValues;
+use FacebookAds\Object\Values\ReachFrequencyPredictionProductTypeValues;
 
 /**
  * This class is auto-generated.
@@ -449,6 +450,7 @@ class AdAccount extends AbstractCrudObject {
       'link_og_id' => 'string',
       'link_url' => 'string',
       'marketing_message_structured_spec' => 'map',
+      'media_optimization_spec' => 'map',
       'media_sourcing_spec' => 'map',
       'name' => 'string',
       'object_id' => 'unsigned int',
@@ -833,6 +835,7 @@ class AdAccount extends AbstractCrudObject {
       'conversion_domain' => 'string',
       'creative' => 'AdCreative',
       'creative_asset_groups_spec' => 'Object',
+      'creative_audience_pairing_persona' => 'map',
       'creative_automation_spec' => 'Object',
       'dataset_split_specs' => 'list<map>',
       'date_format' => 'string',
@@ -1020,7 +1023,6 @@ class AdAccount extends AbstractCrudObject {
       'campaign_attribution' => 'Object',
       'campaign_id' => 'string',
       'campaign_spec' => 'Object',
-      'cost_bidding_mode' => 'cost_bidding_mode_enum',
       'creative_sequence' => 'list<string>',
       'creative_sequence_repetition_pattern' => 'creative_sequence_repetition_pattern_enum',
       'daily_budget' => 'unsigned int',
@@ -1111,11 +1113,6 @@ class AdAccount extends AbstractCrudObject {
       'budget_source_enum' => array(
         'NONE',
         'RMN',
-      ),
-      'cost_bidding_mode_enum' => array(
-        'BALANCED',
-        'COST_FOCUSED',
-        'VOLUME_FOCUSED',
       ),
       'creative_sequence_repetition_pattern_enum' => array(
         'FULL_SEQUENCE',
@@ -1234,6 +1231,7 @@ class AdAccount extends AbstractCrudObject {
         '21',
         '22',
         '24',
+        '25',
       ),
       'status_enum' => array(
         'ACTIVE',
@@ -3128,11 +3126,11 @@ class AdAccount extends AbstractCrudObject {
       'is_higher_average_frequency' => 'bool',
       'is_reach_and_frequency_io_buying' => 'bool',
       'is_reserved_buying' => 'bool',
-      'meta_moment_maker_spec' => 'map',
       'num_curve_points' => 'unsigned int',
       'objective' => 'string',
       'optimization_goal' => 'string',
       'prediction_mode' => 'unsigned int',
+      'product_type' => 'product_type_enum',
       'reach' => 'unsigned int',
       'rf_prediction_id' => 'string',
       'rf_prediction_id_to_release' => 'string',
@@ -3151,6 +3149,7 @@ class AdAccount extends AbstractCrudObject {
       'action_enum' => ReachFrequencyPredictionActionValues::getInstance()->getValues(),
       'buying_type_enum' => ReachFrequencyPredictionBuyingTypeValues::getInstance()->getValues(),
       'instream_packages_enum' => ReachFrequencyPredictionInstreamPackagesValues::getInstance()->getValues(),
+      'product_type_enum' => ReachFrequencyPredictionProductTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(

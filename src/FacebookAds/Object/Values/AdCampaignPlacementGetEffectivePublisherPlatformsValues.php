@@ -27,6 +27,7 @@ class AdCampaignPlacementGetEffectivePublisherPlatformsValues extends AbstractEn
   const INSTAGRAM = 'INSTAGRAM';
   const MESSENGER = 'MESSENGER';
   const OCULUS = 'OCULUS';
+  const STREAMING_SERVICES = 'STREAMING_SERVICES';
   const THREADS = 'THREADS';
   const WHATSAPP = 'WHATSAPP';
 }

@@ -32,6 +32,7 @@ class IGUserExportForCAMFields extends AbstractEnum {
   const HAS_BRAND_PARTNERSHIP_EXPERIENCE = 'has_brand_partnership_experience';
   const ID = 'id';
   const IS_ACCOUNT_VERIFIED = 'is_account_verified';
+  const IS_BRAND_FOLLOWING_CREATOR = 'is_brand_following_creator';
   const IS_CREATOR_FOLLOWING_BRAND = 'is_creator_following_brand';
   const IS_PAID_PARTNERSHIP_MESSAGES_ENABLED = 'is_paid_partnership_messages_enabled';
   const MESSAGING_ID = 'messaging_id';
@@ -56,6 +57,7 @@ class IGUserExportForCAMFields extends AbstractEnum {
       'has_brand_partnership_experience' => 'bool',
       'id' => 'string',
       'is_account_verified' => 'bool',
+      'is_brand_following_creator' => 'bool',
       'is_creator_following_brand' => 'bool',
       'is_paid_partnership_messages_enabled' => 'bool',
       'messaging_id' => 'string',

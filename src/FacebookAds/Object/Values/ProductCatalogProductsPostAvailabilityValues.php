@@ -18,11 +18,17 @@ use FacebookAds\Enum\AbstractEnum;
  * on github and we'll fix in our codegen framework. We'll not be able to accept
  * pull request for this class.
  *
- * @method static AdSetCostBiddingModeValues getInstance()
+ * @method static ProductCatalogProductsPostAvailabilityValues getInstance()
  */
-class AdSetCostBiddingModeValues extends AbstractEnum {
+class ProductCatalogProductsPostAvailabilityValues extends AbstractEnum {
 
-  const BALANCED = 'BALANCED';
-  const COST_FOCUSED = 'COST_FOCUSED';
-  const VOLUME_FOCUSED = 'VOLUME_FOCUSED';
+  const AVAILABLE_FOR_ORDER = 'AVAILABLE_FOR_ORDER';
+  const DISCONTINUED = 'DISCONTINUED';
+  const IN_STOCK = 'IN_STOCK';
+  const MARK_AS_EXPIRED = 'MARK_AS_EXPIRED';
+  const MARK_AS_SOLD = 'MARK_AS_SOLD';
+  const OUT_OF_STOCK = 'OUT_OF_STOCK';
+  const PENDING = 'PENDING';
+  const PREORDER = 'PREORDER';
+  const UNKNOWN = 'UNKNOWN';
 }

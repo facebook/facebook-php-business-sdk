@@ -51,6 +51,7 @@ class AdCreativeGetFields extends AbstractEnum {
   const EXISTING_POST_TITLE = 'existing_post_title';
   const FACEBOOK_BRANDED_CONTENT = 'facebook_branded_content';
   const FORMAT_TRANSFORMATION_SPEC = 'format_transformation_spec';
+  const GENERATIVE_ASSET_SPEC = 'generative_asset_spec';
   const ID = 'id';
   const IMAGE_CROPS = 'image_crops';
   const IMAGE_HASH = 'image_hash';
@@ -128,6 +129,7 @@ class AdCreativeGetFields extends AbstractEnum {
       'existing_post_title' => 'string',
       'facebook_branded_content' => 'object',
       'format_transformation_spec' => 'list<object>',
+      'generative_asset_spec' => 'object',
       'id' => 'int',
       'image_crops' => 'object',
       'image_hash' => 'string',

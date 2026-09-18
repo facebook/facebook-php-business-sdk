@@ -13,9 +13,7 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\ProductCatalogProductSetsGetFields;
-use FacebookAds\Object\Values\ProductCatalogProductSetsGetIntegratedCheckoutEligibilityValues;
-use FacebookAds\Object\Values\ProductCatalogProductSetsGetIntegratedCheckoutPartnerValues;
+use FacebookAds\Object\Fields\AdAccountAdsGetFields;
 
 /**
  * This class is auto-generated.
@@ -26,19 +24,17 @@ use FacebookAds\Object\Values\ProductCatalogProductSetsGetIntegratedCheckoutPart
  *
  */
 
-class ProductCatalogProductSetsGet extends AbstractObject {
+class AdAccountAdsGet extends AbstractObject {
 
   /**
-   * @return ProductCatalogProductSetsGetFields
+   * @return AdAccountAdsGetFields
    */
   public static function getFieldsEnum() {
-    return ProductCatalogProductSetsGetFields::getInstance();
+    return AdAccountAdsGetFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['IntegratedCheckoutEligibility'] = ProductCatalogProductSetsGetIntegratedCheckoutEligibilityValues::getInstance()->getValues();
-    $ref_enums['IntegratedCheckoutPartner'] = ProductCatalogProductSetsGetIntegratedCheckoutPartnerValues::getInstance()->getValues();
     return $ref_enums;
   }
 

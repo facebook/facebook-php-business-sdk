@@ -20,13 +20,17 @@ use FacebookAds\Enum\AbstractEnum;
  *
  */
 
-class ProductItemPostFields extends AbstractEnum {
+class CreativeDiagnosticsPostFields extends AbstractEnum {
 
-  const SUCCESS = 'success';
+  const APPLIED_CONFIG = 'applied_config';
+  const CREATIVE_STRATEGIES = 'creative_strategies';
+  const GENERATION_REQUEST_ID = 'generation_request_id';
 
   public function getFieldTypes() {
     return array(
-      'success' => 'bool',
+      'applied_config' => 'object',
+      'creative_strategies' => 'list<object>',
+      'generation_request_id' => 'string',
     );
   }
 }

@@ -28,6 +28,7 @@ class ShadowIGMediaProductTagsFields extends AbstractEnum {
   const NAME = 'name';
   const PRICE_STRING = 'price_string';
   const PRODUCT_ID = 'product_id';
+  const PRODUCT_URL = 'product_url';
   const REVIEW_STATUS = 'review_status';
   const STRIPPED_PRICE_STRING = 'stripped_price_string';
   const STRIPPED_SALE_PRICE_STRING = 'stripped_sale_price_string';
@@ -42,6 +43,7 @@ class ShadowIGMediaProductTagsFields extends AbstractEnum {
       'name' => 'string',
       'price_string' => 'string',
       'product_id' => 'int',
+      'product_url' => 'string',
       'review_status' => 'string',
       'stripped_price_string' => 'string',
       'stripped_sale_price_string' => 'string',

@@ -101,6 +101,7 @@ class AdsUserSettingsFields extends AbstractEnum {
   const PLACEMENT_GROUP_VERTICAL_OPT_IN_STATUS = 'placement_group_vertical_opt_in_status';
   const PREVIOUSLY_SEEN_RECOMMENDATIONS = 'previously_seen_recommendations';
   const PRODUCT_EXTENSIONS_OPT_IN = 'product_extensions_opt_in';
+  const PUSH_MODEL_OPT_IN_STATUS = 'push_model_opt_in_status';
   const REACTIVE_CONTROL_SETTINGS = 'reactive_control_settings';
   const REPLACE_MEDIA_TEXT_OPT_IN_STATUS = 'replace_media_text_opt_in_status';
   const SA_OFF_CONV_LOC_SEEN = 'sa_off_conv_loc_seen';
@@ -222,6 +223,7 @@ class AdsUserSettingsFields extends AbstractEnum {
       'placement_group_vertical_opt_in_status' => 'string',
       'previously_seen_recommendations' => 'list<string>',
       'product_extensions_opt_in' => 'string',
+      'push_model_opt_in_status' => 'string',
       'reactive_control_settings' => 'list<Object>',
       'replace_media_text_opt_in_status' => 'string',
       'sa_off_conv_loc_seen' => 'string',

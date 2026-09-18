@@ -141,6 +141,7 @@ class AdCreativeGetCallToActionTypeValues extends AbstractEnum {
   const SEND_UPDATES = 'SEND_UPDATES';
   const SHARE = 'SHARE';
   const SHOP_NOW = 'SHOP_NOW';
+  const SHOP_ON_RETAILER = 'SHOP_ON_RETAILER';
   const SHOP_WITH_AI = 'SHOP_WITH_AI';
   const SIGN_UP = 'SIGN_UP';
   const SOTTO_SUBSCRIBE = 'SOTTO_SUBSCRIBE';

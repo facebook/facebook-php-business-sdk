@@ -13,7 +13,8 @@ use FacebookAds\ApiRequest;
 use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
-use FacebookAds\Object\Fields\ProductSetPostFields;
+use FacebookAds\Object\Fields\AdAccountLightCampaignsGetFields;
+use FacebookAds\Object\Values\AdAccountLightCampaignsGetDatePresetValues;
 
 /**
  * This class is auto-generated.
@@ -24,17 +25,18 @@ use FacebookAds\Object\Fields\ProductSetPostFields;
  *
  */
 
-class ProductSetPost extends AbstractCrudObject {
+class AdAccountLightCampaignsGet extends AbstractObject {
 
   /**
-   * @return ProductSetPostFields
+   * @return AdAccountLightCampaignsGetFields
    */
   public static function getFieldsEnum() {
-    return ProductSetPostFields::getInstance();
+    return AdAccountLightCampaignsGetFields::getInstance();
   }
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['DatePreset'] = AdAccountLightCampaignsGetDatePresetValues::getInstance()->getValues();
     return $ref_enums;
   }
 

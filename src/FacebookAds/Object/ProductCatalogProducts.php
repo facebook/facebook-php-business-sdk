@@ -43,6 +43,7 @@ class ProductCatalogProducts extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'fields' => 'string',
     );
     $enums = array(
     );

@@ -41,6 +41,7 @@ class AdFields extends AbstractEnum {
   const CREATED_TIME = 'created_time';
   const CREATIVE = 'creative';
   const CREATIVE_ASSET_GROUPS_SPEC = 'creative_asset_groups_spec';
+  const CREATIVE_AUDIENCE_PAIRING_PERSONA = 'creative_audience_pairing_persona';
   const CREATIVE_AUTOMATION_SPEC = 'creative_automation_spec';
   const DEMOLINK_HASH = 'demolink_hash';
   const DISPLAY_SEQUENCE = 'display_sequence';
@@ -93,6 +94,7 @@ class AdFields extends AbstractEnum {
       'created_time' => 'datetime',
       'creative' => 'AdCreative',
       'creative_asset_groups_spec' => 'AdCreativeAssetGroupsSpec',
+      'creative_audience_pairing_persona' => 'CreativeAudiencePairingPersona',
       'creative_automation_spec' => 'AdCreativeAutomationSpec',
       'demolink_hash' => 'string',
       'display_sequence' => 'int',

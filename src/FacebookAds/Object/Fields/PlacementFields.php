@@ -31,6 +31,7 @@ class PlacementFields extends AbstractEnum {
   const EFFECTIVE_MESSENGER_POSITIONS = 'effective_messenger_positions';
   const EFFECTIVE_OCULUS_POSITIONS = 'effective_oculus_positions';
   const EFFECTIVE_PUBLISHER_PLATFORMS = 'effective_publisher_platforms';
+  const EFFECTIVE_STREAMING_SERVICES_POSITIONS = 'effective_streaming_services_positions';
   const EFFECTIVE_THREADS_POSITIONS = 'effective_threads_positions';
   const EFFECTIVE_WHATSAPP_POSITIONS = 'effective_whatsapp_positions';
   const FACEBOOK_POSITIONS = 'facebook_positions';
@@ -38,6 +39,7 @@ class PlacementFields extends AbstractEnum {
   const MESSENGER_POSITIONS = 'messenger_positions';
   const OCULUS_POSITIONS = 'oculus_positions';
   const PUBLISHER_PLATFORMS = 'publisher_platforms';
+  const STREAMING_SERVICES_POSITIONS = 'streaming_services_positions';
   const THREADS_POSITIONS = 'threads_positions';
   const WHATSAPP_POSITIONS = 'whatsapp_positions';
 
@@ -52,6 +54,7 @@ class PlacementFields extends AbstractEnum {
       'effective_messenger_positions' => 'list<string>',
       'effective_oculus_positions' => 'list<string>',
       'effective_publisher_platforms' => 'list<string>',
+      'effective_streaming_services_positions' => 'list<string>',
       'effective_threads_positions' => 'list<string>',
       'effective_whatsapp_positions' => 'list<string>',
       'facebook_positions' => 'list<string>',
@@ -59,6 +62,7 @@ class PlacementFields extends AbstractEnum {
       'messenger_positions' => 'list<string>',
       'oculus_positions' => 'list<string>',
       'publisher_platforms' => 'list<string>',
+      'streaming_services_positions' => 'list<string>',
       'threads_positions' => 'list<string>',
       'whatsapp_positions' => 'list<string>',
     );
