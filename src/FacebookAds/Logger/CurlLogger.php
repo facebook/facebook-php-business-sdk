@@ -146,7 +146,7 @@ class CurlLogger implements LoggerInterface {
    * @param Parameters $params
    * @param string $method
    * @param bool $is_file
-   * @return string
+   * @return array
    */
   protected function processParams(Parameters $params, $method, $is_file) {
     $chunks = array();
@@ -158,17 +158,10 @@ class CurlLogger implements LoggerInterface {
         $value = "@" . $this->normalizeFileParam($params->offsetGet($name));
       } else {
         $value = (string) $value;
-        $value = addcslashes(
-          strpos($value, "\n") !== false
-            ? $this->indent($value, 2)
-            : $value,
-          '\'');
       }
-      $chunks[$name] = sprintf(
-        '-%s \'%s=%s\'',
-        $this->getParamFlag($method, $value),
-        $name,
-        $value);
+
+      $nameValue = sprintf('%s=%s', $name, $value);
+      $chunks[$name] = sprintf('-%s %s', $this->getParamFlag($method, $value), escapeshellarg($nameValue));
     }
 
     return $chunks;
