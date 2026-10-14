@@ -41,18 +41,19 @@ class AsyncClientTest extends AbstractUnitTestCase {
     $this->assertEquals($client1, $client2);
   }
 
-  public function testCurlOptions() {
+  public function testClientOptions() {
     $async_client = AsyncClient::getInstance()->getClient();
-    $expected_handler = HandlerStack::create(new CurlHandler([
-      'options' => [
-        CURLOPT_CONNECTTIMEOUT => 10,
-        CURLOPT_TIMEOUT => 60,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_HEADER => true,
-        CURLOPT_CAINFO => Api::instance()->getHttpClient()->getCaBundlePath(),
-      ]
-    ]));
+    $config = $async_client->getConfig();
 
-    $this->assertEquals($expected_handler, $async_client->getConfig()['handler']);
+    $this->assertEquals(
+      HandlerStack::create(new CurlHandler()),
+      $config['handler']
+    );
+    $this->assertEquals(10, $config['connect_timeout']);
+    $this->assertEquals(60, $config['timeout']);
+    $this->assertEquals(
+      Api::instance()->getHttpClient()->getCaBundlePath(),
+      $config['verify']
+    );
   }
 }

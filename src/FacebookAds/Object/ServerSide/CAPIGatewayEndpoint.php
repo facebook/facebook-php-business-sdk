@@ -29,7 +29,6 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Promise\PromiseInterface;
-use GuzzleHttp\Utils;
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -132,7 +131,7 @@ class CAPIGatewayEndpoint implements CustomEndpointRequest {
         $body = array();
         $body['data'] = $events;
         $body['accessKey'] = $this->access_key;
-        return Utils::jsonEncode($body);
+        return json_encode($body, JSON_THROW_ON_ERROR);
     }
 
     private function normalize(array $events): array
