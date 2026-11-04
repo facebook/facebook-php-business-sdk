@@ -54,6 +54,7 @@ class AdPromotedObjectFields extends AbstractEnum {
   const OFFLINE_CONVERSION_DATA_SET_ID = 'offline_conversion_data_set_id';
   const OFFSITE_CONVERSION_EVENT_ID = 'offsite_conversion_event_id';
   const OMNICHANNEL_OBJECT = 'omnichannel_object';
+  const OPTIMIZATION_PRODUCT_SET_ID = 'optimization_product_set_id';
   const PAGE_ID = 'page_id';
   const PASSBACK_APPLICATION_ID = 'passback_application_id';
   const PASSBACK_PIXEL_ID = 'passback_pixel_id';
@@ -109,6 +110,7 @@ class AdPromotedObjectFields extends AbstractEnum {
       'offline_conversion_data_set_id' => 'string',
       'offsite_conversion_event_id' => 'string',
       'omnichannel_object' => 'Object',
+      'optimization_product_set_id' => 'string',
       'page_id' => 'string',
       'passback_application_id' => 'string',
       'passback_pixel_id' => 'string',

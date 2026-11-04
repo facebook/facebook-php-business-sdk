@@ -15,17 +15,20 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\IGUserFields;
 use FacebookAds\Object\Values\BrandedContentShadowIGMediaIDMediaRelationshipValues;
-use FacebookAds\Object\Values\IGUserExportForCAMCreatorCountriesValues;
-use FacebookAds\Object\Values\IGUserExportForCAMCreatorGenderValues;
-use FacebookAds\Object\Values\IGUserExportForCAMMajorAudienceCountriesValues;
-use FacebookAds\Object\Values\IGUserExportForCAMMajorAudienceGenderValues;
-use FacebookAds\Object\Values\IGUserExportForCAMPlatformValues;
-use FacebookAds\Object\Values\IGUserExportForCAMRecommendationTypeValues;
+use FacebookAds\Object\Values\IGUserSubscribedFieldsValues;
 use FacebookAds\Object\Values\InstagramInsightsResultBreakdownValues;
 use FacebookAds\Object\Values\InstagramInsightsResultMetricTypeValues;
 use FacebookAds\Object\Values\InstagramInsightsResultMetricValues;
 use FacebookAds\Object\Values\InstagramInsightsResultPeriodValues;
 use FacebookAds\Object\Values\InstagramInsightsResultTimeframeValues;
+use FacebookAds\Object\Values\ShadowIGUserCTXPartnerAppWelcomeMessageFlowEligiblePlatformsValues;
+use FacebookAds\Object\Values\UserExportForCAMCreatorCountriesValues;
+use FacebookAds\Object\Values\UserExportForCAMCreatorGenderValues;
+use FacebookAds\Object\Values\UserExportForCAMCreatorLanguageValues;
+use FacebookAds\Object\Values\UserExportForCAMMajorAudienceCountriesValues;
+use FacebookAds\Object\Values\UserExportForCAMMajorAudienceGenderValues;
+use FacebookAds\Object\Values\UserExportForCAMPlatformValues;
+use FacebookAds\Object\Values\UserExportForCAMRecommendationTypeValues;
 
 /**
  * This class is auto-generated.
@@ -47,6 +50,7 @@ class IGUser extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
+    $ref_enums['SubscribedFields'] = IGUserSubscribedFieldsValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -465,6 +469,39 @@ class IGUser extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getConversations(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'folder' => 'string',
+      'platform' => 'platform_enum',
+      'tags' => 'list<string>',
+      'updated_after_ms' => 'unsigned int',
+      'updated_before_ms' => 'unsigned int',
+      'user_id' => 'string',
+    );
+    $enums = array(
+      'platform_enum' => array(
+        'INSTAGRAM',
+        'MESSENGER',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/conversations',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getCreatorMarketPlaceCreators(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -474,6 +511,7 @@ class IGUser extends AbstractCrudObject {
       'creator_follower_growth' => 'Object',
       'creator_gender' => 'list<creator_gender_enum>',
       'creator_interests' => 'list<Object>',
+      'creator_language' => 'list<creator_language_enum>',
       'creator_latest_post_activity' => 'Object',
       'creator_max_engaged_accounts' => 'unsigned int',
       'creator_max_followers' => 'unsigned int',
@@ -481,6 +519,9 @@ class IGUser extends AbstractCrudObject {
       'creator_min_followers' => 'unsigned int',
       'creator_states' => 'list<string>',
       'custom_audience_id' => 'string',
+      'exclude_messaged_creators' => 'bool',
+      'featured_in_paid_ads' => 'bool',
+      'has_portfolio' => 'bool',
       'has_public_contact_email' => 'bool',
       'is_paid_partnership_messages_enabled' => 'bool',
       'major_audience_age_bucket' => 'list<Object>',
@@ -497,14 +538,16 @@ class IGUser extends AbstractCrudObject {
       'similar_to_creators' => 'list<string>',
       'username' => 'string',
       'usernames' => 'list<string>',
+      'verified_account' => 'bool',
     );
     $enums = array(
-      'creator_countries_enum' => IGUserExportForCAMCreatorCountriesValues::getInstance()->getValues(),
-      'creator_gender_enum' => IGUserExportForCAMCreatorGenderValues::getInstance()->getValues(),
-      'major_audience_countries_enum' => IGUserExportForCAMMajorAudienceCountriesValues::getInstance()->getValues(),
-      'major_audience_gender_enum' => IGUserExportForCAMMajorAudienceGenderValues::getInstance()->getValues(),
-      'platform_enum' => IGUserExportForCAMPlatformValues::getInstance()->getValues(),
-      'recommendation_type_enum' => IGUserExportForCAMRecommendationTypeValues::getInstance()->getValues(),
+      'creator_countries_enum' => UserExportForCAMCreatorCountriesValues::getInstance()->getValues(),
+      'creator_gender_enum' => UserExportForCAMCreatorGenderValues::getInstance()->getValues(),
+      'creator_language_enum' => UserExportForCAMCreatorLanguageValues::getInstance()->getValues(),
+      'major_audience_countries_enum' => UserExportForCAMMajorAudienceCountriesValues::getInstance()->getValues(),
+      'major_audience_gender_enum' => UserExportForCAMMajorAudienceGenderValues::getInstance()->getValues(),
+      'platform_enum' => UserExportForCAMPlatformValues::getInstance()->getValues(),
+      'recommendation_type_enum' => UserExportForCAMRecommendationTypeValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
@@ -512,9 +555,9 @@ class IGUser extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_GET,
       '/creator_marketplace_creators',
-      new IGUserExportForCAM(),
+      new UserExportForCAM(),
       'EDGE',
-      IGUserExportForCAM::getFieldsEnum()->getValues(),
+      UserExportForCAM::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -562,6 +605,31 @@ class IGUser extends AbstractCrudObject {
       new Dataset(),
       'EDGE',
       Dataset::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createExtendThreadControl(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'duration' => 'unsigned int',
+      'recipient' => 'Object',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/extend_thread_control',
+      new IGUser(),
+      'EDGE',
+      IGUser::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -712,6 +780,7 @@ class IGUser extends AbstractCrudObject {
       'children' => 'list<string>',
       'collaborators' => 'list<string>',
       'cover_url' => 'string',
+      'cross_post_to_threads' => 'bool',
       'image_url' => 'string',
       'is_ai_generated' => 'bool',
       'is_carousel_item' => 'bool',
@@ -723,7 +792,9 @@ class IGUser extends AbstractCrudObject {
       'poll_attachment' => 'string',
       'product_tags' => 'list<map>',
       'share_to_feed' => 'bool',
+      'show_ig_link' => 'bool',
       'thumb_offset' => 'string',
+      'title' => 'string',
       'trial_params' => 'map',
       'upload_type' => 'string',
       'user_tags' => 'list<map>',
@@ -797,6 +868,163 @@ class IGUser extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createMessageAttachment(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'message' => 'map',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/message_attachments',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createMessage(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'folder' => 'folder_enum',
+      'message' => 'Object',
+      'messaging_type' => 'messaging_type_enum',
+      'payload' => 'string',
+      'recipient' => 'Object',
+      'reply_to' => 'Object',
+      'sender_action' => 'sender_action_enum',
+      'tag' => 'Object',
+      'thread_control' => 'Object',
+    );
+    $enums = array(
+      'folder_enum' => array(
+        'PARTNERSHIP',
+      ),
+      'messaging_type_enum' => array(
+        'MESSAGE_TAG',
+        'RESPONSE',
+        'UPDATE',
+        'UTILITY',
+      ),
+      'sender_action_enum' => array(
+        'MARK_SEEN',
+        'REACT',
+        'TYPING_OFF',
+        'TYPING_ON',
+        'UNREACT',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/messages',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function deleteMessengerProfile(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'fields' => 'list<fields_enum>',
+    );
+    $enums = array(
+      'fields_enum' => array(
+        'ACCOUNT_LINKING_URL',
+        'COMMANDS',
+        'DESCRIPTION',
+        'GET_STARTED',
+        'HOME_URL',
+        'ICE_BREAKERS',
+        'PERSISTENT_MENU',
+        'PLATFORM',
+        'SUBJECT_TO_NEW_EU_PRIVACY_RULES',
+        'TITLE',
+        'WHITELISTED_DOMAINS',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/messenger_profile',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getMessengerProfile(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/messenger_profile',
+      new IGUserMessengerProfile(),
+      'EDGE',
+      IGUserMessengerProfile::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createMessengerProfile(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'ice_breakers' => 'list<map>',
+      'persistent_menu' => 'list<Object>',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/messenger_profile',
+      new IGUserMessengerProfile(),
+      'EDGE',
+      IGUserMessengerProfile::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function createModerateConversation(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -843,6 +1071,32 @@ class IGUser extends AbstractCrudObject {
       new UserPageOneTimeOptInTokenSettings(),
       'EDGE',
       UserPageOneTimeOptInTokenSettings::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createPassThreadControl(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'metadata' => 'string',
+      'recipient' => 'Object',
+      'target_app_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/pass_thread_control',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -922,6 +1176,55 @@ class IGUser extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createReleaseThreadControl(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'recipient' => 'Object',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/release_thread_control',
+      new IGUser(),
+      'EDGE',
+      IGUser::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createRequestThreadControl(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'metadata' => 'string',
+      'recipient' => 'Object',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/request_thread_control',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getScheduledMedia(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -968,6 +1271,77 @@ class IGUser extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function deleteSubscribedApps(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/subscribed_apps',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getSubscribedApps(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/subscribed_apps',
+      new IGUserSubscribedAppsData(),
+      'EDGE',
+      IGUserSubscribedAppsData::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createSubscribedApp(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'subscribed_fields' => 'list<subscribed_fields_enum>',
+    );
+    $enums = array(
+      'subscribed_fields_enum' => IGUserSubscribedFieldsValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/subscribed_apps',
+      new IGUser(),
+      'EDGE',
+      IGUser::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getTags(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -987,6 +1361,55 @@ class IGUser extends AbstractCrudObject {
       new IGMedia(),
       'EDGE',
       IGMedia::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createTakeThreadControl(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'metadata' => 'string',
+      'recipient' => 'Object',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/take_thread_control',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getThreadOwner(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'recipient' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/thread_owner',
+      new ShadowIGUserThreadOwner(),
+      'EDGE',
+      ShadowIGUserThreadOwner::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -1059,6 +1482,30 @@ class IGUser extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function deleteWelcomeMessageFlows(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'flow_id' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_DELETE,
+      '/welcome_message_flows',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getWelcomeMessageFlows(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -1073,6 +1520,34 @@ class IGUser extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
+      '/welcome_message_flows',
+      new ShadowIGUserCTXPartnerAppWelcomeMessageFlow(),
+      'EDGE',
+      ShadowIGUserCTXPartnerAppWelcomeMessageFlow::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createWelcomeMessageFlow(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'eligible_platforms' => 'list<eligible_platforms_enum>',
+      'flow_id' => 'string',
+      'name' => 'string',
+      'welcome_message_flow' => 'list<Object>',
+    );
+    $enums = array(
+      'eligible_platforms_enum' => ShadowIGUserCTXPartnerAppWelcomeMessageFlowEligiblePlatformsValues::getInstance()->getValues(),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
       '/welcome_message_flows',
       new ShadowIGUserCTXPartnerAppWelcomeMessageFlow(),
       'EDGE',

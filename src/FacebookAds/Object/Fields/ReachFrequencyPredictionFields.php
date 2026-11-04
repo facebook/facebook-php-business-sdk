@@ -103,6 +103,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
   const RESERVATION_STATUS = 'reservation_status';
   const START_TIME = 'start_time';
   const STATUS = 'status';
+  const STATUS_MESSAGE = 'status_message';
   const STORY_EVENT_TYPE = 'story_event_type';
   const TARGET_CPM = 'target_cpm';
   const TARGET_FREQUENCY = 'target_frequency';
@@ -216,6 +217,7 @@ class ReachFrequencyPredictionFields extends AbstractEnum {
       'reservation_status' => 'unsigned int',
       'start_time' => 'datetime',
       'status' => 'unsigned int',
+      'status_message' => 'string',
       'story_event_type' => 'unsigned int',
       'target_cpm' => 'unsigned int',
       'target_frequency' => 'unsigned int',

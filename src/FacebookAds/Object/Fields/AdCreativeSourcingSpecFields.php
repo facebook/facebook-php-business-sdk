@@ -39,6 +39,7 @@ class AdCreativeSourcingSpecFields extends AbstractEnum {
   const SITE_LINKS_DATA_CONSENTED = 'site_links_data_consented';
   const SITE_LINKS_SPEC = 'site_links_spec';
   const SOURCE_URL = 'source_url';
+  const UGC_SPEC = 'ugc_spec';
   const WEBSITE_MEDIA_SPEC = 'website_media_spec';
   const WEBSITE_SUMMARY_SPEC = 'website_summary_spec';
 
@@ -61,6 +62,7 @@ class AdCreativeSourcingSpecFields extends AbstractEnum {
       'site_links_data_consented' => 'Object',
       'site_links_spec' => 'list<AdCreativeSiteLinksSpec>',
       'source_url' => 'string',
+      'ugc_spec' => 'Object',
       'website_media_spec' => 'Object',
       'website_summary_spec' => 'Object',
     );

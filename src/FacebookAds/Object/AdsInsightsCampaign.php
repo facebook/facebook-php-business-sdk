@@ -39,47 +39,45 @@ class AdsInsightsCampaign extends AbstractCrudObject {
   }
 
 
-  public function genget(array $fields = array(), array $params = array(), $pending = false) {
+  public function genpost(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
       'action_attribution_windows' => 'string',
       'action_breakdowns' => 'string',
       'action_report_time' => 'string',
-      'after' => 'string',
       'am_call_tags' => 'string',
-      'before' => 'string',
       'breakdowns' => 'string',
       'comparison_fields' => 'string',
       'comparison_time_ranges' => 'string',
       'date_preset' => 'string',
-      'debug_enable_trace' => 'bool',
       'default_attribution_windows' => 'string',
-      'default_summary' => 'bool',
-      'e2e_scenario_run_id' => 'string',
+      'default_summary' => 'string',
+      'enable_trace' => 'string',
       'export_columns' => 'string',
       'export_format' => 'string',
       'export_name' => 'string',
       'fields' => 'string',
       'filtering' => 'string',
       'flog' => 'string',
-      'graph_cache' => 'bool',
-      'include_zeros' => 'bool',
+      'graph_cache' => 'string',
+      'include_zeros' => 'string',
       'level' => 'string',
-      'limit' => 'int',
+      'limit' => 'string',
       'meta_breakdowns' => 'string',
-      'product_id_limit' => 'int',
+      'product_id_limit' => 'string',
       'round_up_level' => 'string',
       'run_id' => 'string',
       'saber_setsuna_perf_request_id' => 'string',
+      'scenario_run_id' => 'string',
       'sort' => 'string',
       'summary' => 'string',
       'summary_action_breakdowns' => 'string',
       'time_increment' => 'string',
       'time_range' => 'string',
       'time_ranges' => 'string',
-      'use_account_attribution_setting' => 'bool',
-      'use_unified_attribution_setting' => 'bool',
+      'use_account_attribution_setting' => 'string',
+      'use_unified_attribution_setting' => 'string',
     );
     $enums = array(
     );
@@ -87,11 +85,11 @@ class AdsInsightsCampaign extends AbstractCrudObject {
     $request = new ApiRequest(
       $this->api,
       $this->data['id'],
-      RequestInterface::METHOD_GET,
+      RequestInterface::METHOD_POST,
       '/insights',
-      new AdsInsightsCampaignGet(),
+      new AdsInsightsCampaignPost(),
       'EDGE',
-      AdsInsightsCampaignGet::getFieldsEnum()->getValues(),
+      AdsInsightsCampaignPost::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

@@ -24,11 +24,9 @@ class PagePermittedTasksValues extends AbstractEnum {
 
   const ADVERTISE = 'ADVERTISE';
   const ANALYZE = 'ANALYZE';
-  const CASHIER_ROLE = 'CASHIER_ROLE';
   const CREATE_CONTENT = 'CREATE_CONTENT';
   const GLOBAL_STRUCTURE_MANAGEMENT = 'GLOBAL_STRUCTURE_MANAGEMENT';
   const MANAGE = 'MANAGE';
-  const MANAGE_JOBS = 'MANAGE_JOBS';
   const MANAGE_LEADS = 'MANAGE_LEADS';
   const MESSAGING = 'MESSAGING';
   const MODERATE = 'MODERATE';

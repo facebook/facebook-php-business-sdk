@@ -262,6 +262,7 @@ class AdAccountGetFields extends AbstractEnum {
   const SEGMENT = 'segment';
   const SEND_BILL_TO_ADDRESS = 'send_bill_to_address';
   const SEND_BILL_TO_ADDRESSES = 'send_bill_to_addresses';
+  const SHOW_CHECKOUT_EXPERIENCE = 'show_checkout_experience';
   const SHOW_IMPROVED_BOLETO = 'show_improved_boleto';
   const SHOW_SAC_CAMPAIGN_GROUP_INPUT = 'show_sac_campaign_group_input';
   const SITE_LINKS_LIVE_CRAWL = 'site_links_live_crawl';
@@ -491,7 +492,7 @@ class AdAccountGetFields extends AbstractEnum {
       'is_youth_ads_pao_basic_advertiser' => 'bool',
       'is_youth_ads_pao_basic_advertiser_announcement_eligible' => 'bool',
       'last_spend_time' => 'int',
-      'last_used_time' => 'int',
+      'last_used_time' => 'mixed',
       'liable_address' => 'object',
       'liable_addresses' => 'object',
       'liable_to_org' => 'object',
@@ -542,6 +543,7 @@ class AdAccountGetFields extends AbstractEnum {
       'segment' => 'Segment',
       'send_bill_to_address' => 'object',
       'send_bill_to_addresses' => 'object',
+      'show_checkout_experience' => 'bool',
       'show_improved_boleto' => 'bool',
       'show_sac_campaign_group_input' => 'bool',
       'site_links_live_crawl' => 'list<object>',

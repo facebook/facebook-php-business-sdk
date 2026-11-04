@@ -42,6 +42,7 @@ class ProductFeedFields extends AbstractEnum {
   const SCHEDULE = 'schedule';
   const SUPPLEMENTARY_FEEDS = 'supplementary_feeds';
   const UPDATE_SCHEDULE = 'update_schedule';
+  const CONFIGURATION_SOURCE_NAME = 'configuration_source_name';
   const FEED_TYPE = 'feed_type';
   const OVERRIDE_VALUE = 'override_value';
   const PRIMARY_FEED_IDS = 'primary_feed_ids';
@@ -71,6 +72,7 @@ class ProductFeedFields extends AbstractEnum {
       'schedule' => 'ProductFeedSchedule',
       'supplementary_feeds' => 'list<string>',
       'update_schedule' => 'ProductFeedSchedule',
+      'configuration_source_name' => 'string',
       'feed_type' => 'FeedType',
       'override_value' => 'string',
       'primary_feed_ids' => 'list<string>',

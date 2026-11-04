@@ -27,13 +27,6 @@ use FacebookAds\Object\Fields\CPASLsbImageBankFields;
 class CPASLsbImageBank extends AbstractCrudObject {
 
   /**
-   * @deprecated getEndpoint function is deprecated
-   */
-  protected function getEndpoint() {
-    return 'cpas_lsb_image_bank';
-  }
-
-  /**
    * @return CPASLsbImageBankFields
    */
   public static function getFieldsEnum() {
@@ -81,30 +74,6 @@ class CPASLsbImageBank extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_GET,
-      '/',
-      new CPASLsbImageBank(),
-      'NODE',
-      CPASLsbImageBank::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
-  public function updateSelf(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'backup_image_urls' => 'list<string>',
-    );
-    $enums = array(
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
       '/',
       new CPASLsbImageBank(),
       'NODE',

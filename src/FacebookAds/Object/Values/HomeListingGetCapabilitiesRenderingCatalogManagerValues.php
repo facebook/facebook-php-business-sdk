@@ -46,6 +46,7 @@ class HomeListingGetCapabilitiesRenderingCatalogManagerValues extends AbstractEn
   const MINI_SHOPS = 'MINI_SHOPS';
   const NEIGHBORHOODS = 'NEIGHBORHOODS';
   const OFFLINE_CONVERSIONS = 'OFFLINE_CONVERSIONS';
+  const ORGANIC_DISCOVERY = 'ORGANIC_DISCOVERY';
   const PROFILE = 'PROFILE';
   const SERVICE = 'SERVICE';
   const SHOPS = 'SHOPS';

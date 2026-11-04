@@ -25,6 +25,7 @@ class AdAccountBusinessConstraintsFields extends AbstractEnum {
   const AUDIENCE_CONTROLS = 'audience_controls';
   const CAMPAIGNS_WITH_ERROR = 'campaigns_with_error';
   const IS_AGE_RESTRICTION_ENABLED = 'is_age_restriction_enabled';
+  const IS_GENDER_EXCLUSION_ENABLED = 'is_gender_exclusion_enabled';
   const PLACEMENT_CONTROLS = 'placement_controls';
   const PLACEMENT_CONTROLS_PER_OBJECTIVE = 'placement_controls_per_objective';
   const STATUS = 'status';
@@ -34,6 +35,7 @@ class AdAccountBusinessConstraintsFields extends AbstractEnum {
       'audience_controls' => 'Object',
       'campaigns_with_error' => 'list<string>',
       'is_age_restriction_enabled' => 'bool',
+      'is_gender_exclusion_enabled' => 'bool',
       'placement_controls' => 'Object',
       'placement_controls_per_objective' => 'Object',
       'status' => 'Status',

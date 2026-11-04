@@ -40,6 +40,7 @@ class AdsInsightsFields extends AbstractEnum {
   const ADVANCED_REACH_28D_LOOKBACK = 'advanced_reach_28d_lookback';
   const ADVANCED_REACH_7D_LOOKBACK = 'advanced_reach_7d_lookback';
   const AGE_TARGETING = 'age_targeting';
+  const AGGREGATED_PLAY_TIME_PER_REACH = 'aggregated_play_time_per_reach';
   const ANCHOR_EVENT_ATTRIBUTION_SETTING = 'anchor_event_attribution_setting';
   const ANCHOR_EVENTS_PERFORMANCE_INDICATOR = 'anchor_events_performance_indicator';
   const ATTRIBUTION_SETTING = 'attribution_setting';
@@ -66,6 +67,12 @@ class AdsInsightsFields extends AbstractEnum {
   const CONFIGURABLE_AUDIENCE_OVERLAP_WITH_CONV_EXPOSURE_COST = 'configurable_audience_overlap_with_conv_exposure_cost';
   const CONFIGURABLE_AUDIENCE_OVERLAP_WITH_CONV_EXPOSURE_IMPRESSIONS = 'configurable_audience_overlap_with_conv_exposure_impressions';
   const CONFIGURABLE_AUDIENCE_OVERLAP_WITH_CONV_EXPOSURE_REACH = 'configurable_audience_overlap_with_conv_exposure_reach';
+  const CONFIGURABLE_CREATIVE_FORMAT_PERFORMANCE_ADSET_COUNT = 'configurable_creative_format_performance_adset_count';
+  const CONFIGURABLE_CREATIVE_FORMAT_PERFORMANCE_CLICKS = 'configurable_creative_format_performance_clicks';
+  const CONFIGURABLE_CREATIVE_FORMAT_PERFORMANCE_CONVERSIONS = 'configurable_creative_format_performance_conversions';
+  const CONFIGURABLE_CREATIVE_FORMAT_PERFORMANCE_CONVERTERS = 'configurable_creative_format_performance_converters';
+  const CONFIGURABLE_CREATIVE_FORMAT_PERFORMANCE_IMPRESSIONS = 'configurable_creative_format_performance_impressions';
+  const CONFIGURABLE_CREATIVE_FORMAT_PERFORMANCE_SPEND = 'configurable_creative_format_performance_spend';
   const CONFIGURABLE_PLACEMENT_PTC_CONVERSIONS = 'configurable_placement_ptc_conversions';
   const CONFIGURABLE_PLACEMENT_PTC_CONVERTERS = 'configurable_placement_ptc_converters';
   const CONFIGURABLE_PLACEMENT_PTC_REACH = 'configurable_placement_ptc_reach';
@@ -111,6 +118,7 @@ class AdsInsightsFields extends AbstractEnum {
   const COST_PER_INLINE_LINK_CLICK = 'cost_per_inline_link_click';
   const COST_PER_INLINE_POST_ENGAGEMENT = 'cost_per_inline_post_engagement';
   const COST_PER_MESSAGE_DELIVERED = 'cost_per_message_delivered';
+  const COST_PER_MMP_CREDITED_INSTALL = 'cost_per_mmp_credited_install';
   const COST_PER_OBJECTIVE_RESULT = 'cost_per_objective_result';
   const COST_PER_ONE_THOUSAND_AD_IMPRESSION = 'cost_per_one_thousand_ad_impression';
   const COST_PER_OUTBOUND_CLICK = 'cost_per_outbound_click';
@@ -183,6 +191,7 @@ class AdsInsightsFields extends AbstractEnum {
   const MARKETING_MESSAGES_SPEND_CURRENCY = 'marketing_messages_spend_currency';
   const MESSAGES_DELIVERED = 'messages_delivered';
   const MESSAGES_DELIVERED_CTR = 'messages_delivered_ctr';
+  const MMP_CREDITED_INSTALL = 'mmp_credited_install';
   const MOBILE_APP_PURCHASE_ROAS = 'mobile_app_purchase_roas';
   const MSA_SELLER_BUDGET = 'msa_seller_budget';
   const MULTI_EVENT_CONVERSION_ATTRIBUTION_SETTING = 'multi_event_conversion_attribution_setting';
@@ -272,6 +281,7 @@ class AdsInsightsFields extends AbstractEnum {
       'advanced_reach_28d_lookback' => 'string',
       'advanced_reach_7d_lookback' => 'string',
       'age_targeting' => 'string',
+      'aggregated_play_time_per_reach' => 'list<AdsActionStats>',
       'anchor_event_attribution_setting' => 'string',
       'anchor_events_performance_indicator' => 'string',
       'attribution_setting' => 'string',
@@ -298,6 +308,12 @@ class AdsInsightsFields extends AbstractEnum {
       'configurable_audience_overlap_with_conv_exposure_cost' => 'string',
       'configurable_audience_overlap_with_conv_exposure_impressions' => 'string',
       'configurable_audience_overlap_with_conv_exposure_reach' => 'string',
+      'configurable_creative_format_performance_adset_count' => 'string',
+      'configurable_creative_format_performance_clicks' => 'string',
+      'configurable_creative_format_performance_conversions' => 'string',
+      'configurable_creative_format_performance_converters' => 'string',
+      'configurable_creative_format_performance_impressions' => 'string',
+      'configurable_creative_format_performance_spend' => 'string',
       'configurable_placement_ptc_conversions' => 'string',
       'configurable_placement_ptc_converters' => 'string',
       'configurable_placement_ptc_reach' => 'string',
@@ -343,6 +359,7 @@ class AdsInsightsFields extends AbstractEnum {
       'cost_per_inline_link_click' => 'string',
       'cost_per_inline_post_engagement' => 'string',
       'cost_per_message_delivered' => 'string',
+      'cost_per_mmp_credited_install' => 'list<AdsActionStats>',
       'cost_per_objective_result' => 'list<Object>',
       'cost_per_one_thousand_ad_impression' => 'list<AdsActionStats>',
       'cost_per_outbound_click' => 'list<AdsActionStats>',
@@ -415,6 +432,7 @@ class AdsInsightsFields extends AbstractEnum {
       'marketing_messages_spend_currency' => 'string',
       'messages_delivered' => 'string',
       'messages_delivered_ctr' => 'string',
+      'mmp_credited_install' => 'list<AdsActionStats>',
       'mobile_app_purchase_roas' => 'list<AdsActionStats>',
       'msa_seller_budget' => 'int',
       'multi_event_conversion_attribution_setting' => 'string',

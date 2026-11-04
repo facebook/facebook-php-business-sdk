@@ -25,5 +25,6 @@ class CPASCollaborationRequestSourceValues extends AbstractEnum {
   const EXTERNAL = 'EXTERNAL';
   const INTERNAL = 'INTERNAL';
   const SELF_SERVE = 'SELF_SERVE';
+  const SELF_SERVE_ADS_MANAGER = 'SELF_SERVE_ADS_MANAGER';
   const SELF_SERVE_CONTACT_FORM = 'SELF_SERVE_CONTACT_FORM';
 }

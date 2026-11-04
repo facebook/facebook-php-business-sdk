@@ -31,6 +31,7 @@ class AdsUserSettingsFields extends AbstractEnum {
   const ADS_CS_DYNAMIC_SE_OPT_OUT_TIMESTAMP = 'ads_cs_dynamic_se_opt_out_timestamp';
   const ADS_CS_SITELINKS_OPT_IN_STATUS = 'ads_cs_sitelinks_opt_in_status';
   const ADS_CS_SITELINKS_OPT_OUT_TIMESTAMP = 'ads_cs_sitelinks_opt_out_timestamp';
+  const ADS_CS_UGC_OPT_OUT_TIMESTAMP = 'ads_cs_ugc_opt_out_timestamp';
   const ADS_DESTINATION_OPTIMIZATION_OPT_OUT_TIMESTAMP = 'ads_destination_optimization_opt_out_timestamp';
   const ADS_TOOL_VISITS = 'ads_tool_visits';
   const APLUSC_AI_AGENT_OPT_IN_STATUS = 'aplusc_ai_agent_opt_in_status';
@@ -81,9 +82,11 @@ class AdsUserSettingsFields extends AbstractEnum {
   const IMAGE_TEXT_TRANSLATION_OPT_IN_STATUS = 'image_text_translation_opt_in_status';
   const IS_ADS_AI_CONSENTED = 'is_ads_ai_consented';
   const IS_CBO_DEFAULT_ON = 'is_cbo_default_on';
+  const IS_NEGATIVE_KEYWORDS_DISMISSED = 'is_negative_keywords_dismissed';
   const IS_SE_REMOVAL_GUIDANCE_DISMISSED = 'is_se_removal_guidance_dismissed';
   const LAST_USED_POST_FORMAT = 'last_used_post_format';
   const LAST_VISITED_TIME = 'last_visited_time';
+  const MAIBA_R23_E2E_ODAX_DEFAULT_MODE = 'maiba_r23_e2e_odax_default_mode';
   const METADATA_BRAND_KIT_LAST_OPT_OUT_TIMESTAMP = 'metadata_brand_kit_last_opt_out_timestamp';
   const METADATA_BRAND_KIT_OPT_IN_STATUS = 'metadata_brand_kit_opt_in_status';
   const MULTI_MEDIA_OPT_OUT_STATUS = 'multi_media_opt_out_status';
@@ -107,6 +110,9 @@ class AdsUserSettingsFields extends AbstractEnum {
   const SA_OFF_CONV_LOC_SEEN = 'sa_off_conv_loc_seen';
   const SAOFF_PUBLISHED_L2_CONV_LOC_SEEN = 'saoff_published_l2_conv_loc_seen';
   const SAON_MIGR_L1_SEEN_STATUS = 'saon_migr_l1_seen_status';
+  const SE_OPTOUT_SURVEY_IMPR = 'se_optout_survey_impr';
+  const SE_OPTOUT_SURVEY_LAST_IMPR_TS = 'se_optout_survey_last_impr_ts';
+  const SE_OPTOUT_SURVEY_RESP_TS = 'se_optout_survey_resp_ts';
   const SELECTED_AD_ACCOUNT = 'selected_ad_account';
   const SELECTED_COMPARISON_TIMERANGE = 'selected_comparison_timerange';
   const SELECTED_METRIC_CIC = 'selected_metric_cic';
@@ -139,6 +145,7 @@ class AdsUserSettingsFields extends AbstractEnum {
   const VIDEO_TO_IMAGE_OPT_IN_STATUS = 'video_to_image_opt_in_status';
   const VOICEOVER_TRANS_OPT_IN_STATUS = 'voiceover_trans_opt_in_status';
   const WEBSITE_MEDIA_OPT_IN_STATUS = 'website_media_opt_in_status';
+  const WEBSITE_MEDIA_OPT_OUT_TS = 'website_media_opt_out_ts';
   const WEBSITE_REVIEWS_DATA_OPT_IN_STATUS = 'website_reviews_data_opt_in_status';
   const WEBSITE_SELLING_POINTS_DATA_OPT_IN_STATUS = 'website_selling_points_data_opt_in_status';
 
@@ -153,6 +160,7 @@ class AdsUserSettingsFields extends AbstractEnum {
       'ads_cs_dynamic_se_opt_out_timestamp' => 'list<map<string, int>>',
       'ads_cs_sitelinks_opt_in_status' => 'string',
       'ads_cs_sitelinks_opt_out_timestamp' => 'list<map<string, int>>',
+      'ads_cs_ugc_opt_out_timestamp' => 'list<map<string, int>>',
       'ads_destination_optimization_opt_out_timestamp' => 'list<map<string, int>>',
       'ads_tool_visits' => 'list<Object>',
       'aplusc_ai_agent_opt_in_status' => 'string',
@@ -203,9 +211,11 @@ class AdsUserSettingsFields extends AbstractEnum {
       'image_text_translation_opt_in_status' => 'string',
       'is_ads_ai_consented' => 'bool',
       'is_cbo_default_on' => 'bool',
+      'is_negative_keywords_dismissed' => 'bool',
       'is_se_removal_guidance_dismissed' => 'bool',
       'last_used_post_format' => 'string',
       'last_visited_time' => 'datetime',
+      'maiba_r23_e2e_odax_default_mode' => 'string',
       'metadata_brand_kit_last_opt_out_timestamp' => 'int',
       'metadata_brand_kit_opt_in_status' => 'string',
       'multi_media_opt_out_status' => 'string',
@@ -229,6 +239,9 @@ class AdsUserSettingsFields extends AbstractEnum {
       'sa_off_conv_loc_seen' => 'string',
       'saoff_published_l2_conv_loc_seen' => 'string',
       'saon_migr_l1_seen_status' => 'string',
+      'se_optout_survey_impr' => 'int',
+      'se_optout_survey_last_impr_ts' => 'datetime',
+      'se_optout_survey_resp_ts' => 'datetime',
       'selected_ad_account' => 'AdAccount',
       'selected_comparison_timerange' => 'Object',
       'selected_metric_cic' => 'string',
@@ -261,6 +274,7 @@ class AdsUserSettingsFields extends AbstractEnum {
       'video_to_image_opt_in_status' => 'string',
       'voiceover_trans_opt_in_status' => 'string',
       'website_media_opt_in_status' => 'string',
+      'website_media_opt_out_ts' => 'datetime',
       'website_reviews_data_opt_in_status' => 'string',
       'website_selling_points_data_opt_in_status' => 'string',
     );

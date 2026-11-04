@@ -39,22 +39,11 @@ class AdAccountAds extends AbstractCrudObject {
   }
 
 
-  public function genget(array $fields = array(), array $params = array(), $pending = false) {
+  public function gencreatead(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
-      'after' => 'string',
-      'before' => 'string',
-      'date_format' => 'string',
-      'effective_status' => 'string',
       'fields' => 'string',
-      'filtering' => 'string',
-      'limit' => 'int',
-      'remove_pinned_sort' => 'string',
-      'sort' => 'string',
-      'summary' => 'string',
-      'timezone' => 'string',
-      'updated_since' => 'string',
     );
     $enums = array(
     );
@@ -62,11 +51,11 @@ class AdAccountAds extends AbstractCrudObject {
     $request = new ApiRequest(
       $this->api,
       $this->data['id'],
-      RequestInterface::METHOD_GET,
+      RequestInterface::METHOD_POST,
       '/ads',
-      new AdAccountAdsGet(),
+      new AdAccountAdsCreateAd(),
       'EDGE',
-      AdAccountAdsGet::getFieldsEnum()->getValues(),
+      AdAccountAdsCreateAd::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

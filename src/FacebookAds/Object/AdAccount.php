@@ -79,6 +79,7 @@ use FacebookAds\Object\Values\AdsInsightsLevelValues;
 use FacebookAds\Object\Values\AdsInsightsSummaryActionBreakdownsValues;
 use FacebookAds\Object\Values\AdsPixelSortByValues;
 use FacebookAds\Object\Values\AdsValueAdjustmentRuleCollectionEntryPointValues;
+use FacebookAds\Object\Values\AdsValueAdjustmentRuleCollectionOriginValues;
 use FacebookAds\Object\Values\AdsValueAdjustmentRuleCollectionProductTypeValues;
 use FacebookAds\Object\Values\AdsValueAdjustmentRuleCollectionStatusValues;
 use FacebookAds\Object\Values\AsyncRequestStatusValues;
@@ -769,6 +770,7 @@ class AdAccount extends AbstractCrudObject {
       'evaluation_spec' => 'Object',
       'execution_spec' => 'Object',
       'name' => 'string',
+      'recommended_rule_key' => 'string',
       'schedule_spec' => 'Object',
       'status' => 'status_enum',
       'ui_creation_source' => 'ui_creation_source_enum',
@@ -1016,7 +1018,6 @@ class AdAccount extends AbstractCrudObject {
       'bid_constraints' => 'map<string, Object>',
       'bid_strategy' => 'bid_strategy_enum',
       'billing_event' => 'billing_event_enum',
-      'brand_safety_config' => 'map',
       'budget_schedule_specs' => 'list<Object>',
       'budget_source' => 'budget_source_enum',
       'budget_split_set_id' => 'string',
@@ -1232,6 +1233,8 @@ class AdAccount extends AbstractCrudObject {
         '22',
         '24',
         '25',
+        '26',
+        '27',
       ),
       'status_enum' => array(
         'ACTIVE',
@@ -2070,6 +2073,7 @@ class AdAccount extends AbstractCrudObject {
       'is_direct_send_campaign' => 'bool',
       'is_message_campaign' => 'bool',
       'is_meta_moment_maker_enabled' => 'bool',
+      'is_pca_unified' => 'bool',
       'is_reels_trending_ads_enabled' => 'bool',
       'is_skadnetwork_attribution' => 'bool',
       'iterative_split_test_configs' => 'list<Object>',
@@ -2561,6 +2565,7 @@ class AdAccount extends AbstractCrudObject {
       'action_breakdowns' => 'list<action_breakdowns_enum>',
       'action_report_time' => 'action_report_time_enum',
       'breakdowns' => 'list<breakdowns_enum>',
+      'cpas_only' => 'string',
       'date_preset' => 'date_preset_enum',
       'default_summary' => 'bool',
       'export_columns' => 'list<string>',
@@ -2614,6 +2619,7 @@ class AdAccount extends AbstractCrudObject {
       'action_breakdowns' => 'list<action_breakdowns_enum>',
       'action_report_time' => 'action_report_time_enum',
       'breakdowns' => 'list<breakdowns_enum>',
+      'cpas_only' => 'string',
       'date_preset' => 'date_preset_enum',
       'default_summary' => 'bool',
       'export_columns' => 'list<string>',
@@ -3629,11 +3635,13 @@ class AdAccount extends AbstractCrudObject {
     $param_types = array(
       'entry_point' => 'entry_point_enum',
       'name' => 'string',
+      'origin' => 'origin_enum',
       'product_type' => 'product_type_enum',
       'rules' => 'list<map>',
     );
     $enums = array(
       'entry_point_enum' => AdsValueAdjustmentRuleCollectionEntryPointValues::getInstance()->getValues(),
+      'origin_enum' => AdsValueAdjustmentRuleCollectionOriginValues::getInstance()->getValues(),
       'product_type_enum' => AdsValueAdjustmentRuleCollectionProductTypeValues::getInstance()->getValues(),
     );
 

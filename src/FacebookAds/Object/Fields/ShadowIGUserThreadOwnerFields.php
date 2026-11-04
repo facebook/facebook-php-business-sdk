@@ -22,9 +22,11 @@ use FacebookAds\Enum\AbstractEnum;
 
 class ShadowIGUserThreadOwnerFields extends AbstractEnum {
 
+  const THREAD_OWNER = 'thread_owner';
 
   public function getFieldTypes() {
     return array(
+      'thread_owner' => 'Object',
     );
   }
 }

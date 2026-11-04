@@ -227,8 +227,6 @@ class Album extends AbstractCrudObject {
       'place' => 'Object',
       'privacy' => 'string',
       'profile_id' => 'int',
-      'provenance_info' => 'map',
-      'provenance_metadata' => 'map',
       'proxied_app_id' => 'string',
       'published' => 'bool',
       'qn' => 'string',

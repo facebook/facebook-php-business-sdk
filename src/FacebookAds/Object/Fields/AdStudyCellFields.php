@@ -25,6 +25,7 @@ class AdStudyCellFields extends AbstractEnum {
   const AD_ENTITIES_COUNT = 'ad_entities_count';
   const AD_IDS = 'ad_ids';
   const CONTROL_PERCENTAGE = 'control_percentage';
+  const EXCLUSION_GEO = 'exclusion_geo';
   const ID = 'id';
   const NAME = 'name';
   const TREATMENT_PERCENTAGE = 'treatment_percentage';
@@ -34,6 +35,7 @@ class AdStudyCellFields extends AbstractEnum {
       'ad_entities_count' => 'unsigned int',
       'ad_ids' => 'list<string>',
       'control_percentage' => 'float',
+      'exclusion_geo' => 'list<string>',
       'id' => 'string',
       'name' => 'string',
       'treatment_percentage' => 'float',

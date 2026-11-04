@@ -46,6 +46,7 @@ class AdReportRunFields extends AbstractEnum {
   const ACTION_BREAKDOWNS = 'action_breakdowns';
   const ACTION_REPORT_TIME = 'action_report_time';
   const BREAKDOWNS = 'breakdowns';
+  const CPAS_ONLY = 'cpas_only';
   const DATE_PRESET = 'date_preset';
   const DEFAULT_SUMMARY = 'default_summary';
   const EXPORT_COLUMNS = 'export_columns';
@@ -92,6 +93,7 @@ class AdReportRunFields extends AbstractEnum {
       'action_breakdowns' => 'list<ActionBreakdowns>',
       'action_report_time' => 'ActionReportTime',
       'breakdowns' => 'list<Breakdowns>',
+      'cpas_only' => 'string',
       'date_preset' => 'DatePreset',
       'default_summary' => 'bool',
       'export_columns' => 'list<string>',

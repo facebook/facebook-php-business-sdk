@@ -41,14 +41,11 @@ use FacebookAds\Object\Values\LiveVideoStereoscopicModeValues;
 use FacebookAds\Object\Values\LiveVideoStreamTypeValues;
 use FacebookAds\Object\Values\MediaFingerprintFingerprintContentTypeValues;
 use FacebookAds\Object\Values\MessengerBusinessTemplateStatusValues;
-use FacebookAds\Object\Values\PageActionsValues;
 use FacebookAds\Object\Values\PageAttireValues;
-use FacebookAds\Object\Values\PageBackdatedTimeGranularityValues;
 use FacebookAds\Object\Values\PageCategoryValues;
 use FacebookAds\Object\Values\PageDeveloperActionValues;
 use FacebookAds\Object\Values\PageFolderValues;
 use FacebookAds\Object\Values\PageFoodStylesValues;
-use FacebookAds\Object\Values\PageFormattingValues;
 use FacebookAds\Object\Values\PageGenAiProvenanceTypeValues;
 use FacebookAds\Object\Values\PageMessagingTypeValues;
 use FacebookAds\Object\Values\PageModelValues;
@@ -56,20 +53,15 @@ use FacebookAds\Object\Values\PageNotificationTypeValues;
 use FacebookAds\Object\Values\PageParameterFormatValues;
 use FacebookAds\Object\Values\PagePermittedTasksValues;
 use FacebookAds\Object\Values\PagePickupOptionsValues;
-use FacebookAds\Object\Values\PagePlaceAttachmentSettingValues;
 use FacebookAds\Object\Values\PagePlatformValues;
 use FacebookAds\Object\Values\PagePostExperimentOptimizationGoalValues;
-use FacebookAds\Object\Values\PagePostSurfacesBlacklistValues;
 use FacebookAds\Object\Values\PagePostWithValues;
-use FacebookAds\Object\Values\PagePostingToRedspaceValues;
 use FacebookAds\Object\Values\PageRecommendationActionValues;
 use FacebookAds\Object\Values\PageSenderActionValues;
 use FacebookAds\Object\Values\PageSubscribedFieldsValues;
 use FacebookAds\Object\Values\PageSuggestionActionValues;
-use FacebookAds\Object\Values\PageTargetSurfaceValues;
 use FacebookAds\Object\Values\PageTasksValues;
 use FacebookAds\Object\Values\PageTemporaryStatusValues;
-use FacebookAds\Object\Values\PageUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\PhotoBackdatedTimeGranularityValues;
 use FacebookAds\Object\Values\PhotoTypeValues;
 use FacebookAds\Object\Values\PhotoUnpublishedContentTypeValues;
@@ -118,13 +110,6 @@ class Page extends AbstractCrudObject {
     $ref_enums['TemporaryStatus'] = PageTemporaryStatusValues::getInstance()->getValues();
     $ref_enums['PermittedTasks'] = PagePermittedTasksValues::getInstance()->getValues();
     $ref_enums['Tasks'] = PageTasksValues::getInstance()->getValues();
-    $ref_enums['BackdatedTimeGranularity'] = PageBackdatedTimeGranularityValues::getInstance()->getValues();
-    $ref_enums['Formatting'] = PageFormattingValues::getInstance()->getValues();
-    $ref_enums['PlaceAttachmentSetting'] = PagePlaceAttachmentSettingValues::getInstance()->getValues();
-    $ref_enums['PostSurfacesBlacklist'] = PagePostSurfacesBlacklistValues::getInstance()->getValues();
-    $ref_enums['PostingToRedspace'] = PagePostingToRedspaceValues::getInstance()->getValues();
-    $ref_enums['TargetSurface'] = PageTargetSurfaceValues::getInstance()->getValues();
-    $ref_enums['UnpublishedContentType'] = PageUnpublishedContentTypeValues::getInstance()->getValues();
     $ref_enums['RecommendationAction'] = PageRecommendationActionValues::getInstance()->getValues();
     $ref_enums['Category'] = PageCategoryValues::getInstance()->getValues();
     $ref_enums['ParameterFormat'] = PageParameterFormatValues::getInstance()->getValues();
@@ -134,7 +119,6 @@ class Page extends AbstractCrudObject {
     $ref_enums['SenderAction'] = PageSenderActionValues::getInstance()->getValues();
     $ref_enums['SuggestionAction'] = PageSuggestionActionValues::getInstance()->getValues();
     $ref_enums['Platform'] = PagePlatformValues::getInstance()->getValues();
-    $ref_enums['Actions'] = PageActionsValues::getInstance()->getValues();
     $ref_enums['Model'] = PageModelValues::getInstance()->getValues();
     $ref_enums['DeveloperAction'] = PageDeveloperActionValues::getInstance()->getValues();
     $ref_enums['SubscribedFields'] = PageSubscribedFieldsValues::getInstance()->getValues();
@@ -533,9 +517,9 @@ class Page extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/business_messaging_feature_status',
-      new Page(),
+      new AbstractCrudObject(),
       'EDGE',
-      Page::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -940,6 +924,8 @@ class Page extends AbstractCrudObject {
       'folder' => 'string',
       'platform' => 'platform_enum',
       'tags' => 'list<string>',
+      'updated_after_ms' => 'unsigned int',
+      'updated_before_ms' => 'unsigned int',
       'user_id' => 'string',
     );
     $enums = array(
@@ -1430,13 +1416,47 @@ class Page extends AbstractCrudObject {
       'width' => 'unsigned int',
     );
     $enums = array(
-      'backdated_time_granularity_enum' => PageBackdatedTimeGranularityValues::getInstance()->getValues(),
-      'formatting_enum' => PageFormattingValues::getInstance()->getValues(),
-      'place_attachment_setting_enum' => PagePlaceAttachmentSettingValues::getInstance()->getValues(),
-      'post_surfaces_blacklist_enum' => PagePostSurfacesBlacklistValues::getInstance()->getValues(),
-      'posting_to_redspace_enum' => PagePostingToRedspaceValues::getInstance()->getValues(),
-      'target_surface_enum' => PageTargetSurfaceValues::getInstance()->getValues(),
-      'unpublished_content_type_enum' => PageUnpublishedContentTypeValues::getInstance()->getValues(),
+      'backdated_time_granularity_enum' => array(
+        'day',
+        'hour',
+        'min',
+        'month',
+        'none',
+        'year',
+      ),
+      'formatting_enum' => array(
+        'MARKDOWN',
+        'PLAINTEXT',
+      ),
+      'place_attachment_setting_enum' => array(
+        '1',
+        '2',
+      ),
+      'post_surfaces_blacklist_enum' => array(
+        '1',
+        '2',
+        '3',
+        '4',
+        '5',
+      ),
+      'posting_to_redspace_enum' => array(
+        'disabled',
+        'enabled',
+      ),
+      'target_surface_enum' => array(
+        'STORY',
+        'TIMELINE',
+      ),
+      'unpublished_content_type_enum' => array(
+        'ADS_POST',
+        'DRAFT',
+        'INLINE_CREATED',
+        'PUBLISHED',
+        'PUBLISH_PENDING',
+        'REVIEWABLE_BRANDED_CONTENT',
+        'SCHEDULED',
+        'SCHEDULED_RECURRING',
+      ),
     );
 
     $request = new ApiRequest(
@@ -1444,9 +1464,9 @@ class Page extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/feed',
-      new Page(),
+      new AbstractCrudObject(),
       'EDGE',
-      Page::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2177,9 +2197,9 @@ class Page extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/messenger_call_settings',
-      new Page(),
+      new MessengerCallSettings(),
       'EDGE',
-      Page::getFieldsEnum()->getValues(),
+      MessengerCallSettings::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2348,7 +2368,13 @@ class Page extends AbstractCrudObject {
       'user_ids' => 'list<map>',
     );
     $enums = array(
-      'actions_enum' => PageActionsValues::getInstance()->getValues(),
+      'actions_enum' => array(
+        'BAN_USER',
+        'BLOCK_USER',
+        'MOVE_TO_SPAM',
+        'UNBAN_USER',
+        'UNBLOCK_USER',
+      ),
     );
 
     $request = new ApiRequest(
@@ -2356,9 +2382,9 @@ class Page extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/moderate_conversations',
-      new Page(),
+      new AbstractCrudObject(),
       'EDGE',
-      Page::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2403,7 +2429,7 @@ class Page extends AbstractCrudObject {
     $param_types = array(
       'custom_audience_ids' => 'list<string>',
       'do_not_return_duplicates' => 'bool',
-      'has_received_marketing_message' => 'bool',
+      'is_previously_messaged' => 'bool',
       'opt_in_source' => 'list<opt_in_source_enum>',
       'since' => 'datetime',
       'subscriber_tag_ids' => 'list<string>',
@@ -2564,9 +2590,9 @@ class Page extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/pass_thread_control',
-      new Page(),
+      new AbstractCrudObject(),
       'EDGE',
-      Page::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -2716,8 +2742,6 @@ class Page extends AbstractCrudObject {
       'place' => 'Object',
       'privacy' => 'string',
       'profile_id' => 'int',
-      'provenance_info' => 'map',
-      'provenance_metadata' => 'map',
       'proxied_app_id' => 'string',
       'published' => 'bool',
       'qn' => 'string',
@@ -2950,9 +2974,9 @@ class Page extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/release_thread_control',
-      new Page(),
+      new AbstractCrudObject(),
       'EDGE',
-      Page::getFieldsEnum()->getValues(),
+      array(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);
@@ -3429,6 +3453,8 @@ class Page extends AbstractCrudObject {
       'folder' => 'string',
       'platform' => 'platform_enum',
       'tags' => 'list<string>',
+      'updated_after_ms' => 'unsigned int',
+      'updated_before_ms' => 'unsigned int',
       'user_id' => 'string',
     );
     $enums = array(
@@ -4000,6 +4026,7 @@ class Page extends AbstractCrudObject {
       'hours' => 'map',
       'ignore_coordinate_warnings' => 'bool',
       'impressum' => 'string',
+      'is_ai_generated' => 'bool',
       'is_always_open' => 'bool',
       'is_permanently_closed' => 'bool',
       'is_published' => 'bool',

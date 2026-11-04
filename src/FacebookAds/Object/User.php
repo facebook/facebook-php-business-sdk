@@ -48,6 +48,7 @@ use FacebookAds\Object\Values\PostTargetSurfaceValues;
 use FacebookAds\Object\Values\PostUnpublishedContentTypeValues;
 use FacebookAds\Object\Values\ProfilePictureSourceTypeValues;
 use FacebookAds\Object\Values\UnifiedThreadPlatformValues;
+use FacebookAds\Object\Values\UserAiDisclosureValues;
 use FacebookAds\Object\Values\UserFilteringValues;
 use FacebookAds\Object\Values\UserLocalNewsMegaphoneDismissStatusValues;
 use FacebookAds\Object\Values\UserLocalNewsSubscriptionStatusValues;
@@ -75,6 +76,7 @@ class User extends AbstractCrudObject {
     $ref_enums = array();
     $ref_enums['LocalNewsMegaphoneDismissStatus'] = UserLocalNewsMegaphoneDismissStatusValues::getInstance()->getValues();
     $ref_enums['LocalNewsSubscriptionStatus'] = UserLocalNewsSubscriptionStatusValues::getInstance()->getValues();
+    $ref_enums['AiDisclosure'] = UserAiDisclosureValues::getInstance()->getValues();
     $ref_enums['Filtering'] = UserFilteringValues::getInstance()->getValues();
     $ref_enums['Type'] = UserTypeValues::getInstance()->getValues();
     return $ref_enums;
@@ -442,6 +444,29 @@ class User extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function getAssignedInstagramAccounts(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/assigned_instagram_accounts',
+      new IGUser(),
+      'EDGE',
+      IGUser::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getAssignedPages(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -625,6 +650,8 @@ class User extends AbstractCrudObject {
       'folder' => 'string',
       'platform' => 'platform_enum',
       'tags' => 'list<string>',
+      'updated_after_ms' => 'unsigned int',
+      'updated_before_ms' => 'unsigned int',
       'user_id' => 'string',
     );
     $enums = array(
@@ -1215,7 +1242,9 @@ class User extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'ai_disclosure' => 'ai_disclosure_enum',
       'bot_message_payload_elements' => 'string',
+      'button_title' => 'string',
       'filtering' => 'list<filtering_enum>',
       'game_metadata' => 'string',
       'href' => 'Object',
@@ -1223,6 +1252,7 @@ class User extends AbstractCrudObject {
       'message' => 'map',
       'notif_ids' => 'list<string>',
       'notification_content_id' => 'unsigned int',
+      'notification_contents' => 'list<map>',
       'payload' => 'string',
       'read' => 'bool',
       'ref' => 'string',
@@ -1232,6 +1262,7 @@ class User extends AbstractCrudObject {
       'type' => 'type_enum',
     );
     $enums = array(
+      'ai_disclosure_enum' => UserAiDisclosureValues::getInstance()->getValues(),
       'filtering_enum' => UserFilteringValues::getInstance()->getValues(),
       'type_enum' => UserTypeValues::getInstance()->getValues(),
     );
@@ -1412,8 +1443,6 @@ class User extends AbstractCrudObject {
       'place' => 'Object',
       'privacy' => 'string',
       'profile_id' => 'int',
-      'provenance_info' => 'map',
-      'provenance_metadata' => 'map',
       'proxied_app_id' => 'string',
       'published' => 'bool',
       'qn' => 'string',

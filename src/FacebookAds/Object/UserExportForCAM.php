@@ -1,0 +1,208 @@
+<?php
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+namespace FacebookAds\Object;
+
+use FacebookAds\ApiRequest;
+use FacebookAds\Cursor;
+use FacebookAds\Http\RequestInterface;
+use FacebookAds\TypeChecker;
+use FacebookAds\Object\Fields\UserExportForCAMFields;
+use FacebookAds\Object\Values\UserExportForCAMCreatorCountriesValues;
+use FacebookAds\Object\Values\UserExportForCAMCreatorGenderValues;
+use FacebookAds\Object\Values\UserExportForCAMCreatorLanguageValues;
+use FacebookAds\Object\Values\UserExportForCAMMajorAudienceCountriesValues;
+use FacebookAds\Object\Values\UserExportForCAMMajorAudienceGenderValues;
+use FacebookAds\Object\Values\UserExportForCAMPlatformValues;
+use FacebookAds\Object\Values\UserExportForCAMRecommendationTypeValues;
+
+/**
+ * This class is auto-generated.
+ *
+ * For any issues or feature requests related to this class, please let us know
+ * on github and we'll fix in our codegen framework. We'll not be able to accept
+ * pull request for this class.
+ *
+ */
+
+class UserExportForCAM extends AbstractCrudObject {
+
+  /**
+   * @return UserExportForCAMFields
+   */
+  public static function getFieldsEnum() {
+    return UserExportForCAMFields::getInstance();
+  }
+
+  protected static function getReferencedEnums() {
+    $ref_enums = array();
+    $ref_enums['CreatorCountries'] = UserExportForCAMCreatorCountriesValues::getInstance()->getValues();
+    $ref_enums['CreatorGender'] = UserExportForCAMCreatorGenderValues::getInstance()->getValues();
+    $ref_enums['CreatorLanguage'] = UserExportForCAMCreatorLanguageValues::getInstance()->getValues();
+    $ref_enums['MajorAudienceCountries'] = UserExportForCAMMajorAudienceCountriesValues::getInstance()->getValues();
+    $ref_enums['MajorAudienceGender'] = UserExportForCAMMajorAudienceGenderValues::getInstance()->getValues();
+    $ref_enums['Platform'] = UserExportForCAMPlatformValues::getInstance()->getValues();
+    $ref_enums['RecommendationType'] = UserExportForCAMRecommendationTypeValues::getInstance()->getValues();
+    return $ref_enums;
+  }
+
+
+  public function getBrandedContentMedia(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'platform' => 'list<platform_enum>',
+    );
+    $enums = array(
+      'platform_enum' => array(
+        'ANY',
+        'BOTH',
+        'FACEBOOK',
+        'INSTAGRAM',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/branded_content_media',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getInsights(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'breakdown' => 'breakdown_enum',
+      'metrics' => 'list<metrics_enum>',
+      'period' => 'period_enum',
+      'platform' => 'list<platform_enum>',
+      'time_range' => 'time_range_enum',
+    );
+    $enums = array(
+      'breakdown_enum' => array(
+        'AGE',
+        'FOLLOW_TYPE',
+        'GENDER',
+        'MEDIA_TYPE',
+        'TOP_CITIES',
+        'TOP_COUNTRIES',
+      ),
+      'metrics_enum' => array(
+        'ACCOUNT_INTERACTIONS',
+        'CREATOR_ENGAGED_ACCOUNTS',
+        'CREATOR_REACH',
+        'REELS_HOOK_RATE',
+        'REELS_INTERACTION_RATE',
+        'TOTAL_FOLLOWERS',
+        'TOTAL_VIEWS',
+      ),
+      'period_enum' => array(
+        'DAY',
+        'OVERALL',
+      ),
+      'platform_enum' => array(
+        'ANY',
+        'BOTH',
+        'FACEBOOK',
+        'INSTAGRAM',
+      ),
+      'time_range_enum' => array(
+        'LAST_14_DAYS',
+        'LAST_90_DAYS',
+        'LIFETIME',
+        'THIS_MONTH',
+        'THIS_WEEK',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/insights',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getPastPartnershipAdsMedia(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'platform' => 'list<platform_enum>',
+    );
+    $enums = array(
+      'platform_enum' => array(
+        'ANY',
+        'BOTH',
+        'FACEBOOK',
+        'INSTAGRAM',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/past_partnership_ads_media',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function getRecentMedia(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'platform' => 'list<platform_enum>',
+    );
+    $enums = array(
+      'platform_enum' => array(
+        'ANY',
+        'BOTH',
+        'FACEBOOK',
+        'INSTAGRAM',
+      ),
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_GET,
+      '/recent_media',
+      new AbstractCrudObject(),
+      'EDGE',
+      array(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+}

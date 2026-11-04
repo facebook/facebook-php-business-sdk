@@ -45,11 +45,13 @@ class UserAdAccounts extends AbstractCrudObject {
     $param_types = array(
       'after' => 'string',
       'before' => 'string',
+      'date_format' => 'string',
       'fields' => 'string',
       'filtering' => 'string',
       'limit' => 'int',
       'sort' => 'string',
       'summary' => 'string',
+      'timezone' => 'string',
     );
     $enums = array(
     );

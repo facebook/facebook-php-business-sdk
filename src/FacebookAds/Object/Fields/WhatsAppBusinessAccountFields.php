@@ -47,6 +47,7 @@ class WhatsAppBusinessAccountFields extends AbstractEnum {
   const PRIMARY_BUSINESS_LOCATION = 'primary_business_location';
   const PRIMARY_FUNDING_ID = 'primary_funding_id';
   const PURCHASE_ORDER_NUMBER = 'purchase_order_number';
+  const SERVICE_PRICING_POLICY = 'service_pricing_policy';
   const STATUS = 'status';
   const TEMPLATE_AUTO_ARCHIVAL_ENABLED = 'template_auto_archival_enabled';
   const TIMEZONE_ID = 'timezone_id';
@@ -80,6 +81,7 @@ class WhatsAppBusinessAccountFields extends AbstractEnum {
       'primary_business_location' => 'string',
       'primary_funding_id' => 'string',
       'purchase_order_number' => 'string',
+      'service_pricing_policy' => 'string',
       'status' => 'string',
       'template_auto_archival_enabled' => 'bool',
       'timezone_id' => 'string',

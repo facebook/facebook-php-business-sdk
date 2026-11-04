@@ -33,6 +33,7 @@ class AdRuleFields extends AbstractEnum {
   const SCHEDULE_SPEC = 'schedule_spec';
   const STATUS = 'status';
   const UPDATED_TIME = 'updated_time';
+  const RECOMMENDED_RULE_KEY = 'recommended_rule_key';
   const UI_CREATION_SOURCE = 'ui_creation_source';
 
   public function getFieldTypes() {
@@ -48,6 +49,7 @@ class AdRuleFields extends AbstractEnum {
       'schedule_spec' => 'AdRuleScheduleSpec',
       'status' => 'string',
       'updated_time' => 'datetime',
+      'recommended_rule_key' => 'string',
       'ui_creation_source' => 'UiCreationSource',
     );
   }

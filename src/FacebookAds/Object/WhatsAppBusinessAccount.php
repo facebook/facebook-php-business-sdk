@@ -19,6 +19,7 @@ use FacebookAds\Object\Values\WhatsAppBusinessAccountCategoryValues;
 use FacebookAds\Object\Values\WhatsAppBusinessAccountDisplayFormatValues;
 use FacebookAds\Object\Values\WhatsAppBusinessAccountParameterFormatValues;
 use FacebookAds\Object\Values\WhatsAppBusinessAccountProviderNameValues;
+use FacebookAds\Object\Values\WhatsAppBusinessAccountRoutingEntrypointValues;
 use FacebookAds\Object\Values\WhatsAppBusinessAccountSendTypeValues;
 use FacebookAds\Object\Values\WhatsAppBusinessAccountSubCategoryValues;
 use FacebookAds\Object\Values\WhatsAppBusinessAccountTasksValues;
@@ -54,6 +55,7 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
     $ref_enums['Category'] = WhatsAppBusinessAccountCategoryValues::getInstance()->getValues();
     $ref_enums['DisplayFormat'] = WhatsAppBusinessAccountDisplayFormatValues::getInstance()->getValues();
     $ref_enums['ParameterFormat'] = WhatsAppBusinessAccountParameterFormatValues::getInstance()->getValues();
+    $ref_enums['RoutingEntrypoint'] = WhatsAppBusinessAccountRoutingEntrypointValues::getInstance()->getValues();
     $ref_enums['SendType'] = WhatsAppBusinessAccountSendTypeValues::getInstance()->getValues();
     $ref_enums['SubCategory'] = WhatsAppBusinessAccountSubCategoryValues::getInstance()->getValues();
     $ref_enums['ProviderName'] = WhatsAppBusinessAccountProviderNameValues::getInstance()->getValues();
@@ -718,6 +720,7 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       'optimization_spec' => 'map',
       'parameter_format' => 'parameter_format_enum',
       'product_set_id' => 'string',
+      'routing_entrypoint' => 'routing_entrypoint_enum',
       'send_type' => 'send_type_enum',
       'source_template_id' => 'unsigned int',
       'sub_category' => 'sub_category_enum',
@@ -726,6 +729,7 @@ class WhatsAppBusinessAccount extends AbstractCrudObject {
       'category_enum' => WhatsAppBusinessAccountCategoryValues::getInstance()->getValues(),
       'display_format_enum' => WhatsAppBusinessAccountDisplayFormatValues::getInstance()->getValues(),
       'parameter_format_enum' => WhatsAppBusinessAccountParameterFormatValues::getInstance()->getValues(),
+      'routing_entrypoint_enum' => WhatsAppBusinessAccountRoutingEntrypointValues::getInstance()->getValues(),
       'send_type_enum' => WhatsAppBusinessAccountSendTypeValues::getInstance()->getValues(),
       'sub_category_enum' => WhatsAppBusinessAccountSubCategoryValues::getInstance()->getValues(),
     );

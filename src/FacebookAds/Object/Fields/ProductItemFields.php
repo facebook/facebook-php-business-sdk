@@ -119,6 +119,9 @@ class ProductItemFields extends AbstractEnum {
   const VISIBILITY = 'visibility';
   const WA_COMPLIANCE_CATEGORY = 'wa_compliance_category';
   const ALLOW_UPSERT = 'allow_upsert';
+  const FBE_EXTERNAL_BUSINESS_ID = 'fbe_external_business_id';
+  const REQUESTS = 'requests';
+  const VERSION = 'version';
   const ANDROID_APP_NAME = 'android_app_name';
   const ANDROID_CLASS = 'android_class';
   const ANDROID_PACKAGE = 'android_package';
@@ -244,6 +247,9 @@ class ProductItemFields extends AbstractEnum {
       'visibility' => 'Visibility',
       'wa_compliance_category' => 'string',
       'allow_upsert' => 'bool',
+      'fbe_external_business_id' => 'string',
+      'requests' => 'list<map>',
+      'version' => 'unsigned int',
       'android_app_name' => 'string',
       'android_class' => 'string',
       'android_package' => 'string',

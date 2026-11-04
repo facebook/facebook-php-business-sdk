@@ -47,6 +47,7 @@ class CampaignFields extends AbstractEnum {
   const IS_DIRECT_SEND_CAMPAIGN = 'is_direct_send_campaign';
   const IS_MESSAGE_CAMPAIGN = 'is_message_campaign';
   const IS_META_MOMENT_MAKER_ENABLED = 'is_meta_moment_maker_enabled';
+  const IS_PCA_UNIFIED = 'is_pca_unified';
   const IS_REELS_TRENDING_ADS_ENABLED = 'is_reels_trending_ads_enabled';
   const IS_SKADNETWORK_ATTRIBUTION = 'is_skadnetwork_attribution';
   const ISSUES_INFO = 'issues_info';
@@ -103,6 +104,7 @@ class CampaignFields extends AbstractEnum {
       'is_direct_send_campaign' => 'bool',
       'is_message_campaign' => 'bool',
       'is_meta_moment_maker_enabled' => 'bool',
+      'is_pca_unified' => 'bool',
       'is_reels_trending_ads_enabled' => 'bool',
       'is_skadnetwork_attribution' => 'bool',
       'issues_info' => 'list<AdCampaignIssuesInfo>',

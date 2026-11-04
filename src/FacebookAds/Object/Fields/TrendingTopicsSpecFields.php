@@ -24,12 +24,14 @@ class TrendingTopicsSpecFields extends AbstractEnum {
 
   const IS_ALL_TRENDING = 'is_all_trending';
   const IS_SPECIAL_BUDGET_ALLOC = 'is_special_budget_alloc';
+  const PROGRAM_ID = 'program_id';
   const TRENDING_TOPICS = 'trending_topics';
 
   public function getFieldTypes() {
     return array(
       'is_all_trending' => 'bool',
       'is_special_budget_alloc' => 'bool',
+      'program_id' => 'string',
       'trending_topics' => 'list<string>',
     );
   }

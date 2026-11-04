@@ -25,16 +25,12 @@ class CPASLsbImageBankFields extends AbstractEnum {
   const AD_GROUP_ID = 'ad_group_id';
   const CATALOG_SEGMENT_PROXY_ID = 'catalog_segment_proxy_id';
   const ID = 'id';
-  const AGENCY_BUSINESS_ID = 'agency_business_id';
-  const BACKUP_IMAGE_URLS = 'backup_image_urls';
 
   public function getFieldTypes() {
     return array(
       'ad_group_id' => 'string',
       'catalog_segment_proxy_id' => 'string',
       'id' => 'string',
-      'agency_business_id' => 'unsigned int',
-      'backup_image_urls' => 'list<string>',
     );
   }
 }

@@ -27,10 +27,12 @@ class AdsPixelCAPIIntegrationQualityFields extends AbstractEnum {
   const DEDUPE_KEY_FEEDBACK = 'dedupe_key_feedback';
   const EVENT_AD_SETS = 'event_ad_sets';
   const EVENT_COVERAGE = 'event_coverage';
+  const EVENT_DELAY = 'event_delay';
   const EVENT_MATCH_QUALITY = 'event_match_quality';
   const EVENT_NAME = 'event_name';
   const EVENT_POTENTIAL_ALY_ACR_INCREASE = 'event_potential_aly_acr_increase';
   const EVENT_SPEND = 'event_spend';
+  const VALUE_DIAGNOSTICS = 'value_diagnostics';
 
   public function getFieldTypes() {
     return array(
@@ -39,10 +41,12 @@ class AdsPixelCAPIIntegrationQualityFields extends AbstractEnum {
       'dedupe_key_feedback' => 'list<Object>',
       'event_ad_sets' => 'list<Object>',
       'event_coverage' => 'Object',
+      'event_delay' => 'Object',
       'event_match_quality' => 'Object',
       'event_name' => 'string',
       'event_potential_aly_acr_increase' => 'Object',
       'event_spend' => 'Object',
+      'value_diagnostics' => 'list<Object>',
     );
   }
 }

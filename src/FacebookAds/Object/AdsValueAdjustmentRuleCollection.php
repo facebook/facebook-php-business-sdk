@@ -15,6 +15,7 @@ use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdsValueAdjustmentRuleCollectionFields;
 use FacebookAds\Object\Values\AdsValueAdjustmentRuleCollectionEntryPointValues;
+use FacebookAds\Object\Values\AdsValueAdjustmentRuleCollectionOriginValues;
 use FacebookAds\Object\Values\AdsValueAdjustmentRuleCollectionProductTypeValues;
 use FacebookAds\Object\Values\AdsValueAdjustmentRuleCollectionStatusValues;
 
@@ -46,6 +47,7 @@ class AdsValueAdjustmentRuleCollection extends AbstractCrudObject {
   protected static function getReferencedEnums() {
     $ref_enums = array();
     $ref_enums['EntryPoint'] = AdsValueAdjustmentRuleCollectionEntryPointValues::getInstance()->getValues();
+    $ref_enums['Origin'] = AdsValueAdjustmentRuleCollectionOriginValues::getInstance()->getValues();
     $ref_enums['ProductType'] = AdsValueAdjustmentRuleCollectionProductTypeValues::getInstance()->getValues();
     $ref_enums['Status'] = AdsValueAdjustmentRuleCollectionStatusValues::getInstance()->getValues();
     return $ref_enums;
@@ -66,7 +68,7 @@ class AdsValueAdjustmentRuleCollection extends AbstractCrudObject {
       $this->api,
       $this->data['id'],
       RequestInterface::METHOD_POST,
-      '/delete_rule_set',
+      '/deleteruleset',
       new AdsValueAdjustmentRuleCollection(),
       'EDGE',
       AdsValueAdjustmentRuleCollection::getFieldsEnum()->getValues(),

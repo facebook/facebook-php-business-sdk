@@ -23,6 +23,7 @@ use FacebookAds\Enum\AbstractEnum;
 class ProductSetDAChecksGetFeaturesValues extends AbstractEnum {
 
   const AGENTIC_CHECKOUT = 'AGENTIC_CHECKOUT';
+  const AGENTIC_CHECKOUT_PRE_CLICK = 'AGENTIC_CHECKOUT_PRE_CLICK';
   const AMAZON_BUY_WITH_PRIME = 'AMAZON_BUY_WITH_PRIME';
   const AUGMENTED_REALITY = 'AUGMENTED_REALITY';
   const CHECKOUT = 'CHECKOUT';

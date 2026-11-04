@@ -39,6 +39,7 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
   const COUNTRY = 'country';
   const CREATIVE_AUTOMATION_ASSET_ID = 'creative_automation_asset_id';
   const CREATIVE_FINGERPRINT_DETAILS = 'creative_fingerprint_details';
+  const CREATIVE_FORMAT_CLASSIFICATION = 'creative_format_classification';
   const CREATIVE_MEDIA_TYPE_BREAKDOWN = 'creative_media_type_breakdown';
   const CREATIVE_RELAXATION_ASSET_TYPE = 'creative_relaxation_asset_type';
   const CRM_ADVERTISER_L12_TERRITORY_IDS = 'crm_advertiser_l12_territory_ids';
@@ -75,6 +76,7 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
   const MEDIA_CREATOR = 'media_creator';
   const MEDIA_DESTINATION_URL = 'media_destination_url';
   const MEDIA_FORMAT = 'media_format';
+  const MEDIA_ID = 'media_id';
   const MEDIA_ORIGIN_URL = 'media_origin_url';
   const MEDIA_TEXT_CONTENT = 'media_text_content';
   const MEDIA_TYPE = 'media_type';
@@ -102,6 +104,7 @@ class AdsInsightsBreakdownsValues extends AbstractEnum {
   const RTA_UGC_TOPIC = 'rta_ugc_topic';
   const RULE_SET_ID = 'rule_set_id';
   const RULE_SET_NAME = 'rule_set_name';
+  const SIGNAL_SOURCE = 'signal_source';
   const SIGNAL_SOURCE_BUCKET = 'signal_source_bucket';
   const SKAN_CAMPAIGN_ID = 'skan_campaign_id';
   const SKAN_CONVERSION_ID = 'skan_conversion_id';

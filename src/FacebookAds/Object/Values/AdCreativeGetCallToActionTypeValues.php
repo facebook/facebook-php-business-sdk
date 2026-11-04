@@ -38,6 +38,7 @@ class AdCreativeGetCallToActionTypeValues extends AbstractEnum {
   const BOOK_TRAVEL = 'BOOK_TRAVEL';
   const BROWSE_SHOP = 'BROWSE_SHOP';
   const BUY = 'BUY';
+  const BUY_ACTIVITY_TICKETS = 'BUY_ACTIVITY_TICKETS';
   const BUY_NOW = 'BUY_NOW';
   const BUY_TICKETS = 'BUY_TICKETS';
   const BUY_VIA_MESSAGE = 'BUY_VIA_MESSAGE';
@@ -147,6 +148,7 @@ class AdCreativeGetCallToActionTypeValues extends AbstractEnum {
   const SOTTO_SUBSCRIBE = 'SOTTO_SUBSCRIBE';
   const START_A_CHAT = 'START_A_CHAT';
   const START_ORDER = 'START_ORDER';
+  const STREAM_NOW = 'STREAM_NOW';
   const SUBSCRIBE = 'SUBSCRIBE';
   const SWIPE_UP_PRODUCT = 'SWIPE_UP_PRODUCT';
   const SWIPE_UP_SHOP = 'SWIPE_UP_SHOP';
@@ -177,6 +179,7 @@ class AdCreativeGetCallToActionTypeValues extends AbstractEnum {
   const WATCH_LIVE_VIDEO = 'WATCH_LIVE_VIDEO';
   const WATCH_MORE = 'WATCH_MORE';
   const WATCH_MUSIC_VIDEO = 'WATCH_MUSIC_VIDEO';
+  const WATCH_NOW = 'WATCH_NOW';
   const WATCH_VIDEO = 'WATCH_VIDEO';
   const WHATSAPP_LINK = 'WHATSAPP_LINK';
   const WHATSAPP_MESSAGE = 'WHATSAPP_MESSAGE';

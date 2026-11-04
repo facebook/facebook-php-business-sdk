@@ -38,6 +38,7 @@ class AdCreativeGetFields extends AbstractEnum {
   const CATEGORIZATION_CRITERIA = 'categorization_criteria';
   const CATEGORY_MEDIA_SOURCE = 'category_media_source';
   const CONTEXTUAL_MULTI_ADS = 'contextual_multi_ads';
+  const CREATIVE_READINESS = 'creative_readiness';
   const CREATIVE_SOURCING_SPEC = 'creative_sourcing_spec';
   const DEGREES_OF_FREEDOM_SPEC = 'degrees_of_freedom_spec';
   const DESTINATION_SPEC = 'destination_spec';
@@ -116,6 +117,7 @@ class AdCreativeGetFields extends AbstractEnum {
       'categorization_criteria' => 'CategorizationCriteria',
       'category_media_source' => 'CategoryMediaSource',
       'contextual_multi_ads' => 'object',
+      'creative_readiness' => 'object',
       'creative_sourcing_spec' => 'object',
       'degrees_of_freedom_spec' => 'object',
       'destination_spec' => 'object',

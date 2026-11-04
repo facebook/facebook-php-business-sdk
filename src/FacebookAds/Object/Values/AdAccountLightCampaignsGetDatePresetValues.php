@@ -23,8 +23,10 @@ use FacebookAds\Enum\AbstractEnum;
 class AdAccountLightCampaignsGetDatePresetValues extends AbstractEnum {
 
   const DATA_MAXIMUM = 'DATA_MAXIMUM';
+  const LAST_12M = 'LAST_12M';
   const LAST_14D = 'LAST_14D';
   const LAST_14_DAYS = 'LAST_14_DAYS';
+  const LAST_180D = 'LAST_180D';
   const LAST_180_DAYS = 'LAST_180_DAYS';
   const LAST_24M = 'LAST_24M';
   const LAST_28D = 'LAST_28D';
@@ -37,6 +39,7 @@ class AdAccountLightCampaignsGetDatePresetValues extends AbstractEnum {
   const LAST_3_DAYS = 'LAST_3_DAYS';
   const LAST_3_MONTHS = 'LAST_3_MONTHS';
   const LAST_40D = 'LAST_40D';
+  const LAST_60D = 'LAST_60D';
   const LAST_7D = 'LAST_7D';
   const LAST_7_DAYS = 'LAST_7_DAYS';
   const LAST_8_DAYS = 'LAST_8_DAYS';

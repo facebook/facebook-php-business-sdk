@@ -14,6 +14,7 @@ use FacebookAds\Cursor;
 use FacebookAds\Http\RequestInterface;
 use FacebookAds\TypeChecker;
 use FacebookAds\Object\Fields\AdgroupFields;
+use FacebookAds\Object\Values\AdgroupGetDatePresetValues;
 
 /**
  * This class is auto-generated.
@@ -39,22 +40,29 @@ class Adgroup extends AbstractCrudObject {
   }
 
 
-  public function gendelete(array $fields = array(), array $params = array(), $pending = false) {
+  public function genget(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
+      'am_call_tags' => 'map<string, string>',
+      'date_preset' => 'date_preset_enum',
+      'fields' => 'string',
+      'from_adtable' => 'bool',
+      'review_feedback_breakdown' => 'bool',
+      'time_range' => 'map<string, string>',
     );
     $enums = array(
+      'date_preset_enum' => AdgroupGetDatePresetValues::getInstance()->getValues(),
     );
 
     $request = new ApiRequest(
       $this->api,
       $this->data['id'],
-      RequestInterface::METHOD_DELETE,
+      RequestInterface::METHOD_GET,
       '/',
-      new AdgroupDelete(),
+      new AdgroupGet(),
       'EDGE',
-      AdgroupDelete::getFieldsEnum()->getValues(),
+      AdgroupGet::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums)
     );
     $request->addParams($params);

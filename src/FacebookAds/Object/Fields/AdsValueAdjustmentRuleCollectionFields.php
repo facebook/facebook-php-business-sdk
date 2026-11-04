@@ -29,6 +29,7 @@ class AdsValueAdjustmentRuleCollectionFields extends AbstractEnum {
   const PRODUCT_TYPE = 'product_type';
   const STATUS = 'status';
   const ENTRY_POINT = 'entry_point';
+  const ORIGIN = 'origin';
   const RULES = 'rules';
 
   public function getFieldTypes() {
@@ -40,6 +41,7 @@ class AdsValueAdjustmentRuleCollectionFields extends AbstractEnum {
       'product_type' => 'string',
       'status' => 'string',
       'entry_point' => 'EntryPoint',
+      'origin' => 'Origin',
       'rules' => 'list<map>',
     );
   }

@@ -24,6 +24,7 @@ class CPASCollaborationRequestFields extends AbstractEnum {
 
   const AD_ACCOUNT_ID = 'ad_account_id';
   const AD_ACCOUNT_NAME = 'ad_account_name';
+  const ARCHIVED_TIME = 'archived_time';
   const BRANDS = 'brands';
   const CATALOG_SEGMENT = 'catalog_segment';
   const COLLABORATIVE_ADS_SHARE_SETTINGS = 'collaborative_ads_share_settings';
@@ -46,6 +47,7 @@ class CPASCollaborationRequestFields extends AbstractEnum {
     return array(
       'ad_account_id' => 'string',
       'ad_account_name' => 'string',
+      'archived_time' => 'datetime',
       'brands' => 'list<string>',
       'catalog_segment' => 'ProductCatalog',
       'collaborative_ads_share_settings' => 'CollaborativeAdsShareSettings',
