@@ -61,8 +61,8 @@ class Api {
   }
 
   /**
-   * @param string $app_id
-   * @param string $app_secret
+   * @param string|null $app_id
+   * @param string|null $app_secret
    * @param string $access_token
    * @return static
    */

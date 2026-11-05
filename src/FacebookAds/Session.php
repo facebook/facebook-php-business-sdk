@@ -12,12 +12,12 @@ namespace FacebookAds;
 class Session implements SessionInterface {
 
   /**
-   * @var string
+   * @var string|null
    */
   protected $appId;
 
   /**
-   * @var string
+   * @var string|null
    */
   protected $appSecret;
 
@@ -32,8 +32,8 @@ class Session implements SessionInterface {
   protected $appSecretProof;
 
   /**
-   * @param string $app_id
-   * @param string $app_secret
+   * @param string|null $app_id
+   * @param string|null $app_secret
    * @param string $access_token
    */
   public function __construct($app_id, $app_secret, $access_token) {
@@ -43,14 +43,14 @@ class Session implements SessionInterface {
   }
 
   /**
-   * @return string
+   * @return string|null
    */
   public function getAppId() {
     return $this->appId;
   }
 
   /**
-   * @return string
+   * @return string|null
    */
   public function getAppSecret() {
     return $this->appSecret;

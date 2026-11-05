@@ -74,7 +74,11 @@ class CrashReporter {
             if ($api == null) {
               self::log('Could not initialize API' . PHP_EOL);
             }
-            static::$instance = new static($api->getSession()->getAppId());
+            $appId = $api->getSession()->getAppId();
+            if ($appId == null) {
+              self::log('Missing session app ID' . PHP_EOL);
+            }
+            static::$instance = new static($appId);
             static::$instance->registerExceptionHandler();
             self::log('Enabled' . PHP_EOL);
         }
